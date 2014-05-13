@@ -43,12 +43,10 @@ SOURCES +=\
     AnalysisMode/clsViewResult.cpp \
     AnalysisMode/dlgFunction.cpp \
     AnalysisMode/dlgSort.cpp \
-    AnalysisMode/dlgSpeed.cpp \
     AnalysisMode/frmPointEditor.cpp \
     AnalysisMode/frmTraceSetup.cpp \
     AnalysisMode/frmWKEAnalysisMode.cpp \
     AnalysisMode/MessageDialog.cpp \
-    AnalysisMode/qexcel.cpp \
     AnalysisMode/wk4300AnalysisMeter.cpp \
     AnalysisMode/wk4300Calibration.cpp \
     AnalysisMode/wk6500AnalysisMeter.cpp \
@@ -63,11 +61,13 @@ SOURCES +=\
     Public/doubleType.cpp \
     Public/UserfulFunctions.cpp \
     connections/clsConnection.cpp \
-    AnalysisMode/dlgLevelInputBox.cpp \
-    AnalysisMode/NumberInput.cpp \
     AnalysisMode/Plot.cpp \
     MeterMode/clsMeterLimit.cpp \
-    MeterMode/frmSetLimit.cpp
+    MeterMode/frmSetLimit.cpp \
+    Public/dlgLevelInputBox.cpp \
+    Public/dlgSpeed.cpp \
+    Public/NumberInput.cpp \
+    Public/qexcel.cpp
 
 
 RESOURCES += \
@@ -116,7 +116,6 @@ HEADERS += \
     AnalysisMode/frmTraceSetup.h \
     AnalysisMode/frmWKEAnalysisMode.h \
     AnalysisMode/MessageDialog.h \
-    AnalysisMode/qexcel.h \
     AnalysisMode/wk4300AnalysisMeter.h \
     AnalysisMode/wk4300Calibration.h \
     AnalysisMode/wk6500AnalysisMeter.h \
@@ -136,11 +135,13 @@ HEADERS += \
     Public/UserfulFunctions.h \
     common/frmSelectConnection.h \
     connections/clsConnection.h \
-    AnalysisMode/dlgLevelInputBox.h \
-    AnalysisMode/NumberInput.h \
     AnalysisMode/Plot.h \
     MeterMode/clsMeterLimit.h \
-    MeterMode/frmSetLimit.h
+    MeterMode/frmSetLimit.h \
+    Public/dlgLevelInputBox.h \
+    Public/dlgSpeed.h \
+    Public/NumberInput.h \
+    Public/qexcel.h
 
 FORMS += \
     common/frmSelectConnection.ui \
@@ -150,7 +151,6 @@ FORMS += \
     AnalysisMode/clsViewResult.ui \
     AnalysisMode/dlgFunction.ui \
     AnalysisMode/dlgSort.ui \
-    AnalysisMode/dlgSpeed.ui \
     AnalysisMode/frmPointEditor.ui \
     AnalysisMode/frmTraceSetup.ui \
     AnalysisMode/frmWKEAnalysisMode.ui \
@@ -162,7 +162,8 @@ FORMS += \
     AnalysisMode/wk6500LevelInputBox.ui \
     AnalysisMode/wk6500Range.ui \
     AnalysisMode/wk6500Speed.ui \
-    AnalysisMode/dlgLevelInputBox.ui \
-    AnalysisMode/NumberInput.ui \
-    MeterMode/frmSetLimit.ui
+    MeterMode/frmSetLimit.ui \
+    Public/dlgLevelInputBox.ui \
+    Public/dlgSpeed.ui \
+    Public/NumberInput.ui
 
