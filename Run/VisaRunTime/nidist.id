@@ -1,0 +1,10 @@
+[Volume Id]
+DistributionGUID={98EFA507-DC71-41BF-8D31-C9175648191E}
+DistPackageGUID={12D338C9-3F08-4784-8537-68E4182E29EF}
+DistributionVersion=4.4.1.0
+DistributionType=Driver
+DistributionLanguage=9,17
+Volume=1
+ExePath=setup.exe
+UpdateInfoFile=SupportFiles\updateInfo.xml
+MD5ChecksumFile=SupportFiles\dist_md5_1.xml

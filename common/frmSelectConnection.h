@@ -1,0 +1,53 @@
+#ifndef FRMSELECTCONNECTION_H
+#define FRMSELECTCONNECTION_H
+
+#include "ui_frmSelectConnection.h"
+#include "frmWKEAnalysisMode.h"
+
+enum SelectMode
+{
+    Analysis=1,Meter=2
+};
+
+class frmSelectConnection : public QDialog, private Ui::frmSelectConnection
+{
+    Q_OBJECT
+
+
+public:
+    explicit frmSelectConnection(QWidget *parent = 0);
+
+    SelectMode getMode()
+    {
+        return this->mode;
+    }
+
+private slots:
+    void on_btnTest_clicked();
+    void on_rbUsb_toggled(bool checked);
+    void on_rbGpib_clicked();
+    void on_rbLan_clicked();
+    void on_rbUsb_clicked();
+
+    void on_rbLan_toggled(bool checked);
+
+    void on_btnAnalysis_clicked();
+
+    void on_btnMeter_clicked();
+
+protected:
+    void closeEvent(QCloseEvent *);
+private:
+    int intSelect;
+    QString strAddress;
+
+    void writeSttings();
+    void readSettings();
+    void buttonOp(bool value);
+
+    SelectMode mode;
+
+   // frmWKEAnalysisMode  analysis;
+};
+
+#endif // FRMSELECTCONNECTION_H

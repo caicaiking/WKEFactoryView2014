@@ -1,0 +1,33 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Icons/add.png</file>
+        <file>Icons/Analysis.png</file>
+        <file>Icons/Auto.png</file>
+        <file>Icons/autoFit.png</file>
+        <file>Icons/BiasOff.png</file>
+        <file>Icons/BiasOn.png</file>
+        <file>Icons/calibration.png</file>
+        <file>Icons/data.png</file>
+        <file>Icons/delete.png</file>
+        <file>Icons/delete1.png</file>
+        <file>Icons/down.png</file>
+        <file>Icons/edit.png</file>
+        <file>Icons/exit.png</file>
+        <file>Icons/export.png</file>
+        <file>Icons/factory.png</file>
+        <file>Icons/import.png</file>
+        <file>Icons/instrument.png</file>
+        <file>Icons/LastPage.png</file>
+        <file>Icons/multiStep.png</file>
+        <file>Icons/NextPage.png</file>
+        <file>Icons/picture.png</file>
+        <file>Icons/repeat.png</file>
+        <file>Icons/single.png</file>
+        <file>Icons/splashScreen.png</file>
+        <file>Icons/splashScreen6500.png</file>
+        <file>Icons/stop.png</file>
+        <file>Icons/trace.png</file>
+        <file>Icons/up.png</file>
+        <file>Icons/zoom.png</file>
+    </qresource>
+</RCC>

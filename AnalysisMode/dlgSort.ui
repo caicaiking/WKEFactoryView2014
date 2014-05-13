@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dlgSort</class>
+ <widget class="QDialog" name="dlgSort">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>174</width>
+    <height>53</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>楷体</family>
+    <pointsize>11</pointsize>
+    <weight>50</weight>
+    <italic>false</italic>
+    <bold>false</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>选择排序方法</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>:/wk.ico</normaloff>:/wk.ico</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog
+{
+	
+	font: 11pt &quot;楷体&quot;;
+	background-color: rgb(148, 148, 248);
+}</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <widget class="QPushButton" name="pushButton">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>35</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>楷体</family>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>升序</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>:/up.png</normaloff>:/up.png</iconset>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>35</height>
+      </size>
+     </property>
+     <property name="font">
+      <font>
+       <family>楷体</family>
+       <pointsize>11</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>降序</string>
+     </property>
+     <property name="icon">
+      <iconset>
+       <normaloff>:/down.png</normaloff>:/down.png</iconset>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>dlgSort</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>43</x>
+     <y>30</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>49</x>
+     <y>47</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>dlgSort</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>133</x>
+     <y>35</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>159</x>
+     <y>4</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
