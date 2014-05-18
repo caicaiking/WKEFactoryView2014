@@ -386,7 +386,7 @@ void frmWKEAnalysisMode::on_btnTrig_clicked()
     {
         btnRep->setEnabled(false);
         btnTrig->setText(tr("停止\n测试"));
-        btnTrig->setIcon(QIcon(":/stop.png"));
+        btnTrig->setIcon(QIcon(":/Icons/stop.png"));
         meas->setMax(gs.xmax);
         meas->setMin(gs.xmin);
         meas->setXLog(gs.logX);
@@ -396,7 +396,7 @@ void frmWKEAnalysisMode::on_btnTrig_clicked()
         meas->setGraphSettings(gs);
         meas->trig();
         btnTrig->setText(tr("开始\n测试"));
-        btnTrig->setIcon(QIcon(":/single.png"));
+        btnTrig->setIcon(QIcon(":/Icons/single.png"));
         btnTrig->setChecked(false);
         updateButtons();
         btnRep->setEnabled(true);
@@ -405,7 +405,7 @@ void frmWKEAnalysisMode::on_btnTrig_clicked()
     else
     {
         btnTrig->setText(tr("开始\n测试"));
-        btnTrig->setIcon(QIcon(":/single.png"));
+        btnTrig->setIcon(QIcon(":/Icons/single.png"));
         meas->stop();
 
         btnRep->setEnabled(true);
@@ -424,7 +424,7 @@ void frmWKEAnalysisMode::on_btnRep_clicked()
 {
     btnTrig->setEnabled(false);
     btnRep->setText(tr("停止\n测试"));
-    btnRep->setIcon(QIcon(":/stop.png"));
+    btnRep->setIcon(QIcon(":/Icons/stop.png"));
     btnZoom->setChecked(false);
     enableZoomMode(false);
     progressBar->setValue(0);
@@ -447,7 +447,7 @@ void frmWKEAnalysisMode::on_btnRep_clicked()
 
     }
     btnRep->setText(tr("重复\n测试"));
-    btnRep->setIcon(QIcon(":/repeat.png"));
+    btnRep->setIcon(QIcon(":/Icons/repeat.png"));
     meas->stop();
     btnTrig->setEnabled(true);
     progressBar->setVisible(false);
