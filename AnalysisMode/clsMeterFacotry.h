@@ -3,17 +3,22 @@
 #include "WKEInstrument.h"
 #include "wk6500AnalysisMeter.h"
 #include "wk4300AnalysisMeter.h"
+#include "frmWk3260.h"
+#include <qdebug.h>
 class clsMeterFacotry
 {
 public:
     static WKEInstrument* getMeter(QString meterType)
     {
+        //qDebug()<<meterType;
         if(meterType=="6500")
             return new wk6500AnalysisMeter();
 
         if(meterType == "4300")
             return new wk4300AnalysisMeter();
 
+        if(meterType =="3260")
+            return new frmWk3260();
         return (WKEInstrument *)0;
     }
 };

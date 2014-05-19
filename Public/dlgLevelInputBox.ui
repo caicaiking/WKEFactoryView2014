@@ -60,7 +60,11 @@
      <property name="font">
       <font>
        <family>楷体</family>
+       <pointsize>12</pointsize>
       </font>
+     </property>
+     <property name="text">
+      <string>1</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

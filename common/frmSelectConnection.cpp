@@ -52,11 +52,12 @@ void frmSelectConnection::on_btnTest_clicked()
         if(!ls.at(0).contains("WAYNE"))
             return;
 
+        //qDebug()<<"Instrument id " <<ls.at(1);
         if(!ls.at(1).trimmed().isEmpty())
         {
             clsRS::getInst().instrumentModel=ls.at(1).trimmed();
 
-            QRegExp rx("(^[0-9]+)([BPA]?)");
+            QRegExp rx("[PMA]*([0-9]+)([BPA]?)");
             if(rx.exactMatch(clsRS::getInst().instrumentModel))
             {
                  QRegExp rx4100 ("^4[13][0-9]*");
@@ -73,7 +74,7 @@ void frmSelectConnection::on_btnTest_clicked()
                      goto ToHere;
                  }
 
-                 QRegExp rx3260 ("^3260[BA]");
+                 QRegExp rx3260 ("^PMA3260[BA]");
                  if(rx3260.exactMatch(clsRS::getInst().instrumentModel))
                   {
                      clsRS::getInst().meterMode="3260";

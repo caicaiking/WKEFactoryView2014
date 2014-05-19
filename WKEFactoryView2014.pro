@@ -67,7 +67,8 @@ SOURCES +=\
     Public/dlgLevelInputBox.cpp \
     Public/dlgSpeed.cpp \
     Public/NumberInput.cpp \
-    Public/qexcel.cpp
+    Public/qexcel.cpp \
+    AnalysisMode/frmWk3260.cpp
 
 
 RESOURCES += \
@@ -141,7 +142,9 @@ HEADERS += \
     Public/dlgLevelInputBox.h \
     Public/dlgSpeed.h \
     Public/NumberInput.h \
-    Public/qexcel.h
+    Public/qexcel.h \
+    AnalysisMode/frmWk3260.h \
+    AnalysisMode/WK3260.h
 
 FORMS += \
     common/frmSelectConnection.ui \
@@ -165,5 +168,6 @@ FORMS += \
     MeterMode/frmSetLimit.ui \
     Public/dlgLevelInputBox.ui \
     Public/dlgSpeed.ui \
-    Public/NumberInput.ui
+    Public/NumberInput.ui \
+    AnalysisMode/frmWk3260.ui
 
