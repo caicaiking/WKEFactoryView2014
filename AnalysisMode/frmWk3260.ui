@@ -4,8 +4,8 @@
  <widget class="QDialog" name="frmWk3260">
   <property name="geometry">
    <rect>
-    <x>0</x>
-    <y>0</y>
+    <x>459</x>
+    <y>345</y>
     <width>347</width>
     <height>266</height>
    </rect>
