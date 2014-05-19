@@ -3,6 +3,7 @@
 #include "NumberInput.h"
 #include <QInputDialog>
 #include "frmPointEditor.h"
+#include "clsRuningSettings.h"
 frmTraceSetup::frmTraceSetup(WKEInstrument *ms, QWidget *parent) :
     QDialog(parent)
 {
@@ -121,7 +122,7 @@ bool  frmTraceSetup::readSettings(graphSetup &gsetup, bool incldSwty)
 
     if(! settings.FileExit())
         return false;
-    const QString strNode="GraphSetup/";
+      QString strNode=QString("GraphSetup-%1/").arg(clsRS::getInst().meterMode);
     if(incldSwty)
     {
         int tmp;
@@ -177,7 +178,8 @@ bool  frmTraceSetup::writeSettings(graphSetup gsetup)
 
     if(! settings.FileExit())
         return false;
-    const QString strNode="GraphSetup/";
+
+     QString strNode=QString("GraphSetup-%1/").arg(clsRS::getInst().meterMode);
 
     settings.writeSetting(strNode+"SweepType",gsetup.sweepType);
     switch (gsetup.sweepType) {

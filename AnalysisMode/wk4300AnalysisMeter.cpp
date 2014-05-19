@@ -97,7 +97,7 @@ void wk4300AnalysisMeter::readSettings()
 {
     clsSettings settings;
     doubleType dt;
-    QString strNode=QString("WK4300");
+    QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterMode);
 
     settings.readSetting(strNode+"Item1",item1);
     item1 = (item1.isEmpty()? "Z":item1);
@@ -163,7 +163,7 @@ void wk4300AnalysisMeter::readSettings()
 void wk4300AnalysisMeter::saveSettings()
 {
     clsSettings settings;
-    QString strNode=QString("WK4300");
+   QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterMode);
     settings.writeSetting(strNode+"Item1",item1);
     settings.writeSetting(strNode+"Item2",item2);
     settings.writeSetting(strNode +"Equcct",equcct);

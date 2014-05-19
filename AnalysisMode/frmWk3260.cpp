@@ -35,6 +35,7 @@ void frmWk3260::setFrequency(double value)
         QString ret = clsRS::getInst().sendCommand(gpibCmd,true);
 
         wk3260.freq.setValue(ret.toDouble());
+        UserfulFunctions::sleepMs(100);
         saveSettings();
         emit frequencySignal(wk3260.freq.toText());
     }
@@ -384,7 +385,7 @@ void frmWk3260::readSettings(WK3260 &wk)
 
     if(! settings.FileExit())
         return;
-    const QString strNode="Analysis/";
+      QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterMode);
 
     settings.readSetting(strNode+"Equcct",wk.equcct.value);
     settings.readSetting(strNode+"LevelValue",wk.level.value);
@@ -405,7 +406,7 @@ void frmWk3260::writeSettings(WK3260 wk)
     clsSettings settings;
 
 
-    const QString strNode="Analysis/";
+    QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterMode);
 
     settings.writeSetting(strNode+"Equcct",wk.equcct.value);
     settings.writeSetting(strNode+"LevelValue",wk.level.value);

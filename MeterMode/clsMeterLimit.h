@@ -34,11 +34,6 @@ public:
 private:
     QString limitType;
     double norminal, perHi, perLo, absHi, absLo;
-
-
-
-
-
 };
 
 #endif // CLSMETERLIMIT_H

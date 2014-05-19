@@ -203,7 +203,7 @@ void wk6500AnalysisMeter::readSettings()
 {
     clsSettings settings;
     doubleType dt;
-    QString strNode=QString("Analysis");
+    QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterMode);
 
     settings.readSetting(strNode+"Item1",item1);
     item1 = (item1.isEmpty()? "Z":item1);
@@ -278,7 +278,7 @@ void wk6500AnalysisMeter::readSettings()
 void wk6500AnalysisMeter::saveSettings()
 {
     clsSettings settings;
-    QString strNode=QString("Analysis");
+    QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterMode);
     settings.writeSetting(strNode+"Item1",item1);
     settings.writeSetting(strNode+"Item2",item2);
     settings.writeSetting(strNode +"Equcct",equcct);
