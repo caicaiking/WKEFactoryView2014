@@ -95,15 +95,15 @@ void frmWk3260::setBias(double value, QString /*unit*/)
     wk3260.biasValue.value= value;
 
     clsRS::getInst().sendCommand(wk3260.biasValue.toGpib(":IMP"));
-
+//UserfulFunctions::sleepMs(1000);
     QString ret = clsRS::getInst().sendCommand(":IMP:BIAS?",true);
 
-   // qDebug()<<ret;
+    // qDebug()<<ret;
 
     wk3260.biasValue.value = ret.toDouble();
     emit this->biasValueSignal(wk3260.biasValue.toText(1));
 
-    UserfulFunctions::sleepMs(2000);
+
     saveSettings();
 }
 
@@ -164,10 +164,18 @@ bool frmWk3260::turnOnBias()
 
 QString frmWk3260::trig()
 {
+    int i=0;
+ RETEST:
     QString meter=":IMP";
     QString gpibCmd =QString("%1:TRIG").arg(meter);
 
+
     QString ret = clsRS::getInst().sendCommand(gpibCmd,true);
+    if(ret.isEmpty() && i<4)
+    {   qDebug()<< "Have entry retest procedure, and i: " <<i ;
+        i++;
+        goto RETEST;
+    }
     return ret+",";
 }
 
@@ -196,9 +204,9 @@ void frmWk3260::updateInstrument()
     clsRS::getInst().sendCommand(wk3260.equcct.toGpib(meter));
     clsRS::getInst().sendCommand(wk3260.biasType.toGpib(meter));
     clsRS::getInst().sendCommand(wk3260.biasSpeed.toGpib(meter));
-     qDebug()<<QTime::currentTime().toString("hh:mm:ss")<<" Bias on";
+    //  qDebug()<<QTime::currentTime().toString("hh:mm:ss")<<" Bias on";
     clsRS::getInst().sendCommand(wk3260.biasValue.toGpib(meter));
-    qDebug()<<QTime::currentTime().toString("hh:mm:ss")<<" Bias off";
+    // qDebug()<<QTime::currentTime().toString("hh:mm:ss")<<" Bias off";
 
     emit this->frequencySignal(wk3260.freq.toText());
     emit this->speedSignal(this->wk3260.speed.toText());
@@ -448,7 +456,7 @@ bool frmWk3260::queryBiasStatus()
     QString ret = clsRS::getInst().sendCommand(gpibCmd,true);
     QStringList retList = ret.split(",");
 
-   // qDebug()<<ret;
+    // qDebug()<<ret;
     if(retList.length()<2)
         return false;
 
@@ -465,18 +473,18 @@ bool frmWk3260::queryBiasStatus()
     {
         wk3260.biasValue.status="ON";
         emit this->biasStatusSignal(true);
-         saveSettings();
+        saveSettings();
         return true;
     }
     else
     {
         wk3260.biasValue.status="OFF";
-         emit this->biasStatusSignal(false);
-         saveSettings();
+        emit this->biasStatusSignal(false);
+        saveSettings();
         return false;
     }
-     saveSettings();
-     return false;
+    saveSettings();
+    return false;
 }
 
 double frmWk3260::getMaxFrequency1(QString /*value*/)

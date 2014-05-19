@@ -305,7 +305,7 @@ void frmTraceSetup::on_btnXmin_clicked()
 
     if(numberInput->exec()==QDialog::Accepted)
     {
-        int value = numberInput->getNumber();
+        double value = numberInput->getNumber();
 
         gsetup.xmin = checkLimit->compareMin(value);
     }
