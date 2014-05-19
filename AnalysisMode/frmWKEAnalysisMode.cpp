@@ -89,6 +89,7 @@ void frmWKEAnalysisMode::setItems(QString value1, QString value2)
 {
     plot->setTraceA(value1);
     plot->setTraceB(value2);
+    updateButtons();
 }
 
 void frmWKEAnalysisMode::setBias(QString value)
@@ -149,6 +150,17 @@ void frmWKEAnalysisMode::updateButtons()
     }
 
     plot->setTitle(gs.title);
+
+    //设置要关闭曲线的显示名称
+    if(btnTraceA->isChecked())
+        btnTraceA->setText(meter->getItem1()+"\n"+"ON");
+    else
+        btnTraceA->setText(meter->getItem1()+"\n"+"OFF");
+
+    if(btnTraceB->isChecked())
+        btnTraceB->setText(meter->getItem2()+"\n"+"ON");
+    else
+        btnTraceB->setText(meter->getItem2()+"\n"+"OFF");
 }
 
 //初始化Plot的界面
@@ -182,11 +194,6 @@ void frmWKEAnalysisMode::initPlot()
     d_picker->setRubberBandPen(QColor(Qt::red));
     d_picker->setRubberBand(QwtPicker::NoRubberBand  );
     d_picker->setTrackerPen(QColor(Qt::white));
-
-
-
-
-
     connect(d_picker,SIGNAL(moved(QPoint)),this,SLOT(moved(QPoint)));
 
 }
@@ -315,6 +322,7 @@ void frmWKEAnalysisMode::on_btnMeasSetup_clicked()
     if(meter->exec()==QDialog::Accepted)
     {
         plot->clearData();
+        updateButtons();
 
     }
 }

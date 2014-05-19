@@ -171,7 +171,7 @@ QString frmWk3260::trig()
 
 
     QString ret = clsRS::getInst().sendCommand(gpibCmd,true);
-    if(ret.isEmpty() && i<4)
+    if(ret.isEmpty() && i<5)
     {   qDebug()<< "Have entry retest procedure, and i: " <<i ;
         i++;
         goto RETEST;
@@ -191,6 +191,7 @@ void frmWk3260::updateInstrument()
     wk3260.item.setItem(cmbFuction1->currentText(),
                         cmbFunction2->currentText());
 
+   // qDebug()<< cmbFunction2->currentText();
     wk3260.speed.setValue(cmbSpeed->currentText());
 
     wk3260.equcct.setValue(cmbEqucct->currentText());
@@ -291,7 +292,7 @@ void frmWk3260::on_cmbFuction1_currentIndexChanged(const QString &arg1)
     cmbFunction2->clear();
     if(cmbFuction1->currentText() =="Z")
     {
-        cmbFunction2->addItems(QStringList()<<"A");
+        cmbFunction2->addItems(QStringList()<<"θ");
     }
     else
     {

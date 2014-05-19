@@ -23,7 +23,7 @@ struct ItemType
         this->item1 = item1;
         if(item1=="Z")
         {
-            item2="A";
+           this->item2="θ";
         }
         else
             this->item2 = item2;
