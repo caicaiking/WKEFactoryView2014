@@ -18,7 +18,7 @@ void wk4300Calibration::readSettings()
     QString strNode;
     clsSettings settings;
     QString strTemp;
-    strNode ="Calibration/";
+    strNode ="Calibration-4300/";
 
     settings.readSetting(strNode+"openLabel",strTemp);
     lblOpen->setText(strTemp);
@@ -32,7 +32,7 @@ void wk4300Calibration::writeSettings()
     QString strNode;
 
     clsSettings settings;
-    strNode ="Calibration/";
+    strNode ="Calibration-4300/";
 
     settings.writeSetting(strNode+"openLabel",lblOpen->text());
     settings.writeSetting(strNode+"ShortLabel",lblShort->text());

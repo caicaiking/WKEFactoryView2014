@@ -45,6 +45,12 @@
   <layout class="QVBoxLayout" name="verticalLayout_4">
    <item>
     <widget class="QGroupBox" name="groupBox">
+     <property name="font">
+      <font>
+       <family>楷体</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="title">
       <string>开短路校准</string>
      </property>
@@ -165,6 +171,12 @@
    </item>
    <item>
     <widget class="QGroupBox" name="groupBox_2">
+     <property name="font">
+      <font>
+       <family>楷体</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="title">
       <string>高频校准</string>
      </property>

@@ -7,6 +7,7 @@
 #include "clsSettings.h"
 #include "dlgSpeed.h"
 #include "UserfulFunctions.h"
+#include "frmWK3260Calibration.h"
 frmWk3260::frmWk3260(WKEInstrument *parent) :
     WKEInstrument(parent)
 {
@@ -182,7 +183,9 @@ QString frmWk3260::trig()
 
 void frmWk3260::calibration()
 {
-
+    frmWK3260Calibration *dlg = new frmWK3260Calibration();
+    dlg->setWindowTitle(tr("仪器校准"));
+    dlg->exec();
 }
 
 void frmWk3260::updateInstrument()

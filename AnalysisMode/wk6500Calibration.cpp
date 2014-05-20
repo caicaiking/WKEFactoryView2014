@@ -55,7 +55,7 @@ void wk6500Calibration::readSettings()
     QString strNode;
     clsSettings settings;
     QString strTemp;
-    strNode ="Calibration/";
+    strNode ="Calibration-6500/";
     settings.readSetting(strNode+"CalFrequency", dblCalibrateFrequecy);
     settings.readSetting(strNode+"openLabel",strTemp);
     lblOpen->setText(strTemp);
@@ -70,7 +70,7 @@ void wk6500Calibration::writeSettings()
     QString strNode;
 
     clsSettings settings;
-    strNode ="Calibration/";
+    strNode ="Calibration-6500/";
     settings.writeSetting(strNode+"CalFrequency", dblCalibrateFrequecy);
     settings.writeSetting(strNode+"openLabel",lblOpen->text());
     settings.writeSetting(strNode+"ShortLabel",lblShort->text());
