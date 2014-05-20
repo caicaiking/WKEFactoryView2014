@@ -50,16 +50,17 @@ void clsBiasAMeasument::trig()
         double tmpBias;
         QString tmpUnit;
         meter->getBias(&tmpBias,&tmpUnit);
-        meter->turnOnBias();
         points->insert(i,tmpBias);
-        QString strRes=meter->trig();
-
-        QList<double> res=UserfulFunctions::resultPro(strRes);
-
-        bias<<tmp;
-        item1<<res.at(0);
-        item2<<res.at(1);
-        updatePlot();
+        if(!bias.contains(tmpBias))
+        {
+            meter->turnOnBias();
+            QString strRes=meter->trig();
+            QList<double> res=UserfulFunctions::resultPro(strRes);
+            bias<<tmpBias;
+            item1<<res.at(0);
+            item2<<res.at(1);
+            updatePlot();
+        }
         qApp->processEvents();
         emit showProgress((int)((i+1)*100/points->length()));
         qApp->processEvents();

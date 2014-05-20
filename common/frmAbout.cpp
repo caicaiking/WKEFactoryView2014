@@ -29,3 +29,8 @@ void frmAbout::on_btnClose_clicked()
 {
     this->accept();
 }
+
+void frmAbout::on_btnAboutQT_clicked()
+{
+    qApp->aboutQt();
+}

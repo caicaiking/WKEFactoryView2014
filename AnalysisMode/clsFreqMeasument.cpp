@@ -52,14 +52,17 @@ void clsFreqMeasument::trig()
         points->removeAt(i);
         double tmpFreq;
         meter->getFrequency(&tmpFreq);
-       // qDebug()<< "tmp Freq: "<<tmpFreq;
+        // qDebug()<< "tmp Freq: "<<tmpFreq;
         points->insert(i,tmpFreq);
-        QString strRes=meter->trig();
-        QList<double> res=UserfulFunctions::resultPro(strRes);
-        freq<<tmpFreq;
-        item1<<res.at(0);
-        item2<<res.at(1);
-        updatePlot();
+        if(!freq.contains(tmpFreq))
+        {
+            QString strRes=meter->trig();
+            QList<double> res=UserfulFunctions::resultPro(strRes);
+            freq<<tmpFreq;
+            item1<<res.at(0);
+            item2<<res.at(1);
+            updatePlot();
+        }
         qApp->processEvents();
         emit showProgress((int)((i+1)*100/points->length()));
         qApp->processEvents();

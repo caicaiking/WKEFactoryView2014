@@ -109,7 +109,6 @@ void frmTraceSetup::on_btnOk_clicked()
         }
     }
 
-
     this->gsetup.points = frmPointEditor::rmvPP(this->gsetup.points);
     writeSettings(this->gsetup);
     this->accept();

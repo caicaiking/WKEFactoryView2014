@@ -19,6 +19,8 @@ frmWk3260::frmWk3260(WKEInstrument *parent) :
     clsRS::getInst().sendCommand(Meter);
     clsRS::getInst().sendCommand(Meter+":TEST");
     clsRS::getInst().sendCommand(Meter+":TEST:AC");
+
+    updateInstrument();
 }
 
 void frmWk3260::setFrequency(double value)
@@ -97,15 +99,10 @@ void frmWk3260::setBias(double value, QString /*unit*/)
     wk3260.biasValue.value= value;
 
     clsRS::getInst().sendCommand(wk3260.biasValue.toGpib(":IMP"));
-//UserfulFunctions::sleepMs(1000);
     QString ret = clsRS::getInst().sendCommand(":IMP:BIAS?",true);
-
-    // qDebug()<<ret;
-
+    //qDebug()<<"Current BiasValue: "<<ret;
     wk3260.biasValue.value = ret.toDouble();
     emit this->biasValueSignal(wk3260.biasValue.toText(1));
-
-
     saveSettings();
 }
 
@@ -129,6 +126,7 @@ void frmWk3260::getBias(double *value, QString *unit)
 void frmWk3260::readSettings()
 {
     readSettings(this->wk3260);
+    updateButtons();
 }
 
 void frmWk3260::saveSettings()
