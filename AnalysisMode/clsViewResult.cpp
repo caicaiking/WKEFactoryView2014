@@ -81,6 +81,7 @@ void clsViewResult::on_btnCancel_clicked()
 
 void clsViewResult::on_btnSave_clicked()
 {
+    btnSave->setEnabled(false);
 
     QString items="Aθ";
 
@@ -94,7 +95,7 @@ void clsViewResult::on_btnSave_clicked()
         }
     }
 
-    qDebug()<< saveValues;
+   // qDebug()<< saveValues;
 
     QString fileName=txtTitle->text();
     fileName = QFileDialog::getSaveFileName(
@@ -123,6 +124,7 @@ void clsViewResult::on_btnSave_clicked()
     qApp->processEvents();
 
     UserfulFunctions::sleepMs(500);
+    btnSave->setEnabled(true);
     this->accept();
 }
 void clsViewResult::saveExcel(QString fileName)
@@ -303,7 +305,14 @@ void clsViewResult::saveCsv(QString fileName)
 
     t<<tvResult->horizontalHeaderItem(0)->text()<<","
     <<tvResult->horizontalHeaderItem(1)->text()<<","
-    <<tvResult->horizontalHeaderItem(2)->text()<<"\n";
+    <<tvResult->horizontalHeaderItem(2)->text();
+    for(int i=0 ; i<saveValues.length(); i++)
+    {
+
+        t<<","<< QString("%1(%2)").arg(UserfulFunctions::getName(saveValues.at(i)))
+           .arg(UserfulFunctions::getSuffix(saveValues.at(i)));
+    }
+    t<<"\n";
 
     QMapIterator <double ,QPointF> it(data);
     while(it.hasNext())
@@ -314,7 +323,15 @@ void clsViewResult::saveCsv(QString fileName)
 
         t<< QString("%1").arg(sweepKey)<<","
          <<QString("%1").arg(testData.x())<<","
-        <<QString("%1").arg(testData.y())<<"\n";
+        <<QString("%1").arg(testData.y());
+
+        QList<double> moreValues = getValues(testData.x(),testData.y(),sweepKey);
+
+        for(int ii=0;ii<moreValues.length();ii++)
+        {
+            t<<","<< QString("%1").arg(moreValues.at(ii));
+        }
+        t<<"\n";
 
         qApp->processEvents();
 

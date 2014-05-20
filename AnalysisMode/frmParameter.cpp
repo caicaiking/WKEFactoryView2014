@@ -53,8 +53,6 @@ void frmParameter::writeSettings()
     settings.writeSetting(strNode+"Y",Y->isChecked());
 }
 
-
-
 void frmParameter::on_btnOk_clicked()
 {
     if(R->isChecked())

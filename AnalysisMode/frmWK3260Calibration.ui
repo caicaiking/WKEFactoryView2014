@@ -386,6 +386,12 @@
      </item>
      <item>
       <widget class="QProgressBar" name="myProgressBar">
+       <property name="minimumSize">
+        <size>
+         <width>370</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <family>楷体</family>
