@@ -15,6 +15,7 @@
 #include "clsViewResult.h"
 #include "frmPointEditor.h"
 #include "clsMeterFacotry.h"
+#include "frmAbout.h"
 frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -526,4 +527,11 @@ void frmWKEAnalysisMode::on_btnCalibration_clicked()
 void frmWKEAnalysisMode::on_btnZoom_clicked()
 {
     enableZoomMode(btnZoom->isChecked());
+}
+
+void frmWKEAnalysisMode::on_btnHelp_clicked()
+{
+    frmAbout *dlg = new frmAbout();
+    dlg->setWindowTitle(tr("关于本软件"));
+    dlg->exec();
 }

@@ -228,7 +228,7 @@
            </font>
           </property>
           <property name="text">
-           <string>测试(&amp;T)</string>
+           <string>连接(&amp;T)</string>
           </property>
          </widget>
         </item>

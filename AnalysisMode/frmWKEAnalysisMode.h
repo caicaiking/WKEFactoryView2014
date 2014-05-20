@@ -51,6 +51,8 @@ private slots:
     void enableZoomMode(bool on);
 
     void zoomed(QRectF value);
+    void on_btnHelp_clicked();
+
 private:
     Plot *plot;
     void initPlot();

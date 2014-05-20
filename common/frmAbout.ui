@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmAbout</class>
+ <widget class="QDialog" name="frmAbout">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>477</width>
+    <height>295</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog
+{
+	
+	background-color: rgb(148, 148, 248);
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap resource="../recFile/myRes.qrc">:/Icons/wk.ico</pixmap>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="10,0">
+       <item>
+        <widget class="QLabel" name="label_2">
+         <property name="font">
+          <font>
+           <family>楷体</family>
+           <pointsize>16</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>WKE FacotryView 2014</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="lblVersion">
+         <property name="font">
+          <font>
+           <family>楷体</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>V</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QPlainTextEdit" name="txtLic">
+     <property name="font">
+      <font>
+       <family>楷体</family>
+       <pointsize>11</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">	background-color: rgb(148, 148, 248);</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+     <property name="plainText">
+      <string>版权声明
+
+WKE FactoryView2014软件为深圳市稳科电子仪器有限公司所拥有，深圳市稳科电子仪器有限公司拥有对其英文标识 “WKE” 、中文标识“稳科电子”和图像标识，以及相关软 件知识产权的所有权和解释权。 
+
+免责声明
+
+WKE FactoryView2014联机测试软件，深圳市稳科电子仪器有限公司拥有对其的解释权。为避免产生任何风险，请您在使用此产品过程中注意以下事项： 
+ 1．在使用之前,请认真阅读软件的使用说明书,特别是注意事项部分。  
+
+2．如果使用盗版软件或没有经过公司出售,软件作者不提供技术服务。  
+
+3． 在使用软件时,未正确断开测试连接部分,导致仪器偏置电压或电流持续在产品上输出,导致产品损坏,软件作者及公司不负有责任。 
+
+ 4． 本软件的GPIB连接的GPIB卡采用的是NI USB-488.2连接去测试,若采用其他品牌导致连接不稳定,或者无法正常连接,软件作者和公司不提供任何的技术支持。  
+
+5．不得对本软件进行反向工程、反向汇编、反向编译等修改行为，非经深圳市稳科电子仪器有限公司授权开发并正式发布的其它任何由本软件衍生的软件均属非法，下载、安装、使用此类软件，将可能导致不可预知的风险，由此产生的一切法律责任与纠纷一概与深圳市稳科电子仪器有限公司无关，深圳市稳科电子仪器有限公司不对非官方版本软件提供客服支持。  
+
+软件作者：蔡同松
+电子邮件：Abama.cai@waynekerr.net</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnClose">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>11</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>关闭</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../recFile/myRes.qrc"/>
+ </resources>
+ <connections/>
+</ui>

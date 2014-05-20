@@ -29,5 +29,7 @@
         <file>Icons/trace.png</file>
         <file>Icons/up.png</file>
         <file>Icons/zoom.png</file>
+        <file>Icons/version.txt</file>
+        <file>Icons/wk.ico</file>
     </qresource>
 </RCC>
