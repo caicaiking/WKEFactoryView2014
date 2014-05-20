@@ -421,6 +421,11 @@ QString wk6500AnalysisMeter::getItem2()
     return item2;
 }
 
+QString wk6500AnalysisMeter::getEqucct()
+{
+    return this->equcct;
+}
+
 double wk6500AnalysisMeter::getMaxBiasV()
 {
     return 40;

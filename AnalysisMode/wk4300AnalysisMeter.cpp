@@ -314,6 +314,11 @@ QString wk4300AnalysisMeter::getItem2()
     return this->item2;
 }
 
+QString wk4300AnalysisMeter::getEqucct()
+{
+    return this->equcct;
+}
+
 double wk4300AnalysisMeter::getMaxBiasV()
 {
     return 0;

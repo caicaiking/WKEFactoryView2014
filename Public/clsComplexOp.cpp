@@ -3,7 +3,7 @@
 #include <math.h>
 using namespace std;
 
-clsComplexOp::clsComplexOp(double inZ, double inA, double inFreq, clsComplexOp::Equcct inEqucct)
+clsComplexOp::clsComplexOp(double inZ, double inA, double inFreq, Equcct inEqucct)
 {
     this->mZ=inZ;
     this->mA=inA;
@@ -15,9 +15,9 @@ clsComplexOp::clsComplexOp(double inZ, double inA, double inFreq, clsComplexOp::
 
 void clsComplexOp::CalaculateParameters()
 {
-     CPLXTrig ZA;
-     CPLXTrig YX;
-       CPLXAlge RX;
+    CPLXTrig ZA;
+    CPLXTrig YX;
+    CPLXAlge RX;
     switch(mEqucct)
     {
     case series:
@@ -58,7 +58,7 @@ void clsComplexOp::CalaculateParameters()
 
         break;
     case parallel:
-       mQ=QCal();
+        mQ=QCal();
         mD=1.0/mQ;
 
         ZA.AbsValue=mZ;

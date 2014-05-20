@@ -14,17 +14,16 @@ struct CPLXAlge
     double Imag;
 };
 
+enum Equcct
+{
+    series=0,parallel=1
+};
+
 const double PI=3.1415926;
 
 class clsComplexOp
 {
 public:
-
-
-    enum Equcct
-    {
-        series=0,parallel=1
-    };
 
     clsComplexOp(double inZ, double inA, double inFreq,
                  Equcct inEqucct);

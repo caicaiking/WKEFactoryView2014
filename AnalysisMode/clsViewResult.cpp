@@ -7,6 +7,8 @@
 #include <QFile>
 #include <QDir>
 #include <QFileInfo>
+#include "frmParameter.h"
+#include "clsComplexOp.h"
 
 clsViewResult::clsViewResult(const QList<PlotCurves> value,
                              const QStringList Headers, QWidget *parent):
@@ -40,8 +42,8 @@ clsViewResult::clsViewResult(const QList<PlotCurves> value,
         tvResult->setHorizontalHeaderItem(x,item);
     }
 
-//    tvResult->horizontalHeader()->setStyleSheet(
-//                "QHeaderView::section{background-color: rgb(217,217,217); font:  '楷体'};");
+    //    tvResult->horizontalHeader()->setStyleSheet(
+    //                "QHeaderView::section{background-color: rgb(217,217,217); font:  '楷体'};");
 
     showCurve(txtGroup->value());
 
@@ -61,6 +63,17 @@ void clsViewResult::setLabels(QString sweepItems, QString strTraceA, QString str
     this->strTraceB= strTraceB;
 }
 
+void clsViewResult::setParameters(QString item1, QString item2, QString eqcct, SweepType sweepType)
+{
+    this->item1=item1;
+    this->item2=item2;
+    if(eqcct==tr("串联"))
+        this->equcct=series;
+    else
+        this->equcct=parallel;
+    this->sweepType = sweepType;
+}
+
 void clsViewResult::on_btnCancel_clicked()
 {
     this->reject();
@@ -68,6 +81,21 @@ void clsViewResult::on_btnCancel_clicked()
 
 void clsViewResult::on_btnSave_clicked()
 {
+
+    QString items="Aθ";
+
+    if((item1!=item2)&&(item1=="Z") &&(items.contains(item2)) &&(this->sweepType==frequency))
+    {
+        frmParameter *dlg = new frmParameter();
+
+        if(dlg->exec()==QDialog::Accepted)
+        {
+            saveValues = dlg->getValues();
+        }
+    }
+
+    qDebug()<< saveValues;
+
     QString fileName=txtTitle->text();
     fileName = QFileDialog::getSaveFileName(
                 this, "Export Test Result File Name", fileName,
@@ -84,9 +112,9 @@ void clsViewResult::on_btnSave_clicked()
             return;
     }
 
-    QFileInfo temDir(fileName);
+    QFileInfo tmpFileInfo(fileName);
 
-    QString fileSuffix = temDir.suffix();
+    QString fileSuffix = tmpFileInfo.suffix();
     if(fileSuffix.toLower()=="xls")
         saveExcel(fileName);
     else
@@ -111,6 +139,9 @@ void clsViewResult::saveExcel(QString fileName)
     j.setColumnWidth(1, 20);
     j.setColumnWidth(2, 20);
     j.setColumnWidth(3, 20);
+
+
+
     //j.save();
     //设置粗体
     // j.selectSheet(1);
@@ -140,6 +171,16 @@ void clsViewResult::saveExcel(QString fileName)
     j.setCellString(1,1,tvResult->horizontalHeaderItem(0)->text());
     j.setCellString(1,2,tvResult->horizontalHeaderItem(1)->text());
     j.setCellString(1,3,tvResult->horizontalHeaderItem(2)->text());
+
+    for(int i=4 ; i<saveValues.length()+4; i++)
+    {
+        j.setColumnWidth(i, 20);
+        j.setCellFontBold(1, i, true);
+        j.setCellFontSize(1,i, 10);
+        j.setCellTextCenter(1, i);
+        j.setCellString(1,i,QString("%1(%2)").arg(UserfulFunctions::getName(saveValues.at(i-4)))
+                        .arg(UserfulFunctions::getSuffix(saveValues.at(i-4))));
+    }
     //j.save();
 
     //插入测试内容
@@ -158,6 +199,15 @@ void clsViewResult::saveExcel(QString fileName)
         j.setCellString(i,1, QString("%1").arg(sweepKey));
         j.setCellString(i,2,QString("%1").arg(testData.x()));
         j.setCellString(i,3,QString("%1").arg(testData.y()));
+
+        QList<double> moreValues = getValues(testData.x(),testData.y(),sweepKey);
+
+        for(int ii=0;ii<moreValues.length();ii++)
+        {
+            j.setCellTextCenter(i, ii+4);
+            j.setCellString(i,ii+4,QString("%1").arg(moreValues.at(ii)));
+        }
+
         i++;
         qApp->processEvents();
 
@@ -176,7 +226,7 @@ void clsViewResult::showCurve(int intSelect)
     // qDebug()<< curves.at(intSelect).cur1->dataSize();
     data.clear();
 
-   // tvResult->setRowCount(curves.at(intSelect).cur1->data()->size());
+    // tvResult->setRowCount(curves.at(intSelect).cur1->data()->size());
     txtTitle->setText(curves.at(intSelect).cur1->title().text());
     for(int i=0; i< curves.at(intSelect).cur1->data()->size();i++)
     {
@@ -272,4 +322,41 @@ void clsViewResult::saveCsv(QString fileName)
 
     t.flush();
     file.close();
+}
+
+QList <double> clsViewResult::getValues(double z, double a,double freq)
+{
+    QList<double> values;
+    clsComplexOp cp(z,a,freq,this->equcct);
+
+    for(int i=0; i< saveValues.length(); i++)
+    {
+        if(saveValues.at(i)=="R")
+            values.append(cp.R());
+
+        if(saveValues.at(i)=="X")
+            values.append(cp.X());
+
+        if(saveValues.at(i)=="C")
+            values.append(cp.C());
+
+        if(saveValues.at(i)=="D")
+            values.append(cp.D());
+
+        if(saveValues.at(i)=="L")
+            values.append(cp.L());
+
+        if(saveValues.at(i)=="Q")
+            values.append(cp.Q());
+
+        if(saveValues.at(i)=="B")
+            values.append(cp.B());
+
+        if(saveValues.at(i)=="G")
+            values.append(cp.G());
+
+        if(saveValues.at(i)=="Y")
+            values.append(cp.Y());
+    }
+    return values;
 }

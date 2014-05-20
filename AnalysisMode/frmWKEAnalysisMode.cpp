@@ -512,6 +512,7 @@ void frmWKEAnalysisMode::on_btnSaveResults_clicked()
 
 
     clsViewResult *viewResult= new clsViewResult(plot->getCurves(),headers,this);
+    viewResult->setParameters(meter->getItem1(),meter->getItem2(),meter->getEqucct(),gs.sweepType);
     connect(viewResult,SIGNAL(setMark(double,int)),plot,SLOT(setMarker(double,int)));
     viewResult->exec();
 

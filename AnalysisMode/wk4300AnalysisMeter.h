@@ -28,7 +28,7 @@ public:
 
     QString getItem1();
     QString getItem2();
-
+QString getEqucct();
     double getMaxBiasV();
     double getMinBiasV();
     double getMaxBiasA();

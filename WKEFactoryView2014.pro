@@ -69,7 +69,8 @@ SOURCES +=\
     Public/NumberInput.cpp \
     Public/qexcel.cpp \
     AnalysisMode/frmWk3260.cpp \
-    AnalysisMode/frmWK3260Calibration.cpp
+    AnalysisMode/frmWK3260Calibration.cpp \
+    AnalysisMode/frmParameter.cpp
 
 
 RESOURCES += \
@@ -146,7 +147,8 @@ HEADERS += \
     Public/qexcel.h \
     AnalysisMode/frmWk3260.h \
     AnalysisMode/WK3260.h \
-    AnalysisMode/frmWK3260Calibration.h
+    AnalysisMode/frmWK3260Calibration.h \
+    AnalysisMode/frmParameter.h
 
 FORMS += \
     common/frmSelectConnection.ui \
@@ -172,5 +174,6 @@ FORMS += \
     Public/dlgSpeed.ui \
     Public/NumberInput.ui \
     AnalysisMode/frmWk3260.ui \
-    AnalysisMode/frmWK3260Calibration.ui
+    AnalysisMode/frmWK3260Calibration.ui \
+    AnalysisMode/frmParameter.ui
 

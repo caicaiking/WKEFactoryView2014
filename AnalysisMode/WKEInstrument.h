@@ -38,6 +38,7 @@ public:
 
     virtual QString getItem1()=0;       //返回测试项目1
     virtual QString getItem2()=0;       //返回测试项目2
+    virtual QString getEqucct()=0;
 
     virtual double getMaxFrequency()=0;         //返回仪表的最大测试频率
     virtual double getMinFrequency()=0;

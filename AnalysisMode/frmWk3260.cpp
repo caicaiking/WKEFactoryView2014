@@ -234,6 +234,11 @@ QString frmWk3260::getItem2()
     return wk3260.item.toText(2);
 }
 
+QString frmWk3260::getEqucct()
+{
+    return wk3260.equcct.toText();
+}
+
 double frmWk3260::getMaxBiasV()
 {
     return 0;
