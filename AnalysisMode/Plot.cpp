@@ -10,13 +10,14 @@
 #include <UserfulFunctions.h>
 #include <doubleType.h>
 #include "clsRefTraceProperty.h"
+#include <Qwt/qwt_plot_canvas.h>
 Plot::Plot(QWidget *parent) :
     QwtPlot(parent)
 {
     this->setAutoReplot(false);
     setGraphTitle("Unititled");
     this->setCanvasBackground(QColor(Qt::black));
-
+    this->canvas()->setBorderRadius(5);
     //this->setStyleSheet("background-color: black;");
     blLogX=true;
     blLogYLeft=true;

@@ -22,7 +22,7 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     setupUi(this);
 
     initPlot();
-    //this->progressBar->setTextVisible(false);
+    this->statusBar()->setVisible(false);
     progressBar->setVisible(false);
     lblDisplayMsg->setText(QString("仪器：WK %1").arg(clsRS::getInst().instrumentModel));
     meter =clsMeterFacotry::getMeter(clsRS::getInst().meterMode);
@@ -238,46 +238,19 @@ void frmWKEAnalysisMode::moved(const QPoint &pos)
 }
 void frmWKEAnalysisMode::on_btnSavePic_clicked()
 {
-    QString fileName = "Untilted.png";
 
+    QPixmap originalPixmap = QPixmap::grabWidget(this);
 
-#ifndef QT_NO_FILEDIALOG
-    const QList<QByteArray> imageFormats =
-            QImageWriter::supportedImageFormats();
+    QString format = "png";
+    QString initialPath = QDir::currentPath() + tr("/untitled.") + format;
 
-    QStringList filter;
-
-
-    if ( imageFormats.size() > 0 )
-    {
-        QString imageFilter("Images (");
-        for ( int i = 0; i < imageFormats.size(); i++ )
-        {
-            if ( i > 0 )
-                imageFilter += " ";
-            imageFilter += "*.";
-            imageFilter += imageFormats[i];
-        }
-        imageFilter += ")";
-
-        filter += imageFilter;
-    }
-
-    fileName = QFileDialog::getSaveFileName(
-                this, tr("保存测试图像"), fileName,
-                filter.join(";;"), NULL, QFileDialog::DontConfirmOverwrite);
-#endif
-
-    if ( !fileName.isEmpty() )
-    {
-        QwtPlotRenderer renderer;
-
-        // flags to make the document look like the widget
-        renderer.setDiscardFlag(QwtPlotRenderer::DiscardBackground, false);
-        renderer.setLayoutFlag(QwtPlotRenderer::KeepFrames, true);
-
-        renderer.renderDocument(plot, fileName, QSizeF(300, 200), 90);
-    }
+    QString fileName = QFileDialog::getSaveFileName(this, tr("保存测试图像"),
+                                                    initialPath,
+                                                    tr("%1 Files (*.%2);;All Files (*)")
+                                                    .arg(format.toUpper())
+                                                    .arg(format));
+    if (!fileName.isEmpty())
+        originalPixmap.save(fileName, "png");
 }
 
 void frmWKEAnalysisMode::on_btnTraceB_clicked()

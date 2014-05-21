@@ -180,3 +180,4 @@ FORMS += \
     AnalysisMode/frmParameter.ui \
     common/frmAbout.ui
 
+
