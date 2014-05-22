@@ -6,13 +6,15 @@
 
 QT       += core gui network
 RC_FILE  =Icon.rc
-LIBS     += -lqextserialportd
+
+ LIBS += dog_windows_3147311.lib
 
 INCLUDEPATH +=connections \
              common \
              AnalysisMode \
              Public \
-             MeterMode
+             MeterMode \
+             saftyDog
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -71,7 +73,9 @@ SOURCES +=\
     AnalysisMode/frmWk3260.cpp \
     AnalysisMode/frmWK3260Calibration.cpp \
     AnalysisMode/frmParameter.cpp \
-    common/frmAbout.cpp
+    common/frmAbout.cpp \
+    saftyDog/DogControl.cpp \
+    saftyDog/clsDog.cpp
 
 
 RESOURCES += \
@@ -150,7 +154,11 @@ HEADERS += \
     AnalysisMode/WK3260.h \
     AnalysisMode/frmWK3260Calibration.h \
     AnalysisMode/frmParameter.h \
-    common/frmAbout.h
+    common/frmAbout.h \
+    saftyDog/DogControl.h \
+    saftyDog/clsDog.h \
+    saftyDog/dog_api.h \
+    saftyDog/dog_vcode.h
 
 FORMS += \
     common/frmSelectConnection.ui \
@@ -180,4 +188,4 @@ FORMS += \
     AnalysisMode/frmParameter.ui \
     common/frmAbout.ui
 
-
+TRANSLATIONS =GpibDemo.ts

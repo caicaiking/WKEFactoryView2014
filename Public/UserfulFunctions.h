@@ -28,7 +28,7 @@ public:
     static QString getSweepTypeName(SweepType t)
     {
         switch (t) {
-        case time:
+        case Time:
             return QObject::tr("时间");
             break;
         case frequency:
@@ -55,7 +55,7 @@ public:
    static QString getSweepTypeUnit(SweepType t)
     {
         switch (t) {
-        case time:
+        case Time:
             return "s";
             break;
         case frequency:

@@ -9,6 +9,7 @@
 #include "frmPointEditor.h"
 #include "Globle.h"
 //#include "frmWKEMeterMode.h"
+#include "clsDog.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -27,6 +28,12 @@ int main(int argc, char *argv[])
     frmSelectConnection w;
     splash.finish(&w);
 
+    QString strProductName;
+    if((!clsDog::getName(strProductName))|| (strProductName !="WKE FactoryView 2014"))
+    {
+        QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
+        return 0;
+    }
 
     if( w.exec()==QDialog::Accepted)
     {

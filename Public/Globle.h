@@ -8,7 +8,7 @@
 
 enum SweepType
 {
-    time=0,frequency=1,biasV=2,biasA=3,levelV=4,levelA=5
+    Time=0,frequency=1,biasV=2,biasA=3,levelV=4,levelA=5
 };
 
 /*!

@@ -24,7 +24,6 @@ DefaultGroupName={#MyAppName}
 OutputDir=E:\QT\WKEFactoryView2014\setup
 OutputBaseFilename=WKE FactoryView2014 Setup
 SetupIconFile=E:\QT\WKEFactoryView2014\wk.ico
-Password=26523879
 Compression=lzma
 SolidCompression=yes
 
