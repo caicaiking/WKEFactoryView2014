@@ -304,7 +304,7 @@
            </font>
           </property>
           <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;设置多条曲线进行对比。&lt;/p&gt;&lt;p&gt;快捷键Ctrl+Q&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;搜索曲线的最大最小值&lt;/p&gt;&lt;p&gt;快捷键Ctrl+B&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="text">
            <string>极值
@@ -321,7 +321,7 @@
            </size>
           </property>
           <property name="shortcut">
-           <string>Ctrl+Q</string>
+           <string>Ctrl+B</string>
           </property>
          </widget>
         </item>

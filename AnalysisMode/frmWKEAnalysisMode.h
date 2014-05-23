@@ -69,6 +69,7 @@ private:
     QwtPlotZoomer *d_zoomer;
 
 
+    bool checkDog();
 };
 
 #endif // FRMWKEANALYSISMODE_H

@@ -16,6 +16,7 @@
 #include "frmPointEditor.h"
 #include "clsMeterFacotry.h"
 #include "frmAbout.h"
+#include "clsDog.h"
 frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -39,6 +40,8 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     updateGraph();
     updateButtons();
     initZoomer();
+
+    btnRep->setVisible(false);
 }
 
 void frmWKEAnalysisMode::initZoomer()
@@ -356,10 +359,26 @@ void frmWKEAnalysisMode::on_btnTraceSetup_clicked()
     }
 }
 
+bool frmWKEAnalysisMode::checkDog()
+{
+    QString strProductName;
+    if((!clsDog::getName(strProductName))|| (strProductName !="WKE FactoryView 2014"))
+    {
+        QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
+        return false;
+    }
+    return true;
+}
 
 void frmWKEAnalysisMode::on_btnTrig_clicked()
 {
     // qDebug()<< "Iam in trig mode";
+    if(! checkDog())
+    {
+        btnTrig->setChecked(false);
+        return;
+    }
+
     btnZoom->setChecked(false);
     enableZoomMode(false);
     progressBar->setValue(0);
@@ -514,7 +533,7 @@ void frmWKEAnalysisMode::on_btnPeak_clicked()
     frmPeakSearch *dlg = new frmPeakSearch(this->plot,this->gs,this);
     dlg->setGeometry(this->geometry().left()+ btnMeasSetup->frameGeometry().left(),
                      this->geometry().top()+btnMeasSetup->frameGeometry().top()/*+5+(btnPeak->height()/2)*/,
-                    btnTraceB->geometry().right()-btnMeasSetup->geometry().left(),
+                     btnTraceB->geometry().right()-btnMeasSetup->geometry().left(),
                      dlg->geometry().height());
 
     dlg->show();
