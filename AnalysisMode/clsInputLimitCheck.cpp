@@ -167,16 +167,16 @@ void levelALimitCheck::setMeter(WKEInstrument *meter)
 LimitCheck *LimitCheckFactory::getLimitCheckType(SweepType t, WKEInstrument *meter)
 {
     switch (t) {
-    case time:
+    case Time:
         return new timeLimitCheck(meter);
         break;
-    case frequency:
+    case Frequency:
         return new frequencyLimitCheck(meter);
         break;
-    case biasV:
+    case BiasV:
         return new biasVLimitCheck(meter);
         break;
-    case biasA:
+    case BiasA:
         return new biasALimitCheck(meter);
         break;
     case levelV:

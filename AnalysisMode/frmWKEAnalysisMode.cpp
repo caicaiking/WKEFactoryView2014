@@ -4,7 +4,7 @@
 #include <Qwt/qwt_plot_renderer.h>
 #include <QImageWriter>
 #include "Qwt/qwt_picker_machine.h"
-
+#include "frmPeakSearch.h"
 #include "clsRuningSettings.h"
 #include "frmTraceSetup.h"
 #include "clsMeasFactory.h"
@@ -118,7 +118,7 @@ void frmWKEAnalysisMode::updateGraph()
     if(meter->getItem1() !="Z" && meter->getItem1() !="Y")
         gs.logYleft=false;
 
-    if(gs.sweepType !=frequency)
+    if(gs.sweepType !=Frequency)
         gs.logX=false;
 
     plot->setScale(gs.xmin,gs.xmax,gs.logX,
@@ -139,7 +139,7 @@ void frmWKEAnalysisMode::updateGraph()
 void frmWKEAnalysisMode::updateButtons()
 {
 
-    if(gs.sweepType==frequency)
+    if(gs.sweepType==Frequency)
     {
         btnFreq->setVisible(false);
         btnLevel->setVisible(true);
@@ -507,4 +507,15 @@ void frmWKEAnalysisMode::on_btnHelp_clicked()
     frmAbout *dlg = new frmAbout();
     dlg->setWindowTitle(tr("关于本软件"));
     dlg->exec();
+}
+
+void frmWKEAnalysisMode::on_btnPeak_clicked()
+{
+    frmPeakSearch *dlg = new frmPeakSearch(this->plot,this->gs,this);
+    dlg->setGeometry(this->geometry().left()+ btnMeasSetup->frameGeometry().left(),
+                     this->geometry().top()+btnMeasSetup->frameGeometry().top()/*+5+(btnPeak->height()/2)*/,
+                    btnTraceB->geometry().right()-btnMeasSetup->geometry().left(),
+                     dlg->geometry().height());
+
+    dlg->show();
 }

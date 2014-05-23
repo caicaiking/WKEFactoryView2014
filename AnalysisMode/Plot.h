@@ -75,12 +75,14 @@ public:
     void setBlLogX(bool value);
     bool getBlLogYLeft() const;
     void setBlLogYLeft(bool value);
-
+    bool getYLeftIsEnable();
+    bool getYRightIsEnable();
 
     void clearData();
     void setToTop(curveProperty property, bool isOnTop);
     void turnOffRefTrace();
 
+    void findPeak(Choice x, bool peakType);
 public slots:
     QString setMarker(const double& freq, const int intSelected=0);
     void addNewCurve(curveProperty property, bool isSetCurrent=false);

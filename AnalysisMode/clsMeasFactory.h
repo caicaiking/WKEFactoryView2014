@@ -11,15 +11,15 @@ public:
     static clsMeas* getMeas(SweepType t)
     {
         switch (t) {
-        case time:
+        case Time:
             return new clsTimeMeasument();
             break;
-        case frequency:
+        case Frequency:
             return new clsFreqMeasument();
             break;
-        case biasV:
+        case BiasV:
             return new clsBiasMeasument();
-        case biasA:
+        case BiasA:
             return new clsBiasAMeasument();
         default:
             break;

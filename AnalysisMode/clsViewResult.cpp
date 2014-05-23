@@ -85,7 +85,7 @@ void clsViewResult::on_btnSave_clicked()
 
     QString items="Aθ";
 
-    if((item1!=item2)&&(item1=="Z") &&(items.contains(item2)) &&(this->sweepType==frequency))
+    if((item1!=item2)&&(item1=="Z") &&(items.contains(item2)) &&(this->sweepType==Frequency))
     {
         frmParameter *dlg = new frmParameter();
 

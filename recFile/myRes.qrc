@@ -31,5 +31,6 @@
         <file>Icons/zoom.png</file>
         <file>Icons/version.txt</file>
         <file>Icons/wk.ico</file>
+        <file>Icons/Peak.png</file>
     </qresource>
 </RCC>

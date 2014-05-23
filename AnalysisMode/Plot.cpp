@@ -11,6 +11,7 @@
 #include <doubleType.h>
 #include "clsRefTraceProperty.h"
 #include <Qwt/qwt_plot_canvas.h>
+#include <QMapIterator>
 Plot::Plot(QWidget *parent) :
     QwtPlot(parent)
 {
@@ -96,14 +97,14 @@ Plot::Plot(QWidget *parent) :
 
 void Plot::mouseMoveEvent(QMouseEvent *e)
 {
-//    if(e->buttons() & Qt::LeftButton)
-//    {
-//        double freq=this->invTransform(QwtPlot::xBottom, e->x());
-//        qDebug() << "Move frequency is: "<< freq/1000.0;
-//    }
+    //    if(e->buttons() & Qt::LeftButton)
+    //    {
+    //        double freq=this->invTransform(QwtPlot::xBottom, e->x());
+    //        qDebug() << "Move frequency is: "<< freq/1000.0;
+    //    }
 
-//    else
-//        qDebug()<<"No thing can be user";
+    //    else
+    //        qDebug()<<"No thing can be user";
 
 
 
@@ -124,6 +125,7 @@ void Plot::clearData()
         curves.value(0).cur1->setSamples(x,curvel);
         curves.value(0).cur2->setSamples(x,curve2);
     }
+    d_marker1->setVisible(false);
 
 }
 
@@ -143,7 +145,7 @@ void Plot::showData(const QVector<double>& x,
     }
     //在这儿不自动缩放坐标系
     // this->setAxisScale(QwtPlot::xBottom,x.first(),x.last());
-
+    this->d_marker1->setVisible(false);
 }
 
 void Plot::autoScale(Plot::Choice choice)
@@ -222,7 +224,7 @@ void Plot::addNewCurve(const int index,
 
 void Plot::addNewCurve(curveProperty property, bool isSetCurrent)
 {
-   // qDebug()<<"Ref index: " << property.index;
+    // qDebug()<<"Ref index: " << property.index;
 
     if(curves.contains(property.index))
     {
@@ -234,7 +236,7 @@ void Plot::addNewCurve(curveProperty property, bool isSetCurrent)
     }
     else
     {
-      //  qDebug()<<"Ref index: " << property.index<<"  creat new curves";
+        //  qDebug()<<"Ref index: " << property.index<<"  creat new curves";
         QwtPlotCurve *d_curve1;
 
 
@@ -259,8 +261,8 @@ void Plot::addNewCurve(curveProperty property, bool isSetCurrent)
 
     if(isSetCurrent)
     {
-        curves.value(property.index).cur1->setSamples(UserfulFunctions::formatToData(curves.value(0).cur1).toVector());
-        curves.value(property.index).cur2->setSamples(UserfulFunctions::formatToData(curves.value(0).cur2).toVector());
+        curves.value(property.index).cur1->setSamples(UserfulFunctions::getPlotCurveData(curves.value(0).cur1).toVector());
+        curves.value(property.index).cur2->setSamples(UserfulFunctions::getPlotCurveData(curves.value(0).cur2).toVector());
     }
 
     if(property.isOn)
@@ -538,7 +540,7 @@ void Plot::turnOffCurves(Plot::Choice choice, bool status)
 QString Plot::setMarker(const double &freq, const int /*intSelected*/)
 {
     QMap<double,QPointF> myPrivateData;
-    myPrivateData = UserfulFunctions::formatToData(curves.values(),0);
+    myPrivateData = UserfulFunctions::getPlotCurveData(curves.values(),0);
 
     QList<double> keys= myPrivateData.keys();
     //找到数组中的频点，然后在获取相关的数值
@@ -548,11 +550,12 @@ QString Plot::setMarker(const double &freq, const int /*intSelected*/)
     else if(freq<UserfulFunctions::Min(keys))
         freqValue= UserfulFunctions::Min(keys);
     else
-        freqValue= UserfulFunctions::NearItem(keys,freq,blLogYLeft);
+        freqValue= UserfulFunctions::getNearItem(keys,freq,blLogYLeft);
 
     dblMarkValue=freqValue;
     item1=((QPointF) myPrivateData.value(freqValue)).x();
     item2=((QPointF) myPrivateData.value(freqValue)).y();
+    d_marker1->setVisible(true);
     d_marker1->setValue(freqValue,0.0);
 
     //格式化输出
@@ -642,6 +645,16 @@ void Plot::setBlLogYLeft(bool value)
                                  new QwtLinearScaleEngine);
 }
 
+bool Plot::getYLeftIsEnable()
+{
+    return this->axisEnabled(QwtPlot::yLeft);
+}
+
+bool Plot::getYRightIsEnable()
+{
+    return this->axisEnabled(QwtPlot::yRight);
+}
+
 bool Plot::getBlLogX() const
 {
     return blLogX;
@@ -661,11 +674,11 @@ void Plot::setBlLogX(bool value)
 
 void Plot::setToTop(curveProperty property, bool isOnTop)
 {
-   if(curves.keys().contains(property.index))
-   {
-       curves.value(property.index).cur1->setZ((isOnTop?30:20));
-       curves.value(property.index).cur2->setZ((isOnTop?30:20));
-   }
+    if(curves.keys().contains(property.index))
+    {
+        curves.value(property.index).cur1->setZ((isOnTop?30:20));
+        curves.value(property.index).cur2->setZ((isOnTop?30:20));
+    }
 }
 
 double Plot::getYLeftMax() const
@@ -715,4 +728,45 @@ void Plot::turnOffRefTrace()
         }
     }
     this->replot();
+}
+
+
+void Plot::findPeak(Choice x,bool peakType)
+{
+    QMap<double,QPointF> myPrivateData;
+    myPrivateData = UserfulFunctions::getPlotCurveData(curves.values(),0);
+
+    QMap<double,double> item;
+
+    QMapIterator <double, QPointF> it(myPrivateData);
+
+    while(it.hasNext())
+    {
+        it.next();
+        switch (x)
+        {
+        case yLeft:
+            item.insert(it.key(),it.value().x());
+            break;
+        case yRight:
+            item.insert(it.key(),it.value().y());
+            break;
+        }
+    }
+
+    double value=0;
+
+    if(peakType)
+    {
+        value = UserfulFunctions::Max(item.values());
+    }
+    else
+    {
+        value = UserfulFunctions::Min(item.values());
+    }
+
+    //qDebug()<< "Freq: " << item.key(value);
+
+    setMarker(item.key(value),0);
+
 }

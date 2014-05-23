@@ -16,12 +16,12 @@ public:
     static QString getSuffix(const QString& value);
     static QString getName(const QString &value);
     static void sleepMs(int svalue);
-    static QMap<double, QPointF> formatToData(const  QList<PlotCurves> &value, int intSelect=0);
+    static QMap<double, QPointF> getPlotCurveData(const  QList<PlotCurves> &value, int intSelect=0);
     static double Max(const QList<double> &arry);
     static double Min(const QList<double> &arry);
-    static double NearItem(const QList<double> &arry, const double value, const bool isLog=false);
+    static double getNearItem(const QList<double> &arry, const double value, const bool isLog=false);
     static double Abs(double x);
-    static QList<QPointF> formatToData(QwtPlotCurve *curve);
+    static QList<QPointF> getPlotCurveData(QwtPlotCurve *curve);
     static QList<double> resultPro(const QString &resultString);
 
 
@@ -31,13 +31,13 @@ public:
         case Time:
             return QObject::tr("时间");
             break;
-        case frequency:
+        case Frequency:
             return QObject::tr("频率");
             break;
-        case biasV:
+        case BiasV:
             return QObject::tr("偏置电压");
             break;
-        case biasA:
+        case BiasA:
             return QObject::tr("偏置电流");
             break;
         case levelV:
@@ -58,13 +58,13 @@ public:
         case Time:
             return "s";
             break;
-        case frequency:
+        case Frequency:
             return "Hz";
             break;
-        case biasV:
+        case BiasV:
             return "V";
             break;
-        case biasA:
+        case BiasA:
             return "A";
             break;
         case levelV:

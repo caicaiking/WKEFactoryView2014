@@ -39,37 +39,37 @@ void frmTraceSetup::getSupportFunction()
 
 void frmTraceSetup::on_btnTime_clicked()
 {
-    updateSweepTitile(time);
+    updateSweepTitile(Time);
 }
 
 void frmTraceSetup::on_btnFrequency_clicked()
 {
-    updateSweepTitile(frequency);
+    updateSweepTitile(Frequency);
 }
 
 void frmTraceSetup::on_btnBias_clicked()
 {
-    updateSweepTitile(biasV);
+    updateSweepTitile(BiasV);
 }
 
 void frmTraceSetup::updateSweepTitile(SweepType t)
 {
 
     switch (t) {
-    case time:
+    case Time:
         grpSweepItem->setTitle(tr("时间范围（s）"));
         btnTime->setChecked(true);
         break;
-    case frequency:
+    case Frequency:
         grpSweepItem->setTitle(tr("频率范围（Hz）"));
         btnFrequency->setChecked(true);
         break;
-    case biasV:
+    case BiasV:
         grpSweepItem->setTitle(tr("偏置范围（V）"));
         btnBias->setChecked(true);
 
         break;
-    case biasA:
+    case BiasA:
         grpSweepItem->setTitle(tr("偏置范围（A）"));
         btnBiasA->setChecked(true);
         break;
@@ -130,27 +130,27 @@ bool  frmTraceSetup::readSettings(graphSetup &gsetup, bool incldSwty)
     }
 
     switch (gsetup.sweepType) {
-    case time:
+    case Time:
         settings.readSetting(strNode+"TimeXmin",gsetup.xmin);
         settings.readSetting(strNode+"TimeXmax",gsetup.xmax);
         settings.readSetting(strNode+"TimeLog",gsetup.logX);
         settings.readSetting(strNode+"TimePoints",gsetup.points);
         break;
-    case frequency:
+    case Frequency:
         settings.readSetting(strNode+"FreqXmin",gsetup.xmin);
         settings.readSetting(strNode+"FreqXmax",gsetup.xmax);
         settings.readSetting(strNode+"FreqLog",gsetup.logX);
         settings.readSetting(strNode+"FreqPoints",gsetup.points);
         break;
 
-    case biasV:
+    case BiasV:
         settings.readSetting(strNode+"BiasXmin",gsetup.xmin);
         settings.readSetting(strNode+"BiasXmax",gsetup.xmax);
         settings.readSetting(strNode+"BiasLog",gsetup.logX);
         settings.readSetting(strNode+"BiasPoints",gsetup.points);
         settings.readSetting(strNode+"BiasVRate",gsetup.biasVRate);
         break;
-    case biasA:
+    case BiasA:
         settings.readSetting(strNode+"BiasAXmin",gsetup.xmin);
         settings.readSetting(strNode+"BiasAXmax",gsetup.xmax);
         settings.readSetting(strNode+"BiasALog",gsetup.logX);
@@ -182,27 +182,27 @@ bool  frmTraceSetup::writeSettings(graphSetup gsetup)
 
     settings.writeSetting(strNode+"SweepType",gsetup.sweepType);
     switch (gsetup.sweepType) {
-    case time:
+    case Time:
         settings.writeSetting(strNode+"TimeXmin",gsetup.xmin);
         settings.writeSetting(strNode+"TimeXmax",gsetup.xmax);
         settings.writeSetting(strNode+"TimeLog",gsetup.logX);
         settings.writeSetting(strNode +"TimePoints",gsetup.points);
         break;
-    case frequency:
+    case Frequency:
         settings.writeSetting(strNode+"FreqXmin",gsetup.xmin);
         settings.writeSetting(strNode+"FreqXmax",gsetup.xmax);
         settings.writeSetting(strNode+"FreqLog",gsetup.logX);
         settings.writeSetting(strNode +"FreqPoints",gsetup.points);
         break;
 
-    case biasV:
+    case BiasV:
         settings.writeSetting(strNode+"BiasXmin",gsetup.xmin);
         settings.writeSetting(strNode+"BiasXmax",gsetup.xmax);
         settings.writeSetting(strNode+"BiasLog",gsetup.logX);
         settings.writeSetting(strNode+"BiasPoints",gsetup.points);
         settings.writeSetting(strNode+"BiasVRate",gsetup.biasVRate);
         break;
-    case biasA:
+    case BiasA:
         settings.writeSetting(strNode+"BiasAXmin",gsetup.xmin);
         settings.writeSetting(strNode+"BiasAXmax",gsetup.xmax);
         settings.writeSetting(strNode+"BiasALog",gsetup.logX);
@@ -235,7 +235,7 @@ void frmTraceSetup::updateButtons()
     dt.setData(this->gsetup.xmax,"");
     this->btnXmax->setText(dt.formateToString());
 
-    if(this->gsetup.sweepType ==frequency && this->gsetup.logX)
+    if(this->gsetup.sweepType ==Frequency && this->gsetup.logX)
     {
         if(gsetup.xmax>0 && gsetup.xmin >0)
         {
@@ -287,7 +287,7 @@ void frmTraceSetup::updateButtons()
 
     btnPoints->setText(QString::number(gsetup.points.length())+tr("点"));
 
-    if(gsetup.sweepType==biasV)
+    if(gsetup.sweepType==BiasV)
          btnRate->setVisible(true);
     else
         btnRate->setVisible(false);
@@ -467,7 +467,7 @@ graphSetup frmTraceSetup::getGsetup() const
 
 void frmTraceSetup::on_btnBiasA_clicked()
 {
-    updateSweepTitile(biasA);
+    updateSweepTitile(BiasA);
 }
 
 void frmTraceSetup::on_btnRate_clicked()

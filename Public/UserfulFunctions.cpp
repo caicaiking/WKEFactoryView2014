@@ -118,7 +118,7 @@ void UserfulFunctions::sleepMs(int svalue)
         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 }
 
-QList<QPointF> UserfulFunctions::formatToData(QwtPlotCurve *curve)
+QList<QPointF> UserfulFunctions::getPlotCurveData(QwtPlotCurve *curve)
 {
    QList<QPointF> data;
     for(int i=0; i< curve->data()->size();i++)
@@ -147,7 +147,7 @@ QList<double> UserfulFunctions::resultPro(const QString &resultString)
 }
 
 //将选点的曲线转换成一组像这样的形式（10.0K,<100Ohm,90Deg>）.
-QMap <double, QPointF> UserfulFunctions::formatToData(const QList<PlotCurves> &curves,
+QMap <double, QPointF> UserfulFunctions::getPlotCurveData(const QList<PlotCurves> &curves,
                                                       int intSelect)
 {
 
@@ -226,7 +226,7 @@ double UserfulFunctions::Abs(double x)
         return x;
 }
 
-double UserfulFunctions::NearItem(const QList<double> &arry, const double value,
+double UserfulFunctions::getNearItem(const QList<double> &arry, const double value,
                                   const bool isLog)
 {
     if(arry.length()==0)
