@@ -63,13 +63,13 @@
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>34</height>
+            <height>40</height>
            </size>
           </property>
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>9</pointsize>
+            <pointsize>11</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -102,13 +102,13 @@
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>34</height>
+            <height>40</height>
            </size>
           </property>
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>9</pointsize>
+            <pointsize>11</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -138,10 +138,16 @@
         </item>
         <item>
          <widget class="QPushButton" name="btnMeasSetup">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>9</pointsize>
+            <pointsize>11</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -168,10 +174,16 @@
         </item>
         <item>
          <widget class="QPushButton" name="btnTraceSetup">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>9</pointsize>
+            <pointsize>11</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -198,10 +210,16 @@
         </item>
         <item>
          <widget class="QPushButton" name="btnAutoScale">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>9</pointsize>
+            <pointsize>11</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -231,13 +249,13 @@
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>0</height>
+            <height>40</height>
            </size>
           </property>
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>9</pointsize>
+            <pointsize>11</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -267,10 +285,16 @@
         </item>
         <item>
          <widget class="QPushButton" name="btnRefTrace">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>9</pointsize>
+            <pointsize>11</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -297,10 +321,16 @@
         </item>
         <item>
          <widget class="QPushButton" name="btnPeak">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>9</pointsize>
+            <pointsize>11</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -340,10 +370,16 @@
         </item>
         <item>
          <widget class="QPushButton" name="btnCalibration">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>9</pointsize>
+            <pointsize>11</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -370,10 +406,16 @@
         </item>
         <item>
          <widget class="QPushButton" name="btnSaveResults">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>9</pointsize>
+            <pointsize>11</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -400,10 +442,16 @@
         </item>
         <item>
          <widget class="QPushButton" name="btnSavePic">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>9</pointsize>
+            <pointsize>11</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -430,6 +478,12 @@
         </item>
         <item>
          <widget class="QPushButton" name="btnTraceA">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
             <width>50</width>
@@ -439,7 +493,7 @@
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>9</pointsize>
+            <pointsize>11</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -459,6 +513,12 @@ ON</string>
         </item>
         <item>
          <widget class="QPushButton" name="btnTraceB">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
           <property name="maximumSize">
            <size>
             <width>50</width>
@@ -468,7 +528,7 @@ ON</string>
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>9</pointsize>
+            <pointsize>11</pointsize>
            </font>
           </property>
           <property name="toolTip">

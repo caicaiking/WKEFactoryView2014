@@ -83,6 +83,13 @@ public:
     void turnOffRefTrace();
 
     void findPeak(Choice x, bool peakType);
+    void findNextLeftHigh(Choice x);
+    void findNextLeftLow(Choice x);
+    void findNextRightHigh(Choice x);
+    void findNextRightLow(Choice x);
+    QMap<double, double> fff(QMap<double,double> list, double tmpRet);
+    double getCurrentMarkValue();
+    QMap<double, double> getChoiceData(Choice x);
 public slots:
     QString setMarker(const double& freq, const int intSelected=0);
     void addNewCurve(curveProperty property, bool isSetCurrent=false);

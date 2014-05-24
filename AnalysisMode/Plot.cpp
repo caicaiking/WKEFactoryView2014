@@ -770,3 +770,253 @@ void Plot::findPeak(Choice x,bool peakType)
     setMarker(item.key(value),0);
 
 }
+
+double Plot::getCurrentMarkValue()
+{
+    double tmpRet =  d_marker1->value().x();
+
+    return tmpRet;
+}
+
+void Plot::findNextLeftHigh(Choice x)
+{
+    if(!d_marker1->isVisible())
+        return;
+
+    double tmpRet = getCurrentMarkValue();
+
+    QMap<double,QPointF> myPrivateData;
+    myPrivateData = UserfulFunctions::getPlotCurveData(curves.values(),0);
+
+    QMap<double,double> list;
+
+    QMapIterator <double, QPointF> it1(myPrivateData);
+
+    while(it1.hasNext())
+    {
+        it1.next();
+        switch (x)
+        {
+        case yLeft:
+            list.insert(it1.key(),it1.value().x());
+            break;
+        case yRight:
+            list.insert(it1.key(),it1.value().y());
+            break;
+        }
+    }
+
+    QMap <double,double> tmpMap;
+
+    QMapIterator<double, double> it(list);
+
+    while(it.hasNext())
+    {
+        it.next();
+
+        if(it.key()!= tmpRet)
+        {
+            tmpMap.insert(it.key(),it.value());
+        }
+        else
+        {
+            tmpMap.insert(it.key(),it.value());
+            break;
+        }
+    }
+
+    QList<double> values = tmpMap.values();
+    QList <double> keys = tmpMap.keys();
+    for(int i= tmpMap.count()-2; i>=1; i--)
+    {
+        if((values.at(i+1)<values.at(i)) && (values.at(i-1)<values.at(i)))
+        {
+            setMarker(keys.at(i),0);
+            return;
+        }
+    }
+
+    this->setMarker(tmpRet,0);
+
+
+}
+
+void Plot::findNextLeftLow(Choice x)
+{
+    if(!d_marker1->isVisible())
+        return;
+
+    double tmpRet = getCurrentMarkValue();
+
+    QMap<double,QPointF> myPrivateData;
+    myPrivateData = UserfulFunctions::getPlotCurveData(curves.values(),0);
+
+    QMap<double,double> list;
+
+    QMapIterator <double, QPointF> it1(myPrivateData);
+
+    while(it1.hasNext())
+    {
+        it1.next();
+        switch (x)
+        {
+        case yLeft:
+            list.insert(it1.key(),it1.value().x());
+            break;
+        case yRight:
+            list.insert(it1.key(),it1.value().y());
+            break;
+        }
+    }
+
+
+
+    QMap <double,double> tmpMap;
+
+    QMapIterator<double, double> it(list);
+
+    while(it.hasNext())
+    {
+        it.next();
+
+        if(it.key()!= tmpRet)
+        {
+            tmpMap.insert(it.key(),it.value());
+        }
+        else
+        {
+            tmpMap.insert(it.key(),it.value());
+            break;
+        }
+
+    }
+
+    QList<double> values = tmpMap.values();
+    QList <double> keys = tmpMap.keys();
+    for(int i= tmpMap.count()-2; i>=1; i--)
+    {
+        if((values.at(i+1)>values.at(i)) && (values.at(i-1)>values.at(i)))
+        {
+            setMarker(keys.at(i),0);
+            return;
+        }
+    }
+
+    this->setMarker(tmpRet,0);
+
+}
+
+void Plot::findNextRightHigh(Choice x)
+{
+    if(!d_marker1->isVisible())
+        return;
+    double tmpRet = getCurrentMarkValue();
+
+    QMap<double,QPointF> myPrivateData;
+    myPrivateData = UserfulFunctions::getPlotCurveData(curves.values(),0);
+
+    QMap<double,double> list;
+
+    QMapIterator <double, QPointF> it1(myPrivateData);
+
+    while(it1.hasNext())
+    {
+        it1.next();
+        switch (x)
+        {
+        case yLeft:
+            list.insert(it1.key(),it1.value().x());
+            break;
+        case yRight:
+            list.insert(it1.key(),it1.value().y());
+            break;
+        }
+    }
+
+
+
+    QMap <double,double> tmpMap;
+
+    QMapIterator<double, double> it(list);
+
+    while(it.hasNext())
+    {
+        it.next();
+
+        if(it.key()>= tmpRet)
+        {
+            tmpMap.insert(it.key(),it.value());
+        }
+    }
+
+    QList<double> values = tmpMap.values();
+    QList <double> keys = tmpMap.keys();
+
+    for(int i= 1; i<=tmpMap.count() -2; i++)
+    {
+        if((values.at(i+1)<values.at(i)) && (values.at(i-1)<values.at(i)))
+        {
+            setMarker(keys.at(i),0);
+            return;
+        }
+    }
+
+    setMarker(tmpRet,0);
+
+}
+
+void Plot::findNextRightLow(Choice x)
+{
+    if(!d_marker1->isVisible())
+        return;
+
+    double tmpRet = getCurrentMarkValue();
+
+    QMap<double,QPointF> myPrivateData;
+    myPrivateData = UserfulFunctions::getPlotCurveData(curves.values(),0);
+
+    QMap<double,double> list;
+
+    QMapIterator <double, QPointF> it1(myPrivateData);
+
+    while(it1.hasNext())
+    {
+        it1.next();
+        switch (x)
+        {
+        case yLeft:
+            list.insert(it1.key(),it1.value().x());
+            break;
+        case yRight:
+            list.insert(it1.key(),it1.value().y());
+            break;
+        }
+    }
+
+    QMap <double,double> tmpMap;
+    QMapIterator<double, double> it(list);
+    while(it.hasNext())
+    {
+        it.next();
+
+        if(it.key()>= tmpRet)
+        {
+            tmpMap.insert(it.key(),it.value());
+        }
+    }
+
+    QList<double> values = tmpMap.values();
+    QList <double> keys = tmpMap.keys();
+
+    for(int i= 1; i<=tmpMap.count() -2; i++)
+    {
+        if((values.at(i+1)>values.at(i)) && (values.at(i-1)>values.at(i)))
+        {
+            setMarker(keys.at(i),0);
+            return;
+        }
+    }
+
+     setMarker(tmpRet,0);
+}
+

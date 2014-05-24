@@ -14,12 +14,27 @@ public:
     void setPlot(Plot *plot);
     void setGraphSetup(const graphSetup gs);
 private slots:
-    void on_btnItem1_clicked();
-    void on_btnItem2_clicked();
-    void on_btnMax_clicked();
-    void on_btnMin_clicked();
+
 
     void on_btnExit_clicked();
+
+
+
+    void on_btnPeak_toggled(bool checked);
+
+    void on_btnItem1_toggled(bool checked);
+
+    void on_btnItem2_toggled(bool checked);
+
+    void on_btnDip_toggled(bool checked);
+
+    void on_btnFindPeak_clicked();
+
+    void on_btnFindDip_clicked();
+
+    void on_btnLeft_clicked();
+
+    void on_btnRight_clicked();
 
 private:
     Plot *plot;
