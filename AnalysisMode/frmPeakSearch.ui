@@ -217,7 +217,7 @@
      <property name="font">
       <font>
        <family>楷体</family>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
@@ -246,7 +246,7 @@
      <property name="font">
       <font>
        <family>楷体</family>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
@@ -282,7 +282,7 @@
      <property name="font">
       <font>
        <family>楷体</family>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
@@ -310,7 +310,7 @@
      <property name="font">
       <font>
        <family>楷体</family>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
@@ -345,7 +345,7 @@
      <property name="font">
       <font>
        <family>楷体</family>
-       <pointsize>12</pointsize>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">

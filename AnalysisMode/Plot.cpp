@@ -751,6 +751,8 @@ void Plot::findPeak(Choice x,bool peakType)
         case yRight:
             item.insert(it.key(),it.value().y());
             break;
+        case Both:
+            break;
         }
     }
 
@@ -802,6 +804,8 @@ void Plot::findNextLeftHigh(Choice x)
             break;
         case yRight:
             list.insert(it1.key(),it1.value().y());
+            break;
+        case Both:
             break;
         }
     }
@@ -865,6 +869,8 @@ void Plot::findNextLeftLow(Choice x)
             break;
         case yRight:
             list.insert(it1.key(),it1.value().y());
+            break;
+        case Both:
             break;
         }
     }
@@ -930,6 +936,8 @@ void Plot::findNextRightHigh(Choice x)
         case yRight:
             list.insert(it1.key(),it1.value().y());
             break;
+        case Both:
+            break;
         }
     }
 
@@ -989,6 +997,8 @@ void Plot::findNextRightLow(Choice x)
             break;
         case yRight:
             list.insert(it1.key(),it1.value().y());
+            break;
+        case Both:
             break;
         }
     }

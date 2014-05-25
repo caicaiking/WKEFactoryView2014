@@ -34,7 +34,7 @@ const unsigned char vendor_code[] =
         "WqrfaXA==";
 
 //WKE FactoryView 2014
-#define ENCRYPT_BUFFER_FEATUREID1 0    //feature id which is selected
+#define ENCRYPT_BUFFER_FEATUREID1 1    //feature id which is selected
 #define SOURCE_BUFFER_LENGTH1 20    //length of source string
 #define ENCRYPT_BUFFER_LENGTH1 20    //length of encrypt string
 
@@ -42,7 +42,7 @@ const int isString1 = 1;    //This is a string buffer
 /*The encrypted array is in UTF-8 format. Please convert it to proper format before using it.*/
 
 const unsigned char encryptStrArr1[20] = {
-   0xD9, 0x5A, 0x7D, 0xAB, 0xCE, 0x32, 0x40, 0x86, 0xB6, 0x6D, 0x61, 0x09, 0x21, 0x8E, 0x09, 0x75, 0x50, 0x94, 0x63, 0xD5
+    0x81, 0x2B, 0x76, 0xAC, 0x86, 0x1A, 0xF4, 0x35, 0xD2, 0x11, 0x5C, 0x5B, 0x49, 0x5D, 0xEF, 0xE0, 0x08, 0x91, 0xD4, 0x3C
  };
 
 typedef __int32 ENCRYPT_DATA_TYPE1;

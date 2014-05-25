@@ -69,7 +69,7 @@
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>11</pointsize>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -108,7 +108,7 @@
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>11</pointsize>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -147,7 +147,7 @@
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>11</pointsize>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -183,7 +183,7 @@
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>11</pointsize>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -219,7 +219,7 @@
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>11</pointsize>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -255,7 +255,7 @@
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>11</pointsize>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -294,7 +294,7 @@
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>11</pointsize>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -330,7 +330,7 @@
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>11</pointsize>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -379,7 +379,7 @@
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>11</pointsize>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -415,7 +415,7 @@
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>11</pointsize>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -451,7 +451,7 @@
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>11</pointsize>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -493,7 +493,7 @@
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>11</pointsize>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="toolTip">
@@ -528,7 +528,7 @@ ON</string>
           <property name="font">
            <font>
             <family>楷体</family>
-            <pointsize>11</pointsize>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="toolTip">
