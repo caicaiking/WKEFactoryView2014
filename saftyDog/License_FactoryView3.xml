@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <sentinel_ldk:license schema_version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sentinel_ldk="http://www.safenet-inc.com/sentinelldk">
+   <!--License Definition-->
+   <enforcement_type>SuperDog</enforcement_type>
+   <product>
+      <id>1</id>
+      <name>WKE FactoryView</name>
+      <feature>
+         <id>1</id>
+         <name>RunVersion</name>
+         <license_properties>
+            <perpetual/>
+         </license_properties>
+      </feature>
+   </product>
+   <memory>
+      <rw_memory_segment>
+         <offset>0</offset>
+         <!--<input_type>0</input_type>-->
+         <content>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</content>
+      </rw_memory_segment>
+   </memory>
+   <dynamic_resource>
+      <isv_data_resource action="set" attribute="ro">
+         <id>1</id>
+         <size>20</size>
+         <segment>
+            <offset>0</offset>
+            <!--<input_type>1</input_type>-->
+            <content>V0tFIEZhY3RvcnlWaWV3IDIwMTQ=</content>
+         </segment>
+      </isv_data_resource>
+   </dynamic_resource>
+ </sentinel_ldk:license>

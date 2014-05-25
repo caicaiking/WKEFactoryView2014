@@ -38,55 +38,17 @@ dog_status_t DecryptString(QString &retString)
         &hDog);
     if (DOG_STATUS_OK != status)
     {
-//        switch (status)
-//        {
-//        case DOG_INV_VCODE:
-//           // printf("Invalid vendor code.\n");
-//            break;
-
-//        case DOG_UNKNOWN_VCODE:
-//           //  printf("Vendor Code not recognized by API.\n");
-//            break;
-
-//        default:
-//           //  printf("Login to feature: %d failed with status %d\n", ENCRYPT_BUFFER_FEATUREID1, status );
-//        }
         return status;
     }
+
 
     bufData = (unsigned char *)malloc(ENCRYPT_BUFFER_LENGTH1+1);
     memset(bufData, 0, ENCRYPT_BUFFER_LENGTH1+1);
-    memcpy(bufData, encryptStrArr1, ENCRYPT_BUFFER_LENGTH1);
 
-    /*
-    * dog_decrypt
-    *   decrypts a block of data which is encrypted
-    *   (minimum buffer size is 16 bytes)
-    */
-    status = dog_decrypt(hDog, bufData, ENCRYPT_BUFFER_LENGTH1);
+    status= dog_read(hDog,1,0,SOURCE_BUFFER_LENGTH1,bufData);
     if (DOG_STATUS_OK != status)
     {
-        SAFE_FREE(bufData);
-        dog_logout(hDog);
         return status;
-    }
-
-    //If source string length is less than 16, we need add 0 to the remained buffer
-    if(ENCRYPT_BUFFER_LENGTH1 > SOURCE_BUFFER_LENGTH1)
-    {
-        memset(bufData+SOURCE_BUFFER_LENGTH1, 0, ENCRYPT_BUFFER_LENGTH1-SOURCE_BUFFER_LENGTH1);
-    }
-
-    //Use the decrypted data do some operation
-    if(0 == isString1)
-    {
-       //  printf("The decrypted buffer data is below :\n");
-        dump(bufData, SOURCE_BUFFER_LENGTH1, "    ");
-    }
-    else
-    {
-        getStringValue(bufData);
-//        printf("The decrypted string is: \"%s\".\n", bufData);
     }
 
     retString=(const char*)bufData;
