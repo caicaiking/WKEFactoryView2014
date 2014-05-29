@@ -83,7 +83,8 @@ RESOURCES += \
     recFile/myRes.qrc
 
 OTHER_FILES += \
-    connections/ReadMe.txt
+    connections/ReadMe.txt \
+    AnalysisMode/ProgramDescription.txt
 DEFINES    += QT_DLL QWT_DLL
 
 CONFIG(debug,debug|release):LIBS+=-L $(QTDIR) -lqwtd

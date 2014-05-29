@@ -1,0 +1,9 @@
+这个是分析模式的程序说明
+    分析模式包括 frmWKEAnalysisMode 为主窗口，在这个主窗口里面用到了两个类 frmTraceSetup 和 WKEInstrument。
+
+    WKEInstrument 是一个虚类，可以通过它来切换不同的仪表。clsMeterFacotry 可以通过字符串，clsRS::getInst().instrumentModel,
+
+    MeasFactory 可以返回
+
+
+

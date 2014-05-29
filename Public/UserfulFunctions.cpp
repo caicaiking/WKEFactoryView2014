@@ -139,8 +139,8 @@ QList<double> UserfulFunctions::resultPro(const QString &resultString)
     {
         myReturn<< list.at(i).toDouble();
 
-        if(myReturn.at(i)==0.0)
-            myReturn.insert(i,999999999);
+//        if(myReturn.at(i)==0.0)
+//            myReturn.insert(i,999999999);
     }
     return myReturn;
 

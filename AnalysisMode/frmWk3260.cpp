@@ -154,6 +154,12 @@ bool frmWk3260::turnOnBias()
     {
         wk3260.biasValue.status="ON";
         clsRS::getInst().sendCommand(wk3260.biasValue.toGpib(":IMP"));
+        if(wk3260.biasValue.value<=1.0)
+            UserfulFunctions::sleepMs(2500);
+        else if(wk3260.biasValue.value<10)
+            UserfulFunctions::sleepMs(600);
+        else
+            UserfulFunctions::sleepMs(650);
         return queryBiasStatus();
     }
     else
@@ -165,7 +171,7 @@ bool frmWk3260::turnOnBias()
 QString frmWk3260::trig()
 {
     int i=0;
- RETEST:
+RETEST:
     QString meter=":IMP";
     QString gpibCmd =QString("%1:TRIG").arg(meter);
 
@@ -176,6 +182,7 @@ QString frmWk3260::trig()
         i++;
         goto RETEST;
     }
+    qDebug()<< ret;
     return ret+",";
 }
 
@@ -193,7 +200,7 @@ void frmWk3260::updateInstrument()
     wk3260.item.setItem(cmbFuction1->currentText(),
                         cmbFunction2->currentText());
 
-   // qDebug()<< cmbFunction2->currentText();
+    // qDebug()<< cmbFunction2->currentText();
     wk3260.speed.setValue(cmbSpeed->currentText());
 
     wk3260.equcct.setValue(cmbEqucct->currentText());
@@ -391,7 +398,7 @@ void frmWk3260::readSettings(WK3260 &wk)
 
     if(! settings.FileExit())
         return;
-      QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterMode);
+    QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterMode);
 
     settings.readSetting(strNode+"Equcct",wk.equcct.value);
     settings.readSetting(strNode+"LevelValue",wk.level.value);
