@@ -1,19 +1,19 @@
-#ifndef CLSGPIB_H
+ï»¿#ifndef CLSGPIB_H
 #define CLSGPIB_H
 #include "connections/clsConnection.h"
 
 /**
- *Õâ¸öÊÇÓÃÓÚGPIBÁ¬½ÓµÄÀàÆäÖÐ°üÀ¨ÁËGPIB³õÊ¼»¯£¬ÉèÖÃGPIBµØÖ·Ä¬ÈÏÊÇ6£¬·¢ËÍÃüÁîºÍ½â³ýÁ¬½Ó¡£
+ *è¿™ä¸ªæ˜¯ç”¨äºŽGPIBè¿žæŽ¥çš„ç±»å…¶ä¸­åŒ…æ‹¬äº†GPIBåˆå§‹åŒ–ï¼Œè®¾ç½®GPIBåœ°å€é»˜è®¤æ˜¯6ï¼Œå‘é€å‘½ä»¤å’Œè§£é™¤è¿žæŽ¥ã€‚
  *
- *Õâ¸öÀàÖ»ÄÜÁ¬½ÓÒ»Ì¨GPIBÉè±¸£¬¶àÓàÆäËûµÄGPIBÉè±¸²»ÄÜÊ¹ÓÃÕâ¸öÀàÀ´²Ù×÷¡£
+ *è¿™ä¸ªç±»åªèƒ½è¿žæŽ¥ä¸€å°GPIBè®¾å¤‡ï¼Œå¤šä½™å…¶ä»–çš„GPIBè®¾å¤‡ä¸èƒ½ä½¿ç”¨è¿™ä¸ªç±»æ¥æ“ä½œã€‚
  *
- *Õâ¸öGPIBÁ¬½ÓÀàÖ»ÄÜÓÃÓÚÁ¬½ÓWKµÄÒÇÆ÷Ê¹ÓÃ£¬ÒòÎªÀïÃæÏÞ¶¨ÁËÒÔ¡°WAYNE¡±¿ªÍ·µÄÒÇÆ÷Éè±¸·µ»ØµÄ×Ö·û´®¡£
+ *è¿™ä¸ªGPIBè¿žæŽ¥ç±»åªèƒ½ç”¨äºŽè¿žæŽ¥WKçš„ä»ªå™¨ä½¿ç”¨ï¼Œå› ä¸ºé‡Œé¢é™å®šäº†ä»¥â€œWAYNEâ€å¼€å¤´çš„ä»ªå™¨è®¾å¤‡è¿”å›žçš„å­—ç¬¦ä¸²ã€‚
  *
- *×÷Õß£º²ÌÍ¬ËÉ
+ *ä½œè€…ï¼šè”¡åŒæ¾
  *
- *°æ±¾£ºV1.0
+ *ç‰ˆæœ¬ï¼šV1.0
  *
- *Ê±¼ä£º2013-2-22
+ *æ—¶é—´ï¼š2013-2-22
  *
  *!*/
 
