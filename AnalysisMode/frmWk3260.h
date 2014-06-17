@@ -74,6 +74,7 @@ private:
 
     void readSettings(WK3260 &wk);
     void writeSettings(WK3260 wk);
+    QString getGpibMeter();
 };
 
 #endif // CLSWK3260_H

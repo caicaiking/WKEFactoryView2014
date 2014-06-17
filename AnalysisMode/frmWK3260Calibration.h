@@ -17,6 +17,7 @@ class frmWK3260Calibration : public QDialog, private Ui::frmWK3260Calibration
     void setCalNorm();
     void setCalBoost();
     QString showInformation(QString calType, int calRes);
+    QString getGpibMeter();
 public:
     explicit frmWK3260Calibration(QWidget *parent = 0);
 private slots:

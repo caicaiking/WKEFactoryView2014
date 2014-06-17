@@ -27,7 +27,7 @@ void frmWK3260Calibration::readSettings()
     QString strNode;
     clsSettings settings;
     QString strTemp;
-    strNode ="Calibration-3260/";
+    strNode =QString("Calibration-%1/").arg(clsRS::getInst().meterMode);
 
     settings.readSetting(strNode+"OpenNormLabel",strTemp);
     lblOpenNorm->setText(strTemp);
@@ -49,7 +49,7 @@ void frmWK3260Calibration::writeSettings()
     QString strNode;
 
     clsSettings settings;
-    strNode ="Calibration-3260/";
+    strNode =QString("Calibration-%1/").arg(clsRS::getInst().meterMode);
 
     settings.writeSetting(strNode+"OpenNormLabel",lblOpenNorm->text());
     settings.writeSetting(strNode+"ShortNormLabel",lblShortNorm->text());
@@ -103,7 +103,10 @@ void frmWK3260Calibration::on_btnOpenNorm_clicked()
     PopUpmessage(tr("请保持夹具开路状态"),tr("开路校准"));
     setCalNorm();
 
-    clsRS::getInst().sendCommand(":CAL:OC-TRIM-P 4");
+    if(clsRS::getInst().meterMode=="3260")
+        clsRS::getInst().sendCommand(":CAL:OC-TRIM-P 4");
+    else
+        clsRS::getInst().sendCommand(":CAL:OC-TRIM 2");
 
     this->showProgress(31);
 
@@ -125,21 +128,21 @@ void frmWK3260Calibration::switchToCalMode()
 
 void frmWK3260Calibration::switchToImpMode()
 {
-    clsRS::getInst().sendCommand(":IMP");
-    clsRS::getInst().sendCommand(":IMP:TEST:AC");
+    clsRS::getInst().sendCommand(getGpibMeter());
+    clsRS::getInst().sendCommand(getGpibMeter()+":TEST:AC");
 }
 
 void frmWK3260Calibration::setCalNorm()
 {
     switchToImpMode();
-    clsRS::getInst().sendCommand(":IMP:BIAS INT");
+    clsRS::getInst().sendCommand(getGpibMeter()+":BIAS INT");
     switchToCalMode();
 }
 
 void frmWK3260Calibration::setCalBoost()
 {
     switchToImpMode();
-    clsRS::getInst().sendCommand(":IMP:BIAS EEXT");
+    clsRS::getInst().sendCommand(getGpibMeter()+":BIAS EEXT");
     switchToCalMode();
 }
 
@@ -149,8 +152,10 @@ void frmWK3260Calibration::on_btnShortNorm_clicked()
     PopUpmessage(tr("请保持夹具短路状态"),tr("短路校准"));
     setCalNorm();
     UserfulFunctions::sleepMs(2000);
-    clsRS::getInst().sendCommand(":CAL:SC-TRIM-P 4");
-
+    if(clsRS::getInst().meterMode=="3260")
+        clsRS::getInst().sendCommand(":CAL:SC-TRIM-P 4");
+    else
+        clsRS::getInst().sendCommand(":CAL:SC-TRIM 2");
     this->showProgress(14);
 
     lblShortNorm->setText(showInformation(tr("短路"),getCalRes()));
@@ -160,7 +165,7 @@ void frmWK3260Calibration::on_btnShortNorm_clicked()
 
 void frmWK3260Calibration::on_btnHFNorm_clicked()
 {
-    PopUpmessage(tr("请连接高平校准器件"),tr("高频校准"));
+    PopUpmessage(tr("请连接高频校准器件"),tr("高频校准"));
     setCalNorm();
     UserfulFunctions::sleepMs(2000);
     clsRS::getInst().sendCommand(":CAL:HF-CAL");
@@ -175,8 +180,10 @@ void frmWK3260Calibration::on_btnOpenBoost_clicked()
     setCalBoost();
     UserfulFunctions::sleepMs(2000);
 
-    clsRS::getInst().sendCommand(":CAL:OC-TRIM-P 4");
-
+    if(clsRS::getInst().meterMode=="3260")
+        clsRS::getInst().sendCommand(":CAL:OC-TRIM-P 4");
+    else
+        clsRS::getInst().sendCommand(":CAL:OC-TRIM 2");
     this->showProgress(71);
 
     lblOpenBoost->setText(showInformation(tr("开路"),getCalRes()));
@@ -189,7 +196,11 @@ void frmWK3260Calibration::on_btnShortBoost_clicked()
     PopUpmessage(tr("请保持夹具短路状态"),tr("短路校准"));
     setCalBoost();
     UserfulFunctions::sleepMs(2000);
-    clsRS::getInst().sendCommand(":CAL:SC-TRIM-P 4");
+
+    if(clsRS::getInst().meterMode=="3260")
+        clsRS::getInst().sendCommand(":CAL:SC-TRIM-P 4");
+    else
+        clsRS::getInst().sendCommand(":CAL:SC-TRIM 2");
 
     this->showProgress(38);
 
@@ -207,4 +218,15 @@ void frmWK3260Calibration::on_btnHFBoost_clicked()
     this->showProgress(41);
     lblHFBoost->setText(showInformation(tr("高频"),getCalRes()));
     switchToImpMode();
+}
+QString frmWK3260Calibration::getGpibMeter()
+{
+    if(clsRS::getInst().meterMode=="3260")
+    {
+        return ":IMP";
+    }
+    else
+    {
+        return ":MEAS";
+    }
 }

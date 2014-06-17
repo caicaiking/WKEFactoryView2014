@@ -15,7 +15,7 @@ frmWk3260::frmWk3260(WKEInstrument *parent) :
     readSettings(this->wk3260);
     updateButtons();
 
-    QString Meter = ":IMP";
+    QString Meter = getGpibMeter();
     clsRS::getInst().sendCommand(Meter);
     clsRS::getInst().sendCommand(Meter+":TEST");
     clsRS::getInst().sendCommand(Meter+":TEST:AC");
@@ -32,7 +32,7 @@ void frmWk3260::setFrequency(double value)
     }
     else
     {
-        QString meter=":IMP";
+        QString meter=getGpibMeter();
         QString gpibCmd =QString("%1:FREQ %2;FREQ?").arg(meter).arg(QString::number(value));
 
         QString ret = clsRS::getInst().sendCommand(gpibCmd,true);
@@ -55,7 +55,7 @@ void frmWk3260::setSpeed(QString /*sp*/)
         QString ret = dlg->getSpeed();
         this->wk3260.speed.setValue(ret);
 
-        clsRS::getInst().sendCommand(wk3260.speed.toGpib(":IMP"));
+        clsRS::getInst().sendCommand(wk3260.speed.toGpib(getGpibMeter()));
         emit this->speedSignal(wk3260.speed.toText());
         saveSettings();
     }
@@ -78,7 +78,7 @@ void frmWk3260::setLevel(double value, QString unit)
         tmpValue =(tmpValue<getMinLevelV()?getMinLevelV():tmpValue);
         wk3260.level.setLevel(tmpValue,unit);
 
-        clsRS::getInst().sendCommand(wk3260.level.toGpib(":IMP"));
+        clsRS::getInst().sendCommand(wk3260.level.toGpib(getGpibMeter()));
         saveSettings();
 
     }
@@ -88,7 +88,7 @@ void frmWk3260::setLevel(double value, QString unit)
         tmpValue =(tmpValue<getMinLevelA()?getMinLevelA():tmpValue);
         wk3260.level.setLevel(tmpValue,unit);
 
-        clsRS::getInst().sendCommand(wk3260.level.toGpib(":IMP"));
+        clsRS::getInst().sendCommand(wk3260.level.toGpib(getGpibMeter()));
         saveSettings();
     }
     emit this->levelSignal(wk3260.level.toText());
@@ -98,8 +98,8 @@ void frmWk3260::setBias(double value, QString /*unit*/)
 {
     wk3260.biasValue.value= value;
 
-    clsRS::getInst().sendCommand(wk3260.biasValue.toGpib(":IMP"));
-    QString ret = clsRS::getInst().sendCommand(":IMP:BIAS?",true);
+    clsRS::getInst().sendCommand(wk3260.biasValue.toGpib(getGpibMeter()));
+    QString ret = clsRS::getInst().sendCommand(getGpibMeter()+":BIAS?",true);
     //qDebug()<<"Current BiasValue: "<<ret;
     wk3260.biasValue.value = ret.toDouble();
     emit this->biasValueSignal(wk3260.biasValue.toText(1));
@@ -139,7 +139,7 @@ bool frmWk3260::turnOffBias()
     if(queryBiasStatus())
     {
         wk3260.biasValue.status="OFF";
-        clsRS::getInst().sendCommand(wk3260.biasValue.toGpib(":IMP"));
+        clsRS::getInst().sendCommand(wk3260.biasValue.toGpib(getGpibMeter()));
         return queryBiasStatus();
     }
     else
@@ -153,7 +153,7 @@ bool frmWk3260::turnOnBias()
     if(!queryBiasStatus())
     {
         wk3260.biasValue.status="ON";
-        clsRS::getInst().sendCommand(wk3260.biasValue.toGpib(":IMP"));
+        clsRS::getInst().sendCommand(wk3260.biasValue.toGpib(getGpibMeter()));
         if(wk3260.biasValue.value<=1.0)
             UserfulFunctions::sleepMs(2500);
         else if(wk3260.biasValue.value<10)
@@ -172,7 +172,7 @@ QString frmWk3260::trig()
 {
     int i=0;
 RETEST:
-    QString meter=":IMP";
+    QString meter=getGpibMeter();
     QString gpibCmd =QString("%1:TRIG").arg(meter);
 
 
@@ -195,7 +195,7 @@ void frmWk3260::calibration()
 
 void frmWk3260::updateInstrument()
 {
-    QString meter =":IMP";
+    QString meter =getGpibMeter();
 
     wk3260.item.setItem(cmbFuction1->currentText(),
                         cmbFunction2->currentText());
@@ -286,6 +286,18 @@ double frmWk3260::getMinLevelV()
 
 double frmWk3260::getMaxFrequency()
 {
+    if(clsRS::getInst().meterMode=="3260")
+    return 3000000;
+
+    if(clsRS::getInst().meterMode=="3255" && clsRS::getInst().instrumentModel.contains("BQ"))
+        return 1000000;
+
+    if(clsRS::getInst().meterMode=="3255" && clsRS::getInst().instrumentModel.contains("BL"))
+        return 200000;
+
+    if(clsRS::getInst().meterMode=="3255" && clsRS::getInst().instrumentModel.contains("B"))
+        return 500000;
+
     return 3000000;
 }
 
@@ -384,7 +396,12 @@ void frmWk3260::on_btnFrequency_clicked()
 
     if(input->exec() ==QDialog::Accepted)
     {
-        wk3260.freq.setValue(input->getNumber());
+        double value = input->getNumber();
+
+        value = (value>getMaxFrequency()? getMaxFrequency(): value);
+        value =(value<getMinFrequency()?getMinFrequency():value);
+
+        wk3260.freq.setValue(value);
         btnFrequency->setText(wk3260.freq.toText());
     }
 }
@@ -465,7 +482,7 @@ void frmWk3260::setCmbboxSelected(QComboBox *cmb, QString tmp)
 
 bool frmWk3260::queryBiasStatus()
 {
-    QString meter =":IMP";
+    QString meter =getGpibMeter();
     QString gpibCmd = QString("%1:BIAS-STAT?").arg(meter);
 
     QString ret = clsRS::getInst().sendCommand(gpibCmd,true);
@@ -544,3 +561,14 @@ void frmWk3260::on_btnBiasOnOFF_clicked()
     }
 }
 
+QString frmWk3260::getGpibMeter()
+{
+    if(clsRS::getInst().meterMode=="3260")
+    {
+        return ":IMP";
+    }
+    else
+    {
+        return ":MEAS";
+    }
+}

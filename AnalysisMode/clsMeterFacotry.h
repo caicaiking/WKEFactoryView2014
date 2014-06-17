@@ -19,6 +19,9 @@ public:
 
         if(meterType =="3260")
             return new frmWk3260();
+
+        if(meterType =="3255")
+            return new frmWk3260();
         return (WKEInstrument *)0;
     }
 };
