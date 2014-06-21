@@ -76,7 +76,8 @@ SOURCES +=\
     common/frmAbout.cpp \
     saftyDog/DogControl.cpp \
     saftyDog/clsDog.cpp \
-    AnalysisMode/frmPeakSearch.cpp
+    AnalysisMode/frmPeakSearch.cpp \
+    MeterMode/testLimits.cpp
 
 
 RESOURCES += \
@@ -161,7 +162,8 @@ HEADERS += \
     saftyDog/clsDog.h \
     saftyDog/dog_api.h \
     saftyDog/dog_vcode.h \
-    AnalysisMode/frmPeakSearch.h
+    AnalysisMode/frmPeakSearch.h \
+    MeterMode/testLimits.h
 
 FORMS += \
     common/frmSelectConnection.ui \
@@ -190,6 +192,7 @@ FORMS += \
     AnalysisMode/frmWK3260Calibration.ui \
     AnalysisMode/frmParameter.ui \
     common/frmAbout.ui \
-    AnalysisMode/frmPeakSearch.ui
+    AnalysisMode/frmPeakSearch.ui \
+    MeterMode/testLimits.ui
 
-TRANSLATIONS =GpibDemo.ts
+TRANSLATIONS =WKEFV.ts

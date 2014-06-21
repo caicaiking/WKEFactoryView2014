@@ -35,6 +35,10 @@ private slots:
     void on_btnPerHi_clicked();
     void on_btnPerLo_clicked();
 
+    void on_btnOk_clicked();
+
+    void on_btnCancel_clicked();
+
 private:
     clsMeterLimit m1;
     QString item;

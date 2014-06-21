@@ -32,5 +32,6 @@
         <file>Icons/version.txt</file>
         <file>Icons/wk.ico</file>
         <file>Icons/Peak.png</file>
+        <file>Icons/WKEFV.qm</file>
     </qresource>
 </RCC>

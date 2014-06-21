@@ -1,5 +1,7 @@
 #include "clsMeterLimit.h"
 #include <QStringList>
+#include "doubleType.h"
+
 clsMeterLimit::clsMeterLimit()
 {
     limitType="Norm";
@@ -55,6 +57,8 @@ double clsMeterLimit::getAbsLimitLow()
     }
 }
 
+
+
 QString clsMeterLimit::toString()
 {
     return QString("%1,%2,%3,%4,%5,%6")
@@ -67,6 +71,7 @@ QString clsMeterLimit::toString()
 }
 
 //"Per,100,10,100,5,-5"
+//"Norm,100,10,100,5,-5"
 void clsMeterLimit::setString(QString value)
 {
     QStringList values = value.split(",");
@@ -137,7 +142,93 @@ void clsMeterLimit::setLimitType(const QString &value)
     limitType = value;
 }
 
+bool clsMeterLimit::comparaValue(double value,QString &type)
+{
+    if(limitType=="Norm")
+    {
+        if(absHi==0 && absLo==0)
+            return true;
 
+        if(absHi< value)
+        {
+            type="Hi";
+            return false;
+        }
+
+        if(absLo>value)
+        {
+            type="Lo";
+            return false;
+        }
+
+        return true;
+    }
+    else
+    {
+        double hi,lo;
+        hi = this->norminal*(1+perHi/100.0);
+        lo = this->norminal*(1+perLo/100.0);
+
+        if(hi==0 && lo==0)
+            return true;
+
+        if(hi< value)
+        {
+            type="Hi";
+            return false;
+        }
+
+        if(lo>value)
+        {
+            type="Lo";
+            return false;
+        }
+        return true;
+    }
+}
+
+QString clsMeterLimit::showLimits(QString suffix)
+{
+    QString tmp;
+    doubleType dt;
+
+    if(this->limitType=="Norm")
+    {
+        dt.setData(this->absHi,"");
+        tmp.append(QObject::tr("上限："));
+        tmp.append(dt.formateToString(6));
+        tmp.append(suffix);
+        tmp.append("\n");
+        tmp.append(QObject::tr("下限："));
+        dt.setData(this->absLo,"");
+        tmp.append(dt.formateToString(6));
+        tmp.append(suffix);
+    }
+    else
+    {
+        dt.setData(this->norminal,"");
+        QString nor=dt.formateToString(6);
+        dt.setData(this->perHi,"");
+        QString pH = dt.formateWithUnit("",5)+"%";
+        dt.setData(this->perLo,"");
+        QString lH = dt.formateWithUnit("",5)+"%";
+        QString tmp2=QObject::tr(
+                    "<table border=\"0\"  valign=\"middle\">"
+                    "<tr>"
+                    "<th rowspan=\"2\">%1%2</th>"
+                    "<td>%3</td>"
+                    "</tr>"
+                    "<tr>"
+                    "<td>%4</td>"
+                    "</tr>"
+                    "</table>")
+                .arg(nor).arg(suffix).arg(pH).arg(lH);
+
+        return tmp2;
+    }
+
+    return tmp;
+}
 
 
 

@@ -8,6 +8,8 @@
 #include "frmWKEAnalysisMode.h"
 #include "frmPointEditor.h"
 #include "Globle.h"
+#include <QTranslator>
+#include "testLimits.h"
 //#include "frmWKEMeterMode.h"
 #include "clsDog.h"
 int main(int argc, char *argv[])
@@ -17,6 +19,20 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForLocale(code);
     QTextCodec::setCodecForTr(code);
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+
+//    QTranslator translator;
+//    bool ok=   translator.load(":/Icons/WKEFV.qm");
+//    a.installTranslator(&translator);
+//    qDebug()<< ok;
+
+    //test begin
+
+//    testLimits w1;
+//    w1.show();
+//    return a.exec();
+
+    //for test
+
     QPixmap pixmap(":/Icons/splashScreen.png");
     QSplashScreen splash(pixmap);
     splash.show();
@@ -27,6 +43,9 @@ int main(int argc, char *argv[])
     UserfulFunctions::sleepMs(500);
     frmSelectConnection w;
     splash.finish(&w);
+
+
+
 
     QString strProductName;
     if((!clsDog::getName(strProductName))|| (strProductName !="WKE FactoryView 2014"))

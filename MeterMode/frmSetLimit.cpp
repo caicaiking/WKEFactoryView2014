@@ -216,3 +216,13 @@ void frmSetLimit::on_btnPerLo_clicked()
         updateButtons();
     }
 }
+
+void frmSetLimit::on_btnOk_clicked()
+{
+    this->accept();
+}
+
+void frmSetLimit::on_btnCancel_clicked()
+{
+    this->reject();
+}
