@@ -7,6 +7,7 @@
 #include <QDebug>
 #include "UserfulFunctions.h"
 #include "Globle.h"
+#include "clsDog.h"
 wkResonaceMode::wkResonaceMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -27,6 +28,24 @@ wkResonaceMode::wkResonaceMode(QWidget *parent) :
     lblLimitFafr->setText(m2.showLimits("Hz"));
     lblStatus->setStatus(IDEL);
 
+    thread = new clsSignalThread(this);
+    connect(thread,SIGNAL(initOk()),this,SLOT(threadInfo()));
+    connect(thread,SIGNAL(trigCaptured()),this,SLOT(trig()));
+    thread->start(QThread::HighPriority);
+}
+
+
+void wkResonaceMode::threadInfo()
+{
+   this->lblControlBox->setText(tr("消息：控制盒已连接！"));
+}
+
+void wkResonaceMode::trig()
+{
+    if(btnSearch->isEnabled())
+    {
+        btnSearch->click();
+    }
 }
 
 void wkResonaceMode::updateBtn()
@@ -40,6 +59,14 @@ void wkResonaceMode::updateBtn()
     dt.setData(resStop,"");
     btnStop->setText(dt.formateToString()+"Hz");
     resTypeChanged(resEqucct);
+}
+
+void wkResonaceMode::closeEvent(QCloseEvent *e)
+{
+    thread->stop();
+    UserfulFunctions::sleepMs(10);
+
+    e->accept();
 }
 
 
@@ -167,6 +194,12 @@ void wkResonaceMode::on_btnPreSearch_clicked()
 
 void wkResonaceMode::on_btnSearch_clicked()
 {
+    QString strProductName;
+    if((!clsDog::getName(strProductName))|| (strProductName !="WKE FactoryView 2014"))
+    {
+        QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
+        return;
+    }
     QTime t1 = QTime::currentTime();
     btnSearch->setEnabled(false);
     lblStatus->setStatus(BUSY);

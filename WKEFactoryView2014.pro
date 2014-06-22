@@ -23,7 +23,8 @@ TARGET = WKEFactoryView2014
 TEMPLATE = app
 
 LIBS    += gpib488.obj \
-        visa.lib
+           visa.lib \
+           AduHid.lib
 
 
 SOURCES +=\
@@ -82,7 +83,9 @@ SOURCES +=\
     ResonaceMode/wkResonaceMode.cpp \
     ResonaceMode/frmResoType.cpp \
     ResonaceMode/cls6500ResonaceMode.cpp \
-    ResonaceMode/StatusLabel.cpp
+    ResonaceMode/StatusLabel.cpp \
+    ResonaceMode/clsControlBox.cpp \
+    ResonaceMode/clsSignalThread.cpp
 
 
 RESOURCES += \
@@ -173,7 +176,10 @@ HEADERS += \
     ResonaceMode/frmResoType.h \
     ResonaceMode/clsResonaceMode.h \
     ResonaceMode/cls6500ResonaceMode.h \
-    ResonaceMode/StatusLabel.h
+    ResonaceMode/StatusLabel.h \
+    ResonaceMode/AduHid.h \
+    ResonaceMode/clsControlBox.h \
+    ResonaceMode/clsSignalThread.h
 
 FORMS += \
     common/frmSelectConnection.ui \

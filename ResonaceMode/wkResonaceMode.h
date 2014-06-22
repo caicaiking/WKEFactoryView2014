@@ -5,35 +5,30 @@
 #include "clsResonaceMode.h"
 #include "clsMeterLimit.h"
 #include "frmSetLimit.h"
+#include "clsSignalThread.h"
 class wkResonaceMode : public QMainWindow, private Ui::wkResonaceMode
 {
     Q_OBJECT
 
 public:
     explicit wkResonaceMode(QWidget *parent = 0);
+
 private slots:
 
     void on_chkCp_toggled(bool checked);
     void on_btnEqucct_clicked();
-
     void on_btnSpeed_clicked();
-
     void resTypeChanged(const QString &value);
     void on_btnDepth_clicked();
-
     void on_btnStart_clicked();
-
     void on_btnStop_clicked();
-
     void on_btnPreSearch_clicked();
-
     void on_btnSearch_clicked();
-
     void setLimit();
     void setLimitFafr();
-
     void on_btnShowSetup_clicked();
-
+    void threadInfo();
+    void trig();
 private:
     QString resEqucct;
     QString resSpeed;
@@ -48,6 +43,10 @@ private:
 
     bool status;
 
+    clsSignalThread *thread;
+
+protected:
+    void closeEvent(QCloseEvent *e);
 };
 
 #endif // WKRESONACEMODE_H
