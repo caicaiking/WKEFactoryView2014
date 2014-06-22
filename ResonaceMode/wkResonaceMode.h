@@ -29,6 +29,8 @@ private slots:
     void on_btnShowSetup_clicked();
     void threadInfo();
     void trig();
+    void on_btnExit_clicked();
+
 private:
     QString resEqucct;
     QString resSpeed;

@@ -288,3 +288,8 @@ void wkResonaceMode::on_btnShowSetup_clicked()
         btnShowSetup->setText(tr("隐藏\n设置"));
     }
 }
+
+void wkResonaceMode::on_btnExit_clicked()
+{
+    this->close();
+}
