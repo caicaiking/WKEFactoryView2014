@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>319</width>
+    <width>340</width>
     <height>190</height>
    </rect>
   </property>
@@ -89,6 +89,25 @@
         </property>
         <property name="text">
          <string>分析模式(&amp;S)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnRansonace">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>谐振模式（&amp;R）</string>
         </property>
        </widget>
       </item>

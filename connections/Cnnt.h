@@ -16,7 +16,7 @@ public:
     void setConnectionAddress(QString strAddress);
     bool setUpConnection();
     bool setUpConnection(QString connectionType, QString strAddress);
-    QString sendCommand(QString command, bool hasReturn);
+    QString sendCommand(QString command, bool hasReturn,int delay =5);
     bool QueryConnectionStatus(){return isConnectionInit;}
 
     void disConnectInstrument();

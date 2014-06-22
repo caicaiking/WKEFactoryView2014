@@ -42,7 +42,7 @@ public:
        return cont->init();
     }
 
-    QString sendCommand(QString strCommnad, bool hasReturn=false)
+    QString sendCommand(QString strCommnad, bool hasReturn, int delay=0)
     {
         if(!blInit)
             return "";
@@ -55,11 +55,9 @@ public:
         if(isLocked)
         {
             lock.unlock();
-            strReturn= cont->sendCommand(strCommnad,hasReturn);
+            strReturn= cont->sendCommand(strCommnad,hasReturn,delay);
         }
         mutex.unlock();
-
-
         mutex.unlock();
         return strReturn;
     }
@@ -174,7 +172,12 @@ void clsRS::disConnect()
 
 QString clsRS::sendCommand(QString strCommand, bool hasReturn)
 {
-    return  data->sendCommand(strCommand,hasReturn);
+    return  data->sendCommand(strCommand,hasReturn,0);
+}
+
+QString clsRS::sendCommand(QString strCommand, bool hasReturn, int delayTime)
+{
+    return  data->sendCommand(strCommand,hasReturn,delayTime);
 }
 
 bool clsRS::isConnectionInit()

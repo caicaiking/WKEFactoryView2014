@@ -58,7 +58,7 @@ void clsLan::setAddress(QString address)
 
 }
 
-QString clsLan::sendCommand(QString strCommand, bool hasReturn)
+QString clsLan::sendCommand(QString strCommand, bool hasReturn, int waitDaly)
 {
 
     if(!blInit)
@@ -89,8 +89,11 @@ QString clsLan::sendCommand(QString strCommand, bool hasReturn)
     if(this->intPort==WK4300PORT && (!hasReturn))
         return "";
 
-    socket->waitForReadyRead(5000);
-
+    // qDebug()<<"wait delay: "<< waitDaly;
+    if(waitDaly==0)
+        socket->waitForReadyRead(2*1000);
+    else
+        socket->waitForReadyRead(waitDaly*1000);
     qApp->processEvents();
     char buff[200];
     int byte= socket->readLine(buff,200);

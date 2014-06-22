@@ -14,7 +14,8 @@ INCLUDEPATH +=connections \
              AnalysisMode \
              Public \
              MeterMode \
-             saftyDog
+             saftyDog \
+             ResonaceMode
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -77,7 +78,11 @@ SOURCES +=\
     saftyDog/DogControl.cpp \
     saftyDog/clsDog.cpp \
     AnalysisMode/frmPeakSearch.cpp \
-    MeterMode/testLimits.cpp
+    MeterMode/testLimits.cpp \
+    ResonaceMode/wkResonaceMode.cpp \
+    ResonaceMode/frmResoType.cpp \
+    ResonaceMode/cls6500ResonaceMode.cpp \
+    ResonaceMode/StatusLabel.cpp
 
 
 RESOURCES += \
@@ -163,7 +168,12 @@ HEADERS += \
     saftyDog/dog_api.h \
     saftyDog/dog_vcode.h \
     AnalysisMode/frmPeakSearch.h \
-    MeterMode/testLimits.h
+    MeterMode/testLimits.h \
+    ResonaceMode/wkResonaceMode.h \
+    ResonaceMode/frmResoType.h \
+    ResonaceMode/clsResonaceMode.h \
+    ResonaceMode/cls6500ResonaceMode.h \
+    ResonaceMode/StatusLabel.h
 
 FORMS += \
     common/frmSelectConnection.ui \
@@ -193,6 +203,8 @@ FORMS += \
     AnalysisMode/frmParameter.ui \
     common/frmAbout.ui \
     AnalysisMode/frmPeakSearch.ui \
-    MeterMode/testLimits.ui
+    MeterMode/testLimits.ui \
+    ResonaceMode/wkResonaceMode.ui \
+    ResonaceMode/frmResoType.ui
 
 TRANSLATIONS =WKEFV.ts

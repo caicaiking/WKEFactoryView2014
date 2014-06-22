@@ -11,7 +11,7 @@ public:
     clsLan();
     bool init();
     void setAddress(QString address);
-    QString sendCommand(QString strCommand, bool hasReturn=false);
+    QString sendCommand(QString strCommand, bool hasReturn=false, int waitDaly=0);
     void disConnect();
 
     void sleep(unsigned int msec);

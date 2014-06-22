@@ -46,10 +46,10 @@ bool Cnnt::setUpConnection(QString connectionType, QString strAddress)
 }
 
 /*发送GPIB指令并读取返回值*/
-QString Cnnt::sendCommand(QString command, bool hasReturn)
+QString Cnnt::sendCommand(QString command, bool hasReturn, int delay)
 {
     if(isConnectionInit)
-        return cnt->sendCommand(command,hasReturn);
+        return cnt->sendCommand(command,hasReturn,delay);
     else
     {
         qDebug()<<"The connection does't setup correctly!";

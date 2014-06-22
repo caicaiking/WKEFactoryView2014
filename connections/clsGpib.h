@@ -24,7 +24,7 @@ public:
     clsGpib();
     bool init();
     void setAddress(QString address);
-    QString sendCommand(QString strCommand, bool hasReturn=false);
+    QString sendCommand(QString strCommand, bool hasReturn=false, int waitDelay=0);
     void disConnect();
 private:
     bool blInit;

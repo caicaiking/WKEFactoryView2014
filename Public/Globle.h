@@ -11,6 +11,10 @@ enum SweepType
     Time=0,Frequency=1,BiasV=2,BiasA=3,levelV=4,levelA=5
 };
 
+enum Status {
+    BUSY=0,PASS=1,FAIL=2,IDEL=3
+};
+
 /*!
 
 */

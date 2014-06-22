@@ -10,6 +10,7 @@
 #include "Globle.h"
 #include <QTranslator>
 #include "testLimits.h"
+#include "wkResonaceMode.h"
 //#include "frmWKEMeterMode.h"
 #include "clsDog.h"
 int main(int argc, char *argv[])
@@ -68,7 +69,12 @@ int main(int argc, char *argv[])
             meter.show();*/
             return a.exec();
         }
-
+        else if(w.getMode()==Resonace)
+        {
+            wkResonaceMode resonace;
+            resonace.show();
+            return a.exec();
+        }
     }
     else
         return 0;

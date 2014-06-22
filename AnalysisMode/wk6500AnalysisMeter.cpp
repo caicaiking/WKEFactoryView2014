@@ -93,7 +93,7 @@ void wk6500AnalysisMeter::setBias(double value, QString unit)
         QString retBiasType=clsRS::getInst().sendCommand(meter+"BIAS-TYPE?;",true);
 
         if(retBiasType.toDouble()!=1)
-           clsRS::getInst().sendCommand(meter+"BIAS-TYPE "+"VOL"+";",false);
+            clsRS::getInst().sendCommand(meter+"BIAS-TYPE "+"VOL"+";",false);
 
         biasVValue=value;
         gpibCmd.append(meter+"BIAS "+QString::number(biasVValue)+";");
@@ -104,7 +104,7 @@ void wk6500AnalysisMeter::setBias(double value, QString unit)
         QString retBiasType=clsRS::getInst().sendCommand(meter+"BIAS-TYPE?;",true);
 
         if(retBiasType.toDouble()!=0)
-           clsRS::getInst().sendCommand(meter+"BIAS-TYPE "+"CUR"+";",false);
+            clsRS::getInst().sendCommand(meter+"BIAS-TYPE "+"CUR"+";",false);
 
         biasAValue = value;
         gpibCmd.append(meter+"BIAS "+QString::number(biasAValue)+";");
@@ -173,18 +173,18 @@ void wk6500AnalysisMeter::updateButtons()
 
     if(levelType=="V")
     {
-         dt.setData(levelVValue,"");
+        dt.setData(levelVValue,"");
     }
     else
     {
-          dt.setData(levelAValue,"");
+        dt.setData(levelAValue,"");
     }
 
     btnLevel->setText(dt.formateToString(6)+levelType);
 
     QString strBiasStatus;
     strBiasStatus=(biasONOFF?tr("开"):tr("关"));
-     btnBiasStatus->setText(strBiasStatus);
+    btnBiasStatus->setText(strBiasStatus);
     btnBiasType->setText(biasType);
 
     if(biasType==tr("电压"))
@@ -699,6 +699,9 @@ bool wk6500AnalysisMeter::queryBiasStatus()
     QString gpibCmd="";
     gpibCmd.append(meter+"BIAS-STAT?");
     QString strRes=clsRS::getInst().sendCommand(gpibCmd,true);
+    strRes=clsRS::getInst().sendCommand(gpibCmd,true);
+    strRes=clsRS::getInst().sendCommand(gpibCmd,true);
+   // qDebug()<< "bias status"<< strRes;
     bool ok;
     int res=strRes.toDouble(&ok);
 

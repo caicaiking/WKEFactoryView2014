@@ -22,6 +22,7 @@ public:
     bool initConnection();
     void disConnect();
     QString sendCommand(QString strCommand, bool hasReturn = false);
+    QString sendCommand(QString strCommand, bool hasReturn, int delayTime);
     bool isConnectionInit();
     //**********************************在这儿可以添加想添加的内容
     void lock();

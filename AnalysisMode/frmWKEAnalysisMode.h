@@ -70,6 +70,9 @@ private:
 
 
     bool checkDog();
+
+protected:
+    void closeEvent(QCloseEvent *e);
 };
 
 #endif // FRMWKEANALYSISMODE_H

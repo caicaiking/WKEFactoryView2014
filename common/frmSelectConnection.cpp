@@ -10,6 +10,7 @@ frmSelectConnection::frmSelectConnection(QWidget *parent) :
     this->btnAnalysis->setEnabled(false);
     this->btnMeter->setEnabled(false);
     this->btnMeter->setVisible(false);
+    this->btnRansonace->setVisible(false);
     intSelect=0;
 
     readSettings();
@@ -104,6 +105,8 @@ void frmSelectConnection::on_btnTest_clicked()
 
         qDebug()<< "Instrument mode: "<<clsRS::getInst().meterMode;
 
+
+
     }
 
 ToHere:
@@ -118,6 +121,12 @@ void frmSelectConnection::buttonOp(bool value)
     grpConnection->setEnabled(!value);
     btnAnalysis->setEnabled(value);
     btnMeter->setEnabled(value);
+
+    if(clsRS::getInst().meterMode=="6500")
+    {
+        btnRansonace->setVisible(true);
+    }
+
 }
 
 void frmSelectConnection::writeSttings()
@@ -227,5 +236,11 @@ void frmSelectConnection::on_btnAnalysis_clicked()
 void frmSelectConnection::on_btnMeter_clicked()
 {
     this->mode =Meter;
+    this->accept();
+}
+
+void frmSelectConnection::on_btnRansonace_clicked()
+{
+    this->mode = Resonace;
     this->accept();
 }

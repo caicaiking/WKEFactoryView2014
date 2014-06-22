@@ -370,6 +370,15 @@ bool frmWKEAnalysisMode::checkDog()
     return true;
 }
 
+void frmWKEAnalysisMode::closeEvent(QCloseEvent *e)
+{
+    meas->stop();
+    meter->turnOffBias();
+
+    qApp->processEvents();
+    e->accept();
+}
+
 void frmWKEAnalysisMode::on_btnTrig_clicked()
 {
     // qDebug()<< "Iam in trig mode";
@@ -408,12 +417,11 @@ void frmWKEAnalysisMode::on_btnTrig_clicked()
         btnTrig->setText(tr("开始\n测试"));
         btnTrig->setIcon(QIcon(":/Icons/single.png"));
         meas->stop();
-
         btnRep->setEnabled(true);
     }
     progressBar->setVisible(false);
     //安全起见，请关闭Bias。
-    //meter->turnOffBias();
+    meter->turnOffBias();
     gs.points = frmPointEditor::rmvPP(gs.points);
     frmTraceSetup::writeSettings(gs);
 

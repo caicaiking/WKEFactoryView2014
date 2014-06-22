@@ -146,18 +146,17 @@ bool clsMeterLimit::comparaValue(double value,QString &type)
 {
     if(limitType=="Norm")
     {
-        if(absHi==0 && absLo==0)
+        if(absHi==0.0 && absLo==0.0)
             return true;
-
-        if(absHi< value)
-        {
-            type="Hi";
-            return false;
-        }
 
         if(absLo>value)
         {
             type="Lo";
+            return false;
+        }
+        if(absHi< value)
+        {
+            type="Hi";
             return false;
         }
 
@@ -169,7 +168,7 @@ bool clsMeterLimit::comparaValue(double value,QString &type)
         hi = this->norminal*(1+perHi/100.0);
         lo = this->norminal*(1+perLo/100.0);
 
-        if(hi==0 && lo==0)
+        if(hi==0.0 && lo==0.0)
             return true;
 
         if(hi< value)
