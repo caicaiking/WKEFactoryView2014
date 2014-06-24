@@ -1,19 +1,20 @@
-#ifndef wk4300AnalysisMeter_H
-#define wk4300AnalysisMeter_H
+#ifndef WK6440ANALYSISMETER_H
+#define WK6440ANALYSISMETER_H
 
-#include "ui_wk4300AnalysisMeter.h"
-#include <QWidget>
+#include "ui_wk6440AnalysisMeter.h"
 #include "WKEInstrument.h"
-class wk4300AnalysisMeter :  public WKEInstrument, private Ui::wk4300AnalysisMeter
+class wk6440AnalysisMeter : public WKEInstrument, private Ui::wk6440AnalysisMeter
 {
     Q_OBJECT
 
 public:
-    explicit wk4300AnalysisMeter(WKEInstrument *parent = 0);
+    explicit wk6440AnalysisMeter(WKEInstrument *parent = 0);
+
+
     void setFrequency(double value);
-    void setSpeed(QString sp);
+    void setSpeed(QString);
     void setLevel(double value, QString unit);
-    void setBias(double value, QString unit);
+    void setBias(double, QString);
     void getFrequency(double * value);
     void getLevel(double *value, QString *unit);
     void getBias(double *value, QString *unit);
@@ -50,41 +51,49 @@ signals:
     void biasValueSignal(QString);          //返回Bias的值
 
 private slots:
+
+
     void on_btnOk_clicked();
-    void on_btnBiasStatus_clicked();
-    void on_btnEqucct_clicked();
-    void on_btnRange_clicked();
+
+    void on_btnCancel_clicked();
+
     void on_btnItem1_clicked();
+
     void on_btnItem2_clicked();
-    void on_btnFrequency_clicked();
-    void on_btnLevel_clicked();
+
+    void on_btnEqucct_clicked();
+
+    void on_btnRange_clicked();
+
     void on_btnSpeed_clicked();
+
+    void on_btnFrequency_clicked();
+
+    void on_btnLevel_clicked();
+
     void on_btnBiasSource_clicked();
-    void on_btnCacel_clicked();
+
+    void on_btnBiasStatus_clicked();
 
 private:
     QString item1;
     QString item2;
-    QString equcct;
     QString range;
+    QString speed;
     double frequency;
-
-    double levelAValue;
     double levelVValue;
+    double levelAValue;
     QString levelType;
 
-
-    double biasAValue;
     double biasVValue;
+    double biasAValue;
     QString biasType;
     bool biasONOFF;
-
-    QString Speed;
+    QString equcct;
 
     bool queryBiasStatus();
     double getMaxFrequency1(QString value);
     void updateButtons();
-
 };
 
-#endif // wk4300AnalysisMeter_H
+#endif // WK6440ANALYSISMETER_H

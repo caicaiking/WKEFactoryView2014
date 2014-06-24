@@ -19,7 +19,7 @@ class WKEInstrument : public QDialog
 {
     Q_OBJECT
 public:
-    explicit WKEInstrument(QWidget *parent = 0);
+    explicit WKEInstrument(QDialog *parent = 0);
 
     virtual void setFrequency(double value)=0;  //设定频率
     virtual void setSpeed(QString sp)=0;        //设定速度

@@ -223,31 +223,44 @@
     <name>QObject</name>
     <message>
         <location filename="AnalysisMode/WK3260.h" line="120"/>
+        <location filename="ResonaceMode/cls6500ResonaceMode.cpp" line="21"/>
+        <location filename="ResonaceMode/cls6500ResonaceMode.cpp" line="115"/>
+        <location filename="ResonaceMode/cls6500ResonaceMode.cpp" line="130"/>
         <source>æå¿«</source>
         <translation>Max</translation>
     </message>
     <message>
         <location filename="AnalysisMode/WK3260.h" line="122"/>
+        <location filename="ResonaceMode/cls6500ResonaceMode.cpp" line="25"/>
+        <location filename="ResonaceMode/cls6500ResonaceMode.cpp" line="118"/>
         <source>å¿«é</source>
         <translation>Fast</translation>
     </message>
     <message>
         <location filename="AnalysisMode/WK3260.h" line="124"/>
+        <location filename="ResonaceMode/cls6500ResonaceMode.cpp" line="29"/>
+        <location filename="ResonaceMode/cls6500ResonaceMode.cpp" line="121"/>
         <source>ä¸­é</source>
         <translation>Med</translation>
     </message>
     <message>
         <location filename="AnalysisMode/WK3260.h" line="126"/>
+        <location filename="ResonaceMode/cls6500ResonaceMode.cpp" line="33"/>
+        <location filename="ResonaceMode/cls6500ResonaceMode.cpp" line="124"/>
         <source>æ¢é</source>
         <translation>Slow</translation>
     </message>
     <message>
         <location filename="AnalysisMode/WK3260.h" line="157"/>
+        <location filename="ResonaceMode/cls6500ResonaceMode.cpp" line="50"/>
+        <location filename="ResonaceMode/cls6500ResonaceMode.cpp" line="159"/>
         <source>ä¸²è</source>
         <translation>Series</translation>
     </message>
     <message>
         <location filename="AnalysisMode/WK3260.h" line="159"/>
+        <location filename="ResonaceMode/cls6500ResonaceMode.cpp" line="54"/>
+        <location filename="ResonaceMode/cls6500ResonaceMode.cpp" line="162"/>
         <source>å¹¶è</source>
         <translation>Parallel</translation>
     </message>
@@ -263,13 +276,15 @@
     </message>
     <message>
         <location filename="AnalysisMode/frmWKEAnalysisMode.cpp" line="367"/>
-        <location filename="common/main.cpp" line="41"/>
+        <location filename="ResonaceMode/wkResonaceMode.cpp" line="200"/>
+        <location filename="common/main.cpp" line="54"/>
         <source>WKE FactoryView 2014</source>
         <translation></translation>
     </message>
     <message>
         <location filename="AnalysisMode/frmWKEAnalysisMode.cpp" line="367"/>
-        <location filename="common/main.cpp" line="41"/>
+        <location filename="ResonaceMode/wkResonaceMode.cpp" line="200"/>
+        <location filename="common/main.cpp" line="54"/>
         <source>è¯·æå¥å å¯çï¼</source>
         <translation>Please insert the dongle!</translation>
     </message>
@@ -370,9 +385,55 @@
         <translation>Dissipation Factor</translation>
     </message>
     <message>
-        <location filename="common/main.cpp" line="31"/>
+        <location filename="common/main.cpp" line="41"/>
         <source>æ­£å¨åå§åæµè¯çªå£ï¼è¯·ç¨ç­...</source>
         <translation>Test window is initializing, please wait ...</translation>
+    </message>
+    <message>
+        <location filename="MeterMode/clsMeterLimit.cpp" line="197"/>
+        <source>ä¸éï¼</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="MeterMode/clsMeterLimit.cpp" line="201"/>
+        <source>ä¸éï¼</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="MeterMode/clsMeterLimit.cpp" line="214"/>
+        <source>&lt;table border=&quot;0&quot;  valign=&quot;middle&quot;&gt;&lt;tr&gt;&lt;th rowspan=&quot;2&quot;&gt;%1%2&lt;/th&gt;&lt;td&gt;%3&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;%4&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/cls6500ResonaceMode.cpp" line="58"/>
+        <location filename="ResonaceMode/cls6500ResonaceMode.cpp" line="165"/>
+        <source>æ¶ä½è°æ¯å¨</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/StatusLabel.cpp" line="13"/>
+        <source>å¿ç¢</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StatusLabel</name>
+    <message>
+        <location filename="ResonaceMode/StatusLabel.cpp" line="17"/>
+        <location filename="ResonaceMode/StatusLabel.cpp" line="38"/>
+        <source>éè¿</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/StatusLabel.cpp" line="21"/>
+        <location filename="ResonaceMode/StatusLabel.cpp" line="43"/>
+        <source>å¤±è´¥</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/StatusLabel.cpp" line="25"/>
+        <source>ç©ºé²</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1178,6 +1239,29 @@ Right</translation>
     </message>
 </context>
 <context>
+    <name>frmResoType</name>
+    <message utf8="true">
+        <location filename="ResonaceMode/frmResoType.ui" line="20"/>
+        <source>选择谐振点类型</source>
+        <translation>Select resonace type</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/frmResoType.ui" line="60"/>
+        <source>串联</source>
+        <translation>Series</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/frmResoType.ui" line="79"/>
+        <source>并联</source>
+        <translation>Parallel</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/frmResoType.ui" line="98"/>
+        <source>晶体谐振器</source>
+        <translation>Piezo</translation>
+    </message>
+</context>
+<context>
     <name>frmSelectConnection</name>
     <message utf8="true">
         <location filename="common/frmSelectConnection.ui" line="20"/>
@@ -1200,45 +1284,50 @@ Right</translation>
         <translation>Analysi&amp;s Mode</translation>
     </message>
     <message utf8="true">
-        <location filename="common/frmSelectConnection.ui" line="107"/>
+        <location filename="common/frmSelectConnection.ui" line="110"/>
+        <source>谐振模式（&amp;R）</source>
+        <translation>&amp;Resonace Mode</translation>
+    </message>
+    <message utf8="true">
+        <location filename="common/frmSelectConnection.ui" line="126"/>
         <source>选择连接方式</source>
         <translation>Select connectin type</translation>
     </message>
     <message utf8="true">
-        <location filename="common/frmSelectConnection.ui" line="121"/>
+        <location filename="common/frmSelectConnection.ui" line="140"/>
         <source>如果选择GPIB连接仪器，请设置地址范围1~32</source>
         <translation>If you choose to connect GPIB instrument, set the address range from 1 to 32</translation>
     </message>
     <message>
-        <location filename="common/frmSelectConnection.ui" line="124"/>
+        <location filename="common/frmSelectConnection.ui" line="143"/>
         <source>&amp;GPIB</source>
         <translation></translation>
     </message>
     <message utf8="true">
-        <location filename="common/frmSelectConnection.ui" line="140"/>
+        <location filename="common/frmSelectConnection.ui" line="159"/>
         <source>如果连接6500请输入IP地址形如：192.168.1.102,6500
 如果连接4300请输入Ip地址形如：192.168.1.102,4300</source>
         <translation>If the connection is 6500 enter the IP address like this: 192.168.1.102,6500
 If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</translation>
     </message>
     <message>
-        <location filename="common/frmSelectConnection.ui" line="144"/>
+        <location filename="common/frmSelectConnection.ui" line="163"/>
         <source>&amp;LAN</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="common/frmSelectConnection.ui" line="157"/>
+        <location filename="common/frmSelectConnection.ui" line="176"/>
         <source>&amp;USB</source>
         <translation></translation>
     </message>
     <message utf8="true">
-        <location filename="common/frmSelectConnection.ui" line="174"/>
+        <location filename="common/frmSelectConnection.ui" line="193"/>
         <source>地址(&amp;A)：</source>
         <translation>&amp;Address:</translation>
     </message>
     <message utf8="true">
-        <location filename="common/frmSelectConnection.ui" line="196"/>
-        <location filename="common/frmSelectConnection.ui" line="249"/>
+        <location filename="common/frmSelectConnection.ui" line="215"/>
+        <location filename="common/frmSelectConnection.ui" line="268"/>
         <source>如果选择GPIB连接仪器，请设置地址范围1~32
 
 如果连接LAN连接6500请输入IP地址形如：192.168.1.102,6500
@@ -1248,17 +1337,17 @@ If the connection is 6500 enter the IP address like this: 192.168.1.102,6500
 If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</translation>
     </message>
     <message utf8="true">
-        <location filename="common/frmSelectConnection.ui" line="231"/>
+        <location filename="common/frmSelectConnection.ui" line="250"/>
         <source>连接(&amp;T)</source>
         <translation>Connec&amp;t</translation>
     </message>
     <message>
-        <location filename="common/frmSelectConnection.cpp" line="40"/>
+        <location filename="common/frmSelectConnection.cpp" line="41"/>
         <source>åå§åè¿æ¥å¤±è´¥ï¼</source>
         <translation>Initialize the connection failed!</translation>
     </message>
     <message>
-        <location filename="common/frmSelectConnection.cpp" line="45"/>
+        <location filename="common/frmSelectConnection.cpp" line="46"/>
         <source>ä»ªå¨IDï¼%1</source>
         <translation>Instrument ID:%1</translation>
     </message>
@@ -1276,114 +1365,114 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</tr
         <translation>Absolute</translation>
     </message>
     <message utf8="true">
-        <location filename="MeterMode/frmSetLimit.ui" line="75"/>
-        <location filename="MeterMode/frmSetLimit.ui" line="249"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="114"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="245"/>
         <source>上限：</source>
         <translation>Hi:</translation>
     </message>
     <message>
-        <location filename="MeterMode/frmSetLimit.ui" line="97"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="136"/>
         <source>0.005</source>
         <translation></translation>
     </message>
     <message utf8="true">
-        <location filename="MeterMode/frmSetLimit.ui" line="116"/>
-        <location filename="MeterMode/frmSetLimit.ui" line="290"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="73"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="286"/>
         <source>下限：</source>
         <translation>Low:</translation>
     </message>
     <message>
-        <location filename="MeterMode/frmSetLimit.ui" line="138"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="95"/>
         <source>0.003</source>
         <translation></translation>
     </message>
     <message utf8="true">
-        <location filename="MeterMode/frmSetLimit.ui" line="171"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="167"/>
         <source>百分比</source>
         <translation>Percentage</translation>
     </message>
     <message utf8="true">
-        <location filename="MeterMode/frmSetLimit.ui" line="195"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="191"/>
         <source>中心值：</source>
         <translation>Nominal</translation>
     </message>
     <message>
-        <location filename="MeterMode/frmSetLimit.ui" line="217"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="213"/>
         <source>100</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="MeterMode/frmSetLimit.ui" line="271"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="267"/>
         <source>5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="MeterMode/frmSetLimit.ui" line="312"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="308"/>
         <source>-5</source>
         <translation></translation>
     </message>
     <message utf8="true">
-        <location filename="MeterMode/frmSetLimit.ui" line="327"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="323"/>
         <source>误差代码</source>
         <translation>Error code</translation>
     </message>
     <message>
-        <location filename="MeterMode/frmSetLimit.ui" line="351"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="347"/>
         <source>&amp;B</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="MeterMode/frmSetLimit.ui" line="376"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="372"/>
         <source>&amp;C</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="MeterMode/frmSetLimit.ui" line="401"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="397"/>
         <source>&amp;D</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="MeterMode/frmSetLimit.ui" line="426"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="422"/>
         <source>&amp;F</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="MeterMode/frmSetLimit.ui" line="451"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="447"/>
         <source>&amp;G</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="MeterMode/frmSetLimit.ui" line="476"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="472"/>
         <source>&amp;J</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="MeterMode/frmSetLimit.ui" line="501"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="497"/>
         <source>&amp;K</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="MeterMode/frmSetLimit.ui" line="526"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="522"/>
         <source>&amp;M</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="MeterMode/frmSetLimit.ui" line="551"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="547"/>
         <source>&amp;N</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="MeterMode/frmSetLimit.ui" line="576"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="572"/>
         <source>&amp;W</source>
         <translation></translation>
     </message>
     <message utf8="true">
-        <location filename="MeterMode/frmSetLimit.ui" line="619"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="615"/>
         <source>取消</source>
         <translation>Cancel</translation>
     </message>
     <message utf8="true">
-        <location filename="MeterMode/frmSetLimit.ui" line="638"/>
+        <location filename="MeterMode/frmSetLimit.ui" line="634"/>
         <source>确定</source>
         <translation>Ok</translation>
     </message>
@@ -1997,30 +2086,30 @@ Info.</translation>
         <translation>Sweep settings</translation>
     </message>
     <message>
-        <location filename="AnalysisMode/frmWKEAnalysisMode.cpp" line="389"/>
-        <location filename="AnalysisMode/frmWKEAnalysisMode.cpp" line="427"/>
+        <location filename="AnalysisMode/frmWKEAnalysisMode.cpp" line="398"/>
+        <location filename="AnalysisMode/frmWKEAnalysisMode.cpp" line="435"/>
         <source>åæ­¢
 æµè¯</source>
         <translation>Stop
 Test</translation>
     </message>
     <message>
-        <location filename="AnalysisMode/frmWKEAnalysisMode.cpp" line="399"/>
         <location filename="AnalysisMode/frmWKEAnalysisMode.cpp" line="408"/>
+        <location filename="AnalysisMode/frmWKEAnalysisMode.cpp" line="417"/>
         <source>å¼å§
 æµè¯</source>
         <translation>Single
 Shot</translation>
     </message>
     <message>
-        <location filename="AnalysisMode/frmWKEAnalysisMode.cpp" line="450"/>
+        <location filename="AnalysisMode/frmWKEAnalysisMode.cpp" line="458"/>
         <source>éå¤
 æµè¯</source>
         <translation>Repeat
 Test</translation>
     </message>
     <message>
-        <location filename="AnalysisMode/frmWKEAnalysisMode.cpp" line="527"/>
+        <location filename="AnalysisMode/frmWKEAnalysisMode.cpp" line="535"/>
         <source>å³äºæ¬è½¯ä»¶</source>
         <translation>About me</translation>
     </message>
@@ -2232,6 +2321,24 @@ Test</translation>
         <location filename="AnalysisMode/frmWk3260.cpp" line="535"/>
         <source>è¾å¥Biaså¼</source>
         <translation>Set bias value</translation>
+    </message>
+</context>
+<context>
+    <name>testLimits</name>
+    <message>
+        <location filename="MeterMode/testLimits.ui" line="19"/>
+        <source>Dialog</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="MeterMode/testLimits.ui" line="32"/>
+        <source>limits</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="MeterMode/testLimits.ui" line="44"/>
+        <source>TextLabel</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2748,12 +2855,12 @@ Trim</translation>
         <translation>set 6500 speed</translation>
     </message>
     <message>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="714"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="717"/>
         <source>WKE FactoryView 2014</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="715"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="718"/>
         <source>ä¸è½æ­£ç¡®çæ¥è¯¢Biasçç¶æï¼è¯·æ£æ¥è¿æ¥ã</source>
         <translation>Can not query bias status, please check connection.</translation>
     </message>
@@ -3169,6 +3276,290 @@ Calibration time: %2 %3</translation>
         <location filename="AnalysisMode/wk6500Speed.ui" line="150"/>
         <source>慢速</source>
         <translation>Slow</translation>
+    </message>
+</context>
+<context>
+    <name>wkResonaceMode</name>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="20"/>
+        <source>谐振点搜索模式</source>
+        <translation>Resonace Mode</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="72"/>
+        <source>搜索</source>
+        <translation>Search</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="107"/>
+        <source>隐藏
+设置</source>
+        <translation>Hide
+Setup</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="178"/>
+        <source>退出</source>
+        <translation>Exit</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="212"/>
+        <source>搜索设置</source>
+        <translation>Search setup</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="230"/>
+        <source>谐振点类型</source>
+        <translation>Reso. Type</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="254"/>
+        <source>串联</source>
+        <translation>Series</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="270"/>
+        <source>速度</source>
+        <translation>Speed</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="294"/>
+        <source>最快</source>
+        <translation>Max</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="310"/>
+        <source>搜索深度</source>
+        <translation>Depth</translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="334"/>
+        <source>16</source>
+        <translation>100Point {16?}</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="354"/>
+        <source>搜索范围</source>
+        <translation>Range</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="366"/>
+        <source>开始：</source>
+        <translation>Start:</translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="391"/>
+        <source>20.00Hz</source>
+        <translation></translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="404"/>
+        <source>终止：</source>
+        <translation>Stop;</translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="429"/>
+        <source>1.000MHz</source>
+        <translation></translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="454"/>
+        <source>预搜索</source>
+        <translation>Check Valid</translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="470"/>
+        <source>Cp@1kHz</source>
+        <translation></translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="490"/>
+        <source>谐振频率上下限</source>
+        <translation>Resonace freq. limits</translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="508"/>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="542"/>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="624"/>
+        <source>TextLabel</source>
+        <translation></translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="524"/>
+        <source>设定fa-fr上下限</source>
+        <translation>Set fa-fr limits</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="595"/>
+        <source>测试状态</source>
+        <translation>Test status</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="643"/>
+        <source>搜索结果</source>
+        <translation>Search results</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="657"/>
+        <source>模型参数</source>
+        <translation>Model parameters</translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="683"/>
+        <source>R</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="733"/>
+        <source>C</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="783"/>
+        <source>L</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="833"/>
+        <source>C0</source>
+        <translation></translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="876"/>
+        <source>其他参数</source>
+        <translation>Other parameters</translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="902"/>
+        <source>Q</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="952"/>
+        <source>keff</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="1002"/>
+        <source>Cp</source>
+        <translation></translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="1047"/>
+        <source>频率显示</source>
+        <translation>Frequencies</translation>
+    </message>
+    <message utf8="true">
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="1074"/>
+        <source>频率：</source>
+        <translation>Freq:</translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="1144"/>
+        <source>fr</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="1183"/>
+        <source>fa</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="1222"/>
+        <source>fm</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="1261"/>
+        <source>fn</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="1300"/>
+        <source>fs</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="1339"/>
+        <source>fp</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.ui" line="1378"/>
+        <source>fa-fr</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.cpp" line="40"/>
+        <source>æ¶æ¯ï¼æ§å¶çå·²è¿æ¥ï¼</source>
+        <translation>Info: control box is connected!</translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.cpp" line="96"/>
+        <source>è®¾ç½®è°æ¯ç¹æç´¢éåº¦</source>
+        <translation>Set search speed</translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.cpp" line="109"/>
+        <source>æ¶ä½è°æ¯å¨</source>
+        <translation>Piezo</translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.cpp" line="141"/>
+        <source>è®¾ç½®æç´¢æ·±åº¦</source>
+        <translation>Set search depth</translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.cpp" line="158"/>
+        <source>è®¾ç½®å¼å§é¢ç</source>
+        <translation>Set start frequency</translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.cpp" line="177"/>
+        <source>è®¾ç½®ç»æ­¢é¢ç</source>
+        <translation>Set stop frequency</translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.cpp" line="212"/>
+        <source>ä¸²è</source>
+        <translation>Series</translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.cpp" line="212"/>
+        <source>å¹¶è</source>
+        <translation>Parallel</translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.cpp" line="228"/>
+        <source>Pass</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.cpp" line="243"/>
+        <source>æ¬æ¬¡æµè¯ç¨æ¶</source>
+        <translation>The test time</translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.cpp" line="251"/>
+        <source>è®¾å®è°æ¯é¢çä¸ä¸é</source>
+        <translation type="unfinished"> </translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.cpp" line="266"/>
+        <source>è®¾å®fa-frä¸ä¸é</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.cpp" line="283"/>
+        <source>æ¾ç¤º
+è®¾ç½®</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="ResonaceMode/wkResonaceMode.cpp" line="288"/>
+        <source>éè
+è®¾ç½®</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

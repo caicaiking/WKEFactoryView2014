@@ -76,7 +76,7 @@ void clsGpib::setAddress(QString address)
 
 }
 
-QString clsGpib::sendCommand(QString strCommand, bool hasReturn, int waitDelay)
+QString clsGpib::sendCommand(QString strCommand, bool hasReturn, int /*waitDelay*/)
 {
 
     if(!blInit)
@@ -112,10 +112,10 @@ QString clsGpib::sendCommand(QString strCommand, bool hasReturn, int waitDelay)
     char buffer[129];
     const int bufsize=128;
 
-    if(waitDelay!=0)
-    {
-        UserfulFunctions::sleepMs(waitDelay*1000);
-    }
+//    if(waitDelay!=0)
+//    {
+//        UserfulFunctions::sleepMs(waitDelay*1000);
+//    }
 
     Receive (0,intAddress, buffer, bufsize, STOPend);
 

@@ -1,6 +1,6 @@
 #include "WKEInstrument.h"
 
-WKEInstrument::WKEInstrument(QWidget *parent) :
+WKEInstrument::WKEInstrument(QDialog *parent) :
     QDialog(parent)
 {
 }

@@ -76,7 +76,7 @@ void clsUsb::setAddress(QString address)
     address ="";
 }
 
-QString clsUsb::sendCommand(QString strCommand, bool hasReturn, int waitDelay)
+QString clsUsb::sendCommand(QString strCommand, bool hasReturn, int /*waitDelay*/)
 {
     if(!blInit)
         init();
@@ -94,10 +94,10 @@ QString clsUsb::sendCommand(QString strCommand, bool hasReturn, int waitDelay)
     if(!hasReturn)
         return "";
 
-    if(waitDelay!=0)
-    {
-        UserfulFunctions::sleepMs(waitDelay*1000);
-    }
+//    if(waitDelay!=0)
+//    {
+//        UserfulFunctions::sleepMs(waitDelay*1000);
+//    }
 
     /*Read id string data*/
     status = viRead(instr,buffer,MAX_CNT,&retLen);

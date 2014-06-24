@@ -4,6 +4,7 @@
 #include "wk6500AnalysisMeter.h"
 #include "wk4300AnalysisMeter.h"
 #include "frmWk3260.h"
+#include "wk6440AnalysisMeter.h"
 #include <qdebug.h>
 class clsMeterFacotry
 {
@@ -22,6 +23,10 @@ public:
 
         if(meterType =="3255")
             return new frmWk3260();
+
+        if(meterType=="6440")
+            return new wk6440AnalysisMeter();
+
         return (WKEInstrument *)0;
     }
 };

@@ -85,7 +85,12 @@ SOURCES +=\
     ResonaceMode/cls6500ResonaceMode.cpp \
     ResonaceMode/StatusLabel.cpp \
     ResonaceMode/clsControlBox.cpp \
-    ResonaceMode/clsSignalThread.cpp
+    ResonaceMode/clsSignalThread.cpp \
+    AnalysisMode/wk6440AnalysisMeter.cpp \
+    AnalysisMode/dlgWk6440Function1.cpp \
+    AnalysisMode/dlgWk6440Function2.cpp \
+    AnalysisMode/wk6440Calibration.cpp
+
 
 
 RESOURCES += \
@@ -179,7 +184,12 @@ HEADERS += \
     ResonaceMode/StatusLabel.h \
     ResonaceMode/AduHid.h \
     ResonaceMode/clsControlBox.h \
-    ResonaceMode/clsSignalThread.h
+    ResonaceMode/clsSignalThread.h \
+    AnalysisMode/wk6440AnalysisMeter.h \
+    AnalysisMode/dlgWk6440Function1.h \
+    AnalysisMode/dlgWk6440Function2.h \
+    AnalysisMode/wk6440Calibration.h
+
 
 FORMS += \
     common/frmSelectConnection.ui \
@@ -211,6 +221,10 @@ FORMS += \
     AnalysisMode/frmPeakSearch.ui \
     MeterMode/testLimits.ui \
     ResonaceMode/wkResonaceMode.ui \
-    ResonaceMode/frmResoType.ui
+    ResonaceMode/frmResoType.ui \
+    AnalysisMode/wk6440AnalysisMeter.ui \
+    AnalysisMode/dlgWk6440Function1.ui \
+    AnalysisMode/dlgWk6440Function2.ui \
+    AnalysisMode/wk6440Calibration.ui
 
 TRANSLATIONS =WKEFV.ts
