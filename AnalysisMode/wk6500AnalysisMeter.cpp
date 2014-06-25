@@ -423,6 +423,7 @@ QString wk6500AnalysisMeter::getItem2()
 
 QString wk6500AnalysisMeter::getEqucct()
 {
+    //  qDebug()<< "get Equ-cct:"<< equcct;
     return this->equcct;
 }
 
@@ -535,6 +536,8 @@ void wk6500AnalysisMeter::on_btnEqucct_clicked()
     strTmp = (strTmp==tr("串联")?tr("并联"):tr("串联"));
     btnEqucct->setText(strTmp);
     equcct = strTmp;
+    //qDebug()<< "Equ-cct:"<< equcct;
+
 }
 
 void wk6500AnalysisMeter::on_btnRange_clicked()

@@ -21,10 +21,10 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForTr(code);
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
-//    QTranslator translator;
-//    bool ok=   translator.load(":/Icons/WKEFV.qm");
-//    a.installTranslator(&translator);
-//    qDebug()<< ok;
+    QTranslator translator;
+    bool ok=   translator.load(":/Icons/WKEFV.qm");
+    a.installTranslator(&translator);
+    qDebug()<< ok;
 
     //test begin
 

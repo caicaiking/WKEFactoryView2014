@@ -67,7 +67,7 @@ void clsViewResult::setParameters(QString item1, QString item2, QString eqcct, S
 {
     this->item1=item1;
     this->item2=item2;
-    if(eqcct==tr("串联"))
+    if(eqcct==QObject::tr("串联"))
         this->equcct=series;
     else
         this->equcct=parallel;
@@ -343,8 +343,11 @@ void clsViewResult::saveCsv(QString fileName)
 
 QList <double> clsViewResult::getValues(double z, double a,double freq)
 {
+    //qDebug()<<"Z"<< z<<"\t"<<"A"<< a<<"\t"<< "Freq:"<<freq;
     QList<double> values;
+    qDebug()<<"Equ-CCT"<<this->equcct;
     clsComplexOp cp(z,a,freq,this->equcct);
+
 
     for(int i=0; i< saveValues.length(); i++)
     {

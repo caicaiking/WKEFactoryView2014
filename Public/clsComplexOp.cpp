@@ -124,8 +124,8 @@ double clsComplexOp::QCal()
 CPLXAlge clsComplexOp::TrigToAlge(CPLXTrig Trig){
     //三角形式到代数形式的换算
     CPLXAlge xx;
-    double real = Trig.AbsValue * cos(Trig.angle / (180.0 / PI));
-    double image = Trig.AbsValue * sin(Trig.angle / (180.0 / PI));
+    double real = Trig.AbsValue * cos(Trig.angle *PI/180.0);
+    double image = Trig.AbsValue * sin(Trig.angle *PI/180.0);
 
     xx.Real=real;
     xx.Imag=image;

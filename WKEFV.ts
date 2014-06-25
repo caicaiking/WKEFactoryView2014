@@ -392,48 +392,53 @@
     <message>
         <location filename="MeterMode/clsMeterLimit.cpp" line="197"/>
         <source>ä¸éï¼</source>
-        <translation type="unfinished"></translation>
+        <translation>Hi:</translation>
     </message>
     <message>
         <location filename="MeterMode/clsMeterLimit.cpp" line="201"/>
         <source>ä¸éï¼</source>
-        <translation type="unfinished"></translation>
+        <translation>Lo:</translation>
     </message>
     <message>
         <location filename="MeterMode/clsMeterLimit.cpp" line="214"/>
         <source>&lt;table border=&quot;0&quot;  valign=&quot;middle&quot;&gt;&lt;tr&gt;&lt;th rowspan=&quot;2&quot;&gt;%1%2&lt;/th&gt;&lt;td&gt;%3&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;%4&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="ResonaceMode/cls6500ResonaceMode.cpp" line="58"/>
         <location filename="ResonaceMode/cls6500ResonaceMode.cpp" line="165"/>
         <source>æ¶ä½è°æ¯å¨</source>
-        <translation type="unfinished"></translation>
+        <translation>Piezo</translation>
     </message>
     <message>
-        <location filename="ResonaceMode/StatusLabel.cpp" line="13"/>
-        <source>å¿ç¢</source>
-        <translation type="unfinished"></translation>
+        <location filename="AnalysisMode/clsViewResult.cpp" line="70"/>
+        <source>??</source>
+        <translation>Series</translation>
     </message>
 </context>
 <context>
     <name>StatusLabel</name>
     <message>
+        <location filename="ResonaceMode/StatusLabel.cpp" line="13"/>
+        <source>å¿ç¢</source>
+        <translation>BUSY</translation>
+    </message>
+    <message>
         <location filename="ResonaceMode/StatusLabel.cpp" line="17"/>
         <location filename="ResonaceMode/StatusLabel.cpp" line="38"/>
         <source>éè¿</source>
-        <translation type="unfinished"></translation>
+        <translation>PASS</translation>
     </message>
     <message>
         <location filename="ResonaceMode/StatusLabel.cpp" line="21"/>
         <location filename="ResonaceMode/StatusLabel.cpp" line="43"/>
         <source>å¤±è´¥</source>
-        <translation type="unfinished"></translation>
+        <translation>FAIL</translation>
     </message>
     <message>
         <location filename="ResonaceMode/StatusLabel.cpp" line="25"/>
         <source>ç©ºé²</source>
-        <translation type="unfinished"></translation>
+        <translation>IDEL</translation>
     </message>
 </context>
 <context>
@@ -638,9 +643,8 @@ Curr</translation>
         <translation>Save</translation>
     </message>
     <message>
-        <location filename="AnalysisMode/clsViewResult.cpp" line="70"/>
         <source>??</source>
-        <translation>Series</translation>
+        <translation type="obsolete">Series</translation>
     </message>
 </context>
 <context>
@@ -931,6 +935,82 @@ Curr</translation>
         <location filename="Public/dlgSpeed.cpp" line="29"/>
         <source>æ¢é</source>
         <translation>Slow</translation>
+    </message>
+</context>
+<context>
+    <name>dlgWk6440Function1</name>
+    <message>
+        <location filename="AnalysisMode/dlgWk6440Function1.ui" line="14"/>
+        <source>Dialog</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/dlgWk6440Function1.ui" line="66"/>
+        <source>L</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/dlgWk6440Function1.ui" line="94"/>
+        <source>C</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/dlgWk6440Function1.ui" line="122"/>
+        <source>Y</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/dlgWk6440Function1.ui" line="150"/>
+        <source>Z</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/dlgWk6440Function1.ui" line="178"/>
+        <source>X</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/dlgWk6440Function1.ui" line="206"/>
+        <source>B</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/dlgWk6440Function1.cpp" line="31"/>
+        <source>å¹¶è</source>
+        <translation>Parallel</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/dlgWk6440Function1.cpp" line="60"/>
+        <source>ä¸²è</source>
+        <translation>Series</translation>
+    </message>
+</context>
+<context>
+    <name>dlgWk6440Function2</name>
+    <message>
+        <location filename="AnalysisMode/dlgWk6440Function2.ui" line="14"/>
+        <source>Dialog</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/dlgWk6440Function2.ui" line="61"/>
+        <source>Q</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/dlgWk6440Function2.ui" line="89"/>
+        <source>D</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/dlgWk6440Function2.ui" line="117"/>
+        <source>R</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/dlgWk6440Function2.ui" line="145"/>
+        <source>G</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2634,6 +2714,333 @@ Trim</translation>
     </message>
 </context>
 <context>
+    <name>wk6440AnalysisMeter</name>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="14"/>
+        <source>设置测试参数</source>
+        <translation>Measurement Setup</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="51"/>
+        <source>测量项目</source>
+        <translation>Select Items</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="65"/>
+        <source>项目1：</source>
+        <translation>Item 1:</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="90"/>
+        <source>Z</source>
+        <translation></translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="107"/>
+        <source>项目2：</source>
+        <translation>Item 2:</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="132"/>
+        <source>A</source>
+        <translation></translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="159"/>
+        <source>串联</source>
+        <translation>Series</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="175"/>
+        <source>驱动信号：</source>
+        <translation>Drive</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="189"/>
+        <source>频率：</source>
+        <translation>Freq:</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="214"/>
+        <source>100.00kHz</source>
+        <translation></translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="231"/>
+        <source>电平：</source>
+        <translation>Level:</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="256"/>
+        <source>1.000V</source>
+        <translation>1.000V</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="274"/>
+        <source>偏置设置：</source>
+        <translation>Bias Setup</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="300"/>
+        <source>内置</source>
+        <translation>Internal</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="325"/>
+        <source>关</source>
+        <translation>OFF</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="343"/>
+        <source>档位速度</source>
+        <translation>Range &amp;&amp; Speed</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="367"/>
+        <source>自动</source>
+        <translation>Auto</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="392"/>
+        <source>最快</source>
+        <translation>Max</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="422"/>
+        <source>取消</source>
+        <translation>Cancel</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440AnalysisMeter.ui" line="453"/>
+        <source>确定</source>
+        <translation>Ok</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="129"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="252"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="554"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="558"/>
+        <source>ä¸²è</source>
+        <translation>Series</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="133"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="267"/>
+        <source>æå¿«</source>
+        <translation>Max</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="137"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="262"/>
+        <source>èªå¨</source>
+        <translation>Auto</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="165"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="291"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="424"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="662"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="669"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="670"/>
+        <source>åç½®</source>
+        <translation>Internal</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="175"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="474"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="677"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="679"/>
+        <source>å¼</source>
+        <translation>ON</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="175"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="474"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="677"/>
+        <source>å³</source>
+        <translation>OFF</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="269"/>
+        <source>å¿«é</source>
+        <translation>Fast</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="271"/>
+        <source>ä¸­é</source>
+        <translation>Med</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="273"/>
+        <source>æ¢é</source>
+        <translation>Slow</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="424"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="664"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="665"/>
+        <source>å¤ç½®</source>
+        <translation>External</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="434"/>
+        <source>WKE FactoryView 2014</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="435"/>
+        <source>ä¸è½æ­£ç¡®çæ¥è¯¢Biasçç¶æï¼è¯·æ£æ¥è¿æ¥ã</source>
+        <translation>Can not query bias status, please check connection.</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="509"/>
+        <source>è®¾ç½®æµè¯é¡¹ç®1</source>
+        <translation>Set Item1</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="541"/>
+        <source>è®¾ç½®æµè¯é¡¹ç®2</source>
+        <translation>Set Item2</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="554"/>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="564"/>
+        <source>å¹¶è</source>
+        <translation>Parallel</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="574"/>
+        <source>è®¾ç½®æ¡£ä½</source>
+        <translation>Set range</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="586"/>
+        <source>è®¾ç½®éåº¦</source>
+        <translation>Set speed</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="598"/>
+        <source>è®¾ç½®é¢ç</source>
+        <translation>Set frequency</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440AnalysisMeter.cpp" line="620"/>
+        <source>è®¾ç½®çµå¹³</source>
+        <translation>Set level</translation>
+    </message>
+</context>
+<context>
+    <name>wk6440Calibration</name>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440Calibration.ui" line="14"/>
+        <source>仪表校准</source>
+        <translation>Instrument calibration</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440Calibration.ui" line="34"/>
+        <source>开短路校准</source>
+        <translation>OC/SC trim</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440Calibration.ui" line="60"/>
+        <source>开路
+校准</source>
+        <translation>Open
+Trim</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440Calibration.ui" line="74"/>
+        <location filename="AnalysisMode/wk6440Calibration.ui" line="117"/>
+        <location filename="AnalysisMode/wk6440Calibration.ui" line="175"/>
+        <source>工厂默认值。</source>
+        <translation>Factory default</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440Calibration.ui" line="103"/>
+        <source>短路
+校准</source>
+        <translation>Short
+Trim</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440Calibration.ui" line="135"/>
+        <source>高频校准</source>
+        <translation>High frequency calibration</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440Calibration.ui" line="161"/>
+        <source>高频
+校准</source>
+        <translation>HF
+Trim</translation>
+    </message>
+    <message utf8="true">
+        <location filename="AnalysisMode/wk6440Calibration.ui" line="245"/>
+        <source>完成</source>
+        <translation>Done</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440Calibration.cpp" line="103"/>
+        <source>ç§»é¤å¤¹å·ä¸çè¢«æµç©åï¼ç¶åç¹å»ç¡®å®ï¼</source>
+        <translation>Remove DUT from fixture, then click ok!</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440Calibration.cpp" line="103"/>
+        <source>å¼è·¯æ ¡å</source>
+        <translation>Open circuit trim</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440Calibration.cpp" line="111"/>
+        <source>å¼è·¯æ ¡åæåï¼æ ¡åæ¶é´ï¼%1 %2</source>
+        <translation>Open circuit calibration ok, calibrate time:%1 %2</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440Calibration.cpp" line="115"/>
+        <source>å¼è·¯æ ¡åå¤±è´¥ã</source>
+        <translation>Open circuit trim failed.</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440Calibration.cpp" line="120"/>
+        <source>è¯·å°å¤¹å·ç­è·¯ï¼ç¶åç¹å»ç¡®å®</source>
+        <translation>Please short fixture,then click ok</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440Calibration.cpp" line="120"/>
+        <source>ç­è·¯æ ¡å</source>
+        <translation>Short circuit trim</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440Calibration.cpp" line="124"/>
+        <source>ç­è·¯æ ¡åæåãæ ¡åæ¶é´ï¼%1 %2</source>
+        <translation>Short circuit calibration ok, calibrate time:%1 %2</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440Calibration.cpp" line="128"/>
+        <source>ç­è·¯æ ¡åå¤±è´¥ã</source>
+        <translation>Short circuit trim failed.</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440Calibration.cpp" line="133"/>
+        <source>è¯·è¿æ¥é«é¢æ ¡åå¨ä»¶</source>
+        <translation>Connect 150pF to fixture</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440Calibration.cpp" line="133"/>
+        <source>é«é¢æ ¡å</source>
+        <translation>HF trim</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440Calibration.cpp" line="137"/>
+        <source>é«é¢æ ¡åæåãæ ¡åæ¶é´ï¼%1 %2</source>
+        <translation>HF calibration ok, calibrate time:%1 %2</translation>
+    </message>
+    <message>
+        <location filename="AnalysisMode/wk6440Calibration.cpp" line="141"/>
+        <source>é«é¢æ ¡åå¤±è´¥ã</source>
+        <translation>HF calibration failed</translation>
+    </message>
+</context>
+<context>
     <name>wk6500AnalysisMeter</name>
     <message utf8="true">
         <location filename="AnalysisMode/wk6500AnalysisMeter.ui" line="23"/>
@@ -2752,38 +3159,38 @@ Trim</translation>
         <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="252"/>
         <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="261"/>
         <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="380"/>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="502"/>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="508"/>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="652"/>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="664"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="503"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="509"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="655"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="667"/>
         <source>çµå</source>
         <translation>Voltage</translation>
     </message>
     <message>
         <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="103"/>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="502"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="503"/>
         <source>çµæµ</source>
         <translation>Current</translation>
     </message>
     <message>
         <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="186"/>
         <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="248"/>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="525"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="526"/>
         <source>å¼</source>
         <translation>ON</translation>
     </message>
     <message>
         <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="186"/>
         <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="248"/>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="525"/>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="528"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="526"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="529"/>
         <source>å³</source>
         <translation>OFF</translation>
     </message>
     <message>
         <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="217"/>
         <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="353"/>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="535"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="536"/>
         <source>ä¸²è</source>
         <translation>Series</translation>
     </message>
@@ -2815,52 +3222,52 @@ Trim</translation>
         <translation>Slow</translation>
     </message>
     <message>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="535"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="536"/>
         <source>å¹¶è</source>
         <translation>Parallel</translation>
     </message>
     <message>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="543"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="546"/>
         <source>è®¾ç½®6500çæµè¯æ¡£ä½</source>
         <translation>Set 6500 range</translation>
     </message>
     <message>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="555"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="558"/>
         <source>è®¾ç½®6500çæµè¯é¡¹ç®1</source>
         <translation>Set 6500 item1</translation>
     </message>
     <message>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="568"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="571"/>
         <source>è®¾ç½®6500çæµè¯é¡¹ç®2</source>
         <translation>Set 6500 item2</translation>
     </message>
     <message>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="581"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="584"/>
         <source>è®¾å®æµè¯é¢ç</source>
         <translation>Set test frequency</translation>
     </message>
     <message>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="604"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="607"/>
         <source>è®¾ç½®æµè¯çµå¹³</source>
         <translation>set 6500 level</translation>
     </message>
     <message>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="648"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="651"/>
         <source>è®¾ç½®åç½®å¼</source>
         <translation>set 6500 bias value</translation>
     </message>
     <message>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="687"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="690"/>
         <source>è®¾ç½®æµè¯éåº¦</source>
         <translation>set 6500 speed</translation>
     </message>
     <message>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="717"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="720"/>
         <source>WKE FactoryView 2014</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="718"/>
+        <location filename="AnalysisMode/wk6500AnalysisMeter.cpp" line="721"/>
         <source>ä¸è½æ­£ç¡®çæ¥è¯¢Biasçç¶æï¼è¯·æ£æ¥è¿æ¥ã</source>
         <translation>Can not query bias status, please check connection.</translation>
     </message>
@@ -3542,24 +3949,26 @@ Setup</translation>
     <message>
         <location filename="ResonaceMode/wkResonaceMode.cpp" line="251"/>
         <source>è®¾å®è°æ¯é¢çä¸ä¸é</source>
-        <translation type="unfinished"> </translation>
+        <translation>Set Resonace frequency limits</translation>
     </message>
     <message>
         <location filename="ResonaceMode/wkResonaceMode.cpp" line="266"/>
         <source>è®¾å®fa-frä¸ä¸é</source>
-        <translation type="unfinished"></translation>
+        <translation>Set fa-fr limits</translation>
     </message>
     <message>
         <location filename="ResonaceMode/wkResonaceMode.cpp" line="283"/>
         <source>æ¾ç¤º
 è®¾ç½®</source>
-        <translation type="unfinished"></translation>
+        <translation>Show
+Setup</translation>
     </message>
     <message>
         <location filename="ResonaceMode/wkResonaceMode.cpp" line="288"/>
         <source>éè
 è®¾ç½®</source>
-        <translation type="unfinished"></translation>
+        <translation>Hide
+Setup</translation>
     </message>
 </context>
 </TS>
