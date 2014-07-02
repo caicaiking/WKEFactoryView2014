@@ -89,7 +89,9 @@ SOURCES +=\
     AnalysisMode/wk6440AnalysisMeter.cpp \
     AnalysisMode/dlgWk6440Function1.cpp \
     AnalysisMode/dlgWk6440Function2.cpp \
-    AnalysisMode/wk6440Calibration.cpp
+    AnalysisMode/wk6440Calibration.cpp \
+    MeterMode/clsMeterMode.cpp \
+    MeterMode/clsMyMessageLabel.cpp
 
 
 
@@ -188,7 +190,9 @@ HEADERS += \
     AnalysisMode/wk6440AnalysisMeter.h \
     AnalysisMode/dlgWk6440Function1.h \
     AnalysisMode/dlgWk6440Function2.h \
-    AnalysisMode/wk6440Calibration.h
+    AnalysisMode/wk6440Calibration.h \
+    MeterMode/clsMeterMode.h \
+    MeterMode/clsMyMessageLabel.h
 
 
 FORMS += \
@@ -225,6 +229,7 @@ FORMS += \
     AnalysisMode/wk6440AnalysisMeter.ui \
     AnalysisMode/dlgWk6440Function1.ui \
     AnalysisMode/dlgWk6440Function2.ui \
-    AnalysisMode/wk6440Calibration.ui
+    AnalysisMode/wk6440Calibration.ui \
+    MeterMode/clsMeterMode.ui
 
 TRANSLATIONS =WKEFV.ts

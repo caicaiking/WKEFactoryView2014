@@ -33,5 +33,19 @@
         <file>Icons/wk.ico</file>
         <file>Icons/Peak.png</file>
         <file>Icons/WKEFV.qm</file>
+        <file>Icons/admin.png</file>
+        <file>Icons/opertator.png</file>
+        <file>Icons/Delete.ico</file>
+        <file>Icons/First.ico</file>
+        <file>Icons/Last.ico</file>
+        <file>Icons/Next.ico</file>
+        <file>Icons/Stop3.ico</file>
+        <file>Icons/DownBmp.png</file>
+        <file>Icons/UpBmp.png</file>
+        <file>Icons/savePro.ico</file>
+        <file>Icons/advance.png</file>
+        <file>Icons/new.png</file>
+        <file>Icons/open.png</file>
+        <file>Icons/save.png</file>
     </qresource>
 </RCC>

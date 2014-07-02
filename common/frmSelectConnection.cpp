@@ -9,7 +9,7 @@ frmSelectConnection::frmSelectConnection(QWidget *parent) :
     setupUi(this);
     this->btnAnalysis->setEnabled(false);
     this->btnMeter->setEnabled(false);
-    this->btnMeter->setVisible(false);
+    this->btnMeter->setVisible(true);
     this->btnRansonace->setVisible(false);
     intSelect=0;
 
@@ -110,8 +110,8 @@ void frmSelectConnection::on_btnTest_clicked()
     }
 
 ToHere:
-    qDebug()<< "Instrument mode:\t\t"<<clsRS::getInst().instrumentModel;
-    qDebug()<< "Instrument category:\t"<<clsRS::getInst().meterMode;
+    qDebug()<< "clsRS::getInst().instrumentModel:\t"<<clsRS::getInst().instrumentModel;
+    qDebug()<< "clsRS::getInst().meterMode:\t\t"<<clsRS::getInst().meterMode;
     buttonOp(isInit);
     writeSttings();
 }

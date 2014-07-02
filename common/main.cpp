@@ -12,6 +12,7 @@
 #include "testLimits.h"
 #include "wkResonaceMode.h"
 //#include "frmWKEMeterMode.h"
+#include "clsMeterMode.h"
 #include "clsDog.h"
 int main(int argc, char *argv[])
 {
@@ -21,16 +22,16 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForTr(code);
     QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
-    QTranslator translator;
-    bool ok=   translator.load(":/Icons/WKEFV.qm");
-    a.installTranslator(&translator);
-    qDebug()<< ok;
+//    QTranslator translator;
+//    bool ok=   translator.load(":/Icons/WKEFV.qm");
+//    a.installTranslator(&translator);
+//    qDebug()<< ok;
 
     //test begin
 
-//    testLimits w1;
-//    w1.show();
-//    return a.exec();
+    clsMeterMode meter;
+    meter.showMaximized();
+   return a.exec();
 
     //for test
 
@@ -64,9 +65,9 @@ int main(int argc, char *argv[])
             return a.exec();
         }
         else if(w.getMode()==Meter)
-        {/*
-            frmWKEMeterMode meter;
-            meter.show();*/
+        {
+            clsMeterMode meter;
+            meter.show();
             return a.exec();
         }
         else if(w.getMode()==Resonace)
