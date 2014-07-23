@@ -24,13 +24,16 @@ public:
     doubleType(double exValue=0, QString exUnit=EMPTYSTRING);
 
 
-    void setData(const double orgValue, const QString orgUnit);
+    void setData(const double orgValue, const QString orgUnit="");
 
     void getDataAndUnit(double &exValue, QString &exUnit);
     QString formateToString(int length=7);
 
     QString formateWithUnit(QString unit, int length=7);
+    //返回真实的数据值大小如10 k， 返回值 10000
     double Data();
+    //如 传入数据位 10000， Unit =k 则返回值位10
+    double getDataWithUnit(QString unit="");
 private:
     void initUnitMap();
     int Abs(double &value);

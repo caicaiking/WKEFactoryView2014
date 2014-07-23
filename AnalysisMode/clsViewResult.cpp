@@ -345,7 +345,7 @@ QList <double> clsViewResult::getValues(double z, double a,double freq)
 {
     //qDebug()<<"Z"<< z<<"\t"<<"A"<< a<<"\t"<< "Freq:"<<freq;
     QList<double> values;
-    qDebug()<<"Equ-CCT"<<this->equcct;
+   // qDebug()<<"Equ-CCT"<<this->equcct;
     clsComplexOp cp(z,a,freq,this->equcct);
 
 

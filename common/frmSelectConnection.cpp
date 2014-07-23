@@ -9,7 +9,7 @@ frmSelectConnection::frmSelectConnection(QWidget *parent) :
     setupUi(this);
     this->btnAnalysis->setEnabled(false);
     this->btnMeter->setEnabled(false);
-    this->btnMeter->setVisible(true);
+    this->btnMeter->setVisible(false);
     this->btnRansonace->setVisible(false);
     intSelect=0;
 

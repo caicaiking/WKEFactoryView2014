@@ -91,6 +91,16 @@ double doubleType::Data()
     return getData(exValue,exUnit);
 }
 
+//如 传入数据位 10000， Unit =k 则返回值位10
+double doubleType::getDataWithUnit(QString unit)
+{
+    double data = Data();
+
+    int Exx= unitMap.value(unit);
+
+    return data/pow(10.0,Exx);
+}
+
 void doubleType::initUnitMap()
 {
     unitMap.insert("E",18);
