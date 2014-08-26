@@ -32,7 +32,6 @@
         <file>Icons/version.txt</file>
         <file>Icons/wk.ico</file>
         <file>Icons/Peak.png</file>
-        <file>Icons/WKEFV.qm</file>
         <file>Icons/admin.png</file>
         <file>Icons/opertator.png</file>
         <file>Icons/Delete.ico</file>
@@ -47,5 +46,6 @@
         <file>Icons/new.png</file>
         <file>Icons/open.png</file>
         <file>Icons/save.png</file>
+        <file>Translation/WKEFV.qm</file>
     </qresource>
 </RCC>

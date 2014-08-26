@@ -3,7 +3,7 @@
 
 #include <QString>
 
-#include "clsHVRS232.h"
+//#include "clsHVRS232.h"
 class clsRS
 {
 public:

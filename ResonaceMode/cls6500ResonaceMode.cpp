@@ -1,6 +1,6 @@
 #include "cls6500ResonaceMode.h"
 #include "clsRuningSettings.h"
-
+#include <QDebug>
 
 void cls6500ResonaceMode::setStart(double value)
 {

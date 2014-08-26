@@ -2,7 +2,7 @@
 #define PORTLISTENER_H_
 
 #include <QObject>
-#include <QtExtSerialPort/qextserialport.h>
+//#include <QtExtSerialPort/qextserialport.h>
 
 class clsPortListener : public QObject
 {
@@ -13,7 +13,7 @@ public:
     bool sendCommand(QString);
 
 private:
-    QextSerialPort *port;
+    //QextSerialPort *port;
 
 signals:
     void reciveStr(QByteArray);

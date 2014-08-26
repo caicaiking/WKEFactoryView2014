@@ -9,6 +9,8 @@ RC_FILE  =Icon.rc
 
  LIBS += dog_windows_3147311.lib
 
+CODECFORTR = UTF-8
+
 INCLUDEPATH +=connections \
              common \
              AnalysisMode \
@@ -101,10 +103,12 @@ RESOURCES += \
 OTHER_FILES += \
     connections/ReadMe.txt \
     AnalysisMode/ProgramDescription.txt
-DEFINES    += QT_DLL QWT_DLL
 
-CONFIG(debug,debug|release):LIBS+=-L $(QTDIR) -lqwtd
-else:LIBS+=-L $(QTDIR) -lqwt
+#为QWT图像控件定义的###################################################
+DEFINES    += QT_DLL QWT_DLL
+CONFIG(debug,debug|release):LIBS+=E:/ExeProgram/Qt4/bin/qwtd.dll
+else:LIBS+=E:/ExeProgram/Qt4/bin/qwt.dll
+#######################################################################
 
 RESOURCES +=
 
@@ -232,4 +236,4 @@ FORMS += \
     AnalysisMode/wk6440Calibration.ui \
     MeterMode/clsMeterMode.ui
 
-TRANSLATIONS =WKEFV.ts
+TRANSLATIONS = recFile/Translation/WKEFV.ts
