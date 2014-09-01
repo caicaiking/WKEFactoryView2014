@@ -1,5 +1,6 @@
 #include "clsMeterMode.h"
 #include "clsRuningSettings.h"
+#include "UserfulFunctions.h"
 clsMeterMode::clsMeterMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -9,6 +10,10 @@ clsMeterMode::clsMeterMode(QWidget *parent) :
     lblTime->showTime();
     lblStatus->setStatus(IDEL);
     skWidget->setCurrentIndex(0);
+
+    sngTestDisplay->setMessage(tr("没有测试数据可以显示！"),0);
+    //sngTestDisplay->setMessage("L,512.03nH,PASS,C,-2.003nF,FAIL,R,1.2354mΩ,PASS,C,-2.003nF,FAIL",4);
+
 }
 
 void clsMeterMode::on_skWidget_currentChanged(int arg1)
@@ -32,6 +37,7 @@ void clsMeterMode::on_btnRep_clicked()
     while(btnRep->isChecked())
     {
         qDebug()<< "rep test";
+        UserfulFunctions::sleepMs(150);
         qApp->processEvents();
     }
     btnRep->setIcon(QIcon(":/Icons/repeat.png"));
@@ -53,4 +59,11 @@ void clsMeterMode::on_btnSetup_clicked()
         btnNewTask->setVisible(false);
         btnSaveTask->setVisible(false);
     }
+}
+
+void clsMeterMode::closeEvent(QCloseEvent *event)
+{
+    btnSetup->setChecked(false);
+
+    event->accept();
 }

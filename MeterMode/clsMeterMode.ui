@@ -22,6 +22,21 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
+    <property name="spacing">
+     <number>2</number>
+    </property>
+    <property name="leftMargin">
+     <number>2</number>
+    </property>
+    <property name="topMargin">
+     <number>2</number>
+    </property>
+    <property name="rightMargin">
+     <number>2</number>
+    </property>
+    <property name="bottomMargin">
+     <number>2</number>
+    </property>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
@@ -383,9 +398,15 @@
         <property name="title">
          <string>测试程序设定</string>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_6">
+        <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0,0,0,10">
          <item>
           <widget class="QGroupBox" name="groupBox">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>100</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <family>楷体</family>
@@ -397,9 +418,12 @@
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_3">
             <item>
-             <widget class="QLabel" name="label_2">
-              <property name="text">
-               <string>TextLabel</string>
+             <widget class="singleStepTestDisplay" name="sngTestDisplay" native="true">
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>109</height>
+               </size>
               </property>
              </widget>
             </item>
@@ -928,7 +952,7 @@
              <property name="currentIndex">
               <number>1</number>
              </property>
-             <widget class="QWidget" name="stackedWidget_2Page1" native="true"/>
+             <widget class="QWidget" name="stackedWidget_2Page1"/>
              <widget class="QWidget" name="page">
               <layout class="QVBoxLayout" name="verticalLayout_8">
                <item>
@@ -1141,12 +1165,18 @@
   <customwidget>
    <class>clsMyMessageLabel</class>
    <extends>QLabel</extends>
-   <header location="global">clsMyMessageLabel.h</header>
+   <header>clsMyMessageLabel.h</header>
   </customwidget>
   <customwidget>
    <class>StatusLabel</class>
    <extends>QLabel</extends>
    <header>StatusLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>singleStepTestDisplay</class>
+   <extends>QWidget</extends>
+   <header location="global">singleStepTestDisplay.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>

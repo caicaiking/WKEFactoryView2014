@@ -13,6 +13,9 @@ private slots:
     void on_skWidget_currentChanged(int arg1);
     void on_btnRep_clicked();
     void on_btnSetup_clicked();
+
+protected:
+    void closeEvent(QCloseEvent *event);
 };
 
 #endif // CLSMETERMODE_H

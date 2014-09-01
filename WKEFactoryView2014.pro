@@ -93,7 +93,9 @@ SOURCES +=\
     AnalysisMode/dlgWk6440Function2.cpp \
     AnalysisMode/wk6440Calibration.cpp \
     MeterMode/clsMeterMode.cpp \
-    MeterMode/clsMyMessageLabel.cpp
+    MeterMode/clsMyMessageLabel.cpp \
+    MeterMode/singleStepTestDisplay.cpp \
+    MeterMode/PassFailLabel.cpp
 
 
 
@@ -104,7 +106,7 @@ OTHER_FILES += \
     connections/ReadMe.txt \
     AnalysisMode/ProgramDescription.txt
 
-#为QWT图像控件定义的###################################################
+#为QWT图像控件定义�?###################################################
 DEFINES    += QT_DLL QWT_DLL
 CONFIG(debug,debug|release):LIBS+=E:/ExeProgram/Qt4/bin/qwtd.dll
 else:LIBS+=E:/ExeProgram/Qt4/bin/qwt.dll
@@ -196,7 +198,9 @@ HEADERS += \
     AnalysisMode/dlgWk6440Function2.h \
     AnalysisMode/wk6440Calibration.h \
     MeterMode/clsMeterMode.h \
-    MeterMode/clsMyMessageLabel.h
+    MeterMode/clsMyMessageLabel.h \
+    MeterMode/singleStepTestDisplay.h \
+    MeterMode/PassFailLabel.h
 
 
 FORMS += \
@@ -234,6 +238,7 @@ FORMS += \
     AnalysisMode/dlgWk6440Function1.ui \
     AnalysisMode/dlgWk6440Function2.ui \
     AnalysisMode/wk6440Calibration.ui \
-    MeterMode/clsMeterMode.ui
+    MeterMode/clsMeterMode.ui \
+    MeterMode/singleStepTestDisplay.ui
 
 TRANSLATIONS = recFile/Translation/WKEFV.ts
