@@ -95,7 +95,10 @@ SOURCES +=\
     MeterMode/clsMeterMode.cpp \
     MeterMode/clsMyMessageLabel.cpp \
     MeterMode/singleStepTestDisplay.cpp \
-    MeterMode/PassFailLabel.cpp
+    MeterMode/PassFailLabel.cpp \
+    MeterMode/WKEMeterMode.cpp \
+    MeterMode/cls6440MeterMode.cpp \
+    MeterMode/clsUserFunctionMeterMode.cpp
 
 
 
@@ -200,7 +203,10 @@ HEADERS += \
     MeterMode/clsMeterMode.h \
     MeterMode/clsMyMessageLabel.h \
     MeterMode/singleStepTestDisplay.h \
-    MeterMode/PassFailLabel.h
+    MeterMode/PassFailLabel.h \
+    MeterMode/WKEMeterMode.h \
+    MeterMode/cls6440MeterMode.h \
+    MeterMode/clsUserFunctionMeterMode.h
 
 
 FORMS += \
@@ -239,6 +245,8 @@ FORMS += \
     AnalysisMode/dlgWk6440Function2.ui \
     AnalysisMode/wk6440Calibration.ui \
     MeterMode/clsMeterMode.ui \
-    MeterMode/singleStepTestDisplay.ui
+    MeterMode/singleStepTestDisplay.ui \
+    MeterMode/cls6440MeterMode.ui \
+    MeterMode/clsUserFunctionMeterMode.ui
 
 TRANSLATIONS = recFile/Translation/WKEFV.ts

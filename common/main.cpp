@@ -11,9 +11,9 @@
 #include <QTranslator>
 #include "testLimits.h"
 #include "wkResonaceMode.h"
-//#include "frmWKEMeterMode.h"
 #include "clsMeterMode.h"
 #include "clsDog.h"
+#include "clsMeterMode.h"
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -31,9 +31,9 @@ int main(int argc, char *argv[])
 
     //test begin
 
-    //    clsMeterMode meter;
-    //    meter.showMaximized();
-    //   return a.exec();
+        clsMeterMode meter;
+        meter.showMaximized();
+       return a.exec();
 
     //for test
 

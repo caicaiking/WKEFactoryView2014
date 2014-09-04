@@ -9,6 +9,7 @@ class singleStepTestDisplay : public QWidget, private Ui::singleStepTestDisplay
 
 public:
     explicit singleStepTestDisplay(QWidget *parent = 0);
+public slots:
     void setMessage(const QString &msg, int value=0);
 };
 
