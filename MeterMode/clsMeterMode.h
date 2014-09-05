@@ -30,7 +30,13 @@ private slots:
 
     void on_btnTrig_clicked();
 
-    void showList();
+    void showTaskList();
+    void on_btnDelete_clicked();
+
+    void on_btnUp_clicked();
+
+    void on_btnDown_clicked();
+
 protected:
     void closeEvent(QCloseEvent *event);
 

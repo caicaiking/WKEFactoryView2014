@@ -104,7 +104,7 @@ void clsMeterMode::on_btnAdd_clicked()
     }
 
 
-    showList();
+    showTaskList();
 }
 
 void clsMeterMode::on_btnMeter_clicked()
@@ -162,7 +162,7 @@ void clsMeterMode::on_btnTrig_clicked()
 }
 
 
-void clsMeterMode::showList()
+void clsMeterMode::showTaskList()
 {
 
     tbTaskList->clear();
@@ -194,7 +194,8 @@ void clsMeterMode::setTableTitle()
 {
     tbTaskList->verticalHeader()->setVisible(false);
     tbTaskList->setEditTriggers(QAbstractItemView::NoEditTriggers);
-
+    tbTaskList->setSelectionMode(QAbstractItemView::SingleSelection);
+    tbTaskList->setSelectionBehavior(QTableView::SelectRows);
     this->tbTaskList->setColumnCount(2);
     this->tbTaskList->setColumnWidth(0,50);
     this->tbTaskList->horizontalHeader()->setResizeMode(1,QHeaderView::ResizeToContents);
@@ -203,3 +204,47 @@ void clsMeterMode::setTableTitle()
 }
 
 
+
+void clsMeterMode::on_btnDelete_clicked()
+{
+    if(tbTaskList->selectedItems().length()<=0)
+        return;
+
+    int intSelectedRow = tbTaskList->selectedItems().at(0)->row();
+    list.removeAt(intSelectedRow);
+
+    showTaskList();
+}
+
+void clsMeterMode::on_btnUp_clicked()
+{
+    //没有选择 返回
+    if(tbTaskList->selectedItems().length()<=0)
+        return;
+    //判断选择行数
+    int intSelectedRow = tbTaskList->selectedItems().at(0)->row();
+
+    if(intSelectedRow<1)
+        return;
+
+    list.swap(intSelectedRow,intSelectedRow-1);
+    showTaskList();
+    tbTaskList->setCurrentCell(intSelectedRow-1,0);
+}
+
+void clsMeterMode::on_btnDown_clicked()
+{
+    //没有选择 返回
+    if(tbTaskList->selectedItems().length()<=0)
+        return;
+    //判断选择行数
+    int intSelectedRow = tbTaskList->selectedItems().at(0)->row();
+
+    if((intSelectedRow+1)>=list.length())
+        return;
+
+    list.swap(intSelectedRow,intSelectedRow+1);
+    showTaskList();
+    tbTaskList->setCurrentCell(intSelectedRow+1,0);
+
+}
