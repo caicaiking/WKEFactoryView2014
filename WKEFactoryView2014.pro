@@ -8,7 +8,7 @@ QT       += core gui network
 RC_FILE  =Icon.rc
 
  LIBS += dog_windows_3147311.lib
-
+#//翻译文件使用的代码
 CODECFORTR = UTF-8
 
 INCLUDEPATH +=connections \
@@ -109,10 +109,12 @@ OTHER_FILES += \
     connections/ReadMe.txt \
     AnalysisMode/ProgramDescription.txt
 
-#涓篞WT鍥惧儚鎺т欢瀹氫箟鐨?###################################################
+# QWT 所需要的定义  ###################################################
 DEFINES    += QT_DLL QWT_DLL
-CONFIG(debug,debug|release):LIBS+=E:/ExeProgram/Qt4/bin/qwtd.dll
-else:LIBS+=E:/ExeProgram/Qt4/bin/qwt.dll
+
+CONFIG(debug,debug|release):LIBS += -L $(QTDIR)/bin -lqwtd
+else:LIBS += -L $(QTDIR)/bin  -lqwt
+
 #######################################################################
 
 RESOURCES +=
