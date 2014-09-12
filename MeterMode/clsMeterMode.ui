@@ -438,6 +438,12 @@
          </item>
          <item>
           <widget class="QGroupBox" name="groupBox_6">
+           <property name="minimumSize">
+            <size>
+             <width>350</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <family>楷体</family>
@@ -465,6 +471,16 @@
               <property name="text">
                <string>仪表</string>
               </property>
+              <property name="icon">
+               <iconset resource="../recFile/myRes.qrc">
+                <normaloff>:/Icons/instrument.png</normaloff>:/Icons/instrument.png</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
              </widget>
             </item>
             <item>
@@ -484,6 +500,10 @@
               <property name="text">
                <string>附加功能</string>
               </property>
+              <property name="icon">
+               <iconset resource="../recFile/myRes.qrc">
+                <normaloff>:/Icons/multiStep.png</normaloff>:/Icons/multiStep.png</iconset>
+              </property>
              </widget>
             </item>
            </layout>
@@ -498,18 +518,12 @@
             </font>
            </property>
            <property name="title">
-            <string>步骤导航</string>
+            <string>步骤操作</string>
            </property>
-           <layout class="QHBoxLayout" name="horizontalLayout_7">
+           <layout class="QHBoxLayout" name="horizontalLayout_4">
             <item>
-             <widget class="QPushButton" name="btnFirst">
+             <widget class="QPushButton" name="btnSaveStep">
               <property name="minimumSize">
-               <size>
-                <width>30</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="maximumSize">
                <size>
                 <width>30</width>
                 <height>30</height>
@@ -522,11 +536,11 @@
                </font>
               </property>
               <property name="text">
-               <string/>
+               <string>保存</string>
               </property>
               <property name="icon">
                <iconset resource="../recFile/myRes.qrc">
-                <normaloff>:/Icons/First.ico</normaloff>:/Icons/First.ico</iconset>
+                <normaloff>:/Icons/stepSave.png</normaloff>:/Icons/stepSave.png</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -534,17 +548,14 @@
                 <height>20</height>
                </size>
               </property>
+              <property name="shortcut">
+               <string>Ctrl+A</string>
+              </property>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="btnLast">
+             <widget class="QPushButton" name="btnDelete">
               <property name="minimumSize">
-               <size>
-                <width>30</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="maximumSize">
                <size>
                 <width>30</width>
                 <height>30</height>
@@ -557,11 +568,11 @@
                </font>
               </property>
               <property name="text">
-               <string/>
+               <string>删除</string>
               </property>
               <property name="icon">
                <iconset resource="../recFile/myRes.qrc">
-                <normaloff>:/Icons/Last.ico</normaloff>:/Icons/Last.ico</iconset>
+                <normaloff>:/Icons/Delete.ico</normaloff>:/Icons/Delete.ico</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -572,14 +583,8 @@
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="btnNext">
+             <widget class="QPushButton" name="btnAdd">
               <property name="minimumSize">
-               <size>
-                <width>30</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="maximumSize">
                <size>
                 <width>30</width>
                 <height>30</height>
@@ -592,11 +597,11 @@
                </font>
               </property>
               <property name="text">
-               <string/>
+               <string>添加</string>
               </property>
               <property name="icon">
                <iconset resource="../recFile/myRes.qrc">
-                <normaloff>:/Icons/Next.ico</normaloff>:/Icons/Next.ico</iconset>
+                <normaloff>:/Icons/savePro.ico</normaloff>:/Icons/savePro.ico</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -604,107 +609,10 @@
                 <height>20</height>
                </size>
               </property>
+              <property name="shortcut">
+               <string>Ctrl+A</string>
+              </property>
              </widget>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_4">
-              <item>
-               <widget class="QPushButton" name="btnEnd">
-                <property name="minimumSize">
-                 <size>
-                  <width>30</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="maximumSize">
-                 <size>
-                  <width>30</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>楷体</family>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string/>
-                </property>
-                <property name="icon">
-                 <iconset resource="../recFile/myRes.qrc">
-                  <normaloff>:/Icons/Stop3.ico</normaloff>:/Icons/Stop3.ico</iconset>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btnDelete">
-                <property name="minimumSize">
-                 <size>
-                  <width>30</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>楷体</family>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>删除</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="../recFile/myRes.qrc">
-                  <normaloff>:/Icons/Delete.ico</normaloff>:/Icons/Delete.ico</iconset>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QPushButton" name="btnAdd">
-                <property name="minimumSize">
-                 <size>
-                  <width>30</width>
-                  <height>30</height>
-                 </size>
-                </property>
-                <property name="font">
-                 <font>
-                  <family>楷体</family>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>添加</string>
-                </property>
-                <property name="icon">
-                 <iconset resource="../recFile/myRes.qrc">
-                  <normaloff>:/Icons/savePro.ico</normaloff>:/Icons/savePro.ico</iconset>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>20</width>
-                  <height>20</height>
-                 </size>
-                </property>
-                <property name="shortcut">
-                 <string>Ctrl+A</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
             </item>
            </layout>
           </widget>
@@ -959,7 +867,7 @@
               </font>
              </property>
              <property name="currentIndex">
-              <number>0</number>
+              <number>1</number>
              </property>
              <widget class="QWidget" name="skPageMeter">
               <layout class="QVBoxLayout" name="verticalLayout_9">

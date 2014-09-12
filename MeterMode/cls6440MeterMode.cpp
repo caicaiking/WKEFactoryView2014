@@ -1,5 +1,5 @@
 #include "cls6440MeterMode.h"
-
+#include <QDebug>
 cls6440MeterMode::cls6440MeterMode(QWidget *parent) :
     WKEMeterMode(parent)
 {
@@ -24,6 +24,7 @@ void cls6440MeterMode::trig()
 void cls6440MeterMode::start()
 {
     emit startTest("1111,11111,11111");
+    qDebug()<<"meter test!";
 }
 
 QString cls6440MeterMode::getTestCondition()

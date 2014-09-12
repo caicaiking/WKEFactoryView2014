@@ -1,5 +1,5 @@
 #include "clsUserFunctionMeterMode.h"
-
+#include <QDebug>
 clsUserFunctionMeterMode::clsUserFunctionMeterMode(QWidget *parent) :
     WKEMeterMode(parent)
 {
@@ -25,7 +25,7 @@ void clsUserFunctionMeterMode::trig()
 
 void clsUserFunctionMeterMode::start()
 {
-
+    qDebug()<<"Userful function test";
 }
 
 QString clsUserFunctionMeterMode::getTestCondition()

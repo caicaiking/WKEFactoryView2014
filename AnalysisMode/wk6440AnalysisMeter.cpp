@@ -115,7 +115,7 @@ void wk6440AnalysisMeter::readSettings()
 {
     clsSettings settings;
     doubleType dt;
-    QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterMode);
+    QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterSeries);
 
     settings.readSetting(strNode+"Item1",item1);
     item1=(item1.isEmpty()?"Z":item1);
@@ -180,7 +180,7 @@ void wk6440AnalysisMeter::saveSettings()
 {
     clsSettings settings;
 
-    QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterMode);
+    QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterSeries);
 
     settings.writeSetting(strNode+"Item1",item1);
     settings.writeSetting(strNode+"Item2",item2);

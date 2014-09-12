@@ -286,16 +286,16 @@ double frmWk3260::getMinLevelV()
 
 double frmWk3260::getMaxFrequency()
 {
-    if(clsRS::getInst().meterMode=="3260")
+    if(clsRS::getInst().meterSeries=="3260")
     return 3000000;
 
-    if(clsRS::getInst().meterMode=="3255" && clsRS::getInst().instrumentModel.contains("BQ"))
+    if(clsRS::getInst().meterSeries=="3255" && clsRS::getInst().instrumentModel.contains("BQ"))
         return 1000000;
 
-    if(clsRS::getInst().meterMode=="3255" && clsRS::getInst().instrumentModel.contains("BL"))
+    if(clsRS::getInst().meterSeries=="3255" && clsRS::getInst().instrumentModel.contains("BL"))
         return 200000;
 
-    if(clsRS::getInst().meterMode=="3255" && clsRS::getInst().instrumentModel.contains("B"))
+    if(clsRS::getInst().meterSeries=="3255" && clsRS::getInst().instrumentModel.contains("B"))
         return 500000;
 
     return 3000000;
@@ -415,7 +415,7 @@ void frmWk3260::readSettings(WK3260 &wk)
 
     if(! settings.FileExit())
         return;
-    QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterMode);
+    QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterSeries);
 
     settings.readSetting(strNode+"Equcct",wk.equcct.value);
     settings.readSetting(strNode+"LevelValue",wk.level.value);
@@ -436,7 +436,7 @@ void frmWk3260::writeSettings(WK3260 wk)
     clsSettings settings;
 
 
-    QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterMode);
+    QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterSeries);
 
     settings.writeSetting(strNode+"Equcct",wk.equcct.value);
     settings.writeSetting(strNode+"LevelValue",wk.level.value);
@@ -563,7 +563,7 @@ void frmWk3260::on_btnBiasOnOFF_clicked()
 
 QString frmWk3260::getGpibMeter()
 {
-    if(clsRS::getInst().meterMode=="3260")
+    if(clsRS::getInst().meterSeries=="3260")
     {
         return ":IMP";
     }

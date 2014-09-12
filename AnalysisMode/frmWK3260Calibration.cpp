@@ -27,7 +27,7 @@ void frmWK3260Calibration::readSettings()
     QString strNode;
     clsSettings settings;
     QString strTemp;
-    strNode =QString("Calibration-%1/").arg(clsRS::getInst().meterMode);
+    strNode =QString("Calibration-%1/").arg(clsRS::getInst().meterSeries);
 
     settings.readSetting(strNode+"OpenNormLabel",strTemp);
     lblOpenNorm->setText(strTemp);
@@ -49,7 +49,7 @@ void frmWK3260Calibration::writeSettings()
     QString strNode;
 
     clsSettings settings;
-    strNode =QString("Calibration-%1/").arg(clsRS::getInst().meterMode);
+    strNode =QString("Calibration-%1/").arg(clsRS::getInst().meterSeries);
 
     settings.writeSetting(strNode+"OpenNormLabel",lblOpenNorm->text());
     settings.writeSetting(strNode+"ShortNormLabel",lblShortNorm->text());
@@ -103,7 +103,7 @@ void frmWK3260Calibration::on_btnOpenNorm_clicked()
     PopUpmessage(tr("请保持夹具开路状态"),tr("开路校准"));
     setCalNorm();
 
-    if(clsRS::getInst().meterMode=="3260")
+    if(clsRS::getInst().meterSeries=="3260")
         clsRS::getInst().sendCommand(":CAL:OC-TRIM-P 4");
     else
         clsRS::getInst().sendCommand(":CAL:OC-TRIM 2");
@@ -152,7 +152,7 @@ void frmWK3260Calibration::on_btnShortNorm_clicked()
     PopUpmessage(tr("请保持夹具短路状态"),tr("短路校准"));
     setCalNorm();
     UserfulFunctions::sleepMs(2000);
-    if(clsRS::getInst().meterMode=="3260")
+    if(clsRS::getInst().meterSeries=="3260")
         clsRS::getInst().sendCommand(":CAL:SC-TRIM-P 4");
     else
         clsRS::getInst().sendCommand(":CAL:SC-TRIM 2");
@@ -180,7 +180,7 @@ void frmWK3260Calibration::on_btnOpenBoost_clicked()
     setCalBoost();
     UserfulFunctions::sleepMs(2000);
 
-    if(clsRS::getInst().meterMode=="3260")
+    if(clsRS::getInst().meterSeries=="3260")
         clsRS::getInst().sendCommand(":CAL:OC-TRIM-P 4");
     else
         clsRS::getInst().sendCommand(":CAL:OC-TRIM 2");
@@ -197,7 +197,7 @@ void frmWK3260Calibration::on_btnShortBoost_clicked()
     setCalBoost();
     UserfulFunctions::sleepMs(2000);
 
-    if(clsRS::getInst().meterMode=="3260")
+    if(clsRS::getInst().meterSeries=="3260")
         clsRS::getInst().sendCommand(":CAL:SC-TRIM-P 4");
     else
         clsRS::getInst().sendCommand(":CAL:SC-TRIM 2");
@@ -221,7 +221,7 @@ void frmWK3260Calibration::on_btnHFBoost_clicked()
 }
 QString frmWK3260Calibration::getGpibMeter()
 {
-    if(clsRS::getInst().meterMode=="3260")
+    if(clsRS::getInst().meterSeries=="3260")
     {
         return ":IMP";
     }

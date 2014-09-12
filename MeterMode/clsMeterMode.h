@@ -4,11 +4,8 @@
 #include "ui_clsMeterMode.h"
 #include "WKEMeterMode.h"
 #include <QList>
-struct StepInfo
-{
-    QString userFunction;
-    QString meterFunction;
-};
+#include <QPointer>
+
 
 class clsMeterMode : public QMainWindow, private Ui::clsMeterMode
 {
@@ -21,30 +18,27 @@ private slots:
     void on_skWidget_currentChanged(int arg1);
     void on_btnRep_clicked();
     void on_btnSetup_clicked();
-
     void on_btnAdd_clicked();
-
     void on_btnMeter_clicked();
-
     void on_btnAddtionFunction_clicked();
-
     void on_btnTrig_clicked();
-
     void showTaskList();
     void on_btnDelete_clicked();
-
     void on_btnUp_clicked();
-
     void on_btnDown_clicked();
+
+    void on_tbTaskList_clicked(const QModelIndex &index);
+
+    void on_btnSaveStep_clicked();
+
+    void enableBtnSaveStep();
 
 protected:
     void closeEvent(QCloseEvent *event);
 
 private:
-    QList<WKEMeterMode*> list;
-    WKEMeterMode *meter;
-    StepInfo stpInfo;
-
+    QList<QPointer<WKEMeterMode> > list;
+    QPointer<WKEMeterMode> meter;
     void setTableTitle();
 };
 

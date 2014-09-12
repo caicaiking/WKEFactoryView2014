@@ -29,7 +29,7 @@ public:
     void unlock();
 
     QString instrumentModel; //6550 6430 6440
-    QString meterMode; //6500 4300 6440 3260 3255
+    QString meterSeries; //6500 4300 6440 3260 3255
 private:
     clsRS();
     clsRS(const clsRS &);

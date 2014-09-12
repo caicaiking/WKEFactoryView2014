@@ -4,6 +4,8 @@
 #include "cls6440MeterMode.h"
 #include "clsUserFunctionMeterMode.h"
 #include <QLayout>
+#include "clsMeterModeFactory.h"
+#include "clsRuningSettings.h"
 clsMeterMode::clsMeterMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -18,13 +20,19 @@ clsMeterMode::clsMeterMode(QWidget *parent) :
     sngTestDisplay->setMessage("L,512.03nH,PASS,C,-2.003nF,FAIL,R,1.2354mΩ,PASS,C,-2.003nF,FAIL",4);
     //this->showMaximized();
 
+    //连接tbTaskList的选择改变信号，将saveStepButton的动作开关
+    connect(tbTaskList,SIGNAL(itemSelectionChanged()),this,SLOT(enableBtnSaveStep()));
+    btnSaveStep->setEnabled(false);
+
     //设置显示表的表头
     setTableTitle();
-
     meter=0;
-
 }
 
+/*!
+ * \brief clsMeterMode::on_skWidget_currentChanged 当skWidget 改变
+ * \param arg1 选择的page
+ */
 void clsMeterMode::on_skWidget_currentChanged(int arg1)
 {
     if(arg1==0)
@@ -37,6 +45,10 @@ void clsMeterMode::on_skWidget_currentChanged(int arg1)
     }
 }
 
+/*!
+ * \brief clsMeterMode::on_btnRep_clicked
+ * 连续测试按钮click 事件响应
+ */
 void clsMeterMode::on_btnRep_clicked()
 {
     skWidget->setCurrentIndex(1);
@@ -45,13 +57,22 @@ void clsMeterMode::on_btnRep_clicked()
     qApp->processEvents();
     while(btnRep->isChecked())
     {
-        qDebug()<< "rep test";
+        for(int i=0; i<list.length();i++)
+        {
+            list.at(i).data()->start();
+           // UserfulFunctions::sleepMs(150);
+             qApp->processEvents();
+        }
         UserfulFunctions::sleepMs(150);
         qApp->processEvents();
     }
     btnRep->setIcon(QIcon(":/Icons/repeat.png"));
 }
 
+/*!
+ * \brief clsMeterMode::on_btnSetup_clicked
+ * 当隐藏设定和打开设定时候要做的事情
+ */
 void clsMeterMode::on_btnSetup_clicked()
 {
     if(!btnSetup->isChecked())
@@ -70,6 +91,11 @@ void clsMeterMode::on_btnSetup_clicked()
     }
 }
 
+/*!
+ * \brief clsMeterMode::closeEvent
+ * \param event
+ * 关闭事件的相应处理
+ */
 void clsMeterMode::closeEvent(QCloseEvent *event)
 {
     btnSetup->setChecked(false);
@@ -77,6 +103,10 @@ void clsMeterMode::closeEvent(QCloseEvent *event)
     event->accept();
 }
 
+/*!
+ * \brief clsMeterMode::on_btnAdd_clicked
+ * 单击添加按钮，将显示的内容添加到任务
+ */
 void clsMeterMode::on_btnAdd_clicked()
 {
     if(!meter)
@@ -84,29 +114,23 @@ void clsMeterMode::on_btnAdd_clicked()
         lblInfo->showMessage(tr("<font color=red> 请选择测试步骤类型，然后在点击添加！</font>"),5);
         return;
     }
-    if(meter->getType()==MeterFunction)
-    {
-        cls6440MeterMode *tmpMeter = new cls6440MeterMode();
-        tmpMeter->setCondition(meter->getTestCondition());
-        stpInfo.meterFunction = meter->getTestCondition();
-        list.append(tmpMeter);
-    }
-    else if(meter->getType()==UF)
-    {
-        clsUserFunctionMeterMode *tmpUF = new clsUserFunctionMeterMode();
-        tmpUF->setCondition(meter->getTestCondition());
-        stpInfo.userFunction= meter->getTestCondition();
-        list.append(tmpUF);
-    }
-    else
-    {
-        //在这里什么都不做。
-    }
 
+    QPointer<WKEMeterMode>  tmpMeter =clsMeterModeFactory::getFunction(meter->getType(),clsRS::getInst().meterSeries);
+
+    if(tmpMeter)
+    {
+        tmpMeter->setCondition(meter->getTestCondition());
+        list.append(tmpMeter);
+        showTaskList();
+    }
 
     showTaskList();
 }
 
+/*!
+ * \brief clsMeterMode::on_btnMeter_clicked
+ * Meter 按钮添加事件
+ */
 void clsMeterMode::on_btnMeter_clicked()
 {
     skWidget->setCurrentIndex(0);
@@ -114,13 +138,13 @@ void clsMeterMode::on_btnMeter_clicked()
     if(meter)
     {
         delete meter;
+        //meter->setVisible(false);
     }
     QLayout *layout = wdgStep->layout();
     if(layout)
         delete layout;
 
-    meter = new cls6440MeterMode();
-    meter->setCondition(stpInfo.meterFunction);
+    meter = clsMeterModeFactory::getFunction(MeterFunction,clsRS::getInst().meterSeries);
     QHBoxLayout *hboxLayout = new QHBoxLayout();
     hboxLayout->addWidget(meter);
 
@@ -129,25 +153,33 @@ void clsMeterMode::on_btnMeter_clicked()
     meter->setVisible(true);
 }
 
+/*!
+ * \brief clsMeterMode::on_btnAddtionFunction_clicked
+ * 添加有用功能按钮
+ */
 void clsMeterMode::on_btnAddtionFunction_clicked()
 {
     skWidget->setCurrentIndex(0);
     if(meter)
     {
         delete meter;
+        //meter->setVisible(false);
     }
     QLayout *layout = wdgStep->layout();
     if(layout)
         delete layout;
 
-    meter = new clsUserFunctionMeterMode();
-    meter->setCondition(stpInfo.userFunction);
+    meter = clsMeterModeFactory::getFunction(UF,clsRS::getInst().meterSeries);
     QHBoxLayout *hboxLayout = new QHBoxLayout();
     hboxLayout->addWidget(meter);
     wdgStep->setLayout(hboxLayout);
     meter->setVisible(true);
 }
 
+/*!
+ * \brief clsMeterMode::on_btnTrig_clicked
+ * 触发按钮
+ */
 void clsMeterMode::on_btnTrig_clicked()
 {
 
@@ -161,7 +193,10 @@ void clsMeterMode::on_btnTrig_clicked()
     }
 }
 
-
+/*!
+ * \brief clsMeterMode::showTaskList
+ * 显示任务
+ */
 void clsMeterMode::showTaskList()
 {
 
@@ -172,10 +207,16 @@ void clsMeterMode::showTaskList()
     for(int i=0; i< list.length();i++)
     {
         tbTaskList->setItem(i,0,getTableItem(QString::number(i+1)));
-        tbTaskList->setItem(i,1,getTableItem(list.at(i)->getBrief()));
+        tbTaskList->setItem(i,1,getTableItem(list.at(i).data()->getBrief()));
     }
 }
 
+/*!
+ * \brief clsMeterMode::getTableItem 获取单元格
+ * \param content 要显示的内容
+ * \param isTitle 是否是标题，是标题有加粗效果
+ * \return 返回一个item 指针
+ */
 QTableWidgetItem* clsMeterMode::getTableItem(const QString &content,bool isTitle)
 {
     QTableWidgetItem * item= new QTableWidgetItem();
@@ -190,6 +231,9 @@ QTableWidgetItem* clsMeterMode::getTableItem(const QString &content,bool isTitle
     return item;
 }
 
+/*!
+ * \brief clsMeterMode::setTableTitle 设置表头
+ */
 void clsMeterMode::setTableTitle()
 {
     tbTaskList->verticalHeader()->setVisible(false);
@@ -204,18 +248,32 @@ void clsMeterMode::setTableTitle()
 }
 
 
-
+/*!
+ * \brief clsMeterMode::on_btnDelete_clicked
+ * 删除按钮响应
+ */
 void clsMeterMode::on_btnDelete_clicked()
 {
     if(tbTaskList->selectedItems().length()<=0)
         return;
 
     int intSelectedRow = tbTaskList->selectedItems().at(0)->row();
+
+    QPointer<WKEMeterMode> tmpMeter = list.at(intSelectedRow);
+    delete tmpMeter;
+
     list.removeAt(intSelectedRow);
 
     showTaskList();
+
+    if(intSelectedRow >0)
+        tbTaskList->setCurrentCell(intSelectedRow-1,0);
 }
 
+/*!
+ * \brief clsMeterMode::on_btnUp_clicked
+ * 向上按钮响应
+ */
 void clsMeterMode::on_btnUp_clicked()
 {
     //没有选择 返回
@@ -232,6 +290,10 @@ void clsMeterMode::on_btnUp_clicked()
     tbTaskList->setCurrentCell(intSelectedRow-1,0);
 }
 
+/*!
+ * \brief clsMeterMode::on_btnDown_clicked
+ * 向下按钮响应
+ */
 void clsMeterMode::on_btnDown_clicked()
 {
     //没有选择 返回
@@ -246,5 +308,86 @@ void clsMeterMode::on_btnDown_clicked()
     list.swap(intSelectedRow,intSelectedRow+1);
     showTaskList();
     tbTaskList->setCurrentCell(intSelectedRow+1,0);
+
+}
+
+
+/*!
+ * \brief clsMeterMode::on_tbTaskList_clicked
+ * \param index
+ * 单击，显示自定义步骤
+ */
+void clsMeterMode::on_tbTaskList_clicked(const QModelIndex &index)
+{
+    int intSelectRow = index.row();
+    skWidget->setCurrentIndex(0);
+    if(meter)
+    {
+        delete meter;
+    }
+
+    QString strCondition = list.at(intSelectRow)->getTestCondition();
+    FunctionType t = list.at(intSelectRow)->getType();
+    QLayout *layout = wdgStep->layout();
+    if(layout)
+        delete layout;
+
+    meter = clsMeterModeFactory::getFunction(t,clsRS::getInst().meterSeries);
+    meter->setCondition(strCondition);
+
+    QHBoxLayout *hboxLayout = new QHBoxLayout();
+    hboxLayout->addWidget(meter);
+    wdgStep->setLayout(hboxLayout);
+    meter->setVisible(true);
+
+}
+
+/*!
+ * \brief clsMeterMode::on_btnSaveStep_clicked
+ * 保存测试步骤
+ */
+void clsMeterMode::on_btnSaveStep_clicked()
+{
+    //判断选择行数
+    QList<QTableWidgetItem *> itemList = tbTaskList->selectedItems();
+
+    if(itemList.length()<=0)
+    {
+        lblInfo->showMessage(tr("<font color=red>请选择要保存的步骤！</font>"),5);
+        return;
+    }
+
+    int intSelectedRow = itemList.at(0)->row();
+
+    if(!meter)
+    {
+        lblInfo->showMessage(tr("<font color=red> 请选择测试步骤类型，然后在点击添加！</font>"),5);
+        return;
+    }
+
+    QPointer<WKEMeterMode>  tmpMeter =clsMeterModeFactory::getFunction(meter->getType(),clsRS::getInst().meterSeries);
+
+    if(tmpMeter)
+    {
+        tmpMeter->setCondition(meter->getTestCondition());
+        list.append(tmpMeter);
+        list.swap(intSelectedRow,list.length()-1);
+        list.removeLast();
+        showTaskList();
+    }
+}
+
+/*!
+ * \brief clsMeterMode::enableSaveButton
+ * 有选择的时候，将此按钮变成可以使用
+ */
+void clsMeterMode::enableBtnSaveStep()
+{
+    QList<QTableWidgetItem *> itemList = tbTaskList->selectedItems();
+
+    if(itemList.length()<=0)
+        btnSaveStep->setEnabled(false);
+    else
+        btnSaveStep->setEnabled(true);
 
 }

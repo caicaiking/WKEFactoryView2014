@@ -98,7 +98,8 @@ SOURCES +=\
     MeterMode/PassFailLabel.cpp \
     MeterMode/WKEMeterMode.cpp \
     MeterMode/cls6440MeterMode.cpp \
-    MeterMode/clsUserFunctionMeterMode.cpp
+    MeterMode/clsUserFunctionMeterMode.cpp \
+    MeterMode/clsMeterModeFactory.cpp
 
 
 RESOURCES += \
@@ -207,7 +208,8 @@ HEADERS += \
     MeterMode/PassFailLabel.h \
     MeterMode/WKEMeterMode.h \
     MeterMode/cls6440MeterMode.h \
-    MeterMode/clsUserFunctionMeterMode.h
+    MeterMode/clsUserFunctionMeterMode.h \
+    MeterMode/clsMeterModeFactory.h
 
 
 FORMS += \

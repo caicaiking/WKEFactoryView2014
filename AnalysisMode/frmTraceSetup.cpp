@@ -121,7 +121,7 @@ bool  frmTraceSetup::readSettings(graphSetup &gsetup, bool incldSwty)
 
     if(! settings.FileExit())
         return false;
-      QString strNode=QString("GraphSetup-%1/").arg(clsRS::getInst().meterMode);
+      QString strNode=QString("GraphSetup-%1/").arg(clsRS::getInst().meterSeries);
     if(incldSwty)
     {
         int tmp;
@@ -178,7 +178,7 @@ bool  frmTraceSetup::writeSettings(graphSetup gsetup)
     if(! settings.FileExit())
         return false;
 
-     QString strNode=QString("GraphSetup-%1/").arg(clsRS::getInst().meterMode);
+     QString strNode=QString("GraphSetup-%1/").arg(clsRS::getInst().meterSeries);
 
     settings.writeSetting(strNode+"SweepType",gsetup.sweepType);
     switch (gsetup.sweepType) {

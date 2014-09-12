@@ -66,35 +66,35 @@ void frmSelectConnection::on_btnTest_clicked()
                 QRegExp rx4100 ("^4[13][0-9]*");
                 if(rx4100.exactMatch(clsRS::getInst().instrumentModel))
                 {
-                    clsRS::getInst().meterMode="4300";
+                    clsRS::getInst().meterSeries="4300";
                     goto ToHere;
                 }
 
                 QRegExp rx6500 ("^65[0-9]*[BPA]");
                 if(rx6500.exactMatch(clsRS::getInst().instrumentModel))
                 {
-                    clsRS::getInst().meterMode="6500";
+                    clsRS::getInst().meterSeries="6500";
                     goto ToHere;
                 }
 
                 QRegExp rx3260 ("^PMA3260[BA]");
                 if(rx3260.exactMatch(clsRS::getInst().instrumentModel))
                 {
-                    clsRS::getInst().meterMode="3260";
+                    clsRS::getInst().meterSeries="3260";
                     goto ToHere;
                 }
 
                 QRegExp rx3255 ("^IA3255[BA]Q{0,}");
                 if(rx3255.exactMatch(clsRS::getInst().instrumentModel))
                 {
-                    clsRS::getInst().meterMode="3255";
+                    clsRS::getInst().meterSeries="3255";
                     goto ToHere;
                 }
 
                 QRegExp rx6440 ("^64[43]0");
                 if(rx6440.exactMatch(clsRS::getInst().instrumentModel))
                 {
-                    clsRS::getInst().meterMode="6440";
+                    clsRS::getInst().meterSeries="6440";
                     goto ToHere;
                 }
 
@@ -105,7 +105,7 @@ void frmSelectConnection::on_btnTest_clicked()
             clsRS::getInst().instrumentModel="No Instrument!";
 
 
-        qDebug()<< "Instrument mode: "<<clsRS::getInst().meterMode;
+        qDebug()<< "Instrument mode: "<<clsRS::getInst().meterSeries;
 
 
 
@@ -113,7 +113,7 @@ void frmSelectConnection::on_btnTest_clicked()
 
 ToHere:
     qDebug()<< "clsRS::getInst().instrumentModel:\t"<<clsRS::getInst().instrumentModel;
-    qDebug()<< "clsRS::getInst().meterMode:\t\t"<<clsRS::getInst().meterMode;
+    qDebug()<< "clsRS::getInst().meterMode:\t\t"<<clsRS::getInst().meterSeries;
     buttonOp(isInit);
     writeSttings();
 }
@@ -124,7 +124,7 @@ void frmSelectConnection::buttonOp(bool value)
     btnAnalysis->setEnabled(value);
     btnMeter->setEnabled(value);
 
-    if(clsRS::getInst().meterMode=="6500")
+    if(clsRS::getInst().meterSeries=="6500")
     {
         btnRansonace->setVisible(true);
     }
