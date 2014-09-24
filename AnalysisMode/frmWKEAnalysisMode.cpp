@@ -57,6 +57,8 @@ void frmWKEAnalysisMode::initZoomer()
     //         plot->canvas());
     connect(d_zoomer,SIGNAL(zoomed(QRectF)),this,SLOT(zoomed(QRectF)));
 
+
+
     enableZoomMode(false);
 }
 
@@ -212,19 +214,40 @@ void frmWKEAnalysisMode::zoomed(QRectF value)
 {
     btnZoom->setChecked(false);
     enableZoomMode(false);
-    gs.xmax=value.right();
 
-    gs.xmax =(gs.xmax>meter->getMaxFrequency()?meter->getMaxFrequency():gs.xmax);
+    double xmax,xmin;
+    xmax = value.right();
+    xmax = (xmax> gs.xmax? gs.xmax:xmax);
 
-    gs.xmin=value.left();
+    xmin=value.left();
+    xmin=(xmin<gs.xmin?gs.xmin:xmin);
 
-    gs.xmin=(gs.xmin<meter->getMinFrequency()?meter->getMinFrequency():gs.xmin);
-    gs.points = frmPointEditor::getStaticPoints(gs.xmin,gs.xmax,gs.logX,gs.points.length());
-    frmTraceSetup::writeSettings(gs);
+    QString strMax, strMin;
+    doubleType dt;
+    dt.setData(xmax,"");
+    strMax = dt.formateToString()+UserfulFunctions::getSweepFunctionSuffix(gs.sweepType);
 
-    updateGraph();
-    plot->clearData();
+    dt.setData(xmin,"");
+    strMin = dt.formateToString()+UserfulFunctions::getSweepFunctionSuffix(gs.sweepType);
 
+
+    int returnValue = QMessageBox::question(this,tr("曲线放大"),tr("放大范围：\n从%1到%2").arg(strMin).arg(strMax),QMessageBox::Ok|QMessageBox::Cancel);
+
+    if(returnValue ==QMessageBox::Ok)
+    {
+        gs.xmax =xmax;
+        gs.xmin=xmin;
+        gs.points = frmPointEditor::getStaticPoints(gs.xmin,gs.xmax,gs.logX,gs.points.length());
+        frmTraceSetup::writeSettings(gs);
+
+        updateGraph();
+        plot->clearData();
+    }
+    else
+    {
+        updateGraph();
+        plot->repaint();
+    }
 }
 
 

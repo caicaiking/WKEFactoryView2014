@@ -18,7 +18,13 @@ public:
 //        setMousePattern(QwtEventPattern::MouseSelect3,
 //            Qt::RightButton);
     }
+
+protected:
+
 };
 
 
 #endif // ZOOMER_H
+
+
+

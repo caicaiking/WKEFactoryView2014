@@ -116,7 +116,7 @@ void clsMeterMode::on_btnAdd_clicked()
     }
 
     QPointer<WKEMeterMode>  tmpMeter =clsMeterModeFactory::getFunction(meter->getType(),clsRS::getInst().meterSeries);
-
+    tmpMeter.data()->setParent(this);
     if(tmpMeter)
     {
         tmpMeter->setCondition(meter->getTestCondition());
@@ -145,6 +145,7 @@ void clsMeterMode::on_btnMeter_clicked()
         delete layout;
 
     meter = clsMeterModeFactory::getFunction(MeterFunction,clsRS::getInst().meterSeries);
+    meter.data()->setParent(this);
     QHBoxLayout *hboxLayout = new QHBoxLayout();
     hboxLayout->addWidget(meter);
 
@@ -170,6 +171,7 @@ void clsMeterMode::on_btnAddtionFunction_clicked()
         delete layout;
 
     meter = clsMeterModeFactory::getFunction(UF,clsRS::getInst().meterSeries);
+    meter.data()->setParent(this);
     QHBoxLayout *hboxLayout = new QHBoxLayout();
     hboxLayout->addWidget(meter);
     wdgStep->setLayout(hboxLayout);

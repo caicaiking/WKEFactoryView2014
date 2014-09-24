@@ -1,6 +1,7 @@
 ﻿#include "clsComplexOp.h"
 #include <stdlib.h>
 #include <math.h>
+
 using namespace std;
 
 clsComplexOp::clsComplexOp(double inZ, double inA, double inFreq, Equcct inEqucct)

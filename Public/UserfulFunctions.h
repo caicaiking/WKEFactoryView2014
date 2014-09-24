@@ -80,6 +80,7 @@ public:
         return "";
     }
 
+ static const  QString getSweepFunctionSuffix(SweepType value);
 };
 
 #endif // USERFULFUNCTIONS_H

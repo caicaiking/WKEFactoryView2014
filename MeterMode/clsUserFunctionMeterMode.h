@@ -9,13 +9,14 @@ class clsUserFunctionMeterMode : public WKEMeterMode, private Ui::clsUserFunctio
 
 public:
     explicit clsUserFunctionMeterMode(QWidget *parent = 0);
-      void setCondition(const QString &value);
-      QString getTestItem();
-      void trig();
-      void start();
-      QString getTestCondition();
-      QString getBrief();
-       FunctionType getType();
+    void setCondition(const QString &value);
+    QString getTestItem();
+    void trig();
+    void start();
+    QString getTestCondition();
+    QString getBrief();
+    FunctionType getType();
+    bool getPassFail();
 private slots:
     void on_pushButton_clicked();
 signals:

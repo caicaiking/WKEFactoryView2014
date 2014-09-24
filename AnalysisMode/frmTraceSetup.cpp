@@ -481,6 +481,4 @@ void frmTraceSetup::on_btnRate_clicked()
         gsetup.biasVRate = dlg->getNumber();
         updateButtons();
     }
-
-
 }

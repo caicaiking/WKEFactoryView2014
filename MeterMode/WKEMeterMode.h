@@ -21,6 +21,7 @@ public:
     virtual void start()=0;
     virtual QString getTestCondition()=0;
     virtual QString getBrief()=0;
+    virtual bool getPassFail()=0;
 signals:
     //用于单次测试
     void testResult(QString,int);

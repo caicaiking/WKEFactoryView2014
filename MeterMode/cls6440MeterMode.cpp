@@ -41,3 +41,8 @@ FunctionType cls6440MeterMode::getType()
 {
     return MeterFunction;
 }
+
+bool cls6440MeterMode::getPassFail()
+{
+
+}

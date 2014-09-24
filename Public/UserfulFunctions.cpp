@@ -14,6 +14,32 @@ UserfulFunctions::UserfulFunctions()
 {
 }
 
+const QString UserfulFunctions::getSweepFunctionSuffix(SweepType value)
+{
+    switch (value) {
+    case Time:
+        return "s";
+        break;
+    case Frequency:
+        return "Hz";
+        break;
+    case BiasV:
+        return "V";
+        break;
+    case BiasA:
+        return "A";
+        break;
+    case levelV:
+        return "V";
+        break;
+    case levelA:
+        return "A";
+        break;
+    default:
+        break;
+    }
+
+}
 
 bool UserfulFunctions::IsDouble(const QStringList r)
 {

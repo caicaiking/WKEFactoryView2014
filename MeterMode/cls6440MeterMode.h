@@ -17,6 +17,7 @@ public:
     QString getTestCondition();
     QString getBrief();
     FunctionType getType();
+    bool getPassFail();
 
 signals:
     //用于单次测试

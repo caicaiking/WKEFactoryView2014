@@ -31,9 +31,9 @@ int main(int argc, char *argv[])
 
     //test begin
 
-        clsMeterMode meter;
-        meter.showMaximized();
-       return a.exec();
+//        clsMeterMode meter;
+//        meter.showMaximized();
+//       return a.exec();
 
     //for test
 

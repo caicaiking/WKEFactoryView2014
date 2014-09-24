@@ -43,6 +43,11 @@ FunctionType clsUserFunctionMeterMode::getType()
     return UF;
 }
 
+bool clsUserFunctionMeterMode::getPassFail()
+{
+
+}
+
 void clsUserFunctionMeterMode::on_pushButton_clicked()
 {
     emit testResult("love cc",0);
