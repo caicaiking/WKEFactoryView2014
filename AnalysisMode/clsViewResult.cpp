@@ -1,4 +1,4 @@
-﻿#include "clsViewResult.h"
+#include "clsViewResult.h"
 #include "UserfulFunctions.h"
 #include "doubleType.h"
 #include <Qwt/qwt_plot_curve.h>
@@ -26,8 +26,8 @@ clsViewResult::clsViewResult(const QList<PlotCurves> value,
     tvResult->verticalHeader()->setVisible(false);
 
     tvResult->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    tvResult->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
-    tvResult->verticalHeader()->setResizeMode(QHeaderView::Stretch);
+    tvResult->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    tvResult->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
 
 

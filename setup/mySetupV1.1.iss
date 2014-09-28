@@ -21,9 +21,9 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName=C:\Program Files (x86)\{#MyAppName}
 DefaultGroupName={#MyAppName}
-OutputDir=E:\QT\WKEFactoryView2014\setup
+OutputDir=D:\QT\WKEFactoryView2014\setup
 OutputBaseFilename=WKE FactoryView2014 Setup
-SetupIconFile=E:\QT\WKEFactoryView2014\wk.ico
+SetupIconFile=D:\QT\WKEFactoryView2014\wk.ico
 Compression=lzma
 SolidCompression=yes
 
@@ -35,9 +35,9 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "E:\QT\build-WKEFactoryView2014-Desktop48-Release\release\WKEFactoryView2014.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\QT\build-WKEFactoryView2014-Desktop48-Release\release\WKEFactoryView2014.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "E:\QT\WKEFactoryView2014\Run\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "D:\QT\build-WKEFactoryView2014-Desktop5-Release\Release\WKEFactoryView2014.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\QT\build-WKEFactoryView2014-Desktop5-Release\release\WKEFactoryView2014.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\QT\WKEFactoryView2014\Run\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

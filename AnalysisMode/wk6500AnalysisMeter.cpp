@@ -8,6 +8,7 @@
 #include "NumberInput.h"
 #include "dlgSpeed.h"
 #include "wk6500Calibration.h"
+#include <QMessageBox>
 wk6500AnalysisMeter::wk6500AnalysisMeter(WKEInstrument *parent) :
     WKEInstrument(parent)
 {

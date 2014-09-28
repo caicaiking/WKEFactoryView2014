@@ -17,6 +17,7 @@
 #include "clsMeterFacotry.h"
 #include "frmAbout.h"
 #include "clsDog.h"
+#include <QMessageBox>
 frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     QMainWindow(parent)
 {

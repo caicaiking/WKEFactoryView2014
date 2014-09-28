@@ -123,7 +123,7 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$(QTDIR)/bin  -lqwtd
 
 RESOURCES +=
 
-CONFIG += qaxcontainer
+QT+=axcontainer
 
 HEADERS += \
     connections/clsGpib.h \

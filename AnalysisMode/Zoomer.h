@@ -1,10 +1,11 @@
 #ifndef ZOOMER_H
 #define ZOOMER_H
 #include "Qwt/qwt_plot_zoomer.h"
+#include "Qwt/qwt_plot_canvas.h"
 class Zoomer: public QwtPlotZoomer
 {
 public:
-    Zoomer(int xAxis, int yAxis, QwtPlotCanvas *canvas):
+    Zoomer(int xAxis, int yAxis, QWidget *canvas):
         QwtPlotZoomer(xAxis, yAxis, canvas)
     {
         setTrackerMode(QwtPicker::AlwaysOff);

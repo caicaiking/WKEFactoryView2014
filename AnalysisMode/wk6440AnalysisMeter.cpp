@@ -10,6 +10,7 @@
 #include "NumberInput.h"
 #include "dlgLevelInputBox.h"
 #include "wk6440Calibration.h"
+#include <QMessageBox>
 wk6440AnalysisMeter::wk6440AnalysisMeter(WKEInstrument *parent) :
     WKEInstrument(parent)
 {

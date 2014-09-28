@@ -244,7 +244,7 @@ void clsMeterMode::setTableTitle()
     tbTaskList->setSelectionBehavior(QTableView::SelectRows);
     this->tbTaskList->setColumnCount(2);
     this->tbTaskList->setColumnWidth(0,50);
-    this->tbTaskList->horizontalHeader()->setResizeMode(1,QHeaderView::ResizeToContents);
+    this->tbTaskList->horizontalHeader()->setSectionResizeMode(1,QHeaderView::ResizeToContents);
     this->tbTaskList->setHorizontalHeaderItem(0,getTableItem(tr("序号"),true));
     this->tbTaskList->setHorizontalHeaderItem(1,getTableItem(tr("内容"),true));
 }

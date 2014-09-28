@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>243</width>
-    <height>91</height>
+    <height>107</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -43,7 +43,7 @@
       <string notr="true">background-color: rgb(148, 148, 248);</string>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="par0">
       <layout class="QHBoxLayout" name="horizontalLayout_3">

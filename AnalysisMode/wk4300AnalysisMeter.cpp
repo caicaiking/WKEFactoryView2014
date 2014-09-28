@@ -9,6 +9,7 @@
 #include "dlgSpeed.h"
 #include "UserfulFunctions.h"
 #include "wk4300Calibration.h"
+#include <QMessageBox>
 wk4300AnalysisMeter::wk4300AnalysisMeter(WKEInstrument *parent) :
     WKEInstrument(parent)
 {

@@ -77,8 +77,8 @@ void frmPointEditor::setTable()
 {
     this->tbvDataShow->verticalHeader()->setVisible(false);
     tbvDataShow->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    tbvDataShow->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
-    tbvDataShow->verticalHeader()->setResizeMode(QHeaderView::Stretch);
+    tbvDataShow->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    tbvDataShow->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     tbvDataShow->setSelectionBehavior(QAbstractItemView::SelectRows);
     tbvDataShow->setColumnCount(2);
     tbvDataShow->setRowCount(0);

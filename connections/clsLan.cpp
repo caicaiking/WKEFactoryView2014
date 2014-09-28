@@ -77,7 +77,7 @@ QString clsLan::sendCommand(QString strCommand, bool hasReturn, int waitDaly)
     if(this->intPort==WK4300PORT )
         strCommand = strCommand.append("\r\n");
 
-    std::string str2 = std::string(strCommand.toAscii().data());
+    std::string str2 = std::string(strCommand.toStdString().c_str());
 
     socket->write(str2.c_str());
     qApp->processEvents();

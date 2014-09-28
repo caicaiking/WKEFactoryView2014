@@ -14,13 +14,14 @@
 #include "clsMeterMode.h"
 #include "clsDog.h"
 #include "clsMeterMode.h"
+#include <QMessageBox>
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     QTextCodec* code = QTextCodec::codecForName("UTF-8");
     QTextCodec::setCodecForLocale(code);
-    QTextCodec::setCodecForTr(code);
-    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
+//    QTextCodec::setCodecForTr(code);
+//    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
     //这儿是加载英文的翻译，如果要是实用界面为英文，请去掉此处的注释
     /*   QTranslator translator;
@@ -81,5 +82,4 @@ int main(int argc, char *argv[])
     }
     else
         return 0;
-
 }

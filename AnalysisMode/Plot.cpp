@@ -12,13 +12,21 @@
 #include "clsRefTraceProperty.h"
 #include <Qwt/qwt_plot_canvas.h>
 #include <QMapIterator>
+#include <Qwt/qwt_plot_canvas.h>
 Plot::Plot(QWidget *parent) :
     QwtPlot(parent)
 {
     this->setAutoReplot(false);
     setGraphTitle("Unititled");
-    this->setCanvasBackground(QColor(Qt::black));
-    this->canvas()->setBorderRadius(5);
+
+
+    QwtPlotCanvas *canvas = new QwtPlotCanvas();
+    canvas->setBorderRadius(5 );
+
+    setCanvas( canvas );
+    setCanvasBackground(QColor(Qt::black));
+
+
     //this->setStyleSheet("background-color: black;");
     blLogX=true;
     blLogYLeft=true;
@@ -27,8 +35,8 @@ Plot::Plot(QWidget *parent) :
     //y axis Left grid
     gridYLeft=new QwtPlotGrid;
     gridYLeft->setAxes(QwtPlot::xBottom,QwtPlot::yLeft);
-    gridYLeft->setMajPen(QPen(QColor(0,128,128),0,Qt::DotLine));
-    gridYLeft->setMinPen(QPen(QColor(0,64,64),0,Qt::DotLine));
+    gridYLeft->setMajorPen(QPen(QColor(0,128,128),0,Qt::DotLine));
+    gridYLeft->setMinorPen(QPen(QColor(0,64,64),0,Qt::DotLine));
     gridYLeft->enableYMin(true);
     gridYLeft->enableX(false);
     gridYLeft->attach(this);
@@ -36,8 +44,8 @@ Plot::Plot(QWidget *parent) :
     //y axis Right grid
     gridYRight=new QwtPlotGrid;
     gridYRight->setAxes(QwtPlot::xBottom,QwtPlot::yRight);
-    gridYRight->setMajPen(QPen(QColor(96,96,0),0,Qt::DotLine));
-    gridYRight->setMinPen(QPen(QColor(96,96,0),0,Qt::DotLine));
+    gridYRight->setMajorPen(QPen(QColor(96,96,0),0,Qt::DotLine));
+    gridYRight->setMinorPen(QPen(QColor(96,96,0),0,Qt::DotLine));
     gridYRight->enableYMin(false);
     gridYRight->enableX(false);
     gridYRight->attach(this);
@@ -48,8 +56,8 @@ Plot::Plot(QWidget *parent) :
     gridX->enableY(false);
     gridX->enableYMin(false);
     gridX->enableXMin(true);
-    gridX->setMajPen(QPen(QColor(0,192,0),0,Qt::DotLine));
-    gridX->setMinPen(QPen(QColor(0,96,0),0,Qt::DotLine));
+    gridX->setMajorPen(QPen(QColor(0,192,0),0,Qt::DotLine));
+    gridX->setMinorPen(QPen(QColor(0,96,0),0,Qt::DotLine));
     gridX->attach(this);
 
 
@@ -61,13 +69,13 @@ Plot::Plot(QWidget *parent) :
     this->setAxisMaxMajor(QwtPlot::yLeft,10);
     if(blLogX)
         this->setAxisScaleEngine(QwtPlot::xBottom,
-                                 new QwtLog10ScaleEngine);
+                                 new QwtLogScaleEngine);
     else
         this->setAxisScaleEngine(QwtPlot::xBottom,
                                  new QwtLinearScaleEngine);
     if(blLogYLeft)
         this->setAxisScaleEngine(QwtPlot::yLeft,
-                                 new QwtLog10ScaleEngine );
+                                 new QwtLogScaleEngine );
     else
         this->setAxisScaleEngine(QwtPlot::yLeft,
                                  new QwtLinearScaleEngine);
@@ -95,7 +103,7 @@ Plot::Plot(QWidget *parent) :
 }
 
 
-void Plot::mouseMoveEvent(QMouseEvent *e)
+void Plot::mouseMoveEvent(QMouseEvent */*e*/)
 {
     //    if(e->buttons() & Qt::LeftButton)
     //    {
@@ -639,7 +647,7 @@ void Plot::setBlLogYLeft(bool value)
     blLogYLeft = value;
     if(blLogYLeft)
         this->setAxisScaleEngine(QwtPlot::yLeft,
-                                 new QwtLog10ScaleEngine );
+                                 new QwtLogScaleEngine );
     else
         this->setAxisScaleEngine(QwtPlot::yLeft,
                                  new QwtLinearScaleEngine);
@@ -665,7 +673,7 @@ void Plot::setBlLogX(bool value)
     blLogX = value;
     if(blLogX)
         this->setAxisScaleEngine(QwtPlot::xBottom,
-                                 new QwtLog10ScaleEngine);
+                                 new QwtLogScaleEngine);
     else
         this->setAxisScaleEngine(QwtPlot::xBottom,
                                  new QwtLinearScaleEngine);
@@ -683,33 +691,33 @@ void Plot::setToTop(curveProperty property, bool isOnTop)
 
 double Plot::getYLeftMax() const
 {
-    return this->axisScaleDiv(QwtPlot::yLeft)->upperBound();
+    return this->axisScaleDiv(QwtPlot::yLeft).upperBound();
 }
 
 double Plot::getYLeftMin() const
 {
-    return this->axisScaleDiv(QwtPlot::yLeft)->lowerBound();
+    return this->axisScaleDiv(QwtPlot::yLeft).lowerBound();
 }
 
 double Plot::getXmin() const
 {
-    return this->axisScaleDiv(QwtPlot::xBottom)->lowerBound();
+    return this->axisScaleDiv(QwtPlot::xBottom).lowerBound();
 }
 
 
 double Plot::getXmax() const
 {
-    return this->axisScaleDiv(QwtPlot::xBottom)->upperBound();
+    return this->axisScaleDiv(QwtPlot::xBottom).upperBound();
 }
 
 double Plot::getYRightMax() const
 {
-    return this->axisScaleDiv(QwtPlot::yRight)->upperBound();
+    return this->axisScaleDiv(QwtPlot::yRight).upperBound();
 }
 
 double Plot::getYRightMin() const
 {
-    return this->axisScaleDiv(QwtPlot::yRight)->lowerBound();
+    return this->axisScaleDiv(QwtPlot::yRight).lowerBound();
 }
 
 

@@ -8,6 +8,7 @@
 #include "UserfulFunctions.h"
 #include "Globle.h"
 #include "clsDog.h"
+#include <QMessageBox>
 wkResonaceMode::wkResonaceMode(QWidget *parent) :
     QMainWindow(parent)
 {

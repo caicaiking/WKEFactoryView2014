@@ -3,6 +3,7 @@
 #include "UserfulFunctions.h"
 #include "Globle.h"
 #include <QTime>
+#include <QMessageBox>
 void clsTimeMeasument::setMin(double value)
 {
     this->dblMin=value;

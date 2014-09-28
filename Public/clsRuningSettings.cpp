@@ -58,7 +58,7 @@ public:
             strReturn= cont->sendCommand(strCommnad,hasReturn,delay);
         }
         mutex.unlock();
-        mutex.unlock();
+
         return strReturn;
     }
 
