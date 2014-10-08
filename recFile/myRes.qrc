@@ -48,5 +48,7 @@
         <file>Icons/save.png</file>
         <file>Translation/WKEFV.qm</file>
         <file>Icons/stepSave.png</file>
+        <file>Icons/com.png</file>
+        <file>Icons/switch.png</file>
     </qresource>
 </RCC>

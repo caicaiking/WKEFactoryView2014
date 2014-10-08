@@ -80,6 +80,7 @@ QString clsLan::sendCommand(QString strCommand, bool hasReturn, int waitDaly)
     std::string str2 = std::string(strCommand.toStdString().c_str());
 
     socket->write(str2.c_str());
+
     qApp->processEvents();
 
     socket->waitForBytesWritten(5000);

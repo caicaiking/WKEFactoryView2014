@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network
+QT       += core gui network serialport
 RC_FILE  =Icon.rc
 
 
@@ -18,7 +18,8 @@ INCLUDEPATH +=connections \
              Public \
              MeterMode \
              saftyDog \
-             ResonaceMode
+             ResonaceMode \
+             MulitChannalBox
 
 
 
@@ -102,7 +103,14 @@ SOURCES +=\
     MeterMode/WKEMeterMode.cpp \
     MeterMode/cls6440MeterMode.cpp \
     MeterMode/clsUserFunctionMeterMode.cpp \
-    MeterMode/clsMeterModeFactory.cpp
+    MeterMode/clsMeterModeFactory.cpp \
+    MulitChannalBox/clsConnectSWBox.cpp \
+    MulitChannalBox/clsPortListener.cpp \
+    MulitChannalBox/clsMultiChannaeBox.cpp \
+    MulitChannalBox/clsSwitchBoxTest.cpp \
+    MulitChannalBox/cls4300MeterMode.cpp \
+    MeterMode/dlg4300FuctionMajor.cpp \
+    MeterMode/dlg4300FunctionMinor.cpp
 
 
 
@@ -213,7 +221,14 @@ HEADERS += \
     MeterMode/WKEMeterMode.h \
     MeterMode/cls6440MeterMode.h \
     MeterMode/clsUserFunctionMeterMode.h \
-    MeterMode/clsMeterModeFactory.h
+    MeterMode/clsMeterModeFactory.h \
+    MulitChannalBox/clsConnectSWBox.h \
+    MulitChannalBox/clsPortListener.h \
+    MulitChannalBox/clsMultiChannaeBox.h \
+    MulitChannalBox/clsSwitchBoxTest.h \
+    MulitChannalBox/cls4300MeterMode.h \
+    MeterMode/dlg4300FuctionMajor.h \
+    MeterMode/dlg4300FunctionMinor.h
 
 
 FORMS += \
@@ -254,6 +269,11 @@ FORMS += \
     MeterMode/clsMeterMode.ui \
     MeterMode/singleStepTestDisplay.ui \
     MeterMode/cls6440MeterMode.ui \
-    MeterMode/clsUserFunctionMeterMode.ui
+    MeterMode/clsUserFunctionMeterMode.ui \
+    MulitChannalBox/clsMultiChannaeBox.ui \
+    MulitChannalBox/clsSwitchBoxTest.ui \
+    MulitChannalBox/cls4300MeterMode.ui \
+    MeterMode/dlg4300FuctionMajor.ui \
+    MeterMode/dlg4300FunctionMinor.ui
 
 TRANSLATIONS = recFile/Translation/WKEFV.ts

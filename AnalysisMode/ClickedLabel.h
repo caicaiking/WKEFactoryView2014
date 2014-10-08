@@ -15,6 +15,11 @@ public:
         setText(m_str);
     }
 
+    void setString(QString value)
+    {
+        this->setText(value);
+    }
+
     ~ClickedLabel() {}
 protected:
     void mouseReleaseEvent( QMouseEvent* );

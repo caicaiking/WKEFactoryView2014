@@ -14,6 +14,7 @@
 #include "clsMeterMode.h"
 #include "clsDog.h"
 #include "clsMeterMode.h"
+#include "clsMultiChannaeBox.h"
 #include <QMessageBox>
 int main(int argc, char *argv[])
 {
@@ -78,6 +79,16 @@ int main(int argc, char *argv[])
             wkResonaceMode resonace;
             resonace.show();
             return a.exec();
+        }
+        else if(w.getMode() == MultiChannel)
+        {
+            clsMultiChannaeBox multiChannel;
+            multiChannel.show();
+            return a.exec();
+        }
+        else
+        {
+            return 0;
         }
     }
     else
