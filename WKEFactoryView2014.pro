@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network serialport
+QT       += core gui network serialport xml
 RC_FILE  =Icon.rc
 
 

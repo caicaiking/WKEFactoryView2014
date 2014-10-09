@@ -76,4 +76,5 @@ void clsMultiChannaeBox::on_btnMeter_clicked()
     meter->setWindowModality(Qt::ApplicationModal);
     meter->show();
 
+
 }

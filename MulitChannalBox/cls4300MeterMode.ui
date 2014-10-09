@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>410</width>
+    <width>416</width>
     <height>396</height>
    </rect>
   </property>
@@ -319,7 +319,7 @@ background-color: rgb(144, 148, 248);
                 </item>
                 <item>
                  <property name="text">
-                  <string/>
+                  <string>无</string>
                  </property>
                 </item>
                 <item>
@@ -499,7 +499,7 @@ background-color: rgb(144, 148, 248);
                 </item>
                 <item>
                  <property name="text">
-                  <string/>
+                  <string>无</string>
                  </property>
                 </item>
                 <item>
@@ -716,8 +716,8 @@ background-color: rgb(144, 148, 248);
       <attribute name="title">
        <string>Test 2</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_7">
-       <item row="0" column="0">
+      <layout class="QVBoxLayout" name="verticalLayout_10">
+       <item>
         <widget class="QGroupBox" name="groupBox">
          <property name="font">
           <font>
@@ -933,7 +933,7 @@ background-color: rgb(144, 148, 248);
                   </widget>
                  </item>
                  <item row="1" column="1">
-                  <widget class="QComboBox" name="cmdTest2Item1Unit">
+                  <widget class="QComboBox" name="cmbTest2Item1Unit">
                    <property name="font">
                     <font>
                      <family>楷体</family>
@@ -962,7 +962,7 @@ background-color: rgb(144, 148, 248);
                    </item>
                    <item>
                     <property name="text">
-                     <string/>
+                     <string>无</string>
                     </property>
                    </item>
                    <item>
@@ -1043,19 +1043,6 @@ background-color: rgb(144, 148, 248);
                <size>
                 <width>0</width>
                 <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_5">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>0</width>
-                <height>0</height>
                </size>
               </property>
              </spacer>
@@ -1155,7 +1142,7 @@ background-color: rgb(144, 148, 248);
                    </item>
                    <item>
                     <property name="text">
-                     <string/>
+                     <string>无</string>
                     </property>
                    </item>
                    <item>
@@ -1227,12 +1214,25 @@ background-color: rgb(144, 148, 248);
               </layout>
              </widget>
             </item>
+            <item>
+             <spacer name="horizontalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>0</width>
+                <height>0</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
            </layout>
           </item>
          </layout>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
