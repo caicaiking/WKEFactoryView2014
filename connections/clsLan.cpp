@@ -74,6 +74,7 @@ QString clsLan::sendCommand(QString strCommand, bool hasReturn, int waitDaly)
     }
     if(!blInit)
         return "";
+
     if(this->intPort==WK4300PORT )
         strCommand = strCommand.append("\r\n");
 

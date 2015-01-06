@@ -17,6 +17,7 @@ public:
     QString getBrief();
     FunctionType getType();
     bool getPassFail();
+    void turnOffBias();
 private slots:
     void on_pushButton_clicked();
 signals:

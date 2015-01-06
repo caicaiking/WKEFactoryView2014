@@ -2,7 +2,7 @@
 #define CLSRUNINGSETTINGS_H
 
 #include <QString>
-
+#include <QStringList>
 //#include "clsHVRS232.h"
 class clsRS
 {
@@ -30,6 +30,13 @@ public:
 
     QString instrumentModel; //6550 6430 6440
     QString meterSeries; //6500 4300 6440 3260 3255
+
+    struct GPIB{
+        QString NumberOfTest;
+        QStringList gpibTest1; //保存仪器的状态Test1
+        QStringList gpibTest2; //这个是为了4100的Test2准备的
+    } gpibCommands;
+
 private:
     clsRS();
     clsRS(const clsRS &);

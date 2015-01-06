@@ -121,7 +121,7 @@ OTHER_FILES += \
     connections/ReadMe.txt \
     AnalysisMode/ProgramDescription.txt
 
-# QWT 鎵�闇�瑕佺殑瀹氫箟  ###################################################
+# QWT 定义引用 #######################################################
 DEFINES    += QT_DLL QWT_DLL
 
 win32:CONFIG(release, debug|release): LIBS += -L$(QTDIR)/bin -lqwt
@@ -129,6 +129,11 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$(QTDIR)/bin  -lqwtd
 
 #######################################################################
 
+#压缩文件###############################################################
+
+LIBS += -L $(QTDIR)/bin -lquazip
+
+#######################################################################
 RESOURCES +=
 
 QT+=axcontainer

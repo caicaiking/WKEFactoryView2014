@@ -41,6 +41,7 @@ cls4300MeterMode::cls4300MeterMode(QWidget *parent) :
 
 void cls4300MeterMode::updateButtons()
 {
+    groupBox->setChecked(isTest2On);
     btnTest1Item1->setText(items.at(0));
     if(btnTest1Item1->text().toUpper()==tr("Rdc").toUpper())
     {
@@ -108,7 +109,7 @@ void cls4300MeterMode::updateButtons()
     btnBiasSource->setText(biasSource);
     btnBiasStatus->setText(biasStatus);
 
-    groupBox->setChecked(isTest2On);
+
 
 }
 
@@ -117,9 +118,9 @@ FunctionType cls4300MeterMode::getType()
     return MeterFunction;
 }
 
-void cls4300MeterMode::setCondition(const QString &value)
+void cls4300MeterMode::setCondition(const QString &fileName)
 {
-
+    readTestCondition(fileName);
 }
 
 QString cls4300MeterMode::getTestItem()
@@ -129,7 +130,179 @@ QString cls4300MeterMode::getTestItem()
 
 void cls4300MeterMode::trig()
 {
+    QStringList test1Command = convertTest1Gpib();
+    QStringList test2Command = convertTest2Gpib();
+    if(isTest2On)
+    {
+        QString tmpString =":MEAS:NUMber-OF-TESTS 2";
+        if(clsRS::getInst().gpibCommands.NumberOfTest!=tmpString)
+        {
+            clsRS::getInst().sendCommand(tmpString,false);
+            clsRS::getInst().gpibCommands.NumberOfTest =tmpString;
+        }
+
+        //更新Test1Gpib指令
+        if(clsRS::getInst().gpibCommands.gpibTest1!=test1Command)
+        {
+
+            if(clsRS::getInst().gpibCommands.gpibTest1.length()!= test1Command.length())
+            {
+                clsRS::getInst().sendCommand(":MEAS:TEST 1",false);
+                foreach (QString item, test1Command) {
+                    clsRS::getInst().sendCommand(item,false);
+                }
+            }
+            else
+            {
+                clsRS::getInst().sendCommand(":MEAS:TEST 1",false);
+                for(int i=0; i< test1Command.length();i++)
+                {
+                    if(clsRS::getInst().gpibCommands.gpibTest1.at(i)!=test1Command.at(i))
+                        clsRS::getInst().sendCommand(test1Command.at(i));
+                }
+            }
+            clsRS::getInst().gpibCommands.gpibTest1 = test1Command;
+        }
+
+        //更新Test2Gpib指令
+        if(clsRS::getInst().gpibCommands.gpibTest2!=test2Command)
+        {
+            if(clsRS::getInst().gpibCommands.gpibTest2.length()!= test2Command.length())
+            {
+                clsRS::getInst().sendCommand(":MEAS:TEST 2",false);
+                foreach (QString item, test2Command) {
+                    clsRS::getInst().sendCommand(item,false);
+                }
+            }
+            else
+            {
+                clsRS::getInst().sendCommand(":MEAS:TEST 2",false);
+                for(int i=0; i< test2Command.length();i++)
+                {
+                    if(clsRS::getInst().gpibCommands.gpibTest2.at(i)!=test2Command.at(i))
+                        clsRS::getInst().sendCommand(test2Command.at(i));
+                }
+            }
+
+            clsRS::getInst().gpibCommands.gpibTest2=test2Command;
+        }
+    }
+    else
+    {
+        QString tmpString =":MEAS:NUMber-OF-TESTS 1";
+        if(clsRS::getInst().gpibCommands.NumberOfTest!=tmpString)
+        {
+            clsRS::getInst().sendCommand(tmpString,false);
+            clsRS::getInst().gpibCommands.NumberOfTest =tmpString;
+        }
+
+        //更新Test2Gpib指令
+        if(clsRS::getInst().gpibCommands.gpibTest1!=test1Command)
+        {
+            if(clsRS::getInst().gpibCommands.gpibTest1.length()!= test1Command.length())
+            {
+                foreach (QString item, test1Command) {
+                    clsRS::getInst().sendCommand(item,false);
+                }
+            }
+            else
+            {
+                for(int i=0; i< test1Command.length();i++)
+                {
+                    if(clsRS::getInst().gpibCommands.gpibTest1.at(i)!=test1Command.at(i))
+                        clsRS::getInst().sendCommand(test1Command.at(i));
+                }
+            }
+
+            clsRS::getInst().gpibCommands.gpibTest1 = test1Command;
+        }
+    }
+
     qDebug()<< clsRS::getInst().sendCommand(":MEAS:TRIG",true);
+
+
+}
+
+QStringList cls4300MeterMode::convertTest1Gpib()
+{
+    QStringList gpibCmd;
+    QString meter=":MEAS:";
+
+    QString item11=( items.at(0)==QString("θ")?"A":items.at(0));
+    gpibCmd.append(meter+"FUNC1 "+ item11.toUpper() );  //item1 GPIB
+
+    QString item22=(items.at(1)==QString("θ")?"A":items.at(1));
+    gpibCmd.append(meter+"FUNC2 "+item22.toUpper() );  //Item2 GPIB
+
+    if(equcct.at(0)==tr("串联"))                       //等效电路
+        gpibCmd.append(meter+"EQU-CCT "+"SER" );
+    else
+        gpibCmd.append(meter+"EQU-CCT "+"PAR" );
+
+    if(range ==tr("自动"))                        //档位
+        gpibCmd.append(meter+"RANGE "+"AUTO" );
+    else
+        gpibCmd.append(meter+"RANGE "+range );
+
+    if(speed ==tr("最快"))                        //速度
+        gpibCmd.append(meter+"SPEED "+"MAX" );
+    else if(speed ==tr("快速"))
+        gpibCmd.append(meter+"SPEED "+"FAST" );
+    else if(speed ==tr("中速"))
+        gpibCmd.append(meter+"SPEED "+"MED" );
+    else if(speed ==tr("慢速"))
+        gpibCmd.append(meter+"SPEED "+"SLOW" );
+    else
+        gpibCmd.append(meter+"SPEED "+"MAX" );
+
+    doubleType dt;
+    dt.setData(frequency.at(0),"");
+
+    gpibCmd.append(meter+"FREQ "+dt.formateWithUnit("",10) );   //频率
+
+    gpibCmd.append(meter+"LEV "+QString::number(level.at(0)) ); //电平
+
+
+    if(biasSource==tr("内置"))
+        gpibCmd.append(meter+"BIAS "+"VINT" );
+
+    else
+        gpibCmd.append(meter+"BIAS "+"VEXT" );
+
+
+    if(biasStatus==tr("开"))
+        gpibCmd.append(meter+"BIAS "+"ON" );
+    else
+        gpibCmd.append(meter+"BIAS "+"OFF" );
+
+    return gpibCmd;
+
+}
+
+QStringList cls4300MeterMode::convertTest2Gpib()
+{
+    QStringList gpibCmd;
+    QString meter=":MEAS:";
+
+    QString item11=( items.at(2)==QString("θ")?"A":items.at(2));
+    gpibCmd.append(meter+"FUNC1 "+ item11 );  //item1 GPIB
+
+    QString item22=(items.at(3)==QString("θ")?"A":items.at(3));
+    gpibCmd.append(meter+"FUNC2 "+item22 );  //Item2 GPIB
+
+    if(equcct.at(1)==tr("串联"))                       //等效电路
+        gpibCmd.append(meter+"EQU-CCT "+"SER" );
+    else
+        gpibCmd.append(meter+"EQU-CCT "+"PAR" );
+
+
+
+    doubleType dt;
+    dt.setData(frequency.at(1),"");
+
+    gpibCmd.append(meter+"FREQ "+dt.formateWithUnit("",10) );   //频率
+    gpibCmd.append(meter+"LEV "+QString::number(level.at(1)) ); //电平
+    return gpibCmd;
 }
 
 void cls4300MeterMode::start()
@@ -139,7 +312,7 @@ void cls4300MeterMode::start()
 
 QString cls4300MeterMode::getTestCondition()
 {
-
+    return saveTestConditons();
 }
 
 QString cls4300MeterMode::getBrief()
@@ -148,6 +321,11 @@ QString cls4300MeterMode::getBrief()
 }
 
 bool cls4300MeterMode::getPassFail()
+{
+
+}
+
+void cls4300MeterMode::turnOffBias()
 {
 
 }
@@ -212,7 +390,6 @@ void cls4300MeterMode::setTest2Limit2()
     }
 }
 
-
 double cls4300MeterMode::getMaxFrequency1(QString value)
 {
     if(value.contains("41100"))
@@ -250,8 +427,6 @@ double cls4300MeterMode::getMaxFrequency1(QString value)
 
     return 1000000;
 }
-
-
 
 void cls4300MeterMode::on_btnTest1Frequency_clicked()
 {
@@ -450,10 +625,10 @@ void cls4300MeterMode::on_btnBiasStatus_clicked()
     updateButtons();
 }
 
-void cls4300MeterMode::on_btnOk_clicked()
+QString cls4300MeterMode::saveTestConditons()
 {
 
-    tmpXml="";
+    QString tmpXml="";
     QXmlStreamWriter xmlWriter(&tmpXml);
 
     xmlWriter.setAutoFormatting(true); //格式输出，也就是会有标签的缩进
@@ -469,6 +644,13 @@ void cls4300MeterMode::on_btnOk_clicked()
     /**/xmlWriter.writeTextElement("LevelUnit","V"); //Level单位
     /**/xmlWriter.writeTextElement("Frequency",QString::number(frequency.at(0)));//频率
     /**/xmlWriter.writeTextElement("Equcct",equcct.at(0)); //等效电路
+    clsMeterLimit tmp;
+    tmp = meterLimit.at(0);
+    /**/xmlWriter.writeTextElement("Item1Limit",tmp.toString()); //上下限
+    tmp = meterLimit.at(1);
+    /**/xmlWriter.writeTextElement("Item2Limit",tmp.toString()); //上下限
+
+
 
     //Test 单独有的测试条件
     /**/xmlWriter.writeTextElement("Speed",speed); //等效电路
@@ -487,34 +669,27 @@ void cls4300MeterMode::on_btnOk_clicked()
     /**/xmlWriter.writeTextElement("LevelUnit","V"); //Level单位
     /**/xmlWriter.writeTextElement("Frequency",QString::number(frequency.at(1)));//频率
     /**/xmlWriter.writeTextElement("Equcct",equcct.at(1)); //等效电路
+    tmp = meterLimit.at(2);
+    /**/xmlWriter.writeTextElement("Item1Limit",tmp.toString()); //上下限
+    tmp = meterLimit.at(3);
+    /**/xmlWriter.writeTextElement("Item2Limit",tmp.toString()); //上下限
+
 
     xmlWriter.writeEndElement();
     xmlWriter.writeEndDocument(); //这个 XML 文档已经写完
 
-
-    QFile file("./1.xml");
-
-    if(file.open(QFile::WriteOnly))
-    {
-        file.write(tmpXml.toStdString().c_str());
-        file.close();
-    }
-
-
-    qDebug()<<tmpXml;
-
-    this->hide();
+    return tmpXml;
 
 }
 
-void cls4300MeterMode::on_btnCacel_clicked()
+void cls4300MeterMode::readTestCondition(QString fileName)
 {
-    QFile file("./1.xml");
+    QFile file(fileName);
     QString t;
     if(file.open(QFile::ReadOnly))
     {
         t= file.readAll();
-        qDebug()<<t;
+        // qDebug()<<t;
         file.close();
     }
 
@@ -528,7 +703,7 @@ void cls4300MeterMode::on_btnCacel_clicked()
     while((!xmlReader.atEnd()) && (!xmlReader.hasError()))
     {
         QXmlStreamReader::TokenType token = xmlReader.readNext();
-        qDebug()<<xmlReader.name();
+        // qDebug()<<xmlReader.name();
 
         if(token == QXmlStreamReader::StartDocument)
             continue;
@@ -555,7 +730,7 @@ void cls4300MeterMode::on_btnCacel_clicked()
                         while(!(xmlReader.tokenType() == QXmlStreamReader::EndElement &&
                                 xmlReader.name() == "entry"))
                         {
-                            qDebug()<<xmlReader.name();
+                            //qDebug()<<xmlReader.name();
                             if(xmlReader.tokenType()==QXmlStreamReader::StartElement)
                             {
                                 if(xmlReader.name()=="Item1")
@@ -712,6 +887,36 @@ void cls4300MeterMode::on_btnCacel_clicked()
                                     isTest2On = xmlReader.text().toInt();
                                     xmlReader.readNext();
                                 }
+
+                                if(xmlReader.name() == "Item1Limit")
+                                {
+                                    xmlReader.readNext();
+                                    if(xmlReader.tokenType() != QXmlStreamReader::Characters)
+                                    {
+                                        return;
+                                    }
+
+                                    clsMeterLimit tmp;
+                                    tmp.setString(xmlReader.text().toString());
+                                    meterLimit.replace(0,tmp);
+                                    xmlReader.readNext();
+                                }
+
+                                if(xmlReader.name() == "Item2Limit")
+                                {
+                                    xmlReader.readNext();
+                                    if(xmlReader.tokenType() != QXmlStreamReader::Characters)
+                                    {
+                                        return;
+                                    }
+
+                                    clsMeterLimit tmp;
+                                    tmp.setString(xmlReader.text().toString());
+                                    meterLimit.replace(1,tmp);
+                                    xmlReader.readNext();
+                                }
+
+
                             }
                             xmlReader.readNext();
                         }
@@ -721,7 +926,7 @@ void cls4300MeterMode::on_btnCacel_clicked()
                         while(!(xmlReader.tokenType() == QXmlStreamReader::EndElement &&
                                 xmlReader.name() == "entry"))
                         {
-                            qDebug()<<xmlReader.name();
+                            //qDebug()<<xmlReader.name();
                             if(xmlReader.name()=="Item1")
                             {
                                 xmlReader.readNext();
@@ -815,6 +1020,35 @@ void cls4300MeterMode::on_btnCacel_clicked()
                                 equcct.replace(1,xmlReader.text().toString());
                                 xmlReader.readNext();
                             }
+
+                            if(xmlReader.name() == "Item1Limit")
+                            {
+                                xmlReader.readNext();
+                                if(xmlReader.tokenType() != QXmlStreamReader::Characters)
+                                {
+                                    return;
+                                }
+
+                                clsMeterLimit tmp;
+                                tmp.setString(xmlReader.text().toString());
+                                meterLimit.replace(2,tmp);
+                                xmlReader.readNext();
+                            }
+
+                            if(xmlReader.name() == "Item2Limit")
+                            {
+                                xmlReader.readNext();
+                                if(xmlReader.tokenType() != QXmlStreamReader::Characters)
+                                {
+                                    return;
+                                }
+
+                                clsMeterLimit tmp;
+                                tmp.setString(xmlReader.text().toString());
+                                meterLimit.replace(3,tmp);
+                                xmlReader.readNext();
+                            }
+
                             xmlReader.readNext();
                         }
                     }
@@ -822,17 +1056,8 @@ void cls4300MeterMode::on_btnCacel_clicked()
                 }
             }
         }
-
-
-
     }
-
-
     updateButtons();
-
-
-
-
 }
 
 void cls4300MeterMode::on_cmbTest1Item1Unit_currentIndexChanged(const QString &arg1)

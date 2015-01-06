@@ -3,6 +3,10 @@
 #include <QTime>
 #include "clsSwitchBoxTest.h"
 #include "cls4300MeterMode.h"
+#include <QFile>
+#include <QDir>
+#include <Quazip/JlCompress.h>
+#include <QFileDialog>
 clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -77,4 +81,109 @@ void clsMultiChannaeBox::on_btnMeter_clicked()
     meter->show();
 
 
+}
+
+/*!
+ * \brief clsMultiChannaeBox::on_btnSave_clicked
+ * 保存设定
+ */
+void clsMultiChannaeBox::on_btnSave_clicked()
+{
+
+
+    if(strSaveFileName.isEmpty())
+    {
+        strSaveFileName = "untitled.wkm";
+    }
+
+    QString fileName = QFileDialog::getSaveFileName(this, tr("保存多通道测试文件"),
+                                                    strSaveFileName,
+                                                    tr("多通道测试文件 (*.wkm)"));
+    strSaveFileName= fileName;
+
+    if(strSaveFileName.isEmpty())
+        return;
+
+    QDir dir("./");
+    if (!dir.exists("tmp"))
+    {
+        dir.mkdir("tmp");
+    }
+
+    QFile file("./tmp/Test1.xml");
+
+    if(file.open(QFile::WriteOnly))
+    {
+        file.write(meter->getTestCondition().toStdString().c_str());
+        file.close();
+    }
+
+    QDir dirFile("./tmp");
+    QStringList list=dirFile.entryList(QStringList()<<"*.xml",QDir::Files);
+
+    QStringList files;
+    foreach (QString item, list) {
+        QString a ="./tmp/"+ item;
+        files.append(a);
+    }
+
+    //打包文件
+    JlCompress::compressFiles(fileName,files);
+
+    //删除所有生成的文件
+    foreach (QString item , files) {
+        dir.remove(item);
+    }
+
+}
+
+
+void clsMultiChannaeBox::  on_btnOpenSettingFile_clicked()
+{
+
+    if(strSaveFileName.isEmpty())
+    {
+        strSaveFileName = "untitled.wkm";
+    }
+
+    QString fileName = QFileDialog::getOpenFileName(this, tr("保存多通道测试文件"),
+                                                    strSaveFileName,
+                                                    tr("多通道测试文件 (*.wkm)"));
+    if(fileName.isEmpty())
+        return;
+
+    strSaveFileName = fileName;
+
+    QDir dir("./");
+    if (!dir.exists("tmp"))
+    {
+        dir.mkdir("tmp");
+    }
+
+    JlCompress::extractDir(fileName,"./tmp");
+
+    QDir dirFile("./tmp");
+    QStringList list=dirFile.entryList(QStringList()<<"*.xml",QDir::Files);
+
+    if(!list.contains("Test1.xml"))
+        return;
+    meter->setCondition("./tmp/Test1.xml");
+
+    QStringList files;
+    foreach (QString item, list) {
+        QString a ="./tmp/"+ item;
+        files.append(a);
+    }
+
+    //删除所有生成的文件
+    foreach (QString item , files) {
+        dir.remove(item);
+    }
+
+  //  qDebug()<<fileName;
+}
+
+void clsMultiChannaeBox::on_btnSignleTest_clicked()
+{
+    meter->trig();
 }

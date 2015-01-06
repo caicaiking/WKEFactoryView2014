@@ -15,14 +15,16 @@ class cls4300MeterMode : public WKEMeterMode, private Ui::cls4300MeterMode
 public:
     explicit cls4300MeterMode(QWidget *parent = 0);
     FunctionType getType();
-    void setCondition(const QString &value);
+    void setCondition(const QString &fileName);
     QString getTestItem();
     void trig();
     void start();
     QString getTestCondition();
     QString getBrief();
     bool getPassFail();
+    void turnOffBias();
     void updateButtons();
+
 private slots:
     void setTest1Limit1();
     void setTest2Limit1();
@@ -43,19 +45,15 @@ private slots:
     void on_btnTest2Item2_clicked();
     void on_btnBiasSource_clicked();
     void on_btnBiasStatus_clicked();
-    void on_btnOk_clicked();
-
-    void on_btnCacel_clicked();
-
     void on_cmbTest1Item1Unit_currentIndexChanged(const QString &arg1);
-
     void on_cmbTest1Item2Unit_currentIndexChanged(const QString &arg1);
-
     void on_cmbTest2Item1Unit_currentIndexChanged(const QString &arg1);
-
     void on_cmbTest2Item2Unit_currentIndexChanged(const QString &arg1);
-
     void on_groupBox_clicked();
+
+
+    QString saveTestConditons();
+    void readTestCondition(QString fileName);
 
 private:
     QList<clsMeterLimit> meterLimit;
@@ -73,7 +71,9 @@ private:
     bool isTest2On;
 
     double getMaxFrequency1(QString value);
-    QString tmpXml;
+
+    QStringList convertTest1Gpib();
+    QStringList convertTest2Gpib();
 };
 
 #endif // CLS4300METERMODE_H

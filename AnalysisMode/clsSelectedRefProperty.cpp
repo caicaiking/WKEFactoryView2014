@@ -21,6 +21,7 @@ void clsSelectedRefProperty::setTraceColors(QColor traceA, QColor traceB)
 
 curveProperty clsSelectedRefProperty::getCurveProperty()
 {
+    this->title = txtTitle->text();
     curveProperty pt(this->index,this->traceA,this->traceB,this->title,this->isOn);
     return pt;
 }

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>748</width>
-    <height>576</height>
+    <height>596</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -132,6 +132,70 @@
          </size>
         </property>
        </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnOpenSettingFile">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>打开
+设置</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../recFile/myRes.qrc">
+          <normaloff>:/Icons/export.png</normaloff>:/Icons/export.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnSave">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>保存
+设置</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../recFile/myRes.qrc">
+          <normaloff>:/Icons/stepSave.png</normaloff>:/Icons/stepSave.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="btnSwitchBoxTest">

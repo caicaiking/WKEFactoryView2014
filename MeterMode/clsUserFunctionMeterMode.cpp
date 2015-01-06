@@ -48,6 +48,11 @@ bool clsUserFunctionMeterMode::getPassFail()
 
 }
 
+void clsUserFunctionMeterMode::turnOffBias()
+{
+
+}
+
 void clsUserFunctionMeterMode::on_pushButton_clicked()
 {
     emit testResult("love cc",0);

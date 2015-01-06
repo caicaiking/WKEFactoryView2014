@@ -46,3 +46,8 @@ bool cls6440MeterMode::getPassFail()
 {
 
 }
+
+void cls6440MeterMode::turnOffBias()
+{
+
+}

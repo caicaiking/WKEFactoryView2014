@@ -18,6 +18,7 @@ public:
     QString getBrief();
     FunctionType getType();
     bool getPassFail();
+    void turnOffBias();
 
 signals:
     //用于单次测试

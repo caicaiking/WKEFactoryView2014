@@ -52,7 +52,7 @@ background-color: rgb(144, 148, 248);
 </string>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="meterTest1">
       <attribute name="title">
