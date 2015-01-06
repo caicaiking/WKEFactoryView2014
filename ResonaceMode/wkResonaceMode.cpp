@@ -9,6 +9,10 @@
 #include "Globle.h"
 #include "clsDog.h"
 #include <QMessageBox>
+#include <QFileDialog>
+#include <QDate>
+#include <QTime>
+
 wkResonaceMode::wkResonaceMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -38,7 +42,7 @@ wkResonaceMode::wkResonaceMode(QWidget *parent) :
 
 void wkResonaceMode::threadInfo()
 {
-   this->lblControlBox->setText(tr("消息：控制盒已连接！"));
+    this->lblControlBox->setText(tr("消息：控制盒已连接！"));
 }
 
 void wkResonaceMode::trig()
@@ -153,6 +157,7 @@ void wkResonaceMode::on_btnDepth_clicked()
     }
 }
 
+//设置搜索的开始频率
 void wkResonaceMode::on_btnStart_clicked()
 {
     NumberInput *dlg = new NumberInput(this);
@@ -172,6 +177,7 @@ void wkResonaceMode::on_btnStart_clicked()
     }
 }
 
+//设置搜索的终止频率
 void wkResonaceMode::on_btnStop_clicked()
 {
     NumberInput *dlg = new NumberInput(this);
@@ -188,11 +194,13 @@ void wkResonaceMode::on_btnStop_clicked()
     }
 }
 
+//预搜索按钮
 void wkResonaceMode::on_btnPreSearch_clicked()
 {
     qDebug()<<"Tranning res: "<<resMode->training();
 }
 
+//开始搜索谐振点
 void wkResonaceMode::on_btnSearch_clicked()
 {
     QString strProductName;
@@ -230,11 +238,13 @@ void wkResonaceMode::on_btnSearch_clicked()
 
             status = status && ok;
             lblStatus->setStatus(status);
+            writeData(lstRes.at(0),lstRes.at(3),lstRes.at(4),lstRes.at(5),lstRes.at(6),ok);
         }
         else
         {
             lblFreqPassFail->setText("");
             lblStatus->setStatus(IDEL);
+            writeData(lstRes.at(0),lstRes.at(3),lstRes.at(4),lstRes.at(5),lstRes.at(6));
         }
     }
 
@@ -293,4 +303,81 @@ void wkResonaceMode::on_btnShowSetup_clicked()
 void wkResonaceMode::on_btnExit_clicked()
 {
     this->close();
+}
+
+
+//打开数据文件按钮
+void wkResonaceMode::on_btnSaveDataFile_clicked()
+{
+    //在这里保存数据文件
+
+    strFilePath = QFileDialog::getSaveFileName(this,
+                                               tr("打开数据文件"), "./", tr("CSV Files (*.csv)")
+                                               ,0,QFileDialog::DontConfirmOverwrite);
+
+    if(!strFilePath.isEmpty())
+    {
+        this->myStatusBar->showMessage(tr("数据文件：%1").arg(strFilePath));
+        writeFileHead();
+    }
+}
+
+//写入文件头
+void wkResonaceMode::writeFileHead()
+{
+    if(strFilePath.isEmpty())
+        return;
+
+    QFile file(strFilePath);
+    if(!file.open(QIODevice::ReadWrite|QIODevice::Text))
+    {
+        return;
+    }
+    QTextStream in(&file);
+    QString line = in.readLine().trimmed();
+
+    if(line.isEmpty())
+    {
+        in<<tr("Time")<<","<<tr("Frequency") <<","
+         <<tr("C")<<","<<tr("L")<<","
+        <<tr("R")<<","<<tr("Q")<<","<<tr("Status\n");
+    }
+
+    in.flush();
+    file.close();
+
+
+}
+
+//写入数据
+void wkResonaceMode::writeData(double freq,double c, double l, double r, double q, bool status)
+{
+    if(strFilePath.isEmpty())
+        return;
+    QString strStatus;
+
+    strStatus =(status? tr("Pass"):tr("Fail"));
+
+
+    QFile file(strFilePath);
+    if(!file.open(QIODevice::Append|QIODevice::Text))
+    {
+        return;
+    }
+
+    QTextStream out(&file);
+
+    QString strDate = QString("%1 %2")
+            .arg(QDate::currentDate().toString("yyyy-MM-dd"))
+            .arg(QTime::currentTime().toString("hh:mm:ss"));
+    out<<strDate<<","<<QString::number(freq)<<","
+        <<QString::number(c)<<","
+        <<QString::number(l)<<","
+        <<QString::number(r)<<","
+        <<QString::number(q)<<","
+        <<strStatus<<"\n";
+
+    out.flush();
+    file.close();
+
 }

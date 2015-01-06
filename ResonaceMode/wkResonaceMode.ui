@@ -123,6 +123,45 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="btnSaveDataFile">
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>保存
+数据</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../recFile/myRes.qrc">
+          <normaloff>:/Icons/stepSave.png</normaloff>:/Icons/stepSave.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
        <spacer name="horizontalSpacer">
         <property name="font">
          <font>
@@ -575,7 +614,6 @@
           </widget>
          </item>
         </layout>
-        <zorder></zorder>
         <zorder></zorder>
         <zorder>verticalSpacer_3</zorder>
         <zorder>lblControlBox</zorder>
@@ -1421,6 +1459,7 @@
     </item>
    </layout>
   </widget>
+  <widget class="QStatusBar" name="myStatusBar"/>
  </widget>
  <customwidgets>
   <customwidget>

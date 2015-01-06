@@ -30,7 +30,9 @@ private slots:
     void threadInfo();
     void trig();
     void on_btnExit_clicked();
-
+    void on_btnSaveDataFile_clicked();
+    void writeFileHead();
+    void writeData(double freq, double c, double l, double r, double q, bool status = true);
 private:
     QString resEqucct;
     QString resSpeed;
@@ -38,14 +40,11 @@ private:
     double resStart;
     double resStop;
     void updateBtn();
-
     clsResonaceMode *resMode;
-
     clsMeterLimit m1,m2;
-
     bool status;
-
     clsSignalThread *thread;
+    QString strFilePath;
 
 protected:
     void closeEvent(QCloseEvent *e);

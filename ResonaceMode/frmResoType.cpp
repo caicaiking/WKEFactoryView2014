@@ -4,6 +4,8 @@ frmResoType::frmResoType(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+    //如果要使用此功能，需要测试，好像有一些Bug。
+    this->btnCrystal->setEnabled(false);
 }
 
 QString frmResoType::getResonanceType()
