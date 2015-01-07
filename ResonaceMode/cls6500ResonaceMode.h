@@ -1,6 +1,7 @@
 #ifndef CLS6500RESONACEMODE_H
 #define CLS6500RESONACEMODE_H
 #include "clsResonaceMode.h"
+#include <QString>
 const QString RESONANCE =":METER:RESO:";
 class cls6500ResonaceMode : public clsResonaceMode
 {

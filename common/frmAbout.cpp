@@ -6,7 +6,7 @@ frmAbout::frmAbout(QWidget *parent) :
 {
     setupUi(this);
     readVersion();
-    btnAboutQT->setVisible(false);
+    btnAboutQT->setVisible(true);
 }
 
 void frmAbout::readVersion()

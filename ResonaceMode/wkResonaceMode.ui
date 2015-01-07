@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>932</width>
-    <height>541</height>
+    <height>555</height>
    </rect>
   </property>
   <property name="font">
@@ -84,43 +84,23 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="btnShowSetup">
-        <property name="minimumSize">
-         <size>
-          <width>75</width>
-          <height>40</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>16777215</width>
-          <height>40</height>
-         </size>
-        </property>
+       <spacer name="horizontalSpacer">
         <property name="font">
          <font>
           <family>楷体</family>
-          <pointsize>9</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
-        <property name="text">
-         <string>隐藏
-设置</string>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
-        <property name="icon">
-         <iconset resource="../recFile/myRes.qrc">
-          <normaloff>:/Icons/instrument.png</normaloff>:/Icons/instrument.png</iconset>
-        </property>
-        <property name="iconSize">
+        <property name="sizeHint" stdset="0">
          <size>
-          <width>25</width>
-          <height>25</height>
+          <width>40</width>
+          <height>20</height>
          </size>
         </property>
-        <property name="checkable">
-         <bool>true</bool>
-        </property>
-       </widget>
+       </spacer>
       </item>
       <item>
        <widget class="QPushButton" name="btnSaveDataFile">
@@ -162,23 +142,43 @@
        </widget>
       </item>
       <item>
-       <spacer name="horizontalSpacer">
+       <widget class="QPushButton" name="btnShowSetup">
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>40</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <family>楷体</family>
-          <pointsize>12</pointsize>
+          <pointsize>9</pointsize>
          </font>
         </property>
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
+        <property name="text">
+         <string>隐藏
+设置</string>
         </property>
-        <property name="sizeHint" stdset="0">
+        <property name="icon">
+         <iconset resource="../recFile/myRes.qrc">
+          <normaloff>:/Icons/instrument.png</normaloff>:/Icons/instrument.png</iconset>
+        </property>
+        <property name="iconSize">
          <size>
-          <width>40</width>
-          <height>20</height>
+          <width>25</width>
+          <height>25</height>
          </size>
         </property>
-       </spacer>
+        <property name="checkable">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QLabel" name="lblTime">
@@ -225,6 +225,45 @@
           <width>25</width>
           <height>25</height>
          </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnInfo">
+        <property name="minimumSize">
+         <size>
+          <width>75</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>9</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>软件
+信息</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../recFile/myRes.qrc">
+          <normaloff>:/Icons/info.png</normaloff>:/Icons/info.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
         </property>
        </widget>
       </item>

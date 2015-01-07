@@ -50,5 +50,6 @@
         <file>Icons/stepSave.png</file>
         <file>Icons/com.png</file>
         <file>Icons/switch.png</file>
+        <file>Icons/info.png</file>
     </qresource>
 </RCC>

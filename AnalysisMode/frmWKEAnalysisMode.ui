@@ -772,7 +772,7 @@ ON</string>
         </property>
         <property name="maximumSize">
          <size>
-          <width>60</width>
+          <width>70</width>
           <height>40</height>
          </size>
         </property>
@@ -785,6 +785,16 @@ ON</string>
         <property name="text">
          <string>软件
 信息</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../recFile/myRes.qrc">
+          <normaloff>:/Icons/info.png</normaloff>:/Icons/info.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
         </property>
        </widget>
       </item>

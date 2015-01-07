@@ -33,6 +33,8 @@ private slots:
     void on_btnSaveDataFile_clicked();
     void writeFileHead();
     void writeData(double freq, double c, double l, double r, double q, bool status = true);
+    void on_btnInfo_clicked();
+
 private:
     QString resEqucct;
     QString resSpeed;

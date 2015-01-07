@@ -12,7 +12,7 @@
 #include <QFileDialog>
 #include <QDate>
 #include <QTime>
-
+#include "frmAbout.h"
 wkResonaceMode::wkResonaceMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -380,4 +380,11 @@ void wkResonaceMode::writeData(double freq,double c, double l, double r, double 
     out.flush();
     file.close();
 
+}
+
+void wkResonaceMode::on_btnInfo_clicked()
+{
+    frmAbout dlg;
+    dlg.setWindowTitle(tr("关于本软件"));
+    dlg.exec();
 }
