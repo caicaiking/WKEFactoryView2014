@@ -35,8 +35,8 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
 [Files]
-Source: "D:\QT\build-WKEFactoryView2014-Desktop5-Release\Release\WKEFactoryView2014.exe"; DestDir: "{app}"; Flags: ignoreversion
-Source: "D:\QT\build-WKEFactoryView2014-Desktop5-Release\release\WKEFactoryView2014.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\QT\build-WKEFactoryView2014-Qt531-Release\release\WKEFactoryView2014.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "D:\QT\build-WKEFactoryView2014-Qt531-Release\release\WKEFactoryView2014.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\QT\WKEFactoryView2014\Run\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
