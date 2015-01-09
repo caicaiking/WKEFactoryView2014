@@ -15,6 +15,9 @@ private slots:
 
 private:
     QStringList commands;
+
+protected:
+    void closeEvent(QCloseEvent *e);
 };
 
 #endif // CLSSWITCHBOXTEST_H

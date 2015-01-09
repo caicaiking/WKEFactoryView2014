@@ -187,3 +187,5 @@ void clsMultiChannaeBox::on_btnSignleTest_clicked()
 {
     meter->trig();
 }
+
+
