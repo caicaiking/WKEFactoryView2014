@@ -94,7 +94,15 @@ Plot::Plot(QWidget *parent) :
     d_marker1->setLabelAlignment(Qt::AlignRight |
                                  Qt::AlignBottom);
     d_marker1->setLinePen(QPen(Qt::red,0,Qt::SolidLine));
+
     d_marker1->attach(this);
+
+    //上下限设定的Mark线
+    traceAUpLimit = new QwtPlotMarker;
+    traceADownLimit = new QwtPlotMarker;
+    traceBUpLimit = new QwtPlotMarker;
+    traceBDownLimit = new QwtPlotMarker;
+
 
     this->setAutoReplot(true);
     setTraceA(QString("Z"));
@@ -351,6 +359,7 @@ void Plot::setXScale(double min, double max, bool logx)
     this->xmax=max;
     this->xmin=min;
     setBlLogX(logx);
+    setCurveLimit(this->curveLimit);
 }
 
 void Plot::setYLeftScal(double min, double max, bool logx)
@@ -359,6 +368,7 @@ void Plot::setYLeftScal(double min, double max, bool logx)
     this->yLeftMin =min;
     this->yLeftMax=max;
     setBlLogYLeft(logx);
+    setCurveLimit(this->curveLimit);
 }
 
 void Plot::setYRightScal(double min, double max)
@@ -366,6 +376,7 @@ void Plot::setYRightScal(double min, double max)
     this->yRightMax=max;
     this->yRightMin =min;
     this->setAxisScale(QwtPlot::yRight,min,max);
+    setCurveLimit(this->curveLimit);
 }
 
 void Plot::setScale(double xmin, double xmax, bool blLogX,
@@ -375,6 +386,7 @@ void Plot::setScale(double xmin, double xmax, bool blLogX,
     setXScale(xmin,xmax,blLogX);
     setYLeftScal(yLeftMin,yLeftMax,blLogYLeft);
     setYRightScal(yRightMin,yRightMax);
+    setCurveLimit(this->curveLimit);
 }
 
 void Plot::getScale(double &xmin,  double &xmax, bool &blLogX,
@@ -403,16 +415,25 @@ void Plot::turnOffCurves( QList<curveProperty> cp,
     case yLeft:
         this->enableAxis(QwtPlot::yLeft,status);
         if(status)
+        {
             gridYLeft->attach(this);
+        }
         else
+        {
             gridYLeft->detach();
+        }
+
         break;
     case yRight:
         this->enableAxis(QwtPlot::yRight,status);
         if(status)
+        {
             gridYRight->attach(this);
+        }
         else
+        {
             gridYRight->detach();
+        }
         break;
     case Both:
         this->enableAxis(QwtPlot::yLeft,status);
@@ -427,6 +448,7 @@ void Plot::turnOffCurves( QList<curveProperty> cp,
             gridYLeft->detach();
             gridYRight->detach();
         }
+
         break;
     }
 
@@ -788,6 +810,88 @@ double Plot::getCurrentMarkValue()
     return tmpRet;
 }
 
+void Plot::setCurveLimit(const clsCurveLimit /*curveLimit1*/)
+{/*
+    this->curveLimit = curveLimit1;
+
+
+
+    if(this->curveLimit.blTraceALimit)
+    {
+
+        traceAUpLimit->setValue(0.0,curveLimit.cmlTraceALimit.getAbsLimitHigh());
+        traceAUpLimit->setLineStyle(QwtPlotMarker::HLine);
+        traceAUpLimit->setLabelAlignment(Qt::AlignLeft |
+                                         Qt::AlignTop);
+        traceAUpLimit->setLinePen(QPen(curveLimit.traceAUp,0,Qt::SolidLine));
+        // traceAUpLimit->setLabel(tr("上限"));
+        traceAUpLimit->attach(this);
+        traceAUpLimit->setVisible(true);
+
+        traceADownLimit->setValue(0.0,curveLimit.cmlTraceALimit.getAbsLimitLow());
+        traceADownLimit->setLineStyle(QwtPlotMarker::HLine);
+        traceADownLimit->setLabelAlignment(Qt::AlignLeft |
+                                           Qt::AlignBottom);
+        traceADownLimit->setLinePen(QPen(curveLimit.traceADown,0,Qt::SolidLine));
+        // traceADownLimit->setLabel(tr("下限"));
+        traceADownLimit->attach(this);
+        traceADownLimit->setVisible(true);
+
+    }
+    else
+    {
+        traceAUpLimit->setVisible(false);
+        traceADownLimit->setVisible(false);
+    }
+
+
+
+
+    if(this->curveLimit.blTraceBLimit)
+    {
+        double yRightHi;
+        yRightHi=this->canvasMap(QwtPlot::yRight).transform(this->curveLimit.cmlTraceBLimit.getAbsLimitHigh());
+        yRightHi=this->canvasMap(QwtPlot::yLeft).invTransform(yRightHi);
+        traceBUpLimit->setValue(0.0,yRightHi);
+        traceBUpLimit->setLineStyle(QwtPlotMarker::HLine);
+        traceBUpLimit->setLabelAlignment(Qt::AlignLeft |
+                                         Qt::AlignTop);
+        traceBUpLimit->setLinePen(QPen(curveLimit.traceBUp,0,Qt::SolidLine));
+        // traceAUpLimit->setLabel(tr("上限"));
+        traceBUpLimit->attach(this);
+        traceBUpLimit->setVisible(true);
+
+
+
+
+        double yRightLow;
+        yRightLow=this->canvasMap(QwtPlot::yRight).transform(this->curveLimit.cmlTraceBLimit.getAbsLimitLow());
+        yRightLow=this->canvasMap(QwtPlot::yLeft).invTransform(yRightLow);
+
+
+        traceBDownLimit->setValue(0.0,yRightLow);
+        traceBDownLimit->setLineStyle(QwtPlotMarker::HLine);
+        traceBDownLimit->setLabelAlignment(Qt::AlignLeft |
+                                           Qt::AlignBottom);
+        traceBDownLimit->setLinePen(QPen(curveLimit.traceBDown,0,Qt::SolidLine));
+        // traceADownLimit->setLabel(tr("下限"));
+        traceBDownLimit->attach(this);
+        traceBDownLimit->setVisible(true);
+
+    }
+    else
+    {
+        traceBUpLimit->setVisible(false);
+        traceBDownLimit->setVisible(false);
+    }
+
+
+    this->replot();
+*/
+
+}
+
+
 void Plot::findNextLeftHigh(Choice x)
 {
     if(!d_marker1->isVisible())
@@ -1035,6 +1139,6 @@ void Plot::findNextRightLow(Choice x)
         }
     }
 
-     setMarker(tmpRet,0);
+    setMarker(tmpRet,0);
 }
 

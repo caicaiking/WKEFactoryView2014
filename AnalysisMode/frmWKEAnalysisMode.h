@@ -9,6 +9,7 @@
 #include "clsMeas.h"
 #include "Zoomer.h"
 #include "Qwt/qwt_plot_panner.h"
+#include "clsCurveLimit.h"
 class frmWKEAnalysisMode : public QMainWindow, private Ui::frmWKEAnalysisMode
 {
     Q_OBJECT
@@ -38,22 +39,19 @@ private slots:
     void on_btnTrig_clicked();
     void on_btnRep_clicked();
     void on_btnAutoScale_clicked();
-
     void setBias(QString value);
     void on_btnRefTrace_clicked();
-
     void on_btnSaveResults_clicked();
-
     void on_btnCalibration_clicked();
-
     void on_btnZoom_clicked();
-
     void enableZoomMode(bool on);
-
     void zoomed(QRectF value);
     void on_btnHelp_clicked();
-
     void on_btnPeak_clicked();
+
+    void on_btnSetLimit_clicked();
+
+    void on_btnSaveRes_clicked();
 
 private:
     Plot *plot;
@@ -65,12 +63,12 @@ private:
     void connectSignals();
     graphSetup gs;
     clsMeas *meas;
-
     QwtPlotZoomer *d_zoomer;
-
-
     bool checkDog();
+    clsCurveLimit curveLimit;
+    void resPassFail();
 
+    QString strDataFilePath;
 protected:
     void closeEvent(QCloseEvent *e);
 };

@@ -3,7 +3,7 @@
 
 #include <Qwt/qwt_plot.h>
 #include <QWidget>
-
+#include "clsCurveLimit.h"
 #include <clsRefTraceProperty.h>
 class QwtPlotCurve;
 class QwtPlotMarker;
@@ -90,6 +90,8 @@ public:
     QMap<double, double> fff(QMap<double,double> list, double tmpRet);
     double getCurrentMarkValue();
     QMap<double, double> getChoiceData(Choice x);
+
+    void setCurveLimit(const clsCurveLimit curveLimit);
 public slots:
     QString setMarker(const double& freq, const int intSelected=0);
     void addNewCurve(curveProperty property, bool isSetCurrent=false);
@@ -103,7 +105,7 @@ private:
     //为了可以显示多条曲线
     QMap <int,PlotCurves> curves;
 
-    QwtPlotMarker *d_marker1;
+    QwtPlotMarker *d_marker1,*traceAUpLimit,*traceADownLimit,*traceBUpLimit,*traceBDownLimit;
     //    QwtPlotMarker *d_marker2;
     QwtPlotGrid *gridX;
     QwtPlotGrid *gridYLeft;
@@ -121,6 +123,7 @@ private:
     double yRightMax;
     double yRightMin;
 
+    clsCurveLimit curveLimit;
 };
 
 #endif // PLOT_H

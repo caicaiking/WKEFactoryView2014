@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network serialport xml
+QT       += core gui network serialport xml multimedia
 RC_FILE  =Icon.rc
 
 
@@ -110,7 +110,8 @@ SOURCES +=\
     MulitChannalBox/clsSwitchBoxTest.cpp \
     MulitChannalBox/cls4300MeterMode.cpp \
     MeterMode/dlg4300FuctionMajor.cpp \
-    MeterMode/dlg4300FunctionMinor.cpp
+    MeterMode/dlg4300FunctionMinor.cpp \
+    AnalysisMode/dlgLimitSetup.cpp
 
 
 
@@ -233,7 +234,9 @@ HEADERS += \
     MulitChannalBox/clsSwitchBoxTest.h \
     MulitChannalBox/cls4300MeterMode.h \
     MeterMode/dlg4300FuctionMajor.h \
-    MeterMode/dlg4300FunctionMinor.h
+    MeterMode/dlg4300FunctionMinor.h \
+    AnalysisMode/dlgLimitSetup.h \
+    AnalysisMode/clsCurveLimit.h
 
 
 FORMS += \
@@ -279,6 +282,7 @@ FORMS += \
     MulitChannalBox/clsSwitchBoxTest.ui \
     MulitChannalBox/cls4300MeterMode.ui \
     MeterMode/dlg4300FuctionMajor.ui \
-    MeterMode/dlg4300FunctionMinor.ui
+    MeterMode/dlg4300FunctionMinor.ui \
+    AnalysisMode/dlgLimitSetup.ui
 
 TRANSLATIONS = recFile/Translation/WKEFV.ts

@@ -18,12 +18,16 @@
 #include "frmAbout.h"
 #include "clsDog.h"
 #include <QMessageBox>
+#include <QtMultimedia/QSound>
+#include "dlgLimitSetup.h"
+#include <QtMultimedia/QSound>
 frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     QMainWindow(parent)
 {
     setupUi(this);
 
     initPlot();
+    statusLabel->setStatus(IDEL);
     this->statusBar()->setVisible(false);
     progressBar->setVisible(false);
     lblDisplayMsg->setText(tr("仪器：WK %1").arg(clsRS::getInst().instrumentModel));
@@ -418,6 +422,7 @@ void frmWKEAnalysisMode::on_btnTrig_clicked()
     progressBar->setVisible(true);
     if(btnTrig->isChecked())
     {
+        statusLabel->setStatus(BUSY);
         btnRep->setEnabled(false);
         btnTrig->setText(tr("停止\n测试"));
         btnTrig->setIcon(QIcon(":/Icons/stop.png"));
@@ -435,6 +440,7 @@ void frmWKEAnalysisMode::on_btnTrig_clicked()
         updateButtons();
         btnRep->setEnabled(true);
 
+        resPassFail();
     }
     else
     {
@@ -450,6 +456,100 @@ void frmWKEAnalysisMode::on_btnTrig_clicked()
     frmTraceSetup::writeSettings(gs);
 
 
+
+}
+
+void frmWKEAnalysisMode::resPassFail()
+{
+    bool traceAStatus =true;
+    bool traceBStatus = true;
+
+    QList<PlotCurves> curves= plot->getCurves();
+    if(curves.length()<=0)
+        return;
+
+
+    QList<QPointF> traceA=  UserfulFunctions::getPlotCurveData(curves.at(0).cur1);
+    QList<QPointF> traceB=  UserfulFunctions::getPlotCurveData(curves.at(0).cur2);
+
+
+    if(this->curveLimit.blTraceALimit == false && this->curveLimit.blTraceBLimit==false)
+    {
+        statusLabel->setStatus(IDEL);
+
+    }
+    else
+    {
+
+        QString cmpString;
+        if(this->curveLimit.blTraceALimit)
+        {
+            for(int i=0; i< traceA.length();i++)
+            {
+                traceAStatus = traceAStatus && this->curveLimit.cmlTraceALimit.comparaValue(traceA.at(i).y(),cmpString);
+                if(traceAStatus==false)
+                    break;
+            }
+        }
+
+        if(this->curveLimit.blTraceBLimit)
+        {
+            for(int i=0; i<traceB.length();i++)
+            {
+                traceBStatus = traceBStatus && this->curveLimit.cmlTraceBLimit.comparaValue(traceB.at(i).y(),cmpString);
+            }
+        }
+
+        if(traceAStatus && traceBStatus)
+        {
+            statusLabel->setStatus(PASS);
+            QSound::play(":/Sounds/pass.wav");
+        }
+        else
+        {
+            statusLabel->setStatus(FAIL);
+            QSound::play(":/Sounds/fail.wav");
+        }
+    }
+
+    //保存数据到文件
+    if(!strDataFilePath.isEmpty())
+    {
+        QFile file(this->strDataFilePath);
+        if(!file.open(QIODevice::Append|QIODevice::Text))
+        {
+            return;
+        }
+
+        QTextStream out(&file);
+       // out.setCodec("ANSI");
+
+        QString strStatus =(traceAStatus && traceBStatus ?"通过":"失败");
+
+        QString strDate = tr("日期:,%1,时间:,%2,状态:,%3")
+                .arg(QDate::currentDate().toString("yyyy-MM-dd"))
+                .arg(QTime::currentTime().toString("hh:mm:ss"))
+                .arg(strStatus);
+
+        out<<strDate<<"\n";
+
+        QString title = tr("%1,%2,%3").arg(UserfulFunctions::getSweepTypeName(gs.sweepType))
+                .arg(UserfulFunctions::getName(meter->getItem1()))
+                .arg(UserfulFunctions::getName(meter->getItem2()));
+        out<<title<<"\n";
+
+        for(int i=0; i< traceA.length();i++)
+        {
+            QString data =tr("%1,%2,%3").arg(QString::number(traceA.at(i).x()))
+                    .arg(QString::number(traceA.at(i).y()))
+                    .arg(QString::number(traceB.at(i).y()));
+            out<< data<<"\n";
+        }
+
+        out.flush();
+        file.close();
+    }
+    //保存数据到文件结束
 
 }
 
@@ -569,4 +669,36 @@ void frmWKEAnalysisMode::on_btnPeak_clicked()
                      dlg->geometry().height());
 
     dlg->show();
+}
+
+
+
+void frmWKEAnalysisMode::on_btnSetLimit_clicked()
+{
+    dlgLimitSetup *limit=new dlgLimitSetup(this->meter,this);
+    limit->setCurveLimit(this->curveLimit);
+    if(limit->exec())
+    {
+        this->curveLimit = limit->getCurveLimit();
+        plot->setCurveLimit(this->curveLimit);
+        //        plot
+    }
+    else
+    {
+        qDebug()<<"limit cancel";
+    }
+}
+
+void frmWKEAnalysisMode::on_btnSaveRes_clicked()
+{
+    //在这里保存数据文件
+
+    QString  strFilePath = QFileDialog::getSaveFileName(this,
+                                                        tr("打开数据文件"), "./", tr("CSV Files (*.csv)")
+                                                        ,0,QFileDialog::DontConfirmOverwrite);
+
+    if(!strFilePath.isEmpty())
+    {
+        this->strDataFilePath = strFilePath;
+    }
 }

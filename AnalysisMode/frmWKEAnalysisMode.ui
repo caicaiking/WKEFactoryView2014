@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>980</width>
+    <width>1113</width>
     <height>590</height>
    </rect>
   </property>
@@ -209,6 +209,42 @@
          </widget>
         </item>
         <item>
+         <widget class="QPushButton" name="btnSetLimit">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>楷体</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;让测试的曲线更好的显示。&lt;/p&gt;&lt;p&gt;快捷键Ctrl+A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>限定
+设置</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../recFile/myRes.qrc">
+            <normaloff>:/Icons/HILowLimit.png</normaloff>:/Icons/HILowLimit.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="shortcut">
+           <string>Ctrl+A</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="btnAutoScale">
           <property name="minimumSize">
            <size>
@@ -392,6 +428,42 @@
           <property name="icon">
            <iconset resource="../recFile/myRes.qrc">
             <normaloff>:/Icons/calibration.png</normaloff>:/Icons/calibration.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="shortcut">
+           <string>Ctrl+C</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnSaveRes">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>楷体</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;仪表校准。&lt;/p&gt;&lt;p&gt;快捷键 Ctrl+C&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="text">
+           <string>自动
+保存</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../recFile/myRes.qrc">
+            <normaloff>:/Icons/stepSave.png</normaloff>:/Icons/stepSave.png</iconset>
           </property>
           <property name="iconSize">
            <size>
@@ -693,6 +765,34 @@ ON</string>
        </widget>
       </item>
       <item>
+       <widget class="StatusLabel" name="statusLabel">
+        <property name="minimumSize">
+         <size>
+          <width>150</width>
+          <height>34</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>22</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>状态显示</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
        <spacer name="horizontalSpacer_2">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -809,6 +909,13 @@ ON</string>
    </property>
   </action>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>StatusLabel</class>
+   <extends>QLabel</extends>
+   <header>StatusLabel.h</header>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../recFile/myRes.qrc"/>
  </resources>
