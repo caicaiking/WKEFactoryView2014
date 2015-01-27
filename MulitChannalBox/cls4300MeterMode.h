@@ -55,6 +55,8 @@ private slots:
     QString saveTestConditons();
     void readTestCondition(QString fileName);
 
+    void on_btnOk_clicked();
+
 private:
     QList<clsMeterLimit> meterLimit;
 

@@ -1089,3 +1089,8 @@ void cls4300MeterMode::on_groupBox_clicked()
     isTest2On = groupBox->isChecked();
     updateButtons();
 }
+
+void cls4300MeterMode::on_btnOk_clicked()
+{
+
+}
