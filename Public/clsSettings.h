@@ -24,6 +24,7 @@ public:
     void readSetting(QString strPath, QList<double> &value);
     void readSetting(QString strPath, QStringList &value);
 
+    void readSetting(QString strPath, QColor &value);
 signals:
     
 public slots:

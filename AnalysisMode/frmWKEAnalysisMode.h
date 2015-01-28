@@ -53,6 +53,8 @@ private slots:
 
     void on_btnSaveRes_clicked();
 
+    void on_btnSettings_clicked();
+
 private:
     Plot *plot;
     void initPlot();
@@ -69,6 +71,8 @@ private:
     void resPassFail();
 
     QString strDataFilePath;
+    void init();
+
 protected:
     void closeEvent(QCloseEvent *e);
 };

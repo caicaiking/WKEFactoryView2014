@@ -810,8 +810,8 @@ double Plot::getCurrentMarkValue()
     return tmpRet;
 }
 
-void Plot::setCurveLimit(const clsCurveLimit /*curveLimit1*/)
-{/*
+void Plot::setCurveLimit(const clsCurveLimit curveLimit1)
+{
     this->curveLimit = curveLimit1;
 
 
@@ -823,7 +823,7 @@ void Plot::setCurveLimit(const clsCurveLimit /*curveLimit1*/)
         traceAUpLimit->setLineStyle(QwtPlotMarker::HLine);
         traceAUpLimit->setLabelAlignment(Qt::AlignLeft |
                                          Qt::AlignTop);
-        traceAUpLimit->setLinePen(QPen(curveLimit.traceAUp,0,Qt::SolidLine));
+        traceAUpLimit->setLinePen(QPen(curveLimit.traceAUp,0,Qt::DashDotLine));
         // traceAUpLimit->setLabel(tr("上限"));
         traceAUpLimit->attach(this);
         traceAUpLimit->setVisible(true);
@@ -832,7 +832,7 @@ void Plot::setCurveLimit(const clsCurveLimit /*curveLimit1*/)
         traceADownLimit->setLineStyle(QwtPlotMarker::HLine);
         traceADownLimit->setLabelAlignment(Qt::AlignLeft |
                                            Qt::AlignBottom);
-        traceADownLimit->setLinePen(QPen(curveLimit.traceADown,0,Qt::SolidLine));
+        traceADownLimit->setLinePen(QPen(curveLimit.traceADown,0,Qt::DashDotLine));
         // traceADownLimit->setLabel(tr("下限"));
         traceADownLimit->attach(this);
         traceADownLimit->setVisible(true);
@@ -856,7 +856,7 @@ void Plot::setCurveLimit(const clsCurveLimit /*curveLimit1*/)
         traceBUpLimit->setLineStyle(QwtPlotMarker::HLine);
         traceBUpLimit->setLabelAlignment(Qt::AlignLeft |
                                          Qt::AlignTop);
-        traceBUpLimit->setLinePen(QPen(curveLimit.traceBUp,0,Qt::SolidLine));
+        traceBUpLimit->setLinePen(QPen(curveLimit.traceBUp,0,Qt::DashLine));
         // traceAUpLimit->setLabel(tr("上限"));
         traceBUpLimit->attach(this);
         traceBUpLimit->setVisible(true);
@@ -873,7 +873,7 @@ void Plot::setCurveLimit(const clsCurveLimit /*curveLimit1*/)
         traceBDownLimit->setLineStyle(QwtPlotMarker::HLine);
         traceBDownLimit->setLabelAlignment(Qt::AlignLeft |
                                            Qt::AlignBottom);
-        traceBDownLimit->setLinePen(QPen(curveLimit.traceBDown,0,Qt::SolidLine));
+        traceBDownLimit->setLinePen(QPen(curveLimit.traceBDown,0,Qt::DashLine));
         // traceADownLimit->setLabel(tr("下限"));
         traceBDownLimit->attach(this);
         traceBDownLimit->setVisible(true);
@@ -887,7 +887,7 @@ void Plot::setCurveLimit(const clsCurveLimit /*curveLimit1*/)
 
 
     this->replot();
-*/
+
 
 }
 

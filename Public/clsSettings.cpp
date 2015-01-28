@@ -2,7 +2,7 @@
 #include <QDebug>
 #include <QList>
 #include <QStringList>
-
+#include <QColor>
 clsSettings::clsSettings(QObject *parent) :
     QObject(parent)
 {
@@ -48,6 +48,12 @@ void clsSettings::readSetting(QString strPath, double & value)
 {
     value =configIniWrite->value(strPath).toDouble();
 }
+
+void clsSettings::readSetting(QString strPath, QColor &value)
+{
+    value =  configIniWrite->value(strPath).value<QColor>();
+}
+
 void clsSettings::readSetting(QString strPath, QString & value)
 {
     value =configIniWrite->value(strPath).toString();

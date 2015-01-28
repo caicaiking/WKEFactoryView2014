@@ -21,24 +21,35 @@
 #include <QtMultimedia/QSound>
 #include "dlgLimitSetup.h"
 #include <QtMultimedia/QSound>
+#include "dlgSetupOp.h"
 frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     QMainWindow(parent)
 {
     setupUi(this);
 
     initPlot();
-    statusLabel->setStatus(IDEL);
+
     this->statusBar()->setVisible(false);
     progressBar->setVisible(false);
     lblDisplayMsg->setText(tr("仪器：WK %1").arg(clsRS::getInst().instrumentModel));
+
+    init();
+
+}
+
+
+void frmWKEAnalysisMode::init()
+{
+    statusLabel->setStatus(IDEL);
     meter =clsMeterFacotry::getMeter(clsRS::getInst().meterSeries);
     if(meter==0)
         return;
-
     connectSignals();
     meter->updateInstrument();
-
+    this->curveLimit.readSettings();
+    plot->setCurveLimit(this->curveLimit);
     frmTraceSetup::readSettings(gs,true);
+
     meas = MeasFactory::getMeas(gs.sweepType);
     meas->setPoint(&gs.points);
     connect(meas,SIGNAL(showProgress(int)),this->progressBar,SLOT(setValue(int)));
@@ -47,6 +58,7 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     initZoomer();
 
     btnRep->setVisible(false);
+
 }
 
 void frmWKEAnalysisMode::initZoomer()
@@ -522,7 +534,7 @@ void frmWKEAnalysisMode::resPassFail()
         }
 
         QTextStream out(&file);
-       // out.setCodec("ANSI");
+        // out.setCodec("ANSI");
 
         QString strStatus =(traceAStatus && traceBStatus ?"通过":"失败");
 
@@ -680,6 +692,7 @@ void frmWKEAnalysisMode::on_btnSetLimit_clicked()
     if(limit->exec())
     {
         this->curveLimit = limit->getCurveLimit();
+        this->curveLimit.writeSettings();
         plot->setCurveLimit(this->curveLimit);
         //        plot
     }
@@ -700,5 +713,35 @@ void frmWKEAnalysisMode::on_btnSaveRes_clicked()
     if(!strFilePath.isEmpty())
     {
         this->strDataFilePath = strFilePath;
+    }
+}
+
+void frmWKEAnalysisMode::on_btnSettings_clicked()
+{
+    dlgSetupOp dlg;
+    dlg.setWindowTitle(tr("配置文件操作"));
+    if(dlg.exec()==QDialog::Accepted)
+    {
+        int select = dlg.getSelect();
+        QString filePath = dlg.getSelectFilePath();
+
+        if(select ==0)
+        {
+            QFile file("./Settings.ini");
+            if(file.exists())
+            {
+                qDebug()<<"old setting file is removed: "<< file.remove();
+            }
+
+            QFile::copy(filePath,"./Settings.ini");
+            init();
+            plot->clearData();
+        }
+        else
+        {
+            //qDebug()<<QFile::exists("./Settings.ini");
+            QFile::copy("./Settings.ini",filePath);
+
+        }
     }
 }
