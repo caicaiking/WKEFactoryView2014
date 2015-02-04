@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network serialport xml multimedia
+QT       += core gui network serialport xml
 RC_FILE  =Icon.rc
 
 
@@ -112,7 +112,6 @@ SOURCES +=\
     MeterMode/dlg4300FuctionMajor.cpp \
     MeterMode/dlg4300FunctionMinor.cpp \
     AnalysisMode/dlgLimitSetup.cpp \
-    frmSettings.cpp \
     AnalysisMode/dlgSetupOp.cpp
 
 
@@ -239,7 +238,6 @@ HEADERS += \
     MeterMode/dlg4300FunctionMinor.h \
     AnalysisMode/dlgLimitSetup.h \
     AnalysisMode/clsCurveLimit.h \
-    frmSettings.h \
     AnalysisMode/dlgSetupOp.h
 
 
@@ -288,7 +286,6 @@ FORMS += \
     MeterMode/dlg4300FuctionMajor.ui \
     MeterMode/dlg4300FunctionMinor.ui \
     AnalysisMode/dlgLimitSetup.ui \
-    frmSettings.ui \
     AnalysisMode/dlgSetupOp.ui
 
 TRANSLATIONS = recFile/Translation/WKEFV.ts

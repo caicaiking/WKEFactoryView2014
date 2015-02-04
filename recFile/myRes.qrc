@@ -51,8 +51,6 @@
         <file>Icons/com.png</file>
         <file>Icons/switch.png</file>
         <file>Icons/info.png</file>
-        <file>Sounds/fail.wav</file>
-        <file>Sounds/pass.wav</file>
         <file>Icons/HILowLimit.png</file>
     </qresource>
 </RCC>
