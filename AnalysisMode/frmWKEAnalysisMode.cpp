@@ -18,10 +18,11 @@
 #include "frmAbout.h"
 #include "clsDog.h"
 #include <QMessageBox>
-#include <QtMultimedia/QSound>
+
 #include "dlgLimitSetup.h"
-#include <QtMultimedia/QSound>
+
 #include "dlgSetupOp.h"
+#include <windows.h>
 frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -471,6 +472,7 @@ void frmWKEAnalysisMode::on_btnTrig_clicked()
 
 }
 
+//
 void frmWKEAnalysisMode::resPassFail()
 {
     bool traceAStatus =true;
@@ -515,12 +517,14 @@ void frmWKEAnalysisMode::resPassFail()
         if(traceAStatus && traceBStatus)
         {
             statusLabel->setStatus(PASS);
-            QSound::play(":/Sounds/pass.wav");
+
+             Beep(2900,800);
         }
         else
         {
             statusLabel->setStatus(FAIL);
-            QSound::play(":/Sounds/fail.wav");
+            Beep(3900,400);
+            Beep(3900,400);
         }
     }
 
@@ -534,7 +538,7 @@ void frmWKEAnalysisMode::resPassFail()
         }
 
         QTextStream out(&file);
-        // out.setCodec("ANSI");
+         out.setCodec("GBK");
 
         QString strStatus =(traceAStatus && traceBStatus ?"通过":"失败");
 
