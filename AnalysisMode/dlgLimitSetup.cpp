@@ -22,6 +22,8 @@ void dlgLimitSetup::setCurveLimit(const clsCurveLimit &curveLimit)
 {
     grpTraceA->setChecked(curveLimit.blTraceALimit);
     grpTraceB->setChecked(curveLimit.blTraceBLimit);
+    chkPassSound->setChecked(curveLimit.blPassSound);
+    chkFailSound->setChecked(curveLimit.blFailSound);
 
     traceAUpColor = curveLimit.traceAUp;
     traceADownColor = curveLimit.traceADown;
@@ -59,6 +61,9 @@ clsCurveLimit dlgLimitSetup::getCurveLimit()
     tmp.traceADown = traceADownColor;
     tmp.traceBUp = traceBUpColor;
     tmp.traceBDown = traceBDownColor;
+    tmp.blPassSound = chkPassSound->isChecked();
+    tmp.blFailSound = chkFailSound->isChecked();
+
     return tmp;
 }
 

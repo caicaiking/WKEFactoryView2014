@@ -517,14 +517,17 @@ void frmWKEAnalysisMode::resPassFail()
         if(traceAStatus && traceBStatus)
         {
             statusLabel->setStatus(PASS);
-
-             Beep(2900,800);
+            if(curveLimit.blPassSound)
+                Beep(2900,800);
         }
         else
         {
             statusLabel->setStatus(FAIL);
-            Beep(3900,400);
-            Beep(3900,400);
+            if(curveLimit.blFailSound)
+            {
+                Beep(3900,400);
+                Beep(3900,400);
+            }
         }
     }
 
@@ -538,7 +541,7 @@ void frmWKEAnalysisMode::resPassFail()
         }
 
         QTextStream out(&file);
-         out.setCodec("GBK");
+        out.setCodec("GBK");
 
         QString strStatus =(traceAStatus && traceBStatus ?"通过":"失败");
 

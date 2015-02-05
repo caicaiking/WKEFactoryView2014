@@ -52,5 +52,6 @@
         <file>Icons/switch.png</file>
         <file>Icons/info.png</file>
         <file>Icons/HILowLimit.png</file>
+        <file>Icons/sound.png</file>
     </qresource>
 </RCC>
