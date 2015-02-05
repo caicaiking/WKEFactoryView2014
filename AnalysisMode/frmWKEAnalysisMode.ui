@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1174</width>
+    <width>1190</width>
     <height>590</height>
    </rect>
   </property>
@@ -223,7 +223,7 @@
            </font>
           </property>
           <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;让测试的曲线更好的显示。&lt;/p&gt;&lt;p&gt;快捷键Ctrl+A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;设定曲线上下限。&lt;/p&gt;&lt;p&gt;快捷键Ctrl+L&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="text">
            <string>限定
@@ -240,7 +240,7 @@
            </size>
           </property>
           <property name="shortcut">
-           <string>Ctrl+A</string>
+           <string>Ctrl+L</string>
           </property>
          </widget>
         </item>
@@ -455,7 +455,7 @@
            </font>
           </property>
           <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;仪表校准。&lt;/p&gt;&lt;p&gt;快捷键 Ctrl+C&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;自动保存测试结果文件名称设定。&lt;/p&gt;&lt;p&gt;快捷键 Ctrl+R&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="text">
            <string>自动
@@ -472,7 +472,7 @@
            </size>
           </property>
           <property name="shortcut">
-           <string>Ctrl+C</string>
+           <string>Ctrl+R</string>
           </property>
          </widget>
         </item>
@@ -563,7 +563,7 @@
            </font>
           </property>
           <property name="toolTip">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;仪表校准。&lt;/p&gt;&lt;p&gt;快捷键 Ctrl+C&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存当前文件的配置或者加载配置文件。&lt;/p&gt;&lt;p&gt;快捷键 Ctrl+S&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
           <property name="text">
            <string>配置
@@ -580,7 +580,7 @@
            </size>
           </property>
           <property name="shortcut">
-           <string>Ctrl+C</string>
+           <string>Ctrl+S</string>
           </property>
          </widget>
         </item>

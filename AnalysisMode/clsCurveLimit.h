@@ -15,7 +15,8 @@ public:
         traceBDown = Qt::darkRed;
         blTraceALimit=false;
         blTraceBLimit=false;
-
+        blPassSound=true;
+        blFailSound=true;
     }
 
     void readSettings()
@@ -29,6 +30,9 @@ public:
         settings.readSetting(strNode+"traceADownColor",this->traceADown);
         settings.readSetting(strNode+"traceBUpColor",this->traceBUp);
         settings.readSetting(strNode+"traceBDownColor",this->traceBDown);
+
+        settings.readSetting(strNode+"passSound",this->blPassSound);
+        settings.readSetting(strNode+"failBSound",this->blFailSound);
 
         QString tmp;
         settings.readSetting(strNode+"TraceALimit",tmp);
@@ -53,13 +57,14 @@ public:
         settings.writeSetting(strNode+"traceADownColor",this->traceADown);
         settings.writeSetting(strNode+"traceBUpColor",this->traceBUp);
         settings.writeSetting(strNode+"traceBDownColor",this->traceBDown);
-
+        settings.writeSetting(strNode+"passSound",this->blPassSound);
+        settings.writeSetting(strNode+"failBSound",this->blFailSound);
         settings.writeSetting(strNode+"TraceALimit",cmlTraceALimit.toString());
         settings.writeSetting(strNode+"TraceBLimit",cmlTraceBLimit.toString());
     }
 
 
-    bool blTraceALimit,blTraceBLimit;
+    bool blTraceALimit,blTraceBLimit,blPassSound,blFailSound;
     QColor traceAUp, traceBUp, traceADown,traceBDown;
     clsMeterLimit cmlTraceALimit,cmlTraceBLimit;
 
