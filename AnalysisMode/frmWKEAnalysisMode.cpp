@@ -61,11 +61,10 @@ void frmWKEAnalysisMode::init()
     btnRep->setVisible(false);
 
     timer = new QTimer(this);
-    timer->setInterval(50000);
+    timer->setInterval(1000);
 
     connect(timer,SIGNAL(timeout()),this,SLOT(testConnection()));
     timer->start();
-
 
 }
 
@@ -73,8 +72,14 @@ void frmWKEAnalysisMode::testConnection()
 {
     if(statusLabel->getStatus() !=BUSY)
     {
-       clsRS::getInst().sendCommand("*IDN?",true);
+        QString strRet="";
+        strRet= clsRS::getInst().sendCommand("*IDN?",true);
+        if(strRet.isEmpty())
+            lblIndicator->setStyleSheet("border-radius:20px; background-color: red");
+        else
+            lblIndicator->setStyleSheet("border-radius:20px; background-color: green");
     }
+    qApp->processEvents();
 }
 
 void frmWKEAnalysisMode::initZoomer()
@@ -430,8 +435,9 @@ void frmWKEAnalysisMode::closeEvent(QCloseEvent *e)
 {
     meas->stop();
     meter->turnOffBias();
-
+    timer->stop();
     qApp->processEvents();
+
     e->accept();
 }
 

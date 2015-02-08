@@ -49,13 +49,9 @@ private slots:
     void zoomed(QRectF value);
     void on_btnHelp_clicked();
     void on_btnPeak_clicked();
-
     void on_btnSetLimit_clicked();
-
     void on_btnSaveRes_clicked();
-
     void on_btnSettings_clicked();
-
     void testConnection();
 private:
     Plot *plot;
@@ -71,10 +67,8 @@ private:
     bool checkDog();
     clsCurveLimit curveLimit;
     void resPassFail();
-
     QString strDataFilePath;
     void init();
-
     QTimer *timer;
 protected:
     void closeEvent(QCloseEvent *e);

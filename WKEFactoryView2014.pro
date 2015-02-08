@@ -7,7 +7,6 @@
 QT       += core gui network serialport xml
 RC_FILE  =Icon.rc
 
-
  LIBS += dog_windows_3147311.lib
 #//翻译文件使用的代�?
 CODECFORTR = UTF-8
