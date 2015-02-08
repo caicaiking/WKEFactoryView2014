@@ -3,7 +3,8 @@
 StatusLabel::StatusLabel(QWidget *parent) :
     QLabel(parent)
 {
-
+    this->st=IDEL;
+    setStatus(st);
 }
 
 void StatusLabel::setStatus(Status value)
@@ -28,6 +29,7 @@ void StatusLabel::setStatus(Status value)
     default:
         break;
     }
+    this->st=value;
     qApp->processEvents();
 }
 
@@ -43,5 +45,12 @@ void StatusLabel::setStatus(bool value)
         this->setText(tr("失败"));
         this->setStyleSheet("background-color: rgb(255, 0, 0);border-radius: 6px");
     }
+
+    this->st=IDEL;
     qApp->processEvents();
+}
+
+Status StatusLabel::getStatus()
+{
+    return this->st;
 }

@@ -11,9 +11,13 @@ public:
 
     void setStatus(Status value);
     void setStatus(bool value);
+    Status getStatus();
 signals:
 
 public slots:
+
+private:
+    Status st;
 
 };
 

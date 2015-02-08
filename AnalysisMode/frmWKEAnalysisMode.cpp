@@ -60,6 +60,21 @@ void frmWKEAnalysisMode::init()
 
     btnRep->setVisible(false);
 
+    timer = new QTimer(this);
+    timer->setInterval(50000);
+
+    connect(timer,SIGNAL(timeout()),this,SLOT(testConnection()));
+    timer->start();
+
+
+}
+
+void frmWKEAnalysisMode::testConnection()
+{
+    if(statusLabel->getStatus() !=BUSY)
+    {
+       clsRS::getInst().sendCommand("*IDN?",true);
+    }
 }
 
 void frmWKEAnalysisMode::initZoomer()
