@@ -10,6 +10,7 @@
 #include "Zoomer.h"
 #include "Qwt/qwt_plot_panner.h"
 #include "clsCurveLimit.h"
+#include "clsSignalThread.h"
 class frmWKEAnalysisMode : public QMainWindow, private Ui::frmWKEAnalysisMode
 {
     Q_OBJECT
@@ -55,6 +56,7 @@ private slots:
 
     void on_btnSettings_clicked();
 
+    void captureTrig();
 private:
     Plot *plot;
     void initPlot();
@@ -72,7 +74,7 @@ private:
 
     QString strDataFilePath;
     void init();
-
+    clsSignalThread *controlBox;
 protected:
     void closeEvent(QCloseEvent *e);
 };

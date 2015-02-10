@@ -13,6 +13,10 @@ public:
     bool getInit(){return isInit;}
     QString getInput(int port);
     bool getInputSignal(int port);
+    void setPass();
+    void setFail();
+    void setBDA();
+    void resetBDA();
 signals:
 
 public slots:
@@ -26,6 +30,8 @@ private:
     bool isInit;
 
     void sleepMs(int svalue);
+    QString shortRelay(int port);
+    QString openRelay(int port);
 };
 
 #endif // CLSCONTROLBOX_H
