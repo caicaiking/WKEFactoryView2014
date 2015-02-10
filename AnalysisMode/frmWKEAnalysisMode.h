@@ -10,7 +10,11 @@
 #include "Zoomer.h"
 #include "Qwt/qwt_plot_panner.h"
 #include "clsCurveLimit.h"
+
 #include <QTimer>
+
+#include "clsSignalThread.h"
+
 class frmWKEAnalysisMode : public QMainWindow, private Ui::frmWKEAnalysisMode
 {
     Q_OBJECT
@@ -52,7 +56,12 @@ private slots:
     void on_btnSetLimit_clicked();
     void on_btnSaveRes_clicked();
     void on_btnSettings_clicked();
+
     void testConnection();
+
+
+    void captureTrig();
+
 private:
     Plot *plot;
     void initPlot();
@@ -69,7 +78,11 @@ private:
     void resPassFail();
     QString strDataFilePath;
     void init();
+
     QTimer *timer;
+
+    clsSignalThread *controlBox;
+
 protected:
     void closeEvent(QCloseEvent *e);
 };

@@ -36,8 +36,41 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
 
     init();
 
+    controlBox = new clsSignalThread(this);
+    connect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
+    controlBox->start(QThread::HighPriority);
 }
 
+//用adu200捕捉到用户的触发信号
+void frmWKEAnalysisMode::captureTrig()
+{
+
+    //qDebug()<<"Trig get!";
+    disconnect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
+    this->controlBox->getControlBox()->setBDA();
+
+    btnTrig->setChecked(true);
+    on_btnTrig_clicked();
+
+
+
+    if(this->statusLabel->text()==tr("通过"))
+    {
+        this->controlBox->getControlBox()->setPass();
+    }
+    else if(this->statusLabel->text()==tr("失败"))
+    {
+         this->controlBox->getControlBox()->setFail();
+    }
+    else
+    {
+         this->controlBox->getControlBox()->setPass();
+    }
+
+
+    this->controlBox->getControlBox()->resetBDA();
+     connect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
+}
 
 void frmWKEAnalysisMode::init()
 {
@@ -435,7 +468,11 @@ void frmWKEAnalysisMode::closeEvent(QCloseEvent *e)
 {
     meas->stop();
     meter->turnOffBias();
+
     timer->stop();
+
+    controlBox->stop();
+
     qApp->processEvents();
 
     e->accept();
@@ -488,8 +525,6 @@ void frmWKEAnalysisMode::on_btnTrig_clicked()
     meter->turnOffBias();
     gs.points = frmPointEditor::rmvPP(gs.points);
     frmTraceSetup::writeSettings(gs);
-
-
 
 }
 

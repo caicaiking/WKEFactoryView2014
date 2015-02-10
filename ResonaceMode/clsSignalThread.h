@@ -10,6 +10,8 @@ public:
     explicit clsSignalThread(QObject *parent = 0);
 ~clsSignalThread();
     void stop();
+    clsControlBox * getControlBox();
+
 signals:
     void trigCaptured();
     void initOk();
