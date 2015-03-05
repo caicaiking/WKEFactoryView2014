@@ -186,6 +186,11 @@ bool clsMeterLimit::comparaValue(double value,QString &type)
     }
 }
 
+bool clsMeterLimit::comparaValue(double value)
+{
+    return  comparaValue(value,limitType);
+}
+
 QString clsMeterLimit::showLimits(QString suffix)
 {
     QString tmp;

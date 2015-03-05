@@ -45,3 +45,8 @@ void StatusLabel::setStatus(bool value)
     }
     qApp->processEvents();
 }
+
+void StatusLabel::mouseReleaseEvent(QMouseEvent *)
+{
+    emit Clicked();
+}

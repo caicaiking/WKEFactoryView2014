@@ -12,8 +12,11 @@ public:
     void setStatus(Status value);
     void setStatus(bool value);
 signals:
-
+    void Clicked();
 public slots:
+
+protected:
+    void mouseReleaseEvent( QMouseEvent* );
 
 };
 

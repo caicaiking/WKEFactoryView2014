@@ -7,6 +7,9 @@
 #include <QDir>
 #include <Quazip/JlCompress.h>
 #include <QFileDialog>
+#include "clsChennalSelect.h"
+#include <QTime>
+#include "UserfulFunctions.h"
 clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -18,6 +21,11 @@ clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
     btnSwitchBoxTest->setEnabled(initCom);
 
     meter = new cls4300MeterMode();
+
+    chennal="1";
+
+    pannel = new clsMRBDisplayPannel(this->displayWidget);
+    pannel->setTestResult(1,tr("没有测试结果"));
 }
 
 /*!
@@ -180,12 +188,46 @@ void clsMultiChannaeBox::  on_btnOpenSettingFile_clicked()
         dir.remove(item);
     }
 
-  //  qDebug()<<fileName;
+    //  qDebug()<<fileName;
 }
 
 void clsMultiChannaeBox::on_btnSignleTest_clicked()
 {
-    meter->trig();
+    QTime tmp = QTime::currentTime();
+    QStringList listChennal = chennal.split(",");
+
+    for(int i = 0; i< listChennal.length(); i++)
+    {
+        QString cmd = listChennal.at(i);
+        int ch = cmd.toInt();
+        if(ch>=1 && ch<=CHENNAL_COUNT)
+        {
+            clsConnectSWBox::Instance()->sendCommand(listChennal.at(i).toInt()-1);
+            UserfulFunctions::sleepMs(5);
+           strResult= meter->trig();
+           pannel->setTestResult(listChennal.at(i).toInt(),strResult);
+           qDebug()<<strResult;
+        }
+    }
+
+    qDebug()<<"Time: "<< tmp.msecsTo(QTime::currentTime());
+
+
 }
 
 
+
+void clsMultiChannaeBox::on_btnSelectChennal_clicked()
+{
+    clsChennalSelect dlg(this);
+    dlg.setChennal(this->chennal);
+    if(dlg.exec())
+    {
+        this->chennal=dlg.getChennal();
+    }
+}
+
+void clsMultiChannaeBox::on_btnSelectChennal_2_clicked()
+{
+
+}

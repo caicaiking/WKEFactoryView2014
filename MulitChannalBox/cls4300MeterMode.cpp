@@ -31,9 +31,8 @@ cls4300MeterMode::cls4300MeterMode(QWidget *parent) :
     range =tr("自动");
     speed =tr("最快");
     biasSource =tr("内置");
-    biasStatus = tr("开");
-    isTest2On=true;
-
+    biasStatus = tr("关");
+    isTest2On=false;
 
     updateButtons();
 
@@ -109,8 +108,6 @@ void cls4300MeterMode::updateButtons()
     btnBiasSource->setText(biasSource);
     btnBiasStatus->setText(biasStatus);
 
-
-
 }
 
 FunctionType cls4300MeterMode::getType()
@@ -128,7 +125,7 @@ QString cls4300MeterMode::getTestItem()
 
 }
 
-void cls4300MeterMode::trig()
+QString cls4300MeterMode::trig()
 {
     QStringList test1Command = convertTest1Gpib();
     QStringList test2Command = convertTest2Gpib();
@@ -218,9 +215,16 @@ void cls4300MeterMode::trig()
         }
     }
 
-    qDebug()<< clsRS::getInst().sendCommand(":MEAS:TRIG",true);
 
+    QString strRes= clsRS::getInst().sendCommand(":MEAS:TRIG",true);
 
+    QVariantMap Test= convertToJson();
+    Test.insert("Result", strRes);
+    QJsonDocument jsonDocument = QJsonDocument::fromVariant(Test);
+    if (!jsonDocument.isNull())
+        return jsonDocument.toJson(/*QJsonDocument::Compact*/);
+    else
+        return "";
 }
 
 QStringList cls4300MeterMode::convertTest1Gpib()
@@ -303,6 +307,53 @@ QStringList cls4300MeterMode::convertTest2Gpib()
     gpibCmd.append(meter+"FREQ "+dt.formateWithUnit("",10) );   //频率
     gpibCmd.append(meter+"LEV "+QString::number(level.at(1)) ); //电平
     return gpibCmd;
+}
+
+QVariantMap cls4300MeterMode::convertToJson()
+{
+    QVariantMap test1;
+    clsMeterLimit tmp;
+    /*1*/  test1.insert("Item1",items.at(0));
+    /*2*/  test1.insert("Unit1",itemUnits.at(0));
+
+    tmp =  meterLimit.at(0);
+    /*3*/  test1.insert("Limit1",tmp.toString());
+
+    if(items.at(1).toUpper()==tr("OFF") || items.at(0).toUpper() == tr("RDC"))
+    /*4*/     test1.insert("Item2","");
+    else
+    /*4*/     test1.insert("Item2",items.at(1));
+
+    /*5*/ test1.insert("Unit2", itemUnits.at(1));
+    tmp = meterLimit.at(1);
+    /*6*/ test1.insert("Limit2",tmp.toString());
+
+    QVariantMap test2;
+
+
+    /*7*/  test2.insert("Item1",items.at(2));
+    /*8*/  test2.insert("Unit1",itemUnits.at(2));
+
+    tmp =  meterLimit.at(2);
+    /*9*/  test2.insert("Limit1",tmp.toString());
+
+    if(items.at(3).toUpper()==tr("OFF") || items.at(2).toUpper() == tr("RDC"))
+    /*10*/     test2.insert("Item2","");
+    else
+    /*10*/     test2.insert("Item2",items.at(3));
+
+    /*11*/ test2.insert("Unit2", itemUnits.at(3));
+    tmp = meterLimit.at(3);
+    /*12*/ test2.insert("Limit2",tmp.toString());
+    ///*13*/ test2.insert("IsOnTest2",this->isTest2On);
+
+    QVariantMap Test;
+
+    Test.insert("test1",test1);
+    Test.insert("test2",test2);
+    Test.insert("IsOnTest2",this->isTest2On);
+    return Test;
+
 }
 
 void cls4300MeterMode::start()
@@ -1092,5 +1143,7 @@ void cls4300MeterMode::on_groupBox_clicked()
 
 void cls4300MeterMode::on_btnOk_clicked()
 {
-
+    this->close();
 }
+
+

@@ -16,9 +16,10 @@ QString cls6440MeterMode::getTestItem()
 
 }
 
-void cls6440MeterMode::trig()
+QString cls6440MeterMode::trig()
 {
     emit testResult("L,512.03nH,PASS,C,-2.003nF,FAIL,R,1.2354mΩ,PASS,C,-2.003nF,FAIL",4);
+    return "";
 }
 
 void cls6440MeterMode::start()

@@ -6,7 +6,7 @@
 
 QT       += core gui network serialport xml
 RC_FILE  =Icon.rc
-
+#CONFIG   +=C++11
 
  LIBS += dog_windows_3147311.lib
 #//翻译文件使用的代�?
@@ -112,7 +112,9 @@ SOURCES +=\
     MeterMode/dlg4300FuctionMajor.cpp \
     MeterMode/dlg4300FunctionMinor.cpp \
     AnalysisMode/dlgLimitSetup.cpp \
-    AnalysisMode/dlgSetupOp.cpp
+    AnalysisMode/dlgSetupOp.cpp \
+    MulitChannalBox/clsChennalSelect.cpp \
+    MulitChannalBox/clsMRBDisplayPannel.cpp
 
 
 
@@ -239,7 +241,9 @@ HEADERS += \
     MeterMode/dlg4300FunctionMinor.h \
     AnalysisMode/dlgLimitSetup.h \
     AnalysisMode/clsCurveLimit.h \
-    AnalysisMode/dlgSetupOp.h
+    AnalysisMode/dlgSetupOp.h \
+    MulitChannalBox/clsChennalSelect.h \
+    MulitChannalBox/clsMRBDisplayPannel.h
 
 
 FORMS += \
@@ -287,6 +291,8 @@ FORMS += \
     MeterMode/dlg4300FuctionMajor.ui \
     MeterMode/dlg4300FunctionMinor.ui \
     AnalysisMode/dlgLimitSetup.ui \
-    AnalysisMode/dlgSetupOp.ui
+    AnalysisMode/dlgSetupOp.ui \
+    MulitChannalBox/clsChennalSelect.ui \
+    MulitChannalBox/clsMRBDisplayPannel.ui
 
 TRANSLATIONS = recFile/Translation/WKEFV.ts
