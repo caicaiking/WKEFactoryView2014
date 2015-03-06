@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>268</width>
-    <height>99</height>
+    <width>274</width>
+    <height>100</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>274</width>
+    <height>100</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>2760</width>
+    <height>100</height>
+   </size>
   </property>
   <property name="font">
    <font>
@@ -45,10 +57,10 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <property name="spacing">
-       <number>0</number>
+       <number>5</number>
       </property>
       <property name="leftMargin">
-       <number>2</number>
+       <number>5</number>
       </property>
       <property name="topMargin">
        <number>2</number>
@@ -64,7 +76,13 @@
         <property name="minimumSize">
          <size>
           <width>40</width>
-          <height>0</height>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>40</width>
+          <height>40</height>
          </size>
         </property>
         <property name="font">
@@ -87,7 +105,7 @@
       <item>
        <widget class="QStackedWidget" name="stackedWidget">
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="status">
          <layout class="QHBoxLayout" name="horizontalLayout">
@@ -154,7 +172,7 @@
 border-radius: 6px;</string>
             </property>
             <property name="text">
-             <string>没有测试结果</string>
+             <string/>
             </property>
             <property name="alignment">
              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>

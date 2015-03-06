@@ -23,21 +23,17 @@ private slots:
     void on_btnOpenSettingFile_clicked();
     void on_btnSignleTest_clicked();
     void on_btnSelectChennal_clicked();
-
-    void on_btnSelectChennal_2_clicked();
-
+    void on_btnClearAllData_clicked();
+    void on_btnShowTestStatus_toggled(bool checked);
+    void setIdeal();
 private:
     QStringList commands;
     WKEMeterMode *meter;
     QString strSaveFileName ;
-
     QString chennal;
+    QList<clsMRBDisplayPannel*>pannel;
 
-    QString strResult;
-
-    clsMRBDisplayPannel *pannel;
-
-
+    void initPannel();
 };
 
 #endif // CLSMULTICHANNAEBOX_H
