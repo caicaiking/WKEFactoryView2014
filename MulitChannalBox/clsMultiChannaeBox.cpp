@@ -205,6 +205,7 @@ void clsMultiChannaeBox::  on_btnOpenSettingFile_clicked()
 void clsMultiChannaeBox::on_btnSignleTest_clicked()
 {
     // QTime tmp = QTime::currentTime();
+    btnSignleTest->setEnabled(false);
     setIdeal();
     for(int i=0; i< pannel.length();i++)
     {
@@ -215,7 +216,7 @@ void clsMultiChannaeBox::on_btnSignleTest_clicked()
 
         //  qDebug()<<strResult;
     }
-
+    btnSignleTest->setEnabled(true);
     //qDebug()<<"Time: "<< tmp.msecsTo(QTime::currentTime());
 
 }
@@ -224,6 +225,18 @@ void clsMultiChannaeBox::setIdeal()
 {
     for(int i=0; i< pannel.length();i++)
         pannel.at(i)->clearAll();
+}
+
+void clsMultiChannaeBox::keyPressEvent(QKeyEvent *event)
+{
+    if(event->key() == Qt::Key_Enter || event->key() ==Qt::Key_Return)
+    {
+        btnSignleTest->clicked();
+    }
+    else
+    {
+        QWidget::keyPressEvent(event);
+    }
 }
 
 

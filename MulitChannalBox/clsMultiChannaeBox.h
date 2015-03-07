@@ -26,6 +26,8 @@ private slots:
     void on_btnClearAllData_clicked();
     void on_btnShowTestStatus_toggled(bool checked);
     void setIdeal();
+protected:
+    void keyPressEvent(QKeyEvent *event);
 private:
     QStringList commands;
     WKEMeterMode *meter;
