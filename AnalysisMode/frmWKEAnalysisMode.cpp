@@ -567,6 +567,8 @@ void frmWKEAnalysisMode::resPassFail()
             for(int i=0; i<traceB.length();i++)
             {
                 traceBStatus = traceBStatus && this->curveLimit.cmlTraceBLimit.comparaValue(traceB.at(i).y(),cmpString);
+                if(traceBStatus== false)
+                    break;
             }
         }
 
@@ -761,7 +763,7 @@ void frmWKEAnalysisMode::on_btnSetLimit_clicked()
     }
     else
     {
-        qDebug()<<"limit cancel";
+        //qDebug()<<"limit cancel";
     }
 }
 

@@ -27,6 +27,8 @@ private slots:
     void setTraceADownColor();
     void setTraceBUpColor();
     void setTraceBDownColor();
+    void on_btnAddLimit_clicked();
+
 private:
     clsMeterLimit traceALimit;
     clsMeterLimit traceBLimit;

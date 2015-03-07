@@ -2,6 +2,8 @@
 #include <QDebug>
 #include "UserfulFunctions.h"
 #include <QColorDialog>
+#include "clsMultiLimits.h"
+#include "clsMultiLimitSetting.h"
 dlgLimitSetup::dlgLimitSetup(WKEInstrument*value,QWidget *parent) :
     QDialog(parent)
 {
@@ -16,6 +18,29 @@ dlgLimitSetup::dlgLimitSetup(WKEInstrument*value,QWidget *parent) :
 
     grpTraceA->setTitle(tr("设定 %1 上下限").arg(meter->getItem1()));
     grpTraceB->setTitle(tr("设定 %1 上下限").arg(meter->getItem2()));
+
+    tbMultiLimit->verticalHeader()->setVisible(false);
+    tbMultiLimit->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    tbMultiLimit->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    tbMultiLimit->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+
+    QStringList header;
+    header<<tr("频率范围")<<tr(" %1 上下限").arg(meter->getItem1())<<tr(" %1 上下限").arg(meter->getItem2());
+
+
+
+    for(int x=0;x<tbMultiLimit->columnCount(); x++)
+    {
+        QTableWidgetItem * item= new QTableWidgetItem();
+
+        item->setText(header[x]);
+        item->setFont(QFont("楷体", 12/*, QFont::Bold*/));
+        item->setBackgroundColor(QColor(Qt::gray));
+        item->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+        tbMultiLimit->setHorizontalHeaderItem(x,item);
+    }
+
+
 }
 
 void dlgLimitSetup::setCurveLimit(const clsCurveLimit &curveLimit)
@@ -139,4 +164,10 @@ void dlgLimitSetup::setTraceBDownColor()
 
     clrTraceBDown->setStyleSheet(getStyleSheet(color));
     this->traceBDownColor=color;
+}
+
+void dlgLimitSetup::on_btnAddLimit_clicked()
+{
+    clsMultiLimitSetting dlg;
+    dlg.exec();
 }

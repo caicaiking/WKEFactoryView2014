@@ -111,7 +111,9 @@ SOURCES +=\
     MeterMode/dlg4300FuctionMajor.cpp \
     MeterMode/dlg4300FunctionMinor.cpp \
     AnalysisMode/dlgLimitSetup.cpp \
-    AnalysisMode/dlgSetupOp.cpp
+    AnalysisMode/dlgSetupOp.cpp \
+    AnalysisMode/clsMultiLimitSetting.cpp \
+    AnalysisMode/clsMultiLimits.cpp
 
 
 
@@ -237,7 +239,9 @@ HEADERS += \
     MeterMode/dlg4300FunctionMinor.h \
     AnalysisMode/dlgLimitSetup.h \
     AnalysisMode/clsCurveLimit.h \
-    AnalysisMode/dlgSetupOp.h
+    AnalysisMode/dlgSetupOp.h \
+    AnalysisMode/clsMultiLimitSetting.h \
+    AnalysisMode/clsMultiLimits.h
 
 
 FORMS += \
@@ -285,6 +289,7 @@ FORMS += \
     MeterMode/dlg4300FuctionMajor.ui \
     MeterMode/dlg4300FunctionMinor.ui \
     AnalysisMode/dlgLimitSetup.ui \
-    AnalysisMode/dlgSetupOp.ui
+    AnalysisMode/dlgSetupOp.ui \
+    AnalysisMode/clsMultiLimitSetting.ui
 
 TRANSLATIONS = recFile/Translation/WKEFV.ts

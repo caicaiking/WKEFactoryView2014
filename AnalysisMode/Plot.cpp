@@ -861,9 +861,6 @@ void Plot::setCurveLimit(const clsCurveLimit curveLimit1)
         traceBUpLimit->attach(this);
         traceBUpLimit->setVisible(true);
 
-
-
-
         double yRightLow;
         yRightLow=this->canvasMap(QwtPlot::yRight).transform(this->curveLimit.cmlTraceBLimit.getAbsLimitLow());
         yRightLow=this->canvasMap(QwtPlot::yLeft).invTransform(yRightLow);
@@ -885,10 +882,15 @@ void Plot::setCurveLimit(const clsCurveLimit curveLimit1)
         traceBDownLimit->setVisible(false);
     }
 
-
     this->replot();
+}
 
-
+void Plot::setCurveLimitVisuable(const bool &value)
+{
+    traceAUpLimit->setVisible(value);
+    traceADownLimit->setVisible(value);
+    traceBDownLimit->setVisible(value);
+    traceBUpLimit->setVisible(value);
 }
 
 
