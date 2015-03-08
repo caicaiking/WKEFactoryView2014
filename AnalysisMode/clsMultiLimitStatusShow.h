@@ -13,11 +13,15 @@ public:
     explicit clsMultiLimitStatusShow(QWidget *parent = 0);
     void updateTable();
 
-    void setCurveLimit(const clsCurveLimit &value);
-    void setMultiCurveLimit(const clsMultiCurveLimt &value);
+    void setCurveLimit(clsCurveLimit value);
+    void setMultiCurveLimit( clsMultiCurveLimt value);
 
-    WKEInstrument *getMeter() const;
+    void setInfo(QString value);
+
     void setMeter(WKEInstrument *value);
+
+public slots:
+    void updateStatus();
 
 private slots:
 
@@ -27,6 +31,7 @@ private:
     clsCurveLimit curveLimit;
     clsMultiCurveLimt multiCurveLimit;
     WKEInstrument *meter;
+     void setLabel(double freq, double item1, double item2, bool status);
 };
 
 #endif // CLSMULTILIMITSTATUSSHOW_H

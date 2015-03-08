@@ -118,7 +118,8 @@ SOURCES +=\
     MulitChannalBox/clsChennalSelect.cpp \
     MulitChannalBox/clsMRBDisplayPannel.cpp \
     AnalysisMode/clsMultiCurveLimt.cpp \
-    AnalysisMode/clsMultiLimitStatusShow.cpp
+    AnalysisMode/clsMultiLimitStatusShow.cpp \
+    AnalysisMode/clsCurveLimit.cpp
 
 
 
@@ -245,14 +246,14 @@ HEADERS += \
     MeterMode/dlg4300FuctionMajor.h \
     MeterMode/dlg4300FunctionMinor.h \
     AnalysisMode/dlgLimitSetup.h \
-    AnalysisMode/clsCurveLimit.h \
     AnalysisMode/dlgSetupOp.h \
     AnalysisMode/clsMultiLimitSetting.h \
     AnalysisMode/clsMultiLimits.h \
     MulitChannalBox/clsChennalSelect.h \
     MulitChannalBox/clsMRBDisplayPannel.h \
     AnalysisMode/clsMultiCurveLimt.h \
-    AnalysisMode/clsMultiLimitStatusShow.h
+    AnalysisMode/clsMultiLimitStatusShow.h \
+    AnalysisMode/clsCurveLimit.h
 
 
 

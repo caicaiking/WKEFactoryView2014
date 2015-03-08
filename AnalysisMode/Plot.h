@@ -1,20 +1,18 @@
 #ifndef PLOT_H
 #define PLOT_H
-
+#include "Globle.h"
 #include <Qwt/qwt_plot.h>
 #include <QWidget>
-#include "clsCurveLimit.h"
 #include <clsRefTraceProperty.h>
 #include <Qwt/qwt_plot_curve.h>
+#include "clsCurveLimit.h"
+
+
 class QwtPlotCurve;
 class QwtPlotMarker;
 class QwtPlotCurve;
 class QwtPlotGrid;
 
-struct PlotCurves{
-    QwtPlotCurve *cur1;
-    QwtPlotCurve *cur2;
-};
 
 class Plot: public QwtPlot
 {
@@ -82,7 +80,7 @@ public:
     double getCurrentMarkValue();
     QMap<double, double> getChoiceData(Choice x);
 
-    void setCurveLimit(const clsCurveLimit curveLimit);
+    void setCurveLimit(const clsCurveLimit &curveLimit);
     void setCurveLimitVisiable(const bool &value);
 
 public slots:

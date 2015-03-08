@@ -72,7 +72,7 @@ void dlgLimitSetup::updateTable()
     }
 
     tbMultiLimit->setRowCount(multiCurveLimit.limits.length());
-
+    multiCurveLimit.setItem(meter->getItem1(),meter->getItem2());
     for(int i=0; i< multiCurveLimit.limits.length(); i++)
     {
         int maxHeight ;
@@ -90,8 +90,8 @@ void dlgLimitSetup::updateTable()
         QLabel *lblItem2 = new QLabel();
         lblItem2->setText(tmpLimit.getLimit2Show());
         tbMultiLimit->setCellWidget(i,2,lblItem2);
-         maxHeight =(maxHeight< lblItem2->height()? lblItem2->height(): maxHeight);
-         tbMultiLimit->setRowHeight(i,maxHeight);
+        maxHeight =(maxHeight< lblItem2->height()? lblItem2->height(): maxHeight);
+        tbMultiLimit->setRowHeight(i,maxHeight);
     }
 
 
@@ -228,6 +228,7 @@ void dlgLimitSetup::on_btnAddLimit_clicked()
     if(dlg.exec())
     {
         tmpLimit = dlg.getLimts();
+        tmpLimit.setItems(meter->getItem1(),meter->getItem2());
         this->multiCurveLimit.limits.append(tmpLimit);
         updateTable();
     }
@@ -235,21 +236,21 @@ void dlgLimitSetup::on_btnAddLimit_clicked()
 
 void dlgLimitSetup::on_tbMultiLimit_doubleClicked(const QModelIndex &index)
 {
-  int row=index.row();
+    int row=index.row();
 
-  if(row>=this->multiCurveLimit.limits.length())
-      return;
+    if(row>=this->multiCurveLimit.limits.length())
+        return;
 
-  clsMultiLimitSetting dlg;
-  clsMultiLimits tmpLimit = multiCurveLimit.limits.at(row);
-  dlg.setConditon(meter->getItem1(),meter->getItem2(),tmpLimit);
-  if(dlg.exec())
-  {
-      tmpLimit = dlg.getLimts();
-      multiCurveLimit.limits.replace(row,tmpLimit);
-      updateTable();
-      this->tbMultiLimit->setCurrentCell(row,0);
-  }
+    clsMultiLimitSetting dlg;
+    clsMultiLimits tmpLimit = multiCurveLimit.limits.at(row);
+    dlg.setConditon(meter->getItem1(),meter->getItem2(),tmpLimit);
+    if(dlg.exec())
+    {
+        tmpLimit = dlg.getLimts();
+        multiCurveLimit.limits.replace(row,tmpLimit);
+        updateTable();
+        this->tbMultiLimit->setCurrentCell(row,0);
+    }
 }
 
 void dlgLimitSetup::on_btnDeletLimit_clicked()

@@ -82,6 +82,14 @@ void clsMultiCurveLimt::readSettings()
 
 }
 
+void clsMultiCurveLimt::setItem(QString item1, QString item2)
+{
+    for(int i=0;i< limits.length();i++)
+    {
+        limits[i].setItems(item1,item2);
+    }
+}
+
 void clsMultiCurveLimt::writeSettings()
 {
     clsSettings settings;

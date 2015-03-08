@@ -588,6 +588,9 @@ QString Plot::setMarker(const double &freq, const int /*intSelected*/)
     d_marker1->setVisible(true);
     d_marker1->setValue(freqValue,0.0);
 
+    QString msg= QString("%1,%2,%3").arg(QString::number(freqValue))
+            .arg(QString::number(item1)).arg(QString::number(item2));
+
     //格式化输出
     doubleType dt;
     dt.setData(freqValue,"");
@@ -656,7 +659,8 @@ QString Plot::setMarker(const double &freq, const int /*intSelected*/)
     d_marker1->setLabel(text);
     d_marker1->setTitle("1");
 
-    return info;
+   // return info;
+    return msg;
 }
 
 bool Plot::getBlLogYLeft() const
@@ -810,7 +814,7 @@ double Plot::getCurrentMarkValue()
     return tmpRet;
 }
 
-void Plot::setCurveLimit(const clsCurveLimit curveLimit1)
+void Plot::setCurveLimit(const clsCurveLimit &curveLimit1)
 {
     this->curveLimit = curveLimit1;
 

@@ -40,13 +40,13 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     connect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
     controlBox->start(QThread::HighPriority);
 
-    showLimit = new clsMultiLimitStatusShow(this);
+
     connect(this->statusLabel,SIGNAL(Clicked()),this,SLOT(showMulitLimit()));
 }
 
 void frmWKEAnalysisMode::showMulitLimit()
 {
-    showLimit->show();
+    showLimit.show();
 }
 
 //用adu200捕捉到用户的触发信号
@@ -96,9 +96,10 @@ void frmWKEAnalysisMode::init()
     else
         plot->setCurveLimitVisiable(false); //在多个限制的时候不显示限制线
 
-    showLimit->setCurveLimit(this->curveLimit);
-    showLimit->setMultiCurveLimit(this->multiCureLimit);
-    showLimit->setMeter(this->meter);
+    showLimit.setMeter(this->meter);
+    showLimit.setCurveLimit(this->curveLimit);
+    showLimit.setMultiCurveLimit(this->multiCureLimit);
+
 
     frmTraceSetup::readSettings(gs,true);
 
@@ -117,6 +118,13 @@ void frmWKEAnalysisMode::init()
     connect(timer,SIGNAL(timeout()),this,SLOT(testConnection()));
     timer->start();
 
+}
+
+void frmWKEAnalysisMode::finishTest()
+{
+    showLimit.setMeter(this->meter);
+    showLimit.setCurveLimit(this->curveLimit);
+    showLimit.setMultiCurveLimit(this->multiCureLimit);
 }
 
 void frmWKEAnalysisMode::testConnection()
@@ -343,7 +351,9 @@ void frmWKEAnalysisMode::zoomed(QRectF value)
 void frmWKEAnalysisMode::showInfo(QString text)
 {
     myStatusBar->showMessage(text);
+    showLimit.setInfo(text);
 }
+
 void frmWKEAnalysisMode::moved(const QPoint &pos)
 {
     QString info;
@@ -412,7 +422,7 @@ void frmWKEAnalysisMode::on_btnMeasSetup_clicked()
     {
         plot->clearData();
         updateButtons();
-        showLimit->setMeter(this->menuBar());
+        showLimit.setMeter(this->meter);
     }
 }
 
@@ -629,6 +639,7 @@ void frmWKEAnalysisMode::resPassFail()
         }
     }
 
+    finishTest();
 
     //保存数据到文件
     if(!strDataFilePath.isEmpty())
@@ -803,17 +814,15 @@ void frmWKEAnalysisMode::on_btnSetLimit_clicked()
         this->multiCureLimit = limit->getMultiCurveLimit();
         this->multiCureLimit.writeSettings();
 
-        showLimit->setCurveLimit(this->curveLimit);
-        showLimit->setMultiCurveLimit(this->multiCureLimit);
+        showLimit.setCurveLimit(this->curveLimit);
+        showLimit.setMultiCurveLimit(this->multiCureLimit);
 
         if(this->curveLimit.intSlect==0)
         {
-            plot->setCurveLimit(this->curveLimit);
-            //plot->setCurveLimitVisiable(true);
+            plot->setCurveLimit( this->curveLimit);
         }
         else
             plot->setCurveLimitVisiable(false);
-        //        plot
     }
     else
     {

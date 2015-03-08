@@ -73,19 +73,23 @@ private:
     clsMeas *meas;
     QwtPlotZoomer *d_zoomer;
     bool checkDog();
+
+    //用于曲线判断
     clsCurveLimit curveLimit;
     clsMultiCurveLimt multiCureLimit;
-    clsMultiLimitStatusShow *showLimit;
+
+    clsMultiLimitStatusShow showLimit;
 
     void resPassFail();
     QString strDataFilePath;
     void init();
     QTimer *timer;
     clsSignalThread *controlBox;
-
+ void finishTest();
 protected:
     void closeEvent(QCloseEvent *e);
 
+signals:
 
 };
 

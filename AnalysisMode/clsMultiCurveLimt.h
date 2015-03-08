@@ -17,7 +17,7 @@ public:
     bool getStatus();
     bool hasEnableLimits();
     void readSettings();
-
+    void setItem(QString item1, QString item2);
     void writeSettings();
 };
 
