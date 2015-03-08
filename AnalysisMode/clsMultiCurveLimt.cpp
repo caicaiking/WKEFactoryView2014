@@ -59,13 +59,13 @@ void clsMultiCurveLimt::readSettings()
     QString tmpStr;
     settings.readSetting(strNode+"Limits",tmpStr);
 
-    qDebug()<< tmpStr;
+    //qDebug()<< tmpStr;
 
     QJsonParseError error;
     QJsonDocument jsDocument = QJsonDocument::fromJson(tmpStr.toUtf8(),&error);
     if(error.error == QJsonParseError::NoError)
     {
-        qDebug()<< jsDocument.isArray();
+        //qDebug()<< jsDocument.isArray();
         if(jsDocument.isArray())
         {
             QVariantList result = jsDocument.toVariant().toList();
@@ -106,7 +106,7 @@ void clsMultiCurveLimt::writeSettings()
     if(!jsDocument.isNull())
     {
         QString tmpJson = jsDocument.toJson(/*QJsonDocument::Compact*/);
-        qDebug()<< tmpJson;
+       // qDebug()<< tmpJson;
         settings.writeSetting(strNode+"Limits",tmpJson);
     }
 }
