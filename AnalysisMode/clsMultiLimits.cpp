@@ -100,17 +100,17 @@ void clsMultiLimits::resetStatus()
 
 void clsMultiLimits::compareValue( double &freq, double item1, double item2)
 {
-    if(!this->freq.comparaValue(freq,this->freq.getLimitType()))
+    if(!this->freq.comparaValue(freq))
         return;
 
     bool blItem1=true;
     bool blItem2=true;
 
     if(this->blLimit1)
-        blItem1= limit1.comparaValue(item1,limit1.getLimitType());
+        blItem1= limit1.comparaValue(item1);
 
     if(this->blLimit2)
-        blItem2 = limit2.comparaValue(item2,limit2.getLimitType());
+        blItem2 = limit2.comparaValue(item2);
 
     status = status && blItem1 && blItem2;
 

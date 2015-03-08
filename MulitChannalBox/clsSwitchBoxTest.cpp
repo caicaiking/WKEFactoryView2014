@@ -20,7 +20,7 @@ void clsSwitchBoxTest::on_btnLoop_clicked()
     while(btnLoop->isChecked())
     {
         qApp->processEvents();
-        clsConnectSWBox::Instance()->sendCommand(commands.at(i));
+        clsConnectSWBox::Instance()->sendCommand(i);
         i=i+1;
         i=i%20;
 
@@ -37,7 +37,7 @@ void clsSwitchBoxTest::on_txtChannel_valueChanged(int arg1)
 {
     btnLoop->setChecked(false);
     qApp->processEvents();
-    clsConnectSWBox::Instance()->sendCommand(commands.at(arg1-1));
+    clsConnectSWBox::Instance()->sendCommand(arg1-1);
 }
 
 /*!

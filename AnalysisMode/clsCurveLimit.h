@@ -3,7 +3,7 @@
 #include <QColor>
 #include "clsMeterLimit.h"
 #include "clsSettings.h"
-
+#include "UserfulFunctions.h"
 class clsCurveLimit{
 public:
 
@@ -17,6 +17,42 @@ public:
         blTraceBLimit=false;
         blPassSound=true;
         blFailSound=true;
+    }
+
+    bool status;
+    void resetStatus()
+    {
+        status =true;
+    }
+
+    bool hasEnableLimit()
+    {
+        return blTraceALimit || blTraceBLimit;
+    }
+
+    QString getLimit1Show()
+    {
+        if(blTraceALimit)
+            return cmlTraceALimit.showLimits();
+        else
+            return QObject::tr("没有设定");
+    }
+
+    QString getLimit2Show()
+    {
+        if(blTraceBLimit)
+            return cmlTraceBLimit.showLimits();
+        else
+            return QObject::tr("没有设定");
+
+    }
+
+    void compareValue(const double item1,const double item2)
+    {
+        if(blTraceALimit)
+            status= status && cmlTraceALimit.comparaValue(item1);
+        if(blTraceBLimit)
+            status = status && cmlTraceBLimit.comparaValue(item2);
     }
 
     void readSettings()
@@ -33,7 +69,7 @@ public:
 
         settings.readSetting(strNode+"passSound",this->blPassSound);
         settings.readSetting(strNode+"failBSound",this->blFailSound);
-
+        settings.readSetting(strNode+"intSelect",this->intSlect);
         QString tmp;
         settings.readSetting(strNode+"TraceALimit",tmp);
         if(!tmp.isEmpty())
@@ -61,12 +97,15 @@ public:
         settings.writeSetting(strNode+"failBSound",this->blFailSound);
         settings.writeSetting(strNode+"TraceALimit",cmlTraceALimit.toString());
         settings.writeSetting(strNode+"TraceBLimit",cmlTraceBLimit.toString());
+        settings.writeSetting(strNode+"intSelect",this->intSlect);
     }
 
+    QString item1,item2;
 
     bool blTraceALimit,blTraceBLimit,blPassSound,blFailSound;
     QColor traceAUp, traceBUp, traceADown,traceBDown;
     clsMeterLimit cmlTraceALimit,cmlTraceBLimit;
+    int intSlect; //用于标识是否为多限制模式
 
 };
 

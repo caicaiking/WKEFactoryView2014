@@ -12,7 +12,7 @@ public:
     explicit cls6440MeterMode(QWidget *parent = 0);
     void setCondition(const QString &value);
     QString getTestItem();
-    void trig();
+    QString trig();
     void start();
     QString getTestCondition();
     QString getBrief();

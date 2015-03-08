@@ -7,6 +7,7 @@
 QT       += core gui network serialport xml
 RC_FILE  =Icon.rc
 
+
  LIBS += dog_windows_3147311.lib
 #//翻译文件使用的代�?
 CODECFORTR = UTF-8
@@ -113,7 +114,13 @@ SOURCES +=\
     AnalysisMode/dlgLimitSetup.cpp \
     AnalysisMode/dlgSetupOp.cpp \
     AnalysisMode/clsMultiLimitSetting.cpp \
-    AnalysisMode/clsMultiLimits.cpp
+    AnalysisMode/clsMultiLimits.cpp \
+    MulitChannalBox/clsChennalSelect.cpp \
+    MulitChannalBox/clsMRBDisplayPannel.cpp \
+    AnalysisMode/clsMultiCurveLimt.cpp \
+    AnalysisMode/clsMultiLimitStatusShow.cpp
+
+
 
 
 
@@ -241,7 +248,12 @@ HEADERS += \
     AnalysisMode/clsCurveLimit.h \
     AnalysisMode/dlgSetupOp.h \
     AnalysisMode/clsMultiLimitSetting.h \
-    AnalysisMode/clsMultiLimits.h
+    AnalysisMode/clsMultiLimits.h \
+    MulitChannalBox/clsChennalSelect.h \
+    MulitChannalBox/clsMRBDisplayPannel.h \
+    AnalysisMode/clsMultiCurveLimt.h \
+    AnalysisMode/clsMultiLimitStatusShow.h
+
 
 
 FORMS += \
@@ -290,6 +302,10 @@ FORMS += \
     MeterMode/dlg4300FunctionMinor.ui \
     AnalysisMode/dlgLimitSetup.ui \
     AnalysisMode/dlgSetupOp.ui \
-    AnalysisMode/clsMultiLimitSetting.ui
+    AnalysisMode/clsMultiLimitSetting.ui \
+    MulitChannalBox/clsChennalSelect.ui \
+    MulitChannalBox/clsMRBDisplayPannel.ui \
+    AnalysisMode/clsMultiLimitStatusShow.ui
+
 
 TRANSLATIONS = recFile/Translation/WKEFV.ts

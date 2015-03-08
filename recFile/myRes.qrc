@@ -53,5 +53,8 @@
         <file>Icons/info.png</file>
         <file>Icons/HILowLimit.png</file>
         <file>Icons/sound.png</file>
+        <file>Icons/chennal.png</file>
+        <file>Icons/Result.png</file>
+        <file>Icons/data2.png</file>
     </qresource>
 </RCC>

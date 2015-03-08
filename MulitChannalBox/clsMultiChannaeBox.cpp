@@ -7,10 +7,14 @@
 #include <QDir>
 #include <Quazip/JlCompress.h>
 #include <QFileDialog>
+#include "clsChennalSelect.h"
+#include <QTime>
+#include "UserfulFunctions.h"
 clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
     QMainWindow(parent)
 {
     setupUi(this);
+
     commands=initCommand();
 
     bool initCom= clsConnectSWBox::Instance()->initSerialPort();
@@ -18,6 +22,21 @@ clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
     btnSwitchBoxTest->setEnabled(initCom);
 
     meter = new cls4300MeterMode();
+
+    chennal="1";
+    tableWidget->setColumnCount(4);
+    int i= CHENNAL_COUNT / 4;
+    if(i*4<CHENNAL_COUNT)
+        i++;
+    tableWidget->setRowCount(i);
+    tableWidget->horizontalHeader()->setAutoScroll(true);
+    tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+
+
+    initPannel();
+    this->showMaximized();
 }
 
 /*!
@@ -180,12 +199,115 @@ void clsMultiChannaeBox::  on_btnOpenSettingFile_clicked()
         dir.remove(item);
     }
 
-  //  qDebug()<<fileName;
+    //  qDebug()<<fileName;
 }
 
 void clsMultiChannaeBox::on_btnSignleTest_clicked()
 {
-    meter->trig();
+    // QTime tmp = QTime::currentTime();
+    btnSignleTest->setEnabled(false);
+    setIdeal();
+    for(int i=0; i< pannel.length();i++)
+    {
+        clsConnectSWBox::Instance()->sendCommand(pannel.at(i)->number()-1);
+        UserfulFunctions::sleepMs(5);
+        QString strResult= meter->trig();
+        pannel.at(i)->setTestResult(strResult);
+
+        //  qDebug()<<strResult;
+    }
+    btnSignleTest->setEnabled(true);
+    //qDebug()<<"Time: "<< tmp.msecsTo(QTime::currentTime());
+
+}
+
+void clsMultiChannaeBox::setIdeal()
+{
+    for(int i=0; i< pannel.length();i++)
+        pannel.at(i)->clearAll();
+}
+
+void clsMultiChannaeBox::keyPressEvent(QKeyEvent *event)
+{
+    if(event->key() == Qt::Key_Enter || event->key() ==Qt::Key_Return)
+    {
+        btnSignleTest->clicked();
+    }
+    else
+    {
+        QWidget::keyPressEvent(event);
+    }
 }
 
 
+void clsMultiChannaeBox::on_btnSelectChennal_clicked()
+{
+    clsChennalSelect dlg(this);
+    dlg.setChennal(this->chennal);
+    if(dlg.exec())
+    {
+        this->chennal=dlg.getChennal();
+        initPannel();
+    }
+}
+
+
+
+
+void clsMultiChannaeBox::on_btnClearAllData_clicked()
+{
+    for(int i=0; i< pannel.length();i++)
+        pannel.at(i)->clearAll();
+}
+
+void clsMultiChannaeBox::initPannel()
+{
+    int m=0, n=0;
+    for(int i=0;i< pannel.length();i++)
+    {
+        m=i%4;
+        n=i/4;
+
+        tableWidget->removeCellWidget(n,m);
+    }
+
+    pannel.clear();
+
+    foreach (QString tmp, chennal.split(",")) {
+        bool ok;
+        int value = tmp.toInt(&ok);
+
+        if(ok)
+        {
+            clsMRBDisplayPannel * tmpWiget = new clsMRBDisplayPannel();
+            tmpWiget->setNumber(value);
+            pannel.append(tmpWiget);
+        }
+
+    }
+    m=0;n=0;
+    for(int i=0; i< pannel.length(); i++)
+    {
+        m=i%4;
+        n=i/4;
+        tableWidget->setCellWidget(n,m,pannel.at(i));
+        tableWidget->setRowHeight(n,pannel.at(i)->height());
+    }
+    btnShowTestStatus->toggled(false);
+}
+
+void clsMultiChannaeBox::on_btnShowTestStatus_toggled(bool checked)
+{
+    if(checked)
+    {
+        btnShowTestStatus->setText(tr("显示\n数据"));
+        for(int i=0; i< pannel.length();i++)
+            pannel.at(i)->setResType(0);
+    }
+    else
+    {
+        btnShowTestStatus->setText(tr("显示\n状态"));
+        for(int i=0; i< pannel.length();i++)
+            pannel.at(i)->setResType(1);
+    }
+}

@@ -5,6 +5,7 @@
 #include <QWidget>
 #include "clsCurveLimit.h"
 #include <clsRefTraceProperty.h>
+#include <Qwt/qwt_plot_curve.h>
 class QwtPlotCurve;
 class QwtPlotMarker;
 class QwtPlotCurve;
@@ -82,7 +83,7 @@ public:
     QMap<double, double> getChoiceData(Choice x);
 
     void setCurveLimit(const clsCurveLimit curveLimit);
-    void setCurveLimitVisuable(const bool &value);
+    void setCurveLimitVisiable(const bool &value);
 
 public slots:
     QString setMarker(const double& freq, const int intSelected=0);

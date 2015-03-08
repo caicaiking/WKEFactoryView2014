@@ -39,6 +39,14 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     controlBox = new clsSignalThread(this);
     connect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
     controlBox->start(QThread::HighPriority);
+
+    showLimit = new clsMultiLimitStatusShow(this);
+    connect(this->statusLabel,SIGNAL(Clicked()),this,SLOT(showMulitLimit()));
+}
+
+void frmWKEAnalysisMode::showMulitLimit()
+{
+    showLimit->show();
 }
 
 //用adu200捕捉到用户的触发信号
@@ -60,16 +68,16 @@ void frmWKEAnalysisMode::captureTrig()
     }
     else if(this->statusLabel->text()==tr("失败"))
     {
-         this->controlBox->getControlBox()->setFail();
+        this->controlBox->getControlBox()->setFail();
     }
     else
     {
-         this->controlBox->getControlBox()->setPass();
+        this->controlBox->getControlBox()->setPass();
     }
 
 
     this->controlBox->getControlBox()->resetBDA();
-     connect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
+    connect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
 }
 
 void frmWKEAnalysisMode::init()
@@ -81,7 +89,17 @@ void frmWKEAnalysisMode::init()
     connectSignals();
     meter->updateInstrument();
     this->curveLimit.readSettings();
-    plot->setCurveLimit(this->curveLimit);
+    this->multiCureLimit.readSettings();
+
+    if(this->curveLimit.intSlect==0)
+        plot->setCurveLimit(this->curveLimit);
+    else
+        plot->setCurveLimitVisiable(false); //在多个限制的时候不显示限制线
+
+    showLimit->setCurveLimit(this->curveLimit);
+    showLimit->setMultiCurveLimit(this->multiCureLimit);
+    showLimit->setMeter(this->meter);
+
     frmTraceSetup::readSettings(gs,true);
 
     meas = MeasFactory::getMeas(gs.sweepType);
@@ -394,7 +412,7 @@ void frmWKEAnalysisMode::on_btnMeasSetup_clicked()
     {
         plot->clearData();
         updateButtons();
-
+        showLimit->setMeter(this->menuBar());
     }
 }
 
@@ -531,8 +549,7 @@ void frmWKEAnalysisMode::on_btnTrig_clicked()
 //
 void frmWKEAnalysisMode::resPassFail()
 {
-    bool traceAStatus =true;
-    bool traceBStatus = true;
+    bool status =true;
 
     QList<PlotCurves> curves= plot->getCurves();
     if(curves.length()<=0)
@@ -542,52 +559,76 @@ void frmWKEAnalysisMode::resPassFail()
     QList<QPointF> traceA=  UserfulFunctions::getPlotCurveData(curves.at(0).cur1);
     QList<QPointF> traceB=  UserfulFunctions::getPlotCurveData(curves.at(0).cur2);
 
-
-    if(this->curveLimit.blTraceALimit == false && this->curveLimit.blTraceBLimit==false)
+    if(curveLimit.intSlect==0)
     {
-        statusLabel->setStatus(IDEL);
-
-    }
-    else
-    {
-
-        QString cmpString;
-        if(this->curveLimit.blTraceALimit)
+        if((!curveLimit.hasEnableLimit()))
         {
-            for(int i=0; i< traceA.length();i++)
-            {
-                traceAStatus = traceAStatus && this->curveLimit.cmlTraceALimit.comparaValue(traceA.at(i).y(),cmpString);
-                if(traceAStatus==false)
-                    break;
-            }
-        }
-
-        if(this->curveLimit.blTraceBLimit)
-        {
-            for(int i=0; i<traceB.length();i++)
-            {
-                traceBStatus = traceBStatus && this->curveLimit.cmlTraceBLimit.comparaValue(traceB.at(i).y(),cmpString);
-                if(traceBStatus== false)
-                    break;
-            }
-        }
-
-        if(traceAStatus && traceBStatus)
-        {
-            statusLabel->setStatus(PASS);
-            if(curveLimit.blPassSound)
-                Beep(2900,800);
+            statusLabel->setStatus(IDEL);
         }
         else
         {
-            statusLabel->setStatus(FAIL);
-            if(curveLimit.blFailSound)
+
+            curveLimit.resetStatus();
+            for(int i=0; i< traceA.length();i++)
             {
-                Beep(3900,400);
-                Beep(3900,400);
+                curveLimit.compareValue(traceA.at(i).y(),traceB.at(i).y());
+                if(curveLimit.status== false)
+                    break;
+            }
+
+
+            if(curveLimit.status)
+            {
+                statusLabel->setStatus(PASS);
+                if(curveLimit.blPassSound)
+                    Beep(2900,800);
+            }
+            else
+            {
+                statusLabel->setStatus(FAIL);
+                if(curveLimit.blFailSound)
+                {
+                    Beep(3900,400);
+                    Beep(3900,400);
+                }
             }
         }
     }
+    else
+    {
+        if((!multiCureLimit.hasEnableLimits()))
+        {
+            statusLabel->setStatus(IDEL);
+        }
+        else
+        {
+            multiCureLimit.resetStatus();
+
+            for(int i=0; i< traceA.length();i++)
+            {
+                multiCureLimit.compareValue(traceA.at(i).x(),traceA.at(i).y(),traceB.at(i).y());
+            }
+
+            status = status && multiCureLimit.getStatus();
+
+            if(status)
+            {
+                statusLabel->setStatus(PASS);
+                if(curveLimit.blPassSound)
+                    Beep(2900,800);
+            }
+            else
+            {
+                statusLabel->setStatus(FAIL);
+                if(curveLimit.blFailSound)
+                {
+                    Beep(3900,400);
+                    Beep(3900,400);
+                }
+            }
+        }
+    }
+
 
     //保存数据到文件
     if(!strDataFilePath.isEmpty())
@@ -601,7 +642,7 @@ void frmWKEAnalysisMode::resPassFail()
         QTextStream out(&file);
         out.setCodec("GBK");
 
-        QString strStatus =(traceAStatus && traceBStatus ?"通过":"失败");
+        QString strStatus =(status ?"通过":"失败");
 
         QString strDate = tr("日期:,%1,时间:,%2,状态:,%3")
                 .arg(QDate::currentDate().toString("yyyy-MM-dd"))
@@ -754,11 +795,24 @@ void frmWKEAnalysisMode::on_btnSetLimit_clicked()
 {
     dlgLimitSetup *limit=new dlgLimitSetup(this->meter,this);
     limit->setCurveLimit(this->curveLimit);
+    limit->setMultiCurveLimit(this->multiCureLimit);
     if(limit->exec())
     {
         this->curveLimit = limit->getCurveLimit();
         this->curveLimit.writeSettings();
-        plot->setCurveLimit(this->curveLimit);
+        this->multiCureLimit = limit->getMultiCurveLimit();
+        this->multiCureLimit.writeSettings();
+
+        showLimit->setCurveLimit(this->curveLimit);
+        showLimit->setMultiCurveLimit(this->multiCureLimit);
+
+        if(this->curveLimit.intSlect==0)
+        {
+            plot->setCurveLimit(this->curveLimit);
+            //plot->setCurveLimitVisiable(true);
+        }
+        else
+            plot->setCurveLimitVisiable(false);
         //        plot
     }
     else

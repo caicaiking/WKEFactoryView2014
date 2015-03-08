@@ -17,7 +17,14 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>设置一个限定</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog
+{
+	
+	background-color: rgb(148, 148, 248);
+}</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1,1,1,1">
    <property name="spacing">
@@ -37,6 +44,12 @@
    </property>
    <item>
     <widget class="QGroupBox" name="groupBox">
+     <property name="font">
+      <font>
+       <family>楷体</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
      <property name="title">
       <string>频率范围：</string>
      </property>
@@ -64,6 +77,12 @@
           <height>50</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="frameShape">
          <enum>QFrame::Panel</enum>
         </property>
@@ -74,7 +93,7 @@
          <string>---------</string>
         </property>
         <property name="alignment">
-         <set>Qt::AlignCenter</set>
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -83,6 +102,12 @@
    </item>
    <item>
     <widget class="QGroupBox" name="grpTraceA">
+     <property name="font">
+      <font>
+       <family>楷体</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
      <property name="title">
       <string>第一参数上下限：</string>
      </property>
@@ -113,6 +138,12 @@
           <height>50</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="frameShape">
          <enum>QFrame::Panel</enum>
         </property>
@@ -123,7 +154,7 @@
          <string>---------</string>
         </property>
         <property name="alignment">
-         <set>Qt::AlignCenter</set>
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -132,6 +163,12 @@
    </item>
    <item>
     <widget class="QGroupBox" name="grpTraceB">
+     <property name="font">
+      <font>
+       <family>楷体</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
      <property name="title">
       <string>第二参数上下限：</string>
      </property>
@@ -162,6 +199,12 @@
           <height>50</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
         <property name="frameShape">
          <enum>QFrame::Panel</enum>
         </property>
@@ -172,7 +215,7 @@
          <string>---------</string>
         </property>
         <property name="alignment">
-         <set>Qt::AlignCenter</set>
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
         </property>
        </widget>
       </item>
@@ -186,6 +229,12 @@
      </property>
      <item>
       <spacer name="horizontalSpacer">
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
@@ -205,6 +254,12 @@
          <height>30</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string>取消</string>
        </property>
@@ -217,6 +272,12 @@
          <width>0</width>
          <height>30</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
        </property>
        <property name="text">
         <string>确定</string>

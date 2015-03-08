@@ -10,11 +10,11 @@
 #include "Zoomer.h"
 #include "Qwt/qwt_plot_panner.h"
 #include "clsCurveLimit.h"
-
+#include "clsMultiCurveLimt.h"
 #include <QTimer>
 
 #include "clsSignalThread.h"
-
+#include "clsMultiLimitStatusShow.h"
 class frmWKEAnalysisMode : public QMainWindow, private Ui::frmWKEAnalysisMode
 {
     Q_OBJECT
@@ -58,9 +58,8 @@ private slots:
     void on_btnSettings_clicked();
 
     void testConnection();
-
-
     void captureTrig();
+    void showMulitLimit();
 
 private:
     Plot *plot;
@@ -75,16 +74,19 @@ private:
     QwtPlotZoomer *d_zoomer;
     bool checkDog();
     clsCurveLimit curveLimit;
+    clsMultiCurveLimt multiCureLimit;
+    clsMultiLimitStatusShow *showLimit;
+
     void resPassFail();
     QString strDataFilePath;
     void init();
-
     QTimer *timer;
-
     clsSignalThread *controlBox;
 
 protected:
     void closeEvent(QCloseEvent *e);
+
+
 };
 
 #endif // FRMWKEANALYSISMODE_H

@@ -7,6 +7,7 @@
 #include "NumberInput.h"
 #include <QXmlStreamReader>
 #include <QXmlStreamWriter>
+#include <QJsonDocument>
 
 class cls4300MeterMode : public WKEMeterMode, private Ui::cls4300MeterMode
 {
@@ -17,7 +18,7 @@ public:
     FunctionType getType();
     void setCondition(const QString &fileName);
     QString getTestItem();
-    void trig();
+    QString trig();
     void start();
     QString getTestCondition();
     QString getBrief();
@@ -57,6 +58,8 @@ private slots:
 
     void on_btnOk_clicked();
 
+
+
 private:
     QList<clsMeterLimit> meterLimit;
 
@@ -76,6 +79,8 @@ private:
 
     QStringList convertTest1Gpib();
     QStringList convertTest2Gpib();
+
+    QVariantMap convertToJson();
 };
 
 #endif // CLS4300METERMODE_H

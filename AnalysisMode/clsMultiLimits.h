@@ -39,6 +39,13 @@ public:
     bool getBlLimit1() const;
     void setBlLimit1(bool value);
 
+    bool getStatus(){return this->status;}
+
+    bool hasEnaleLimit()
+    {
+        return blLimit1 || blLimit2;
+    }
+
 private:
     bool status;
     bool blLimit1;

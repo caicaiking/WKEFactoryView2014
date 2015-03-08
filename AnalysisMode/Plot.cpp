@@ -885,7 +885,7 @@ void Plot::setCurveLimit(const clsCurveLimit curveLimit1)
     this->replot();
 }
 
-void Plot::setCurveLimitVisuable(const bool &value)
+void Plot::setCurveLimitVisiable(const bool &value)
 {
     traceAUpLimit->setVisible(value);
     traceADownLimit->setVisible(value);

@@ -6,6 +6,7 @@
 #include "clsConnectSWBox.h"
 #include <QDebug>
 #include "WKEMeterMode.h"
+#include "clsMRBDisplayPannel.h"
 class clsMultiChannaeBox : public QMainWindow, private Ui::clsMultiChannaeBox
 {
     Q_OBJECT
@@ -20,19 +21,21 @@ private slots:
     void on_btnMeter_clicked();
     void on_btnSave_clicked();
     void on_btnOpenSettingFile_clicked();
-
     void on_btnSignleTest_clicked();
-
+    void on_btnSelectChennal_clicked();
+    void on_btnClearAllData_clicked();
+    void on_btnShowTestStatus_toggled(bool checked);
+    void setIdeal();
+protected:
+    void keyPressEvent(QKeyEvent *event);
 private:
     QStringList commands;
-
     WKEMeterMode *meter;
-
-
     QString strSaveFileName ;
+    QString chennal;
+    QList<clsMRBDisplayPannel*>pannel;
 
-
-
+    void initPannel();
 };
 
 #endif // CLSMULTICHANNAEBOX_H

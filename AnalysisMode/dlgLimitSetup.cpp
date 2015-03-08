@@ -18,33 +18,14 @@ dlgLimitSetup::dlgLimitSetup(WKEInstrument*value,QWidget *parent) :
 
     grpTraceA->setTitle(tr("设定 %1 上下限").arg(meter->getItem1()));
     grpTraceB->setTitle(tr("设定 %1 上下限").arg(meter->getItem2()));
-
-    tbMultiLimit->verticalHeader()->setVisible(false);
-    tbMultiLimit->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    tbMultiLimit->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    tbMultiLimit->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
-
-    QStringList header;
-    header<<tr("频率范围")<<tr(" %1 上下限").arg(meter->getItem1())<<tr(" %1 上下限").arg(meter->getItem2());
-
-
-
-    for(int x=0;x<tbMultiLimit->columnCount(); x++)
-    {
-        QTableWidgetItem * item= new QTableWidgetItem();
-
-        item->setText(header[x]);
-        item->setFont(QFont("楷体", 12/*, QFont::Bold*/));
-        item->setBackgroundColor(QColor(Qt::gray));
-        item->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
-        tbMultiLimit->setHorizontalHeaderItem(x,item);
-    }
+    updateTable();
 
 
 }
 
 void dlgLimitSetup::setCurveLimit(const clsCurveLimit &curveLimit)
 {
+
     grpTraceA->setChecked(curveLimit.blTraceALimit);
     grpTraceB->setChecked(curveLimit.blTraceBLimit);
     chkPassSound->setChecked(curveLimit.blPassSound);
@@ -58,11 +39,72 @@ void dlgLimitSetup::setCurveLimit(const clsCurveLimit &curveLimit)
     traceALimit = curveLimit.cmlTraceALimit;
     traceBLimit = curveLimit.cmlTraceBLimit;
 
+    int select = curveLimit.intSlect;
+    if(select< tabWidget->count())
+        tabWidget->setCurrentIndex(select);
+
     updateButtons();
+}
+
+
+
+void dlgLimitSetup::updateTable()
+{
+
+    tbMultiLimit->clear();
+    tbMultiLimit->verticalHeader()->setVisible(false);
+    tbMultiLimit->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    tbMultiLimit->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    tbMultiLimit->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
+
+    QStringList header;
+    header<<tr("频率范围")<<tr(" %1 上下限").arg(meter->getItem1())<<tr(" %1 上下限").arg(meter->getItem2());
+
+    for(int x=0;x<tbMultiLimit->columnCount(); x++)
+    {
+        QTableWidgetItem * item= new QTableWidgetItem();
+
+        item->setText(header[x]);
+        item->setFont(QFont("楷体", 12/*, QFont::Bold*/));
+        item->setBackgroundColor(QColor(Qt::gray));
+        item->setTextAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+        tbMultiLimit->setHorizontalHeaderItem(x,item);
+    }
+
+    tbMultiLimit->setRowCount(multiCurveLimit.limits.length());
+
+    for(int i=0; i< multiCurveLimit.limits.length(); i++)
+    {
+        int maxHeight ;
+        QLabel *lblFreq = new QLabel();
+        clsMultiLimits tmpLimit =multiCurveLimit.limits.at(i);
+        lblFreq->setText(tmpLimit.getFreqRange());
+        tbMultiLimit->setCellWidget(i,0,lblFreq);
+        maxHeight = lblFreq->height();
+
+        QLabel *lblItem1 = new QLabel();
+        lblItem1->setText(tmpLimit.getLimit1Show());
+        tbMultiLimit->setCellWidget(i,1,lblItem1);
+        maxHeight =(maxHeight< lblItem1->height()? lblItem1->height(): maxHeight);
+
+        QLabel *lblItem2 = new QLabel();
+        lblItem2->setText(tmpLimit.getLimit2Show());
+        tbMultiLimit->setCellWidget(i,2,lblItem2);
+         maxHeight =(maxHeight< lblItem2->height()? lblItem2->height(): maxHeight);
+         tbMultiLimit->setRowHeight(i,maxHeight);
+    }
+
+
+
+
+
 }
 
 void dlgLimitSetup::updateButtons()
 {
+    grpTraceA->setTitle(tr("设定 %1 上下限").arg(meter->getItem1()));
+    grpTraceB->setTitle(tr("设定 %1 上下限").arg(meter->getItem2()));
+
     btnTraceALimit->setText(traceALimit.showLimits(UserfulFunctions::getSuffix(meter->getItem1())));
     btnTraceBLimit->setText(traceBLimit.showLimits(UserfulFunctions::getSuffix(meter->getItem2())));
 
@@ -88,6 +130,8 @@ clsCurveLimit dlgLimitSetup::getCurveLimit()
     tmp.traceBDown = traceBDownColor;
     tmp.blPassSound = chkPassSound->isChecked();
     tmp.blFailSound = chkFailSound->isChecked();
+
+    tmp.intSlect = tabWidget->currentIndex();
 
     return tmp;
 }
@@ -133,6 +177,16 @@ QString dlgLimitSetup::getStyleSheet(const QColor & color)
             .arg(color.toRgb().red()).arg(color.toRgb().green())
             .arg(color.toRgb().blue());
 }
+clsMultiCurveLimt dlgLimitSetup::getMultiCurveLimit() const
+{
+    return multiCurveLimit;
+}
+
+void dlgLimitSetup::setMultiCurveLimit(const clsMultiCurveLimt &value)
+{
+    multiCurveLimit = value;
+    updateTable();
+}
 
 void dlgLimitSetup::setTraceAUpColor()
 {
@@ -169,5 +223,48 @@ void dlgLimitSetup::setTraceBDownColor()
 void dlgLimitSetup::on_btnAddLimit_clicked()
 {
     clsMultiLimitSetting dlg;
-    dlg.exec();
+    clsMultiLimits tmpLimit;
+    dlg.setConditon(meter->getItem1(),meter->getItem2(),tmpLimit);
+    if(dlg.exec())
+    {
+        tmpLimit = dlg.getLimts();
+        this->multiCurveLimit.limits.append(tmpLimit);
+        updateTable();
+    }
+}
+
+void dlgLimitSetup::on_tbMultiLimit_doubleClicked(const QModelIndex &index)
+{
+  int row=index.row();
+
+  if(row>=this->multiCurveLimit.limits.length())
+      return;
+
+  clsMultiLimitSetting dlg;
+  clsMultiLimits tmpLimit = multiCurveLimit.limits.at(row);
+  dlg.setConditon(meter->getItem1(),meter->getItem2(),tmpLimit);
+  if(dlg.exec())
+  {
+      tmpLimit = dlg.getLimts();
+      multiCurveLimit.limits.replace(row,tmpLimit);
+      updateTable();
+      this->tbMultiLimit->setCurrentCell(row,0);
+  }
+}
+
+void dlgLimitSetup::on_btnDeletLimit_clicked()
+{
+    int row = this->tbMultiLimit->currentRow();
+
+    if(row >= multiCurveLimit.limits.length())
+        return;
+    multiCurveLimit.limits.removeAt(row);
+
+    updateTable();
+}
+
+void dlgLimitSetup::on_btnClearAllLimit_clicked()
+{
+    multiCurveLimit.limits.clear();
+    updateTable();
 }

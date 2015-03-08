@@ -102,7 +102,7 @@ QString UserfulFunctions::getSuffix(const QString &value)
     if(value.toUpper()=="LEVELV")
         return "V";
 
-    return "";
+    return value;
 }
 
 QString UserfulFunctions::getName(const QString &value)
@@ -172,9 +172,64 @@ QList<double> UserfulFunctions::resultPro(const QString &resultString)
 
 }
 
+QString UserfulFunctions::getSweepTypeName(SweepType t)
+{
+    switch (t) {
+    case Time:
+        return QObject::tr("时间");
+        break;
+    case Frequency:
+        return QObject::tr("频率");
+        break;
+    case BiasV:
+        return QObject::tr("偏置电压");
+        break;
+    case BiasA:
+        return QObject::tr("偏置电流");
+        break;
+    case levelV:
+        return QObject::tr("电压信号");
+        break;
+    case levelA:
+        return QObject::tr("电流信号");
+        break;
+    default:
+        break;
+    }
+    return "";
+}
+
+QString UserfulFunctions::getSweepTypeUnit(SweepType t)
+{
+    switch (t) {
+    case Time:
+        return "s";
+        break;
+    case Frequency:
+        return "Hz";
+        break;
+    case BiasV:
+        return "V";
+        break;
+    case BiasA:
+        return "A";
+        break;
+    case levelV:
+        return "V";
+        break;
+    case levelA:
+        return "A";
+        break;
+    default:
+        break;
+    }
+
+    return "";
+}
+
 //将选点的曲线转换成一组像这样的形式（10.0K,<100Ohm,90Deg>）.
 QMap <double, QPointF> UserfulFunctions::getPlotCurveData(const QList<PlotCurves> &curves,
-                                                      int intSelect)
+                                                          int intSelect)
 {
 
     QMap <double, QPointF> data;
@@ -186,7 +241,7 @@ QMap <double, QPointF> UserfulFunctions::getPlotCurveData(const QList<PlotCurves
     }
 
 
-   // qDebug()<< curves.at(intSelect).cur1->dataSize();
+    // qDebug()<< curves.at(intSelect).cur1->dataSize();
     data.clear();
 
 
