@@ -102,7 +102,7 @@ QString UserfulFunctions::getSuffix(const QString &value)
     if(value.toUpper()=="LEVELV")
         return "V";
 
-    return "";
+    return value;
 }
 
 QString UserfulFunctions::getName(const QString &value)

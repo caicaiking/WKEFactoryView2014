@@ -18,9 +18,10 @@ QString clsUserFunctionMeterMode::getTestItem()
     return "";
 }
 
-void clsUserFunctionMeterMode::trig()
+QString clsUserFunctionMeterMode::trig()
 {
      emit testResult("love cc",0);
+    return "";
 }
 
 void clsUserFunctionMeterMode::start()

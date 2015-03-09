@@ -1,10 +1,14 @@
 #ifndef USERFULFUNCTIONS_H
 #define USERFULFUNCTIONS_H
 #include <QMap>
-#include <Plot.h>
+
+#include <Qwt/qwt_plot_curve.h>
 class QStringList;
 class QString;
 #include "Globle.h"
+#include <Qwt/qwt.h>
+
+
 class UserfulFunctions
 {
 public:

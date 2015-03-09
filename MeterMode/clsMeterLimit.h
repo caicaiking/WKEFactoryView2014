@@ -32,6 +32,7 @@ public:
     double getAbsLimitHigh();
     bool operator ==(clsMeterLimit value);
     bool comparaValue(double value, QString &type);
+    bool comparaValue(double value);
     QString showLimits(QString suffix="");
 private:
     QString limitType;

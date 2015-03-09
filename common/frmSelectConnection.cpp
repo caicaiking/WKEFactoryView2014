@@ -12,7 +12,7 @@ frmSelectConnection::frmSelectConnection(QWidget *parent) :
     this->btnMeter->setEnabled(false);
     this->btnMeter->setVisible(false);
     this->btnMulitChannel->setEnabled(false);
-    this->btnMulitChannel->setVisible(false);
+    //this->btnMulitChannel->setVisible(false);
 
     intSelect=0;
 
@@ -123,8 +123,8 @@ void frmSelectConnection::buttonOp(bool value)
 {
     grpConnection->setEnabled(!value);
     btnAnalysis->setEnabled(value);
-//    btnMeter->setEnabled(value);
-//    btnMulitChannel->setEnabled(value);
+    btnMeter->setEnabled(value);
+    btnMulitChannel->setEnabled(value);
 
     if(clsRS::getInst().meterSeries=="6500")
     {

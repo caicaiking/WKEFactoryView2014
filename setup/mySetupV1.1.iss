@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "WKE FactoryView 2014"
-#define MyAppVersion "1.7"
+#define MyAppVersion "1.7.1-KeTeng"
 #define MyAppPublisher "Wayne Kerr Electronics"
 #define MyAppURL "http://www.waynekerr.com/"
 #define MyAppExeName "WKEFactoryView2014.exe"
