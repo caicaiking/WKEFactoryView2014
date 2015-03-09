@@ -6,6 +6,8 @@ clsMultiLimitStatusShow::clsMultiLimitStatusShow(QWidget *parent) :
     setupUi(this);
     setWindowFlags( Qt::Tool | Qt::WindowStaysOnTopHint  );
     //setWindowFlags(windowFlags() &~Qt::WindowCloseButtonHint &~Qt::WindowContextHelpButtonHint);
+
+    this->tbMultiLimit->setStyleSheet("QTableWidget::item:selected { background-color: rgb(255, 0, 0) }");
 }
 
 
@@ -76,9 +78,8 @@ void clsMultiLimitStatusShow::updateTable()
             maxHeight =(maxHeight< lblItem2->height()? lblItem2->height(): maxHeight);
             tbMultiLimit->setRowHeight(i,maxHeight);
 
-            QLabel *lblItem3 = new QLabel();
-            QString strStatus =( this->multiCurveLimit.limits[i].getStatus()?tr("√"):tr("×"));
-            lblItem3->setText(strStatus);
+            QLabel *lblItem3 = this->getStatusLabel(this->multiCurveLimit.limits[i].getStatus());
+
             tbMultiLimit->setCellWidget(i,3,lblItem3);
             maxHeight =(maxHeight< lblItem2->height()? lblItem2->height(): maxHeight);
             tbMultiLimit->setRowHeight(i,maxHeight);
@@ -105,9 +106,8 @@ void clsMultiLimitStatusShow::updateTable()
         maxHeight =(maxHeight< lblItem2->height()? lblItem2->height(): maxHeight);
         tbMultiLimit->setRowHeight(0,maxHeight);
 
-        QLabel *lblItem3 = new QLabel();
-        QString strStatus =( this->curveLimit.status?tr("√"):tr("×"));
-        lblItem3->setText(strStatus);
+        QLabel *lblItem3 = this->getStatusLabel(this->curveLimit.status);
+
         tbMultiLimit->setCellWidget(0,3,lblItem3);
         maxHeight =(maxHeight< lblItem2->height()? lblItem2->height(): maxHeight);
         tbMultiLimit->setRowHeight(0,maxHeight);
@@ -149,6 +149,11 @@ void clsMultiLimitStatusShow::setInfo(QString value)
         tmpLimt.resetStatus();
         if(list.length()<3)
             return;
+
+        int value = multiCurveLimit.inLimit(list.at(0).toDouble());
+
+        if(value< this->tbMultiLimit->rowCount())
+            tbMultiLimit->setCurrentCell(value,0);
         tmpLimt.compareValue(list.at(0).toDouble(),list.at(1).toDouble(),list.at(2).toDouble());
         setLabel(list.at(0).toDouble(),list.at(1).toDouble(),list.at(2).toDouble(),tmpLimt.getStatus());
     }
@@ -171,11 +176,31 @@ void clsMultiLimitStatusShow::setLabel(double freq,
     QString strStatus;
     strStatus =(status?tr("<font color=\"green\">通过</font>"):tr("<font color=\"red\">失败</font>"));
 
-    QString label = tr("频率：%1,%2:%3,%4,%5,%6:(%7)").arg(feq)
+    QString label = tr("频率：%1,%2:%3,%4:%5,%6:(%7)").arg(feq)
             .arg(meter->getItem1()).arg(strItem1)
             .arg(meter->getItem2()).arg(strItem2)
             .arg(tr("状态")).arg(strStatus);
     lblStatus->setText(label);
 
+}
+
+QLabel* clsMultiLimitStatusShow::getStatusLabel(const bool &value)
+{
+    QLabel *lable = new QLabel;
+
+    if(value)
+    {
+        lable->setText(tr("√"));
+        lable->setStyleSheet("background-color: green;");
+    }
+    else
+    {
+        lable->setText(tr("×"));
+         lable->setStyleSheet("background-color: red;");
+    }
+
+    lable->setAlignment(Qt::AlignHCenter|Qt::AlignVCenter);
+
+    return lable;
 }
 

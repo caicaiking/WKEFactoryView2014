@@ -12,6 +12,8 @@ public:
     ~clsMultiCurveLimt();
 
     QList<clsMultiLimits> limits;
+    QStringList getWriteFileString();
+    int inLimit(const double &freq);
     void compareValue(double freq, double item1, double item2);
     void resetStatus();
     bool getStatus();

@@ -574,6 +574,8 @@ void frmWKEAnalysisMode::resPassFail()
         if((!curveLimit.hasEnableLimit()))
         {
             statusLabel->setStatus(IDEL);
+            this->multiCureLimit.resetStatus();
+            this->curveLimit.resetStatus();
         }
         else
         {
@@ -661,6 +663,13 @@ void frmWKEAnalysisMode::resPassFail()
                 .arg(strStatus);
 
         out<<strDate<<"\n";
+
+        if(curveLimit.intSlect!=0)
+        {
+             QStringList tmpList= multiCureLimit.getWriteFileString();
+            qDebug()<<tmpList;
+            out<< multiCureLimit.getWriteFileString().join('\n')<<"\n";
+        }
 
         QString title = tr("%1,%2,%3").arg(UserfulFunctions::getSweepTypeName(gs.sweepType))
                 .arg(UserfulFunctions::getName(meter->getItem1()))

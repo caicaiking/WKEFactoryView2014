@@ -1,5 +1,6 @@
 #include "clsMultiCurveLimt.h"
 #include <QDebug>
+#include "doubleType.h"
 clsMultiCurveLimt::clsMultiCurveLimt()
 {
 
@@ -8,6 +9,38 @@ clsMultiCurveLimt::clsMultiCurveLimt()
 clsMultiCurveLimt::~clsMultiCurveLimt()
 {
 
+}
+
+QStringList clsMultiCurveLimt::getWriteFileString()
+{
+    QStringList tmpList;
+    for(int i=0; i<limits.length();i++)
+    {
+        double hiFreq = limits[i].getFreq().getAbsLimitHigh();
+        double loFreq = limits[i].getFreq().getAbsLimitLow();
+        bool status = limits[i].getStatus();
+        QString strStatus = status?QObject::tr("通过"):QObject::tr("失败");
+        doubleType dt;
+        dt.setData(hiFreq);
+        QString strHiFreq = dt.formateToString(6);
+        dt.setData(loFreq);
+        QString strLoFreq = dt.formateToString(6);
+        QString tmpString=QString("%1Hz~%2Hz,%3").arg(strLoFreq).arg(strHiFreq).arg(strStatus);
+        tmpList<<tmpString;
+    }
+    return tmpList;
+}
+
+int clsMultiCurveLimt::inLimit(const double &freq)
+{
+       for(int i=0; i< limits.length();i++)
+       {
+         bool value=  limits[i].getFreq().comparaValue(freq);
+         if(value)
+             return i;
+       }
+
+       return limits.length();
 }
 
 void clsMultiCurveLimt::compareValue(double freq, double item1, double item2)
@@ -59,13 +92,11 @@ void clsMultiCurveLimt::readSettings()
     QString tmpStr;
     settings.readSetting(strNode+"Limits",tmpStr);
 
-    //qDebug()<< tmpStr;
-
     QJsonParseError error;
     QJsonDocument jsDocument = QJsonDocument::fromJson(tmpStr.toUtf8(),&error);
     if(error.error == QJsonParseError::NoError)
     {
-        //qDebug()<< jsDocument.isArray();
+
         if(jsDocument.isArray())
         {
             QVariantList result = jsDocument.toVariant().toList();

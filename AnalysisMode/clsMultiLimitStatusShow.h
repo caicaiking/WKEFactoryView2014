@@ -31,7 +31,8 @@ private:
     clsCurveLimit curveLimit;
     clsMultiCurveLimt multiCurveLimit;
     WKEInstrument *meter;
-     void setLabel(double freq, double item1, double item2, bool status);
+    void setLabel(double freq, double item1, double item2, bool status);
+    QLabel *getStatusLabel(const bool &value=true);
 };
 
 #endif // CLSMULTILIMITSTATUSSHOW_H
