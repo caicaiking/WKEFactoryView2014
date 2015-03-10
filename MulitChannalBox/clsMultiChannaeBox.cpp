@@ -10,6 +10,7 @@
 #include "clsChennalSelect.h"
 #include <QTime>
 #include "UserfulFunctions.h"
+#include <QTextStream>
 clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -129,16 +130,22 @@ void clsMultiChannaeBox::on_btnSave_clicked()
         dir.mkdir("tmp");
     }
 
-    QFile file("./tmp/Test1.xml");
+    QFile file("./tmp/Test1.txt");
 
     if(file.open(QFile::WriteOnly))
     {
-        file.write(meter->getTestCondition().toStdString().c_str());
+        QVariantMap tmpVar;
+        tmpVar.insert("Meter",meter->getTestCondition());
+        tmpVar.insert("Chennal",this->chennal);
+
+        QJsonDocument jsDocument = QJsonDocument::fromVariant(tmpVar);
+        if(jsDocument.isObject())
+            file.write(jsDocument.toJson());
         file.close();
     }
 
     QDir dirFile("./tmp");
-    QStringList list=dirFile.entryList(QStringList()<<"*.xml",QDir::Files);
+    QStringList list=dirFile.entryList(QStringList()<<"*.txt",QDir::Files);
 
     QStringList files;
     foreach (QString item, list) {
@@ -182,11 +189,33 @@ void clsMultiChannaeBox::  on_btnOpenSettingFile_clicked()
     JlCompress::extractDir(fileName,"./tmp");
 
     QDir dirFile("./tmp");
-    QStringList list=dirFile.entryList(QStringList()<<"*.xml",QDir::Files);
+    QStringList list=dirFile.entryList(QStringList()<<"*.txt",QDir::Files);
 
-    if(!list.contains("Test1.xml"))
+    if(!list.contains("Test1.txt"))
         return;
-    meter->setCondition("./tmp/Test1.xml");
+
+    QFile file("./tmp/Test1.txt");
+    if(file.open(QIODevice::ReadOnly))
+    {
+        QTextStream in(&file);
+        QString strRead = in.readAll();
+
+        //qDebug()<< strRead;
+
+        QJsonParseError error;
+        QJsonDocument jsDocomnent = QJsonDocument::fromJson(strRead.toUtf8(),&error);
+        if(error.error==QJsonParseError::NoError)
+        {
+            if(jsDocomnent.isObject())
+            {
+                QVariantMap result = jsDocomnent.toVariant().toMap();
+                this->chennal = result["Chennal"].toString();
+                QString stConditon = result["Meter"].toString();
+                this->meter->setCondition(stConditon);
+            }
+        }
+
+    }
 
     QStringList files;
     foreach (QString item, list) {
@@ -198,6 +227,8 @@ void clsMultiChannaeBox::  on_btnOpenSettingFile_clicked()
     foreach (QString item , files) {
         dir.remove(item);
     }
+
+    initPannel();
 
     //  qDebug()<<fileName;
 }
@@ -216,6 +247,7 @@ void clsMultiChannaeBox::on_btnSignleTest_clicked()
 
         //  qDebug()<<strResult;
     }
+    meter->turnOffBias();
     btnSignleTest->setEnabled(true);
     //qDebug()<<"Time: "<< tmp.msecsTo(QTime::currentTime());
 

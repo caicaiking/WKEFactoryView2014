@@ -5,8 +5,6 @@
 #include "WKEMeterMode.h"
 #include "clsMeterLimit.h"
 #include "NumberInput.h"
-#include <QXmlStreamReader>
-#include <QXmlStreamWriter>
 #include <QJsonDocument>
 
 class cls4300MeterMode : public WKEMeterMode, private Ui::cls4300MeterMode
@@ -16,7 +14,7 @@ class cls4300MeterMode : public WKEMeterMode, private Ui::cls4300MeterMode
 public:
     explicit cls4300MeterMode(QWidget *parent = 0);
     FunctionType getType();
-    void setCondition(const QString &fileName);
+    void setCondition(const QString &strConditon);
     QString getTestItem();
     QString trig();
     void start();
@@ -51,12 +49,12 @@ private slots:
     void on_cmbTest2Item1Unit_currentIndexChanged(const QString &arg1);
     void on_cmbTest2Item2Unit_currentIndexChanged(const QString &arg1);
     void on_groupBox_clicked();
-
+    void on_btnOk_clicked();
 
     QString saveTestConditons();
-    void readTestCondition(QString fileName);
+    void readTestCondition(QString strCondtion);
 
-    void on_btnOk_clicked();
+
 
 
 
