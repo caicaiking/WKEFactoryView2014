@@ -25,7 +25,7 @@ public slots:
 
 private slots:
 
-    void on_lblClose_clicked();
+
 
 private:
     clsCurveLimit curveLimit;

@@ -666,8 +666,8 @@ void frmWKEAnalysisMode::resPassFail()
 
         if(curveLimit.intSlect!=0)
         {
-             QStringList tmpList= multiCureLimit.getWriteFileString();
-            qDebug()<<tmpList;
+             //QStringList tmpList= multiCureLimit.getWriteFileString();
+            //qDebug()<<tmpList;
             out<< multiCureLimit.getWriteFileString().join('\n')<<"\n";
         }
 

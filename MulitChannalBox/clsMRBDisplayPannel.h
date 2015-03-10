@@ -27,11 +27,11 @@ public:
     void setTestResult(QString json);
     void setNumber(int chennal);
     int number();
-     const  TestResult getTestResult()
+    const  TestResult getTestResult()
     {
         return this->res;
     }
-   const bool getStatus()
+    const bool getStatus()
     {
         return this->res.status;
     }

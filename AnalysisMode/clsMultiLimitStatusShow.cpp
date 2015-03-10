@@ -11,10 +11,7 @@ clsMultiLimitStatusShow::clsMultiLimitStatusShow(QWidget *parent) :
 }
 
 
-void clsMultiLimitStatusShow::on_lblClose_clicked()
-{
-    this->hide();
-}
+
 
 void clsMultiLimitStatusShow::setMeter(WKEInstrument *value)
 {
