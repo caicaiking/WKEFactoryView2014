@@ -506,6 +506,22 @@ void frmWKEAnalysisMode::closeEvent(QCloseEvent *e)
     e->accept();
 }
 
+void frmWKEAnalysisMode::keyPressEvent(QKeyEvent *event)
+{
+    if(event->key() == Qt::Key_Enter || event->key() ==Qt::Key_Return)
+    {
+        if(!this->btnTrig->isChecked())
+            btnTrig->setChecked(true);
+        else
+            btnTrig->setChecked(false);
+        this->btnTrig->clicked();
+    }
+    else
+    {
+        QWidget::keyPressEvent(event);
+    }
+}
+
 void frmWKEAnalysisMode::on_btnTrig_clicked()
 {
     // qDebug()<< "Iam in trig mode";
@@ -666,7 +682,7 @@ void frmWKEAnalysisMode::resPassFail()
 
         if(curveLimit.intSlect!=0)
         {
-             //QStringList tmpList= multiCureLimit.getWriteFileString();
+            //QStringList tmpList= multiCureLimit.getWriteFileString();
             //qDebug()<<tmpList;
             out<< multiCureLimit.getWriteFileString().join('\n')<<"\n";
         }

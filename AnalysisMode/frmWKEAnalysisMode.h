@@ -88,7 +88,7 @@ private:
  void finishTest();
 protected:
     void closeEvent(QCloseEvent *e);
-
+    void keyPressEvent(QKeyEvent *event);
 signals:
 
 };
