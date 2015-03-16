@@ -216,7 +216,7 @@ bool wk4300AnalysisMeter::turnOnBias()
 
 QString wk4300AnalysisMeter::trig()
 {
-    UserfulFunctions::sleepMs(186);
+   // UserfulFunctions::sleepMs(400);
     QString strRes=clsRS::getInst().sendCommand(":MEAS:TRIG",true);
     return strRes+",";
 }
