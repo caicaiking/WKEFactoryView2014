@@ -893,6 +893,12 @@ void frmWKEAnalysisMode::on_btnSettings_clicked()
         else
         {
             //qDebug()<<QFile::exists("./Settings.ini");
+
+            if(QFile::exists(filePath))
+            {
+                QFile::remove(filePath);
+            }
+
             QFile::copy("./Settings.ini",filePath);
 
         }
