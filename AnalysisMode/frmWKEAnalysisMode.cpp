@@ -41,6 +41,7 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     controlBox->start(QThread::HighPriority);
 
 
+    lblIndicator->setVisible(false);
     connect(this->statusLabel,SIGNAL(Clicked()),this,SLOT(showMulitLimit()));
 }
 
@@ -129,16 +130,16 @@ void frmWKEAnalysisMode::finishTest()
 
 void frmWKEAnalysisMode::testConnection()
 {
-    if(statusLabel->getStatus() !=BUSY)
-    {
-        QString strRet="";
-        strRet= clsRS::getInst().sendCommand("*IDN?",true);
-        if(strRet.isEmpty())
-            lblIndicator->setStyleSheet("border-radius:20px; background-color: red");
-        else
-            lblIndicator->setStyleSheet("border-radius:20px; background-color: green");
-    }
-    qApp->processEvents();
+//    if(statusLabel->getStatus() !=BUSY)
+//    {
+//        QString strRet="";
+//        strRet= clsRS::getInst().sendCommand("*IDN?",true);
+//        if(strRet.isEmpty())
+//            lblIndicator->setStyleSheet("border-radius:20px; background-color: red");
+//        else
+//            lblIndicator->setStyleSheet("border-radius:20px; background-color: green");
+//    }
+//    qApp->processEvents();
 }
 
 void frmWKEAnalysisMode::initZoomer()
