@@ -28,13 +28,17 @@ void wk6500AnalysisMeter::setFrequency(double value)
     else
     {
         doubleType dt;
-        QString gpibcmd =QString(":METER:FREQ %1").arg(QString::number(value));
-
+        dt.setData(value);
+        QString gpibcmd =QString(":METER:FREQ %1").arg(QString::number(value,'f',6));
+        // qDebug()<< "Input value: "<< gpibcmd;
         clsRS::getInst().sendCommand(gpibcmd,false);
 
         gpibcmd =QString(":METER:FREQ?");
 
         QString retFreq = clsRS::getInst().sendCommand(gpibcmd,true);
+
+        // qDebug()<<"ret freq: "<< retFreq;
+
         this->frequency = retFreq.toDouble();
         dt.setData(this->frequency,"");
         emit frequencySignal(dt.formateToString()+"Hz");
@@ -372,7 +376,7 @@ void wk6500AnalysisMeter::updateInstrument()
     else
         gpibCmd.append(meter+"SPEED "+"MAX"+";");
 
-    gpibCmd.append(meter+"FREQ "+QString::number(frequency)+";");   //频率
+    gpibCmd.append(meter+"FREQ "+QString::number(frequency,'f',6)+";");   //频率
     if(levelType=="V")                                              //电平
         gpibCmd.append(meter+"LEVEL "+QString::number(levelVValue)+levelType+";");
     else
@@ -703,9 +707,8 @@ bool wk6500AnalysisMeter::queryBiasStatus()
     QString gpibCmd="";
     gpibCmd.append(meter+"BIAS-STAT?");
     QString strRes=clsRS::getInst().sendCommand(gpibCmd,true);
-    strRes=clsRS::getInst().sendCommand(gpibCmd,true);
-    strRes=clsRS::getInst().sendCommand(gpibCmd,true);
-   // qDebug()<< "bias status"<< strRes;
+
+    // qDebug()<< "bias status"<< strRes;
     bool ok;
     int res=strRes.toDouble(&ok);
 

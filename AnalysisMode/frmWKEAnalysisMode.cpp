@@ -40,9 +40,10 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     connect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
     controlBox->start(QThread::HighPriority);
 
-
+    //隐藏限定设置，标配软件不需要这个
     lblIndicator->setVisible(false);
-    connect(this->statusLabel,SIGNAL(Clicked()),this,SLOT(showMulitLimit()));
+    //connect(this->statusLabel,SIGNAL(Clicked()),this,SLOT(showMulitLimit()));
+    btnSetLimit->setVisible(false);
 }
 
 void frmWKEAnalysisMode::showMulitLimit()
