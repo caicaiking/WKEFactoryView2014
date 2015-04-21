@@ -112,11 +112,12 @@ void frmWKEAnalysisMode::init()
 
     btnRep->setVisible(false);
 
-    timer = new QTimer(this);
-    timer->setInterval(1000);
+//    timer = new QTimer(this);
+//    timer->setInterval(1000);
 
-    connect(timer,SIGNAL(timeout()),this,SLOT(testConnection()));
-    timer->start();
+//    connect(timer,SIGNAL(timeout()),this,SLOT(testConnection()));
+//    timer->start();
+    lblIndicator->setVisible(false);
 
 }
 
@@ -497,7 +498,7 @@ void frmWKEAnalysisMode::closeEvent(QCloseEvent *e)
     meas->stop();
     meter->turnOffBias();
 
-    timer->stop();
+//    timer->stop();
 
     controlBox->stop();
 

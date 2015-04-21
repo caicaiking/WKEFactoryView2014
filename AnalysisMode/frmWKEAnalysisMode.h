@@ -83,7 +83,7 @@ private:
     void resPassFail();
     QString strDataFilePath;
     void init();
-    QTimer *timer;
+    //QTimer *timer;
     clsSignalThread *controlBox;
  void finishTest();
 protected:
