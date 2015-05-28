@@ -11,17 +11,12 @@ clsMeterModeFactory::clsMeterModeFactory()
  * \return 返回一个Meter或者function
  * 返回表
  */
-QPointer<WKEMeterMode> clsMeterModeFactory::getFunction(FunctionType t, QString meterSeries)
+WKEMeterMode *clsMeterModeFactory::getFunction(QString meterSeries)
 {
-    switch (t) {
-    case MeterFunction:
+
+    if(meterSeries=="6440")
         return new cls6440MeterMode();
-        break;
-    case UF:
-        return new clsUserFunctionMeterMode();
-        break;
-    default:
+    else
         return 0;
-        break;
-    }
+
 }

@@ -10,7 +10,7 @@
 #include "dlg4300FuctionMajor.h"
 #include "dlg4300FunctionMinor.h"
 cls4300MeterMode::cls4300MeterMode(QWidget *parent) :
-    WKEMeterMode(parent)
+    QDialog(parent)
 {
     setupUi(this);
 

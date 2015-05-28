@@ -1,7 +1,7 @@
 #ifndef CLSMETERMODEFACTORY_H
 #define CLSMETERMODEFACTORY_H
 #include "cls6440MeterMode.h"
-#include "clsUserFunctionMeterMode.h"
+
 #include "WKEMeterMode.h"
 #include <QPointer>
 class clsMeterModeFactory
@@ -9,7 +9,7 @@ class clsMeterModeFactory
 public:
     clsMeterModeFactory();
 
-    static QPointer<WKEMeterMode>  getFunction(FunctionType t, QString meterSeries="");
+    static WKEMeterMode* getFunction(QString meterSeries="");
 };
 
 #endif // CLSMETERMODEFACTORY_H

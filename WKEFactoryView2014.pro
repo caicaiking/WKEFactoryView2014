@@ -102,7 +102,6 @@ SOURCES +=\
     MeterMode/PassFailLabel.cpp \
     MeterMode/WKEMeterMode.cpp \
     MeterMode/cls6440MeterMode.cpp \
-    MeterMode/clsUserFunctionMeterMode.cpp \
     MeterMode/clsMeterModeFactory.cpp \
     MulitChannalBox/clsConnectSWBox.cpp \
     MulitChannalBox/clsPortListener.cpp \
@@ -119,7 +118,9 @@ SOURCES +=\
     MulitChannalBox/clsMRBDisplayPannel.cpp \
     AnalysisMode/clsMultiCurveLimt.cpp \
     AnalysisMode/clsMultiLimitStatusShow.cpp \
-    AnalysisMode/clsCurveLimit.cpp
+    AnalysisMode/clsCurveLimit.cpp \
+    MeterMode/clsSetTestStep.cpp \
+    MeterMode/clsMeterUnit.cpp
 
 
 
@@ -236,7 +237,6 @@ HEADERS += \
     MeterMode/PassFailLabel.h \
     MeterMode/WKEMeterMode.h \
     MeterMode/cls6440MeterMode.h \
-    MeterMode/clsUserFunctionMeterMode.h \
     MeterMode/clsMeterModeFactory.h \
     MulitChannalBox/clsConnectSWBox.h \
     MulitChannalBox/clsPortListener.h \
@@ -253,7 +253,9 @@ HEADERS += \
     MulitChannalBox/clsMRBDisplayPannel.h \
     AnalysisMode/clsMultiCurveLimt.h \
     AnalysisMode/clsMultiLimitStatusShow.h \
-    AnalysisMode/clsCurveLimit.h
+    AnalysisMode/clsCurveLimit.h \
+    MeterMode/clsSetTestStep.h \
+    MeterMode/clsMeterUnit.h
 
 
 
@@ -295,7 +297,6 @@ FORMS += \
     MeterMode/clsMeterMode.ui \
     MeterMode/singleStepTestDisplay.ui \
     MeterMode/cls6440MeterMode.ui \
-    MeterMode/clsUserFunctionMeterMode.ui \
     MulitChannalBox/clsMultiChannaeBox.ui \
     MulitChannalBox/clsSwitchBoxTest.ui \
     MulitChannalBox/cls4300MeterMode.ui \
@@ -306,7 +307,9 @@ FORMS += \
     AnalysisMode/clsMultiLimitSetting.ui \
     MulitChannalBox/clsChennalSelect.ui \
     MulitChannalBox/clsMRBDisplayPannel.ui \
-    AnalysisMode/clsMultiLimitStatusShow.ui
+    AnalysisMode/clsMultiLimitStatusShow.ui \
+    MeterMode/clsSetTestStep.ui \
+    MeterMode/clsMeterUnit.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV.ts

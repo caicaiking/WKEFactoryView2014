@@ -7,6 +7,7 @@
 #include <QDebug>
 #include "WKEMeterMode.h"
 #include "clsMRBDisplayPannel.h"
+#include "cls4300MeterMode.h"
 class clsMultiChannaeBox : public QMainWindow, private Ui::clsMultiChannaeBox
 {
     Q_OBJECT
@@ -30,7 +31,7 @@ protected:
     void keyPressEvent(QKeyEvent *event);
 private:
     QStringList commands;
-    WKEMeterMode *meter;
+    cls4300MeterMode *meter;
     QString strSaveFileName ;
     QString chennal;
     QList<clsMRBDisplayPannel*>pannel;

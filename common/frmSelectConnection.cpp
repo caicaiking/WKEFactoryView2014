@@ -10,7 +10,7 @@ frmSelectConnection::frmSelectConnection(QWidget *parent) :
     this->btnAnalysis->setEnabled(false);
     this->btnRansonace->setVisible(false);
     this->btnMeter->setEnabled(false);
-    this->btnMeter->setVisible(false);
+    //this->btnMeter->setVisible(false);
     this->btnMulitChannel->setEnabled(false);
     this->btnMulitChannel->setVisible(false);
 

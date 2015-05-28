@@ -7,7 +7,7 @@
 #include "NumberInput.h"
 #include <QJsonDocument>
 
-class cls4300MeterMode : public WKEMeterMode, private Ui::cls4300MeterMode
+class cls4300MeterMode : public QDialog, private Ui::cls4300MeterMode
 {
     Q_OBJECT
 
