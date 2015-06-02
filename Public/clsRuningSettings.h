@@ -35,6 +35,8 @@ public:
         QString NumberOfTest;
         QStringList gpibTest1; //保存仪器的状态Test1
         QStringList gpibTest2; //这个是为了4100的Test2准备的
+        QString biasCommand;   //bias的状态
+        QString testMode;      //测试模式 AC or RDC
     } gpibCommands;
 
 private:

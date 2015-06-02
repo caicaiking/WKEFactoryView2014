@@ -21,18 +21,10 @@ void dlgWk6440Function1::on_btnL_clicked()
 
 void dlgWk6440Function1::on_btnB_clicked()
 {
-    QString btn;
-    WKEInstrument * myParent = static_cast<WKEInstrument *>(this->parent());
 
-    if(myParent == 0)
-        return;
-    btn = myParent->getEqucct();
+    strItem ="B";
+    this->accept();
 
-    if(btn==tr("并联"))
-    {
-        strItem="B";
-        this->accept();
-    }
 }
 
 void dlgWk6440Function1::on_btnZ_clicked()
@@ -49,17 +41,9 @@ void dlgWk6440Function1::on_btnY_clicked()
 
 void dlgWk6440Function1::on_btnX_clicked()
 {
-    QString btn;
-    WKEInstrument * myParent = static_cast<WKEInstrument *>(this->parent());
 
-    if(myParent == 0)
-        return;
+    strItem ="X";
+    this->accept();
 
-    btn = myParent->getEqucct();
 
-    if(btn==tr("串联"))
-    {
-        strItem="X";
-        this->accept();
-    }
 }

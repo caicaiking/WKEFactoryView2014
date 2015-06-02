@@ -39,9 +39,9 @@
     </widget>
    </item>
    <item>
-    <widget class="QTabWidget" name="tabWidget">
+    <widget class="QTabWidget" name="tabMeter">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tbAC">
       <attribute name="title">
@@ -446,6 +446,9 @@
           <widget class="QGroupBox" name="grpMinor">
            <property name="title">
             <string>副参数：</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
            </property>
            <layout class="QGridLayout" name="gridLayout_2">
             <item row="0" column="0">

@@ -11,14 +11,13 @@ class cls6440MeterMode :  public WKEMeterMode, private Ui::cls6440MeterMode
 public:
     explicit cls6440MeterMode(WKEMeterMode *parent = 0);
 
-    FunctionType getFunctionType();   //获取类型
-    void setFunctionType(FunctionType value); //设置类型
+
     bool detectDut();                 //用于探测样品
     void stopDetect();                //停止探测样品
 
     void setCondition(QString value); //设置测试条件
     QString getConditon();            //获取测试设置
-    void setTestMode(TestMode value); //用于设置测试模式
+
 
     void updateGPIB();                //更新测试参数到仪器
     bool getTotalStatus();            //用于获取整个测试状态
@@ -29,6 +28,11 @@ public:
     QString getBrief();               //获取测试步骤大概信息
     QString getMeterSeries();         //获取测试仪表信息
     QString getDescription();         //获取描述信息
+    void turnOffBias();               //关闭Bias
+    void singleTrig();                //单次测试
+    void repetiveTrig();              //重复测试模式
+    double getResult(int i);            //获取测试数据
+
 signals:
 
 private slots:
@@ -37,14 +41,31 @@ private slots:
     void limitRdcClick();
     void updateButtons();
     void on_btnMajorUnit_clicked();
-
     void on_btnMinorUnit_clicked();
-
     void on_btnRdcUnit_clicked();
+    void on_btnFrequency_clicked();
+    double getMaxFreq();
+    void on_btnLevel_clicked();
+    double getOkLevel(double value, QString unit);
+    void on_btnEqucct_clicked();
+    void on_btnRange_clicked();
+    void on_btnSpeed_clicked();
+    void on_btnBiasSource_clicked();
+    void on_btnBiasStatus_clicked();
+    void on_btnItem1_clicked();
+    void on_btnItem2_clicked();
+    void on_btnRdcRange_clicked();
+    void on_btnRdcSpeed_clicked();
+    void on_btnRdcLevel_clicked();
+
+    void on_txtDescription_textChanged(const QString &arg1);
+
+
+    void on_grpMinor_clicked(bool checked);
 
 private:
     QString strDescription;
-
+    bool enableMinor;
     QString item1;
     QString item2;
     double level;
@@ -56,6 +77,7 @@ private:
     QString speed;
     QString equcct;
     double levelRdc;
+    QString rangeRdc;
 
     clsMeterLimit lmMajor,lmMinor,lmRdc;
 
@@ -63,8 +85,12 @@ private:
 
 
 
+    double dblItem1, dblItem2, dblRdc;
+
+    bool blStop;
 
 
+    QString getItemShow(const QString &item, const double &value, clsMeterLimit &limit, const QString &suffix);
 };
 
 #endif // CLS6440METERMODE_H

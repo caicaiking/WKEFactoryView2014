@@ -44,11 +44,11 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
-        <widget class="QPushButton" name="btnOk_4">
+        <widget class="QPushButton" name="btnNewStep">
          <property name="minimumSize">
           <size>
            <width>80</width>
-           <height>32</height>
+           <height>42</height>
           </size>
          </property>
          <property name="font">
@@ -63,11 +63,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btnOk_2">
+        <widget class="QPushButton" name="btnTest">
          <property name="minimumSize">
           <size>
            <width>80</width>
-           <height>32</height>
+           <height>42</height>
           </size>
          </property>
          <property name="font">
@@ -82,11 +82,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btnOk_3">
+        <widget class="QPushButton" name="btnSave">
          <property name="minimumSize">
           <size>
            <width>80</width>
-           <height>32</height>
+           <height>42</height>
           </size>
          </property>
          <property name="font">
@@ -101,11 +101,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btnOk_5">
+        <widget class="QPushButton" name="btnDele">
          <property name="minimumSize">
           <size>
            <width>80</width>
-           <height>32</height>
+           <height>42</height>
           </size>
          </property>
          <property name="font">
@@ -120,11 +120,11 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="btnOk_6">
+        <widget class="QPushButton" name="btnClear">
          <property name="minimumSize">
           <size>
            <width>80</width>
-           <height>32</height>
+           <height>42</height>
           </size>
          </property>
          <property name="font">
@@ -135,6 +135,36 @@
          </property>
          <property name="text">
           <string>清空</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btnTurnOffBias">
+         <property name="minimumSize">
+          <size>
+           <width>80</width>
+           <height>42</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>楷体</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>关闭
+Bias</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../recFile/myRes.qrc">
+           <normaloff>:/Icons/BiasOff.png</normaloff>:/Icons/BiasOff.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>30</width>
+           <height>30</height>
+          </size>
          </property>
         </widget>
        </item>
@@ -322,6 +352,8 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../recFile/myRes.qrc"/>
+ </resources>
  <connections/>
 </ui>
