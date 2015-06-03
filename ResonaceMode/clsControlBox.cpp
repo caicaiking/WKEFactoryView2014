@@ -24,6 +24,45 @@ QString clsControlBox::sendCommand(QString value, bool hasReturn)
     return ret;
 }
 
+
+QString clsControlBox::shortRelay(int port)
+{
+    QString cmmd = QString("SK%1").arg(QString::number(port));
+    return sendCommand(cmmd,false);
+}
+
+QString clsControlBox::openRelay(int port)
+{
+    QString cmmd = QString("RK%1").arg(QString::number(port));
+    return sendCommand(cmmd,false);
+}
+
+
+void clsControlBox::setPass()
+{
+    shortRelay(1);
+    openRelay(0);
+
+}
+
+void clsControlBox::setFail()
+{
+    shortRelay(0);
+    openRelay(1);
+}
+
+void clsControlBox::setBDA()
+{
+    shortRelay(2);
+}
+
+void clsControlBox::resetBDA()
+{
+    openRelay(2);
+}
+
+
+
 QString clsControlBox::getInput(int port)
 {
     QString cmmd = QString("RPA%1").arg(QString::number(port));

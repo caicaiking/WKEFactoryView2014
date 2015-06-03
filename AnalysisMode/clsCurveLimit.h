@@ -1,71 +1,41 @@
-#ifndef CLSCURVELIMIT
-#define CLSCURVELIMIT
+#ifndef CLSCURVELIMIT_H
+#define CLSCURVELIMIT_H
+
 #include <QColor>
+#include "UserfulFunctions.h"
 #include "clsMeterLimit.h"
 #include "clsSettings.h"
-
+#include <QObject>
 class clsCurveLimit{
 public:
 
-    clsCurveLimit()
-    {
-        traceAUp =Qt::green;
-        traceADown = Qt::red;
-        traceBUp = Qt::darkGreen;
-        traceBDown = Qt::darkRed;
-        blTraceALimit=false;
-        blTraceBLimit=false;
+    clsCurveLimit();
 
-    }
+    ~clsCurveLimit();
 
-    void readSettings()
-    {
-        clsSettings settings;
+    bool status;
+    void resetStatus();
 
-        QString strNode="CurveLimit/";
-        settings.readSetting(strNode+"blTraceALimit",this->blTraceALimit);
-        settings.readSetting(strNode+"blTraceBLimit",this->blTraceBLimit);
-        settings.readSetting(strNode+"traceAUpColor",this->traceAUp);
-        settings.readSetting(strNode+"traceADownColor",this->traceADown);
-        settings.readSetting(strNode+"traceBUpColor",this->traceBUp);
-        settings.readSetting(strNode+"traceBDownColor",this->traceBDown);
+    bool hasEnableLimit();
 
-        QString tmp;
-        settings.readSetting(strNode+"TraceALimit",tmp);
-        if(!tmp.isEmpty())
-            cmlTraceALimit.setString(tmp);
-        settings.readSetting(strNode+"TraceBLimit",tmp);
+    QString getLimit1Show();
 
-        if(!tmp.isEmpty())
-            cmlTraceBLimit.setString(tmp);
+    QString getLimit2Show();
 
-    }
+    void compareValue(const double item1,const double item2);
+
+    void readSettings();
 
 
-    void writeSettings()
-    {
-        clsSettings settings;
+    void writeSettings();
+    void setItem(QString item1, QString item2);
 
-        QString strNode="CurveLimit/";
-        settings.writeSetting(strNode+"blTraceALimit",this->blTraceALimit);
-        settings.writeSetting(strNode+"blTraceBLimit",this->blTraceBLimit);
-        settings.writeSetting(strNode+"traceAUpColor",this->traceAUp);
-        settings.writeSetting(strNode+"traceADownColor",this->traceADown);
-        settings.writeSetting(strNode+"traceBUpColor",this->traceBUp);
-        settings.writeSetting(strNode+"traceBDownColor",this->traceBDown);
+    QString item1,item2;
 
-        settings.writeSetting(strNode+"TraceALimit",cmlTraceALimit.toString());
-        settings.writeSetting(strNode+"TraceBLimit",cmlTraceBLimit.toString());
-    }
-
-
-    bool blTraceALimit,blTraceBLimit;
+    bool blTraceALimit,blTraceBLimit,blPassSound,blFailSound;
     QColor traceAUp, traceBUp, traceADown,traceBDown;
     clsMeterLimit cmlTraceALimit,cmlTraceBLimit;
-
+    int intSlect; //用于标识是否为多限制模式
 };
 
-#endif // CLSCURVELIMIT
-
-
-
+#endif // CLSCURVELIMIT_H

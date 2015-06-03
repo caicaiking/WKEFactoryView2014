@@ -18,10 +18,11 @@
 #include "frmAbout.h"
 #include "clsDog.h"
 #include <QMessageBox>
-#include <QtMultimedia/QSound>
+
 #include "dlgLimitSetup.h"
-#include <QtMultimedia/QSound>
+
 #include "dlgSetupOp.h"
+#include <windows.h>
 frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -35,8 +36,49 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
 
     init();
 
+    controlBox = new clsSignalThread(this);
+    connect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
+    controlBox->start(QThread::HighPriority);
+
+
+    connect(this->statusLabel,SIGNAL(Clicked()),this,SLOT(showMulitLimit()));
 }
 
+void frmWKEAnalysisMode::showMulitLimit()
+{
+    showLimit.show();
+}
+
+//用adu200捕捉到用户的触发信号
+void frmWKEAnalysisMode::captureTrig()
+{
+
+    //qDebug()<<"Trig get!";
+    disconnect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
+    this->controlBox->getControlBox()->setBDA();
+
+    btnTrig->setChecked(true);
+    on_btnTrig_clicked();
+
+
+
+    if(this->statusLabel->text()==tr("通过"))
+    {
+        this->controlBox->getControlBox()->setPass();
+    }
+    else if(this->statusLabel->text()==tr("失败"))
+    {
+        this->controlBox->getControlBox()->setFail();
+    }
+    else
+    {
+        this->controlBox->getControlBox()->setPass();
+    }
+
+
+    this->controlBox->getControlBox()->resetBDA();
+    connect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
+}
 
 void frmWKEAnalysisMode::init()
 {
@@ -47,7 +89,18 @@ void frmWKEAnalysisMode::init()
     connectSignals();
     meter->updateInstrument();
     this->curveLimit.readSettings();
-    plot->setCurveLimit(this->curveLimit);
+    this->multiCureLimit.readSettings();
+
+    if(this->curveLimit.intSlect==0)
+        plot->setCurveLimit(this->curveLimit);
+    else
+        plot->setCurveLimitVisiable(false); //在多个限制的时候不显示限制线
+
+    showLimit.setMeter(this->meter);
+    showLimit.setCurveLimit(this->curveLimit);
+    showLimit.setMultiCurveLimit(this->multiCureLimit);
+
+
     frmTraceSetup::readSettings(gs,true);
 
     meas = MeasFactory::getMeas(gs.sweepType);
@@ -59,6 +112,33 @@ void frmWKEAnalysisMode::init()
 
     btnRep->setVisible(false);
 
+    timer = new QTimer(this);
+    timer->setInterval(1000);
+
+    connect(timer,SIGNAL(timeout()),this,SLOT(testConnection()));
+    timer->start();
+
+}
+
+void frmWKEAnalysisMode::finishTest()
+{
+    showLimit.setMeter(this->meter);
+    showLimit.setCurveLimit(this->curveLimit);
+    showLimit.setMultiCurveLimit(this->multiCureLimit);
+}
+
+void frmWKEAnalysisMode::testConnection()
+{
+    if(statusLabel->getStatus() !=BUSY)
+    {
+        QString strRet="";
+        strRet= clsRS::getInst().sendCommand("*IDN?",true);
+        if(strRet.isEmpty())
+            lblIndicator->setStyleSheet("border-radius:20px; background-color: red");
+        else
+            lblIndicator->setStyleSheet("border-radius:20px; background-color: green");
+    }
+    qApp->processEvents();
 }
 
 void frmWKEAnalysisMode::initZoomer()
@@ -271,7 +351,9 @@ void frmWKEAnalysisMode::zoomed(QRectF value)
 void frmWKEAnalysisMode::showInfo(QString text)
 {
     myStatusBar->showMessage(text);
+    showLimit.setInfo(text);
 }
+
 void frmWKEAnalysisMode::moved(const QPoint &pos)
 {
     QString info;
@@ -340,7 +422,7 @@ void frmWKEAnalysisMode::on_btnMeasSetup_clicked()
     {
         plot->clearData();
         updateButtons();
-
+        showLimit.setMeter(this->meter);
     }
 }
 
@@ -415,7 +497,12 @@ void frmWKEAnalysisMode::closeEvent(QCloseEvent *e)
     meas->stop();
     meter->turnOffBias();
 
+    timer->stop();
+
+    controlBox->stop();
+
     qApp->processEvents();
+
     e->accept();
 }
 
@@ -467,14 +554,12 @@ void frmWKEAnalysisMode::on_btnTrig_clicked()
     gs.points = frmPointEditor::rmvPP(gs.points);
     frmTraceSetup::writeSettings(gs);
 
-
-
 }
 
+//
 void frmWKEAnalysisMode::resPassFail()
 {
-    bool traceAStatus =true;
-    bool traceBStatus = true;
+    bool status =true;
 
     QList<PlotCurves> curves= plot->getCurves();
     if(curves.length()<=0)
@@ -484,45 +569,79 @@ void frmWKEAnalysisMode::resPassFail()
     QList<QPointF> traceA=  UserfulFunctions::getPlotCurveData(curves.at(0).cur1);
     QList<QPointF> traceB=  UserfulFunctions::getPlotCurveData(curves.at(0).cur2);
 
-
-    if(this->curveLimit.blTraceALimit == false && this->curveLimit.blTraceBLimit==false)
+    if(curveLimit.intSlect==0)
     {
-        statusLabel->setStatus(IDEL);
-
-    }
-    else
-    {
-
-        QString cmpString;
-        if(this->curveLimit.blTraceALimit)
+        if((!curveLimit.hasEnableLimit()))
         {
-            for(int i=0; i< traceA.length();i++)
-            {
-                traceAStatus = traceAStatus && this->curveLimit.cmlTraceALimit.comparaValue(traceA.at(i).y(),cmpString);
-                if(traceAStatus==false)
-                    break;
-            }
-        }
-
-        if(this->curveLimit.blTraceBLimit)
-        {
-            for(int i=0; i<traceB.length();i++)
-            {
-                traceBStatus = traceBStatus && this->curveLimit.cmlTraceBLimit.comparaValue(traceB.at(i).y(),cmpString);
-            }
-        }
-
-        if(traceAStatus && traceBStatus)
-        {
-            statusLabel->setStatus(PASS);
-            QSound::play(":/Sounds/pass.wav");
+            statusLabel->setStatus(IDEL);
+            this->multiCureLimit.resetStatus();
+            this->curveLimit.resetStatus();
         }
         else
         {
-            statusLabel->setStatus(FAIL);
-            QSound::play(":/Sounds/fail.wav");
+
+            curveLimit.resetStatus();
+            for(int i=0; i< traceA.length();i++)
+            {
+                curveLimit.compareValue(traceA.at(i).y(),traceB.at(i).y());
+                if(curveLimit.status== false)
+                    break;
+            }
+
+
+            if(curveLimit.status)
+            {
+                statusLabel->setStatus(PASS);
+                if(curveLimit.blPassSound)
+                    Beep(2900,800);
+            }
+            else
+            {
+                statusLabel->setStatus(FAIL);
+                if(curveLimit.blFailSound)
+                {
+                    Beep(3900,400);
+                    Beep(3900,400);
+                }
+            }
         }
     }
+    else
+    {
+        if((!multiCureLimit.hasEnableLimits()))
+        {
+            statusLabel->setStatus(IDEL);
+        }
+        else
+        {
+            multiCureLimit.resetStatus();
+
+            for(int i=0; i< traceA.length();i++)
+            {
+                multiCureLimit.compareValue(traceA.at(i).x(),traceA.at(i).y(),traceB.at(i).y());
+            }
+
+            status = status && multiCureLimit.getStatus();
+
+            if(status)
+            {
+                statusLabel->setStatus(PASS);
+                if(curveLimit.blPassSound)
+                    Beep(2900,800);
+            }
+            else
+            {
+                statusLabel->setStatus(FAIL);
+                if(curveLimit.blFailSound)
+                {
+                    Beep(3900,400);
+                    Beep(3900,400);
+                }
+            }
+        }
+    }
+
+    finishTest();
 
     //保存数据到文件
     if(!strDataFilePath.isEmpty())
@@ -534,9 +653,9 @@ void frmWKEAnalysisMode::resPassFail()
         }
 
         QTextStream out(&file);
-        // out.setCodec("ANSI");
+        out.setCodec("GBK");
 
-        QString strStatus =(traceAStatus && traceBStatus ?"通过":"失败");
+        QString strStatus =(status ?"通过":"失败");
 
         QString strDate = tr("日期:,%1,时间:,%2,状态:,%3")
                 .arg(QDate::currentDate().toString("yyyy-MM-dd"))
@@ -544,6 +663,13 @@ void frmWKEAnalysisMode::resPassFail()
                 .arg(strStatus);
 
         out<<strDate<<"\n";
+
+        if(curveLimit.intSlect!=0)
+        {
+             //QStringList tmpList= multiCureLimit.getWriteFileString();
+            //qDebug()<<tmpList;
+            out<< multiCureLimit.getWriteFileString().join('\n')<<"\n";
+        }
 
         QString title = tr("%1,%2,%3").arg(UserfulFunctions::getSweepTypeName(gs.sweepType))
                 .arg(UserfulFunctions::getName(meter->getItem1()))
@@ -689,16 +815,27 @@ void frmWKEAnalysisMode::on_btnSetLimit_clicked()
 {
     dlgLimitSetup *limit=new dlgLimitSetup(this->meter,this);
     limit->setCurveLimit(this->curveLimit);
+    limit->setMultiCurveLimit(this->multiCureLimit);
     if(limit->exec())
     {
         this->curveLimit = limit->getCurveLimit();
         this->curveLimit.writeSettings();
-        plot->setCurveLimit(this->curveLimit);
-        //        plot
+        this->multiCureLimit = limit->getMultiCurveLimit();
+        this->multiCureLimit.writeSettings();
+
+        showLimit.setCurveLimit(this->curveLimit);
+        showLimit.setMultiCurveLimit(this->multiCureLimit);
+
+        if(this->curveLimit.intSlect==0)
+        {
+            plot->setCurveLimit( this->curveLimit);
+        }
+        else
+            plot->setCurveLimitVisiable(false);
     }
     else
     {
-        qDebug()<<"limit cancel";
+        //qDebug()<<"limit cancel";
     }
 }
 

@@ -31,9 +31,8 @@ cls4300MeterMode::cls4300MeterMode(QWidget *parent) :
     range =tr("自动");
     speed =tr("最快");
     biasSource =tr("内置");
-    biasStatus = tr("开");
-    isTest2On=true;
-
+    biasStatus = tr("关");
+    isTest2On=false;
 
     updateButtons();
 
@@ -109,8 +108,6 @@ void cls4300MeterMode::updateButtons()
     btnBiasSource->setText(biasSource);
     btnBiasStatus->setText(biasStatus);
 
-
-
 }
 
 FunctionType cls4300MeterMode::getType()
@@ -118,9 +115,9 @@ FunctionType cls4300MeterMode::getType()
     return MeterFunction;
 }
 
-void cls4300MeterMode::setCondition(const QString &fileName)
+void cls4300MeterMode::setCondition(const QString &strConditon)
 {
-    readTestCondition(fileName);
+    readTestCondition(strConditon);
 }
 
 QString cls4300MeterMode::getTestItem()
@@ -128,7 +125,7 @@ QString cls4300MeterMode::getTestItem()
 
 }
 
-void cls4300MeterMode::trig()
+QString cls4300MeterMode::trig()
 {
     QStringList test1Command = convertTest1Gpib();
     QStringList test2Command = convertTest2Gpib();
@@ -218,9 +215,23 @@ void cls4300MeterMode::trig()
         }
     }
 
-    qDebug()<< clsRS::getInst().sendCommand(":MEAS:TRIG",true);
+    //如果是打开了Bias
+    if(this->biasStatus==tr("开"))
+        clsRS::getInst().sendCommand(":MEAS:BIAS ON",false);
 
+    QString strRes= clsRS::getInst().sendCommand(":MEAS:TRIG",true);
 
+    //为了开关不跳火
+    if(this->biasStatus==tr("开"))
+        clsRS::getInst().sendCommand(":MEAS:BIAS OFF",false);
+
+    QVariantMap Test= convertToJson();
+    Test.insert("Result", strRes);
+    QJsonDocument jsonDocument = QJsonDocument::fromVariant(Test);
+    if (!jsonDocument.isNull())
+        return jsonDocument.toJson(/*QJsonDocument::Compact*/);
+    else
+        return "";
 }
 
 QStringList cls4300MeterMode::convertTest1Gpib()
@@ -270,10 +281,6 @@ QStringList cls4300MeterMode::convertTest1Gpib()
         gpibCmd.append(meter+"BIAS "+"VEXT" );
 
 
-    if(biasStatus==tr("开"))
-        gpibCmd.append(meter+"BIAS "+"ON" );
-    else
-        gpibCmd.append(meter+"BIAS "+"OFF" );
 
     return gpibCmd;
 
@@ -305,6 +312,53 @@ QStringList cls4300MeterMode::convertTest2Gpib()
     return gpibCmd;
 }
 
+QVariantMap cls4300MeterMode::convertToJson()
+{
+    QVariantMap test1;
+    clsMeterLimit tmp;
+    /*1*/  test1.insert("Item1",items.at(0));
+    /*2*/  test1.insert("Unit1",itemUnits.at(0));
+
+    tmp =  meterLimit.at(0);
+    /*3*/  test1.insert("Limit1",tmp.toString());
+
+    if(items.at(1).toUpper()==tr("OFF") || items.at(0).toUpper() == tr("RDC"))
+        /*4*/     test1.insert("Item2","");
+    else
+        /*4*/     test1.insert("Item2",items.at(1));
+
+    /*5*/ test1.insert("Unit2", itemUnits.at(1));
+    tmp = meterLimit.at(1);
+    /*6*/ test1.insert("Limit2",tmp.toString());
+
+    QVariantMap test2;
+
+
+    /*7*/  test2.insert("Item1",items.at(2));
+    /*8*/  test2.insert("Unit1",itemUnits.at(2));
+
+    tmp =  meterLimit.at(2);
+    /*9*/  test2.insert("Limit1",tmp.toString());
+
+    if(items.at(3).toUpper()==tr("OFF") || items.at(2).toUpper() == tr("RDC"))
+        /*10*/     test2.insert("Item2","");
+    else
+        /*10*/     test2.insert("Item2",items.at(3));
+
+    /*11*/ test2.insert("Unit2", itemUnits.at(3));
+    tmp = meterLimit.at(3);
+    /*12*/ test2.insert("Limit2",tmp.toString());
+    ///*13*/ test2.insert("IsOnTest2",this->isTest2On);
+
+    QVariantMap Test;
+
+    Test.insert("test1",test1);
+    Test.insert("test2",test2);
+    Test.insert("IsOnTest2",this->isTest2On);
+    return Test;
+
+}
+
 void cls4300MeterMode::start()
 {
 
@@ -327,6 +381,8 @@ bool cls4300MeterMode::getPassFail()
 
 void cls4300MeterMode::turnOffBias()
 {
+
+    clsRS::getInst().sendCommand(":MEAS:BIAS OFF",false);
 
 }
 
@@ -627,436 +683,90 @@ void cls4300MeterMode::on_btnBiasStatus_clicked()
 
 QString cls4300MeterMode::saveTestConditons()
 {
+    QVariantMap tmpMap;
 
-    QString tmpXml="";
-    QXmlStreamWriter xmlWriter(&tmpXml);
+    tmpMap.insert("Instument","WK4300");
 
-    xmlWriter.setAutoFormatting(true); //格式输出，也就是会有标签的缩进
-    xmlWriter.writeStartDocument();//开始进行 XML 文档的输出,这个函数会写下 <?xml version="1.0" encoding="UTF-8"?>
-    xmlWriter.writeStartElement("WK4300"); //根节点
-    xmlWriter.writeStartElement("entry"); //写下一个 entry 的开始标签
-    xmlWriter.writeAttribute("term", "Test1"); //然后给这个标签一个属性 term，属性值是 of vectors。
-    /**/xmlWriter.writeTextElement("Item1", items.at(0)); //参数1
-    /**/xmlWriter.writeTextElement("Item2", items.at(1)); //参数2
-    /**/xmlWriter.writeTextElement("Item1Unit",itemUnits.at(0)); //参数1单位
-    /**/xmlWriter.writeTextElement("Item2Unit",itemUnits.at(1)); //参数2单位
-    /**/xmlWriter.writeTextElement("Level",QString::number(level.at(0))); //Level值
-    /**/xmlWriter.writeTextElement("LevelUnit","V"); //Level单位
-    /**/xmlWriter.writeTextElement("Frequency",QString::number(frequency.at(0)));//频率
-    /**/xmlWriter.writeTextElement("Equcct",equcct.at(0)); //等效电路
-    clsMeterLimit tmp;
-    tmp = meterLimit.at(0);
-    /**/xmlWriter.writeTextElement("Item1Limit",tmp.toString()); //上下限
-    tmp = meterLimit.at(1);
-    /**/xmlWriter.writeTextElement("Item2Limit",tmp.toString()); //上下限
+    tmpMap.insert("Frequency",UserfulFunctions::converToQString(this->frequency));
+    tmpMap.insert("Item1",UserfulFunctions::converToQString(this->items));
+    tmpMap.insert("ItemUnits",UserfulFunctions::converToQString(this->itemUnits));
+    tmpMap.insert("Level",UserfulFunctions::converToQString(this->level));
+    tmpMap.insert("Equcct",UserfulFunctions::converToQString(this->equcct));
 
+    QStringList tmpList;
+    for(int i=0;i<this->meterLimit.length();i++)
+    {
+        tmpList.append(meterLimit[i].toString());
+    }
+    tmpMap.insert("MeterLimit",UserfulFunctions::converToQString(tmpList,'|'));
 
-
-    //Test 单独有的测试条件
-    /**/xmlWriter.writeTextElement("Speed",speed); //等效电路
-    /**/xmlWriter.writeTextElement("Range",range); //等效电路
-    /**/xmlWriter.writeTextElement("BiasSource",biasSource); //等效电路
-    /**/xmlWriter.writeTextElement("BiasStatus",biasStatus); //等效电路
-    /**/xmlWriter.writeTextElement("Test2ON",QString::number(isTest2On)); //等效电路
-    xmlWriter.writeEndElement(); //关闭标签
-    xmlWriter.writeStartElement("entry");
-    xmlWriter.writeAttribute("term", "Test2");
-    /**/xmlWriter.writeTextElement("Item1", items.at(2)); //参数1
-    /**/xmlWriter.writeTextElement("Item2", items.at(3)); //参数2
-    /**/xmlWriter.writeTextElement("Item1Unit",itemUnits.at(2));//参数1单位
-    /**/xmlWriter.writeTextElement("Item2Unit",itemUnits.at(3));//参数2单位
-    /**/xmlWriter.writeTextElement("Level",QString::number(level.at(1))); //Level值
-    /**/xmlWriter.writeTextElement("LevelUnit","V"); //Level单位
-    /**/xmlWriter.writeTextElement("Frequency",QString::number(frequency.at(1)));//频率
-    /**/xmlWriter.writeTextElement("Equcct",equcct.at(1)); //等效电路
-    tmp = meterLimit.at(2);
-    /**/xmlWriter.writeTextElement("Item1Limit",tmp.toString()); //上下限
-    tmp = meterLimit.at(3);
-    /**/xmlWriter.writeTextElement("Item2Limit",tmp.toString()); //上下限
+    tmpMap.insert("Range",this->range);
+    tmpMap.insert("Speed",this->speed);
+    tmpMap.insert("BiasSource",this->biasSource);
+    tmpMap.insert("BiasStatus",this->biasStatus);
+    tmpMap.insert("IsTest2On",this->isTest2On);
 
 
-    xmlWriter.writeEndElement();
-    xmlWriter.writeEndDocument(); //这个 XML 文档已经写完
-
-    return tmpXml;
-
+    QJsonDocument jsDocument = QJsonDocument::fromVariant(tmpMap);
+    if(!jsDocument.isNull())
+    {
+        return jsDocument.toJson();
+    }
+    return "";
 }
 
-void cls4300MeterMode::readTestCondition(QString fileName)
+void cls4300MeterMode::readTestCondition(QString strCondtion)
 {
-    QFile file(fileName);
-    QString t;
-    if(file.open(QFile::ReadOnly))
+    QJsonParseError error;
+    QJsonDocument jsDocument=QJsonDocument::fromJson(strCondtion.toUtf8(),&error);
+    if(error.error==QJsonParseError::NoError)
     {
-        t= file.readAll();
-        // qDebug()<<t;
-        file.close();
-    }
-
-    if(t.isEmpty())
-        return;
-
-    QXmlStreamReader xmlReader;
-    xmlReader.addData(t);
-    xmlReader.setNamespaceProcessing(true);
-    bool isMeter=false;
-    while((!xmlReader.atEnd()) && (!xmlReader.hasError()))
-    {
-        QXmlStreamReader::TokenType token = xmlReader.readNext();
-        // qDebug()<<xmlReader.name();
-
-        if(token == QXmlStreamReader::StartDocument)
-            continue;
-
-        if(token == QXmlStreamReader::StartElement)
+        if(jsDocument.isObject())
         {
-            if(xmlReader.name() =="WK4300")
-            {
-                isMeter = true;
-                continue;
-            }
+            QVariantMap result = jsDocument.toVariant().toMap();
 
-            if(xmlReader.name() == "entry")
+            QString instrument = result["Instument"].toString();
+            if(instrument!="WK4300")
+                return;
+
+            range = result["Range"].toString();
+            speed = result["Speed"].toString();
+            biasSource = result["BiasSource"].toString();
+            biasStatus = result["BiasStatus"].toString();
+            isTest2On =result["IsTest2On"].toBool();
+
+            QString tmp ;
+            tmp = result["Frequency"].toString();
+            this->frequency = UserfulFunctions::converToDoubleList(tmp);
+
+            tmp = result["Item1"].toString();
+            this->items = tmp.split(",");
+
+            tmp = result["ItemUnits"].toString();
+            this->itemUnits = tmp.split(",");
+
+            tmp = result["Level"].toString();
+            this->level = UserfulFunctions::converToDoubleList(tmp);
+
+            tmp = result["Equcct"].toString();
+            this->equcct = tmp.split(",");
+
+            tmp = result["MeterLimit"].toString();
+            QStringList tmpList = tmp.split('|');
+
+            if(tmpList.length()== meterLimit.length() )
             {
-                QXmlStreamAttributes attributes=xmlReader.attributes();
-                if(attributes.hasAttribute("term"))
+                for(int i=0; i<tmpList.length();i++)
                 {
-                    if(!isMeter)
-                        return;
-                    QString test = attributes.value("term").toString();
-                    xmlReader.readNext();
-                    if(test == "Test1")
-                    {
-                        while(!(xmlReader.tokenType() == QXmlStreamReader::EndElement &&
-                                xmlReader.name() == "entry"))
-                        {
-                            //qDebug()<<xmlReader.name();
-                            if(xmlReader.tokenType()==QXmlStreamReader::StartElement)
-                            {
-                                if(xmlReader.name()=="Item1")
-                                {
-
-                                    xmlReader.readNext();
-                                    if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                    {
-                                        return;
-                                    }
-
-
-                                    items.replace(0,xmlReader.text().toString());
-                                    xmlReader.readNext();
-                                }
-
-                                if(xmlReader.name() == "Item2")
-                                {
-                                    xmlReader.readNext();
-                                    if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                    {
-                                        return;
-                                    }
-
-                                    items.replace(1,xmlReader.text().toString());
-                                    xmlReader.readNext();
-                                }
-
-                                if(xmlReader.name() == "Item1Unit")
-                                {
-                                    xmlReader.readNext();
-                                    if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                    {
-                                        return;
-                                    }
-
-                                    itemUnits.replace(0,xmlReader.text().toString());
-                                    xmlReader.readNext();
-                                }
-
-                                if(xmlReader.name() == "Item2Unit")
-                                {
-                                    xmlReader.readNext();
-                                    if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                    {
-                                        return;
-                                    }
-
-                                    itemUnits.replace(1,xmlReader.text().toString());
-                                    xmlReader.readNext();
-                                }
-
-                                if(xmlReader.name() == "Level")
-                                {
-                                    xmlReader.readNext();
-                                    if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                    {
-                                        return;
-                                    }
-
-                                    level.replace(0,xmlReader.text().toDouble());
-                                    xmlReader.readNext();
-                                }
-
-                                if(xmlReader.name() == "LevelUnit")
-                                {
-                                    xmlReader.readNext();
-                                    if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                    {
-                                        return;
-                                    }
-                                    xmlReader.readNext();
-                                }
-
-                                if(xmlReader.name() == "Frequency")
-                                {
-                                    xmlReader.readNext();
-                                    if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                    {
-                                        return;
-                                    }
-
-                                    frequency.replace(0,xmlReader.text().toDouble());
-                                    xmlReader.readNext();
-                                }
-
-                                if(xmlReader.name() == "Equcct")
-                                {
-                                    xmlReader.readNext();
-                                    if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                    {
-                                        return;
-                                    }
-
-                                    equcct.replace(0,xmlReader.text().toString());
-                                    xmlReader.readNext();
-                                }
-
-                                if(xmlReader.name() == "Speed")
-                                {
-                                    xmlReader.readNext();
-                                    if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                    {
-                                        return;
-                                    }
-
-                                    speed = xmlReader.text().toString();
-                                    xmlReader.readNext();
-                                }
-
-                                if(xmlReader.name() == "Range")
-                                {
-                                    xmlReader.readNext();
-                                    if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                    {
-                                        return;
-                                    }
-
-                                    range = xmlReader.text().toString();
-                                    xmlReader.readNext();
-                                }
-
-                                if(xmlReader.name() == "BiasSource")
-                                {
-                                    xmlReader.readNext();
-                                    if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                    {
-                                        return;
-                                    }
-
-                                    biasSource = xmlReader.text().toString();
-                                    xmlReader.readNext();
-                                }
-
-                                if(xmlReader.name() == "BiasStatus")
-                                {
-                                    xmlReader.readNext();
-                                    if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                    {
-                                        return;
-                                    }
-
-                                    biasStatus = xmlReader.text().toString();
-                                    xmlReader.readNext();
-                                }
-                                if(xmlReader.name() == "Test2ON")
-                                {
-                                    xmlReader.readNext();
-                                    if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                    {
-                                        return;
-                                    }
-
-                                    isTest2On = xmlReader.text().toInt();
-                                    xmlReader.readNext();
-                                }
-
-                                if(xmlReader.name() == "Item1Limit")
-                                {
-                                    xmlReader.readNext();
-                                    if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                    {
-                                        return;
-                                    }
-
-                                    clsMeterLimit tmp;
-                                    tmp.setString(xmlReader.text().toString());
-                                    meterLimit.replace(0,tmp);
-                                    xmlReader.readNext();
-                                }
-
-                                if(xmlReader.name() == "Item2Limit")
-                                {
-                                    xmlReader.readNext();
-                                    if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                    {
-                                        return;
-                                    }
-
-                                    clsMeterLimit tmp;
-                                    tmp.setString(xmlReader.text().toString());
-                                    meterLimit.replace(1,tmp);
-                                    xmlReader.readNext();
-                                }
-
-
-                            }
-                            xmlReader.readNext();
-                        }
-                    }
-                    else if(test == "Test2")
-                    {
-                        while(!(xmlReader.tokenType() == QXmlStreamReader::EndElement &&
-                                xmlReader.name() == "entry"))
-                        {
-                            //qDebug()<<xmlReader.name();
-                            if(xmlReader.name()=="Item1")
-                            {
-                                xmlReader.readNext();
-                                if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                {
-                                    return;
-                                }
-
-                                items.replace(2,xmlReader.text().toString());
-                                xmlReader.readNext();
-                            }
-
-                            if(xmlReader.name() == "Item2")
-                            {
-                                xmlReader.readNext();
-                                if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                {
-                                    return;
-                                }
-
-                                items.replace(3,xmlReader.text().toString());
-                                xmlReader.readNext();
-                            }
-
-                            if(xmlReader.name() == "Item1Unit")
-                            {
-                                xmlReader.readNext();
-                                if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                {
-                                    return;
-                                }
-
-                                itemUnits.replace(2,xmlReader.text().toString());
-                                xmlReader.readNext();
-                            }
-
-                            if(xmlReader.name() == "Item2Unit")
-                            {
-                                xmlReader.readNext();
-                                if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                {
-                                    return;
-                                }
-
-                                itemUnits.replace(3,xmlReader.text().toString());
-                                xmlReader.readNext();
-                            }
-
-                            if(xmlReader.name() == "Level")
-                            {
-                                xmlReader.readNext();
-                                if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                {
-                                    return;
-                                }
-
-                                level.replace(1,xmlReader.text().toDouble());
-                                xmlReader.readNext();
-                            }
-
-                            if(xmlReader.name() == "LevelUnit")
-                            {
-                                xmlReader.readNext();
-                                if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                {
-                                    return;
-                                }
-                                xmlReader.readNext();
-                            }
-
-                            if(xmlReader.name() == "Frequency")
-                            {
-                                xmlReader.readNext();
-                                if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                {
-                                    return;
-                                }
-
-                                frequency.replace(1,xmlReader.text().toDouble());
-                                xmlReader.readNext();
-                            }
-
-                            if(xmlReader.name() == "Equcct")
-                            {
-                                xmlReader.readNext();
-                                if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                {
-                                    return;
-                                }
-
-                                equcct.replace(1,xmlReader.text().toString());
-                                xmlReader.readNext();
-                            }
-
-                            if(xmlReader.name() == "Item1Limit")
-                            {
-                                xmlReader.readNext();
-                                if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                {
-                                    return;
-                                }
-
-                                clsMeterLimit tmp;
-                                tmp.setString(xmlReader.text().toString());
-                                meterLimit.replace(2,tmp);
-                                xmlReader.readNext();
-                            }
-
-                            if(xmlReader.name() == "Item2Limit")
-                            {
-                                xmlReader.readNext();
-                                if(xmlReader.tokenType() != QXmlStreamReader::Characters)
-                                {
-                                    return;
-                                }
-
-                                clsMeterLimit tmp;
-                                tmp.setString(xmlReader.text().toString());
-                                meterLimit.replace(3,tmp);
-                                xmlReader.readNext();
-                            }
-
-                            xmlReader.readNext();
-                        }
-                    }
-
+                    meterLimit[i].setString(tmpList.at(i));
                 }
             }
+
         }
     }
+
+
+
     updateButtons();
 }
 
@@ -1092,5 +802,5 @@ void cls4300MeterMode::on_groupBox_clicked()
 
 void cls4300MeterMode::on_btnOk_clicked()
 {
-
+    this->close();
 }

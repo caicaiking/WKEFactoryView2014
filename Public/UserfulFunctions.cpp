@@ -102,7 +102,7 @@ QString UserfulFunctions::getSuffix(const QString &value)
     if(value.toUpper()=="LEVELV")
         return "V";
 
-    return "";
+    return value;
 }
 
 QString UserfulFunctions::getName(const QString &value)
@@ -170,6 +170,43 @@ QList<double> UserfulFunctions::resultPro(const QString &resultString)
     }
     return myReturn;
 
+}
+
+QString UserfulFunctions::converToQString(QList<QString> tmp, QChar sp)
+{
+    QStringList tmpStr;
+    for(int i=0; i<tmp.length();i++)
+    {
+        tmpStr<< tmp.at(i);
+    }
+
+    return tmpStr.join(sp);
+}
+
+QString UserfulFunctions::converToQString(QList<double> tmp)
+{
+    QStringList tmpStr;
+    for(int i=0; i< tmp.length();i++)
+    {
+        tmpStr<< QString::number(tmp[i]);
+    }
+    return tmpStr.join(",");
+}
+
+QList<double> UserfulFunctions::converToDoubleList(QString tmp)
+{
+    QStringList tmpStr = tmp.split(",");
+    QList<double> list;
+
+    if(tmp.isEmpty())
+        return list;
+
+    for(int i=0; i< tmpStr.length();i++)
+    {
+        list.append(tmpStr[i].toDouble());
+    }
+
+    return list;
 }
 
 //将选点的曲线转换成一组像这样的形式（10.0K,<100Ohm,90Deg>）.

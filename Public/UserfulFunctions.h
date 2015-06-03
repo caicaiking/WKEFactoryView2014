@@ -1,10 +1,14 @@
 #ifndef USERFULFUNCTIONS_H
 #define USERFULFUNCTIONS_H
 #include <QMap>
-#include <Plot.h>
+
+#include <Qwt/qwt_plot_curve.h>
 class QStringList;
 class QString;
 #include "Globle.h"
+#include <Qwt/qwt.h>
+
+
 class UserfulFunctions
 {
 public:
@@ -23,8 +27,9 @@ public:
     static double Abs(double x);
     static QList<QPointF> getPlotCurveData(QwtPlotCurve *curve);
     static QList<double> resultPro(const QString &resultString);
-
-
+    static QString converToQString(QList<QString> tmp,QChar sp=',');
+    static QString converToQString(QList<double> tmp);
+    static QList<double> converToDoubleList(QString tmp);
     static QString getSweepTypeName(SweepType t)
     {
         switch (t) {

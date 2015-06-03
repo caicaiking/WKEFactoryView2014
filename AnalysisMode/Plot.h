@@ -1,19 +1,18 @@
 #ifndef PLOT_H
 #define PLOT_H
-
+#include "Globle.h"
 #include <Qwt/qwt_plot.h>
 #include <QWidget>
-#include "clsCurveLimit.h"
 #include <clsRefTraceProperty.h>
+#include <Qwt/qwt_plot_curve.h>
+#include "clsCurveLimit.h"
+
+
 class QwtPlotCurve;
 class QwtPlotMarker;
 class QwtPlotCurve;
 class QwtPlotGrid;
 
-struct PlotCurves{
-    QwtPlotCurve *cur1;
-    QwtPlotCurve *cur2;
-};
 
 class Plot: public QwtPlot
 {
@@ -25,8 +24,6 @@ public:
     };
 
     Plot(QWidget *parent=0);
-
-
     void showData(const QVector<double> &x,
                   const QVector<double>& curvel,
                   const QVector<double> & curve2);
@@ -35,15 +32,12 @@ public:
     void addNewCurve(const int index, const QColor curColor1,
                      const QString curTitle1, const QString curColor2,
                      const bool OnOrOff);
-
     void setTraceA(const QString & value);
     void setTraceB(const QString & value);
     void setXTrace(const QString & value);
-
     QString getTraceA(){return strTraceA;}
     QString getTraceB(){return strTraceB;}
     QString getXTrace(){return strXTrace;}
-
     void setTraces(const QString &traceA="Z",
                    const QString &traceB="θ",
                    const QString &xTrace=tr("频率[Hz]"));
@@ -51,7 +45,6 @@ public:
     void setXScale(double min, double max, bool logx);
     void setYLeftScal(double min, double max, bool logx);
     void setYRightScal(double min, double max);
-
     void setScale(double xmin=100,double xmax=100000,bool blLogX=true,
                   double yLeftMin=100,double yLeftMax=100000,bool blLogYLeft=true,
                   double yRightMin=-100, double yRightMax=100);
@@ -60,11 +53,7 @@ public:
                  double &yRightMin, double &yRightMax);
     void turnOffCurves(Choice choice, bool status=true);
     QList<PlotCurves> getCurves(){return this->curves.values();}
-
-
-
     void turnOffCurves( QList<curveProperty> cp, Plot::Choice choice, bool status);
-
     double getXmax() const;
     double getXmin() const;
     double getYLeftMax() const;
@@ -91,7 +80,9 @@ public:
     double getCurrentMarkValue();
     QMap<double, double> getChoiceData(Choice x);
 
-    void setCurveLimit(const clsCurveLimit curveLimit);
+    void setCurveLimit(const clsCurveLimit &curveLimit);
+    void setCurveLimitVisiable(const bool &value);
+
 public slots:
     QString setMarker(const double& freq, const int intSelected=0);
     void addNewCurve(curveProperty property, bool isSetCurrent=false);

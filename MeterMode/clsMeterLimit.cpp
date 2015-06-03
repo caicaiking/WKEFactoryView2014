@@ -141,9 +141,16 @@ void clsMeterLimit::setLimitType(const QString &value)
 {
     limitType = value;
 }
-
+/*!
+ * \brief clsMeterLimit::comparaValue
+ * \param value
+ * \param type 失败的类型
+ * \return
+ */
 bool clsMeterLimit::comparaValue(double value,QString &type)
 {
+    type="";
+
     if(limitType=="Norm")
     {
         if(absHi==0.0 && absLo==0.0)
@@ -184,6 +191,12 @@ bool clsMeterLimit::comparaValue(double value,QString &type)
         }
         return true;
     }
+}
+
+bool clsMeterLimit::comparaValue(double value)
+{
+    QString tmpString;
+    return  comparaValue(value,tmpString);
 }
 
 QString clsMeterLimit::showLimits(QString suffix)

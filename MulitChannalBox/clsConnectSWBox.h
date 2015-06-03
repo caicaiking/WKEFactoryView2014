@@ -4,6 +4,7 @@
 #include <QObject>
 #include "clsPortListener.h"
 #include <QTimer>
+#include <QStringList>
 class clsConnectSWBox : public QObject
 {
     Q_OBJECT
@@ -15,6 +16,7 @@ public:
     static clsConnectSWBox *Instance();
     bool initSerialPort();
     int sendCommand(QString value);
+    int sendCommand(int chennal);
 signals:
 
 public slots:
@@ -23,7 +25,7 @@ public slots:
 private:
 
     clsPortListener *serialPort;
-
+    QStringList chennals;
     int feedbackResult;
 };
 

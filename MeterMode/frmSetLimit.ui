@@ -343,6 +343,9 @@
                 <pointsize>11</pointsize>
                </font>
               </property>
+              <property name="toolTip">
+               <string>±0.1%</string>
+              </property>
               <property name="text">
                <string>&amp;B</string>
               </property>
@@ -367,6 +370,9 @@
                 <family>楷体</family>
                 <pointsize>11</pointsize>
                </font>
+              </property>
+              <property name="toolTip">
+               <string>±0.25%</string>
               </property>
               <property name="text">
                <string>&amp;C</string>
@@ -393,6 +399,9 @@
                 <pointsize>11</pointsize>
                </font>
               </property>
+              <property name="toolTip">
+               <string>±0.5%</string>
+              </property>
               <property name="text">
                <string>&amp;D</string>
               </property>
@@ -417,6 +426,9 @@
                 <family>楷体</family>
                 <pointsize>11</pointsize>
                </font>
+              </property>
+              <property name="toolTip">
+               <string>±1%</string>
               </property>
               <property name="text">
                <string>&amp;F</string>
@@ -443,6 +455,9 @@
                 <pointsize>11</pointsize>
                </font>
               </property>
+              <property name="toolTip">
+               <string>±2%</string>
+              </property>
               <property name="text">
                <string>&amp;G</string>
               </property>
@@ -467,6 +482,9 @@
                 <family>楷体</family>
                 <pointsize>11</pointsize>
                </font>
+              </property>
+              <property name="toolTip">
+               <string>±5%</string>
               </property>
               <property name="text">
                <string>&amp;J</string>
@@ -493,6 +511,9 @@
                 <pointsize>11</pointsize>
                </font>
               </property>
+              <property name="toolTip">
+               <string>±10%</string>
+              </property>
               <property name="text">
                <string>&amp;K</string>
               </property>
@@ -517,6 +538,9 @@
                 <family>楷体</family>
                 <pointsize>11</pointsize>
                </font>
+              </property>
+              <property name="toolTip">
+               <string>±20%</string>
               </property>
               <property name="text">
                <string>&amp;M</string>
@@ -543,6 +567,9 @@
                 <pointsize>11</pointsize>
                </font>
               </property>
+              <property name="toolTip">
+               <string>±30%</string>
+              </property>
               <property name="text">
                <string>&amp;N</string>
               </property>
@@ -567,6 +594,9 @@
                 <family>楷体</family>
                 <pointsize>11</pointsize>
                </font>
+              </property>
+              <property name="toolTip">
+               <string>±0.05%</string>
               </property>
               <property name="text">
                <string>&amp;W</string>

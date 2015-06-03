@@ -3,12 +3,32 @@
 #include <QObject>
 #include <QApplication>
 #include <QDebug>
+#include <QStringList>
+#include <math.h>
+using namespace std;
 //将_instance 指针初始化为0
 clsConnectSWBox *clsConnectSWBox::_instance = 0;
 
 clsConnectSWBox::clsConnectSWBox(QObject *parent) :
     QObject(parent)
 {
+
+    chennals.clear();
+    QString tmp;
+
+    for(int i=0; i<16; i++)
+    {
+        int value=  pow(2,i);
+        tmp = QString("4,%1,0").arg(QString::number(value));
+        chennals<<tmp;
+    }
+
+    for(int i=1; i<5; i++)
+    {
+        int value=  pow(2,i-1);
+        tmp = QString("4,0,%1").arg(QString::number(value));
+        chennals<<tmp;
+    }
 }
 
 /*!
@@ -22,7 +42,7 @@ clsConnectSWBox *clsConnectSWBox::Instance()
     if (!_instance) {
         QMutexLocker locker(&mutex);
         if (!_instance) {
-            _instance = new clsConnectSWBox;
+            _instance = new clsConnectSWBox();
         }
     }
     return _instance;
@@ -49,4 +69,11 @@ bool clsConnectSWBox::initSerialPort()
 int clsConnectSWBox::sendCommand(QString value)
 {
     return   serialPort->sendCommand(value);
+}
+
+using namespace std;
+
+int clsConnectSWBox::sendCommand(int chennal)
+{
+    return sendCommand(chennals.at(chennal));
 }

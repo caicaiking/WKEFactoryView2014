@@ -20,6 +20,11 @@ void clsSignalThread::stop()
     isStop =true;
 }
 
+clsControlBox *clsSignalThread::getControlBox()
+{
+     return this->box;
+}
+
 void clsSignalThread::run()
 {
     if(box->getInit())
