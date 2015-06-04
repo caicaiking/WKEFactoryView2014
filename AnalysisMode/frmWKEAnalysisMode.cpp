@@ -40,8 +40,9 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     connect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
     controlBox->start(QThread::HighPriority);
 
+    btnSetLimit->setVisible(false);
 
-    connect(this->statusLabel,SIGNAL(Clicked()),this,SLOT(showMulitLimit()));
+//    connect(this->statusLabel,SIGNAL(Clicked()),this,SLOT(showMulitLimit()));
 }
 
 void frmWKEAnalysisMode::showMulitLimit()
@@ -128,7 +129,7 @@ void frmWKEAnalysisMode::finishTest()
 }
 
 void frmWKEAnalysisMode::testConnection()
-{
+{/*
     if(statusLabel->getStatus() !=BUSY)
     {
         QString strRet="";
@@ -138,7 +139,7 @@ void frmWKEAnalysisMode::testConnection()
         else
             lblIndicator->setStyleSheet("border-radius:20px; background-color: green");
     }
-    qApp->processEvents();
+    qApp->processEvents();*/
 }
 
 void frmWKEAnalysisMode::initZoomer()
