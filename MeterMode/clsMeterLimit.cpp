@@ -149,8 +149,7 @@ void clsMeterLimit::setLimitType(const QString &value)
  */
 bool clsMeterLimit::comparaValue(double value,QString &type)
 {
-    type="";
-
+    type="PASS";
     if(limitType=="Norm")
     {
         if(absHi==0.0 && absLo==0.0)
@@ -158,12 +157,12 @@ bool clsMeterLimit::comparaValue(double value,QString &type)
 
         if(absLo>value)
         {
-            type="Lo";
+            type="LOW";
             return false;
         }
         if(absHi< value)
         {
-            type="Hi";
+            type="HIGH";
             return false;
         }
 
@@ -180,13 +179,13 @@ bool clsMeterLimit::comparaValue(double value,QString &type)
 
         if(hi< value)
         {
-            type="Hi";
+            type="HIGH";
             return false;
         }
 
         if(lo>value)
         {
-            type="Lo";
+            type="LOW";
             return false;
         }
         return true;

@@ -18,8 +18,44 @@ clsSetTestStep::clsSetTestStep(QWidget *parent) :
     meterWidget->setLayout(layout);
 
     connect(meter,SIGNAL(signalTestResult(QString)),this,SLOT(showRes(QString)));
+
+    initSheetTitle();
 }
 
+void clsSetTestStep:: initSheetTitle()
+{
+
+    tbTaskList->verticalHeader()->setVisible(false);
+    tbTaskList->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    tbTaskList->setSelectionMode(QAbstractItemView::SingleSelection);
+    tbTaskList->setSelectionBehavior(QTableView::SelectRows);
+    this->tbTaskList->setColumnCount(2);
+    this->tbTaskList->setColumnWidth(0,50);
+    this->tbTaskList->horizontalHeader()->setSectionResizeMode(1,QHeaderView::ResizeToContents);
+    this->tbTaskList->setHorizontalHeaderItem(0,getTableItem(tr("序号"),true));
+    this->tbTaskList->setHorizontalHeaderItem(1,getTableItem(tr("简述"),true));
+
+}
+
+/*!
+ * \brief clsSetTestStep::getTableItem 获取单元格
+ * \param content 要显示的内容
+ * \param isTitle 是否是标题，是标题有加粗效果
+ * \return 返回一个item 指针
+ */
+QTableWidgetItem* clsSetTestStep::getTableItem(const QString &content,bool isTitle)
+{
+    QTableWidgetItem * item= new QTableWidgetItem();
+
+    item->setText(content);
+    if(isTitle)
+        item->setFont(QFont("楷体", 12, QFont::Bold));
+    else
+        item->setFont(QFont("楷体", 11));
+    item->setBackgroundColor(QColor(Qt::gray));
+    //item->setTextAlignment(Qt::AlignHCenter/*|Qt::AlignVCenter*/);
+    return item;
+}
 
 
 
@@ -37,15 +73,57 @@ void clsSetTestStep::biasSlot(bool value)
         btnTurnOffBias->setIcon(QIcon(":/Icons/BiasOn.png"));
 }
 
-void clsSetTestStep::setTestSteps(QList<WKEMeterMode *> value)
+void clsSetTestStep::setTestSteps(const QStringList &value)
 {
 
+    this->steps.clear();
+
+    for(int i=0; i< value.length();i++)
+    {
+        WKEMeterMode *tmpMeter = clsMeterModeFactory::getFunction(clsRS::getInst().meterSeries);
+        tmpMeter->setCondition(value.at(i));
+        steps.append(tmpMeter);
+    }
+
+    showTaskList();
+
+    if(tbTaskList->rowCount()>=1)
+    {
+        tbTaskList->setCurrentCell(0,0);
+        meter->setCondition(steps.at(0)->getConditon());
+    }
 }
 
-QList<WKEMeterMode *> clsSetTestStep::getTestSteps()
+const QStringList clsSetTestStep::getTestSteps()
+{
+    QStringList tmp;
+    for(int i =0; i< steps.length(); i++)
+    {
+        tmp.append(steps.at(i)->getConditon());
+    }
+    return tmp;
+}
+
+
+/*!
+ * \brief clsMeterMode::showTaskList
+ * 显示任务
+ */
+void clsSetTestStep::showTaskList()
 {
 
+    tbTaskList->clear();
+    this->tbTaskList->setRowCount(this->steps.length());
+
+    initSheetTitle();
+    for(int i=0; i< steps.length();i++)
+    {
+        tbTaskList->setItem(i,0,getTableItem(QString::number(i+1),false));
+        tbTaskList->setItem(i,1,getTableItem(steps.at(i)->getBrief(),false));
+    }
 }
+
+
 
 void clsSetTestStep::on_btnOk_clicked()
 {
@@ -76,10 +154,100 @@ void clsSetTestStep::on_btnTest_clicked()
 
 void clsSetTestStep::on_btnNewStep_clicked()
 {
-    step = meter->getConditon();
+    WKEMeterMode * tmpMeter = clsMeterModeFactory::getFunction(clsRS::getInst().meterSeries);
+
+    tmpMeter->setCondition(meter->getConditon());
+    steps.append(tmpMeter);
+
+    showTaskList();
+    tbTaskList->setCurrentCell(tbTaskList->rowCount()-1,0);
+
 }
 
 void clsSetTestStep::on_btnSave_clicked()
 {
-    meter->setCondition(this->step);
+    if(!steps.isEmpty())
+    {
+        int row = tbTaskList->currentRow();
+
+        if(row<0)
+            return;
+
+        steps[row]->setCondition(meter->getConditon());
+        showTaskList();
+        tbTaskList->setCurrentCell(row,0);
+    }
+    else
+    {
+        WKEMeterMode *tmpMeter = clsMeterModeFactory::getFunction(clsRS::getInst().meterSeries);
+
+        steps.append(tmpMeter);
+        showTaskList();
+        tbTaskList->setCurrentCell(0,0);
+    }
+
+}
+
+
+
+void clsSetTestStep::on_tbTaskList_clicked(const QModelIndex &index)
+{
+    int intSelectRow = index.row();
+
+    meter->setCondition(steps[intSelectRow]->getConditon());
+}
+
+void clsSetTestStep::on_btnUp_clicked()
+{
+    //没有选择 返回
+      if(tbTaskList->selectedItems().length()<=0)
+          return;
+      //判断选择行数
+      int intSelectedRow = tbTaskList->selectedItems().at(0)->row();
+
+      if(intSelectedRow<1)
+          return;
+
+      steps.swap(intSelectedRow,intSelectedRow-1);
+      showTaskList();
+      tbTaskList->setCurrentCell(intSelectedRow-1,0);
+}
+
+void clsSetTestStep::on_btnDown_clicked()
+{
+    //没有选择 返回
+        if(tbTaskList->selectedItems().length()<=0)
+            return;
+        //判断选择行数
+        int intSelectedRow = tbTaskList->selectedItems().at(0)->row();
+
+        if((intSelectedRow+1)>=steps.length())
+            return;
+
+        steps.swap(intSelectedRow,intSelectedRow+1);
+        showTaskList();
+        tbTaskList->setCurrentCell(intSelectedRow+1,0);
+}
+
+void clsSetTestStep::on_btnDelete_clicked()
+{
+
+    if(tbTaskList->selectedItems().length()<=0)
+        return;
+
+    int intSelectedRow = tbTaskList->selectedItems().at(0)->row();
+
+
+    steps.removeAt(intSelectedRow);
+
+    showTaskList();
+
+    if(intSelectedRow >0)
+        tbTaskList->setCurrentCell(intSelectedRow-1,0);
+}
+
+void clsSetTestStep::on_btnClear_clicked()
+{
+    steps.clear();
+    showTaskList();
 }

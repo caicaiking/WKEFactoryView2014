@@ -14,11 +14,8 @@ public:
 
     bool detectDut();                 //用于探测样品
     void stopDetect();                //停止探测样品
-
     void setCondition(QString value); //设置测试条件
     QString getConditon();            //获取测试设置
-
-
     void updateGPIB();                //更新测试参数到仪器
     bool getTotalStatus();            //用于获取整个测试状态
     int  getCountTestItems();         //用于获取测试的项目数
@@ -31,8 +28,8 @@ public:
     void turnOffBias();               //关闭Bias
     void singleTrig();                //单次测试
     void repetiveTrig();              //重复测试模式
-    double getResult(int i);            //获取测试数据
-
+    double getResult(int i);          //获取测试数据
+    QString getSuffix(int i);         //获取显示数据的后缀
 signals:
 
 private slots:

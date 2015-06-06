@@ -18,17 +18,15 @@ public:
 
     virtual bool detectDut()=0;                 //用于探测样品
     virtual void stopDetect()=0;                //停止探测样品
-
     virtual void setCondition(QString value)=0; //设置测试条件
     virtual QString getConditon()=0;            //获取测试设置
-
-
     virtual void updateGPIB()=0;                //更新测试参数到仪器
     virtual bool getTotalStatus()=0;            //用于获取整个测试状态
     virtual int  getCountTestItems()=0;         //用于获取测试的项目数
     virtual QString getItem(int i)=0;           //用于获取测试项目（指定）
     virtual clsMeterLimit getLimit(int i)=0;    //用于获取上下限设定（指定）
     virtual double getResult(int i)=0;          //获取测试数据（指定）
+    virtual QString getSuffix(int i)=0;         //获取显示数据的后缀（指定）
     virtual void calibration()=0;               //仪表校准
     virtual QString getBrief()=0;               //获取测试步骤大概信息
     virtual QString getMeterSeries()=0;         //获取测试仪表类型

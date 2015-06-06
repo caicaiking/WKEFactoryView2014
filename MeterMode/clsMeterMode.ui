@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1451</width>
-    <height>925</height>
+    <width>1280</width>
+    <height>768</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -425,9 +425,9 @@
      </widget>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="10">
+     <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,0">
+       <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="2,6">
         <item>
          <widget class="QGroupBox" name="groupBox_3">
           <property name="font">
@@ -441,19 +441,19 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_8">
            <property name="spacing">
-            <number>6</number>
+            <number>4</number>
            </property>
            <property name="leftMargin">
-            <number>9</number>
+            <number>4</number>
            </property>
            <property name="topMargin">
-            <number>9</number>
+            <number>4</number>
            </property>
            <property name="rightMargin">
-            <number>9</number>
+            <number>4</number>
            </property>
            <property name="bottomMargin">
-            <number>9</number>
+            <number>4</number>
            </property>
            <item>
             <widget class="StatusLabel" name="lblStatus">
@@ -481,7 +481,13 @@
          </widget>
         </item>
         <item>
-         <widget class="QGroupBox" name="grpSettings">
+         <widget class="QGroupBox" name="groupBox">
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>100</height>
+           </size>
+          </property>
           <property name="font">
            <font>
             <family>楷体</family>
@@ -489,103 +495,116 @@
            </font>
           </property>
           <property name="title">
-           <string>测试结果显示</string>
+           <string>测试设定</string>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_7">
-           <property name="spacing">
-            <number>0</number>
-           </property>
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <item>
-            <widget class="QStackedWidget" name="skWidget">
-             <property name="minimumSize">
-              <size>
-               <width>401</width>
-               <height>351</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>楷体</family>
-               <pointsize>12</pointsize>
-              </font>
-             </property>
-             <property name="currentIndex">
-              <number>0</number>
-             </property>
-             <widget class="QWidget" name="skPageTest">
-              <layout class="QVBoxLayout" name="verticalLayout_8">
-               <item>
-                <widget class="QTableWidget" name="tableWidget_2"/>
-               </item>
-               <item>
-                <layout class="QHBoxLayout" name="horizontalLayout_9">
-                 <item>
-                  <spacer name="horizontalSpacer_3">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>40</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pushButton_11">
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="icon">
-                    <iconset resource="../recFile/myRes.qrc">
-                     <normaloff>:/Icons/Last.ico</normaloff>:/Icons/Last.ico</iconset>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QSpinBox" name="spinBox">
-                   <property name="font">
-                    <font>
-                     <family>楷体</family>
-                     <pointsize>12</pointsize>
-                    </font>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QPushButton" name="pushButton_12">
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="icon">
-                    <iconset resource="../recFile/myRes.qrc">
-                     <normaloff>:/Icons/Next.ico</normaloff>:/Icons/Next.ico</iconset>
-                   </property>
-                  </widget>
-                 </item>
-                </layout>
-               </item>
-              </layout>
-             </widget>
-            </widget>
-           </item>
-          </layout>
          </widget>
         </item>
        </layout>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="grpSettings">
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="title">
+         <string>测试结果显示</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_7">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QStackedWidget" name="skWidget">
+           <property name="minimumSize">
+            <size>
+             <width>401</width>
+             <height>351</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>楷体</family>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <widget class="QWidget" name="skPageTest">
+            <layout class="QVBoxLayout" name="verticalLayout_8">
+             <item>
+              <widget class="QTableWidget" name="tabResult"/>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="horizontalLayout_9">
+               <item>
+                <spacer name="horizontalSpacer_3">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_11">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../recFile/myRes.qrc">
+                   <normaloff>:/Icons/Last.ico</normaloff>:/Icons/Last.ico</iconset>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QSpinBox" name="spinBox">
+                 <property name="font">
+                  <font>
+                   <family>楷体</family>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton_12">
+                 <property name="text">
+                  <string/>
+                 </property>
+                 <property name="icon">
+                  <iconset resource="../recFile/myRes.qrc">
+                   <normaloff>:/Icons/Next.ico</normaloff>:/Icons/Next.ico</iconset>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
       </item>
      </layout>
     </item>
@@ -726,7 +745,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1451</width>
+     <width>1280</width>
      <height>23</height>
     </rect>
    </property>

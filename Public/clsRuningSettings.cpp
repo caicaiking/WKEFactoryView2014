@@ -1,5 +1,5 @@
 #include "clsRuningSettings.h"
-
+#include <QDebug>
 #include <QMutex>
 #include <QReadWriteLock>
 #include "clsConnection.h"
@@ -172,6 +172,7 @@ void clsRS::disConnect()
 
 QString clsRS::sendCommand(QString strCommand, bool hasReturn)
 {
+    //qDebug()<< strCommand;
     return  data->sendCommand(strCommand,hasReturn,0);
 }
 

@@ -56,5 +56,12 @@
         <file>Icons/chennal.png</file>
         <file>Icons/Result.png</file>
         <file>Icons/data2.png</file>
+        <file>Icons/clear1.png</file>
+        <file>Icons/del.png</file>
+        <file>Icons/down1.png</file>
+        <file>Icons/up1.png</file>
+        <file>Icons/new1.png</file>
+        <file>Icons/test.png</file>
+        <file>Icons/save2.png</file>
     </qresource>
 </RCC>
