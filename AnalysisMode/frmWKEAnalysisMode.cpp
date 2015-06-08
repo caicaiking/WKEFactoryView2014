@@ -40,10 +40,15 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     connect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
     controlBox->start(QThread::HighPriority);
 
+
     //隐藏限定设置，标配软件不需要这个
     lblIndicator->setVisible(false);
     //connect(this->statusLabel,SIGNAL(Clicked()),this,SLOT(showMulitLimit()));
     btnSetLimit->setVisible(false);
+
+
+//    connect(this->statusLabel,SIGNAL(Clicked()),this,SLOT(showMulitLimit()));
+
 }
 
 void frmWKEAnalysisMode::showMulitLimit()
@@ -130,17 +135,17 @@ void frmWKEAnalysisMode::finishTest()
 }
 
 void frmWKEAnalysisMode::testConnection()
-{
-//    if(statusLabel->getStatus() !=BUSY)
-//    {
-//        QString strRet="";
-//        strRet= clsRS::getInst().sendCommand("*IDN?",true);
-//        if(strRet.isEmpty())
-//            lblIndicator->setStyleSheet("border-radius:20px; background-color: red");
-//        else
-//            lblIndicator->setStyleSheet("border-radius:20px; background-color: green");
-//    }
-//    qApp->processEvents();
+{/*
+    if(statusLabel->getStatus() !=BUSY)
+    {
+        QString strRet="";
+        strRet= clsRS::getInst().sendCommand("*IDN?",true);
+        if(strRet.isEmpty())
+            lblIndicator->setStyleSheet("border-radius:20px; background-color: red");
+        else
+            lblIndicator->setStyleSheet("border-radius:20px; background-color: green");
+    }
+    qApp->processEvents();*/
 }
 
 void frmWKEAnalysisMode::initZoomer()

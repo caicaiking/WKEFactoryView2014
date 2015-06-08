@@ -158,6 +158,10 @@ bool frmWk3260::turnOnBias()
             UserfulFunctions::sleepMs(2500);
         else if(wk3260.biasValue.value<10)
             UserfulFunctions::sleepMs(600);
+        else if(wk3260.biasValue.value<20)
+            UserfulFunctions::sleepMs(800);
+        else if(wk3260.biasValue.value<30)
+            UserfulFunctions::sleepMs(1000);
         else
             UserfulFunctions::sleepMs(650);
         return queryBiasStatus();
