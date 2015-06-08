@@ -22,7 +22,27 @@ void clsSignalThread::stop()
 
 clsControlBox *clsSignalThread::getControlBox()
 {
-     return this->box;
+    return this->box;
+}
+
+void clsSignalThread::setPass()
+{
+    box->setPass();
+}
+
+void clsSignalThread::setFail()
+{
+    box->setFail();
+}
+
+void clsSignalThread::setBDA()
+{
+    box->setBDA();
+}
+
+void clsSignalThread::resetBDA()
+{
+    box->resetBDA();
 }
 
 void clsSignalThread::run()

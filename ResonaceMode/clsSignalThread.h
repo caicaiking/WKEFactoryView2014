@@ -8,9 +8,15 @@ class clsSignalThread : public QThread
     Q_OBJECT
 public:
     explicit clsSignalThread(QObject *parent = 0);
-~clsSignalThread();
+    ~clsSignalThread();
     void stop();
     clsControlBox * getControlBox();
+
+    void setPass();
+    void setFail();
+    void setBDA();
+    void resetBDA();
+
 
 signals:
     void trigCaptured();

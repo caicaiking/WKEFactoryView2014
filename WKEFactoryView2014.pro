@@ -120,7 +120,8 @@ SOURCES +=\
     AnalysisMode/clsMultiLimitStatusShow.cpp \
     AnalysisMode/clsCurveLimit.cpp \
     MeterMode/clsSetTestStep.cpp \
-    MeterMode/clsMeterUnit.cpp
+    MeterMode/clsMeterUnit.cpp \
+    MeterMode/clsMeterModeSettings.cpp
 
 
 
@@ -255,7 +256,8 @@ HEADERS += \
     AnalysisMode/clsMultiLimitStatusShow.h \
     AnalysisMode/clsCurveLimit.h \
     MeterMode/clsSetTestStep.h \
-    MeterMode/clsMeterUnit.h
+    MeterMode/clsMeterUnit.h \
+    MeterMode/clsMeterModeSettings.h
 
 
 
@@ -309,7 +311,8 @@ FORMS += \
     MulitChannalBox/clsMRBDisplayPannel.ui \
     AnalysisMode/clsMultiLimitStatusShow.ui \
     MeterMode/clsSetTestStep.ui \
-    MeterMode/clsMeterUnit.ui
+    MeterMode/clsMeterUnit.ui \
+    MeterMode/clsMeterModeSettings.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV.ts

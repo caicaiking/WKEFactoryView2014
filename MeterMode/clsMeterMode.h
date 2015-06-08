@@ -5,6 +5,61 @@
 #include "WKEMeterMode.h"
 #include <QList>
 #include <QPointer>
+#include "UserfulFunctions.h"
+#include "clsSignalThread.h"
+/*!
+ * 用于产品的统计
+ * !*/
+class product_Static
+{
+private:
+    int totle;
+    int pass;
+    int fail;
+public:
+    product_Static(){
+        totle=1;
+        pass =0;
+        fail=0;
+    }
+
+    QString getTotle()
+    {
+        return QString::number(totle);
+    }
+
+    QString getPass()
+    {
+        return QString::number(pass);
+    }
+
+    QString getFail()
+    {
+        return QString::number(totle-1-pass);
+    }
+
+    void reset()
+    {
+        totle=1;
+        pass =0;
+        fail=0;
+    }
+    void increase(bool isPass)
+    {
+        totle++;
+        if(isPass)
+            pass++;
+        else
+            fail++;
+    }
+
+
+};
+
+
+/*!
+ *
+ * !*/
 
 
 class clsMeterMode : public QMainWindow, private Ui::clsMeterMode
@@ -20,20 +75,41 @@ private slots:
     void on_btnOpenTask_clicked();
     void on_btnTrig_clicked();
     void on_btnCalibration_clicked();
+    void on_btnRep_clicked();
+    void on_btnStop_clicked();
+    void on_btnNewTask_clicked();
+    void detecInprogress();
+    void on_btnSaveData_clicked();
+    void on_btnAdvance_clicked();
+    void trig();
+    void setAdu200(Status value);
+
+
+    void on_btnStartDetect_clicked();
 
 protected:
-
+    void closeEvent(QCloseEvent *);
 private:
     QList<WKEMeterMode *> steps;
     WKEMeterMode *meter;
 
-    int count;
+    product_Static count;
+    bool isStop;
 
 
-    void trig();
+
     void initTable();
     QTableWidgetItem *getTableTitleItem(const QString &content);
     QTableWidgetItem *getTableTestItem(const QString &content, int color);
+
+    QString strTaskFile;
+    QString tmpDir;
+    void readSettings();
+    void saveSettings();
+
+    MeterSettings mSettings;
+    void updateMessage();
+    clsSignalThread * adu200;
 };
 
 #endif // CLSMETERMODE_H

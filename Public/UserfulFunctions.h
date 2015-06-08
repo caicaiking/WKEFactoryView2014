@@ -8,6 +8,24 @@ class QString;
 #include "Globle.h"
 #include <Qwt/qwt.h>
 
+enum TrigMode
+{
+    SWTrig=0,Adu200Trig=1,AutoDetectTrig=2
+};
+
+enum SaveResultType
+{
+    AllRes=0,PassRes=1,FailRes=2
+};
+
+struct MeterSettings
+{
+    double preDelay;
+    double lastDelay;
+    TrigMode trigMode;
+    SaveResultType saveResType;
+};
+
 
 class UserfulFunctions
 {

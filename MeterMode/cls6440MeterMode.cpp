@@ -47,12 +47,93 @@ cls6440MeterMode::cls6440MeterMode(WKEMeterMode *parent) :
 
 bool cls6440MeterMode::detectDut()
 {
+    blStop= true;
+    bool isEmpty=false;
 
+    QString item;
+
+    if(clsRS::getInst().gpibCommands.testMode=="AC")
+    {
+        int index = clsRS::getInst().sendCommand(":MEAS:FUNC:MAJOR?",true).toInt();
+
+        switch (index) {
+        case 0:
+            item="C";
+            break;
+        case 1:
+            item="L";
+            break;
+        case 2:
+            item="X";
+            break;
+        case 3:
+            item="B";
+
+            break;
+        case 4:
+            item="Z";
+            break;
+        case 5:
+            item="Y";
+            break;
+        default:
+            break;
+        }
+
+        if(item!="C")
+            clsRS::getInst().sendCommand(QString(":MEAS:FUNC:C"),false);
+    }
+
+    while(blStop)
+    {
+
+
+        if(clsRS::getInst().gpibCommands.testMode=="RDC")
+        {
+             QString retValue = clsRS::getInst().sendCommand(":MEAS:TRIG",true);
+
+             double value = retValue.toDouble();
+
+             if(qAbs(value)<1E6)
+             {
+                 if(isEmpty)
+                     return true;
+                 isEmpty=false;
+             }
+             else
+             {
+                 isEmpty=true;
+             }
+        }
+        else
+        {
+            QString retValue = clsRS::getInst().sendCommand(":MEAS:TRIG",true);
+
+            double value = retValue.split(",").at(0).toDouble();
+
+            if(qAbs(value)>5E-12)
+            {
+                if(isEmpty)
+                {
+                    clsRS::getInst().sendCommand(QString(":MEAS:FUNC:%1").arg(item),false);
+                    return true;
+                }
+                isEmpty=false;
+            }
+            else
+            {
+                isEmpty=true;
+            }
+        }
+        UserfulFunctions::sleepMs(50);
+    }
+
+    return false;
 }
 
 void cls6440MeterMode::stopDetect()
 {
-    blStop = true;
+    blStop = false;
     qApp->processEvents();
 }
 

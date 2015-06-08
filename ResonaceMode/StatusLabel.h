@@ -14,6 +14,7 @@ public:
     Status getStatus();
 signals:
     void Clicked();
+    void statusChange(Status);
 public slots:
 
 

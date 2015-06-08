@@ -13,18 +13,22 @@ void StatusLabel::setStatus(Status value)
     case BUSY:
         this->setText(tr("忙碌"));
         this->setStyleSheet("background-color: rgb(255, 255, 0);border-radius: 6px");
+        emit statusChange(BUSY);
         break;
     case PASS:
         this->setText(tr("通过"));
         this->setStyleSheet(" background-color: rgb(0, 255, 0);border-radius: 6px");
+        emit statusChange(PASS);
         break;
     case FAIL:
         this->setText(tr("失败"));
         this->setStyleSheet("background-color: rgb(255, 0, 0);border-radius: 6px");
+        emit statusChange(FAIL);
         break;
     case IDEL:
         this->setText(tr("空闲"));
         this->setStyleSheet("background-color: rgb(183, 255, 172);border-radius: 6px");
+        emit statusChange(IDEL);
         break;
     default:
         break;
@@ -39,11 +43,13 @@ void StatusLabel::setStatus(bool value)
     {
         this->setText(tr("通过"));
         this->setStyleSheet(" background-color: rgb(0, 255, 0);border-radius: 6px");
+        emit statusChange(PASS);
     }
     else
     {
         this->setText(tr("失败"));
         this->setStyleSheet("background-color: rgb(255, 0, 0);border-radius: 6px");
+        emit statusChange(FAIL);
     }
 
     this->st=IDEL;
@@ -58,5 +64,4 @@ Status StatusLabel::getStatus()
 void StatusLabel::mouseReleaseEvent(QMouseEvent *)
 {
     emit Clicked();
-
 }

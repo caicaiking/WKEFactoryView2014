@@ -63,5 +63,12 @@
         <file>Icons/new1.png</file>
         <file>Icons/test.png</file>
         <file>Icons/save2.png</file>
+        <file>Icons/stop2.png</file>
+        <file>Icons/rot1.png</file>
+        <file>Icons/rot2.png</file>
+        <file>Icons/rot3.png</file>
+        <file>Icons/rot4.png</file>
+        <file>Icons/saveData.png</file>
+        <file>Icons/detect.png</file>
     </qresource>
 </RCC>

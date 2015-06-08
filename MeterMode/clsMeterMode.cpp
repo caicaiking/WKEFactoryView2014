@@ -1,12 +1,15 @@
 #include "clsMeterMode.h"
 #include "clsRuningSettings.h"
 #include "UserfulFunctions.h"
+#include "clsSettings.h"
 #include "cls6440MeterMode.h"
 #include <QJsonDocument>
 #include <QLayout>
 #include "clsMeterModeFactory.h"
 #include "clsRuningSettings.h"
 #include "clsSetTestStep.h"
+#include <QFileDialog>
+#include "clsMeterModeSettings.h"
 clsMeterMode::clsMeterMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -15,10 +18,17 @@ clsMeterMode::clsMeterMode(QWidget *parent) :
     lblConnectionType->setText(clsRS::getInst().getConnectionType() + QObject::tr("连接"));
     lblTime->showTime();
     lblStatus->setStatus(IDEL);
+
     skWidget->setCurrentIndex(0);
     meter = clsMeterModeFactory::getFunction(clsRS::getInst().meterSeries);
+    meter->updateGPIB();
+    adu200 = new clsSignalThread(this);
+
     initTable();
-    count=1;
+    count.reset();
+    readSettings();
+    updateMessage();
+
 }
 
 
@@ -69,19 +79,51 @@ void clsMeterMode::on_btnSaveTask_clicked()
     if(!jsonDocument.isNull())
         strTask= jsonDocument.toJson(QJsonDocument::Indented);
 
-    QFile file("task.txt");
+    QString strTmp;
+    strTmp  = QFileDialog::
+            getSaveFileName(this,tr("保存测试任务"), tmpDir,
+                            tr("WKE FactoryView 任务 (*.wket)"),0);
+
+    if(strTmp.isEmpty())
+        return;
+    else
+    {
+        strTaskFile = strTmp;
+        tmpDir = QFileInfo(strTaskFile).absoluteDir().path();
+        qDebug()<<tmpDir;
+        txtTaskFile->setText(QFileInfo(strTaskFile).fileName());
+    }
+
+    QFile file(strTaskFile);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Text))
         return;
 
     QTextStream out(&file);
     out <<  strTask;
+
     out.flush();
     file.close();
 }
 
 void clsMeterMode::on_btnOpenTask_clicked()
 {
-    QFile file("task.txt");
+    QString strTmp;
+    strTmp  = QFileDialog::
+            getOpenFileName(this,tr("打开测试任务"), tmpDir,
+                            tr("WKE FactoryView 任务 (*.wket)"),0);
+
+    if(strTmp.isEmpty())
+        return;
+    else
+    {
+        strTaskFile = strTmp;
+        tmpDir = QFileInfo(strTaskFile).absoluteDir().path();
+        txtTaskFile->setText(QFileInfo(strTaskFile).fileName());
+        count.reset();
+    }
+
+
+    QFile file(strTaskFile);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
         return;
 
@@ -105,8 +147,10 @@ void clsMeterMode::on_btnOpenTask_clicked()
                 {
                     int stepCount = result["stepCount"].toInt();
                     steps.clear();
+
                     for(int i=0; i<stepCount; i++)
                     {
+
                         QString tmp = result[QString::number(i)].toString();
                         WKEMeterMode * tmpMeter = clsMeterModeFactory::getFunction(clsRS::getInst().meterSeries);
                         tmpMeter->setCondition(tmp);
@@ -217,7 +261,7 @@ void clsMeterMode::trig()
             tabResult->setRowCount(tabResult->rowCount()+1);
 
             QString number;
-            number = QString("%1-%2").arg(count).arg(i+1);
+            number = QString("%1-%2").arg(count.getTotle()).arg(i+1);
             tabResult->setItem(tabResult->rowCount()-1,0,getTableTestItem(number,2));
 
             tabResult->setItem(tabResult->rowCount()-1,1,getTableTestItem(meter->getItem(j),2));
@@ -278,7 +322,12 @@ void clsMeterMode::trig()
     lblStatus->setStatus(status);
 
     if(steps.count()>0)
-        count++;
+    {
+        count.increase(status);
+        txtTestedNumber->setText(QString::number(count.getTotle().toInt()-1));
+        txtPassNumber->setText(count.getPass());
+        txtFailNumber->setText(count.getFail());
+    }
 
     meter->turnOffBias();
 }
@@ -286,4 +335,189 @@ void clsMeterMode::trig()
 void clsMeterMode::on_btnCalibration_clicked()
 {
     meter->calibration();
+}
+
+void clsMeterMode::on_btnRep_clicked()
+{
+    while(btnRep->isChecked())
+    {
+        // detecInprogress();
+        if(!btnRep->isChecked())
+            return;
+
+        trig();
+        UserfulFunctions::sleepMs(50);
+        qApp->processEvents();
+    }
+}
+
+void clsMeterMode::on_btnStop_clicked()
+{
+    meter->stopDetect();
+    btnRep->setChecked(false);
+    adu200->stop();
+
+    isStop=false;
+    qApp->processEvents();
+}
+
+void clsMeterMode::on_btnNewTask_clicked()
+{
+    this->strTaskFile="";
+    this->steps.clear();
+
+    this->txtTaskFile->setText(tr("None"));
+    btnSetStep->click();
+    count.reset();
+}
+
+void clsMeterMode::detecInprogress()
+{
+    static int i=0;
+    int x=i%4+1;
+    QIcon icon(QString(":/Icons/rot%1.png").arg(x));
+    btnRep->setIcon(icon);
+    i++;
+}
+
+void clsMeterMode::on_btnSaveData_clicked()
+{
+
+}
+
+void clsMeterMode::on_btnAdvance_clicked()
+{
+    clsMeterModeSettings *dlg = new clsMeterModeSettings(this);
+
+    dlg->setCondition(this->mSettings);
+    if(  dlg->exec())
+    {
+        mSettings = dlg->getCondtion();
+        saveSettings();
+        updateMessage();
+    }
+}
+
+void  clsMeterMode::updateMessage()
+{
+    switch (mSettings.saveResType)
+    {
+    case  AllRes:
+        txtSaveType->setText(tr("全部"));
+        break;
+    case PassRes:
+        txtSaveType->setText(tr("通过"));
+        break;
+    case FailRes:
+        txtSaveType->setText(tr("失败"));
+        break;
+    default:
+        break;
+    }
+
+    switch (mSettings.trigMode) {
+    case SWTrig:
+        lblTrigType->setText(tr("软件触发"));
+        btnRep->setVisible(false);
+        btnTrig->setVisible(true);
+        btnStartDetect->setVisible(false);
+        btnStop->setVisible(false);
+        break;
+    case Adu200Trig:
+        btnRep->setVisible(false);
+        lblTrigType->setText(tr("ADU200触发"));
+        adu200->start();
+        connect(this->adu200,SIGNAL(trigCaptured()),this,SLOT(trig()));
+        connect(this->lblStatus,SIGNAL(statusChange(Status)),this,SLOT(setAdu200(Status)));
+        btnStartDetect->setVisible(false);
+        btnTrig->setVisible(false);
+        btnStop->setVisible(true);
+        break;
+    case AutoDetectTrig:
+        btnTrig->setVisible(false);
+        lblTrigType->setText(tr("自动探测样品触发"));
+        btnStartDetect->setVisible(true);
+        btnRep->setVisible(false);
+        btnStop->setVisible(true);
+        break;
+    default:
+        break;
+    }
+}
+
+void clsMeterMode::setAdu200(Status value)
+{
+
+    switch (value) {
+    case BUSY:
+        adu200->setBDA();
+        break;
+    case PASS:
+        adu200->resetBDA();
+        adu200->setPass();
+    case FAIL:
+        adu200->resetBDA();
+        adu200->setFail();
+    default:
+        break;
+    }
+}
+
+void clsMeterMode::closeEvent(QCloseEvent *)
+{
+    btnStop->click();
+
+    if(mSettings.trigMode==Adu200Trig)
+    {
+        adu200->stop();
+    }
+}
+
+void clsMeterMode::readSettings()
+{
+    clsSettings settings;
+    QString strNode ="MeterMode/";
+
+    settings.readSetting(strNode+"PreDelay",mSettings.preDelay);
+    settings.readSetting(strNode+"lastDelay",mSettings.lastDelay);
+    int tmp;
+    settings.readSetting(strNode+"trigMode",tmp);
+    mSettings.trigMode=(TrigMode)tmp;
+    settings.readSetting(strNode+"saveType",tmp);
+    mSettings.saveResType=(SaveResultType)tmp;
+}
+
+void clsMeterMode::saveSettings()
+{
+    clsSettings settings;
+    QString strNode ="MeterMode/";
+
+    settings.writeSetting(strNode+"PreDelay",mSettings.preDelay);
+    settings.writeSetting(strNode+"lastDelay",mSettings.lastDelay);
+    settings.writeSetting(strNode+"trigMode",mSettings.trigMode);
+    settings.writeSetting(strNode+"saveType",mSettings.saveResType);
+}
+
+
+void clsMeterMode::on_btnStartDetect_clicked()
+{
+    isStop=true;
+    while(isStop)
+    {
+        UserfulFunctions::sleepMs(mSettings.preDelay);
+
+        if(meter->detectDut())
+        {
+            UserfulFunctions::sleepMs(mSettings.lastDelay);
+            trig();
+        }
+        else
+            goto Stop;
+
+        qApp->processEvents();
+    }
+
+Stop:
+    btnStartDetect->setChecked(false);
+    meter->turnOffBias();
 }
