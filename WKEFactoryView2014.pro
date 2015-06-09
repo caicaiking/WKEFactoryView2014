@@ -121,7 +121,8 @@ SOURCES +=\
     AnalysisMode/clsCurveLimit.cpp \
     MeterMode/clsSetTestStep.cpp \
     MeterMode/clsMeterUnit.cpp \
-    MeterMode/clsMeterModeSettings.cpp
+    MeterMode/clsMeterModeSettings.cpp \
+    MeterMode/cls6440Calibration.cpp
 
 
 
@@ -257,7 +258,8 @@ HEADERS += \
     AnalysisMode/clsCurveLimit.h \
     MeterMode/clsSetTestStep.h \
     MeterMode/clsMeterUnit.h \
-    MeterMode/clsMeterModeSettings.h
+    MeterMode/clsMeterModeSettings.h \
+    MeterMode/cls6440Calibration.h
 
 
 
@@ -312,7 +314,8 @@ FORMS += \
     AnalysisMode/clsMultiLimitStatusShow.ui \
     MeterMode/clsSetTestStep.ui \
     MeterMode/clsMeterUnit.ui \
-    MeterMode/clsMeterModeSettings.ui
+    MeterMode/clsMeterModeSettings.ui \
+    MeterMode/cls6440Calibration.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV.ts

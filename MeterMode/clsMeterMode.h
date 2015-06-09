@@ -12,7 +12,7 @@
  * !*/
 class product_Static
 {
-private:
+public:
     int totle;
     int pass;
     int fail;
@@ -95,6 +95,7 @@ private:
 
     product_Static count;
     bool isStop;
+    bool blSingleDisplay;
 
 
 
@@ -103,6 +104,8 @@ private:
     QTableWidgetItem *getTableTestItem(const QString &content, int color);
 
     QString strTaskFile;
+    QString strDataFile;
+
     QString tmpDir;
     void readSettings();
     void saveSettings();
@@ -110,6 +113,7 @@ private:
     MeterSettings mSettings;
     void updateMessage();
     clsSignalThread * adu200;
+    void saveDataFile(QString value);
 };
 
 #endif // CLSMETERMODE_H

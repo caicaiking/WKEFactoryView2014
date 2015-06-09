@@ -64,6 +64,24 @@ void clsMeterMode::on_btnSetStep_clicked()
 
 }
 
+void clsMeterMode::on_btnAdvance_clicked()
+{
+    clsMeterModeSettings *dlg = new clsMeterModeSettings(this);
+
+    dlg->setCondition(this->mSettings);
+    dlg->setStartNumber(this->count.getTotle().toInt());
+    dlg->setSingleRes(this->blSingleDisplay);
+    if(  dlg->exec())
+    {
+        mSettings = dlg->getCondtion();
+        this->blSingleDisplay = dlg->getSingleRes();
+        this->count.totle = dlg->getStartNumber();
+        saveSettings();
+        updateMessage();
+    }
+}
+
+
 void clsMeterMode::on_btnSaveTask_clicked()
 {
     QVariantMap task;
@@ -248,6 +266,20 @@ void clsMeterMode::trig()
     int totleRow=0 ;
     bool status=true;
     lblStatus->setStatus(BUSY);
+
+    QStringList strSaveRes;
+
+    //用于保存数据
+
+    if(blSingleDisplay)
+    {
+        tabResult->clear();
+        tabResult->setRowCount(0);
+        this->initTable();
+    }
+
+    strSaveRes.append(count.getTotle());
+
     for(int i =0; i< steps.length(); i++)
     {
         totleRow+= steps.at(i)->getCountTestItems();
@@ -260,12 +292,14 @@ void clsMeterMode::trig()
         {
             tabResult->setRowCount(tabResult->rowCount()+1);
 
+            //显示序号
             QString number;
             number = QString("%1-%2").arg(count.getTotle()).arg(i+1);
             tabResult->setItem(tabResult->rowCount()-1,0,getTableTestItem(number,2));
-
+            //显示测试项目
             tabResult->setItem(tabResult->rowCount()-1,1,getTableTestItem(meter->getItem(j),2));
-
+            strSaveRes.append(meter->getItem(j));
+            //显示下限
             clsMeterLimit tmp = meter->getLimit(j);
             double lowLimit = tmp.getAbsLimitLow();
             QString suffix = meter->getSuffix(j);
@@ -274,19 +308,23 @@ void clsMeterMode::trig()
             dt.setData(lowLimit);
             tabResult->setItem(tabResult->rowCount()-1,2,getTableTestItem(dt.formateWithUnit(suffix,7)+suffix+UserfulFunctions::getSuffix(meter->getItem(j)),2));
 
-
+            //显示测试值
             double dblRes = meter->getResult(j);
             dt.setData(dblRes);
             tabResult->setItem(tabResult->rowCount()-1,3,getTableTestItem(dt.formateWithUnit(suffix,7)+suffix+UserfulFunctions::getSuffix(meter->getItem(j)),2));
+            strSaveRes.append(dt.formateWithUnit(suffix,7));
+            strSaveRes.append(suffix+UserfulFunctions::getSuffix(meter->getItem(j)));
 
+            //显示上限
             double hiLimit = tmp.getAbsLimitHigh();
             dt.setData(hiLimit);
             tabResult->setItem(tabResult->rowCount()-1,4,getTableTestItem(dt.formateWithUnit(suffix,7)+suffix+UserfulFunctions::getSuffix(meter->getItem(j)),2));
 
-
+            //显示判定
             QString type;
             bool isPass= tmp.comparaValue(dblRes,type);
             tabResult->setItem(tabResult->rowCount()-1,5,getTableTestItem(type,isPass?1:0));
+            strSaveRes.append(type);
 
             status = status && isPass;
             //  tabResult->setItem(tabResult->rowCount()-1,6,getTableTestItem(meter->getDescription(),2));
@@ -294,6 +332,7 @@ void clsMeterMode::trig()
 
         }
 
+        //显示描述
         if(meter->getCountTestItems()>=1)
         {
             if(meter->getCountTestItems()>1)
@@ -302,6 +341,7 @@ void clsMeterMode::trig()
 
         }
         // UserfulFunctions::sleepMs(2000);
+        //显示当前测试行
         if(tabResult->rowCount()>=1)
         {
             tabResult->setCurrentCell(tabResult->rowCount()-1,0);
@@ -310,9 +350,7 @@ void clsMeterMode::trig()
 
     }
 
-
-
-
+    //整个步骤的判定
     for(int i=0; i< totleRow;i++)
     {
         QTableWidgetItem *item = tabResult->item(tabResult->rowCount()-1-i,0);
@@ -321,15 +359,49 @@ void clsMeterMode::trig()
 
     lblStatus->setStatus(status);
 
+    strSaveRes.append(status?tr("PASS"):tr("FAIL"));
+
+    //更新测试的数量 pass fail的数据
     if(steps.count()>0)
     {
         count.increase(status);
         txtTestedNumber->setText(QString::number(count.getTotle().toInt()-1));
         txtPassNumber->setText(count.getPass());
         txtFailNumber->setText(count.getFail());
+
+
+        if(mSettings.saveResType==AllRes)
+            saveDataFile(strSaveRes.join(","));
+        else if((mSettings.saveResType==PassRes) && status)
+            saveDataFile(strSaveRes.join(","));
+        else if((mSettings.saveResType==FailRes) && (!status))
+            saveDataFile(strSaveRes.join(","));
+         else
+        {}
     }
 
+    //关闭Bias
     meter->turnOffBias();
+}
+
+void clsMeterMode::saveDataFile(QString value)
+{
+    if(strDataFile.isEmpty())
+        return;
+
+
+    QFile file(strDataFile);
+    if (!file.open(QIODevice::WriteOnly | QIODevice::Text |QIODevice::Append))
+        return;
+
+
+    QTextStream out(&file);
+    out.setCodec("GBK");
+    out << value << "\n";
+
+    out.flush();
+    file.close();
+
 }
 
 void clsMeterMode::on_btnCalibration_clicked()
@@ -382,21 +454,18 @@ void clsMeterMode::detecInprogress()
 
 void clsMeterMode::on_btnSaveData_clicked()
 {
+    QString strTmp  = QFileDialog::
+            getSaveFileName(this,tr("保存测试数据"), tmpDir,
+                            tr("CSV逗号分割文件(*.csv)"),0);
 
+    if(strTmp.isEmpty())
+        return;
+
+    strDataFile = strTmp;
+    tmpDir = QFileInfo(strDataFile).absoluteDir().path();
+    txtDataFile->setText(QFileInfo(strDataFile).fileName());
 }
 
-void clsMeterMode::on_btnAdvance_clicked()
-{
-    clsMeterModeSettings *dlg = new clsMeterModeSettings(this);
-
-    dlg->setCondition(this->mSettings);
-    if(  dlg->exec())
-    {
-        mSettings = dlg->getCondtion();
-        saveSettings();
-        updateMessage();
-    }
-}
 
 void  clsMeterMode::updateMessage()
 {
@@ -447,6 +516,8 @@ void  clsMeterMode::updateMessage()
 
 void clsMeterMode::setAdu200(Status value)
 {
+    if(mSettings.trigMode!=Adu200Trig)
+        return;
 
     switch (value) {
     case BUSY:
@@ -485,6 +556,8 @@ void clsMeterMode::readSettings()
     mSettings.trigMode=(TrigMode)tmp;
     settings.readSetting(strNode+"saveType",tmp);
     mSettings.saveResType=(SaveResultType)tmp;
+    settings.readSetting(strNode+"tmpDir",tmpDir);
+    settings.readSetting(strNode+"singleDisplay",this->blSingleDisplay);
 }
 
 void clsMeterMode::saveSettings()
@@ -496,6 +569,9 @@ void clsMeterMode::saveSettings()
     settings.writeSetting(strNode+"lastDelay",mSettings.lastDelay);
     settings.writeSetting(strNode+"trigMode",mSettings.trigMode);
     settings.writeSetting(strNode+"saveType",mSettings.saveResType);
+    settings.writeSetting(strNode+"tmpDir",tmpDir);
+    settings.writeSetting(strNode+"singleDisplay",this->blSingleDisplay);
+
 }
 
 

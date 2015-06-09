@@ -76,3 +76,25 @@ void clsMeterModeSettings::on_btnCancel_clicked()
 {
     this->reject();
 }
+int clsMeterModeSettings::getStartNumber() const
+{
+    return txtStartNumber->value();
+}
+
+void clsMeterModeSettings::setStartNumber(int value)
+{
+    startNumber = value;
+      txtStartNumber->setValue(value);
+}
+
+bool clsMeterModeSettings::getSingleRes() const
+{
+    return rbSingleRes->isChecked();
+}
+
+void clsMeterModeSettings::setSingleRes(bool value)
+{
+    singleRes = value;
+  this->rbSingleRes->setChecked(value);
+}
+
