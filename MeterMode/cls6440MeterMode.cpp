@@ -11,7 +11,7 @@
 #include "dlgSpeed.h"
 #include "dlgWk6440Function1.h"
 #include "dlgWk6440Function2.h"
-#include "wk6440Calibration.h"
+#include "cls6440Calibration.h"
 #include <QJsonDocument>
 cls6440MeterMode::cls6440MeterMode(WKEMeterMode *parent) :
     WKEMeterMode(parent)
@@ -506,7 +506,7 @@ clsMeterLimit cls6440MeterMode::getLimit(int i)
 
 void cls6440MeterMode::calibration()
 {
-    wk6440Calibration *dlg = new wk6440Calibration(this);
+    cls6440Calibration *dlg = new cls6440Calibration(this);
     dlg->exec();
 }
 

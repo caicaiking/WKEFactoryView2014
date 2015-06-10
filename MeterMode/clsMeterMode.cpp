@@ -10,6 +10,7 @@
 #include "clsSetTestStep.h"
 #include <QFileDialog>
 #include "clsMeterModeSettings.h"
+#include <QMessageBox>
 clsMeterMode::clsMeterMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -376,7 +377,7 @@ void clsMeterMode::trig()
             saveDataFile(strSaveRes.join(","));
         else if((mSettings.saveResType==FailRes) && (!status))
             saveDataFile(strSaveRes.join(","));
-         else
+        else
         {}
     }
 
@@ -454,9 +455,7 @@ void clsMeterMode::detecInprogress()
 
 void clsMeterMode::on_btnSaveData_clicked()
 {
-    QString strTmp  = QFileDialog::
-            getSaveFileName(this,tr("保存测试数据"), tmpDir,
-                            tr("CSV逗号分割文件(*.csv)"),0);
+    QString strTmp  = QFileDialog::getSaveFileName(this,tr("保存测试数据"), tmpDir,tr("CSV逗号分割文件(*.csv)"),0,QFileDialog::DontConfirmOverwrite);
 
     if(strTmp.isEmpty())
         return;
