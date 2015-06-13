@@ -38,6 +38,7 @@ public:
 signals:
     void biasStatus(bool);                      //更新Bias状态
     void signalTestResult(QString);             //显示单步结果
+    void detectInProgress(QString);
 public slots:
 
 };

@@ -62,7 +62,7 @@ void dlg4300FuctionMajor::on_btnZ_clicked()
 
 void dlg4300FuctionMajor::on_btnA_clicked()
 {
-    strItem=QString("θ");
+    strItem=QString("A");
     this->accept();
 }
 

@@ -87,6 +87,7 @@ private slots:
 
     void on_btnStartDetect_clicked();
 
+    void showMessage(QString value);
 protected:
     void closeEvent(QCloseEvent *);
 private:

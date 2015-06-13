@@ -107,7 +107,6 @@ SOURCES +=\
     MulitChannalBox/clsPortListener.cpp \
     MulitChannalBox/clsMultiChannaeBox.cpp \
     MulitChannalBox/clsSwitchBoxTest.cpp \
-    MulitChannalBox/cls4300MeterMode.cpp \
     MeterMode/dlg4300FuctionMajor.cpp \
     MeterMode/dlg4300FunctionMinor.cpp \
     AnalysisMode/dlgLimitSetup.cpp \
@@ -122,7 +121,10 @@ SOURCES +=\
     MeterMode/clsSetTestStep.cpp \
     MeterMode/clsMeterUnit.cpp \
     MeterMode/clsMeterModeSettings.cpp \
-    MeterMode/cls6440Calibration.cpp
+    MeterMode/cls6440Calibration.cpp \
+    MeterMode/cls4100MeterMode.cpp \
+    MeterMode/cls4300MeterMode.cpp \
+    MeterMode/cls4100MeterModeCalibration.cpp
 
 
 
@@ -244,7 +246,6 @@ HEADERS += \
     MulitChannalBox/clsPortListener.h \
     MulitChannalBox/clsMultiChannaeBox.h \
     MulitChannalBox/clsSwitchBoxTest.h \
-    MulitChannalBox/cls4300MeterMode.h \
     MeterMode/dlg4300FuctionMajor.h \
     MeterMode/dlg4300FunctionMinor.h \
     AnalysisMode/dlgLimitSetup.h \
@@ -259,7 +260,10 @@ HEADERS += \
     MeterMode/clsSetTestStep.h \
     MeterMode/clsMeterUnit.h \
     MeterMode/clsMeterModeSettings.h \
-    MeterMode/cls6440Calibration.h
+    MeterMode/cls6440Calibration.h \
+    MeterMode/cls4100MeterMode.h \
+    MeterMode/cls4300MeterMode.h \
+    MeterMode/cls4100MeterModeCalibration.h
 
 
 
@@ -303,7 +307,6 @@ FORMS += \
     MeterMode/cls6440MeterMode.ui \
     MulitChannalBox/clsMultiChannaeBox.ui \
     MulitChannalBox/clsSwitchBoxTest.ui \
-    MulitChannalBox/cls4300MeterMode.ui \
     MeterMode/dlg4300FuctionMajor.ui \
     MeterMode/dlg4300FunctionMinor.ui \
     AnalysisMode/dlgLimitSetup.ui \
@@ -315,7 +318,10 @@ FORMS += \
     MeterMode/clsSetTestStep.ui \
     MeterMode/clsMeterUnit.ui \
     MeterMode/clsMeterModeSettings.ui \
-    MeterMode/cls6440Calibration.ui
+    MeterMode/cls6440Calibration.ui \
+    MeterMode/cls4100MeterMode.ui \
+    MeterMode/cls4300MeterMode.ui \
+    MeterMode/cls4100MeterModeCalibration.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV.ts

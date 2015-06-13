@@ -69,23 +69,6 @@ void cls6440Calibration::on_btnClose_clicked()
     this->accept();
 }
 
-QString cls6440Calibration::openTrim(int type, int delay)
-{
-   if(!PopUpmessage(tr("移除夹具上的被测物品，然后点击确定！"),tr("开路校准")))
-       return "";
-
-    clsRS::getInst().sendCommand(QString(":CAL:OC-TRIM %1").arg(type),false);
-
-
-    DelaySec(delay);
-
-    if(getCalibrationRes())
-      return tr("开路校准成功，校准时间：%1 %2")
-                         .arg(QDate::currentDate().toString("yyyy-M-dd"))
-                         .arg(QTime::currentTime().toString("hh:mm:ss"));
-    else
-       return tr("开路校准失败。");
-}
 
 void cls6440Calibration::on_btnOpenSpot_clicked()
 {
@@ -109,6 +92,25 @@ void cls6440Calibration::on_btnOpenAllFreq_clicked()
     else
         lblOpenAllFreq->setText(openTrim(4,35));
 }
+
+QString cls6440Calibration::openTrim(int type, int delay)
+{
+   if(!PopUpmessage(tr("移除夹具上的被测物品，然后点击确定！"),tr("开路校准")))
+       return "";
+
+    clsRS::getInst().sendCommand(QString(":CAL:OC-TRIM %1").arg(type),false);
+
+
+    DelaySec(delay);
+
+    if(getCalibrationRes())
+      return tr("开路校准成功，校准时间：%1 %2")
+                         .arg(QDate::currentDate().toString("yyyy-M-dd"))
+                         .arg(QTime::currentTime().toString("hh:mm:ss"));
+    else
+       return tr("开路校准失败。");
+}
+
 QString cls6440Calibration::shortTrim(int type, int delay)
 {
     if(! PopUpmessage(tr("请将夹具短路，然后点击确定"),tr("短路校准")))

@@ -1,5 +1,5 @@
 #include "clsMeterModeFactory.h"
-
+#include "cls4100MeterMode.h"
 clsMeterModeFactory::clsMeterModeFactory()
 {
 }
@@ -16,6 +16,8 @@ WKEMeterMode *clsMeterModeFactory::getFunction(QString meterSeries)
 
     if(meterSeries=="6440")
         return new cls6440MeterMode();
+    else if(meterSeries =="4300")
+        return new cls4100MeterMode();
     else
         return 0;
 

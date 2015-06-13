@@ -7,6 +7,7 @@ frmSelectConnection::frmSelectConnection(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+      setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     this->btnAnalysis->setEnabled(false);
     this->btnRansonace->setVisible(false);
     this->btnMeter->setEnabled(false);

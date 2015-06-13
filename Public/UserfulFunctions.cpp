@@ -73,7 +73,7 @@ bool UserfulFunctions::IsDouble(const QString r)
 QString UserfulFunctions::getSuffix(const QString &value)
 {
 
-    if (value=="Z" || value=="R" || value=="X" || value=="RDC")
+    if (value=="Z" || value=="R" || value=="X" || value=="RDC" || value =="Rdc")
         return QString("Ω");
 
     if(value=="A" || value==QString("θ"))

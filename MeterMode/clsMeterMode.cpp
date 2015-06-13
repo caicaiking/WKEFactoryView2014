@@ -22,6 +22,7 @@ clsMeterMode::clsMeterMode(QWidget *parent) :
 
     skWidget->setCurrentIndex(0);
     meter = clsMeterModeFactory::getFunction(clsRS::getInst().meterSeries);
+    connect(meter,SIGNAL(detectInProgress(QString)),this,SLOT(showMessage(QString)));
     meter->updateGPIB();
     adu200 = new clsSignalThread(this);
 
@@ -32,6 +33,10 @@ clsMeterMode::clsMeterMode(QWidget *parent) :
 
 }
 
+void clsMeterMode::showMessage(QString value)
+{
+    this->lblInfo->showMessage(value,1000);
+}
 
 
 void clsMeterMode::on_btnSetStep_clicked()
@@ -175,6 +180,11 @@ void clsMeterMode::on_btnOpenTask_clicked()
                         tmpMeter->setCondition(tmp);
                         steps.append(tmpMeter);
                     }
+                }
+                else
+                {
+                    QMessageBox::warning(this,this->windowTitle(),tr("打开的任务不是这个仪表能够测试的任务！"));
+                    return;
                 }
             }
         }
@@ -358,6 +368,7 @@ void clsMeterMode::trig()
         item->setBackgroundColor(status? QColor(Qt::green):QColor(Qt::red));
     }
 
+
     lblStatus->setStatus(status);
 
     strSaveRes.append(status?tr("PASS"):tr("FAIL"));
@@ -431,6 +442,8 @@ void clsMeterMode::on_btnStop_clicked()
     adu200->stop();
 
     isStop=false;
+    UserfulFunctions::sleepMs(500);
+    lblInfo->showMessage("");
     qApp->processEvents();
 }
 

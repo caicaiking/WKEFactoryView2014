@@ -62,7 +62,7 @@ void dlg4300FunctionMinor::on_btnZ_clicked()
 
 void dlg4300FunctionMinor::on_btnA_clicked()
 {
-    strItem=QString("θ");
+    strItem=QString("A");
     this->accept();
 }
 

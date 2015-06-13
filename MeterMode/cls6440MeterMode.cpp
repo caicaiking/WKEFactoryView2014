@@ -90,20 +90,23 @@ bool cls6440MeterMode::detectDut()
 
         if(clsRS::getInst().gpibCommands.testMode=="RDC")
         {
-             QString retValue = clsRS::getInst().sendCommand(":MEAS:TRIG",true);
+            QString retValue = clsRS::getInst().sendCommand(":MEAS:TRIG",true);
 
-             double value = retValue.toDouble();
+            double value = retValue.toDouble();
 
-             if(qAbs(value)<1E6)
-             {
-                 if(isEmpty)
-                     return true;
-                 isEmpty=false;
-             }
-             else
-             {
-                 isEmpty=true;
-             }
+            if(qAbs(value)<1E6)
+            {
+                if(isEmpty)
+                {
+                    emit detectInProgress(tr("已经探测到产品"));
+                    return true;
+                }
+                isEmpty=false;
+            }
+            else
+            {
+                isEmpty=true;
+            }
         }
         else
         {
@@ -116,6 +119,7 @@ bool cls6440MeterMode::detectDut()
                 if(isEmpty)
                 {
                     clsRS::getInst().sendCommand(QString(":MEAS:FUNC:%1").arg(item),false);
+                    emit detectInProgress(tr("已经探测到产品"));
                     return true;
                 }
                 isEmpty=false;
@@ -126,8 +130,10 @@ bool cls6440MeterMode::detectDut()
             }
         }
         UserfulFunctions::sleepMs(50);
-    }
 
+        emit detectInProgress(tr("正在探测产品"));
+    }
+ emit detectInProgress("");
     return false;
 }
 
