@@ -35,7 +35,7 @@ public:
 
     QString getFail()
     {
-        return QString::number(totle-1-pass);
+        return QString::number(fail);
     }
 
     void reset()
