@@ -212,6 +212,8 @@ QString cls6440MeterMode::getConditon()
 
     if(!jsonDocument.isNull())
         return jsonDocument.toJson();
+    else
+        return "";
 }
 
 

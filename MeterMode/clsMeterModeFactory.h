@@ -1,6 +1,6 @@
 #ifndef CLSMETERMODEFACTORY_H
 #define CLSMETERMODEFACTORY_H
-#include "cls6440MeterMode.h"
+
 
 #include "WKEMeterMode.h"
 #include <QPointer>

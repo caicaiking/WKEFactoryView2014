@@ -172,7 +172,7 @@ void clsRS::disConnect()
 
 QString clsRS::sendCommand(QString strCommand, bool hasReturn)
 {
-    //qDebug()<< strCommand;
+    qDebug()<< strCommand;
     return  data->sendCommand(strCommand,hasReturn,0);
 }
 

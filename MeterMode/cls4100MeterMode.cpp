@@ -229,7 +229,7 @@ bool cls4100MeterMode::detectDut()
         UserfulFunctions::sleepMs(50);
         emit detectInProgress(tr("正在探测产品"));
     }
-emit detectInProgress("");
+    emit detectInProgress("");
     return false;
 
 }
