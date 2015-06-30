@@ -936,7 +936,7 @@ ON</string>
         </property>
         <property name="maximumSize">
          <size>
-          <width>70</width>
+          <width>100</width>
           <height>40</height>
          </size>
         </property>

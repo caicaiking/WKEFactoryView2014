@@ -503,6 +503,7 @@ void  clsMeterMode::updateMessage()
         btnTrig->setVisible(true);
         btnStartDetect->setVisible(false);
         btnStop->setVisible(false);
+        disconnect(this->adu200,SIGNAL(trigCaptured()),this,SLOT(trig()));
         break;
     case Adu200Trig:
         btnRep->setVisible(false);
@@ -520,6 +521,7 @@ void  clsMeterMode::updateMessage()
         btnStartDetect->setVisible(true);
         btnRep->setVisible(false);
         btnStop->setVisible(true);
+        disconnect(this->adu200,SIGNAL(trigCaptured()),this,SLOT(trig()));
         break;
     default:
         break;
