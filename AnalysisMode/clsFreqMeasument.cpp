@@ -25,6 +25,7 @@ void clsFreqMeasument::setItems(const QString &item1, const QString &item2)
 void clsFreqMeasument::setPoint(QList<double> *point)
 {
     this->points = point;
+    qSort(*this->points);
 }
 
 void clsFreqMeasument::setItemsAndPoints(const QString &item1, const QString &item2,

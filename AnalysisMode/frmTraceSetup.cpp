@@ -10,7 +10,7 @@ frmTraceSetup::frmTraceSetup(WKEInstrument *ms, QWidget *parent) :
     setupUi(this);
     this->meter=ms;
 
-   getSupportFunction();
+    getSupportFunction();
 
     readSettings(this->gsetup);
     updateSweepTitile(this->gsetup.sweepType);
@@ -121,7 +121,7 @@ bool  frmTraceSetup::readSettings(graphSetup &gsetup, bool incldSwty)
 
     if(! settings.FileExit())
         return false;
-      QString strNode=QString("GraphSetup-%1/").arg(clsRS::getInst().meterSeries);
+    QString strNode=QString("GraphSetup-%1/").arg(clsRS::getInst().meterSeries);
     if(incldSwty)
     {
         int tmp;
@@ -178,7 +178,7 @@ bool  frmTraceSetup::writeSettings(graphSetup gsetup)
     if(! settings.FileExit())
         return false;
 
-     QString strNode=QString("GraphSetup-%1/").arg(clsRS::getInst().meterSeries);
+    QString strNode=QString("GraphSetup-%1/").arg(clsRS::getInst().meterSeries);
 
     settings.writeSetting(strNode+"SweepType",gsetup.sweepType);
     switch (gsetup.sweepType) {
@@ -288,7 +288,7 @@ void frmTraceSetup::updateButtons()
     btnPoints->setText(QString::number(gsetup.points.length())+tr("点"));
 
     if(gsetup.sweepType==BiasV)
-         btnRate->setVisible(true);
+        btnRate->setVisible(true);
     else
         btnRate->setVisible(false);
 
@@ -435,7 +435,7 @@ void frmTraceSetup::on_btnPoints_clicked()
     {
         if(tmp.logX!= gsetup.logX || tmp.xmin!=gsetup.xmin || tmp.xmax != gsetup.xmax)
         {
-            int point =(this->gsetup.points.length()==0?10:this->gsetup.points.length());
+            int point =(this->gsetup.points.length()<=10?10:this->gsetup.points.length());
             dlg.setTestPoint(point);
         }
         else
@@ -445,7 +445,7 @@ void frmTraceSetup::on_btnPoints_clicked()
     }
     else
     {
-        int point =(this->gsetup.points.length()==0?10:this->gsetup.points.length());
+        int point =(this->gsetup.points.length()<=10?10:this->gsetup.points.length());
         dlg.setTestPoint(point);
     }
 

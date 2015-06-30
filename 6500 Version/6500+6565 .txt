@@ -1,0 +1,285 @@
+Hi Abama,
+
+I've attached the latest release (13) of the 6565 s/w.
+
+ 
+
+You only need to install the 6500 update (not the 6565a.hex)
+
+ 
+
+Sorry for the delay again. When we looked at your problem we found some others which needed fixing.
+
+ 
+
+Hopefully,  this should sort your issues.
+
+ 
+
+I would suggest using the :ANA:TRIG2 command (rather than :TRIG) and add an 'ABORT SWEEP' button, which sends the following commands
+
+ 
+
+*SW-ABORT
+
+:ANA:BIAS-STAT OFF
+
+ 
+
+This means that if something goes wrong during the sweep, the user can abort the sweep. If the :TRIG command is used it is difficult to abort the sweep
+
+ 
+
+Best Regards,
+
+Ian
+
+ 
+
+From: Abama [mailto:abama.cai@waynekerr.net] 
+Sent: 24 March 2015 08:26
+To: Ian Page
+Subject: Re: 6565 GPIB command
+
+ 
+
+HI Ian,
+
+I have modify the excel file to control 6500+6565, I find read data from 6500 has a little problem,
+
+can you check the attached file?
+
+Best regards,
+
+Abama
+
+在 2015/3/23 18:37, Ian Page 写道:
+
+Hi Abama,
+
+ 
+
+Using a 1J1026 fixture, up to 2 6565s can be connected.
+
+Using a 1J1027 fixture, up to 4 6565s can be connected.
+
+***************************************************************************************
+
+With the 6565, the bias cannot be set to zero, the minimum is 1mA. So for 0A, the bias should be turned off.
+
+ 
+
+*************************************************************************************
+
+I've attached the latest s/w which hopefully fixes all the GPIB issues.
+
+You will notice that the update pack contains a '6565A.hex' file, which is a 6565 s/w update. I would suggest that unless you see any unusual behaviour from the 6565, that you do not update the 6565 until you have got software working.
+
+If you start seeing problems during the  BIAS sweep then you will need to update the 6565.
+
+I will send you the instructions for 6565 update in a separate e-mail.
+
+ 
+
+The 6500 update procedure remains the same.
+
+***************************************************************************************
+
+ 
+
+The suggested command sequence I sent you previously appears to work now BUT the *SYSBIAS command I gave you was incorrect
+
+It should be *SYSBIAS 'BIAS EXT'  to select 6565
+
+ 
+
+ 
+
+NOTE:-
+
+When the bias is turned on (:ANA:BIAS-STAT ON) before a sweep is triggered, the current will NOT be set to the ':ANA:START' value. It will be set to the ':ANA:BIAS' value.
+
+ 
+
+e.g. with the following settings:
+
+:ANA:BIAS 1.0
+
+:ANA:START 0.01
+
+:ANA:START 0.5
+
+ 
+
+When the bias is turned on, the current will be set to 1.0 Amp.
+
+When the sweep is triggered, the current will drop to 0.01 Amps before rising to 0.5 Amps
+
+Therefore, use the :ANA:BIAS command to set the initial conditions
+
+ 
+
+Best Regards,
+
+Ian
+
+ 
+
+ 
+
+From: Abama [mailto:abama.cai@waynekerr.net] 
+Sent: 23 March 2015 03:53
+To: Ian Page
+Subject: Re: 6565 GPIB command
+
+ 
+
+Hi Ian,
+
+Another question, How can I know How many sets of 6565 connected to 6500?
+
+Best Regards,
+
+Abama
+
+在 2015/3/5 22:48, Ian Page 写道:
+
+Hi Abama,
+
+Yes, although the *SYSBIAS command will not work correctly. This is not a problem if EXT bias is selected manually.
+
+Best Regards,
+
+Ian
+
+ 
+
+From: Abama Cai [mailto:abama.cai@waynekerr.net] 
+Sent: 05 March 2015 14:36
+To: Ian Page
+Subject: Re: 6565 GPIB command
+
+ 
+
+Hi Ian ,
+
+ 
+
+If analysis mode has problems, can I use meter mode instead?
+
+ 
+
+Best regards,
+
+ 
+
+Abama 
+
+深圳稳 科电子仪器有限公司
+
+ 
+
+蔡同松
+
+
+在 2015年3月5日，22:21，Ian Page <Ian.Page@wayne-kerr.co.uk> 写道：
+
+Hi Abama,
+
+ 
+
+Luke tells me this is for a customer application. I don't know how you were planning to do this but I would have thought that modifying the Excal LAN program would be quite a quick solution.
+
+ 
+
+The new GPIB commands are written but not documented. The existing bias commands (e.g :BIAS 10.0, BIAS-STAT ON ) are used with the addition of the following:
+
+ 
+
+*SYSBIAS 'EXT'           :- selects External bias mode.  Options 'INT', 'EXT' and 'NONE'  (it needs the single quote i.e 'EXT' not just EXT)
+
+*SYSBIAS?                  :- reads BIAS setting 
+
+:ANA:PAR BIAS  :- selectes BIAS sweep . Option FREQ , BIAS, LEVEL
+
+ 
+
+So I think to set up a Bias sweep the following command sequence is needed:
+
+ 
+
+*SYSBIAS 'EXT'   //enable external bias
+
+:ANA
+
+:ANA:PAR BIAS  // bias sweep
+
+:ANA:STOP 10.0
+
+:ANA:START 1.0
+
+:ANA:BIAS-STAT ON    //bias on before trigger
+
+:ANA:TRIG
+
+:ANA:BIAS-STAT OFF  //bias off after trigger
+
+ 
+
+If you decide to implement it using Analysis mode then I suggest you use :ANA:TRIG2 rather than :ANA:TRIG.
+
+:ANA:TRIG2 can be aborted during the sweep by sending the *SW-ABORT command which is probably a good idea with high current bias sweeps.
+
+*SW-STATUS? can be used to check the status of the sweep
+
+ 
+
+KNOWN BUGS:
+
+There are bugs in the following:
+
+*SYSBIAS  (doesn't work but can be selected manually for testing)
+
+:ANA:START and :ANA:STOP when BIAS sweep is selected (don't work but can be set manually for testing)
+
+:ANA:TRIG2 when BIAS sweep is selected (doesn't work)
+
+ 
+
+We will try and fix these ASAP and let you have an update
+
+ 
+
+Best Regards,
+
+Ian
+
+ 
+
+ 
+
+ 
+
+ 
+
+From: Abama [mailto:abama.cai@waynekerr.net] 
+Sent: 05 March 2015 01:15
+To: Ian Page
+Cc: Luke Lien (Yahoo account)
+Subject: 6565 GPIB command
+
+ 
+
+Hi Ian,
+
+Do you have done 6565 gpib command yet?
+
+If you have done, pls give me a copy.
+
+Thanks.
+
+Best Regards,
+
+Abama
+
+--

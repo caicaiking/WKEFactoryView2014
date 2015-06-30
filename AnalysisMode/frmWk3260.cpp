@@ -101,7 +101,12 @@ void frmWk3260::setBias(double value, QString /*unit*/)
     clsRS::getInst().sendCommand(wk3260.biasValue.toGpib(getGpibMeter()));
     QString ret = clsRS::getInst().sendCommand(getGpibMeter()+":BIAS?",true);
     //qDebug()<<"Current BiasValue: "<<ret;
-    wk3260.biasValue.value = ret.toDouble();
+
+    if(ret.toDouble()==0)
+        wk3260.biasValue.value=value; //如果没有查询到测试值得话，维持以前设定的值。
+    else
+        wk3260.biasValue.value = ret.toDouble();
+
     emit this->biasValueSignal(wk3260.biasValue.toText(1));
     saveSettings();
 }
@@ -187,7 +192,7 @@ RETEST:
         goto RETEST;
     }
     qDebug()<< ret;
-    return ret+",";
+    return ret+",,";
 }
 
 void frmWk3260::calibration()
@@ -291,7 +296,7 @@ double frmWk3260::getMinLevelV()
 double frmWk3260::getMaxFrequency()
 {
     if(clsRS::getInst().meterSeries=="3260")
-    return 3000000;
+        return 3000000;
 
     if(clsRS::getInst().meterSeries=="3255" && clsRS::getInst().instrumentModel.contains("BQ"))
         return 1000000;

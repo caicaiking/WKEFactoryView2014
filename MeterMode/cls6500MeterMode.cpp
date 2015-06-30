@@ -294,6 +294,9 @@ void cls6500MeterMode::updateGPIB()
     }
     else
     {
+        if(biasAValue> getMaxBiasA())
+            biasAValue = getMaxBiasA();
+
         gpibCmd.append(meter+"BIAS-TYPE "+"CUR"+";");
         gpibCmd.append(meter+"BIAS "+QString::number(biasAValue)+";");
     }
@@ -661,9 +664,10 @@ void cls6500MeterMode::on_btnBiasLevel_clicked()
         }
         else
         {
+            double maxC = getMaxBiasA();
             biasAValue =value;
             biasAValue=(biasAValue<0?0:biasAValue);
-            biasAValue=(biasAValue>0.1?0.1:biasAValue);
+            biasAValue=(biasAValue>maxC?maxC:biasAValue);
             dt.setData(biasAValue,"");
         }
         updateButtons();
@@ -753,4 +757,33 @@ void cls6500MeterMode::lblLmItem2()
         updateButtons();
     }
 
+}
+
+double cls6500MeterMode::getMaxBiasA()
+{
+    static double maxC =0;
+
+    if(maxC==0)
+    {
+        clsRS::getInst().sendCommand("*SYSBIAS \'BIAS EXT\'",false);
+        if(clsRS::getInst().sendCommand("*SYSBIAS?",true)=="BIAS EXT")
+        {
+            maxC=40.0;
+
+            return maxC;
+        }
+
+        clsRS::getInst().sendCommand("*SYSBIAS \'BIAS INT\'",false);
+        if(clsRS::getInst().sendCommand("*SYSBIAS?",true)=="BIAS INT")
+        {
+            maxC=0.1;
+
+            return maxC;
+        }
+
+
+    }
+
+
+    return maxC;
 }

@@ -402,7 +402,7 @@ void wk6500AnalysisMeter::updateInstrument()
 
     gpibCmd = gpibCmd.replace(QString("θ"),QString("ANGLE"));
 
-    // qDebug()<< gpibCmd;
+     //qDebug()<< gpibCmd;
     clsRS::getInst().sendCommand(gpibCmd);
 
     updateButtons();
@@ -444,7 +444,25 @@ double wk6500AnalysisMeter::getMinBiasV()
 
 double wk6500AnalysisMeter::getMaxBiasA()
 {
-    return 0.1;
+    static double maxC =0;
+
+    if(maxC==0)
+    {
+        clsRS::getInst().sendCommand("*SYSBIAS \'BIAS EXT\'",false);
+        if(clsRS::getInst().sendCommand("*SYSBIAS?",true)=="BIAS EXT")
+        {
+            maxC=40.0;
+            return maxC;
+        }
+
+        clsRS::getInst().sendCommand("*SYSBIAS \'BIAS INT\'",false);
+        if(clsRS::getInst().sendCommand("*SYSBIAS?",true)=="BIAS INT")
+        {
+            maxC=0.1;
+            return maxC;
+        }
+    }
+    return maxC;
 }
 
 double wk6500AnalysisMeter::getMinBiasA()
@@ -679,9 +697,10 @@ void wk6500AnalysisMeter::on_btnBiasLevel_clicked()
         }
         else
         {
+            double maxC = getMaxBiasA();
             biasAValue =value;
             biasAValue=(biasAValue<0?0:biasAValue);
-            biasAValue=(biasAValue>0.1?0.1:biasAValue);
+            biasAValue=(biasAValue>maxC?maxC:biasAValue);
             dt.setData(biasAValue,"");
             btnBiasLevel->setText(dt.formateToString(6)+"A");
         }
@@ -709,27 +728,15 @@ bool wk6500AnalysisMeter::queryBiasStatus()
     QString strRes=clsRS::getInst().sendCommand(gpibCmd,true);
 
     // qDebug()<< "bias status"<< strRes;
-    bool ok;
-    int res=strRes.toDouble(&ok);
 
-    if(ok)
-    {
-        biasONOFF=(res==0?false:true);
-        saveSettings();
-        emit biasStatusSignal(biasONOFF);
-        return biasONOFF;
-    }
-    else
-    {
-        QMessageBox::warning(this,tr("WKE FactoryView 2014"),
-                             tr("不能正确的查询Bias的状态，请检查连接。"),
-                             QMessageBox::Ok);
-        biasONOFF=false;
-        emit biasStatusSignal(biasONOFF);
-        saveSettings();
-    }
+    int res=strRes.toDouble();
 
-    return false;
+
+    biasONOFF=(res==0?false:true);
+    saveSettings();
+    emit biasStatusSignal(biasONOFF);
+    return biasONOFF;
+
 }
 
 double wk6500AnalysisMeter::getMaxFrequency1(QString value)

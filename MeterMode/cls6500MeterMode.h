@@ -60,6 +60,7 @@ private:
     double getMaxFrequency(QString value);
     QString getItemShow(const QString &item, const double &value, clsMeterLimit &limit, const QString &);
     bool isStop;
+    double getMaxBiasA();
 };
 
 #endif // CLS6500METERMODE_H

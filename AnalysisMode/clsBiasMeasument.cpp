@@ -21,6 +21,7 @@ void clsBiasMeasument::setItems(const QString &item1, const QString &item2)
 void clsBiasMeasument::setPoint(QList<double> *point)
 {
     this->points = point;
+      qSort(*this->points);
 }
 
 void clsBiasMeasument::setItemsAndPoints(const QString &item1, const QString &item2,

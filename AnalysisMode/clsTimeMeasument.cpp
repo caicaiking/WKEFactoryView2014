@@ -24,6 +24,7 @@ void clsTimeMeasument::setItems(const QString &item1, const QString &item2)
 void clsTimeMeasument::setPoint(QList<double> *point)
 {
     this->points = point;
+      qSort(*this->points);
 }
 
 void clsTimeMeasument::setItemsAndPoints(const QString &item1, const QString &item2,

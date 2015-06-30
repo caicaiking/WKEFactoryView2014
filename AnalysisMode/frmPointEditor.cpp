@@ -38,6 +38,9 @@ QList<double> frmPointEditor::getStaticPoints(const double min, const double max
                                               const bool blLog, /*const SweepType t, */
                                               int numPoints)
 {
+    if(numPoints<10)
+        numPoints=10;
+
     QList<double> points;
     points.clear();
     if(!blLog)
