@@ -1,15 +1,17 @@
 #include "clsLan.h"
 #include <QTcpSocket>
 #include <QStringList>
-#include <QDebug>
+
 #include <QApplication>
 #include <QDataStream>
 #include <QTime>
+#include <QDebug>
 clsLan::clsLan()
 {
     this->blInit=false;
     this->strIp="192.168.1.199";
     this->intPort=WK4300PORT;
+
 }
 
 bool clsLan::init()
