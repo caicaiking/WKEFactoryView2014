@@ -323,14 +323,14 @@
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="496"/>
         <location filename="../../MeterMode/clsMeterModeFactory.cpp" line="29"/>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="209"/>
-        <location filename="../../common/main.cpp" line="61"/>
+        <location filename="../../common/main.cpp" line="56"/>
         <source>WKE FactoryView 2014</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="496"/>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="209"/>
-        <location filename="../../common/main.cpp" line="61"/>
+        <location filename="../../common/main.cpp" line="56"/>
         <source>请插入加密狗！</source>
         <translation>Please insert the dongle!</translation>
     </message>
@@ -550,7 +550,7 @@
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="19"/>
         <source>连接</source>
-        <translation>conecton</translation>
+        <translation> conection</translation>
     </message>
     <message>
         <source>测试步骤设定</source>
@@ -561,7 +561,7 @@
         <translation type="vanished">Test result display</translation>
     </message>
     <message>
-        <location filename="../../common/main.cpp" line="48"/>
+        <location filename="../../common/main.cpp" line="45"/>
         <source>正在初始化测试窗口，请稍等...</source>
         <translation>Test window is initializing, please wait ...</translation>
     </message>
