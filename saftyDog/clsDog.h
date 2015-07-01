@@ -2,12 +2,16 @@
 #define CLSDOG_H
 
 #include "DogControl.h"
+static bool isProduct= true;
 class clsDog
 {
 public:
     clsDog();
     static bool getName(QString &retValue);
-private:
+    static void setProduct(bool value=true);
+
 };
+
+
 
 #endif // CLSDOG_H

@@ -26,21 +26,18 @@ int main(int argc, char *argv[])
     //    QTextCodec::setCodecForTr(code);
     //    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
+    //如果要是发布无锁版本，请使用clsDog::setProduct(false),有锁版本clsDog::setProduct(true)
+
+    clsDog::setProduct(false);
+
     //这儿是加载英文的翻译，如果要是实用界面为英文，请去掉此处的注释
-//    QTranslator translator;
-//    bool ok=   translator.load(":/Translation/WKEFV.qm");
-//    a.installTranslator(&translator);
-//    qDebug()<< ok;
 
+    QTranslator translator;
+    bool ok=   translator.load(":/Translation/WKEFV.qm");
+    a.installTranslator(&translator);
+    qDebug()<< ok;
 
-    //test begin
-
-    //        clsMeterMode meter;
-    //        meter.showMaximized();
-    //       return a.exec();
-
-    //for test
-
+    //设置Splash 屏幕
     QPixmap pixmap(":/Icons/splashScreen.png");
     QSplashScreen splash(pixmap);
     splash.show();
@@ -51,8 +48,6 @@ int main(int argc, char *argv[])
     UserfulFunctions::sleepMs(500);
     frmSelectConnection w;
     splash.finish(&w);
-
-
 
 
     QString strProductName;
