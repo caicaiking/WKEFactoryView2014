@@ -125,6 +125,7 @@ void wk6500AnalysisMeter::setBias(double value, QString unit)
     else
     {
         biasAValue = retRes.toDouble();
+        //qDebug()<< biasAValue;
     }
     saveSettings();
 

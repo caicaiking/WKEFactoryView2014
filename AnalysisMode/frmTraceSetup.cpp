@@ -150,7 +150,7 @@ bool  frmTraceSetup::readSettings(graphSetup &gsetup, bool incldSwty)
         settings.readSetting(strNode+"FreqPoints",gsetup.points);
 
         if(gsetup.xmin==0.0)
-            gsetup.xmin=20;
+            gsetup.xmin=1000;
         if(gsetup.xmax==0.0)
             gsetup.xmax=100000;
         break;
