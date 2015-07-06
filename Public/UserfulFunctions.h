@@ -103,7 +103,8 @@ public:
         return "";
     }
 
- static const  QString getSweepFunctionSuffix(SweepType value);
+   static const  QString getSweepFunctionSuffix(SweepType value);
+   static QList<double> getSweepPoints(double min, double max, int points, bool isLog);
 };
 
 #endif // USERFULFUNCTIONS_H

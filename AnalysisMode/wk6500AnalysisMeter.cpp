@@ -215,7 +215,7 @@ void wk6500AnalysisMeter::readSettings()
     this->btnItem1->setText(item1);
 
     settings.readSetting(strNode+"Item2",item2);
-    item2 = (item2.isEmpty()? "A":item2);
+    item2 = (item2.isEmpty()? QString("θ"):item2);
     this->btnItem2->setText(item2);
 
     settings.readSetting(strNode +"Equcct",equcct);
@@ -462,7 +462,7 @@ double wk6500AnalysisMeter::getMaxBiasA()
             return maxC;
         }
     }
-    return maxC;
+    return 0.1;
 }
 
 double wk6500AnalysisMeter::getMinBiasA()
