@@ -16,6 +16,7 @@
 #include "clsMeterMode.h"
 #include "clsMultiChannaeBox.h"
 #include <QMessageBox>
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
