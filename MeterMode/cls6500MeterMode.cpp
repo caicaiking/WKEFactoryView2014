@@ -114,6 +114,8 @@ bool cls6500MeterMode::detectDut()
         UserfulFunctions::sleepMs(50);
         emit detectInProgress(tr("正在探测产品"));
     }
+    clsRS::getInst().sendCommand(QString(":METER:FUNC:1 %1").arg(item),false);
+
     emit detectInProgress("");
     return false;
 }
