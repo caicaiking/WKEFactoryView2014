@@ -133,6 +133,8 @@ bool cls6440MeterMode::detectDut()
 
         emit detectInProgress(tr("正在探测产品"));
     }
+    clsRS::getInst().sendCommand(QString(":MEAS:FUNC:%1").arg(item),false);
+
  emit detectInProgress("");
     return false;
 }

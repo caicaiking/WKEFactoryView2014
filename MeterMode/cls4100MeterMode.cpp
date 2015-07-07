@@ -229,6 +229,9 @@ bool cls4100MeterMode::detectDut()
         UserfulFunctions::sleepMs(50);
         emit detectInProgress(tr("正在探测产品"));
     }
+    clsRS::getInst().sendCommand(QString(":MEAS:FUNC1 %1").arg(item),false);
+    clsRS::getInst().sendCommand(clsRS::getInst().gpibCommands.NumberOfTest,false);
+
     emit detectInProgress("");
     return false;
 

@@ -69,11 +69,12 @@
        <property name="font">
         <font>
          <family>楷体</family>
-         <pointsize>12</pointsize>
+         <pointsize>10</pointsize>
         </font>
        </property>
        <property name="text">
-        <string>测试</string>
+        <string>测试
+此步</string>
        </property>
        <property name="icon">
         <iconset resource="../recFile/myRes.qrc">
@@ -98,11 +99,12 @@
        <property name="font">
         <font>
          <family>楷体</family>
-         <pointsize>12</pointsize>
+         <pointsize>10</pointsize>
         </font>
        </property>
        <property name="text">
-        <string>保存</string>
+        <string>双击
+保存</string>
        </property>
        <property name="icon">
         <iconset resource="../recFile/myRes.qrc">
