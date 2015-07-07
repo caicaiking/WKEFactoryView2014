@@ -336,3 +336,60 @@ double UserfulFunctions::getNearItem(const QList<double> &arry, const double val
     }
     return arry.at(record);
 }
+
+
+QList<double> UserfulFunctions::getSweepPoints(double min, double max, int points, bool isLog)
+{
+    QList<double> tmp;
+    tmp.clear();
+
+    if(min > max)
+        qSwap(min,max);
+
+    if (points == 0)
+    {
+        points= 10;
+    }
+
+
+    if(min<=0.0 || max <=0.0)
+        isLog = false;
+
+
+    if(isLog)
+    {
+
+
+        const int imax = points - 1;
+
+       tmp.append(min);
+
+        const double lxmin = log( min );
+        const double lxmax = log( max );
+        const double lstep = ( lxmax - lxmin ) / double( imax );
+
+        for ( int i = 1; i < imax; i++ )
+            tmp.append(qExp( lxmin + double( i ) * lstep ));
+
+        tmp.append(max);
+
+    }
+
+    else
+    {
+        const int imax = points -1;
+        tmp.append(min);
+
+        const double step = (max - min)/double(imax);
+
+        for(int i =1; i< imax; i++)
+        {
+            tmp.append(min+ step *i);
+        }
+
+        tmp.append(max);
+
+    }
+
+    return tmp;
+}

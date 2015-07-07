@@ -29,14 +29,14 @@ int main(int argc, char *argv[])
 
     //如果要是发布无锁版本，请使用clsDog::setProduct(false),有锁版本clsDog::setProduct(true)
 
-    clsDog::setProduct(false);
+    clsDog::setProduct(true);
 
     //这儿是加载英文的翻译，如果要是实用界面为英文，请去掉此处的注释
 
-    QTranslator translator;
-    bool ok=   translator.load(":/Translation/WKEFV.qm");
-    a.installTranslator(&translator);
-    qDebug()<< ok;
+//    QTranslator translator;
+//    bool ok=   translator.load(":/Translation/WKEFV.qm");
+//    a.installTranslator(&translator);
+//    qDebug()<< ok;
 
     //设置Splash 屏幕
     QPixmap pixmap(":/Icons/splashScreen.png");

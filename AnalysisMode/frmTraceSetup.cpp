@@ -4,6 +4,7 @@
 #include <QInputDialog>
 #include "frmPointEditor.h"
 #include "clsRuningSettings.h"
+#include "UserfulFunctions.h"
 frmTraceSetup::frmTraceSetup(WKEInstrument *ms, QWidget *parent) :
     QDialog(parent)
 {
@@ -135,12 +136,23 @@ bool  frmTraceSetup::readSettings(graphSetup &gsetup, bool incldSwty)
         settings.readSetting(strNode+"TimeXmax",gsetup.xmax);
         settings.readSetting(strNode+"TimeLog",gsetup.logX);
         settings.readSetting(strNode+"TimePoints",gsetup.points);
+
+        gsetup.xmin =0.0;
+        if(gsetup.xmax==0.0)
+            gsetup.xmax=10.0;
+
+
         break;
     case Frequency:
         settings.readSetting(strNode+"FreqXmin",gsetup.xmin);
         settings.readSetting(strNode+"FreqXmax",gsetup.xmax);
         settings.readSetting(strNode+"FreqLog",gsetup.logX);
         settings.readSetting(strNode+"FreqPoints",gsetup.points);
+
+        if(gsetup.xmin==0.0)
+            gsetup.xmin=1000;
+        if(gsetup.xmax==0.0)
+            gsetup.xmax=100000;
         break;
 
     case BiasV:
@@ -149,16 +161,32 @@ bool  frmTraceSetup::readSettings(graphSetup &gsetup, bool incldSwty)
         settings.readSetting(strNode+"BiasLog",gsetup.logX);
         settings.readSetting(strNode+"BiasPoints",gsetup.points);
         settings.readSetting(strNode+"BiasVRate",gsetup.biasVRate);
+
+        if(gsetup.xmin==0.0)
+            gsetup.xmin=0;
+        if(gsetup.xmax==0.0)
+            gsetup.xmax=1;
+
         break;
     case BiasA:
         settings.readSetting(strNode+"BiasAXmin",gsetup.xmin);
         settings.readSetting(strNode+"BiasAXmax",gsetup.xmax);
         settings.readSetting(strNode+"BiasALog",gsetup.logX);
         settings.readSetting(strNode+"BiasAPoints",gsetup.points);
+        if(gsetup.xmin==0.0)
+            gsetup.xmin=0;
+        if(gsetup.xmax==0.0)
+            gsetup.xmax=0.01;
         break;
     default:
         break;
     }
+
+    if(gsetup.points.length()<10)
+        gsetup.points = UserfulFunctions::getSweepPoints(gsetup.xmin,
+                                                         gsetup.xmax,
+                                                         10,
+                                                         gsetup.logX);
 
     settings.readSetting(strNode+"TraceAMax",gsetup.yLeftMax);
     settings.readSetting(strNode+"TraceAMin",gsetup.yLeftMin);
