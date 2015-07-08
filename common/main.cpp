@@ -32,10 +32,10 @@ int main(int argc, char *argv[])
 
     //这儿是加载英文的翻译，如果要是实用界面为英文，请去掉此处的注释
 
-//    QTranslator translator;
-//    bool ok=   translator.load(":/Translation/WKEFV.qm");
-//    a.installTranslator(&translator);
-//    qDebug()<< ok;
+    //    QTranslator translator;
+    //    bool ok=   translator.load(":/Translation/WKEFV.qm");
+    //    a.installTranslator(&translator);
+    //    qDebug()<< ok;
 
     //设置Splash 屏幕
     QPixmap pixmap(":/Icons/splashScreen.png");
@@ -57,31 +57,37 @@ int main(int argc, char *argv[])
         return 0;
     }
 
+RESELECT:
+
     if( w.exec()==QDialog::Accepted)
     {
         if(w.getMode()==Analysis)
         {
             frmWKEAnalysisMode analysis;
             analysis.showMaximized();
-            return a.exec();
+            a.exec();
+            goto RESELECT;
         }
         else if(w.getMode()==Meter)
         {
             clsMeterMode meter;
             meter.show();
-            return a.exec();
+            a.exec();
+            goto RESELECT;
         }
         else if(w.getMode()==Resonace)
         {
             wkResonaceMode resonace;
             resonace.show();
-            return a.exec();
+            a.exec();
+            goto RESELECT;
         }
         else if(w.getMode() == MultiChannel)
         {
             clsMultiChannaeBox multiChannel;
             multiChannel.show();
-            return a.exec();
+            a.exec();
+            goto RESELECT;
         }
         else
         {
