@@ -7,6 +7,7 @@
 #include <QPointer>
 #include "UserfulFunctions.h"
 #include "clsSignalThread.h"
+#include "clsTestResult.h"
 /*!
  * 用于产品的统计
  * !*/
@@ -52,8 +53,6 @@ public:
         else
             fail++;
     }
-
-
 };
 
 
@@ -83,38 +82,34 @@ private slots:
     void on_btnAdvance_clicked();
     void trig();
     void setAdu200(Status value);
-
-
     void on_btnStartDetect_clicked();
-
     void showMessage(QString value);
+    void on_btnReport_clicked();
+
+    void on_btnRep10_clicked();
+
 protected:
     void closeEvent(QCloseEvent *);
 private:
     QList<WKEMeterMode *> steps;
     WKEMeterMode *meter;
-
     product_Static count;
     bool isStop;
     bool blSingleDisplay;
-
-
-
     void initTable();
     QTableWidgetItem *getTableTitleItem(const QString &content);
     QTableWidgetItem *getTableTestItem(const QString &content, int color);
-
     QString strTaskFile;
     QString strDataFile;
-
     QString tmpDir;
     void readSettings();
     void saveSettings();
-
     MeterSettings mSettings;
     void updateMessage();
     clsSignalThread * adu200;
     void saveDataFile(QString value);
+
+    clsTestResult result;   //用于记录保存数据
 };
 
 #endif // CLSMETERMODE_H

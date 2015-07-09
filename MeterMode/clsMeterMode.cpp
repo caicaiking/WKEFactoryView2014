@@ -11,6 +11,7 @@
 #include <QFileDialog>
 #include "clsMeterModeSettings.h"
 #include <QMessageBox>
+#include "clsShowReport.h"
 clsMeterMode::clsMeterMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -22,6 +23,9 @@ clsMeterMode::clsMeterMode(QWidget *parent) :
 
     skWidget->setCurrentIndex(0);
     meter = clsMeterModeFactory::getFunction(clsRS::getInst().meterSeries);
+
+    result.setMeter(meter); //用于结果报表显示
+
     connect(meter,SIGNAL(detectInProgress(QString)),this,SLOT(showMessage(QString)));
     meter->updateGPIB();
     adu200 = new clsSignalThread(this);
@@ -55,9 +59,19 @@ void clsMeterMode::on_btnSetStep_clicked()
 
     if(dlg->exec()==QDialog::Accepted)
     {
+        if(tmp == dlg->getTestSteps())
+        {
+           // qDebug()<<"nothing to do!";
+            return;
+        }
+
         steps.clear();
         tmp.clear();
+
+
         tmp = dlg->getTestSteps();
+
+        this->result.setSteps(tmp); //用于数据结果显示
 
         for(int i=0; i< tmp.length();i++)
         {
@@ -171,15 +185,19 @@ void clsMeterMode::on_btnOpenTask_clicked()
                 {
                     int stepCount = result["stepCount"].toInt();
                     steps.clear();
-
+                    QStringList stepsCondition;
+                    stepsCondition.clear();
                     for(int i=0; i<stepCount; i++)
                     {
 
                         QString tmp = result[QString::number(i)].toString();
+                        stepsCondition.append(tmp); //保存所量测的步骤字符串
                         WKEMeterMode * tmpMeter = clsMeterModeFactory::getFunction(clsRS::getInst().meterSeries);
                         tmpMeter->setCondition(tmp);
                         steps.append(tmpMeter);
                     }
+
+                    this->result.setSteps(stepsCondition);
                 }
                 else
                 {
@@ -278,9 +296,12 @@ void clsMeterMode::trig()
     bool status=true;
     lblStatus->setStatus(BUSY);
 
-    QStringList strSaveRes;
+    QStringList strSaveRes; // 用于保存到硬盘的数据变量
 
-    //用于保存数据
+    TESTDATA_STRUCT allStepData; //用于报表数据
+
+
+
 
     if(blSingleDisplay)
     {
@@ -290,15 +311,15 @@ void clsMeterMode::trig()
     }
 
     strSaveRes.append(count.getTotle());
-
+    allStepData.number = count.getTotle().toInt();
     for(int i =0; i< steps.length(); i++)
     {
         totleRow+= steps.at(i)->getCountTestItems();
 
         meter->setCondition(steps.at(i)->getConditon());
-        meter->updateGPIB();
-        meter->repetiveTrig();
-
+        meter->updateGPIB();    //更新GPIB指令
+        meter->repetiveTrig(); //触发仪器，获取测试结果
+        QVector<double> singleStepData;
         for(int j=0; j< meter->getCountTestItems(); j++)
         {
             tabResult->setRowCount(tabResult->rowCount()+1);
@@ -321,9 +342,10 @@ void clsMeterMode::trig()
 
             //显示测试值
             double dblRes = meter->getResult(j);
+            singleStepData.append(dblRes); //用于报表显示保存数据
             dt.setData(dblRes);
             tabResult->setItem(tabResult->rowCount()-1,3,getTableTestItem(dt.formateWithUnit(suffix,7)+suffix+UserfulFunctions::getSuffix(meter->getItem(j)),2));
-            strSaveRes.append(dt.formateWithUnit(suffix,7));
+            strSaveRes.append(dt.formateWithUnit(suffix,7)); // 用于保存数据到硬盘
             strSaveRes.append(suffix+UserfulFunctions::getSuffix(meter->getItem(j)));
 
             //显示上限
@@ -341,7 +363,10 @@ void clsMeterMode::trig()
             //  tabResult->setItem(tabResult->rowCount()-1,6,getTableTestItem(meter->getDescription(),2));
 
 
+
         }
+
+        allStepData.data.append(singleStepData);
 
         //显示描述
         if(meter->getCountTestItems()>=1)
@@ -361,6 +386,7 @@ void clsMeterMode::trig()
 
     }
 
+     result.addTestData(allStepData); //用于报表数据
     //整个步骤的判定
     for(int i=0; i< totleRow;i++)
     {
@@ -610,4 +636,20 @@ void clsMeterMode::on_btnStartDetect_clicked()
 Stop:
     btnStartDetect->setChecked(false);
     meter->turnOffBias();
+}
+
+void clsMeterMode::on_btnReport_clicked()
+{
+    clsShowReport *dlg = new clsShowReport(this);
+    dlg->setData((clsTestResult*)(&this->result));
+
+    dlg->exec();
+}
+
+void clsMeterMode::on_btnRep10_clicked()
+{
+    for(int i=0; i< 50; i++)
+    {
+        trig();
+    }
 }

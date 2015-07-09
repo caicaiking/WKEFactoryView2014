@@ -125,7 +125,10 @@ SOURCES +=\
     MeterMode/cls4100MeterMode.cpp \
     MeterMode/cls4300MeterMode.cpp \
     MeterMode/cls4100MeterModeCalibration.cpp \
-    MeterMode/cls6500MeterMode.cpp
+    MeterMode/cls6500MeterMode.cpp \
+    MeterMode/clsDataStore.cpp \
+    MeterMode/clsTestResult.cpp \
+    MeterMode/clsShowReport.cpp
 
 
 
@@ -265,7 +268,10 @@ HEADERS += \
     MeterMode/cls4100MeterMode.h \
     MeterMode/cls4300MeterMode.h \
     MeterMode/cls4100MeterModeCalibration.h \
-    MeterMode/cls6500MeterMode.h
+    MeterMode/cls6500MeterMode.h \
+    MeterMode/clsDataStore.h \
+    MeterMode/clsTestResult.h \
+    MeterMode/clsShowReport.h
 
 
 
@@ -324,7 +330,8 @@ FORMS += \
     MeterMode/cls4100MeterMode.ui \
     MeterMode/cls4300MeterMode.ui \
     MeterMode/cls4100MeterModeCalibration.ui \
-    MeterMode/cls6500MeterMode.ui
+    MeterMode/cls6500MeterMode.ui \
+    MeterMode/clsShowReport.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV.ts
