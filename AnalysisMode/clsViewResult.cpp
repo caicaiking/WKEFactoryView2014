@@ -104,8 +104,10 @@ void clsViewResult::on_btnSave_clicked()
 
 
     if(fileName.isNull())
+    {
+        btnSave->setEnabled(true);
         return;
-
+    }
     if(QFile::exists(fileName))
     {
         QDir fileDir=QFileInfo(fileName).dir();
