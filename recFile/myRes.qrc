@@ -70,5 +70,6 @@
         <file>Icons/rot4.png</file>
         <file>Icons/saveData.png</file>
         <file>Icons/detect.png</file>
+        <file>Icons/marker.png</file>
     </qresource>
 </RCC>

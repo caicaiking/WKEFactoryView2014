@@ -105,7 +105,7 @@
       <item>
        <widget class="QStackedWidget" name="stackedWidget">
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="status">
          <layout class="QHBoxLayout" name="horizontalLayout">
@@ -193,14 +193,14 @@ border-radius: 6px;</string>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>ClickedLabel</class>
-   <extends>QLabel</extends>
-   <header>ClickedLabel.h</header>
-  </customwidget>
-  <customwidget>
    <class>StatusLabel</class>
    <extends>QLabel</extends>
    <header>StatusLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ClickedLabel</class>
+   <extends>QLabel</extends>
+   <header>ClickedLabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

@@ -444,7 +444,7 @@ void frmTraceSetup::on_btnTitle_clicked()
     QString text = QInputDialog::getText(this, tr("输入标题"),
                                          tr("标题:"), QLineEdit::Normal,
                                          this->gsetup.title, &ok);
-    if (ok && !text.isEmpty())
+    if (ok)
     {
         this->gsetup.title = text;
     }

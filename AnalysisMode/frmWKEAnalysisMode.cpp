@@ -49,6 +49,8 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
 
 //    connect(this->statusLabel,SIGNAL(Clicked()),this,SLOT(showMulitLimit()));
 
+
+
 }
 
 void frmWKEAnalysisMode::showMulitLimit()
@@ -85,6 +87,23 @@ void frmWKEAnalysisMode::captureTrig()
 
     this->controlBox->getControlBox()->resetBDA();
     connect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
+}
+
+void frmWKEAnalysisMode::setCurrentMarker(int value)
+{
+   // qDebug()<<"Marker button click :" << value;
+
+    for(int i =0; i< markers.length();i++)
+    {
+        markers.at(i)->setActive(value);
+    }
+
+    plot->setCurrentMarker(value);
+}
+
+void frmWKEAnalysisMode::showCurrentMarkerMsg(int group , QString text)
+{
+    markers.at(group)->setText(text);
 }
 
 void frmWKEAnalysisMode::init()
@@ -125,6 +144,30 @@ void frmWKEAnalysisMode::init()
     connect(timer,SIGNAL(timeout()),this,SLOT(testConnection()));
     timer->start();
 
+    this->stackedWidget->setVisible(false);
+
+    // init markers displays
+    QVBoxLayout *layout = new QVBoxLayout();
+    layout->addWidget(this->lblMarkerTitle);
+
+    for(int i=0; i< 10; i++)
+    {
+        clsMarkerItem *item  = new clsMarkerItem();
+        item->setNumber(i);
+        item->setText("");
+        markers.append(item);
+        layout->addWidget(markers.last());
+
+        connect(markers.last(),SIGNAL(clicked(int)),this,SLOT(setCurrentMarker(int)));
+    }
+
+    layout->addStretch(1);
+    markerWidget->setLayout(layout);
+
+    plot->setMultMarker(false);
+    plot->setCurrentMarker(0);
+
+    connect(plot,SIGNAL(showMarkerMessage(int,QString)),this,SLOT(showCurrentMarkerMsg(int,QString)));
 }
 
 void frmWKEAnalysisMode::finishTest()
@@ -540,6 +583,7 @@ void frmWKEAnalysisMode::on_btnTrig_clicked()
 
     btnZoom->setChecked(false);
     enableZoomMode(false);
+    resetMarker();
     progressBar->setValue(0);
     progressBar->setVisible(true);
     if(btnTrig->isChecked())
@@ -799,7 +843,7 @@ void frmWKEAnalysisMode::on_btnSaveResults_clicked()
 
     clsViewResult *viewResult= new clsViewResult(plot->getCurves(),headers,this);
     viewResult->setParameters(meter->getItem1(),meter->getItem2(),meter->getEqucct(),gs.sweepType);
-    connect(viewResult,SIGNAL(setMark(double,int)),plot,SLOT(setMarker(double,int)));
+    connect(viewResult,SIGNAL(setMark(double,int)),plot,SLOT(setCurrentMarker(double,int)));
     viewResult->exec();
 
 }
@@ -910,4 +954,42 @@ void frmWKEAnalysisMode::on_btnSettings_clicked()
 
         }
     }
+}
+
+void frmWKEAnalysisMode::on_btnMarker_toggled(bool checked)
+{
+    this->stackedWidget->setVisible(checked);
+    this->stackedWidget->setCurrentIndex(0);
+    plot->setMultMarker(checked);
+
+    bool tmp = false;
+    for(int i=0; i< markers.length(); i++)
+    {
+        tmp = tmp || markers.at(i)->getIsActive();
+    }
+    if(tmp == false)
+        markers.at(0)->setActive(0);
+
+    if(!checked)
+    {
+        for(int i=0 ; i< markers.length(); i++)
+        {
+            markers.at(i)->setText("");
+            markers.at(i)->setActive(99);
+            plot->setMarkerVisual(i,false);
+        }
+        plot->setCurrentMarker(0);
+    }
+
+}
+
+void frmWKEAnalysisMode::resetMarker()
+{
+    for(int i = 0; i< markers.length(); i++)
+    {
+        plot->setMarkerVisual(i, false);
+        markers.at(i)->setText("");
+    }
+
+    plot->setCurrentMarker(0);
 }

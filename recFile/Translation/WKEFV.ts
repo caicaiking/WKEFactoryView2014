@@ -225,7 +225,7 @@
     </message>
     <message>
         <location filename="../../AnalysisMode/Plot.cpp" line="67"/>
-        <location filename="../../AnalysisMode/Plot.cpp" line="110"/>
+        <location filename="../../AnalysisMode/Plot.cpp" line="121"/>
         <source>频率</source>
         <translation>Frequency</translation>
     </message>
@@ -320,17 +320,17 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="496"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="539"/>
         <location filename="../../MeterMode/clsMeterModeFactory.cpp" line="29"/>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="209"/>
-        <location filename="../../common/main.cpp" line="56"/>
+        <location filename="../../common/main.cpp" line="57"/>
         <source>WKE FactoryView 2014</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="496"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="539"/>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="209"/>
-        <location filename="../../common/main.cpp" line="56"/>
+        <location filename="../../common/main.cpp" line="57"/>
         <source>请插入加密狗！</source>
         <translation>Please insert the dongle!</translation>
     </message>
@@ -561,7 +561,7 @@
         <translation type="vanished">Test result display</translation>
     </message>
     <message>
-        <location filename="../../common/main.cpp" line="45"/>
+        <location filename="../../common/main.cpp" line="46"/>
         <source>正在初始化测试窗口，请稍等...</source>
         <translation>Test window is initializing, please wait ...</translation>
     </message>
@@ -2018,6 +2018,19 @@
         <location filename="../../MulitChannalBox/clsMRBDisplayPannel.cpp" line="197"/>
         <source>无</source>
         <translation>N/A</translation>
+    </message>
+</context>
+<context>
+    <name>clsMarkerItem</name>
+    <message>
+        <location filename="../../AnalysisMode/clsMarkerItem.ui" line="26"/>
+        <source>Form</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsMarkerItem.ui" line="76"/>
+        <source>1</source>
+        <translation>1</translation>
     </message>
 </context>
 <context>
@@ -4813,7 +4826,7 @@ Shot</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="118"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="743"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="787"/>
         <source>重复
 测试</source>
         <translation>Repeat
@@ -4905,6 +4918,7 @@ Fit</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="337"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="373"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;设置多条曲线进行对比。&lt;/p&gt;&lt;p&gt;快捷键Ctrl+Q&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set multiple curves were compared.&lt;/p&gt;&lt;p&gt;ShortCut Ctrl+Q&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -4917,172 +4931,185 @@ Trace</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="354"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="390"/>
         <source>Ctrl+Q</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="373"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="376"/>
+        <source>游标
+标记</source>
+        <translation>Multi-
+Marker</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="412"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;搜索曲线的最大最小值&lt;/p&gt;&lt;p&gt;快捷键Ctrl+B&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Search curve,get maximum and minimum value&lt;/p&gt;&lt;p&gt;Shortcut Ctrl+B&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="376"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="415"/>
         <source>极值
 搜索</source>
         <translation>Peak
 Search</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="390"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="429"/>
         <source>Ctrl+B</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="422"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="461"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;仪表校准。&lt;/p&gt;&lt;p&gt;快捷键 Ctrl+C&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Instrument calibration&lt;/p&gt;&lt;p&gt;Shortcut Ctrl+C&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="425"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="464"/>
         <source>仪表
 校准</source>
         <translation>Calib-
 ration</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="439"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="478"/>
         <source>Ctrl+C</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="458"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="497"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;自动保存测试结果文件名称设定。&lt;/p&gt;&lt;p&gt;快捷键 Ctrl+R&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Auto save test result,set data file first.&lt;/p&gt;&lt;p&gt;Shortcut Ctrl+R&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="461"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="500"/>
         <source>自动
 保存</source>
         <translation>Auto
 Save</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="475"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="514"/>
         <source>Ctrl+R</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="494"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="533"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;浏览测试的数据，其中也可以通过此按钮打开保存窗口。&lt;/p&gt;&lt;p&gt;快捷键 Ctrl+V&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Browse test data, which can be saved through this button to open the window.&lt;/p&gt;&lt;p&gt;ShortCut Ctrl+V&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="497"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="536"/>
         <source>浏览
 数据</source>
         <translation>View
 Result</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="511"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="550"/>
         <source>Ctrl+V</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="530"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="569"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存测试图像，可以有多种文件格式，默认为png格式。&lt;/p&gt;&lt;p&gt;快捷键 Ctrl+P&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; save the test image, you can have a variety of file formats, the default is png format. &lt;/p&gt;&lt;p&gt; shortcut Ctrl+P&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="533"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="572"/>
         <source>保存
 图像</source>
         <translation>Save
 Image</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="547"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="586"/>
         <source>Ctrl+P</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="566"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="605"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存当前文件的配置或者加载配置文件。&lt;/p&gt;&lt;p&gt;快捷键 Ctrl+S&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save current settings file or load settings file.&lt;/p&gt;&lt;p&gt;Shortcut Ctrl+S&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="569"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="608"/>
         <source>配置
 文件</source>
         <translation>Settings
 File Oper</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="583"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="622"/>
         <source>Ctrl+S</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="608"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="647"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;打开或者关闭项目1曲线。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Open or close the item1 curve.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="611"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="650"/>
         <source>Z
 ON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="643"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="682"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;打开或者关闭项目2曲线。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Open or close the item2 curve.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="646"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="685"/>
         <source>θ
 ON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="711"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="772"/>
+        <source>游标显示</source>
+        <translation>Markers display</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="830"/>
         <source>100.00kHz</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="736"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="855"/>
         <source>1.000V</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="761"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="880"/>
         <source>快速</source>
         <translation>Fast</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="786"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="905"/>
         <source>Bias</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="824"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="943"/>
         <source>状态显示</source>
         <translation>Status dispaly</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="884"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="1003"/>
         <source>----------</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="950"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="1069"/>
         <source>软件
 信息</source>
         <translation>SoftWare
 Info</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="972"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="1091"/>
         <source>楷体</source>
         <translation></translation>
     </message>
@@ -5091,7 +5118,7 @@ Info</translation>
         <translation type="obsolete">Instrument: WK %1</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="207"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="250"/>
         <source>Bias
 %1</source>
         <translation></translation>
@@ -5101,7 +5128,7 @@ Info</translation>
         <translation type="obsolete">Default</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="377"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="420"/>
         <source>/untitled.</source>
         <translation></translation>
     </message>
@@ -5115,109 +5142,109 @@ Info</translation>
         <translation>Instrument: WK %1</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="72"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="74"/>
         <source>通过</source>
         <translation>Pass</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="76"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="78"/>
         <source>失败</source>
         <translation>Fail</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="292"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="335"/>
         <source>默认</source>
         <translation>Default</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="338"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="381"/>
         <source>曲线放大</source>
         <translation>Curve zoom</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="338"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="381"/>
         <source>放大范围：
 从%1到%2</source>
         <translation>Zoom range:
 from %1 to %2</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="379"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="422"/>
         <source>保存测试图像</source>
         <translation>Save test image</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="381"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="424"/>
         <source>%1 Files (*.%2);;All Files (*)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="392"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="395"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="400"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="411"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="414"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="419"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="435"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="438"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="443"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="454"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="457"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="462"/>
         <source>ON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="395"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="400"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="414"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="419"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="438"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="443"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="457"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="462"/>
         <source>OFF</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="468"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="511"/>
         <source>扫描设定</source>
         <translation>Sweep settings</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="549"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="720"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="593"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="764"/>
         <source>停止
 测试</source>
         <translation>Stop
 Test</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="559"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="569"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="603"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="613"/>
         <source>开始
 测试</source>
         <translation>Single
 Shot</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="683"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="727"/>
         <source>日期:,%1,时间:,%2,状态:,%3</source>
         <translation>Date:,%1,Time:,%2,Status:,%3</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="697"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="704"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="741"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="748"/>
         <source>%1,%2,%3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="820"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="864"/>
         <source>关于本软件</source>
         <translation>About me</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="870"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="914"/>
         <source>打开数据文件</source>
         <translation>Open data file</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="870"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="914"/>
         <source>CSV Files (*.csv)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="882"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="926"/>
         <source>配置文件操作</source>
         <translation>Settings file operation</translation>
     </message>
