@@ -4,6 +4,7 @@
 #include "ui_clsCalibration.h"
 #include "clsDataProcess.h"
 #include "clsRuningSettings.h"
+#include "clsConnectSWBox.h"
 class clsCalibration : public QDialog, private Ui::clsCalibration
 {
     Q_OBJECT
@@ -11,7 +12,10 @@ class clsCalibration : public QDialog, private Ui::clsCalibration
 public:
     explicit clsCalibration(QWidget *parent = 0);
 private slots:
-    void on_btnCalibration_clicked();
+
+    void on_btnTest_clicked();
+    void on_btnOpen_clicked();
+    void on_btnShort_clicked();
 };
 
 #endif // CLSCALIBRATION_H
