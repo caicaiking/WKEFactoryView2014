@@ -450,7 +450,7 @@ double wk6500AnalysisMeter::getMaxBiasA()
     if(maxC==0)
     {
         clsRS::getInst().sendCommand("*SYSBIAS \'BIAS EXT\'",false);
-        if(clsRS::getInst().sendCommand("*SYSBIAS?",true)=="BIAS EXT")
+        if(clsRS::getInst().sendCommand("*SYSBIAS?",true).toUpper().contains("BIAS EXT"))
         {
             maxC=40.0;
             return maxC;
