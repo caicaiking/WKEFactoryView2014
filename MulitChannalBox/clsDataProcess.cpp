@@ -34,5 +34,10 @@ void clsDataProcess::applyShortData(double z, double angle)
     shortData.Angle = angle;
 }
 
+void clsDataProcess::calculate()
+{
+
+}
+
 
 
