@@ -270,8 +270,8 @@ void frmWKEAnalysisMode::updateGraph()
     if(meter->getItem1() !="Z" && meter->getItem1() !="Y")
         gs.logYleft=false;
 
-    if(gs.sweepType !=Frequency)
-        gs.logX=false;
+//    if(gs.sweepType !=Frequency)
+//        gs.logX=false;
 
     plot->setScale(gs.xmin,gs.xmax,gs.logX,
                    gs.yLeftMin,gs.yLeftMax,gs.logYleft,

@@ -3,7 +3,7 @@
 #include <QString>
 
 /**!
- * 这个默认是使用等效电路串联的
+ * 这个默认是使用等效电路串联的，一点 惊醒开路点校准和短路点校准
  * */
 #include "clsComplexOp.h"
 

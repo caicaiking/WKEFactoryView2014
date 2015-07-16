@@ -16,6 +16,9 @@ private slots:
     void on_btnTest_clicked();
     void on_btnOpen_clicked();
     void on_btnShort_clicked();
+
+private:
+    double ocZ,ocA,scZ,scA;
 };
 
 #endif // CLSCALIBRATION_H

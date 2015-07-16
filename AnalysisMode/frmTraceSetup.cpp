@@ -263,7 +263,7 @@ void frmTraceSetup::updateButtons()
     dt.setData(this->gsetup.xmax,"");
     this->btnXmax->setText(dt.formateToString());
 
-    if(this->gsetup.sweepType ==Frequency && this->gsetup.logX)
+    if(/*this->gsetup.sweepType ==Frequency &&*/ this->gsetup.logX)
     {
         if(gsetup.xmax>0 && gsetup.xmin >0)
         {

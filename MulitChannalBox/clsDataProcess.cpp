@@ -1,6 +1,7 @@
 #include "clsDataProcess.h"
 #include <math.h>
 #include <QObject>
+#include <QDebug>
 clsDataProcess::clsDataProcess(double z, double a, double freq)
 {
     setFrequency(freq);
@@ -35,6 +36,7 @@ void clsDataProcess::applyShortData(double z, double angle)
     shortData.Angle = angle;
 }
 
+
 void clsDataProcess::doCalibration()
 {
     //先进行短路的扣除
@@ -54,25 +56,32 @@ void clsDataProcess::doCalibration()
     double calZ = sqrt(calR*calR + calX*calX);
     double calA = atan(calX/calR)*180.0/PI;
 
+    qDebug()<< "calA " << calA;
+
     clsComplexOp calData(calZ,calA,mFreq,series);
 
     //在进行开路的扣除
     double calC= calData.C()-openData.C();
     calR = calData.R();
 
-    calX = 1.0/(2*PI*mFreq*calC);
+    calX = -1.0/(2*PI*mFreq*calC);
 
     calZ = sqrt(calX*calX + calR*calR);
     calA = atan(calX/calR)*180.0/PI;
 
     this->mZ = calZ;
     this->mA = calA;
+    qDebug()<< "calA1 " << calA;
 }
 
 double clsDataProcess::getItem(QString item, QString equcct)
 {
     double angle = (equcct==QObject::tr("串联") ? 1.0 : -1.0) *this->mA;
     Equcct equ =  (equcct==QObject::tr("串联") ? series :parallel);
+
+    qDebug()<< angle;
+
+    qDebug()<< equ;
 
     clsComplexOp data(this->mZ,angle,this->mFreq,equ);
 

@@ -335,7 +335,7 @@ double wk4300AnalysisMeter::getMinBiasV()
 
 double wk4300AnalysisMeter::getMaxBiasA()
 {
-    return 0;
+    return 10;
 }
 
 double wk4300AnalysisMeter::getMinBiasA()
