@@ -86,6 +86,7 @@ public:
     void setMultMarker(bool value);
     void setCurrentMarker(int value);
     void setMarkerVisual(int i, bool value);
+    void setDataEnd();
 signals:
     void showMarkerMessage(int , QString);
 

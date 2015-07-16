@@ -13,7 +13,7 @@ frmSelectConnection::frmSelectConnection(QWidget *parent) :
     this->btnMeter->setEnabled(false);
     //this->btnMeter->setVisible(false);
     this->btnMulitChannel->setEnabled(false);
-    this->btnMulitChannel->setVisible(false);
+    //this->btnMulitChannel->setVisible(false);
 
     intSelect=0;
 

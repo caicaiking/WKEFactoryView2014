@@ -126,7 +126,8 @@ SOURCES +=\
     MeterMode/cls4300MeterMode.cpp \
     MeterMode/cls4100MeterModeCalibration.cpp \
     MeterMode/cls6500MeterMode.cpp \
-    AnalysisMode/clsMarkerItem.cpp
+    AnalysisMode/clsMarkerItem.cpp \
+    MulitChannalBox/clsDataProcess.cpp
 
 
 
@@ -267,7 +268,8 @@ HEADERS += \
     MeterMode/cls4300MeterMode.h \
     MeterMode/cls4100MeterModeCalibration.h \
     MeterMode/cls6500MeterMode.h \
-    AnalysisMode/clsMarkerItem.h
+    AnalysisMode/clsMarkerItem.h \
+    MulitChannalBox/clsDataProcess.h
 
 
 

@@ -5,7 +5,7 @@
 struct CPLXTrig
 {
     double AbsValue;
-    double angle;
+    double Angle;
 };
 
 struct CPLXAlge

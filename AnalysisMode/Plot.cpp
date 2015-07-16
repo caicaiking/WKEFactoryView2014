@@ -152,7 +152,6 @@ void Plot::clearData()
         curves.value(0).cur1->setSamples(x,curvel);
         curves.value(0).cur2->setSamples(x,curve2);
     }
-    d_marker1->setVisible(false);
 
 }
 
@@ -167,12 +166,11 @@ void Plot::showData(const QVector<double>& x,
     {
         curves.value(0).cur1->setSamples(x,curvel);
         curves.value(0).cur2->setSamples(x,curve2);
-
-
     }
     //在这儿不自动缩放坐标系
     // this->setAxisScale(QwtPlot::xBottom,x.first(),x.last());
-    this->d_marker1->setVisible(false);
+
+
 }
 
 void Plot::autoScale(Plot::Choice choice)
@@ -935,7 +933,31 @@ void Plot::setCurrentMarker(int value)
 
 void Plot::setMarkerVisual(int i, bool value)
 {
-   markers.at(i)->setVisible(value);
+    markers.at(i)->setVisible(value);
+}
+
+void Plot::setDataEnd()
+{
+    if(!multiMarker)
+    {
+        d_marker1->setVisible(false);
+
+    }
+    else
+    {
+        int tmp = this->currentMarker;
+        for(int i =0; i< markers.length();i ++)
+        {
+            if(markers.at(i)->isVisible())
+            {
+                this->currentMarker = i;
+                d_marker1 = markers.at(i);
+                setMarker(d_marker1->value().x());
+            }
+        }
+        d_marker1 = markers.at(tmp);
+        tmp = this->currentMarker;
+    }
 }
 
 

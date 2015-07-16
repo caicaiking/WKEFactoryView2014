@@ -25,11 +25,11 @@ void clsComplexOp::CalaculateParameters()
 
 
         ZA.AbsValue=mZ;
-        ZA.angle=mA;
+        ZA.Angle=mA;
 
 
         YX.AbsValue=1.0;
-        YX.angle=0.0;
+        YX.Angle=0.0;
 
         YX=CPLXDiviT(YX,ZA);
         mYY=YX.AbsValue;
@@ -63,11 +63,11 @@ void clsComplexOp::CalaculateParameters()
         mD=1.0/mQ;
 
         ZA.AbsValue=mZ;
-        ZA.angle=mA;
-        ZA.angle=-mA;
+        ZA.Angle=mA;
+        ZA.Angle=-mA;
 
         YX.AbsValue=1.0;
-        YX.angle=0.0;
+        YX.Angle=0.0;
 
         YX=CPLXDiviT(YX,ZA);
         mYY=YX.AbsValue;
@@ -98,7 +98,7 @@ double clsComplexOp::QCal()
 {
     CPLXTrig ZA;
     ZA.AbsValue=mZ;
-    ZA.angle=-mA;
+    ZA.Angle=-mA;
 
     CPLXAlge RX;
     RX=TrigToAlge(ZA);
@@ -125,8 +125,8 @@ double clsComplexOp::QCal()
 CPLXAlge clsComplexOp::TrigToAlge(CPLXTrig Trig){
     //三角形式到代数形式的换算
     CPLXAlge xx;
-    double real = Trig.AbsValue * cos(Trig.angle *PI/180.0);
-    double image = Trig.AbsValue * sin(Trig.angle *PI/180.0);
+    double real = Trig.AbsValue * cos(Trig.Angle *PI/180.0);
+    double image = Trig.AbsValue * sin(Trig.Angle *PI/180.0);
 
     xx.Real=real;
     xx.Imag=image;
@@ -149,6 +149,6 @@ CPLXTrig clsComplexOp::CPLXDiviT(CPLXTrig Dividend  , CPLXTrig Divisor)
     //三角形式复数除法
     CPLXTrig CPLXDiviT;
     CPLXDiviT.AbsValue = Dividend.AbsValue / Divisor.AbsValue;
-    CPLXDiviT.angle = Dividend.angle - Divisor.angle;
+    CPLXDiviT.Angle = Dividend.Angle - Divisor.Angle;
     return CPLXDiviT;
 }

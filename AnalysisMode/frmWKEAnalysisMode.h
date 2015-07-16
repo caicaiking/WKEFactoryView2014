@@ -66,6 +66,8 @@ private slots:
 
     void setCurrentMarker(int value);
     void showCurrentMarkerMsg(int, QString);
+
+
 private:
     Plot *plot;
     void initPlot();

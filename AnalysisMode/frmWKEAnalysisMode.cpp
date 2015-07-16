@@ -600,6 +600,7 @@ void frmWKEAnalysisMode::on_btnTrig_clicked()
         meas->setPlot(plot);
         meas->setGraphSettings(gs);
         meas->trig();
+        plot->setDataEnd(); //Draw plot End!
         btnTrig->setText(tr("开始\n测试"));
         btnTrig->setIcon(QIcon(":/Icons/single.png"));
         btnTrig->setChecked(false);
@@ -985,11 +986,12 @@ void frmWKEAnalysisMode::on_btnMarker_toggled(bool checked)
 
 void frmWKEAnalysisMode::resetMarker()
 {
-    for(int i = 0; i< markers.length(); i++)
-    {
-        plot->setMarkerVisual(i, false);
-        markers.at(i)->setText("");
-    }
+//    for(int i = 0; i< markers.length(); i++)
+//    {
+//        plot->setMarkerVisual(i, false);
+//        markers.at(i)->setText("");
+//    }
 
-    plot->setCurrentMarker(0);
+//    plot->setCurrentMarker(0);
 }
+
