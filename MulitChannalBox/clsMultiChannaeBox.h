@@ -27,6 +27,8 @@ private slots:
     void on_btnClearAllData_clicked();
     void on_btnShowTestStatus_toggled(bool checked);
     void setIdeal();
+    void on_btnChannalCal_clicked();
+
 protected:
     void keyPressEvent(QKeyEvent *event);
 private:

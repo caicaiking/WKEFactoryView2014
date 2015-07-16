@@ -127,7 +127,8 @@ SOURCES +=\
     MeterMode/cls4100MeterModeCalibration.cpp \
     MeterMode/cls6500MeterMode.cpp \
     AnalysisMode/clsMarkerItem.cpp \
-    MulitChannalBox/clsDataProcess.cpp
+    MulitChannalBox/clsDataProcess.cpp \
+    MulitChannalBox/clsCalibration.cpp
 
 
 
@@ -269,7 +270,8 @@ HEADERS += \
     MeterMode/cls4100MeterModeCalibration.h \
     MeterMode/cls6500MeterMode.h \
     AnalysisMode/clsMarkerItem.h \
-    MulitChannalBox/clsDataProcess.h
+    MulitChannalBox/clsDataProcess.h \
+    MulitChannalBox/clsCalibration.h
 
 
 
@@ -329,7 +331,8 @@ FORMS += \
     MeterMode/cls4300MeterMode.ui \
     MeterMode/cls4100MeterModeCalibration.ui \
     MeterMode/cls6500MeterMode.ui \
-    AnalysisMode/clsMarkerItem.ui
+    AnalysisMode/clsMarkerItem.ui \
+    MulitChannalBox/clsCalibration.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV.ts

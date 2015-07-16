@@ -2,6 +2,7 @@
 #include <math.h>
 #include <QTime>
 #include "clsSwitchBoxTest.h"
+#include "clsCalibration.h"
 #include "cls4300MeterMode.h"
 #include <QFile>
 #include <QDir>
@@ -342,4 +343,10 @@ void clsMultiChannaeBox::on_btnShowTestStatus_toggled(bool checked)
         for(int i=0; i< pannel.length();i++)
             pannel.at(i)->setResType(1);
     }
+}
+
+void clsMultiChannaeBox::on_btnChannalCal_clicked()
+{
+    clsCalibration *dlg = new clsCalibration(this);
+    dlg->exec();
 }

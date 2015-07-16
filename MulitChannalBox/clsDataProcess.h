@@ -1,6 +1,6 @@
 #ifndef CLSDATAPROCESS_H
 #define CLSDATAPROCESS_H
-
+#include <QString>
 
 /**!
  * 这个默认是使用等效电路串联的
@@ -17,12 +17,13 @@ public:
     void setAngle(double value);
     void applyOpenData(double z, double angle);
     void applyShortData(double z,double angle);
-
-    void calculate();
+    void doCalibration();
+    double getItem(QString item, QString equcct);
 private:
     double mZ;
     double mA;
     double mFreq;
+
 
     CPLXTrig openData,shortData;
 

@@ -60,7 +60,7 @@
 测试</string>
         </property>
         <property name="icon">
-         <iconset resource="../recFile/myRes.qrc">
+         <iconset>
           <normaloff>:/Icons/single.png</normaloff>:/Icons/single.png</iconset>
         </property>
         <property name="iconSize">
@@ -92,7 +92,7 @@
 设定</string>
         </property>
         <property name="icon">
-         <iconset resource="../recFile/myRes.qrc">
+         <iconset>
           <normaloff>:/Icons/calibration.png</normaloff>:/Icons/calibration.png</iconset>
         </property>
         <property name="iconSize">
@@ -124,7 +124,7 @@
 通道</string>
         </property>
         <property name="icon">
-         <iconset resource="../recFile/myRes.qrc">
+         <iconset>
           <normaloff>:/Icons/chennal.png</normaloff>:/Icons/chennal.png</iconset>
         </property>
         <property name="iconSize">
@@ -149,6 +149,38 @@
        </spacer>
       </item>
       <item>
+       <widget class="QPushButton" name="btnChannalCal">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>10</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>通道
+校准</string>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>:/Icons/advance.png</normaloff>:/Icons/advance.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="btnOpenSettingFile">
         <property name="minimumSize">
          <size>
@@ -169,7 +201,7 @@
 设置</string>
         </property>
         <property name="icon">
-         <iconset resource="../recFile/myRes.qrc">
+         <iconset>
           <normaloff>:/Icons/export.png</normaloff>:/Icons/export.png</iconset>
         </property>
         <property name="iconSize">
@@ -201,7 +233,7 @@
 设置</string>
         </property>
         <property name="icon">
-         <iconset resource="../recFile/myRes.qrc">
+         <iconset>
           <normaloff>:/Icons/stepSave.png</normaloff>:/Icons/stepSave.png</iconset>
         </property>
         <property name="iconSize">
@@ -233,7 +265,7 @@
 测试</string>
         </property>
         <property name="icon">
-         <iconset resource="../recFile/myRes.qrc">
+         <iconset>
           <normaloff>:/Icons/switch.png</normaloff>:/Icons/switch.png</iconset>
         </property>
         <property name="iconSize">
@@ -265,7 +297,7 @@
 通信</string>
         </property>
         <property name="icon">
-         <iconset resource="../recFile/myRes.qrc">
+         <iconset>
           <normaloff>:/Icons/com.png</normaloff>:/Icons/com.png</iconset>
         </property>
         <property name="iconSize">
@@ -423,7 +455,7 @@
 状态</string>
         </property>
         <property name="icon">
-         <iconset resource="../recFile/myRes.qrc">
+         <iconset>
           <normaloff>:/Icons/data.png</normaloff>:/Icons/data.png</iconset>
         </property>
         <property name="iconSize">
@@ -456,7 +488,7 @@
 数据</string>
         </property>
         <property name="icon">
-         <iconset resource="../recFile/myRes.qrc">
+         <iconset>
           <normaloff>:/Icons/delete.png</normaloff>:/Icons/delete.png</iconset>
         </property>
         <property name="iconSize">
@@ -498,8 +530,6 @@
    </property>
   </widget>
  </widget>
- <resources>
-  <include location="../recFile/myRes.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
