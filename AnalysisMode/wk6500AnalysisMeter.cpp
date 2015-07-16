@@ -463,7 +463,7 @@ double wk6500AnalysisMeter::getMaxBiasA()
             return maxC;
         }
     }
-    return 0.1;
+    return maxC;
 }
 
 double wk6500AnalysisMeter::getMinBiasA()
