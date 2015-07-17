@@ -48,26 +48,59 @@ void clsDataProcess::doCalibration()
     double calL, calR;
     calL = testData.L()- shortData.L();
     calR = testData.R() - shortData.R();
+    qDebug()<< "Cal L "<< calL;
+    qDebug()<< "Cal R "<< calR;
+
     if(calR == 0.0)
         calR = 1E-6;
 
     double calX = 2.0*PI*mFreq*calL;
 
     double calZ = sqrt(calR*calR + calX*calX);
-    double calA = atan(calX/calR)*180.0/PI;
+    double calA;
+
+    if(calR > 0)
+    {
+        calA = atan(calX/calR)*180.0/PI;
+    }
+    else
+    {
+        if(calX> 0)
+            calA = 180.0- atan(calX/-calR)*180.0/PI;
+        else
+            calA = -180 - atan(calX/-calR)*180.0/PI;
+    }
+
+    qDebug()<< "calA 61" << calA;
+
 
     qDebug()<< "calA " << calA;
 
     clsComplexOp calData(calZ,calA,mFreq,series);
 
     //在进行开路的扣除
+    qDebug()<<"Cal C :" << calData.C();
     double calC= calData.C()-openData.C();
+    qDebug()<< "Open C: " << openData.C();
     calR = calData.R();
 
     calX = -1.0/(2*PI*mFreq*calC);
 
+
     calZ = sqrt(calX*calX + calR*calR);
-    calA = atan(calX/calR)*180.0/PI;
+    if(calR > 0)
+    {
+        calA = atan(calX/calR)*180.0/PI;
+    }
+    else
+    {
+        if(calX> 0)
+            calA = 180.0- atan(calX/-calR)*180.0/PI;
+        else
+            calA = -180 - atan(calX/-calR)*180.0/PI;
+    }
+
+   // calA = atan(calX/calR)*180.0/PI;
 
     this->mZ = calZ;
     this->mA = calA;

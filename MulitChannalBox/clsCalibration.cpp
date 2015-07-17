@@ -7,11 +7,13 @@ clsCalibration::clsCalibration(QWidget *parent) :
 {
     setupUi(this);
 
-    clsRS::getInst().sendCommand(":MEAS:NUM-OF-TESTS 1");
-    clsRS::getInst().sendCommand(":MEAS:FUNC1 Z");
-    clsRS::getInst().sendCommand(":MEAS:FUNC2 A");
+    //clsRS::getInst().sendCommand(":MEAS:NUM-OF-TESTS 1");
+    clsRS::getInst().sendCommand(":MEAS:FUNC:Z");
     clsRS::getInst().sendCommand(":MEAS:EQU-CCT SERIES");
-     clsRS::getInst().sendCommand(":MEAS:FREQ 100000");
+    clsRS::getInst().sendCommand(":MEAS:FREQ 100000");
+    clsRS::getInst().sendCommand(":MEAS:SPEED SLOW");
+    clsRS::getInst().sendCommand(":FAST-GPIB ON");
+
 }
 
 
@@ -33,20 +35,20 @@ void clsCalibration::on_btnTest_clicked()
     double c= d.getItem("C",QString("串联"));
     double dx= d.getItem("D",QString("串联"));
 
-   doubleType dt;
-   dt.setData(c);
-   txtC->setText(dt.formateToString());
-   dt.setData(dx);
-   txtD->setText(dt.formateWithUnit(""));
+    doubleType dt;
+    dt.setData(c);
+    txtC->setText(dt.formateToString());
+    dt.setData(dx);
+    txtD->setText(dt.formateWithUnit(""));
 
-   double l= d.getItem("L",QString("串联"));
-   double r= d.getItem("R",QString("串联"));
+    double l= d.getItem("L",QString("串联"));
+    double r= d.getItem("R",QString("串联"));
 
 
-   dt.setData(l);
-   txtL->setText(dt.formateToString());
-   dt.setData(r);
-   txtR->setText(dt.formateToString());
+    dt.setData(l);
+    txtL->setText(dt.formateToString());
+    dt.setData(r);
+    txtR->setText(dt.formateToString());
 }
 
 void clsCalibration::on_btnOpen_clicked()
