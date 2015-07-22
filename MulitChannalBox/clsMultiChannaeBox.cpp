@@ -1,9 +1,9 @@
-#include "clsMultiChannaeBox.h"
+﻿#include "clsMultiChannaeBox.h"
 #include <math.h>
 #include <QTime>
 #include "clsSwitchBoxTest.h"
 #include "clsCalibration.h"
-#include "cls4300MeterMode.h"
+#include "clsMultModeMeterUi.h"
 #include <QFile>
 #include <QDir>
 #include <Quazip/JlCompress.h>
@@ -12,6 +12,8 @@
 #include <QTime>
 #include "UserfulFunctions.h"
 #include <QTextStream>
+#include "clsCalibrationDbOp.h"
+#include "cls6440MultiMeterMode.h"
 clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -21,11 +23,12 @@ clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
 
     bool initCom= clsConnectSWBox::Instance()->initSerialPort();
     btnOpen->setEnabled(!initCom);
+    btnOpen->setVisible(!initCom);
     btnSwitchBoxTest->setEnabled(initCom);
 
-    meter = new cls4300MeterMode();
+    meter = new  cls6440MultiMeterMode();
 
-    chennal="1";
+    channels="1";
     tableWidget->setColumnCount(4);
     int i= CHENNAL_COUNT / 4;
     if(i*4<CHENNAL_COUNT)
@@ -38,7 +41,18 @@ clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
 
 
     initPannel();
+    initDataBase();
     this->showMaximized();
+}
+
+/*!
+ * \brief  初始化数据库文件。
+ */
+void clsMultiChannaeBox::initDataBase()
+{
+    clsCalDb::getInst()->setStrDataBaseName(QString("./McbCal.db"));
+    clsCalDb::getInst()->openDataBase();
+    clsCalDb::getInst()->initTable();
 }
 
 /*!
@@ -98,9 +112,14 @@ void clsMultiChannaeBox::on_btnSwitchBoxTest_clicked()
  */
 void clsMultiChannaeBox::on_btnMeter_clicked()
 {
-    meter->setWindowModality(Qt::ApplicationModal);
-    meter->show();
+    clsMultiModeMeterUi * dlg = new clsMultiModeMeterUi();
 
+    dlg->setConditon(this->meter->getConditon());
+
+    if(dlg->exec() == QDialog::Accepted)
+    {
+        this->meter->setCondition(dlg->getConditon());
+    }
 
 }
 
@@ -110,12 +129,8 @@ void clsMultiChannaeBox::on_btnMeter_clicked()
  */
 void clsMultiChannaeBox::on_btnSave_clicked()
 {
-
-
     if(strSaveFileName.isEmpty())
-    {
         strSaveFileName = "untitled.wkm";
-    }
 
     QString fileName = QFileDialog::getSaveFileName(this, tr("保存多通道测试文件"),
                                                     strSaveFileName,
@@ -136,8 +151,8 @@ void clsMultiChannaeBox::on_btnSave_clicked()
     if(file.open(QFile::WriteOnly))
     {
         QVariantMap tmpVar;
-        tmpVar.insert("Meter",meter->getTestCondition());
-        tmpVar.insert("Chennal",this->chennal);
+        tmpVar.insert("Meter",meter->getConditon());
+        tmpVar.insert("Chennal",this->channels);
 
         QJsonDocument jsDocument = QJsonDocument::fromVariant(tmpVar);
         if(jsDocument.isObject())
@@ -210,7 +225,7 @@ void clsMultiChannaeBox::  on_btnOpenSettingFile_clicked()
             if(jsDocomnent.isObject())
             {
                 QVariantMap result = jsDocomnent.toVariant().toMap();
-                this->chennal = result["Chennal"].toString();
+                this->channels = result["Chennal"].toString();
                 QString stConditon = result["Meter"].toString();
                 this->meter->setCondition(stConditon);
             }
@@ -243,12 +258,34 @@ void clsMultiChannaeBox::on_btnSignleTest_clicked()
     {
         clsConnectSWBox::Instance()->sendCommand(pannel.at(i)->number()-1);
         UserfulFunctions::sleepMs(5);
-        QString strResult= meter->trig();
-        pannel.at(i)->setTestResult(strResult);
+        meter->setChannel(pannel.at(i)->number());
+        meter->setUseLoad(true); //以后再说
+        meter->trig();
+        pannel.at(i)->setNumber(i+1);
+
+        TestResult res;
+
+       // qDebug()<< meter->getTotleItemCount();
+        for(int j=0; j< meter->getTotleItemCount();j++)
+        {
+            TestItem testItem;
+            testItem.item = meter->getItem(j);
+            testItem.limit =meter->getLimit(j);
+            testItem.status = meter->getStatus(j);
+            testItem.suffix = meter->getUnit(j);
+            testItem.value = meter->getRes(j);
+
+            res.item.append(testItem);
+        }
+        res.status = meter->getTotleStatus();
+
+
+
+        pannel.at(i)->setTestResult(res);
 
         //  qDebug()<<strResult;
     }
-    meter->turnOffBias();
+    // meter->turnOffBias();
     btnSignleTest->setEnabled(true);
     //qDebug()<<"Time: "<< tmp.msecsTo(QTime::currentTime());
 
@@ -272,14 +309,19 @@ void clsMultiChannaeBox::keyPressEvent(QKeyEvent *event)
     }
 }
 
+void clsMultiChannaeBox::closeEvent(QCloseEvent *)
+{
+    clsConnectSWBox::Instance()->closeSeriesPort();
+}
+
 
 void clsMultiChannaeBox::on_btnSelectChennal_clicked()
 {
     clsChennalSelect dlg(this);
-    dlg.setChennal(this->chennal);
+    dlg.setChennal(this->channels);
     if(dlg.exec())
     {
-        this->chennal=dlg.getChennal();
+        this->channels=dlg.getChennal();
         initPannel();
     }
 }
@@ -306,7 +348,7 @@ void clsMultiChannaeBox::initPannel()
 
     pannel.clear();
 
-    foreach (QString tmp, chennal.split(",")) {
+    foreach (QString tmp, channels.split(",")) {
         bool ok;
         int value = tmp.toInt(&ok);
 
@@ -348,5 +390,7 @@ void clsMultiChannaeBox::on_btnShowTestStatus_toggled(bool checked)
 void clsMultiChannaeBox::on_btnChannalCal_clicked()
 {
     clsCalibration *dlg = new clsCalibration(this);
+    dlg->setMeter(this->meter);
+    dlg->setChannels(this->channels.split(","));
     dlg->exec();
 }

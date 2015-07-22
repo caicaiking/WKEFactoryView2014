@@ -1,12 +1,13 @@
-#ifndef CLSDATAPROCESS_H
+ï»¿#ifndef CLSDATAPROCESS_H
 #define CLSDATAPROCESS_H
 #include <QString>
 
+
 /**!
- * Õâ¸öÄ¬ÈÏÊÇÊ¹ÓÃµÈĞ§µçÂ·´®ÁªµÄ£¬Ò»µã ¾ªĞÑ¿ªÂ·µãĞ£×¼ºÍ¶ÌÂ·µãĞ£×¼
+ * è¿™ä¸ªé»˜è®¤æ˜¯ä½¿ç”¨ç­‰æ•ˆç”µè·¯ä¸²è”çš„ï¼Œä¸€ç‚¹ æƒŠé†’å¼€è·¯ç‚¹æ ¡å‡†å’ŒçŸ­è·¯ç‚¹æ ¡å‡†
  * */
 #include "clsComplexOp.h"
-
+#include "complexType.h"
 class clsDataProcess
 {
 public:
@@ -17,15 +18,19 @@ public:
     void setAngle(double value);
     void applyOpenData(double z, double angle);
     void applyShortData(double z,double angle);
+    void applyLoadData(double z, double angle);
+
+    void useLoadData(bool value);
     void doCalibration();
     double getItem(QString item, QString equcct);
+    void applyStdData(double z, double anlge);
 private:
     double mZ;
     double mA;
     double mFreq;
 
-
-    CPLXTrig openData,shortData;
+    bool blUseLoad;
+    complexType Zo,Zs, Zsm, Zstd;
 
 };
 

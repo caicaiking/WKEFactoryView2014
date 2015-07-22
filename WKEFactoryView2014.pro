@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network serialport xml
+QT       += core gui network serialport xml sql
 RC_FILE  =Icon.rc
 
 
@@ -123,12 +123,17 @@ SOURCES +=\
     MeterMode/clsMeterModeSettings.cpp \
     MeterMode/cls6440Calibration.cpp \
     MeterMode/cls4100MeterMode.cpp \
-    MeterMode/cls4300MeterMode.cpp \
     MeterMode/cls4100MeterModeCalibration.cpp \
     MeterMode/cls6500MeterMode.cpp \
     AnalysisMode/clsMarkerItem.cpp \
     MulitChannalBox/clsDataProcess.cpp \
-    MulitChannalBox/clsCalibration.cpp
+    MulitChannalBox/clsCalibration.cpp \
+    MulitChannalBox/complexType.cpp \
+    MulitChannalBox/clsCalibrationDbOp.cpp \
+    MulitChannalBox/clsMultiModeMeter.cpp \
+    MulitChannalBox/cls6440MultiMeterMode.cpp \
+    MulitChannalBox/clsMultModeMeterUi.cpp \
+
 
 
 
@@ -266,12 +271,17 @@ HEADERS += \
     MeterMode/clsMeterModeSettings.h \
     MeterMode/cls6440Calibration.h \
     MeterMode/cls4100MeterMode.h \
-    MeterMode/cls4300MeterMode.h \
     MeterMode/cls4100MeterModeCalibration.h \
     MeterMode/cls6500MeterMode.h \
     AnalysisMode/clsMarkerItem.h \
     MulitChannalBox/clsDataProcess.h \
-    MulitChannalBox/clsCalibration.h
+    MulitChannalBox/clsCalibration.h \
+    MulitChannalBox/complexType.h \
+    MulitChannalBox/clsCalibrationDbOp.h \
+    MulitChannalBox/clsMultiModeMeter.h \
+    MulitChannalBox/cls6440MultiMeterMode.h \
+    MulitChannalBox/clsMultModeMeterUi.h \
+
 
 
 
@@ -328,11 +338,11 @@ FORMS += \
     MeterMode/clsMeterModeSettings.ui \
     MeterMode/cls6440Calibration.ui \
     MeterMode/cls4100MeterMode.ui \
-    MeterMode/cls4300MeterMode.ui \
     MeterMode/cls4100MeterModeCalibration.ui \
     MeterMode/cls6500MeterMode.ui \
     AnalysisMode/clsMarkerItem.ui \
-    MulitChannalBox/clsCalibration.ui
+    MulitChannalBox/clsCalibration.ui \
+    MulitChannalBox/clsMultModeMeterUi.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV.ts

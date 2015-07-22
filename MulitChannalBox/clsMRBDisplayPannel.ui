@@ -193,14 +193,14 @@ border-radius: 6px;</string>
  </widget>
  <customwidgets>
   <customwidget>
-   <class>StatusLabel</class>
-   <extends>QLabel</extends>
-   <header>StatusLabel.h</header>
-  </customwidget>
-  <customwidget>
    <class>ClickedLabel</class>
    <extends>QLabel</extends>
    <header>ClickedLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>StatusLabel</class>
+   <extends>QLabel</extends>
+   <header>StatusLabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

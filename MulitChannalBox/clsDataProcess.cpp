@@ -1,13 +1,15 @@
-#include "clsDataProcess.h"
+Ôªø#include "clsDataProcess.h"
 #include <math.h>
 #include <QObject>
 #include <QDebug>
+
 clsDataProcess::clsDataProcess(double z, double a, double freq)
 {
     setFrequency(freq);
     setAngle(a);
     setImpedance(z);
 }
+
 
 void clsDataProcess::setFrequency(double value)
 {
@@ -26,95 +28,64 @@ void clsDataProcess::setAngle(double value)
 
 void clsDataProcess::applyOpenData(double z, double angle)
 {
-    openData.AbsValue = z;
-    openData.Angle =angle;
+    Zo.setZA(z,angle);
 }
 
 void clsDataProcess::applyShortData(double z, double angle)
 {
-    shortData.AbsValue =z;
-    shortData.Angle = angle;
+    Zs.setZA(z, angle);
+}
+
+void clsDataProcess::applyLoadData(double z, double angle)
+{
+    Zsm.setZA(z,angle);
+}
+
+void clsDataProcess::applyStdData(double z, double anlge)
+{
+    Zstd.setZA(z,anlge);
+}
+
+void clsDataProcess::useLoadData(bool value)
+{
+    this->blUseLoad = value;
 }
 
 
 void clsDataProcess::doCalibration()
 {
-    //œ»Ω¯––∂Ã¬∑µƒø€≥˝
+    complexType Zxm;     //ÊµãËØïÂÄº
+    complexType Zdut;
 
-    clsComplexOp testData (this->mZ, this->mA, this->mFreq, series);
-    clsComplexOp shortData(this->shortData.AbsValue,this->shortData.Angle,this->mFreq,series);
-    clsComplexOp openData(this->openData.AbsValue,this->openData.Angle,this->mFreq,series);
+    Zxm.setZA(mZ,mA);
 
-    double calL, calR;
-    calL = testData.L()- shortData.L();
-    calR = testData.R() - shortData.R();
-    qDebug()<< "Cal L "<< calL;
-    qDebug()<< "Cal R "<< calR;
-
-    if(calR == 0.0)
-        calR = 1E-6;
-
-    double calX = 2.0*PI*mFreq*calL;
-
-    double calZ = sqrt(calR*calR + calX*calX);
-    double calA;
-
-    if(calR > 0)
+    if(blUseLoad)
     {
-        calA = atan(calX/calR)*180.0/PI;
+        Zdut = Zstd *(Zs-Zxm)*(Zsm-Zo)/(Zxm-Zo)/(Zs-Zsm);
     }
     else
     {
-        if(calX> 0)
-            calA = 180.0- atan(calX/-calR)*180.0/PI;
-        else
-            calA = -180 - atan(calX/-calR)*180.0/PI;
+        complexType one;
+        one.setRX(1.0,0.0);
+
+        complexType Yo;
+        Yo.setZA(1.0/Zo.getZ(),-1.0*Zo.getA());
+
+        Zdut =(Zxm - Zs)/(one-Yo*(Zxm-Zs));
     }
 
-    qDebug()<< "calA 61" << calA;
-
-
-    qDebug()<< "calA " << calA;
-
-    clsComplexOp calData(calZ,calA,mFreq,series);
-
-    //‘⁄Ω¯––ø™¬∑µƒø€≥˝
-    qDebug()<<"Cal C :" << calData.C();
-    double calC= calData.C()-openData.C();
-    qDebug()<< "Open C: " << openData.C();
-    calR = calData.R();
-
-    calX = -1.0/(2*PI*mFreq*calC);
-
-
-    calZ = sqrt(calX*calX + calR*calR);
-    if(calR > 0)
-    {
-        calA = atan(calX/calR)*180.0/PI;
-    }
-    else
-    {
-        if(calX> 0)
-            calA = 180.0- atan(calX/-calR)*180.0/PI;
-        else
-            calA = -180 - atan(calX/-calR)*180.0/PI;
-    }
-
-   // calA = atan(calX/calR)*180.0/PI;
-
-    this->mZ = calZ;
-    this->mA = calA;
-    qDebug()<< "calA1 " << calA;
+    mZ = Zdut.getZ();
+    mA = Zdut.getA();
 }
 
 double clsDataProcess::getItem(QString item, QString equcct)
 {
-    double angle = (equcct==QObject::tr("¥Æ¡™") ? 1.0 : -1.0) *this->mA;
-    Equcct equ =  (equcct==QObject::tr("¥Æ¡™") ? series :parallel);
+    double angle = (equcct==QObject::tr("‰∏≤ËÅî") ? 1.0 : -1.0) *this->mA;
+    Equcct equ =  (equcct==QObject::tr("‰∏≤ËÅî") ? series :parallel);
 
-    qDebug()<< angle;
+//    qDebug()<< angle;
 
-    qDebug()<< equ;
+//    qDebug()<< equ;
 
     clsComplexOp data(this->mZ,angle,this->mFreq,equ);
 
@@ -126,7 +97,7 @@ double clsDataProcess::getItem(QString item, QString equcct)
         return data.Y();
     else if(item == "Z")
         return data.Z();
-    else if(item == "A")
+    else if((item == "A") || (item ==QString("Œ∏")))
         return data.A();
     else if(item == "C")
         return data.C();
@@ -141,7 +112,7 @@ double clsDataProcess::getItem(QString item, QString equcct)
     else if(item =="B")
         return data.B();
     else
-        return 99.999E9;
+        return 99.999E12;
 
 }
 

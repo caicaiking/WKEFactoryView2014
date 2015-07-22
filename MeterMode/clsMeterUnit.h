@@ -1,4 +1,4 @@
-#ifndef CLSMETERUNIT_H
+﻿#ifndef CLSMETERUNIT_H
 #define CLSMETERUNIT_H
 
 #include "ui_clsMeterUnit.h"
@@ -22,6 +22,8 @@ private slots:
     void on_btnp_clicked();
 
 
+
+    void on_btnNA_clicked();
 
 private:
     QString strSuffix;

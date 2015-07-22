@@ -1,4 +1,4 @@
-#include <QApplication>
+﻿#include <QApplication>
 #include <QTextCodec>
 #include <QSplashScreen>
 #include <QDebug>
@@ -17,14 +17,13 @@
 #include "clsMultiChannaeBox.h"
 #include <QMessageBox>
 #include "clsDataProcess.h"
+#include "doubleType.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     QTextCodec* code = QTextCodec::codecForName("UTF-8");
     QTextCodec::setCodecForLocale(code);
-
-
 
 
     QApplication::addLibraryPath("./plugins");
@@ -37,9 +36,9 @@ int main(int argc, char *argv[])
 
     //这儿是加载英文的翻译，如果要是实用界面为英文，请去掉此处的注释
 
-        QTranslator translator;
-        bool ok=   translator.load(":/Translation/WKEFV.qm");
-        a.installTranslator(&translator);
+//        QTranslator translator;
+//        bool ok=   translator.load(":/Translation/WKEFV.qm");
+//        a.installTranslator(&translator);
 //        qDebug()<< "Tranlate file loaded " << ok;
 
     //设置Splash 屏幕

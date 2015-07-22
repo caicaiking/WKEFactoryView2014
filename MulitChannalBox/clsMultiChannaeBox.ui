@@ -51,8 +51,8 @@
          <font>
           <family>楷体</family>
           <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -60,7 +60,7 @@
 测试</string>
         </property>
         <property name="icon">
-         <iconset>
+         <iconset resource="../recFile/myRes.qrc">
           <normaloff>:/Icons/single.png</normaloff>:/Icons/single.png</iconset>
         </property>
         <property name="iconSize">
@@ -83,8 +83,8 @@
          <font>
           <family>楷体</family>
           <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -92,7 +92,7 @@
 设定</string>
         </property>
         <property name="icon">
-         <iconset>
+         <iconset resource="../recFile/myRes.qrc">
           <normaloff>:/Icons/calibration.png</normaloff>:/Icons/calibration.png</iconset>
         </property>
         <property name="iconSize">
@@ -115,8 +115,8 @@
          <font>
           <family>楷体</family>
           <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -124,7 +124,7 @@
 通道</string>
         </property>
         <property name="icon">
-         <iconset>
+         <iconset resource="../recFile/myRes.qrc">
           <normaloff>:/Icons/chennal.png</normaloff>:/Icons/chennal.png</iconset>
         </property>
         <property name="iconSize">
@@ -160,8 +160,8 @@
          <font>
           <family>楷体</family>
           <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -169,7 +169,7 @@
 校准</string>
         </property>
         <property name="icon">
-         <iconset>
+         <iconset resource="../recFile/myRes.qrc">
           <normaloff>:/Icons/advance.png</normaloff>:/Icons/advance.png</iconset>
         </property>
         <property name="iconSize">
@@ -192,8 +192,8 @@
          <font>
           <family>楷体</family>
           <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -201,7 +201,7 @@
 设置</string>
         </property>
         <property name="icon">
-         <iconset>
+         <iconset resource="../recFile/myRes.qrc">
           <normaloff>:/Icons/export.png</normaloff>:/Icons/export.png</iconset>
         </property>
         <property name="iconSize">
@@ -224,8 +224,8 @@
          <font>
           <family>楷体</family>
           <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -233,7 +233,7 @@
 设置</string>
         </property>
         <property name="icon">
-         <iconset>
+         <iconset resource="../recFile/myRes.qrc">
           <normaloff>:/Icons/stepSave.png</normaloff>:/Icons/stepSave.png</iconset>
         </property>
         <property name="iconSize">
@@ -256,8 +256,8 @@
          <font>
           <family>楷体</family>
           <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -265,7 +265,7 @@
 测试</string>
         </property>
         <property name="icon">
-         <iconset>
+         <iconset resource="../recFile/myRes.qrc">
           <normaloff>:/Icons/switch.png</normaloff>:/Icons/switch.png</iconset>
         </property>
         <property name="iconSize">
@@ -288,8 +288,8 @@
          <font>
           <family>楷体</family>
           <pointsize>10</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
+          <weight>50</weight>
+          <bold>false</bold>
          </font>
         </property>
         <property name="text">
@@ -297,7 +297,7 @@
 通信</string>
         </property>
         <property name="icon">
-         <iconset>
+         <iconset resource="../recFile/myRes.qrc">
           <normaloff>:/Icons/com.png</normaloff>:/Icons/com.png</iconset>
         </property>
         <property name="iconSize">
@@ -455,7 +455,7 @@
 状态</string>
         </property>
         <property name="icon">
-         <iconset>
+         <iconset resource="../recFile/myRes.qrc">
           <normaloff>:/Icons/data.png</normaloff>:/Icons/data.png</iconset>
         </property>
         <property name="iconSize">
@@ -488,7 +488,7 @@
 数据</string>
         </property>
         <property name="icon">
-         <iconset>
+         <iconset resource="../recFile/myRes.qrc">
           <normaloff>:/Icons/delete.png</normaloff>:/Icons/delete.png</iconset>
         </property>
         <property name="iconSize">
@@ -530,6 +530,8 @@
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../recFile/myRes.qrc"/>
+ </resources>
  <connections/>
 </ui>

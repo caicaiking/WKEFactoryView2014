@@ -1,4 +1,4 @@
-#ifndef CLSCONNECTSWBOX_H
+﻿#ifndef CLSCONNECTSWBOX_H
 #define CLSCONNECTSWBOX_H
 
 #include <QObject>
@@ -15,6 +15,7 @@ private:
 public:
     static clsConnectSWBox *Instance();
     bool initSerialPort();
+    void closeSeriesPort();
     int sendCommand(QString value);
     int sendCommand(int chennal);
 signals:

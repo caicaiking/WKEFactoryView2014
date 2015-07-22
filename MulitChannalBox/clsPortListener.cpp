@@ -1,4 +1,4 @@
-#include "clsPortListener.h"
+﻿#include "clsPortListener.h"
 #include <QtDebug>
 #include <QSerialPortInfo>
 #include <QString>
@@ -91,5 +91,14 @@ int clsPortListener::sendCommand(QString value)
         qDebug()<<"Read time out";
 
         return -1;
+    }
+}
+
+void clsPortListener::closePort()
+{
+    if(init)
+    {
+        port->close();
+        init=false;
     }
 }

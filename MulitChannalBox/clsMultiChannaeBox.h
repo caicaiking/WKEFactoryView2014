@@ -1,13 +1,15 @@
-#ifndef CLSMULTICHANNAEBOX_H
+﻿#ifndef CLSMULTICHANNAEBOX_H
 #define CLSMULTICHANNAEBOX_H
 
 #include "ui_clsMultiChannaeBox.h"
 #include <QString>
 #include "clsConnectSWBox.h"
 #include <QDebug>
-#include "WKEMeterMode.h"
+
+#include "clsMultiModeMeter.h"
 #include "clsMRBDisplayPannel.h"
-#include "cls4300MeterMode.h"
+
+
 class clsMultiChannaeBox : public QMainWindow, private Ui::clsMultiChannaeBox
 {
     Q_OBJECT
@@ -31,14 +33,18 @@ private slots:
 
 protected:
     void keyPressEvent(QKeyEvent *event);
+    void closeEvent(QCloseEvent *);
 private:
     QStringList commands;
-    cls4300MeterMode *meter;
+
+    clsMultiModeMeter *meter;
+
     QString strSaveFileName ;
-    QString chennal;
+    QString channels;
     QList<clsMRBDisplayPannel*>pannel;
 
     void initPannel();
+    void initDataBase();
 };
 
 #endif // CLSMULTICHANNAEBOX_H

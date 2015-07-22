@@ -1,4 +1,4 @@
-#include "clsMRBDisplayPannel.h"
+﻿#include "clsMRBDisplayPannel.h"
 #include <QJsonDocument>
 #include <QStringList>
 #include "UserfulFunctions.h"
@@ -17,21 +17,36 @@ clsMRBDisplayPannel::clsMRBDisplayPannel(QWidget *parent) :
     clearAll();
 }
 
-void clsMRBDisplayPannel::setTestResult(  QString json)
+void clsMRBDisplayPannel::setTestResult( TestResult value)
 {
 
-    lblResult->setText(json);
-
-    QJsonParseError error;
-    QJsonDocument jsonDocument = QJsonDocument::fromJson(json.toUtf8(),&error);
-    if(error.error == QJsonParseError::NoError)
+    QString strToDisplay;
+    for(int i=0; i< value.item.length();i++)
     {
-        if(jsonDocument.isObject())
+        if(i> 0 && i<= value.item.length()-1)
         {
-            QVariantMap  result = jsonDocument.toVariant().toMap();
-            processJson(result);
+            strToDisplay.append("\r\n");
         }
+
+        strToDisplay += formatToString(value.item.at(i).item,
+                                       value.item.at(i).suffix,
+                                       value.item.at(i).value,
+                                       value.item.at(i).status);
+
     }
+
+    //qDebug()<< strToDisplay;
+
+
+
+    lblStatus->setStatus(value.status);
+    lblResult->setText(strToDisplay);
+
+    setNumberLabel(value.status);
+
+    this->res = value;
+
+
 }
 
 void clsMRBDisplayPannel::setNumber(int chennal)
@@ -60,123 +75,6 @@ void clsMRBDisplayPannel::setResType(int value)
         this->stackedWidget->setCurrentIndex(value);
 }
 
-void clsMRBDisplayPannel::processJson(const QVariantMap &result  )
-{
-    //bool isOnTest2 = result["isOnTest2"].toBool();
-    QString testReslt = result["Result"].toString();
-    QVariantMap test1 = result["test1"].toMap();
-    QVariantMap test2 = result["test2"].toMap();
-
-    QString displayRes="";
-    QStringList slResult = testReslt.split(',');
-
-    double formatValue;
-    bool status;
-    TestItem item;
-    if(slResult.length()>=1)
-    {
-        double testValue;
-        bool ok = converDouble(slResult.at(0),testValue);
-        if(ok)
-        {
-            displayRes= formatToString(test1["Item1"].toString(),
-                    test1["Unit1"].toString(),
-                    testValue,
-                    test1["Limit1"].toString(),
-                    formatValue,
-                    status);
-        }
-
-        item.item=test1["Item1"].toString();
-        item.status=status;
-        item.value = formatValue;
-
-        this->res.item.append(item);
-    }
-
-    if(slResult.length()>=2)
-    {
-        double testValue;
-        bool ok = converDouble(slResult.at(1),testValue);
-        if(ok)
-        {
-            displayRes=displayRes.append("\r\n");
-            displayRes+= formatToString(test1["Item2"].toString(),
-                    test1["Unit2"].toString(),
-                    testValue,
-                    test1["Limit2"].toString(),
-                    formatValue,
-                    status);
-        }
-
-        item.item=test1["Item2"].toString();
-        item.status=status;
-        item.value = formatValue;
-
-        this->res.item.append(item);
-    }
-
-    if(slResult.length()>=3)
-    {
-        double testValue;
-        bool ok = converDouble(slResult.at(2),testValue);
-        if(ok)
-        {
-            displayRes=displayRes.append("\r\n");
-            displayRes+= formatToString(test2["Item1"].toString(),
-                    test2["Unit1"].toString(),
-                    testValue,
-                    test2["Limit1"].toString(),
-                    formatValue,
-                    status);
-        }
-
-        item.item=test2["Item1"].toString();
-        item.status=status;
-        item.value = formatValue;
-
-        this->res.item.append(item);
-    }
-
-    if(slResult.length()>=4)
-    {
-        double testValue;
-        bool ok = converDouble(slResult.at(3),testValue);
-        if(ok)
-        {
-            displayRes=displayRes.append("\r\n");
-            displayRes+= formatToString(test2["Item2"].toString(),
-                    test2["Unit2"].toString(),
-                    testValue,
-                    test2["Limit2"].toString(),
-                    formatValue,
-                    status);
-        }
-
-        item.item=test2["Item2"].toString();
-        item.status=status;
-        item.value = formatValue;
-
-        this->res.item.append(item);
-    }
-
-
-    lblResult->setText(displayRes);
-    bool st=true;
-    for(int i=0; i< res.item.length();i++)
-    {
-        st= st&& res.item.at(i).status;
-        //qDebug()<< res.item.at(i).value <<" "<< res.item.at(i).item;
-    }
-
-    res.status= st;
-    lblStatus->setStatus(st);
-    setNumberLabel(st);
-
-}
-
-
-
 bool clsMRBDisplayPannel::converDouble(const QString &value, double &s)
 {
     bool ok;
@@ -185,8 +83,7 @@ bool clsMRBDisplayPannel::converDouble(const QString &value, double &s)
 }
 
 QString clsMRBDisplayPannel::formatToString(const QString &item, const QString &unit,
-                                            const double &testValue, const QString &limit,
-                                            double &fromateValue, bool &status)
+                                            const double &testValue, const bool status)
 {
     QString retStr;
     doubleType dt;
@@ -194,22 +91,18 @@ QString clsMRBDisplayPannel::formatToString(const QString &item, const QString &
     retStr=retStr.append("  ");
     retStr+= item +":\t";
 
-    if(unit==tr("无"))
+    if(unit==tr("OFF"))
     {
         retStr+= dt.formateToString(7);
-        fromateValue= testValue;
+
     }
     else
     {
         retStr+=dt.formateWithUnit(unit,7)+unit;
-        fromateValue=dt.getDataWithUnit(unit);
+
     }
 
     retStr+=UserfulFunctions::getSuffix(item.toUpper())+"\t";
-
-    clsMeterLimit clsLimit;
-    clsLimit.setString(limit);
-    status= clsLimit.comparaValue(testValue);
 
     if(status)
     {
