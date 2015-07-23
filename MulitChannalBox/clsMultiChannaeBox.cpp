@@ -1,4 +1,5 @@
-﻿#include "clsMultiChannaeBox.h"
+﻿#include "clsSettings.h"
+#include "clsMultiChannaeBox.h"
 #include <math.h>
 #include <QTime>
 #include "clsSwitchBoxTest.h"
@@ -14,6 +15,7 @@
 #include <QTextStream>
 #include "clsCalibrationDbOp.h"
 #include "cls6440MultiMeterMode.h"
+#include "clsMultiChannelSettings.h"
 clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -42,6 +44,7 @@ clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
 
     initPannel();
     initDataBase();
+    readSettings();
     this->showMaximized();
 }
 
@@ -53,6 +56,23 @@ void clsMultiChannaeBox::initDataBase()
     clsCalDb::getInst()->setStrDataBaseName(QString("./McbCal.db"));
     clsCalDb::getInst()->openDataBase();
     clsCalDb::getInst()->initTable();
+}
+
+void clsMultiChannaeBox::readSettings()
+{
+    clsSettings settings;
+    QString strNode ="MulitChannel/";
+    settings.readSetting(strNode +"SwitchDelay",this->switchDelay);
+    switchDelay =(switchDelay==0?15:switchDelay);
+    settings.readSetting(strNode+"IsUseLoadValue",this->isUseLoadValue);
+}
+
+void clsMultiChannaeBox::writeSettings()
+{
+    clsSettings settings;
+    QString strNode ="MulitChannel/";
+    settings.writeSetting(strNode +"SwitchDelay",this->switchDelay);
+    settings.writeSetting(strNode+"IsUseLoadValue",this->isUseLoadValue);
 }
 
 /*!
@@ -251,21 +271,18 @@ void clsMultiChannaeBox::  on_btnOpenSettingFile_clicked()
 
 void clsMultiChannaeBox::on_btnSignleTest_clicked()
 {
-    // QTime tmp = QTime::currentTime();
     btnSignleTest->setEnabled(false);
     setIdeal();
     for(int i=0; i< pannel.length();i++)
     {
         clsConnectSWBox::Instance()->sendCommand(pannel.at(i)->number()-1);
-        UserfulFunctions::sleepMs(5);
+        UserfulFunctions::sleepMs(switchDelay);
         meter->setChannel(pannel.at(i)->number());
-        meter->setUseLoad(true); //以后再说
+        meter->setUseLoad(isUseLoadValue); //以后再说
         meter->trig();
-        pannel.at(i)->setNumber(i+1);
 
         TestResult res;
 
-       // qDebug()<< meter->getTotleItemCount();
         for(int j=0; j< meter->getTotleItemCount();j++)
         {
             TestItem testItem;
@@ -278,16 +295,9 @@ void clsMultiChannaeBox::on_btnSignleTest_clicked()
             res.item.append(testItem);
         }
         res.status = meter->getTotleStatus();
-
-
-
         pannel.at(i)->setTestResult(res);
-
-        //  qDebug()<<strResult;
     }
-    // meter->turnOffBias();
     btnSignleTest->setEnabled(true);
-    //qDebug()<<"Time: "<< tmp.msecsTo(QTime::currentTime());
 
 }
 
@@ -393,4 +403,17 @@ void clsMultiChannaeBox::on_btnChannalCal_clicked()
     dlg->setMeter(this->meter);
     dlg->setChannels(this->channels.split(","));
     dlg->exec();
+}
+
+void clsMultiChannaeBox::on_btnRunningSettings_clicked()
+{
+    clsMultiChannelSettings *dlg = new clsMultiChannelSettings(this);
+
+    dlg->setConditon(switchDelay,isUseLoadValue);
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        switchDelay = dlg->getSwitchDelay();
+        isUseLoadValue = dlg->isUseLoadData();
+        writeSettings();
+    }
 }

@@ -11,6 +11,7 @@ public:
     explicit clsMeterUnit(QWidget *parent = 0);
     void setItem(QString item);
     QString getSuffix();
+    void setOFFEnable(bool value);
 private slots:
     void on_btnm_clicked();
     void on_btnG_clicked();

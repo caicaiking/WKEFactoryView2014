@@ -42,6 +42,14 @@ private slots:
 
     void on_btnTest1Freq_clicked();
 
+    void on_btnClearOpen_clicked();
+
+    void on_btnClearShort_clicked();
+
+    void on_btnClearLoad_clicked();
+
+    void on_btnClearStdLoad_clicked();
+
 private:
     double ocZ,ocA,scZ,scA,loadZ,loadA, stdA,stdZ;
     double freq;

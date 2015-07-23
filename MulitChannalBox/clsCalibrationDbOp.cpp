@@ -174,4 +174,24 @@ QString clsCalDb::getTableName()
     return QString("MTC_%1").arg(clsRS::getInst().meterSeries);
 }
 
+bool clsCalDb::deleteRecord(double freq, int channel, QString type)
+{
+    QString strSql =
+            QString("DELETE FROM"
+                    " %1"
+                    " WHERE"
+                    " CHANNEL=%2"
+                    " AND"
+                    " FREQUENCY=%3"
+                    " AND"
+                    " DATATYPE='%4'")
+                    .arg(getTableName())
+                    .arg(channel)
+                    .arg(freq)
+                    .arg(type);
+    QSqlQuery query;
+    query.prepare(strSql);
+    return query.exec();
+}
+
 

@@ -92,8 +92,8 @@ void clsCalibration::on_btnTest_clicked()
         }
     }
 
-    double c= d.getItem("C",QString("串联"));
-    double dx= d.getItem("D",QString("串联"));
+    double c= d.getItem("C",QObject::tr("串联"));
+    double dx= d.getItem("D",QObject::tr("串联"));
 
     doubleType dt;
     dt.setData(c);
@@ -101,8 +101,8 @@ void clsCalibration::on_btnTest_clicked()
     dt.setData(dx);
     txtD->setText(dt.formateWithUnit(""));
 
-    double l= d.getItem("L",QString("串联"));
-    double r= d.getItem("R",QString("串联"));
+    double l= d.getItem("L",QObject::tr("串联"));
+    double r= d.getItem("R",QObject::tr("串联"));
 
 
     dt.setData(l);
@@ -110,10 +110,10 @@ void clsCalibration::on_btnTest_clicked()
     dt.setData(r);
     txtR->setText(dt.formateToString());
 
-    double z1 = d.getItem("Z",QString("串联"));
+    double z1 = d.getItem("Z",QObject::tr("串联"));
     dt.setData(z1);
     txtZ->setText(dt.formateToString());
-    double a1= d.getItem("A",QString("串联"));
+    double a1= d.getItem("A",QObject::tr("串联"));
     dt.setData(a1);
     txtA->setText(dt.formateToString());
 }
@@ -383,5 +383,29 @@ void clsCalibration::on_btnTest1Freq_clicked()
 {
     meter->setFreqencyForCal(0);
     freq = meter->getFreqency(0);
+    getAllDataFromDb(freq,cmbChannel->currentText().toInt());
+}
+
+void clsCalibration::on_btnClearOpen_clicked()
+{
+    clsCalDb::getInst()->deleteRecord(freq,cmbChannel->currentText().toInt(),"O");
+    getAllDataFromDb(freq,cmbChannel->currentText().toInt());
+}
+
+void clsCalibration::on_btnClearShort_clicked()
+{
+    clsCalDb::getInst()->deleteRecord(freq,cmbChannel->currentText().toInt(),"S");
+    getAllDataFromDb(freq,cmbChannel->currentText().toInt());
+}
+
+void clsCalibration::on_btnClearLoad_clicked()
+{
+    clsCalDb::getInst()->deleteRecord(freq,cmbChannel->currentText().toInt(),"Lm");
+    getAllDataFromDb(freq,cmbChannel->currentText().toInt());
+}
+
+void clsCalibration::on_btnClearStdLoad_clicked()
+{
+    clsCalDb::getInst()->deleteRecord(freq,cmbChannel->currentText().toInt(),"Ls");
     getAllDataFromDb(freq,cmbChannel->currentText().toInt());
 }

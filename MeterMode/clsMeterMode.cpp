@@ -1,4 +1,4 @@
-#include "clsMeterMode.h"
+﻿#include "clsMeterMode.h"
 #include "clsRuningSettings.h"
 #include "UserfulFunctions.h"
 #include "clsSettings.h"
@@ -30,6 +30,7 @@ clsMeterMode::clsMeterMode(QWidget *parent) :
     count.reset();
     readSettings();
     updateMessage();
+    this->showMaximized();
 
 }
 

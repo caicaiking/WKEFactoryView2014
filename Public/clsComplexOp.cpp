@@ -8,6 +8,8 @@ clsComplexOp::clsComplexOp(double inZ, double inA, double inFreq, Equcct inEqucc
 {
     this->mZ=inZ;
     this->mA=inA;
+    if(this->mA==0)
+        this->mA= 1E-6;
     this->mFreq=inFreq;
     this->mEqucct=inEqucct;
     mW=2.0*PI*mFreq;

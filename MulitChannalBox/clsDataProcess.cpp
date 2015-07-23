@@ -57,6 +57,7 @@ void clsDataProcess::doCalibration()
     complexType Zxm;     //测试值
     complexType Zdut;
 
+
     Zxm.setZA(mZ,mA);
 
     if(blUseLoad)
@@ -78,14 +79,16 @@ void clsDataProcess::doCalibration()
     mA = Zdut.getA();
 }
 
+
+
 double clsDataProcess::getItem(QString item, QString equcct)
 {
     double angle = (equcct==QObject::tr("串联") ? 1.0 : -1.0) *this->mA;
     Equcct equ =  (equcct==QObject::tr("串联") ? series :parallel);
 
-//    qDebug()<< angle;
+    //    qDebug()<< angle;
 
-//    qDebug()<< equ;
+    //    qDebug()<< equ;
 
     clsComplexOp data(this->mZ,angle,this->mFreq,equ);
 

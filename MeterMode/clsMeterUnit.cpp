@@ -4,6 +4,13 @@ clsMeterUnit::clsMeterUnit(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+
+    btnNA->setVisible(false);
+}
+
+void clsMeterUnit::setOFFEnable(bool value)
+{
+    btnNA->setVisible(value);
 }
 
 void clsMeterUnit::on_btnm_clicked()

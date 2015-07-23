@@ -133,6 +133,7 @@ SOURCES +=\
     MulitChannalBox/clsMultiModeMeter.cpp \
     MulitChannalBox/cls6440MultiMeterMode.cpp \
     MulitChannalBox/clsMultModeMeterUi.cpp \
+    MulitChannalBox/clsMultiChannelSettings.cpp
 
 
 
@@ -281,6 +282,7 @@ HEADERS += \
     MulitChannalBox/clsMultiModeMeter.h \
     MulitChannalBox/cls6440MultiMeterMode.h \
     MulitChannalBox/clsMultModeMeterUi.h \
+    MulitChannalBox/clsMultiChannelSettings.h
 
 
 
@@ -342,7 +344,8 @@ FORMS += \
     MeterMode/cls6500MeterMode.ui \
     AnalysisMode/clsMarkerItem.ui \
     MulitChannalBox/clsCalibration.ui \
-    MulitChannalBox/clsMultModeMeterUi.ui
+    MulitChannalBox/clsMultModeMeterUi.ui \
+    MulitChannalBox/clsMultiChannelSettings.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV.ts

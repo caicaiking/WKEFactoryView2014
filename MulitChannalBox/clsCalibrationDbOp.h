@@ -17,7 +17,7 @@ public:
     bool initTable();
     bool insertRecord(double freq, int channal, double z, double a, QString type);
     QString getTableName();
-
+    bool deleteRecord(double freq, int channel, QString type);
 
     QList<double> getCalData(double freq, int channal, QString type);
 signals:

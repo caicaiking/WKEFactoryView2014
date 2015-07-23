@@ -31,20 +31,28 @@ private slots:
     void setIdeal();
     void on_btnChannalCal_clicked();
 
+    void on_btnRunningSettings_clicked();
+
 protected:
     void keyPressEvent(QKeyEvent *event);
     void closeEvent(QCloseEvent *);
 private:
     QStringList commands;
-
     clsMultiModeMeter *meter;
 
     QString strSaveFileName ;
     QString channels;
     QList<clsMRBDisplayPannel*>pannel;
 
+
     void initPannel();
     void initDataBase();
+
+    void readSettings();
+    void writeSettings();
+
+    int switchDelay;
+    bool isUseLoadValue;
 };
 
 #endif // CLSMULTICHANNAEBOX_H

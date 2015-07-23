@@ -23,11 +23,11 @@ cls6440MultiMeterMode::cls6440MultiMeterMode()
     test1Equcct=QString(QObject::tr("串联"));
 
     test2IsOn=false;
-    test2Freq=100000;
+    test2Freq=10000;
     test2LevelA=1.0;
-    test2LevelV=0.01;
-    test2LevelType="A";
-    test2Equcct=QObject::tr("并联");
+    test2LevelV=1.0;
+    test2LevelType="V";
+    test2Equcct=QObject::tr("串联");
 
     range=QObject::tr("自动");
     speed=QObject::tr("最快");
@@ -109,6 +109,7 @@ void cls6440MultiMeterMode::setConditionForCalibration(int i)
         setLevel(test2LevelV,test2LevelA,test2LevelType);
 
    // clsRS::getInst().sendCommand(":MEAS:LEV 1.0V"); //设置测试条件为1V，仪器有更好的精准度
+    //clsRS::getInst().sendCommand(":FAST-GPIB ON");
     clsRS::getInst().sendCommand(":MEAS:SPEED SLOW"); //设置测试速度慢速
     clsRS::getInst().gpibCommands.gpibTest1.clear(); //清除内存中GPIB指令
 }
@@ -341,18 +342,20 @@ void cls6440MultiMeterMode::trig()
 {
     updateGpib();
 
+//    QString fastGpib = clsRS::getInst().sendCommand(":FAST-GPIB?",true);
+//    if(fastGpib=="0")
+//        clsRS::getInst().sendCommand(":FAST-GPIB ON");
     //For test1
     setFrequcy(this->test1Freq);
     setLevel(test1LevelV,test1LevelA,test1LevelType);
-
 
     QList<double> resValue =getOriginZA();
     if(resValue.length()<2)
         return;
 
     double z,a;
-    z = resValue.at(0);
-    a = resValue.at(1);
+    z = resValue.at(0)+(resValue.at(0)==0?1.0E-9:0.0); //末尾加上1.0E-9 是为了防止Z=0；
+    a = resValue.at(1)+(resValue.at(1)==0?1.0E-9:0.0); //末尾加上1.0E-5 是为了防止A=0；
     //获取开路值
     QList<double> openData = clsCalDb::getInst()->getCalData(test1Freq,channel,"O");
     //获取短路值
@@ -388,11 +391,35 @@ void cls6440MultiMeterMode::trig()
     test1Res1 = d.getItem(test1Item1,test1Equcct);
     test1Res2 = d.getItem(test1Item2,test1Equcct);
 
-    UserfulFunctions::sleepMs(5);
+
 
     //For test2
     if(!test2IsOn)
         return;
+    //如果测试的电平和频率
+    if((test1Freq == test2Freq) && (test1LevelType==test2LevelType))
+    {
+        if(test1LevelType=="V")
+        {
+            if(test1LevelV == test2LevelV)
+            {
+                test2Res1 = d.getItem(test2Item1,test2Equcct);
+                test2Res2 = d.getItem(test2Item2,test2Equcct);
+                return;
+            }
+            else
+            {
+                if(test1LevelA == test2LevelA)
+                {
+                    test2Res1 = d.getItem(test2Item1,test2Equcct);
+                    test2Res2 = d.getItem(test2Item2,test2Equcct);
+                    return;
+                }
+            }
+        }
+    }
+
+    UserfulFunctions::sleepMs(5);
     setFrequcy(this->test2Freq);
     setLevel(test2LevelV,test2LevelA,test2LevelType);
 
@@ -401,8 +428,8 @@ void cls6440MultiMeterMode::trig()
         return;
 
     double z2,a2;
-    z2 = resValue2.at(0);
-    a2 = resValue2.at(1);
+    z2 = resValue2.at(0)+(resValue2.at(0)==0?1.0E-9:0.0);
+    a2 = resValue2.at(1)+(resValue2.at(1)==0?1.0E-9:0.0);
 
     //获取开路值
     QList<double> openData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"O");
@@ -507,6 +534,7 @@ void cls6440MultiMeterMode::setTest2Item2Limit()
 void cls6440MultiMeterMode::setTest2Item2Unit()
 {
     clsMeterUnit * dlg = new clsMeterUnit();
+    dlg->setOFFEnable(true);
     dlg->setWindowTitle(QObject::tr("设置单位"));
     dlg->setItem(test2Item2);
 
@@ -560,6 +588,7 @@ void cls6440MultiMeterMode::setTest2Item1Limit()
 void cls6440MultiMeterMode::setTest2Item1Unit()
 {
     clsMeterUnit * dlg = new clsMeterUnit();
+     dlg->setOFFEnable(true);
     dlg->setWindowTitle(QObject::tr("设置单位"));
     dlg->setItem(test2Item1);
 
@@ -723,6 +752,7 @@ void cls6440MultiMeterMode::setTest1Item2Limit()
 void cls6440MultiMeterMode::setTest1Item2Unit()
 {
     clsMeterUnit * dlg = new clsMeterUnit();
+     dlg->setOFFEnable(true);
     dlg->setWindowTitle(QObject::tr("设置单位"));
     dlg->setItem(test1Item2);
 
@@ -782,6 +812,7 @@ QString cls6440MultiMeterMode::getTest1Item1Unit()
 void cls6440MultiMeterMode::setTest1Item1Unit()
 {
     clsMeterUnit * dlg = new clsMeterUnit();
+     dlg->setOFFEnable(true);
     dlg->setWindowTitle(QObject::tr("设置单位"));
     dlg->setItem(test1Item1);
 

@@ -93,7 +93,7 @@
         </property>
         <property name="icon">
          <iconset resource="../recFile/myRes.qrc">
-          <normaloff>:/Icons/calibration.png</normaloff>:/Icons/calibration.png</iconset>
+          <normaloff>:/Icons/instrument.png</normaloff>:/Icons/instrument.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -171,6 +171,38 @@
         <property name="icon">
          <iconset resource="../recFile/myRes.qrc">
           <normaloff>:/Icons/advance.png</normaloff>:/Icons/advance.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnRunningSettings">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>运行
+设定</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../recFile/myRes.qrc">
+          <normaloff>:/Icons/calibration.png</normaloff>:/Icons/calibration.png</iconset>
         </property>
         <property name="iconSize">
          <size>
