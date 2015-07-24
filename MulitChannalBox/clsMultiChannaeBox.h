@@ -17,6 +17,7 @@ class clsMultiChannaeBox : public QMainWindow, private Ui::clsMultiChannaeBox
 public:
     explicit clsMultiChannaeBox(QWidget *parent = 0);
     static QStringList initCommand();
+    void itemTrig(clsMRBDisplayPannel *value);
 private slots:
 
     void on_btnOpen_clicked();
@@ -33,6 +34,7 @@ private slots:
 
     void on_btnRunningSettings_clicked();
 
+    void itemClick(clsMRBDisplayPannel *);
 protected:
     void keyPressEvent(QKeyEvent *event);
     void closeEvent(QCloseEvent *);

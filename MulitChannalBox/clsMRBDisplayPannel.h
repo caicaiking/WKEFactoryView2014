@@ -41,9 +41,14 @@ public:
     void clearAll();
     void setResType(int value);
 
+signals:
+
+    void numberClick(clsMRBDisplayPannel*);
+
 private slots:
     void statusLabelClick();
     void resultLableClick();
+    void numberClick1();
 
 private:
 

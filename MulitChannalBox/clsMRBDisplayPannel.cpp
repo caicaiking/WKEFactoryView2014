@@ -14,6 +14,7 @@ clsMRBDisplayPannel::clsMRBDisplayPannel(QWidget *parent) :
 
     connect(this->lblStatus,SIGNAL(Clicked()),this,SLOT(statusLabelClick()));
     connect(this->lblResult,SIGNAL(Clicked()),this,SLOT(resultLableClick()));
+    connect(this->lblNumber,SIGNAL(Clicked()),this,SLOT(numberClick1()));
     clearAll();
 }
 
@@ -139,5 +140,10 @@ void clsMRBDisplayPannel::statusLabelClick()
 void clsMRBDisplayPannel::resultLableClick()
 {
     this->stackedWidget->setCurrentIndex(0);
+}
+
+void clsMRBDisplayPannel::numberClick1()
+{
+    emit numberClick(this);
 }
 

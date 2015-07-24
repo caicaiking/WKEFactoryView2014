@@ -72,7 +72,7 @@
        <number>2</number>
       </property>
       <item>
-       <widget class="QLabel" name="lblNumber">
+       <widget class="ClickedLabel" name="lblNumber">
         <property name="minimumSize">
          <size>
           <width>40</width>
@@ -90,6 +90,9 @@
           <family>楷体</family>
           <pointsize>24</pointsize>
          </font>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;单击数字标签可以重复测试。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::NoFrame</enum>

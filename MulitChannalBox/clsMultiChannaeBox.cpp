@@ -67,6 +67,9 @@ void clsMultiChannaeBox::readSettings()
     settings.readSetting(strNode+"IsUseLoadValue",this->isUseLoadValue);
 }
 
+/*!
+ * \brief 写入配置文件。
+ */
 void clsMultiChannaeBox::writeSettings()
 {
     clsSettings settings;
@@ -269,33 +272,42 @@ void clsMultiChannaeBox::  on_btnOpenSettingFile_clicked()
     //  qDebug()<<fileName;
 }
 
+/*!
+ * \brief clsMultiChannaeBox::itemTrig
+ * \param i
+ */
+void clsMultiChannaeBox::itemTrig(clsMRBDisplayPannel * value)
+{
+    clsConnectSWBox::Instance()->sendCommand(value->number()-1);
+    UserfulFunctions::sleepMs(switchDelay);
+    meter->setChannel(value->number());
+    meter->setUseLoad(isUseLoadValue); //以后再说
+    meter->trig();
+
+    TestResult res;
+
+    for(int j=0; j< meter->getTotleItemCount();j++)
+    {
+        TestItem testItem;
+        testItem.item = meter->getItem(j);
+        testItem.limit =meter->getLimit(j);
+        testItem.status = meter->getStatus(j);
+        testItem.suffix = meter->getUnit(j);
+        testItem.value = meter->getRes(j);
+
+        res.item.append(testItem);
+    }
+    res.status = meter->getTotleStatus();
+    value->setTestResult(res);
+}
+
 void clsMultiChannaeBox::on_btnSignleTest_clicked()
 {
     btnSignleTest->setEnabled(false);
     setIdeal();
     for(int i=0; i< pannel.length();i++)
     {
-        clsConnectSWBox::Instance()->sendCommand(pannel.at(i)->number()-1);
-        UserfulFunctions::sleepMs(switchDelay);
-        meter->setChannel(pannel.at(i)->number());
-        meter->setUseLoad(isUseLoadValue); //以后再说
-        meter->trig();
-
-        TestResult res;
-
-        for(int j=0; j< meter->getTotleItemCount();j++)
-        {
-            TestItem testItem;
-            testItem.item = meter->getItem(j);
-            testItem.limit =meter->getLimit(j);
-            testItem.status = meter->getStatus(j);
-            testItem.suffix = meter->getUnit(j);
-            testItem.value = meter->getRes(j);
-
-            res.item.append(testItem);
-        }
-        res.status = meter->getTotleStatus();
-        pannel.at(i)->setTestResult(res);
+        itemTrig(pannel.at(i));
     }
     btnSignleTest->setEnabled(true);
 
@@ -377,7 +389,9 @@ void clsMultiChannaeBox::initPannel()
         n=i/4;
         tableWidget->setCellWidget(n,m,pannel.at(i));
         tableWidget->setRowHeight(n,pannel.at(i)->height());
+        connect(pannel.at(i),SIGNAL(numberClick(clsMRBDisplayPannel*)),this,SLOT(itemClick(clsMRBDisplayPannel*)));
     }
+
     btnShowTestStatus->toggled(false);
 }
 
@@ -416,4 +430,9 @@ void clsMultiChannaeBox::on_btnRunningSettings_clicked()
         isUseLoadValue = dlg->isUseLoadData();
         writeSettings();
     }
+}
+
+void clsMultiChannaeBox::itemClick(clsMRBDisplayPannel * value)
+{
+   itemTrig(value);
 }
