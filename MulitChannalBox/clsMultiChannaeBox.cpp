@@ -4,6 +4,7 @@
 #include <QTime>
 #include "clsSwitchBoxTest.h"
 #include "clsCalibration.h"
+#include <QColor>
 #include "clsMultModeMeterUi.h"
 #include <QFile>
 #include <QDir>
@@ -42,10 +43,13 @@ clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
     tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 
 
+    readSettings();
+
     initPannel();
     initDataBase();
-    readSettings();
-    this->showMaximized();
+    initSweepMode();
+
+    //this->showMaximized();
 }
 
 /*!
@@ -65,6 +69,21 @@ void clsMultiChannaeBox::readSettings()
     settings.readSetting(strNode +"SwitchDelay",this->switchDelay);
     switchDelay =(switchDelay==0?15:switchDelay);
     settings.readSetting(strNode+"IsUseLoadValue",this->isUseLoadValue);
+    settings.readSetting(strNode + "Channals",this->channels);
+    QString tmpMeter;
+    settings.readSetting(strNode + "Meter",tmpMeter);
+    meter->setCondition(tmpMeter);
+
+    int tmpIndex;
+    settings.readSetting(strNode + "DispIndex",tmpIndex);
+    dispStactWindow->setCurrentIndex(tmpIndex);
+
+    cmbItem->clear();
+    for(int i=0; i< meter->getTotleItemCount();i++)
+    {
+        cmbItem->addItem(meter->getItem(i));
+    }
+
 }
 
 /*!
@@ -76,6 +95,9 @@ void clsMultiChannaeBox::writeSettings()
     QString strNode ="MulitChannel/";
     settings.writeSetting(strNode +"SwitchDelay",this->switchDelay);
     settings.writeSetting(strNode+"IsUseLoadValue",this->isUseLoadValue);
+    settings.writeSetting(strNode +"Channals",this->channels);
+    settings.writeSetting(strNode + "Meter",this->meter->getConditon());
+    settings.writeSetting(strNode + "DispIndex",this->dispStactWindow->currentIndex());
 }
 
 /*!
@@ -128,7 +150,6 @@ void clsMultiChannaeBox::on_btnSwitchBoxTest_clicked()
     sw.exec();
 }
 
-
 /*!
  * \brief clsMultiChannaeBox::on_btnMeter_clicked
  * 仪表单次测试
@@ -142,6 +163,8 @@ void clsMultiChannaeBox::on_btnMeter_clicked()
     if(dlg->exec() == QDialog::Accepted)
     {
         this->meter->setCondition(dlg->getConditon());
+        initSweepMode();
+        writeSettings();
     }
 
 }
@@ -201,7 +224,6 @@ void clsMultiChannaeBox::on_btnSave_clicked()
     }
 
 }
-
 
 void clsMultiChannaeBox::  on_btnOpenSettingFile_clicked()
 {
@@ -303,13 +325,64 @@ void clsMultiChannaeBox::itemTrig(clsMRBDisplayPannel * value)
 
 void clsMultiChannaeBox::on_btnSignleTest_clicked()
 {
-    btnSignleTest->setEnabled(false);
-    setIdeal();
-    for(int i=0; i< pannel.length();i++)
+    if(!btnSignleTest->isChecked())
+        return;
+
+    btnSignleTest->setText(tr("停止\n测试"));
+    btnSignleTest->setIcon(QIcon(":/Icons/stop.png"));
+
+    if(dispStactWindow->currentIndex()==0)
     {
-        itemTrig(pannel.at(i));
+        setIdeal();
+        for(int i=0; i< pannel.length();i++)
+        {
+            itemTrig(pannel.at(i));
+            if(!btnSignleTest->isChecked())
+            {
+                btnSignleTest->setText(tr("开始\n测试"));
+                return;
+            }
+        }
     }
-    btnSignleTest->setEnabled(true);
+    else
+    {
+        double count=0;
+
+        while(btnSignleTest->isChecked())
+        {
+            qApp->processEvents();
+
+            for(int j=0; j<channels.split(",").length(); j++)
+            {
+
+                QString ch = channels.split(",").at(j);
+
+                if(!ch.isEmpty())
+                {
+                    clsConnectSWBox::Instance()->sendCommand(ch.toInt()-1);
+                    qApp->processEvents();
+                    meter->trig();
+
+                    QList<double> tmpRes;
+                    for(int xx=0; xx< meter->getTotleItemCount(); xx++)
+                    {
+                        tmpRes.append(meter->getRes(xx));
+                    }
+                    plotWidget->setData(ch.toInt(),count,tmpRes);
+                    qApp->processEvents();
+                }
+            }
+
+            qApp->processEvents();
+            count++;
+
+        }
+
+    }
+    btnSignleTest->setChecked(false);
+    btnSignleTest->setText(tr("开始\n测试"));
+
+    btnSignleTest->setIcon(QIcon(":/Icons/single.png"));
 
 }
 
@@ -334,8 +407,8 @@ void clsMultiChannaeBox::keyPressEvent(QKeyEvent *event)
 void clsMultiChannaeBox::closeEvent(QCloseEvent *)
 {
     clsConnectSWBox::Instance()->closeSeriesPort();
+    writeSettings();
 }
-
 
 void clsMultiChannaeBox::on_btnSelectChennal_clicked()
 {
@@ -345,11 +418,9 @@ void clsMultiChannaeBox::on_btnSelectChennal_clicked()
     {
         this->channels=dlg.getChennal();
         initPannel();
+        initSweepMode();
     }
 }
-
-
-
 
 void clsMultiChannaeBox::on_btnClearAllData_clicked()
 {
@@ -434,5 +505,106 @@ void clsMultiChannaeBox::on_btnRunningSettings_clicked()
 
 void clsMultiChannaeBox::itemClick(clsMRBDisplayPannel * value)
 {
-   itemTrig(value);
+    itemTrig(value);
+}
+
+void clsMultiChannaeBox::initSweepMode()
+{
+    QStringList color;
+    color<<"#99e600"<<"#99cc00"<<"#99b389"<<"#9f991a"<<"#a48033"<<"#a9664d"<<"#ae4d66"<<"#b33380"
+        <<"#a64086"<<"#994d8d"<<"#8d5a93"<<"#806699"<<"#8073a6"<<"#8080b3"<<"#ffd400"<<"#dbce8f"
+       <<"#145b7d"<<"#11264f"<<"#e0861a"<<"#8a2e3b";
+
+    cmbItem->clear();
+
+    for(int i=0; i<meter->getTotleItemCount(); i++)
+    {
+        cmbItem->addItem(meter->getItem(i));
+    }
+
+    for(int i=0; i< checkBoxs.length();i++)
+    {
+        QCheckBox *box = checkBoxs.at(i);
+        box->setVisible(false);
+        delete box;
+    }
+
+    checkBoxs.clear();
+
+    for(int i=0; i< channels.split(",").length(); i++)
+    {
+        QString text = channels.split(",").at(i);
+        if(!text.isEmpty())
+        {
+            QCheckBox *tmpBox = new QCheckBox(tr("通道:\t")+text);
+            QColor clr(color.at(i%color.length()));
+
+            tmpBox->setStyleSheet(QString("background-color: rgb(%1, %2, %3);").arg(clr.red()).arg(clr.green()).arg(clr.blue()));
+            tmpBox->setFont(QFont("楷体",13));
+
+            checkBoxs.append(tmpBox);
+        }
+    }
+
+    QVBoxLayout *layout = new QVBoxLayout();
+    for(int i=0; i< checkBoxs.length(); i++)
+    {
+        layout->addWidget(checkBoxs.at(i));
+        connect(checkBoxs.at(i),SIGNAL(toggled(bool)),this,SLOT(setCurveEnable(bool)));
+    }
+    layout->addStretch();
+
+    QLayout *al = wdgCheckBox->layout();
+    if(al!=0)
+        delete al;
+
+    wdgCheckBox->setLayout(layout);
+
+
+    QStringList tmpItem;
+    for(int i=0; i<meter->getTotleItemCount();i++)
+    {
+        tmpItem.append(meter->getItem(i));
+    }
+
+    plotWidget->setChannalAndItems(this->channels,tmpItem);
+
+    plotWidget->setCurrentIndex(cmbItem->currentIndex());
+
+    QList<bool> tmpBool;
+    for(int i=0; i<checkBoxs.length();i++)
+    {
+        tmpBool.append(checkBoxs.at(i)->isChecked());
+    }
+    plotWidget->setCurveVisable(tmpBool);
+
+}
+
+void clsMultiChannaeBox::on_btnSelectMode_clicked()
+{
+    btnSignleTest->setChecked(false);
+    btnSignleTest->setIcon(QIcon(":/Icons/single.png"));
+
+    dispStactWindow->setCurrentIndex((dispStactWindow->currentIndex()+1)%2);
+
+    if(dispStactWindow->currentIndex()==1)
+    {
+        initSweepMode();
+    }
+
+}
+
+void clsMultiChannaeBox::setCurveEnable(bool /*value*/)
+{
+    QList<bool> tmpBool;
+    for(int i=0; i<checkBoxs.length();i++)
+    {
+        tmpBool.append(checkBoxs.at(i)->isChecked());
+    }
+    plotWidget->setCurveVisable(tmpBool);
+}
+
+void clsMultiChannaeBox::on_cmbItem_currentIndexChanged(int index)
+{
+    plotWidget->setCurrentIndex(index);
 }

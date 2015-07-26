@@ -6,10 +6,11 @@
 #include "clsConnectSWBox.h"
 #include <QDebug>
 
+#include <QCheckBox>
 #include "clsMultiModeMeter.h"
 #include "clsMRBDisplayPannel.h"
 
-
+#include "multiModePlot.h"
 class clsMultiChannaeBox : public QMainWindow, private Ui::clsMultiChannaeBox
 {
     Q_OBJECT
@@ -18,6 +19,7 @@ public:
     explicit clsMultiChannaeBox(QWidget *parent = 0);
     static QStringList initCommand();
     void itemTrig(clsMRBDisplayPannel *value);
+
 private slots:
 
     void on_btnOpen_clicked();
@@ -35,6 +37,12 @@ private slots:
     void on_btnRunningSettings_clicked();
 
     void itemClick(clsMRBDisplayPannel *);
+    void on_btnSelectMode_clicked();
+
+    void setCurveEnable(bool);
+
+    void on_cmbItem_currentIndexChanged(int index);
+
 protected:
     void keyPressEvent(QKeyEvent *event);
     void closeEvent(QCloseEvent *);
@@ -46,8 +54,11 @@ private:
     QString channels;
     QList<clsMRBDisplayPannel*>pannel;
 
+    QList<QCheckBox*> checkBoxs;
+
 
     void initPannel();
+    void initSweepMode();
     void initDataBase();
 
     void readSettings();

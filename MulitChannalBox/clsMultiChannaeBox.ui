@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>759</width>
+    <width>821</width>
     <height>698</height>
    </rect>
   </property>
@@ -21,7 +21,7 @@
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout_4">
     <property name="spacing">
      <number>0</number>
     </property>
@@ -39,6 +39,9 @@
     </property>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>2</number>
+      </property>
       <item>
        <widget class="QPushButton" name="btnSignleTest">
         <property name="minimumSize">
@@ -68,6 +71,9 @@
           <width>20</width>
           <height>20</height>
          </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -147,6 +153,38 @@
          </size>
         </property>
        </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnSelectMode">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>切换
+模式</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../recFile/myRes.qrc">
+          <normaloff>:/Icons/Auto.png</normaloff>:/Icons/Auto.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QPushButton" name="btnChannalCal">
@@ -350,110 +388,327 @@
      </widget>
     </item>
     <item>
-     <widget class="QScrollArea" name="scrollArea">
-      <property name="widgetResizable">
-       <bool>true</bool>
+     <widget class="QStackedWidget" name="dispStactWindow">
+      <property name="currentIndex">
+       <number>1</number>
       </property>
-      <widget class="QWidget" name="scrollAreaWidgetContents_2">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>757</width>
-         <height>587</height>
-        </rect>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
+      <widget class="QWidget" name="page">
+       <layout class="QVBoxLayout" name="verticalLayout">
         <property name="spacing">
-         <number>0</number>
+         <number>1</number>
         </property>
         <property name="leftMargin">
-         <number>0</number>
+         <number>1</number>
         </property>
         <property name="topMargin">
-         <number>0</number>
+         <number>1</number>
         </property>
         <property name="rightMargin">
-         <number>0</number>
+         <number>1</number>
         </property>
         <property name="bottomMargin">
-         <number>0</number>
+         <number>1</number>
         </property>
         <item>
-         <widget class="QWidget" name="displayWidget" native="true">
-          <property name="minimumSize">
-           <size>
-            <width>640</width>
-            <height>480</height>
-           </size>
+         <widget class="QScrollArea" name="scrollArea">
+          <property name="widgetResizable">
+           <bool>true</bool>
           </property>
-          <property name="maximumSize">
-           <size>
-            <width>64000</width>
-            <height>48000</height>
-           </size>
-          </property>
-          <property name="font">
-           <font>
-            <family>楷体</family>
-            <pointsize>12</pointsize>
-           </font>
-          </property>
+          <widget class="QWidget" name="scrollAreaWidgetContents_2">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>640</width>
+             <height>480</height>
+            </rect>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QWidget" name="displayWidget" native="true">
+              <property name="minimumSize">
+               <size>
+                <width>640</width>
+                <height>480</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>64000</width>
+                <height>48000</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>楷体</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">background-color: rgb(85, 85, 127);</string>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout_3">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="leftMargin">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>0</number>
+               </property>
+               <property name="rightMargin">
+                <number>0</number>
+               </property>
+               <property name="bottomMargin">
+                <number>0</number>
+               </property>
+               <item>
+                <widget class="QTableWidget" name="tableWidget">
+                 <property name="sizeAdjustPolicy">
+                  <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                 </property>
+                 <property name="selectionMode">
+                  <enum>QAbstractItemView::NoSelection</enum>
+                 </property>
+                 <property name="showGrid">
+                  <bool>false</bool>
+                 </property>
+                 <property name="rowCount">
+                  <number>5</number>
+                 </property>
+                 <property name="columnCount">
+                  <number>4</number>
+                 </property>
+                 <attribute name="horizontalHeaderVisible">
+                  <bool>false</bool>
+                 </attribute>
+                 <attribute name="horizontalHeaderStretchLastSection">
+                  <bool>false</bool>
+                 </attribute>
+                 <attribute name="verticalHeaderVisible">
+                  <bool>false</bool>
+                 </attribute>
+                 <row/>
+                 <row/>
+                 <row/>
+                 <row/>
+                 <row/>
+                 <column/>
+                 <column/>
+                 <column/>
+                 <column/>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <property name="spacing">
+         <number>1</number>
+        </property>
+        <property name="leftMargin">
+         <number>1</number>
+        </property>
+        <property name="topMargin">
+         <number>1</number>
+        </property>
+        <property name="rightMargin">
+         <number>1</number>
+        </property>
+        <property name="bottomMargin">
+         <number>1</number>
+        </property>
+        <item>
+         <widget class="QWidget" name="widget" native="true">
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(85, 85, 127);</string>
+           <string notr="true"/>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_3">
+          <layout class="QVBoxLayout" name="verticalLayout_9">
            <property name="spacing">
-            <number>0</number>
+            <number>2</number>
            </property>
            <property name="leftMargin">
-            <number>0</number>
+            <number>2</number>
            </property>
            <property name="topMargin">
-            <number>0</number>
+            <number>2</number>
            </property>
            <property name="rightMargin">
-            <number>0</number>
+            <number>2</number>
            </property>
            <property name="bottomMargin">
-            <number>0</number>
+            <number>2</number>
            </property>
            <item>
-            <widget class="QTableWidget" name="tableWidget">
-             <property name="sizeAdjustPolicy">
-              <enum>QAbstractScrollArea::AdjustIgnored</enum>
+            <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,10">
+             <property name="spacing">
+              <number>12</number>
              </property>
-             <property name="selectionMode">
-              <enum>QAbstractItemView::NoSelection</enum>
-             </property>
-             <property name="showGrid">
-              <bool>false</bool>
-             </property>
-             <property name="rowCount">
-              <number>5</number>
-             </property>
-             <property name="columnCount">
-              <number>4</number>
-             </property>
-             <attribute name="horizontalHeaderVisible">
-              <bool>false</bool>
-             </attribute>
-             <attribute name="horizontalHeaderStretchLastSection">
-              <bool>false</bool>
-             </attribute>
-             <attribute name="verticalHeaderVisible">
-              <bool>false</bool>
-             </attribute>
-             <row/>
-             <row/>
-             <row/>
-             <row/>
-             <row/>
-             <column/>
-             <column/>
-             <column/>
-             <column/>
-            </widget>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_8">
+               <property name="spacing">
+                <number>2</number>
+               </property>
+               <item>
+                <widget class="QGroupBox" name="groupBox">
+                 <property name="font">
+                  <font>
+                   <family>楷体</family>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="title">
+                  <string>显示参数</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_7">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_3">
+                    <item>
+                     <widget class="QLabel" name="label">
+                      <property name="font">
+                       <font>
+                        <family>楷体</family>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                      <property name="text">
+                       <string>项目：</string>
+                      </property>
+                      <property name="alignment">
+                       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="cmbItem">
+                      <property name="font">
+                       <font>
+                        <family>楷体</family>
+                        <pointsize>12</pointsize>
+                       </font>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item>
+                <widget class="QGroupBox" name="groupBox_2">
+                 <property name="font">
+                  <font>
+                   <family>楷体</family>
+                   <pointsize>12</pointsize>
+                  </font>
+                 </property>
+                 <property name="title">
+                  <string>通道</string>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_6" stretch="0">
+                  <property name="spacing">
+                   <number>2</number>
+                  </property>
+                  <property name="leftMargin">
+                   <number>2</number>
+                  </property>
+                  <property name="topMargin">
+                   <number>2</number>
+                  </property>
+                  <property name="rightMargin">
+                   <number>2</number>
+                  </property>
+                  <property name="bottomMargin">
+                   <number>2</number>
+                  </property>
+                  <item>
+                   <widget class="QScrollArea" name="scrollArea_2">
+                    <property name="verticalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOn</enum>
+                    </property>
+                    <property name="horizontalScrollBarPolicy">
+                     <enum>Qt::ScrollBarAlwaysOn</enum>
+                    </property>
+                    <property name="sizeAdjustPolicy">
+                     <enum>QAbstractScrollArea::AdjustIgnored</enum>
+                    </property>
+                    <property name="widgetResizable">
+                     <bool>true</bool>
+                    </property>
+                    <widget class="QWidget" name="scrollAreaWidgetContents">
+                     <property name="geometry">
+                      <rect>
+                       <x>0</x>
+                       <y>0</y>
+                       <width>134</width>
+                       <height>476</height>
+                      </rect>
+                     </property>
+                     <layout class="QVBoxLayout" name="verticalLayout_10">
+                      <property name="spacing">
+                       <number>2</number>
+                      </property>
+                      <property name="leftMargin">
+                       <number>2</number>
+                      </property>
+                      <property name="topMargin">
+                       <number>2</number>
+                      </property>
+                      <property name="rightMargin">
+                       <number>2</number>
+                      </property>
+                      <property name="bottomMargin">
+                       <number>2</number>
+                      </property>
+                      <item>
+                       <widget class="QWidget" name="wdgCheckBox" native="true"/>
+                      </item>
+                     </layout>
+                    </widget>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="multiModePlot" name="plotWidget" native="true">
+               <property name="font">
+                <font>
+                 <family>Times New Roman</family>
+                 <pointsize>12</pointsize>
+                </font>
+               </property>
+               <property name="autoFillBackground">
+                <bool>false</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
@@ -556,12 +811,20 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>759</width>
+     <width>821</width>
      <height>23</height>
     </rect>
    </property>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>multiModePlot</class>
+   <extends>QWidget</extends>
+   <header location="global">multiModePlot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../recFile/myRes.qrc"/>
  </resources>

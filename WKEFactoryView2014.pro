@@ -133,7 +133,8 @@ SOURCES +=\
     MulitChannalBox/clsMultiModeMeter.cpp \
     MulitChannalBox/cls6440MultiMeterMode.cpp \
     MulitChannalBox/clsMultModeMeterUi.cpp \
-    MulitChannalBox/clsMultiChannelSettings.cpp
+    MulitChannalBox/clsMultiChannelSettings.cpp \
+    MulitChannalBox/multiModePlot.cpp
 
 
 
@@ -282,7 +283,8 @@ HEADERS += \
     MulitChannalBox/clsMultiModeMeter.h \
     MulitChannalBox/cls6440MultiMeterMode.h \
     MulitChannalBox/clsMultModeMeterUi.h \
-    MulitChannalBox/clsMultiChannelSettings.h
+    MulitChannalBox/clsMultiChannelSettings.h \
+    MulitChannalBox/multiModePlot.h
 
 
 
