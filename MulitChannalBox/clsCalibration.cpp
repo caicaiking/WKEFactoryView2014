@@ -365,7 +365,7 @@ void clsCalibration::on_btnStdA_clicked()
     {
         stdA= dlg->getNumber();
 
-        qDebug()<< stdA;
+        //qDebug()<< stdA;
         clsCalDb::getInst()->insertRecord(freq,cmbChannel->currentText().toInt(),
                                           stdZ,stdA,"Ls");
         this->updataText();

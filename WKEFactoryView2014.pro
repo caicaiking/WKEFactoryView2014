@@ -9,7 +9,7 @@ RC_FILE  =Icon.rc
 
 
  LIBS += dog_windows_3147311.lib
-#//翻译文件使用的代�?
+#//缈昏瘧鏂囦欢浣跨敤鐨勪唬鐮?
 CODECFORTR = UTF-8
 
 INCLUDEPATH +=connections \
@@ -134,7 +134,9 @@ SOURCES +=\
     MulitChannalBox/cls6440MultiMeterMode.cpp \
     MulitChannalBox/clsMultModeMeterUi.cpp \
     MulitChannalBox/clsMultiChannelSettings.cpp \
-    MulitChannalBox/multiModePlot.cpp
+    MulitChannalBox/multiModePlot.cpp \
+    MulitChannalBox/clsWriteDataToFile.cpp \
+    MulitChannalBox/clsWriteFileThread.cpp
 
 
 
@@ -148,7 +150,7 @@ OTHER_FILES += \
     connections/ReadMe.txt \
     AnalysisMode/ProgramDescription.txt
 
-# QWT �������� #######################################################
+# QWT 定义引用 #######################################################
 DEFINES    += QT_DLL QWT_DLL
 
 win32:CONFIG(release, debug|release): LIBS += -L$(QTDIR)/bin -lqwt
@@ -156,7 +158,7 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$(QTDIR)/bin  -lqwtd
 
 #######################################################################
 
-#ѹ���ļ�###############################################################
+#压缩文件###############################################################
 
 LIBS += -L $(QTDIR)/bin -lquazip
 
@@ -284,7 +286,9 @@ HEADERS += \
     MulitChannalBox/cls6440MultiMeterMode.h \
     MulitChannalBox/clsMultModeMeterUi.h \
     MulitChannalBox/clsMultiChannelSettings.h \
-    MulitChannalBox/multiModePlot.h
+    MulitChannalBox/multiModePlot.h \
+    MulitChannalBox/clsWriteDataToFile.h \
+    MulitChannalBox/clsWriteFileThread.h
 
 
 

@@ -1,4 +1,5 @@
-﻿#include "clsSettings.h"
+﻿#include <QDir>
+#include "clsSettings.h"
 #include "clsMultiChannaeBox.h"
 #include <math.h>
 #include <QTime>
@@ -17,6 +18,7 @@
 #include "clsCalibrationDbOp.h"
 #include "cls6440MultiMeterMode.h"
 #include "clsMultiChannelSettings.h"
+#include "clsWriteDataToFile.h"
 clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -163,10 +165,18 @@ void clsMultiChannaeBox::on_btnMeter_clicked()
     if(dlg->exec() == QDialog::Accepted)
     {
         this->meter->setCondition(dlg->getConditon());
+        stop();
         initSweepMode();
         writeSettings();
     }
 
+}
+
+void clsMultiChannaeBox::stop()
+{
+    btnSignleTest->setChecked(false);
+    btnSignleTest->setText(tr("开始\n测试"));
+    btnSignleTest->setIcon(QIcon(":/Icons/single.png"));
 }
 
 /*!
@@ -347,19 +357,32 @@ void clsMultiChannaeBox::on_btnSignleTest_clicked()
     else
     {
         double count=0;
+        plotWidget->clearData(); //清除所有数据
+        mkDataDir();
+        clsWriteDataToFile file;
+        file.setChannel(this->channels);
+        file.setPath("./MultiChannelDataFile/");
 
+        QStringList items;
+        for(int i=0; i<meter->getTotleItemCount();i++)
+        {
+            items.append(meter->getItem(i));
+        }
+        file.writeTitle(items.join(","));
+
+
+        file.startRecord();
+        // qDebug()<<"Mede";
         while(btnSignleTest->isChecked())
         {
             qApp->processEvents();
-
             for(int j=0; j<channels.split(",").length(); j++)
             {
-
                 QString ch = channels.split(",").at(j);
-
                 if(!ch.isEmpty())
                 {
                     clsConnectSWBox::Instance()->sendCommand(ch.toInt()-1);
+                    UserfulFunctions::sleepMs(this->switchDelay);
                     qApp->processEvents();
                     meter->trig();
 
@@ -368,20 +391,21 @@ void clsMultiChannaeBox::on_btnSignleTest_clicked()
                     {
                         tmpRes.append(meter->getRes(xx));
                     }
+                    file.setData(ch,tmpRes);
                     plotWidget->setData(ch.toInt(),count,tmpRes);
                     qApp->processEvents();
                 }
             }
-
             qApp->processEvents();
             count++;
 
+            UserfulFunctions::sleepMs(txtDelay->value());
+            lblCount->setText(QString::number(count));
         }
-
+        file.stopRecord();
     }
     btnSignleTest->setChecked(false);
     btnSignleTest->setText(tr("开始\n测试"));
-
     btnSignleTest->setIcon(QIcon(":/Icons/single.png"));
 
 }
@@ -417,6 +441,7 @@ void clsMultiChannaeBox::on_btnSelectChennal_clicked()
     if(dlg.exec())
     {
         this->channels=dlg.getChennal();
+        stop();
         initPannel();
         initSweepMode();
     }
@@ -510,18 +535,18 @@ void clsMultiChannaeBox::itemClick(clsMRBDisplayPannel * value)
 
 void clsMultiChannaeBox::initSweepMode()
 {
-    QStringList color;
-    color<<"#99e600"<<"#99cc00"<<"#99b389"<<"#9f991a"<<"#a48033"<<"#a9664d"<<"#ae4d66"<<"#b33380"
-        <<"#a64086"<<"#994d8d"<<"#8d5a93"<<"#806699"<<"#8073a6"<<"#8080b3"<<"#ffd400"<<"#dbce8f"
-       <<"#145b7d"<<"#11264f"<<"#e0861a"<<"#8a2e3b";
+    QStringList color; //每个通道的颜色
+    color<<"#e0861a"<<"#99cc00"<<"#9f991a"<<"#a48033"<<"#a9664d"<<"#ae4d66"<<"#b33380"<<"#dbce8f"
+        <<"#a64086"<<"#994d8d"<<"#8d5a93"<<"#806699"<<"#8073a6"<<"#8080b3"<<"#ffd400"
+       <<"#145b7d"<<"#99b389"<<"#11264f"<<"#99e600"<<"#8a2e3b";
 
     cmbItem->clear();
-
+    //获取所有的测试项目
     for(int i=0; i<meter->getTotleItemCount(); i++)
     {
         cmbItem->addItem(meter->getItem(i));
     }
-
+    //清除所有的Box 在重新赋值
     for(int i=0; i< checkBoxs.length();i++)
     {
         QCheckBox *box = checkBoxs.at(i);
@@ -530,7 +555,7 @@ void clsMultiChannaeBox::initSweepMode()
     }
 
     checkBoxs.clear();
-
+    // 重新初始化每一个checkBox
     for(int i=0; i< channels.split(",").length(); i++)
     {
         QString text = channels.split(",").at(i);
@@ -545,7 +570,7 @@ void clsMultiChannaeBox::initSweepMode()
             checkBoxs.append(tmpBox);
         }
     }
-
+    //将每一个checkBox都放在面板上，并连接信号
     QVBoxLayout *layout = new QVBoxLayout();
     for(int i=0; i< checkBoxs.length(); i++)
     {
@@ -560,24 +585,23 @@ void clsMultiChannaeBox::initSweepMode()
 
     wdgCheckBox->setLayout(layout);
 
-
+    //获取测试的项目
     QStringList tmpItem;
     for(int i=0; i<meter->getTotleItemCount();i++)
     {
         tmpItem.append(meter->getItem(i));
     }
-
+    //将测试的通道和项目，赋值个plotWidget
     plotWidget->setChannalAndItems(this->channels,tmpItem);
-
+    //设置现在显示的曲线
     plotWidget->setCurrentIndex(cmbItem->currentIndex());
-
+    //设置曲线的显示还是隐藏
     QList<bool> tmpBool;
     for(int i=0; i<checkBoxs.length();i++)
     {
         tmpBool.append(checkBoxs.at(i)->isChecked());
     }
     plotWidget->setCurveVisable(tmpBool);
-
 }
 
 void clsMultiChannaeBox::on_btnSelectMode_clicked()
@@ -591,7 +615,6 @@ void clsMultiChannaeBox::on_btnSelectMode_clicked()
     {
         initSweepMode();
     }
-
 }
 
 void clsMultiChannaeBox::setCurveEnable(bool /*value*/)
@@ -607,4 +630,17 @@ void clsMultiChannaeBox::setCurveEnable(bool /*value*/)
 void clsMultiChannaeBox::on_cmbItem_currentIndexChanged(int index)
 {
     plotWidget->setCurrentIndex(index);
+}
+
+void clsMultiChannaeBox::mkDataDir()
+{
+
+
+    QDir dir("./");
+    if(dir.exists("MultiChannelDataFile"))
+        return;
+    else
+    {
+        dir.mkdir("MultiChannelDataFile");
+    }
 }

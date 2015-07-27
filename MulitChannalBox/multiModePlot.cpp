@@ -10,7 +10,7 @@ multiModePlot::multiModePlot(QWidget *parent) : QwtPlot(parent)
     QwtPlotCanvas *canvas = new QwtPlotCanvas();
     canvas->setBorderRadius(5 );
     setCanvas( canvas );
-    setCanvasBackground(QColor(Qt::white));
+    setCanvasBackground(QColor(Qt::black));
     //this->setStyleSheet("background-color: black;");
     //y axis Left grid
     QwtPlotGrid*   gridYLeft=new QwtPlotGrid;
@@ -43,7 +43,7 @@ multiModePlot::multiModePlot(QWidget *parent) : QwtPlot(parent)
     this->setAxisFont(QwtPlot::xBottom,QFont("Times", 10));
     this->setAutoReplot(true);
 
-    setXTrace(QString(tr("时间")));
+    setXTrace(QString(tr("次数")));
 }
 
 void multiModePlot::setChannalAndItems(QString channel, QStringList items)
@@ -56,19 +56,20 @@ void multiModePlot::setChannalAndItems(QString channel, QStringList items)
 
     testData.clear();
     QStringList color;
-    color<<"#99e600"<<"#99cc00"<<"#99b389"<<"#9f991a"<<"#a48033"<<"#a9664d"<<"#ae4d66"<<"#b33380"
-        <<"#a64086"<<"#994d8d"<<"#8d5a93"<<"#806699"<<"#8073a6"<<"#8080b3"<<"#ffd400"<<"#dbce8f"
-       <<"#145b7d"<<"#11264f"<<"#e0861a"<<"#8a2e3b";
+    color<<"#e0861a"<<"#99cc00"<<"#9f991a"<<"#a48033"<<"#a9664d"<<"#ae4d66"<<"#b33380"<<"#dbce8f"
+        <<"#a64086"<<"#994d8d"<<"#8d5a93"<<"#806699"<<"#8073a6"<<"#8080b3"<<"#ffd400"
+       <<"#145b7d"<<"#99b389"<<"#11264f"<<"#99e600"<<"#8a2e3b";
 
-    //qDebug()<< channel;
     for(int i=0; i< channel.split(",").length(); i++)
     {
         QString text = channel.split(",").at(i);
-        // qDebug()<<text;
         if(!text.isEmpty())
         {
             TestCurve  cur;
+
             QwtPlotCurve* curve =new QwtPlotCurve("curve");
+//            curve->setSymbol(new QwtSymbol(QwtSymbol::Cross, Qt::NoBrush,
+//                                           QPen(Qt::red), QSize(5, 5) ) );
             cur.setCurve(curve);
             cur.getCurve()->attach(this);
             cur.setColor(color.at(i%20));
@@ -84,17 +85,6 @@ void multiModePlot::setChannalAndItems(QString channel, QStringList items)
             testData.insert(text.toInt(), cur);
         }
     }
-
-
-    //    QwtPlotCurve * tmp = new QwtPlotCurve("xx");
-    //    tmp->attach(this);
-
-    // qDebug()<< testData.count();
-    //    for(int i=0; i<testData.count(); i++)
-    //    {
-    //        testData[i]->curve->attach(this);
-    //        testData[i]->setDataIndex(0);
-    //    }
 
 }
 
@@ -113,9 +103,20 @@ void multiModePlot::setCurveVisable(QList<bool> value)
     }
 }
 
+
+void multiModePlot::clearData()
+{
+    for(int i=0; i< testData.keys().length(); i++)
+    {
+        int key = testData.keys().at(i);
+        testData[key].clearData(i);
+        testData[key].clearPoint();
+    }
+}
+
 void multiModePlot::setCurrentIndex(int index)
 {
-    qDebug()<<"TestData Length: "<<testData.count();
+   // qDebug()<<"TestData Length: "<<testData.count();
 
 
     for(int i=0; i< testData.keys().length(); i++)
@@ -123,6 +124,8 @@ void multiModePlot::setCurrentIndex(int index)
         int key = testData.keys().at(i);
         testData[key].setDataIndex(index);
     }
+
+    this->replot();
 }
 
 void multiModePlot::setXTrace(const QString &value)

@@ -60,12 +60,15 @@ private:
     void initPannel();
     void initSweepMode();
     void initDataBase();
+    void stop();
 
     void readSettings();
     void writeSettings();
 
     int switchDelay;
     bool isUseLoadValue;
+
+    void mkDataDir();
 };
 
 #endif // CLSMULTICHANNAEBOX_H

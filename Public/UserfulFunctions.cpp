@@ -1,4 +1,4 @@
-#include "UserfulFunctions.h"
+﻿#include "UserfulFunctions.h"
 #include <QStringList>
 #include <QString>
 #include <QTime>
@@ -99,6 +99,8 @@ QString UserfulFunctions::getSuffix(const QString &value)
         return "A";
     if(value.toUpper()=="LEVELA" || value.toUpper()==QObject::tr("电流信号").toUpper())
         return "A";
+    if(value.toUpper() == QObject::tr("次数").toUpper())
+        return "T";
     if(value.toUpper()=="LEVELV")
         return "V";
 
