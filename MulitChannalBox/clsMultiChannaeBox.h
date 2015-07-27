@@ -11,6 +11,7 @@
 #include "clsMRBDisplayPannel.h"
 
 #include "multiModePlot.h"
+
 class clsMultiChannaeBox : public QMainWindow, private Ui::clsMultiChannaeBox
 {
     Q_OBJECT
@@ -43,13 +44,11 @@ private slots:
 
     void on_cmbItem_currentIndexChanged(int index);
 
-protected:
-    void keyPressEvent(QKeyEvent *event);
+protected: void keyPressEvent(QKeyEvent *event);
     void closeEvent(QCloseEvent *);
 private:
     QStringList commands;
     clsMultiModeMeter *meter;
-
     QString strSaveFileName ;
     QString channels;
     QList<clsMRBDisplayPannel*>pannel;
