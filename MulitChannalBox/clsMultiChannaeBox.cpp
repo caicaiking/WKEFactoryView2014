@@ -51,7 +51,7 @@ clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
     initDataBase();
     initSweepMode();
 
-    //this->showMaximized();
+    this->showMaximized();
 }
 
 /*!
@@ -376,6 +376,7 @@ void clsMultiChannaeBox::on_btnSignleTest_clicked()
         while(btnSignleTest->isChecked())
         {
             qApp->processEvents();
+            QTime timeStart = QTime::currentTime();
             for(int j=0; j<channels.split(",").length(); j++)
             {
                 QString ch = channels.split(",").at(j);
@@ -398,9 +399,10 @@ void clsMultiChannaeBox::on_btnSignleTest_clicked()
             }
             qApp->processEvents();
             count++;
-
             UserfulFunctions::sleepMs(txtDelay->value());
             lblCount->setText(QString::number(count));
+            QTime timeStop = QTime::currentTime();
+            lblTime->setText(QString::number(timeStart.msecsTo(timeStop))+"ms");
         }
         file.stopRecord();
     }
@@ -420,7 +422,7 @@ void clsMultiChannaeBox::keyPressEvent(QKeyEvent *event)
 {
     if(event->key() == Qt::Key_Enter || event->key() ==Qt::Key_Return)
     {
-        btnSignleTest->clicked();
+       // btnSignleTest->clicked();
     }
     else
     {
@@ -643,4 +645,14 @@ void clsMultiChannaeBox::mkDataDir()
     {
         dir.mkdir("MultiChannelDataFile");
     }
+}
+
+
+void clsMultiChannaeBox::on_btnOpenDataDir_clicked()
+{
+    QString curDir;
+    curDir = QDir::currentPath();
+    //qDebug()<< curDir;
+    QDesktopServices::openUrl(QUrl(QString("file:///%1/MultiChannelDataFile").arg(curDir), QUrl::TolerantMode));
+
 }

@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     QTranslator translator;
     bool ok=   translator.load(":/Translation/WKEFV.qm");
     a.installTranslator(&translator);
-    qDebug()<< "Tranlate file loaded " << ok;
+//    qDebug()<< "Tranlate file loaded " << ok;
 
     //设置Splash 屏幕
     QPixmap pixmap(":/Icons/splashScreen.png");

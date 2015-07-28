@@ -95,7 +95,10 @@ public:
         if(data.count() != data1.length() )
             return;
 
+
         points.append(point);
+
+
 
         for(int i=0; i<data1.length(); i++)
         {

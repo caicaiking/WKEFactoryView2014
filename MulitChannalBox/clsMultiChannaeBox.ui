@@ -566,6 +566,12 @@
             <layout class="QVBoxLayout" name="verticalLayout_7">
              <item>
               <widget class="QGroupBox" name="groupBox">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>0</height>
+                </size>
+               </property>
                <property name="font">
                 <font>
                  <family>楷体</family>
@@ -632,6 +638,12 @@
                       <pointsize>12</pointsize>
                      </font>
                     </property>
+                    <property name="readOnly">
+                     <bool>false</bool>
+                    </property>
+                    <property name="accelerated">
+                     <bool>true</bool>
+                    </property>
                     <property name="suffix">
                      <string>ms</string>
                     </property>
@@ -676,6 +688,85 @@
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_7">
+                  <item>
+                   <widget class="QLabel" name="label_4">
+                    <property name="font">
+                     <font>
+                      <family>楷体</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>周期时间：</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="lblTime">
+                    <property name="font">
+                     <font>
+                      <family>楷体</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>--</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_8">
+                  <item>
+                   <widget class="QLabel" name="label_5">
+                    <property name="font">
+                     <font>
+                      <family>楷体</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>数据文件夹：</string>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="btnOpenDataDir">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>30</height>
+                     </size>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>楷体</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>打开</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="../recFile/myRes.qrc">
+                      <normaloff>:/Icons/saveData.png</normaloff>:/Icons/saveData.png</iconset>
                     </property>
                    </widget>
                   </item>
@@ -730,8 +821,8 @@
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>167</width>
-                     <height>420</height>
+                     <width>174</width>
+                     <height>358</height>
                     </rect>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_10">
