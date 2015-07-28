@@ -1,5 +1,6 @@
 ﻿#include <QDir>
 #include "clsSettings.h"
+#include "frmAbout.h"
 #include "clsMultiChannaeBox.h"
 #include <math.h>
 #include <QTime>
@@ -655,4 +656,11 @@ void clsMultiChannaeBox::on_btnOpenDataDir_clicked()
     //qDebug()<< curDir;
     QDesktopServices::openUrl(QUrl(QString("file:///%1/MultiChannelDataFile").arg(curDir), QUrl::TolerantMode));
 
+}
+
+void clsMultiChannaeBox::on_btnAboutMe_clicked()
+{
+    frmAbout *dlg =new frmAbout(this);
+    dlg->setWindowTitle(tr("关于本软件"));
+    dlg->exec();
 }

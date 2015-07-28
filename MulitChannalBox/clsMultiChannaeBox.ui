@@ -684,7 +684,7 @@
                      </font>
                     </property>
                     <property name="text">
-                     <string>--</string>
+                     <string>N/A</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -720,7 +720,7 @@
                      </font>
                     </property>
                     <property name="text">
-                     <string>--</string>
+                     <string>N/A</string>
                     </property>
                     <property name="alignment">
                      <set>Qt::AlignCenter</set>
@@ -963,6 +963,36 @@
          </size>
         </property>
        </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnAboutMe">
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;快捷键 &lt;span style=&quot; font-weight:600;&quot;&gt;F3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>软件
+信息</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../recFile/myRes.qrc">
+          <normaloff>:/Icons/info.png</normaloff>:/Icons/info.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="shortcut">
+         <string>F3</string>
+        </property>
+       </widget>
       </item>
      </layout>
     </item>

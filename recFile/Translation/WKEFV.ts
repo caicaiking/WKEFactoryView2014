@@ -2795,9 +2795,9 @@ Shot</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="62"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="178"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="352"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="410"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="179"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="353"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="411"/>
         <source>开始
 测试</source>
         <translation>Start
@@ -2894,7 +2894,7 @@ Communication</translation>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="687"/>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="723"/>
-        <source>--</source>
+        <source>N/A</source>
         <translation></translation>
     </message>
     <message>
@@ -2924,7 +2924,7 @@ Communication</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="903"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="506"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="507"/>
         <source>显示
 状态</source>
         <translation>Display
@@ -2937,6 +2937,7 @@ Status</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="933"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="976"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;快捷键 &lt;span style=&quot; font-weight:600;&quot;&gt;F3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Shortcut &lt;span style=&quot; font-weight:600;&quot;&gt;F3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -2949,39 +2950,52 @@ Data</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="950"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="993"/>
         <source>F3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="191"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="246"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="979"/>
+        <source>软件
+信息</source>
+        <translation>SoftWare
+Info</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="192"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="247"/>
         <source>保存多通道测试文件</source>
         <translation>Save multi-channel test file</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="193"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="248"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="194"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="249"/>
         <source>多通道测试文件 (*.wkm)</source>
         <translation>Multi-channel test file (*.wkm)</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="341"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="342"/>
         <source>停止
 测试</source>
         <translation>Stop
 Test</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="500"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="501"/>
         <source>显示
 数据</source>
         <translation>Display
 Data</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="566"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="567"/>
         <source>通道:	</source>
         <translation>Channel:	</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="664"/>
+        <source>关于本软件</source>
+        <translation>About me</translation>
     </message>
 </context>
 <context>
@@ -4489,7 +4503,7 @@ Right</translation>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="145"/>
         <source>选择连接方式</source>
-        <translation>Select connectin type</translation>
+        <translation type="unfinished">Select connection type</translation>
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="159"/>
