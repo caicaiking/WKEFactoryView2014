@@ -14,12 +14,12 @@ public:
     {
         if(meter.toUpper() == "6500")
         {
-            qDebug()<< "return 6500";
+            //qDebug()<< "return 6500";
             return new cls6500MultiMeterMode();
         }
         else if(meter.toUpper() == "6440")
         {
-            qDebug()<< "return 6440";
+            //qDebug()<< "return 6440";
             return new cls6440MultiMeterMode();
         }
         else
