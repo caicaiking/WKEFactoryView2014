@@ -49,6 +49,8 @@ private slots:
 
     void on_btnAboutMe_clicked();
 
+    void on_btnSavePic_clicked();
+
 protected: void keyPressEvent(QKeyEvent *event);
     void closeEvent(QCloseEvent *);
 private:

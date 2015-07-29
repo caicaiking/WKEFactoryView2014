@@ -665,3 +665,19 @@ void clsMultiChannaeBox::on_btnAboutMe_clicked()
     dlg->setWindowTitle(tr("关于本软件"));
     dlg->exec();
 }
+
+void clsMultiChannaeBox::on_btnSavePic_clicked()
+{
+    QPixmap originalPixmap = QPixmap::grabWidget(dispStactWindow);
+
+    QString format = "png";
+    QString initialPath = QDir::currentPath() + tr("/untitled.") + format;
+
+    QString fileName = QFileDialog::getSaveFileName(this, tr("保存测试图像"),
+                                                    initialPath,
+                                                    tr("%1 Files (*.%2);;All Files (*)")
+                                                    .arg(format.toUpper())
+                                                    .arg(format));
+    if (!fileName.isEmpty())
+        originalPixmap.save(fileName, "png");
+}
