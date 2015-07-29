@@ -3,13 +3,14 @@
 #include <QDebug>
 
 #include "clsMeterLimit.h"
-
+#include "clsMultiChannelMeterFactory.h"
+#include "clsRuningSettings.h"
 clsMultiModeMeterUi::clsMultiModeMeterUi(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
 
-    meter = new cls6440MultiMeterMode();
+    meter = clsMultiChannelMeterFactory::getMeter(clsRS::getInst().meterSeries);
     //链接上下限按钮的信号。
     connect(this->btnTest1Limit1,SIGNAL(Clicked()),this,SLOT(setTest1Limit1()));
     connect(this->btnTest2Limit1,SIGNAL(Clicked()),this,SLOT(setTest2Limit1()));

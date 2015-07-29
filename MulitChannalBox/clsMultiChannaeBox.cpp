@@ -20,6 +20,7 @@
 #include "cls6440MultiMeterMode.h"
 #include "clsMultiChannelSettings.h"
 #include "clsWriteDataToFile.h"
+#include "clsMultiChannelMeterFactory.h"
 clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -32,7 +33,7 @@ clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
     btnOpen->setVisible(!initCom);
     btnSwitchBoxTest->setEnabled(initCom);
 
-    meter = new  cls6440MultiMeterMode();
+    meter = clsMultiChannelMeterFactory::getMeter(clsRS::getInst().meterSeries);
 
     channels="1";
     tableWidget->setColumnCount(4);

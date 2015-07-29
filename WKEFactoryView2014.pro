@@ -9,7 +9,7 @@ RC_FILE  =Icon.rc
 
 
  LIBS += dog_windows_3147311.lib
-#//缈昏瘧鏂囦欢浣跨敤鐨勪唬鐮?
+#//缈昏瘧鏂囦欢浣跨敤鐨勪唬�??
 CODECFORTR = UTF-8
 
 INCLUDEPATH +=connections \
@@ -136,7 +136,8 @@ SOURCES +=\
     MulitChannalBox/clsMultiChannelSettings.cpp \
     MulitChannalBox/multiModePlot.cpp \
     MulitChannalBox/clsWriteDataToFile.cpp \
-    MulitChannalBox/clsWriteFileThread.cpp
+    MulitChannalBox/clsWriteFileThread.cpp \
+    MulitChannalBox/cls6500MultiMeterMode.cpp
 
 
 
@@ -288,7 +289,9 @@ HEADERS += \
     MulitChannalBox/clsMultiChannelSettings.h \
     MulitChannalBox/multiModePlot.h \
     MulitChannalBox/clsWriteDataToFile.h \
-    MulitChannalBox/clsWriteFileThread.h
+    MulitChannalBox/clsWriteFileThread.h \
+    MulitChannalBox/clsMultiChannelMeterFactory.h \
+    MulitChannalBox/cls6500MultiMeterMode.h
 
 
 
