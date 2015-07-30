@@ -8,8 +8,10 @@ QT       += core gui network serialport xml sql
 RC_FILE  =Icon.rc
 
 
+
+
  LIBS += dog_windows_3147311.lib
-#//缈昏瘧鏂囦欢浣跨敤鐨勪唬�??
+#//缂堟槒鐦ч弬鍥︽娴ｈ法鏁ら惃鍕敩閻??
 CODECFORTR = UTF-8
 
 INCLUDEPATH +=connections \
@@ -151,7 +153,7 @@ OTHER_FILES += \
     connections/ReadMe.txt \
     AnalysisMode/ProgramDescription.txt
 
-# QWT 定义引用 #######################################################
+# QWT 瀹氫箟寮曠敤 #######################################################
 DEFINES    += QT_DLL QWT_DLL
 
 win32:CONFIG(release, debug|release): LIBS += -L$(QTDIR)/bin -lqwt
@@ -159,7 +161,7 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$(QTDIR)/bin  -lqwtd
 
 #######################################################################
 
-#压缩文件###############################################################
+#鍘嬬缉鏂囦欢###############################################################
 
 LIBS += -L $(QTDIR)/bin -lquazip
 
