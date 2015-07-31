@@ -1,10 +1,11 @@
- #include "NumberInput.h"
+﻿ #include "NumberInput.h"
 
 NumberInput::NumberInput(QWidget *parent) :
     QDialog(parent)
 {
 
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     stopInput=false;
 }
 

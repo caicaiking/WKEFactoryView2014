@@ -1,4 +1,4 @@
-#ifndef WK4300CALIBRATION_H
+﻿#ifndef WK4300CALIBRATION_H
 #define WK4300CALIBRATION_H
 
 #include "ui_wk4300Calibration.h"
@@ -6,7 +6,7 @@
 class wk4300Calibration : public QDialog, private Ui::wk4300Calibration
 {
     Q_OBJECT
-
+public:
     void PopUpmessage(QString strMessage, QString strTitle);
     void readSettings();
     void writeSettings();

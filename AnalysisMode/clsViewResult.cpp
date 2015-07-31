@@ -1,4 +1,4 @@
-#include "clsViewResult.h"
+﻿#include "clsViewResult.h"
 #include "UserfulFunctions.h"
 #include "doubleType.h"
 #include <Qwt/qwt_plot_curve.h>
@@ -16,7 +16,7 @@ clsViewResult::clsViewResult(const QList<PlotCurves> value,
 {
 
     setupUi(this);
-
+ setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     this->curves=value;
 
     txtGroup->setMaximum(curves.length());

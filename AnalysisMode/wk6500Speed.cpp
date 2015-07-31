@@ -1,9 +1,10 @@
-#include "wk6500Speed.h"
+﻿#include "wk6500Speed.h"
 
 wk6500Speed::wk6500Speed(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
 }
 
 void wk6500Speed::on_btnMax_clicked()

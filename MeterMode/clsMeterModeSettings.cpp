@@ -1,9 +1,10 @@
-#include "clsMeterModeSettings.h"
+﻿#include "clsMeterModeSettings.h"
 
 clsMeterModeSettings::clsMeterModeSettings(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
 }
 
 void clsMeterModeSettings::setCondition(const MeterSettings &st)

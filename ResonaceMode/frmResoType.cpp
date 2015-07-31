@@ -1,9 +1,10 @@
-#include "frmResoType.h"
+﻿#include "frmResoType.h"
 
 frmResoType::frmResoType(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     //如果要使用此功能，需要测试，好像有一些Bug。
     this->btnCrystal->setEnabled(false);
 }

@@ -1,9 +1,10 @@
-#include "clsSelectedRef.h"
+﻿#include "clsSelectedRef.h"
 
 clsSelectedRef::clsSelectedRef(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     connect(this,SIGNAL(selected(int)),this,SLOT(setSelected(int)));
 }
 

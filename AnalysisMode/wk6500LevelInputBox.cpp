@@ -1,9 +1,10 @@
-#include "wk6500LevelInputBox.h"
+﻿#include "wk6500LevelInputBox.h"
 
 wk6500LevelInputBox::wk6500LevelInputBox(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     stopInput=false;
 }
 
@@ -11,6 +12,7 @@ wk6500LevelInputBox::wk6500LevelInputBox(const double value, const QString suffi
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     this->value =value;
     this->suffix = suffix;
     firstInput = false;

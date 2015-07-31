@@ -14,7 +14,7 @@ wk6500AnalysisMeter::wk6500AnalysisMeter(WKEInstrument *parent) :
     WKEInstrument(parent)
 {
     setupUi(this);
-
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     readSettings();
 
 }

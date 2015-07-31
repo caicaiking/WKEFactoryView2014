@@ -9,7 +9,7 @@ clsMultiModeMeterUi::clsMultiModeMeterUi(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
-
+ setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     meter = clsMultiChannelMeterFactory::getMeter(clsRS::getInst().meterSeries);
     //链接上下限按钮的信号。
     connect(this->btnTest1Limit1,SIGNAL(Clicked()),this,SLOT(setTest1Limit1()));

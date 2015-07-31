@@ -1,4 +1,4 @@
-#include "clsSelectedRefProperty.h"
+﻿#include "clsSelectedRefProperty.h"
 #include <QDebug>
 #include <QColorDialog>
 
@@ -92,7 +92,7 @@ clsSelectedRefProperty::clsSelectedRefProperty(const curveProperty property,
     QDialog(parent)
 {
     setupUi(this);
-
+ setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     this->btnStatus->setChecked(false);
     connect(clrTraceA,SIGNAL(Clicked()),this,SLOT(setTraceAColor()));
     connect(clrTraceB,SIGNAL(Clicked()),this,SLOT(setTraceBColor()));

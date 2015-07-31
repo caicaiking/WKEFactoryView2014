@@ -1,4 +1,4 @@
-#include "frmSelectConnection.h"
+﻿#include "frmSelectConnection.h"
 #include "clsRuningSettings.h"
 #include "clsSettings.h"
 #include <QRegExp>
@@ -7,13 +7,13 @@ frmSelectConnection::frmSelectConnection(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
-      setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     this->btnAnalysis->setEnabled(false);
     this->btnRansonace->setVisible(false);
     this->btnMeter->setEnabled(false);
     //this->btnMeter->setVisible(false);
     this->btnMulitChannel->setEnabled(false);
-   // this->btnMulitChannel->setVisible(false);
+    // this->btnMulitChannel->setVisible(false);
 
     intSelect=0;
 

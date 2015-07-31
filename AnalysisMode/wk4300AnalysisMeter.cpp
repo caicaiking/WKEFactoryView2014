@@ -1,4 +1,4 @@
-#include "wk4300AnalysisMeter.h"
+﻿#include "wk4300AnalysisMeter.h"
 #include "clsSettings.h"
 #include "clsRuningSettings.h"
 #include "doubleType.h"
@@ -14,7 +14,7 @@ wk4300AnalysisMeter::wk4300AnalysisMeter(WKEInstrument *parent) :
     WKEInstrument(parent)
 {
     setupUi(this);
-
+ setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     readSettings();
 }
 

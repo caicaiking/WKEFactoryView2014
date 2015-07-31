@@ -1,10 +1,12 @@
-#include "frmAbout.h"
+﻿#include "frmAbout.h"
 #include <QFile>
 #include <QTextStream>
 frmAbout::frmAbout(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     readVersion();
     btnAboutQT->setVisible(true);
 }

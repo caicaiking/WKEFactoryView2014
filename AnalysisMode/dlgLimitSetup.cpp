@@ -1,4 +1,4 @@
-#include "dlgLimitSetup.h"
+﻿#include "dlgLimitSetup.h"
 #include <QDebug>
 #include "UserfulFunctions.h"
 #include <QColorDialog>
@@ -8,6 +8,7 @@ dlgLimitSetup::dlgLimitSetup(WKEInstrument*value,QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     this->meter = value;
     connect(this->btnTraceALimit,SIGNAL(Clicked()),this,SLOT(traceAClick()));
     connect(this->btnTraceBLimit,SIGNAL(Clicked()),this,SLOT(traceBClick()));

@@ -4,7 +4,7 @@ clsMeterUnit::clsMeterUnit(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
-
+ setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     btnNA->setVisible(false);
 }
 

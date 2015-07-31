@@ -4,6 +4,7 @@ clsMultiChannelSettings::clsMultiChannelSettings(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
 }
 
 void clsMultiChannelSettings::setConditon(int delay, bool isUseLoadData)

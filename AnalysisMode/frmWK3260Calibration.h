@@ -1,4 +1,4 @@
-#ifndef FRMWK3260CALIBRATION_H
+﻿#ifndef FRMWK3260CALIBRATION_H
 #define FRMWK3260CALIBRATION_H
 
 #include "ui_frmWK3260Calibration.h"
@@ -6,7 +6,7 @@
 class frmWK3260Calibration : public QDialog, private Ui::frmWK3260Calibration
 {
     Q_OBJECT
-
+public:
     void PopUpmessage(QString strMessage, QString strTitle);
     void writeSettings();
     void readSettings();
@@ -18,7 +18,7 @@ class frmWK3260Calibration : public QDialog, private Ui::frmWK3260Calibration
     void setCalBoost();
     QString showInformation(QString calType, int calRes);
     QString getGpibMeter();
-public:
+
     explicit frmWK3260Calibration(QWidget *parent = 0);
 private slots:
     void on_btnOk_clicked();

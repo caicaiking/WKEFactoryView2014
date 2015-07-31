@@ -1,9 +1,10 @@
-#include "dlgFunction.h"
+﻿#include "dlgFunction.h"
 
 dlgFunction::dlgFunction(bool btnOffVisible, bool btnRdcVisible, QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
 //    this->btnOFF->setVisible(btnOffVisible);
 //    this->btnRdc->setVisible(btnRdcVisible);
 }

@@ -1,4 +1,4 @@
-#include "frmSetLimit.h"
+﻿#include "frmSetLimit.h"
 #include "doubleType.h"
 #include "UserfulFunctions.h"
 #include "NumberInput.h"
@@ -6,6 +6,7 @@ frmSetLimit::frmSetLimit(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
 }
 
 clsMeterLimit frmSetLimit::getMeterLimit()

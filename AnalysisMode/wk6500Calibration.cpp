@@ -13,7 +13,7 @@ wk6500Calibration::wk6500Calibration(double maxFreq, QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
-
+ setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
 
     dblMaxFrequency = maxFreq;
 

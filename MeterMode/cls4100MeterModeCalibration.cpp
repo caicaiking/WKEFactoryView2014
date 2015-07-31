@@ -1,4 +1,4 @@
-#include "cls4100MeterModeCalibration.h"
+﻿#include "cls4100MeterModeCalibration.h"
 
 #include "clsRuningSettings.h"
 #include <QDebug>
@@ -11,6 +11,7 @@ cls4100MeterModeCalibration::cls4100MeterModeCalibration(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     readSettings();
 }
 

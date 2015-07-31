@@ -1,4 +1,4 @@
-#include "frmTraceSetup.h"
+﻿#include "frmTraceSetup.h"
 #include "clsSettings.h"
 #include "NumberInput.h"
 #include <QInputDialog>
@@ -9,6 +9,7 @@ frmTraceSetup::frmTraceSetup(WKEInstrument *ms, QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     this->meter=ms;
 
     getSupportFunction();

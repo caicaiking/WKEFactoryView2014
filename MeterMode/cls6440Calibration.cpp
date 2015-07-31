@@ -1,4 +1,4 @@
-#include "cls6440Calibration.h"
+﻿#include "cls6440Calibration.h"
 #include "clsRuningSettings.h"
 #include <QDebug>
 #include "clsSettings.h"
@@ -10,7 +10,7 @@ cls6440Calibration::cls6440Calibration(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
-
+ setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     if(clsRS::getInst().instrumentModel.contains("30"))
     {
         btnHF->setVisible(false);

@@ -1,9 +1,10 @@
-#include "dlg4300FuctionMajor.h"
+﻿#include "dlg4300FuctionMajor.h"
 
 dlg4300FuctionMajor::dlg4300FuctionMajor(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
 }
 
 void dlg4300FuctionMajor::on_btnC_clicked()

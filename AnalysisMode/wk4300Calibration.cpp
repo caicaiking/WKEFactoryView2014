@@ -1,4 +1,4 @@
-#include "wk4300Calibration.h"
+﻿#include "wk4300Calibration.h"
 #include "clsRuningSettings.h"
 #include <QDebug>
 #include "UserfulFunctions.h"
@@ -8,6 +8,7 @@ wk4300Calibration::wk4300Calibration(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     myProgressBar->setVisible(false);
     readSettings();
 }

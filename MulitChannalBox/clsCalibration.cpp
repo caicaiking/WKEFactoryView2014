@@ -9,6 +9,7 @@ clsCalibration::clsCalibration(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     ocZ=99.999E12;
     ocA=99.999E12;
     scZ=99.999E12;

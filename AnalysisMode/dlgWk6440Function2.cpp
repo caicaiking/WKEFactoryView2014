@@ -1,9 +1,10 @@
-#include "dlgWk6440Function2.h"
+﻿#include "dlgWk6440Function2.h"
 
 dlgWk6440Function2::dlgWk6440Function2(QDialog *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
 }
 
 void dlgWk6440Function2::on_btnQ_clicked()

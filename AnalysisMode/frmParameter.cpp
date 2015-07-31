@@ -1,10 +1,11 @@
-#include "frmParameter.h"
+﻿#include "frmParameter.h"
 #include "clsSettings.h"
 
 frmParameter::frmParameter(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     readSettings();
 }
 

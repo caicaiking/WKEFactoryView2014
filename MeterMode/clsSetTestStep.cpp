@@ -1,4 +1,4 @@
-#include "clsSetTestStep.h"
+﻿#include "clsSetTestStep.h"
 #include "clsMeterModeFactory.h"
 #include "clsRuningSettings.h"
 #include <QLayout>
@@ -9,6 +9,7 @@ clsSetTestStep::clsSetTestStep(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     sngTestDisplay->setMessage(tr("没有数据可以显示"),0);
     meter = clsMeterModeFactory::getFunction(clsRS::getInst().meterSeries);
     QHBoxLayout *layout = new QHBoxLayout();
