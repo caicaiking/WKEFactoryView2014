@@ -1,4 +1,4 @@
-#include "Plot.h"
+﻿#include "Plot.h"
 #include <Qwt/qwt_plot_marker.h>
 #include <Qwt/qwt_plot_curve.h>
 #include <Qwt/qwt_legend.h>
@@ -624,7 +624,7 @@ QString Plot::setMarker(const double &freq, const int /*intSelected*/)
                 .arg(strTraceA).arg(strItem1)
                 .arg(strTraceB).arg(strItem2);
 
-        label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#00c000\">%1<br>").arg(strX)+
+        label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#0BFF0B\">%1<br>").arg(strX)+
                 QString(" <font size=\"3\" face=\"Helvetica\" color=\"cyan\">%1<br>").arg(strItem1)+
                 QString(" <font size=\"3\" face=\"Helvetica\" color=\"Gold\">%1</p>").arg(strItem2);
     }
@@ -634,7 +634,7 @@ QString Plot::setMarker(const double &freq, const int /*intSelected*/)
                 .arg(strXTrace).arg(strX)
                 .arg(strTraceA).arg(strItem1);
 
-        label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#00c000\">%1<br>").arg(strX)+
+        label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#0BFF0B\">%1<br>").arg(strX)+
                 QString(" <font size=\"3\" face=\"Helvetica\" color=\"cyan\">%1</p>").arg(strItem1);
     }
     else if((!blYLeftON) && (blYRightON))
@@ -643,7 +643,7 @@ QString Plot::setMarker(const double &freq, const int /*intSelected*/)
                 .arg(strXTrace).arg(strX)
                 .arg(strTraceB).arg(strItem2);
 
-        label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#00c000\">%1<br>").arg(strX)+
+        label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#0BFF0B\">%1<br>").arg(strX)+
                 QString(" <font size=\"3\" face=\"Helvetica\" color=\"Gold\">%1</p>").arg(strItem2);
 
     }
@@ -651,7 +651,7 @@ QString Plot::setMarker(const double &freq, const int /*intSelected*/)
     {
         info= QString("%1=%2")
                 .arg(strXTrace).arg(strX);
-        label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#00c000\">%1</p>").arg(strX);
+        label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#0BFF0B\">%1</p>").arg(strX);
 
     }
     QwtText text(label);

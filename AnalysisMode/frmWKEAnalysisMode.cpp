@@ -1,4 +1,4 @@
-#include "frmWKEAnalysisMode.h"
+﻿#include "frmWKEAnalysisMode.h"
 #include <QBoxLayout>
 #include <QFileDialog>
 #include <Qwt/qwt_plot_renderer.h>
@@ -844,7 +844,7 @@ void frmWKEAnalysisMode::on_btnSaveResults_clicked()
 
     clsViewResult *viewResult= new clsViewResult(plot->getCurves(),headers,this);
     viewResult->setParameters(meter->getItem1(),meter->getItem2(),meter->getEqucct(),gs.sweepType);
-    connect(viewResult,SIGNAL(setMark(double,int)),plot,SLOT(setCurrentMarker(double,int)));
+    connect(viewResult,SIGNAL(setMark(double,int)),plot,SLOT(setMarker(double,int)));
     viewResult->exec();
 
 }
