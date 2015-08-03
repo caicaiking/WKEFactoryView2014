@@ -9,6 +9,7 @@
 #include <Qwt/qwt_plot_curve.h>
 #include <QMap>
 #include <QTime>
+#include "clsSettings.h"
 using  std::vector;
 UserfulFunctions::UserfulFunctions()
 {
@@ -395,3 +396,24 @@ QList<double> UserfulFunctions::getSweepPoints(double min, double max, int point
 
     return tmp;
 }
+
+int UserfulFunctions::getLanguage()
+{
+    clsSettings settings;
+    QString strNode ="Language/";
+    int strTmp;
+    settings.readSetting(strNode +"Default",strTmp);
+    //0 中文 1 英文
+    return strTmp;
+}
+
+void UserfulFunctions::setLanguage(int value)
+{
+    clsSettings settings;
+    QString strNode ="Language/";
+
+    settings.writeSetting(strNode +"Default",value);
+    //0 中文 1 英文
+}
+
+

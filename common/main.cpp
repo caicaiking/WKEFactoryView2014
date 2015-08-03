@@ -35,11 +35,16 @@ int main(int argc, char *argv[])
     clsDog::setProduct(false);
 
     //这儿是加载英文的翻译，如果要是实用界面为英文，请去掉此处的注释
-
+RELOAD:
     QTranslator translator;
-    bool ok=   translator.load(":/Translation/WKEFV.qm");
+    if(UserfulFunctions::getLanguage()==1)
+        translator.load(":/Translation/WKEFV_EN.qm");
+    else
+        translator.load(":/Translation/WKEFV_ZH.qm");
+
     a.installTranslator(&translator);
-//    qDebug()<< "Tranlate file loaded " << ok;
+
+    //    qDebug()<< "Tranlate file loaded " << ok;
 
     //设置Splash 屏幕
     QPixmap pixmap(":/Icons/splashScreen.png");
@@ -99,5 +104,14 @@ RESELECT:
         }
     }
     else
-        return 0;
+    {
+        if(w.getIsReboot()==100)
+        {
+            w.setIsReboot(0);
+            w.close();
+            goto RELOAD;
+        }
+        else
+            return 0;
+    }
 }

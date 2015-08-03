@@ -359,4 +359,5 @@ FORMS += \
     MulitChannalBox/clsMultiChannelSettings.ui
 
 
-TRANSLATIONS = recFile/Translation/WKEFV.ts
+TRANSLATIONS = recFile/Translation/WKEFV_EN.ts \
+               recFile/Translation/WKEFV_Zh.ts

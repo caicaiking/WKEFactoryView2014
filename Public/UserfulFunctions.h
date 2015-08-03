@@ -1,4 +1,4 @@
-#ifndef USERFULFUNCTIONS_H
+﻿#ifndef USERFULFUNCTIONS_H
 #define USERFULFUNCTIONS_H
 #include <QMap>
 
@@ -105,6 +105,10 @@ public:
 
    static const  QString getSweepFunctionSuffix(SweepType value);
    static QList<double> getSweepPoints(double min, double max, int points, bool isLog);
+
+   static int getLanguage();
+   static void setLanguage(int value);
+
 };
 
 #endif // USERFULFUNCTIONS_H
