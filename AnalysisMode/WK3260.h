@@ -1,4 +1,4 @@
-#ifndef WK3260_H
+﻿#ifndef WK3260_H
 #define WK3260_H
 #include <QString>
 #include "clsRuningSettings.h"
