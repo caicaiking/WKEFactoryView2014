@@ -414,7 +414,7 @@ void frmWKEAnalysisMode::moved(const QPoint &pos)
 void frmWKEAnalysisMode::on_btnSavePic_clicked()
 {
 
-    QPixmap originalPixmap = QPixmap::grabWidget(this);
+    QPixmap originalPixmap =  QPixmap::grabWidget(this);
 
     QString format = "png";
     QString initialPath = QDir::currentPath() + tr("/untitled.") + format;
