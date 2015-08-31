@@ -105,7 +105,7 @@ RESELECT:
     }
     else
     {
-        if(w.getIsReboot()==100)
+        if(w.getIsReboot()==100)  //获取是否切换了翻译的文件，如果加载了，就重启。
         {
             w.setIsReboot(0);
             w.close();

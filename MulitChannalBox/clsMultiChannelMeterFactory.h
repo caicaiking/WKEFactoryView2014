@@ -4,6 +4,7 @@
 #include "clsMultiModeMeter.h"
 #include "cls6440MultiMeterMode.h"
 #include "cls6500MultiMeterMode.h"
+#include "clsRuningSettings.h"
 #include <QMessageBox>
 #include <QApplication>
 class clsMultiChannelMeterFactory{
@@ -25,6 +26,7 @@ public:
         else
         {
             QMessageBox::information(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("Not support this instrument now! \n Comming soon!"));
+            clsRS::getInst().disConnect();
             qApp->exit(0);
             return 0;
         }
