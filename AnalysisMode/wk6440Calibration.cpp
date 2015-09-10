@@ -1,4 +1,4 @@
-#include "wk6440Calibration.h"
+﻿#include "wk6440Calibration.h"
 #include "clsSettings.h"
 #include <QTime>
 #include "clsRuningSettings.h"
@@ -7,7 +7,7 @@ wk6440Calibration::wk6440Calibration(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
-
+ setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     if(clsRS::getInst().instrumentModel=="6430")
     {
         btnHF->setEnabled(false);

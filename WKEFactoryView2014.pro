@@ -4,12 +4,14 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network serialport xml
+QT       += core gui network serialport xml sql
 RC_FILE  =Icon.rc
 
 
+
+
  LIBS += dog_windows_3147311.lib
-#//缈昏瘧鏂囦欢浣跨敤鐨勪唬鐮?
+#Tr鐨勭紪鐮侀兘鏄疷TF-8鐨勶紝杩欐牱鍦╨inguist閲岄潰鍙互寰堝ソ鐨勮瘑鍒?
 CODECFORTR = UTF-8
 
 INCLUDEPATH +=connections \
@@ -123,12 +125,25 @@ SOURCES +=\
     MeterMode/clsMeterModeSettings.cpp \
     MeterMode/cls6440Calibration.cpp \
     MeterMode/cls4100MeterMode.cpp \
-    MeterMode/cls4300MeterMode.cpp \
     MeterMode/cls4100MeterModeCalibration.cpp \
     MeterMode/cls6500MeterMode.cpp \
-    MeterMode/clsDataStore.cpp \
+    AnalysisMode/clsMarkerItem.cpp \
+    MulitChannalBox/clsDataProcess.cpp \
+    MulitChannalBox/clsCalibration.cpp \
+    MulitChannalBox/complexType.cpp \
+    MulitChannalBox/clsCalibrationDbOp.cpp \
+    MulitChannalBox/clsMultiModeMeter.cpp \
+    MulitChannalBox/cls6440MultiMeterMode.cpp \
+    MulitChannalBox/clsMultModeMeterUi.cpp \
+    MulitChannalBox/clsMultiChannelSettings.cpp \
+    MulitChannalBox/multiModePlot.cpp \
+    MulitChannalBox/clsWriteDataToFile.cpp \
+    MulitChannalBox/clsWriteFileThread.cpp \
+    MulitChannalBox/cls6500MultiMeterMode.cpp \
     MeterMode/clsTestResult.cpp \
+    MeterMode/clsDataStore.cpp \
     MeterMode/clsShowReport.cpp
+
 
 
 
@@ -141,7 +156,7 @@ OTHER_FILES += \
     connections/ReadMe.txt \
     AnalysisMode/ProgramDescription.txt
 
-# QWT 定义引用 #######################################################
+# QWT 鐨勫紩鍏?   #######################################################
 DEFINES    += QT_DLL QWT_DLL
 
 win32:CONFIG(release, debug|release): LIBS += -L$(QTDIR)/bin -lqwt
@@ -149,7 +164,7 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$(QTDIR)/bin  -lqwtd
 
 #######################################################################
 
-#压缩文件###############################################################
+#鍘嬬缉鏂囦欢鐨勫姩鎬侀摼鎺ュ簱###################################################
 
 LIBS += -L $(QTDIR)/bin -lquazip
 
@@ -266,15 +281,25 @@ HEADERS += \
     MeterMode/clsMeterModeSettings.h \
     MeterMode/cls6440Calibration.h \
     MeterMode/cls4100MeterMode.h \
-    MeterMode/cls4300MeterMode.h \
     MeterMode/cls4100MeterModeCalibration.h \
     MeterMode/cls6500MeterMode.h \
-    MeterMode/clsDataStore.h \
+    AnalysisMode/clsMarkerItem.h \
+    MulitChannalBox/clsDataProcess.h \
+    MulitChannalBox/clsCalibration.h \
+    MulitChannalBox/complexType.h \
+    MulitChannalBox/clsCalibrationDbOp.h \
+    MulitChannalBox/clsMultiModeMeter.h \
+    MulitChannalBox/cls6440MultiMeterMode.h \
+    MulitChannalBox/clsMultModeMeterUi.h \
+    MulitChannalBox/clsMultiChannelSettings.h \
+    MulitChannalBox/multiModePlot.h \
+    MulitChannalBox/clsWriteDataToFile.h \
+    MulitChannalBox/clsWriteFileThread.h \
+    MulitChannalBox/clsMultiChannelMeterFactory.h \
+    MulitChannalBox/cls6500MultiMeterMode.h \
     MeterMode/clsTestResult.h \
-    MeterMode/clsShowReport.h
-
-
-
+    MeterMode/clsShowReport.h \
+    MeterMode/clsDataStore.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \
@@ -328,10 +353,14 @@ FORMS += \
     MeterMode/clsMeterModeSettings.ui \
     MeterMode/cls6440Calibration.ui \
     MeterMode/cls4100MeterMode.ui \
-    MeterMode/cls4300MeterMode.ui \
     MeterMode/cls4100MeterModeCalibration.ui \
     MeterMode/cls6500MeterMode.ui \
+    AnalysisMode/clsMarkerItem.ui \
+    MulitChannalBox/clsCalibration.ui \
+    MulitChannalBox/clsMultModeMeterUi.ui \
+    MulitChannalBox/clsMultiChannelSettings.ui \
     MeterMode/clsShowReport.ui
 
 
-TRANSLATIONS = recFile/Translation/WKEFV.ts
+TRANSLATIONS = recFile/Translation/WKEFV_EN.ts \
+               recFile/Translation/WKEFV_Zh.ts

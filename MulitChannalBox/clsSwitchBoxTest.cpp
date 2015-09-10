@@ -1,4 +1,4 @@
-#include "clsSwitchBoxTest.h"
+﻿#include "clsSwitchBoxTest.h"
 #include <QTime>
 #include <QDebug>
 #include "clsConnectSWBox.h"
@@ -8,6 +8,7 @@ clsSwitchBoxTest::clsSwitchBoxTest(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     commands = clsMultiChannaeBox::initCommand();
 }
 

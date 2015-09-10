@@ -1,4 +1,4 @@
-#include "Plot.h"
+﻿#include "Plot.h"
 #include <Qwt/qwt_plot_marker.h>
 #include <Qwt/qwt_plot_curve.h>
 #include <Qwt/qwt_legend.h>
@@ -88,14 +88,25 @@ Plot::Plot(QWidget *parent) :
     this->setAxisFont(QwtPlot::yRight,QFont("Times", 10));
     this->setAxisFont(QwtPlot::xBottom,QFont("Times", 10));
 
-    d_marker1 = new QwtPlotMarker;
-    d_marker1->setValue(100000,0.0);
-    d_marker1->setLineStyle(QwtPlotMarker::VLine);
-    d_marker1->setLabelAlignment(Qt::AlignRight |
-                                 Qt::AlignBottom);
-    d_marker1->setLinePen(QPen(Qt::red,0,Qt::SolidLine));
+    //init 10 Markers
+    for(int i =0; i< 10; i++)
+    {
+        QwtPlotMarker * tmpMarker = new QwtPlotMarker();
+        tmpMarker->setLineStyle(QwtPlotMarker::VLine);
+        tmpMarker->setLabelAlignment(Qt::AlignRight |
+                                     Qt::AlignBottom);
+        tmpMarker->setLinePen(QPen(Qt::red,0,Qt::SolidLine));
 
-    d_marker1->attach(this);
+        tmpMarker->attach(this);
+        tmpMarker->setVisible(false);
+        tmpMarker->setTitle(QString::number(i));
+        markers.append(tmpMarker);
+    }
+
+    setCurrentMarker(0);
+
+
+
 
     //上下限设定的Mark线
     traceAUpLimit = new QwtPlotMarker;
@@ -141,7 +152,6 @@ void Plot::clearData()
         curves.value(0).cur1->setSamples(x,curvel);
         curves.value(0).cur2->setSamples(x,curve2);
     }
-    d_marker1->setVisible(false);
 
 }
 
@@ -156,12 +166,11 @@ void Plot::showData(const QVector<double>& x,
     {
         curves.value(0).cur1->setSamples(x,curvel);
         curves.value(0).cur2->setSamples(x,curve2);
-
-
     }
     //在这儿不自动缩放坐标系
     // this->setAxisScale(QwtPlot::xBottom,x.first(),x.last());
-    this->d_marker1->setVisible(false);
+
+
 }
 
 void Plot::autoScale(Plot::Choice choice)
@@ -615,8 +624,8 @@ QString Plot::setMarker(const double &freq, const int /*intSelected*/)
                 .arg(strTraceA).arg(strItem1)
                 .arg(strTraceB).arg(strItem2);
 
-        label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#00c000\">%1<br>").arg(strX)+
-                QString(" <font size=\"3\" face=\"Helvetica\" color=\"cyan\">%1").arg(strItem1)+
+        label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#0BFF0B\">%1<br>").arg(strX)+
+                QString(" <font size=\"3\" face=\"Helvetica\" color=\"cyan\">%1<br>").arg(strItem1)+
                 QString(" <font size=\"3\" face=\"Helvetica\" color=\"Gold\">%1</p>").arg(strItem2);
     }
     else if(blYLeftON && (!blYRightON))
@@ -625,7 +634,7 @@ QString Plot::setMarker(const double &freq, const int /*intSelected*/)
                 .arg(strXTrace).arg(strX)
                 .arg(strTraceA).arg(strItem1);
 
-        label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#00c000\">%1<br>").arg(strX)+
+        label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#0BFF0B\">%1<br>").arg(strX)+
                 QString(" <font size=\"3\" face=\"Helvetica\" color=\"cyan\">%1</p>").arg(strItem1);
     }
     else if((!blYLeftON) && (blYRightON))
@@ -634,7 +643,7 @@ QString Plot::setMarker(const double &freq, const int /*intSelected*/)
                 .arg(strXTrace).arg(strX)
                 .arg(strTraceB).arg(strItem2);
 
-        label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#00c000\">%1<br>").arg(strX)+
+        label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#0BFF0B\">%1<br>").arg(strX)+
                 QString(" <font size=\"3\" face=\"Helvetica\" color=\"Gold\">%1</p>").arg(strItem2);
 
     }
@@ -642,7 +651,7 @@ QString Plot::setMarker(const double &freq, const int /*intSelected*/)
     {
         info= QString("%1=%2")
                 .arg(strXTrace).arg(strX);
-        label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#00c000\">%1</p>").arg(strX);
+        label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#0BFF0B\">%1</p>").arg(strX);
 
     }
     QwtText text(label);
@@ -656,10 +665,27 @@ QString Plot::setMarker(const double &freq, const int /*intSelected*/)
     else/*(index >keys.length()*3/6)*/
         d_marker1->setLabelAlignment(Qt::AlignLeft |Qt::AlignBottom);
 
-    d_marker1->setLabel(text);
-    d_marker1->setTitle("1");
+    if(!multiMarker)
+    {
+        if(index <keys.length()*3/6)
+            d_marker1->setLabelAlignment(Qt::AlignRight | Qt::AlignBottom);
+        else/*(index >keys.length()*3/6)*/
+            d_marker1->setLabelAlignment(Qt::AlignLeft |Qt::AlignBottom);
+        d_marker1->setLabel(text);
+        d_marker1->setTitle("1");
+    }
+    else
+    {
+        if(index <keys.length()*3/6)
+            d_marker1->setLabelAlignment(Qt::AlignRight | Qt::AlignTop);
+        else/*(index >keys.length()*3/6)*/
+            d_marker1->setLabelAlignment(Qt::AlignLeft |Qt::AlignTop);
+        d_marker1->setLabel(QString::number(this->currentMarker+1));
+        d_marker1->setTitle(QString::number(this->currentMarker+1));
+        emit showMarkerMessage(this->currentMarker, text.text());
+    }
 
-   // return info;
+    // return info;
     return msg;
 }
 
@@ -848,9 +874,6 @@ void Plot::setCurveLimit(const clsCurveLimit &curveLimit1)
         traceADownLimit->setVisible(false);
     }
 
-
-
-
     if(this->curveLimit.blTraceBLimit)
     {
         double yRightHi;
@@ -895,6 +918,46 @@ void Plot::setCurveLimitVisiable(const bool &value)
     traceADownLimit->setVisible(value);
     traceBDownLimit->setVisible(value);
     traceBUpLimit->setVisible(value);
+}
+
+void Plot::setMultMarker(bool value)
+{
+    this->multiMarker= value;
+}
+
+void Plot::setCurrentMarker(int value)
+{
+    this->currentMarker = value;
+    d_marker1 = markers.at(value);
+}
+
+void Plot::setMarkerVisual(int i, bool value)
+{
+    markers.at(i)->setVisible(value);
+}
+
+void Plot::setDataEnd()
+{
+    if(!multiMarker)
+    {
+        d_marker1->setVisible(false);
+
+    }
+    else
+    {
+        int tmp = this->currentMarker;
+        for(int i =0; i< markers.length();i ++)
+        {
+            if(markers.at(i)->isVisible())
+            {
+                this->currentMarker = i;
+                d_marker1 = markers.at(i);
+                setMarker(d_marker1->value().x());
+            }
+        }
+        d_marker1 = markers.at(tmp);
+        tmp = this->currentMarker;
+    }
 }
 
 

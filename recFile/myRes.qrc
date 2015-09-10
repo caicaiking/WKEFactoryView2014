@@ -46,7 +46,6 @@
         <file>Icons/new.png</file>
         <file>Icons/open.png</file>
         <file>Icons/save.png</file>
-        <file>Translation/WKEFV.qm</file>
         <file>Icons/stepSave.png</file>
         <file>Icons/com.png</file>
         <file>Icons/switch.png</file>
@@ -70,5 +69,9 @@
         <file>Icons/rot4.png</file>
         <file>Icons/saveData.png</file>
         <file>Icons/detect.png</file>
+        <file>Icons/marker.png</file>
+        <file>Translation/WKEFV_EN.qm</file>
+        <file>Translation/WKEFV_ZH.qm</file>
+        <file>Icons/ReleaseNote.txt</file>
     </qresource>
 </RCC>

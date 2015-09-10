@@ -1,4 +1,4 @@
-#include "UserfulFunctions.h"
+﻿#include "UserfulFunctions.h"
 #include <QStringList>
 #include <QString>
 #include <QTime>
@@ -9,6 +9,7 @@
 #include <Qwt/qwt_plot_curve.h>
 #include <QMap>
 #include <QTime>
+#include "clsSettings.h"
 using  std::vector;
 UserfulFunctions::UserfulFunctions()
 {
@@ -99,6 +100,8 @@ QString UserfulFunctions::getSuffix(const QString &value)
         return "A";
     if(value.toUpper()=="LEVELA" || value.toUpper()==QObject::tr("电流信号").toUpper())
         return "A";
+    if(value.toUpper() == QObject::tr("次数").toUpper())
+        return "T";
     if(value.toUpper()=="LEVELV")
         return "V";
 
@@ -393,3 +396,24 @@ QList<double> UserfulFunctions::getSweepPoints(double min, double max, int point
 
     return tmp;
 }
+
+int UserfulFunctions::getLanguage()
+{
+    clsSettings settings;
+    QString strNode ="Language/";
+    int strTmp;
+    settings.readSetting(strNode +"Default",strTmp);
+    //0 中文 1 英文
+    return strTmp;
+}
+
+void UserfulFunctions::setLanguage(int value)
+{
+    clsSettings settings;
+    QString strNode ="Language/";
+
+    settings.writeSetting(strNode +"Default",value);
+    //0 中文 1 英文
+}
+
+

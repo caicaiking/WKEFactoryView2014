@@ -1,9 +1,10 @@
-#include "testLimits.h"
+﻿#include "testLimits.h"
 #include <QDebug>
 testLimits::testLimits(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     label->setText(lm.showLimits("F"));
 
     connect(this->label,SIGNAL(Clicked()),this,SLOT(setLimit()));

@@ -1,4 +1,4 @@
-#include "frmTraceSetup.h"
+﻿#include "frmTraceSetup.h"
 #include "clsSettings.h"
 #include "NumberInput.h"
 #include <QInputDialog>
@@ -9,6 +9,7 @@ frmTraceSetup::frmTraceSetup(WKEInstrument *ms, QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     this->meter=ms;
 
     getSupportFunction();
@@ -263,7 +264,7 @@ void frmTraceSetup::updateButtons()
     dt.setData(this->gsetup.xmax,"");
     this->btnXmax->setText(dt.formateToString());
 
-    if(this->gsetup.sweepType ==Frequency && this->gsetup.logX)
+    if(/*this->gsetup.sweepType ==Frequency &&*/ this->gsetup.logX)
     {
         if(gsetup.xmax>0 && gsetup.xmin >0)
         {
@@ -444,7 +445,7 @@ void frmTraceSetup::on_btnTitle_clicked()
     QString text = QInputDialog::getText(this, tr("输入标题"),
                                          tr("标题:"), QLineEdit::Normal,
                                          this->gsetup.title, &ok);
-    if (ok && !text.isEmpty())
+    if (ok)
     {
         this->gsetup.title = text;
     }

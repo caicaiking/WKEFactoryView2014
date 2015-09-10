@@ -1,9 +1,16 @@
-#include "clsMeterUnit.h"
+﻿#include "clsMeterUnit.h"
 #include "UserfulFunctions.h"
 clsMeterUnit::clsMeterUnit(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+ setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+    btnNA->setVisible(false);
+}
+
+void clsMeterUnit::setOFFEnable(bool value)
+{
+    btnNA->setVisible(value);
 }
 
 void clsMeterUnit::on_btnm_clicked()
@@ -64,6 +71,8 @@ void clsMeterUnit::setItem(QString item)
         if(btn)
             btn->setText(btn->text()+tmpUinit);
     }
+
+    this->btnNA->setText(tr("OFF"));
 }
 
 
@@ -71,4 +80,10 @@ void clsMeterUnit::setItem(QString item)
 QString clsMeterUnit::getSuffix()
 {
     return this->strSuffix;
+}
+
+void clsMeterUnit::on_btnNA_clicked()
+{
+    strSuffix ="OFF";
+    this->accept();
 }

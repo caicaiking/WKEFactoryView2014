@@ -1,4 +1,4 @@
-#include <QApplication>
+﻿#include <QApplication>
 #include <QTextCodec>
 #include <QSplashScreen>
 #include <QDebug>
@@ -16,11 +16,15 @@
 #include "clsMeterMode.h"
 #include "clsMultiChannaeBox.h"
 #include <QMessageBox>
+#include "clsDataProcess.h"
+#include "doubleType.h"
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     QTextCodec* code = QTextCodec::codecForName("UTF-8");
     QTextCodec::setCodecForLocale(code);
+
 
     QApplication::addLibraryPath("./plugins");
     //    QTextCodec::setCodecForTr(code);
@@ -28,14 +32,19 @@ int main(int argc, char *argv[])
 
     //如果要是发布无锁版本，请使用clsDog::setProduct(false),有锁版本clsDog::setProduct(true)
 
-    clsDog::setProduct(true);
+    clsDog::setProduct(false);
 
     //这儿是加载英文的翻译，如果要是实用界面为英文，请去掉此处的注释
+RELOAD:
+    QTranslator translator;
+    if(UserfulFunctions::getLanguage()==1)
+        translator.load(":/Translation/WKEFV_EN.qm");
+    else
+        translator.load(":/Translation/WKEFV_ZH.qm");
 
-    //    QTranslator translator;
-    //    bool ok=   translator.load(":/Translation/WKEFV.qm");
-    //    a.installTranslator(&translator);
-    //    qDebug()<< ok;
+    a.installTranslator(&translator);
+
+    //    qDebug()<< "Tranlate file loaded " << ok;
 
     //设置Splash 屏幕
     QPixmap pixmap(":/Icons/splashScreen.png");
@@ -95,5 +104,14 @@ RESELECT:
         }
     }
     else
-        return 0;
+    {
+        if(w.getIsReboot()==100)  //获取是否切换了翻译的文件，如果加载了，就重启。
+        {
+            w.setIsReboot(0);
+            w.close();
+            goto RELOAD;
+        }
+        else
+            return 0;
+    }
 }

@@ -1,4 +1,4 @@
-#include "clsRuningSettings.h"
+﻿#include "clsRuningSettings.h"
 #include <QDebug>
 #include <QMutex>
 #include <QReadWriteLock>
@@ -61,8 +61,6 @@ public:
 
         return strReturn;
     }
-
-
 
     QReadWriteLock lock;
     QMutex mutex;

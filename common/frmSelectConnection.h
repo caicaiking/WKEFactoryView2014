@@ -1,4 +1,4 @@
-#ifndef FRMSELECTCONNECTION_H
+﻿#ifndef FRMSELECTCONNECTION_H
 #define FRMSELECTCONNECTION_H
 
 #include "ui_frmSelectConnection.h"
@@ -22,6 +22,10 @@ public:
         return this->mode;
     }
 
+    int getIsReboot() const;
+
+    void setIsReboot(int value);
+
 private slots:
     void on_btnTest_clicked();
     void on_rbUsb_toggled(bool checked);
@@ -39,6 +43,9 @@ private slots:
 
     void on_btnMulitChannel_clicked();
 
+
+    void on_btnSwitch_clicked();
+
 protected:
     void closeEvent(QCloseEvent *);
 private:
@@ -51,6 +58,7 @@ private:
 
     SelectMode mode;
 
+    int isReboot;
    // frmWKEAnalysisMode  analysis;
 };
 

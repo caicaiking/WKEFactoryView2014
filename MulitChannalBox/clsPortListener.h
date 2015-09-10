@@ -1,4 +1,4 @@
-#ifndef PORTLISTENER_H_
+﻿#ifndef PORTLISTENER_H_
 #define PORTLISTENER_H_
 
 #include <QObject>
@@ -10,6 +10,7 @@ public:
     clsPortListener();
     bool getInit() const;
     int sendCommand(QString);
+    void closePort();
 
 private:
     QSerialPort *port;

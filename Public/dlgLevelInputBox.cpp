@@ -1,9 +1,10 @@
-#include "dlgLevelInputBox.h"
+﻿#include "dlgLevelInputBox.h"
 
 dlgLevelInputBox::dlgLevelInputBox(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     stopInput=false;
 }
 
@@ -11,6 +12,7 @@ dlgLevelInputBox::dlgLevelInputBox(const double value, const QString suffix, QWi
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     this->value =value;
     this->suffix = suffix;
     firstInput = false;
@@ -22,6 +24,7 @@ dlgLevelInputBox::dlgLevelInputBox(const double value, const QString suffix, QWi
 
 void dlgLevelInputBox::setValueAndSuffix(const double value, const QString suffix)
 {
+
     this->value =value;
     this->suffix = suffix;
     firstInput = false;

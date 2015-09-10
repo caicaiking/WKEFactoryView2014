@@ -15,6 +15,7 @@
 
 #include "clsSignalThread.h"
 #include "clsMultiLimitStatusShow.h"
+#include "clsMarkerItem.h"
 class frmWKEAnalysisMode : public QMainWindow, private Ui::frmWKEAnalysisMode
 {
     Q_OBJECT
@@ -61,6 +62,12 @@ private slots:
     void captureTrig();
     void showMulitLimit();
 
+    void on_btnMarker_toggled(bool checked);
+
+    void setCurrentMarker(int value);
+    void showCurrentMarkerMsg(int, QString);
+
+
 private:
     Plot *plot;
     void initPlot();
@@ -85,7 +92,10 @@ private:
     void init();
     QTimer *timer;
     clsSignalThread *controlBox;
- void finishTest();
+
+   QList< clsMarkerItem *>markers ;
+   void finishTest();
+   void resetMarker();
 protected:
     void closeEvent(QCloseEvent *e);
     void keyPressEvent(QKeyEvent *event);

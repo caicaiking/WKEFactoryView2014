@@ -1,13 +1,17 @@
-#ifndef CLSMULTICHANNAEBOX_H
+﻿#ifndef CLSMULTICHANNAEBOX_H
 #define CLSMULTICHANNAEBOX_H
 
 #include "ui_clsMultiChannaeBox.h"
 #include <QString>
 #include "clsConnectSWBox.h"
 #include <QDebug>
-#include "WKEMeterMode.h"
+
+#include <QCheckBox>
+#include "clsMultiModeMeter.h"
 #include "clsMRBDisplayPannel.h"
-#include "cls4300MeterMode.h"
+
+#include "multiModePlot.h"
+
 class clsMultiChannaeBox : public QMainWindow, private Ui::clsMultiChannaeBox
 {
     Q_OBJECT
@@ -15,6 +19,8 @@ class clsMultiChannaeBox : public QMainWindow, private Ui::clsMultiChannaeBox
 public:
     explicit clsMultiChannaeBox(QWidget *parent = 0);
     static QStringList initCommand();
+    void itemTrig(clsMRBDisplayPannel *value);
+
 private slots:
 
     void on_btnOpen_clicked();
@@ -27,16 +33,48 @@ private slots:
     void on_btnClearAllData_clicked();
     void on_btnShowTestStatus_toggled(bool checked);
     void setIdeal();
-protected:
-    void keyPressEvent(QKeyEvent *event);
+    void on_btnChannalCal_clicked();
+
+    void on_btnRunningSettings_clicked();
+
+    void itemClick(clsMRBDisplayPannel *);
+    void on_btnSelectMode_clicked();
+
+    void setCurveEnable(bool);
+
+    void on_cmbItem_currentIndexChanged(int index);
+
+
+    void on_btnOpenDataDir_clicked();
+
+    void on_btnAboutMe_clicked();
+
+    void on_btnSavePic_clicked();
+
+protected: void keyPressEvent(QKeyEvent *event);
+    void closeEvent(QCloseEvent *);
 private:
     QStringList commands;
-    cls4300MeterMode *meter;
+    clsMultiModeMeter *meter;
     QString strSaveFileName ;
-    QString chennal;
+    QString channels;
     QList<clsMRBDisplayPannel*>pannel;
 
+    QList<QCheckBox*> checkBoxs;
+
+
     void initPannel();
+    void initSweepMode();
+    void initDataBase();
+    void stop();
+
+    void readSettings();
+    void writeSettings();
+
+    int switchDelay;
+    bool isUseLoadValue;
+
+    void mkDataDir();
 };
 
 #endif // CLSMULTICHANNAEBOX_H

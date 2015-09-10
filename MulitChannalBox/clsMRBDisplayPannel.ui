@@ -72,7 +72,7 @@
        <number>2</number>
       </property>
       <item>
-       <widget class="QLabel" name="lblNumber">
+       <widget class="ClickedLabel" name="lblNumber">
         <property name="minimumSize">
          <size>
           <width>40</width>
@@ -91,6 +91,9 @@
           <pointsize>24</pointsize>
          </font>
         </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;单击数字标签可以重复测试。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
         <property name="frameShape">
          <enum>QFrame::NoFrame</enum>
         </property>
@@ -105,7 +108,7 @@
       <item>
        <widget class="QStackedWidget" name="stackedWidget">
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="status">
          <layout class="QHBoxLayout" name="horizontalLayout">

@@ -1,4 +1,4 @@
-#include "frmSelectConnection.h"
+﻿#include "frmSelectConnection.h"
 #include "clsRuningSettings.h"
 #include "clsSettings.h"
 #include <QRegExp>
@@ -7,16 +7,16 @@ frmSelectConnection::frmSelectConnection(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
-      setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     this->btnAnalysis->setEnabled(false);
     this->btnRansonace->setVisible(false);
     this->btnMeter->setEnabled(false);
     //this->btnMeter->setVisible(false);
     this->btnMulitChannel->setEnabled(false);
-    this->btnMulitChannel->setVisible(false);
+    // this->btnMulitChannel->setVisible(false);
 
     intSelect=0;
-
+    isReboot=0;
     readSettings();
 }
 
@@ -133,6 +133,16 @@ void frmSelectConnection::buttonOp(bool value)
     }
 
 }
+void frmSelectConnection::setIsReboot(int value)
+{
+    isReboot = value;
+}
+
+int frmSelectConnection::getIsReboot() const
+{
+    return isReboot;
+}
+
 
 void frmSelectConnection::writeSttings()
 {
@@ -184,6 +194,10 @@ void frmSelectConnection::readSettings()
 
     txtAddress->setText(strAddress);
 
+    if(UserfulFunctions::getLanguage()==1)
+    {
+        rbEnglish->setChecked(true);
+    }
 }
 
 
@@ -254,4 +268,21 @@ void frmSelectConnection::on_btnMulitChannel_clicked()
 {
     this->mode =MultiChannel;
     this->accept();
+}
+
+
+
+void frmSelectConnection::on_btnSwitch_clicked()
+{
+    if(rbChinese->isChecked())
+        UserfulFunctions::setLanguage(0);
+    else
+        UserfulFunctions::setLanguage(1);
+
+    qApp->processEvents();
+    UserfulFunctions::sleepMs(15);
+
+    isReboot = 100;
+
+    this->reject();
 }

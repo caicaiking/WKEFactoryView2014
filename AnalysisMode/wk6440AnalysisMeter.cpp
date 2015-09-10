@@ -1,4 +1,4 @@
-#include "wk6440AnalysisMeter.h"
+﻿#include "wk6440AnalysisMeter.h"
 #include "clsSettings.h"
 #include "doubleType.h"
 #include "clsRuningSettings.h"
@@ -15,6 +15,7 @@ wk6440AnalysisMeter::wk6440AnalysisMeter(WKEInstrument *parent) :
     WKEInstrument(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     readSettings();
     clsRS::getInst().sendCommand(":MEAS");
     clsRS::getInst().sendCommand(":MEAS:TEST");

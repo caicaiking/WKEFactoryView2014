@@ -1,9 +1,10 @@
-#include "dlg4300FunctionMinor.h"
+﻿#include "dlg4300FunctionMinor.h"
 
 dlg4300FunctionMinor::dlg4300FunctionMinor(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
 }
 
 void dlg4300FunctionMinor::on_btnC_clicked()

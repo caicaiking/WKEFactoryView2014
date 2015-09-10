@@ -1,4 +1,4 @@
-#include "clsLan.h"
+﻿#include "clsLan.h"
 #include <QTcpSocket>
 #include <QStringList>
 
@@ -68,51 +68,75 @@ QString clsLan::sendCommand(QString strCommand, bool hasReturn, int waitDaly)
         qDebug()<<"Go to init function";
         init();
     }
-    if(socket->state()==QAbstractSocket::UnconnectedState)
+
+    if(socket->state() == QAbstractSocket::UnconnectedState)
     {
-        qDebug()<<"Init function failed, go to Init function again";
+        qDebug()<<"Init function failed, to to init function again";
         socket->disconnectFromHost();
         init();
     }
+
     if(!blInit)
         return "";
 
-    if(this->intPort==WK4300PORT )
+    if(this->intPort == WK4300PORT)
         strCommand = strCommand.append("\r\n");
 
-    std::string str2 = std::string(strCommand.toStdString().c_str());
 
-    socket->write(str2.c_str());
-
-    qApp->processEvents();
+    socket->write(strCommand.toStdString().c_str());
 
     socket->waitForBytesWritten(5000);
-    //  qDebug()<< "write command finished!";
 
-    /*This is just for 6500 need read back but 4300 does't need it.*/
-    if(this->intPort==WK4300PORT && (!hasReturn))
+    if((this->intPort == WK4300PORT) && (!hasReturn))
         return "";
 
-    // qDebug()<<"wait delay: "<< waitDaly;
-    if(waitDaly==0)
-        socket->waitForReadyRead(2*1000);
-    else
-        socket->waitForReadyRead(waitDaly*1000);
-    qApp->processEvents();
-    char buff[200];
-    int byte= socket->readLine(buff,200);
-    if (byte>=0)
-        buff[byte]='\0';
-    QString res=QString(buff);
 
-    if(socket->state()!=QAbstractSocket::ConnectedState)
+    if(this->intPort == WK4300PORT) //对于4300 我只能这样写了 6500 的做法完全不一样
     {
-        blInit=false;
-        socket->disconnectFromHost();
-        //qDebug()<< "Connection not connected: " << socket->state();
+
+        if(socket->waitForReadyRead(3000))
+        {
+            char buff[200];
+            int byte = socket->readLine(buff,200);
+            if(byte>=0)
+                buff[byte]='\0';
+
+            QString res = QString(buff);
+
+            if(socket->state() != QAbstractSocket::ConnectedState)
+            {
+                blInit = false;
+                socket->disconnectFromHost();
+            }
+
+            return res.remove('\n');
+        }
+        else
+            return "";
+    }
+    else
+    {
+        if(waitDaly==0)
+            socket->waitForReadyRead(3000);
+        else
+            socket->waitForReadyRead(waitDaly*3000);
+
+        char buff[200];
+        int byte = socket->readLine(buff,200);
+        if(byte>=0)
+            buff[byte]='\0';
+
+        QString res = QString(buff);
+
+        if(socket->state() != QAbstractSocket::ConnectedState)
+        {
+            blInit = false;
+            socket->disconnectFromHost();
+        }
+
+        return res.remove('\n');
     }
 
-    return res.remove('\n');
 
 }
 

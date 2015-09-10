@@ -1,13 +1,15 @@
-#ifndef CLSMRBDISPLAYPANNEL_H
+﻿#ifndef CLSMRBDISPLAYPANNEL_H
 #define CLSMRBDISPLAYPANNEL_H
 
 #include "ui_clsMRBDisplayPannel.h"
 #include <QList>
-
+#include "clsMeterLimit.h"
 struct TestItem
 {
-    double value;
     QString item;
+    double value;
+    QString suffix;
+    clsMeterLimit limit;
     bool status;
 };
 
@@ -24,7 +26,7 @@ class clsMRBDisplayPannel : public QWidget, private Ui::clsMRBDisplayPannel
 
 public:
     explicit clsMRBDisplayPannel(QWidget *parent = 0);
-    void setTestResult(QString json);
+    void setTestResult(TestResult value);
     void setNumber(int chennal);
     int number();
     TestResult getTestResult()
@@ -39,15 +41,20 @@ public:
     void clearAll();
     void setResType(int value);
 
+signals:
+
+    void numberClick(clsMRBDisplayPannel*);
+
 private slots:
     void statusLabelClick();
     void resultLableClick();
+    void numberClick1();
 
 private:
-    void processJson(const QVariantMap &result);
+
     TestResult res;
     bool converDouble(const QString &value, double &s);
-    QString formatToString(const QString &item, const QString &unit, const double &testValue, const QString &limit, double &fromateValue, bool &status);
+    QString formatToString(const QString &item, const QString &unit, const double &testValue, const bool status);
     void setNumberLabel(bool value);
     void setNumberLabel(Status value);
 };

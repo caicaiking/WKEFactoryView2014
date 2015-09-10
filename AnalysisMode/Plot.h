@@ -83,6 +83,13 @@ public:
     void setCurveLimit(const clsCurveLimit &curveLimit);
     void setCurveLimitVisiable(const bool &value);
 
+    void setMultMarker(bool value);
+    void setCurrentMarker(int value);
+    void setMarkerVisual(int i, bool value);
+    void setDataEnd();
+signals:
+    void showMarkerMessage(int , QString);
+
 public slots:
     QString setMarker(const double& freq, const int intSelected=0);
     void addNewCurve(curveProperty property, bool isSetCurrent=false);
@@ -97,6 +104,12 @@ private:
     QMap <int,PlotCurves> curves;
 
     QwtPlotMarker *d_marker1,*traceAUpLimit,*traceADownLimit,*traceBUpLimit,*traceBDownLimit;
+    bool multiMarker;
+    int currentMarker;
+
+    QList<QwtPlotMarker *> markers;
+
+
     //    QwtPlotMarker *d_marker2;
     QwtPlotGrid *gridX;
     QwtPlotGrid *gridYLeft;

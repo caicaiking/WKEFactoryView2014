@@ -1,9 +1,10 @@
-#include "dlgSpeed.h"
+﻿#include "dlgSpeed.h"
 
 dlgSpeed::dlgSpeed(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
 }
 
 void dlgSpeed::on_btnMax_clicked()

@@ -1,9 +1,10 @@
-#include "frmPeakSearch.h"
+﻿#include "frmPeakSearch.h"
 
 frmPeakSearch::frmPeakSearch(Plot *plot, const graphSetup gs, QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     this->setWindowFlags(Qt::Dialog|Qt::FramelessWindowHint);
     setPlot(plot);
     setGraphSetup(gs);

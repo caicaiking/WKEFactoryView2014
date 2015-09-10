@@ -1,9 +1,10 @@
-#include "wk6500Range.h"
+﻿#include "wk6500Range.h"
 
 wk6500Range::wk6500Range(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
 }
 
 void wk6500Range::on_btn0_clicked()

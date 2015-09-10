@@ -1,10 +1,11 @@
-#include "clsMultiLimitSetting.h"
+﻿#include "clsMultiLimitSetting.h"
 #include "UserfulFunctions.h"
 #include "frmSetLimit.h"
 clsMultiLimitSetting::clsMultiLimitSetting(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     connect(this->lblFrequency,SIGNAL(Clicked()),this,SLOT(lblFrequencClick()));
     connect(this->lblItem1,SIGNAL(Clicked()),this,SLOT(lblItem1Click()));
     connect(this->lblItem2,SIGNAL(Clicked()),this,SLOT(lblItem2Click()));

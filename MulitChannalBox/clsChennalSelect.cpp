@@ -1,4 +1,4 @@
-#include "clsChennalSelect.h"
+﻿#include "clsChennalSelect.h"
 #include <QGridLayout>
 #include <QDebug>
 
@@ -7,7 +7,7 @@ clsChennalSelect::clsChennalSelect(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
-
+ setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     chennals.clear();
 
     QGridLayout *layout = new QGridLayout();

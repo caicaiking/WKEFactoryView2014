@@ -1,4 +1,4 @@
-#ifndef DATAPROCESS_H
+﻿#ifndef DATAPROCESS_H
 #define DATAPROCESS_H
 
 #define EMPTYSTRING ""

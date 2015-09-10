@@ -1,4 +1,4 @@
-#include "frmWK3260Calibration.h"
+﻿#include "frmWK3260Calibration.h"
 #include "MessageDialog.h"
 #include "clsRuningSettings.h"
 #include "clsSettings.h"
@@ -7,6 +7,7 @@ frmWK3260Calibration::frmWK3260Calibration(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     readSettings();
     //this->tabWidget->setStyleSheet("background-color: rgb(148, 148, 248);");
     myProgressBar->setVisible(false);

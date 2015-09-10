@@ -1,4 +1,4 @@
-#include "clsPortListener.h"
+﻿#include "clsPortListener.h"
 #include <QtDebug>
 #include <QSerialPortInfo>
 #include <QString>
@@ -14,8 +14,10 @@ clsPortListener::clsPortListener()
     //枚举串口
     foreach (const QSerialPortInfo &info, QSerialPortInfo::availablePorts())
     {
-        vendorId =( info.hasVendorIdentifier() ? info.vendorIdentifier() :0);
 
+
+        vendorId =( info.hasVendorIdentifier() ? info.vendorIdentifier() :0);
+       // qDebug()<< info.productIdentifier();
         //找到设备的ID
         if(vendorId==0x403)
         {
@@ -91,5 +93,14 @@ int clsPortListener::sendCommand(QString value)
         qDebug()<<"Read time out";
 
         return -1;
+    }
+}
+
+void clsPortListener::closePort()
+{
+    if(init)
+    {
+        port->close();
+        init=false;
     }
 }

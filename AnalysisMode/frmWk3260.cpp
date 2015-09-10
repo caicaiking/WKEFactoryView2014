@@ -1,4 +1,4 @@
-#include "frmWk3260.h"
+﻿#include "frmWk3260.h"
 #include "Globle.h"
 #include "clsRuningSettings.h"
 #include "QDebug"
@@ -12,6 +12,7 @@ frmWk3260::frmWk3260(WKEInstrument *parent) :
     WKEInstrument(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     readSettings(this->wk3260);
     updateButtons();
 

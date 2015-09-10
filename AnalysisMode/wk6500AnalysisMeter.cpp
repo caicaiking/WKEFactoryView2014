@@ -1,4 +1,4 @@
-#include "wk6500AnalysisMeter.h"
+﻿#include "wk6500AnalysisMeter.h"
 #include "clsSettings.h"
 #include "clsRuningSettings.h"
 #include "doubleType.h"
@@ -9,11 +9,12 @@
 #include "dlgSpeed.h"
 #include "wk6500Calibration.h"
 #include <QMessageBox>
+#include "UserfulFunctions.h"
 wk6500AnalysisMeter::wk6500AnalysisMeter(WKEInstrument *parent) :
     WKEInstrument(parent)
 {
     setupUi(this);
-
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     readSettings();
 
 }
@@ -112,6 +113,7 @@ void wk6500AnalysisMeter::setBias(double value, QString unit)
             clsRS::getInst().sendCommand(meter+"BIAS-TYPE "+"CUR"+";",false);
 
         biasAValue = value;
+        biasAValue = qMin(biasAValue,getMaxBiasA());
         gpibCmd.append(meter+"BIAS "+QString::number(biasAValue)+";");
     }
 
@@ -125,6 +127,7 @@ void wk6500AnalysisMeter::setBias(double value, QString unit)
     else
     {
         biasAValue = retRes.toDouble();
+        //biasAValue = qMin(biasAValue,getMaxBiasA());
         //qDebug()<< biasAValue;
     }
     saveSettings();
@@ -403,7 +406,7 @@ void wk6500AnalysisMeter::updateInstrument()
 
     gpibCmd = gpibCmd.replace(QString("θ"),QString("ANGLE"));
 
-     //qDebug()<< gpibCmd;
+    //qDebug()<< gpibCmd;
     clsRS::getInst().sendCommand(gpibCmd);
 
     updateButtons();
@@ -449,21 +452,26 @@ double wk6500AnalysisMeter::getMaxBiasA()
 
     if(maxC==0)
     {
-        clsRS::getInst().sendCommand("*SYSBIAS \'BIAS EXT\'",false);
-        if(clsRS::getInst().sendCommand("*SYSBIAS?",true)=="BIAS EXT")
+        if(clsRS::getInst().sendCommand("*BIASFITEXT?",true).toInt()==1) //是否有外部的Bias
         {
-            maxC=40.0;
-            return maxC;
+            clsRS::getInst().sendCommand("*SYSBIAS \'BIAS EXT\'",false);
+            UserfulFunctions::sleepMs(2000);
+            if(clsRS::getInst().sendCommand("*SYSBIAS?",true).toUpper().contains("BIAS EXT"))
+            {
+                maxC= 10.0*clsRS::getInst().sendCommand("*EXTBIASUNIT?",true).toInt();
+                return maxC;
+            }
         }
-
         clsRS::getInst().sendCommand("*SYSBIAS \'BIAS INT\'",false);
         if(clsRS::getInst().sendCommand("*SYSBIAS?",true)=="BIAS INT")
         {
             maxC=0.1;
             return maxC;
         }
+
+        maxC=0.1;
     }
-    return 0.1;
+    return maxC;
 }
 
 double wk6500AnalysisMeter::getMinBiasA()

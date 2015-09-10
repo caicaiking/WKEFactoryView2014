@@ -1,4 +1,4 @@
-#include "clsConnectSWBox.h"
+﻿#include "clsConnectSWBox.h"
 #include <QMutex>
 #include <QObject>
 #include <QApplication>
@@ -58,6 +58,11 @@ bool clsConnectSWBox::initSerialPort()
 {
     serialPort = new clsPortListener();
     return serialPort->getInit();
+}
+
+void clsConnectSWBox::closeSeriesPort()
+{
+    serialPort->closePort();
 }
 
 /*!

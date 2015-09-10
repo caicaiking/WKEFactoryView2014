@@ -1,9 +1,10 @@
-#include "MessageDialog.h"
+﻿#include "MessageDialog.h"
 
 MessageDialog::MessageDialog(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
 }
 
 void MessageDialog::setMessage(QString strMessage, QString strTitle)

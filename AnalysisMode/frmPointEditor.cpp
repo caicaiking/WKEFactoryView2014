@@ -1,4 +1,4 @@
-#include "frmPointEditor.h"
+﻿#include "frmPointEditor.h"
 #include "UserfulFunctions.h"
 #include "doubleType.h"
 #include "NumberInput.h"
@@ -7,7 +7,7 @@ frmPointEditor::frmPointEditor(const double min, const double max,
     QDialog(parent)
 {
     setupUi(this);
-
+ setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     this->min=min;
     this->max=max;
     this->blLog = blLog;
