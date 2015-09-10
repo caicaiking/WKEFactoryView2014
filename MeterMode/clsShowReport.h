@@ -3,6 +3,7 @@
 
 #include "ui_clsShowReport.h"
 #include "clsDataStore.h"
+#include <QSqlError>
 class clsShowReport : public QDialog, private Ui::clsShowReport
 {
     Q_OBJECT
@@ -13,17 +14,19 @@ public:
     void setData(clsDataStore *value);
 
 private slots:
-    void on_btnShow_clicked();
-
-    void on_txtStep_valueChanged(int arg1);
-
-
 
     void on_btnClose_clicked();
 
+    void on_btnExport_clicked();
+
 private:
     clsDataStore *result;
+    QString tmpDir;
+private:
+    void readSettings();
+    void saveSettings();
     void updateButtons();
+    void printError(QSqlError error);
 };
 
 #endif // CLSSHOWREPORT_H

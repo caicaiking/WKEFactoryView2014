@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>896</width>
-    <height>519</height>
+    <width>516</width>
+    <height>166</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,408 +20,320 @@
 	background-color: rgb(148, 148, 248);
 }</string>
   </property>
-  <widget class="QWidget" name="">
-   <property name="geometry">
-    <rect>
-     <x>470</x>
-     <y>250</y>
-     <width>258</width>
-     <height>243</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <family>楷体</family>
-     <pointsize>12</pointsize>
-    </font>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <layout class="QGridLayout" name="gridLayout">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Step:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLabel" name="label_2">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Item:</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QSpinBox" name="txtStep">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QSpinBox" name="txtItem">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QPushButton" name="btnShow">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>Show</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <widget class="QTextEdit" name="textEdit">
-      <property name="font">
-       <font>
-        <family>楷体</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="">
-   <property name="geometry">
-    <rect>
-     <x>54</x>
-     <y>24</y>
-     <width>743</width>
-     <height>122</height>
-    </rect>
-   </property>
-   <layout class="QVBoxLayout" name="verticalLayout_2">
-    <item>
-     <layout class="QGridLayout" name="gridLayout_2">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label_3">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>总规范</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-        <property name="buddy">
-         <cstring>txtTotleSpec</cstring>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="1">
-       <widget class="QLineEdit" name="txtTotleSpec">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="2">
-       <widget class="QLabel" name="label_6">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>型号规格</string>
-        </property>
-        <property name="buddy">
-         <cstring>txtSpec</cstring>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="3">
-       <widget class="QLineEdit" name="txtSpec">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="4">
-       <widget class="QLabel" name="label_9">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>检验批号</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-        <property name="buddy">
-         <cstring>txtTestLotNo</cstring>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="5">
-       <widget class="QLineEdit" name="txtTestLotNo">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0">
-       <widget class="QLabel" name="label_4">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>详细规范</string>
-        </property>
-        <property name="buddy">
-         <cstring>txtDetailSpec</cstring>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="txtDetailSpec">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QLabel" name="label_7">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>生产批号</string>
-        </property>
-        <property name="buddy">
-         <cstring>txtLotNo</cstring>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="3">
-       <widget class="QLineEdit" name="txtLotNo">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="4">
-       <widget class="QLabel" name="label_10">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>数量（只）</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-        </property>
-        <property name="buddy">
-         <cstring>txtNumber</cstring>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="5">
-       <widget class="QLineEdit" name="txtNumber">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="0">
-       <widget class="QLabel" name="label_5">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>测试频率</string>
-        </property>
-        <property name="buddy">
-         <cstring>txtTestFreq</cstring>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="QLineEdit" name="txtTestFreq">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="2">
-       <widget class="QLabel" name="label_8">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>测试仪器</string>
-        </property>
-        <property name="buddy">
-         <cstring>txtIntrument</cstring>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="3">
-       <widget class="QLineEdit" name="txtIntrument">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="readOnly">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnClose">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>32</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>关闭</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnExport">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>32</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>12</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>导出</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-   </layout>
-  </widget>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>总规范</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="buddy">
+        <cstring>txtTotleSpec</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="txtTotleSpec">
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>TP-Zong</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QLabel" name="label_6">
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>型号规格</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtSpec</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLineEdit" name="txtSpec">
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Tp123</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>详细规范</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtDetailSpec</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="txtDetailSpec">
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>TP-Detail</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
+      <widget class="QLabel" name="label_7">
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>生产批号</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtLotNo</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QLineEdit" name="txtLotNo">
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>256</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_9">
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>检验批号</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="buddy">
+        <cstring>txtTestLotNo</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="txtTestLotNo">
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>759</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QLabel" name="label_8">
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>测试仪器</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtIntrument</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <widget class="QLineEdit" name="txtIntrument">
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_10">
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>数量（只）</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
+       <property name="buddy">
+        <cstring>txtNumber</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="txtNumber">
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="2">
+      <widget class="QLabel" name="label_5">
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>测试频率</string>
+       </property>
+       <property name="buddy">
+        <cstring>txtTestFreq</cstring>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="3">
+      <widget class="QLineEdit" name="txtTestFreq">
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnClose">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>关闭</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btnExport">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>32</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>导出</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
  </widget>
  <tabstops>
   <tabstop>txtTotleSpec</tabstop>
   <tabstop>txtSpec</tabstop>
-  <tabstop>txtTestLotNo</tabstop>
   <tabstop>txtDetailSpec</tabstop>
   <tabstop>txtLotNo</tabstop>
+  <tabstop>txtTestLotNo</tabstop>
+  <tabstop>txtIntrument</tabstop>
   <tabstop>txtNumber</tabstop>
   <tabstop>txtTestFreq</tabstop>
-  <tabstop>txtIntrument</tabstop>
-  <tabstop>txtStep</tabstop>
-  <tabstop>txtItem</tabstop>
-  <tabstop>btnShow</tabstop>
-  <tabstop>textEdit</tabstop>
+  <tabstop>btnClose</tabstop>
+  <tabstop>btnExport</tabstop>
  </tabstops>
  <resources/>
  <connections/>
