@@ -29,6 +29,8 @@ public:
     void repetiveTrig();              //重复测试模式
     double getResult(int i);          //获取测试数据
     QString getSuffix(int i);         //获取显示数据的后缀
+    QString getFreq();                //获取测试频率
+    QString getEqucct();              //获取测试等效电路
 
 private slots:
     void on_btnTest1Frequency_clicked();

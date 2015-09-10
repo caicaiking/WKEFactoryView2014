@@ -1,4 +1,4 @@
-﻿#include "clsMeterMode.h"
+#include "clsMeterMode.h"
 #include "clsRuningSettings.h"
 #include "UserfulFunctions.h"
 #include "clsSettings.h"
@@ -62,7 +62,7 @@ void clsMeterMode::on_btnSetStep_clicked()
     {
         if(tmp == dlg->getTestSteps())
         {
-           // qDebug()<<"nothing to do!";
+            // qDebug()<<"nothing to do!";
             return;
         }
 
@@ -290,7 +290,7 @@ QTableWidgetItem* clsMeterMode::getTableTestItem(const QString &content,int colo
 
 
 
-
+//单次测试
 void clsMeterMode::trig()
 {
     int totleRow=0 ;
@@ -303,7 +303,7 @@ void clsMeterMode::trig()
 
 
 
-
+    //是否是单次显示
     if(blSingleDisplay)
     {
         tabResult->clear();
@@ -311,7 +311,9 @@ void clsMeterMode::trig()
         this->initTable();
     }
 
+    //写入文件的结果序号
     strSaveRes.append(count.getTotle());
+    //所有的测试结果的总计
     allStepData.number = count.getTotle().toInt();
     for(int i =0; i< steps.length(); i++)
     {
@@ -387,7 +389,7 @@ void clsMeterMode::trig()
 
     }
 
-     result.addTestData(allStepData); //用于报表数据
+    result.addTestData(allStepData); //用于报表数据
     //整个步骤的判定
     for(int i=0; i< totleRow;i++)
     {
@@ -416,7 +418,7 @@ void clsMeterMode::trig()
         else if((mSettings.saveResType==FailRes) && (!status))
             saveDataFile(strSaveRes.join(","));
         else
-        {}
+        {/*Donthing here!*/}
     }
 
     //关闭Bias
@@ -615,7 +617,7 @@ void clsMeterMode::saveSettings()
 
 }
 
-
+//开始探测
 void clsMeterMode::on_btnStartDetect_clicked()
 {
     isStop=true;
@@ -638,18 +640,19 @@ Stop:
     btnStartDetect->setChecked(false);
     meter->turnOffBias();
 }
-
+//打印报表
 void clsMeterMode::on_btnReport_clicked()
 {
     clsShowReport *dlg = new clsShowReport(this);
-    dlg->setData((clsTestResult*)(&this->result));
+    dlg->setData(&this->result);
 
-    dlg->exec();
+
 }
 
+//重复10次
 void clsMeterMode::on_btnRep10_clicked()
 {
-    for(int i=0; i< 50; i++)
+    for(int i=0; i< 30; i++)
     {
         trig();
     }

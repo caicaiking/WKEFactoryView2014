@@ -22,17 +22,18 @@ public:
                            int intItem); //获取指定步骤的Limit
 
     QString getItem(int step, int intItem); //获取指定步骤的item
+    QString getConditon(int i);             //获取测试步骤的条件
+    WKEMeterMode * getMeter();              //获取测试用的仪表
+    int getTestCount();                     //获取测试的总数
     void setMeter(WKEMeterMode *value);
     void setSteps(const QStringList value);
     void addTestData(const TESTDATA_STRUCT data);
 
-private:
 
+private:
     WKEMeterMode *meter;
     QStringList steps;
-
     QList <TESTDATA_STRUCT> result;
-
 };
 
 #endif // CLSTESTRESULT_H

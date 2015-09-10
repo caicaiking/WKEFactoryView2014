@@ -474,6 +474,16 @@ QString cls6440MeterMode::getSuffix(int i)
     }
 }
 
+QString cls6440MeterMode::getFreq()
+{
+    return this->btnFrequency->text();
+}
+
+QString cls6440MeterMode::getEqucct()
+{
+    return this->btnEqucct->text();
+}
+
 
 double cls6440MeterMode::getResult(int i)
 {

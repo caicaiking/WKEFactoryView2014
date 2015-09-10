@@ -17,8 +17,13 @@ private slots:
 
     void on_txtStep_valueChanged(int arg1);
 
+
+
+    void on_btnClose_clicked();
+
 private:
     clsDataStore *result;
+    void updateButtons();
 };
 
 #endif // CLSSHOWREPORT_H

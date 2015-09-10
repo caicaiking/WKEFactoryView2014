@@ -893,6 +893,16 @@ QString cls4100MeterMode::getSuffix(int i)
     return totle.at(i);
 }
 
+QString cls4100MeterMode::getFreq()
+{
+    return this->btnTest1Frequency->text()+","+this->btnTest2Frequency->text();
+}
+
+QString cls4100MeterMode::getEqucct()
+{
+    return this->btnTest1Equcct->text()+","+this->btnTest2Equcct->text();
+}
+
 void cls4100MeterMode::on_btnTest1Frequency_clicked()
 {
     NumberInput *dlg = new NumberInput(this);

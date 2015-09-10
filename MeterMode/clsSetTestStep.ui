@@ -103,8 +103,8 @@
         </font>
        </property>
        <property name="text">
-        <string>双击
-保存</string>
+        <string>保存
+步骤</string>
        </property>
        <property name="icon">
         <iconset resource="../recFile/myRes.qrc">

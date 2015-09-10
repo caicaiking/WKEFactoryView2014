@@ -513,6 +513,16 @@ QString cls6500MeterMode::getSuffix(int i)
     return tmp.at(i);
 }
 
+QString cls6500MeterMode::getFreq()
+{
+    return this->btnFrequency->text();
+}
+
+QString cls6500MeterMode::getEqucct()
+{
+    return this->btnEqucct->text();
+}
+
 void cls6500MeterMode::on_btnRange_clicked()
 {
     wk6500Range * dialog= new wk6500Range;

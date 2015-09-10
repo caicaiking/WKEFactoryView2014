@@ -1,4 +1,4 @@
-﻿#include "clsSetTestStep.h"
+#include "clsSetTestStep.h"
 #include "clsMeterModeFactory.h"
 #include "clsRuningSettings.h"
 #include <QLayout>
@@ -181,7 +181,7 @@ void clsSetTestStep::on_btnSave_clicked()
     else
     {
         WKEMeterMode *tmpMeter = clsMeterModeFactory::getFunction(clsRS::getInst().meterSeries);
-
+        tmpMeter->setCondition(meter->getConditon());
         steps.append(tmpMeter);
         showTaskList();
         tbTaskList->setCurrentCell(0,0);

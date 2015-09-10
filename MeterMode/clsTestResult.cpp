@@ -85,3 +85,19 @@ void clsTestResult::addTestData(const TESTDATA_STRUCT data)
     result.append(data);
 }
 
+
+QString clsTestResult::getConditon(int i)
+{
+    return this->steps.at(i);
+}
+
+WKEMeterMode *clsTestResult::getMeter()
+{
+    return this->meter;
+}
+
+int clsTestResult::getTestCount()
+{
+    return result.length();
+}
+

@@ -1,4 +1,4 @@
-﻿#include "clsLan.h"
+#include "clsLan.h"
 #include <QTcpSocket>
 #include <QStringList>
 
@@ -11,7 +11,6 @@ clsLan::clsLan()
     this->blInit=false;
     this->strIp="192.168.1.199";
     this->intPort=WK4300PORT;
-
 }
 
 bool clsLan::init()
@@ -83,7 +82,7 @@ QString clsLan::sendCommand(QString strCommand, bool hasReturn, int waitDaly)
         strCommand = strCommand.append("\r\n");
 
 
-    socket->write(strCommand.toStdString().c_str());
+    socket->write(strCommand.toUtf8());
 
     socket->waitForBytesWritten(5000);
 
@@ -136,7 +135,6 @@ QString clsLan::sendCommand(QString strCommand, bool hasReturn, int waitDaly)
 
         return res.remove('\n');
     }
-
 
 }
 

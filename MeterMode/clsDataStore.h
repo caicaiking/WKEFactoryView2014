@@ -9,6 +9,7 @@
 
 #include <QList>
 #include "clsMeterLimit.h"
+#include "WKEMeterMode.h"
 class clsDataStore
 {
 public:
@@ -22,7 +23,9 @@ public:
                                    int intItem)=0; //获取指定步骤的Limit
 
     virtual QString getItem(int step, int item)=0; //获取指定步骤的item
-
+    virtual QString getConditon(int i)=0;  //获取测试的条件
+    virtual WKEMeterMode * getMeter()=0;    //获取测试仪表
+    virtual int getTestCount()=0;           //获取测试的总数
 };
 
 #endif // CLSDATASTORE_H
