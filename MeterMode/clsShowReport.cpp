@@ -234,7 +234,6 @@ void clsShowReport::on_btnExport_clicked()
     sSql+= tmpList.join(",");
     sSql+=")";
 
-    //  sSql += "(TotleSpec, Spec, TestLotNo, DetailSpec, LotNo, TestNumber, TestFreq, Instrument,TestPar) VALUES(:data1, :data2, :data3, :data4, :data5, :data6, :data7, :data8, :data9)";
     state = query.prepare( sSql);
 
     //circle
@@ -251,10 +250,6 @@ void clsShowReport::on_btnExport_clicked()
             for(int zz=0; zz<singleDutRes.data.at(z).length();zz++)
                 lSingleDutRes.append(singleDutRes.data.at(z).at(zz));
         }
-
-        qDebug()<<lSingleDutRes;
-
-
 
         for(int i=0; i< testItems.length(); i++)
         {
@@ -278,8 +273,6 @@ void clsShowReport::on_btnExport_clicked()
         }
 
     }
-
-
 
 CLOSE:
 

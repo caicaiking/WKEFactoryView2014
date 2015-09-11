@@ -18,7 +18,7 @@ public:
     void setBDA();
     void resetBDA();
 signals:
-
+    void showStatus(QString);
 public slots:
 private slots:
     QString sendCommand(QString value, bool hasReturn=false);

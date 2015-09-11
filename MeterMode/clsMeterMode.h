@@ -86,8 +86,9 @@ private slots:
     void showMessage(QString value);
     void on_btnReport_clicked();
 
-    void on_btnRep10_clicked();
+    void adu200Trig();
 
+    void on_btnRep10_clicked();
 protected:
     void closeEvent(QCloseEvent *);
 private:

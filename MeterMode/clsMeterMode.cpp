@@ -26,6 +26,7 @@ clsMeterMode::clsMeterMode(QWidget *parent) :
 
     result.setMeter(meter); //用于结果报表显示
 
+    //连接meter的探测信号到显示信息上面
     connect(meter,SIGNAL(detectInProgress(QString)),this,SLOT(showMessage(QString)));
     meter->updateGPIB();
     adu200 = new clsSignalThread(this);
@@ -38,12 +39,13 @@ clsMeterMode::clsMeterMode(QWidget *parent) :
 
 }
 
+//显示软件运行信息
 void clsMeterMode::showMessage(QString value)
 {
     this->lblInfo->showMessage(value,1000);
 }
 
-
+//设置测试程序
 void clsMeterMode::on_btnSetStep_clicked()
 {
     clsSetTestStep *dlg = new clsSetTestStep(this);
@@ -85,6 +87,7 @@ void clsMeterMode::on_btnSetStep_clicked()
 
 }
 
+//用于软件设定
 void clsMeterMode::on_btnAdvance_clicked()
 {
     clsMeterModeSettings *dlg = new clsMeterModeSettings(this);
@@ -92,7 +95,7 @@ void clsMeterMode::on_btnAdvance_clicked()
     dlg->setCondition(this->mSettings);
     dlg->setStartNumber(this->count.getTotle().toInt());
     dlg->setSingleRes(this->blSingleDisplay);
-    if(  dlg->exec())
+    if(dlg->exec())
     {
         mSettings = dlg->getCondtion();
         this->blSingleDisplay = dlg->getSingleRes();
@@ -102,7 +105,7 @@ void clsMeterMode::on_btnAdvance_clicked()
     }
 }
 
-
+//保存测试任务
 void clsMeterMode::on_btnSaveTask_clicked()
 {
     QVariantMap task;
@@ -144,6 +147,7 @@ void clsMeterMode::on_btnSaveTask_clicked()
     file.close();
 }
 
+//读取测试任务
 void clsMeterMode::on_btnOpenTask_clicked()
 {
     QString strTmp;
@@ -210,11 +214,17 @@ void clsMeterMode::on_btnOpenTask_clicked()
     }
 }
 
+//用于软件触发
 void clsMeterMode::on_btnTrig_clicked()
 {
+    this->btnTrig->setEnabled(false);
+    qApp->processEvents();
     trig();
+    qApp->processEvents();
+    this->btnTrig->setEnabled(true);
 }
 
+//初始化工作表
 void clsMeterMode::initTable()
 {
     tabResult->verticalHeader()->setVisible(false);
@@ -263,7 +273,7 @@ QTableWidgetItem* clsMeterMode::getTableTitleItem(const QString &content)
     return item;
 }
 
-
+//生成单个表格单元格内容
 QTableWidgetItem* clsMeterMode::getTableTestItem(const QString &content,int color)
 {
     QTableWidgetItem * item= new QTableWidgetItem();
@@ -293,8 +303,14 @@ QTableWidgetItem* clsMeterMode::getTableTestItem(const QString &content,int colo
 //单次测试
 void clsMeterMode::trig()
 {
+    //为了避免一个测试没有完成又进行下一次测试，做了一下修改
+    if(lblStatus->getStatus()== BUSY)
+        return;
+
     int totleRow=0 ;
     bool status=true;
+
+
     lblStatus->setStatus(BUSY);
 
     QStringList strSaveRes; // 用于保存到硬盘的数据变量
@@ -364,9 +380,6 @@ void clsMeterMode::trig()
 
             status = status && isPass;
             //  tabResult->setItem(tabResult->rowCount()-1,6,getTableTestItem(meter->getDescription(),2));
-
-
-
         }
 
         allStepData.data.append(singleStepData);
@@ -386,10 +399,9 @@ void clsMeterMode::trig()
             tabResult->setCurrentCell(tabResult->rowCount()-1,0);
             tabResult->showColumn(tabResult->rowCount()-1);
         }
-
     }
 
-    result.addTestData(allStepData); //用于报表数据
+    //result.addTestData(allStepData); //用于报表数据
     //整个步骤的判定
     for(int i=0; i< totleRow;i++)
     {
@@ -412,11 +424,20 @@ void clsMeterMode::trig()
 
 
         if(mSettings.saveResType==AllRes)
+        {
+            result.addTestData(allStepData); //用于报表数据
             saveDataFile(strSaveRes.join(","));
+        }
         else if((mSettings.saveResType==PassRes) && status)
+        {
+            result.addTestData(allStepData); //用于报表数据
             saveDataFile(strSaveRes.join(","));
+        }
         else if((mSettings.saveResType==FailRes) && (!status))
+        {
+            result.addTestData(allStepData); //用于报表数据
             saveDataFile(strSaveRes.join(","));
+        }
         else
         {/*Donthing here!*/}
     }
@@ -425,6 +446,7 @@ void clsMeterMode::trig()
     meter->turnOffBias();
 }
 
+//保存测试数据文件
 void clsMeterMode::saveDataFile(QString value)
 {
     if(strDataFile.isEmpty())
@@ -445,11 +467,13 @@ void clsMeterMode::saveDataFile(QString value)
 
 }
 
+//仪表校准
 void clsMeterMode::on_btnCalibration_clicked()
 {
     meter->calibration();
 }
 
+//连续测试 没有实际的用处，用于软件测试
 void clsMeterMode::on_btnRep_clicked()
 {
     while(btnRep->isChecked())
@@ -464,6 +488,7 @@ void clsMeterMode::on_btnRep_clicked()
     }
 }
 
+//停止一切测试连接
 void clsMeterMode::on_btnStop_clicked()
 {
     meter->stopDetect();
@@ -476,6 +501,7 @@ void clsMeterMode::on_btnStop_clicked()
     qApp->processEvents();
 }
 
+//新的测试任务
 void clsMeterMode::on_btnNewTask_clicked()
 {
     this->strTaskFile="";
@@ -486,6 +512,7 @@ void clsMeterMode::on_btnNewTask_clicked()
     count.reset();
 }
 
+//显示在探测样品 但是没有用
 void clsMeterMode::detecInprogress()
 {
     static int i=0;
@@ -495,6 +522,7 @@ void clsMeterMode::detecInprogress()
     i++;
 }
 
+//保存数据
 void clsMeterMode::on_btnSaveData_clicked()
 {
     QString strTmp  = QFileDialog::getSaveFileName(this,tr("保存测试数据"), tmpDir,tr("CSV逗号分割文件(*.csv)"),0,QFileDialog::DontConfirmOverwrite);
@@ -507,7 +535,7 @@ void clsMeterMode::on_btnSaveData_clicked()
     txtDataFile->setText(QFileInfo(strDataFile).fileName());
 }
 
-
+//更新消息并且连接测试方式
 void  clsMeterMode::updateMessage()
 {
     switch (mSettings.saveResType)
@@ -533,13 +561,19 @@ void  clsMeterMode::updateMessage()
         btnStartDetect->setVisible(false);
         btnStop->setVisible(false);
         disconnect(this->adu200,SIGNAL(trigCaptured()),this,SLOT(trig()));
+        disconnect(this->adu200,SIGNAL(showStatus(QString)),this,SLOT(showMessage(QString)));
         break;
     case Adu200Trig:
         btnRep->setVisible(false);
         lblTrigType->setText(tr("ADU200触发"));
         adu200->start();
-        connect(this->adu200,SIGNAL(trigCaptured()),this,SLOT(trig()));
-        connect(this->lblStatus,SIGNAL(statusChange(Status)),this,SLOT(setAdu200(Status)));
+        disconnect(this->adu200,SIGNAL(trigCaptured()),this,SLOT(adu200Trig()));
+        connect(this->adu200,SIGNAL(trigCaptured()),this,SLOT(adu200Trig()));
+        disconnect(this->lblStatus,SIGNAL(statusChange(Status)),this,SLOT(setAdu200(Status)));  //| 这两个是用于adu200的信号输出的 |
+        connect(this->lblStatus,SIGNAL(statusChange(Status)),this,SLOT(setAdu200(Status)));     //| 如果不惜要这个的话可以将此注释 |
+        disconnect(this->adu200,SIGNAL(showStatus(QString)),this,SLOT(showMessage(QString)));
+        connect(this->adu200,SIGNAL(showStatus(QString)),this,SLOT(showMessage(QString)));
+
         btnStartDetect->setVisible(false);
         btnTrig->setVisible(false);
         btnStop->setVisible(true);
@@ -551,12 +585,23 @@ void  clsMeterMode::updateMessage()
         btnRep->setVisible(false);
         btnStop->setVisible(true);
         disconnect(this->adu200,SIGNAL(trigCaptured()),this,SLOT(trig()));
+        disconnect(this->adu200,SIGNAL(showStatus(QString)),this,SLOT(showMessage(QString)));
         break;
     default:
         break;
     }
 }
 
+//adu200触发测试
+void clsMeterMode::adu200Trig()
+{
+    //双触发的控管
+    adu200->stop();
+    trig();
+    adu200->start();
+}
+
+//adu200输出信号
 void clsMeterMode::setAdu200(Status value)
 {
     if(mSettings.trigMode!=Adu200Trig)
@@ -577,6 +622,7 @@ void clsMeterMode::setAdu200(Status value)
     }
 }
 
+//关闭事件处理
 void clsMeterMode::closeEvent(QCloseEvent *)
 {
     btnStop->click();
@@ -586,7 +632,7 @@ void clsMeterMode::closeEvent(QCloseEvent *)
         adu200->stop();
     }
 }
-
+//读取设定
 void clsMeterMode::readSettings()
 {
     clsSettings settings;
@@ -602,7 +648,7 @@ void clsMeterMode::readSettings()
     settings.readSetting(strNode+"tmpDir",tmpDir);
     settings.readSetting(strNode+"singleDisplay",this->blSingleDisplay);
 }
-
+//保存设定
 void clsMeterMode::saveSettings()
 {
     clsSettings settings;
@@ -645,14 +691,12 @@ void clsMeterMode::on_btnReport_clicked()
 {
     clsShowReport *dlg = new clsShowReport(this);
     dlg->setData(&this->result);
-
-
 }
 
 //重复10次
 void clsMeterMode::on_btnRep10_clicked()
 {
-    for(int i=0; i< 30; i++)
+    for(int i=0; i< 500; i++)
     {
         trig();
     }

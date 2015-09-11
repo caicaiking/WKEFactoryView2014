@@ -21,6 +21,8 @@ public:
 signals:
     void trigCaptured();
     void initOk();
+    void showStatus(QString);
+
 public slots:
 
 protected:

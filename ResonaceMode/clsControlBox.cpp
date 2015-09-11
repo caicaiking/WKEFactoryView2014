@@ -92,6 +92,7 @@ bool clsControlBox::getInputSignal(int port)
     while((getInput(port)=="0") && (!blStop))
     {
         qApp->processEvents();
+        emit showStatus(tr("等待开关闭合..."));
         sleepMs(10);
     }
     if(blStop)
@@ -100,6 +101,7 @@ bool clsControlBox::getInputSignal(int port)
     while((getInput(port)=="1") && (!blStop))
     {
         qApp->processEvents();
+        emit showStatus(tr("等待开关放开..."));
         sleepMs(10);
     }
 

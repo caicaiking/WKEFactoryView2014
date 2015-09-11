@@ -1,9 +1,12 @@
 #include "clsSignalThread.h"
+#include <QApplication>
 #include <QDebug>
 clsSignalThread::clsSignalThread(QObject *parent) :
     QThread(parent)
 {
     box = new clsControlBox();
+
+    connect(box,SIGNAL(showStatus(QString)),this,SIGNAL(showStatus(QString)));
 
     isStop =true;
 }
@@ -61,13 +64,10 @@ void clsSignalThread::run()
         if(box->getInputSignal(0))
         {
             emit trigCaptured();
+            emit showStatus(tr("已经捕获触发信号.."));
             this->msleep(20);
             //qDebug()<<"control box get trig signal...";
         }
-        else
-        {
-            this->msleep(20);
-        }
-        //qDebug()<<"thread is running..";
+
     }
 }
