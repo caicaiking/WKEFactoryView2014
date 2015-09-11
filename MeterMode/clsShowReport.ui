@@ -66,6 +66,9 @@
        <property name="text">
         <string>型号规格</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
        <property name="buddy">
         <cstring>txtSpec</cstring>
        </property>
@@ -95,6 +98,9 @@
        <property name="text">
         <string>详细规范</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
        <property name="buddy">
         <cstring>txtDetailSpec</cstring>
        </property>
@@ -123,6 +129,9 @@
        </property>
        <property name="text">
         <string>生产批号</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
        <property name="buddy">
         <cstring>txtLotNo</cstring>
@@ -185,6 +194,9 @@
        <property name="text">
         <string>测试仪器</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+       </property>
        <property name="buddy">
         <cstring>txtIntrument</cstring>
        </property>
@@ -245,6 +257,9 @@
        </property>
        <property name="text">
         <string>测试频率</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
        <property name="buddy">
         <cstring>txtTestFreq</cstring>

@@ -538,6 +538,7 @@ void clsMeterMode::on_btnSaveData_clicked()
 //更新消息并且连接测试方式
 void  clsMeterMode::updateMessage()
 {
+    showMessage("");
     switch (mSettings.saveResType)
     {
     case  AllRes:
@@ -694,10 +695,10 @@ void clsMeterMode::on_btnReport_clicked()
 }
 
 //重复10次
-void clsMeterMode::on_btnRep10_clicked()
-{
-    for(int i=0; i< 500; i++)
-    {
-        trig();
-    }
-}
+//void clsMeterMode::on_btnRep10_clicked()
+//{
+//    for(int i=0; i< 500; i++)
+//    {
+//        trig();
+//    }
+//}

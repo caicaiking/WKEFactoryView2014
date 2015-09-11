@@ -88,7 +88,7 @@ private slots:
 
     void adu200Trig();
 
-    void on_btnRep10_clicked();
+    //void on_btnRep10_clicked();
 protected:
     void closeEvent(QCloseEvent *);
 private:
