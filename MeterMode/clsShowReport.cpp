@@ -7,7 +7,8 @@
 #include "clsRuningSettings.h"
 #include <QSqlDatabase>
 #include <QSqlQuery>
-
+#include "clsMeterLimit.h"
+#include "UserfulFunctions.h"
 clsShowReport::clsShowReport(QWidget *parent) :
     QDialog(parent)
 {
@@ -55,6 +56,13 @@ void clsShowReport::on_btnClose_clicked()
 
 void clsShowReport::on_btnExport_clicked()
 {
+    //变量声明
+    QStringList testItems;
+    QStringList repItem;
+    QStringList suffix;
+    QList<clsMeterLimit> limits;
+    QStringList tmpList;
+
     btnExport->setEnabled(false);
     if(QFile::exists("./Sample.xls"))
         QFile::remove("./Sample.xls");
@@ -90,7 +98,9 @@ void clsShowReport::on_btnExport_clicked()
 
     //create the table (sheet in Excel file)
     sSql = QString("CREATE TABLE [%1] (").arg(sheetName);
-    sSql += "[TotleSpec] char(80),[Spec] char(80),[TestLotNo] char(80), [DetailSpec] char(80), [LotNo] char(80),[TestNumber] char(80),[TestFreq] char(80),[Instrument] char(80)";
+
+    //最后一个参数 本来是使用char（800） 但是由于数据的字段长度超过了255 不能正确的运行， 更改成text 但是不知道会有什么问题？？
+    sSql += "[TotleSpec] char(80),[Spec] char(80),[TestLotNo] char(80), [DetailSpec] char(80), [LotNo] char(80),[TestNumber] char(80),[TestFreq] char(80),[Instrument] char(80),[TestPar] text";
     sSql += ")";
     state = query.prepare( sSql);
     if( !query.exec()) {
@@ -100,7 +110,7 @@ void clsShowReport::on_btnExport_clicked()
 
     //insert a record
     sSql = QString("INSERT INTO [%1] ").arg( sheetName);
-    sSql += "(TotleSpec, Spec, TestLotNo, DetailSpec, LotNo, TestNumber, TestFreq, Instrument) VALUES(:data1, :data2, :data3, :data4, :data5, :data6, :data7, :data8)";
+    sSql += "(TotleSpec, Spec, TestLotNo, DetailSpec, LotNo, TestNumber, TestFreq, Instrument,TestPar) VALUES(:data1, :data2, :data3, :data4, :data5, :data6, :data7, :data8, :data9)";
     state = query.prepare( sSql);
 
     //circle
@@ -113,17 +123,161 @@ void clsShowReport::on_btnExport_clicked()
     query.bindValue(":data7",txtTestFreq->text());
     query.bindValue(":data8",txtIntrument->text());
 
+
+
+    for(int i=0; i< result->getStepCount();i++)
+    {
+        QString strCondition = result->getConditon(i);
+
+        result->getMeter()->setCondition(strCondition);
+
+        QString equCCT = result->getMeter()->getEqucct();
+
+        QStringList stepItem;
+        QStringList repStepItem;
+
+
+        for(int j=0; j<result->getMeter()->getCountTestItems(); j++)
+        {
+            //qDebug()<<result->getMeter()->getItem(j);
+            QString tmpItem = result->getMeter()->getItem(j);
+
+            //在这儿进行了一个 Theta和A的统一的一个参数表示成A，防止乱码导致运算出错
+            if(tmpItem == tr("θ"))
+                tmpItem="A";
+
+
+            stepItem.append(result->getMeter()->getItem(j));
+            suffix.append(result->getMeter()->getSuffix(j));
+            limits.append(result->getMeter()->getLimit(j));
+
+            QString LCR(tr("LCR"));
+
+            if(LCR.contains(tmpItem))
+            {
+                if(equCCT== tr("串联"))
+                    repStepItem.append(result->getMeter()->getItem(j)+"s");
+                else
+                    repStepItem.append(result->getMeter()->getItem(j)+"p");
+            }
+            else if(tr("A")== tmpItem)
+            {
+                if(equCCT== tr("串联"))
+                    repStepItem.append(result->getMeter()->getItem(j)+"z");
+                else
+                    repStepItem.append(result->getMeter()->getItem(j)+"y");
+            }
+            else
+            {
+                repStepItem.append(result->getMeter()->getItem(j));
+            }
+        }
+
+        testItems.append(stepItem);
+        repItem.append(repStepItem);
+    }
+    query.bindValue(":data9",repItem.join(","));
+
+
+
     if( !query.exec())
     {
         printError( query.lastError());
         goto CLOSE; //! insert failed
     }
 
-    //创建测试项目表格···························································
-
-
-
     //创建测试数据表格···························································
+    sheetName = "TestData";
+    //创建第二个表格 用于存储数据和状态
+    // drop the table if it's already exists
+    sSql = QString("DROP TABLE [%1]").arg(sheetName);
+    query.exec( sSql);
+    //create the table (sheet in Excel file)
+    sSql = QString("CREATE TABLE [%1] (").arg(sheetName);
+
+    tmpList.clear();
+    for(int i=0; i< testItems.length(); i++)
+    {
+        tmpList.append(QString("[ItemData%1] char(20)").arg(i));
+        tmpList.append(QString(" [TestStatus%1] char(20) ").arg(i));
+    }
+
+    sSql += tmpList.join(",");
+    sSql += ")";
+    state = query.prepare( sSql);
+    if( !query.exec()) {
+        printError( query.lastError());
+        goto CLOSE; //! create failed
+    }
+
+    //insert a record
+    sSql = QString("INSERT INTO [%1] ").arg( sheetName);
+    //写入要插入的项目
+    sSql+="(";
+
+    tmpList.clear();
+    for(int i=0; i< testItems.length(); i++)
+    {
+        tmpList.append(QString("ItemData%1").arg(i));
+        tmpList.append(QString("TestStatus%1").arg(i));
+    }
+
+    sSql+= tmpList.join(",");
+    //写入要绑定Value值
+    sSql+=") VALUES (";
+    tmpList.clear();
+    for(int i=0; i< testItems.length(); i++)
+    {
+        tmpList.append(QString(":ItemData%1").arg(i));
+        tmpList.append(QString(":TestStatus%1").arg(i));
+    }
+    sSql+= tmpList.join(",");
+    sSql+=")";
+
+    //  sSql += "(TotleSpec, Spec, TestLotNo, DetailSpec, LotNo, TestNumber, TestFreq, Instrument,TestPar) VALUES(:data1, :data2, :data3, :data4, :data5, :data6, :data7, :data8, :data9)";
+    state = query.prepare( sSql);
+
+    //circle
+
+    for(int j=0; j<result->getTestCount(); j++)
+    {
+
+        TESTDATA_STRUCT singleDutRes = result->getTestData(j);
+
+        QList<double> lSingleDutRes;
+
+        for(int z=0; z<singleDutRes.data.length(); z++)
+        {
+            for(int zz=0; zz<singleDutRes.data.at(z).length();zz++)
+                lSingleDutRes.append(singleDutRes.data.at(z).at(zz));
+        }
+
+        qDebug()<<lSingleDutRes;
+
+
+
+        for(int i=0; i< testItems.length(); i++)
+        {
+            double tmpData = lSingleDutRes.at(i);
+            QString tmpSuffix = suffix.at(i);
+            clsMeterLimit tmpLimit = limits.at(i);
+
+            QString tmpSt= (tmpLimit.comparaValue(tmpData)?"P":"F");
+            doubleType dt;
+            dt.setData(tmpData);
+
+            query.bindValue(QString(":ItemData%1").arg(i),dt.formateWithUnit(tmpSuffix,5));
+            query.bindValue(QString(":TestStatus%1").arg(i),tmpSt);
+        }
+
+
+        if( !query.exec())
+        {
+            printError( query.lastError());
+            goto CLOSE; //! insert failed
+        }
+
+    }
 
 
 

@@ -10,6 +10,12 @@
 #include <QList>
 #include "clsMeterLimit.h"
 #include "WKEMeterMode.h"
+
+struct TESTDATA_STRUCT{
+    int number; //测试产品的产品号
+    QList <QVector <double> > data; //测试产品的数据
+};
+
 class clsDataStore
 {
 public:
@@ -26,6 +32,7 @@ public:
     virtual QString getConditon(int i)=0;  //获取测试的条件
     virtual WKEMeterMode * getMeter()=0;    //获取测试仪表
     virtual int getTestCount()=0;           //获取测试的总数
+    virtual TESTDATA_STRUCT getTestData(int i)=0;     //获取一个样品的测试数据
 };
 
 #endif // CLSDATASTORE_H

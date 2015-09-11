@@ -101,3 +101,8 @@ int clsTestResult::getTestCount()
     return result.length();
 }
 
+TESTDATA_STRUCT clsTestResult::getTestData(int i)
+{
+    return result.at(i);
+}
+

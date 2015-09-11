@@ -4,10 +4,7 @@
 #include "clsDataStore.h"
 #include "WKEMeterMode.h"
 
-struct TESTDATA_STRUCT{
-    int number;
-    QList <QVector <double> > data;
-};
+
 
 class clsTestResult: public clsDataStore
 {
@@ -25,6 +22,7 @@ public:
     QString getConditon(int i);             //获取测试步骤的条件
     WKEMeterMode * getMeter();              //获取测试用的仪表
     int getTestCount();                     //获取测试的总数
+    TESTDATA_STRUCT getTestData(int i);     //获取一个样品的测试数据
     void setMeter(WKEMeterMode *value);
     void setSteps(const QStringList value);
     void addTestData(const TESTDATA_STRUCT data);
