@@ -18,6 +18,7 @@
 #include <QMessageBox>
 #include "clsDataProcess.h"
 #include "doubleType.h"
+#include "NumberInput.h"
 
 int main(int argc, char *argv[])
 {
@@ -31,6 +32,10 @@ int main(int argc, char *argv[])
     //    QTextCodec::setCodecForCStrings(QTextCodec::codecForName("UTF-8"));
 
     //如果要是发布无锁版本，请使用clsDog::setProduct(false),有锁版本clsDog::setProduct(true)
+
+    NumberInput inp;
+    return inp.exec();
+
 
     clsDog::setProduct(false);
 

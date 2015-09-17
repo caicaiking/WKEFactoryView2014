@@ -54,14 +54,14 @@ void clsShowReport::on_btnClose_clicked()
     this->reject();
 }
 
-void clsShowReport::on_btnExport_clicked()
-{
+void clsShowReport::on_btnExport_clicked() {
     //变量声明
     QStringList testItems;
     QStringList repItem;
     QStringList suffix;
     QList<clsMeterLimit> limits;
     QStringList tmpList;
+    QStringList limitShow;
 
     btnExport->setEnabled(false);
     if(QFile::exists("./Sample.xls"))
@@ -100,7 +100,9 @@ void clsShowReport::on_btnExport_clicked()
     sSql = QString("CREATE TABLE [%1] (").arg(sheetName);
 
     //最后一个参数 本来是使用char（800） 但是由于数据的字段长度超过了255 不能正确的运行， 更改成text 但是不知道会有什么问题？？
-    sSql += "[TotleSpec] char(80),[Spec] char(80),[TestLotNo] char(80), [DetailSpec] char(80), [LotNo] char(80),[TestNumber] char(80),[TestFreq] char(80),[Instrument] char(80),[TestPar] text";
+    sSql += "[TotleSpec] char(80),[Spec] char(80),[TestLotNo] char(80), [DetailSpec] char(80), "
+            "[LotNo] char(80),[TestNumber] char(80),[TestFreq] char(80),[Instrument] char(80),"
+            "[TestPar] text, [TestLimits] text";
     sSql += ")";
     state = query.prepare( sSql);
     if( !query.exec()) {
@@ -110,7 +112,8 @@ void clsShowReport::on_btnExport_clicked()
 
     //insert a record
     sSql = QString("INSERT INTO [%1] ").arg( sheetName);
-    sSql += "(TotleSpec, Spec, TestLotNo, DetailSpec, LotNo, TestNumber, TestFreq, Instrument,TestPar) VALUES(:data1, :data2, :data3, :data4, :data5, :data6, :data7, :data8, :data9)";
+    sSql += "(TotleSpec, Spec, TestLotNo, DetailSpec, LotNo, TestNumber, TestFreq, Instrument,TestPar,TestLimits)"
+            " VALUES(:data1, :data2, :data3, :data4, :data5, :data6, :data7, :data8, :data9, :data10)";
     state = query.prepare( sSql);
 
     //circle
@@ -177,7 +180,25 @@ void clsShowReport::on_btnExport_clicked()
         repItem.append(repStepItem);
     }
     query.bindValue(":data9",repItem.join(","));
+    //将limit格式化显示
 
+    for(int i=0; i< testItems.length(); i++)
+    {
+        clsMeterLimit limit = limits.at(i);
+        QString tmpSuffix = suffix.at(i);
+
+        QString tmpStr;
+        doubleType dt;
+        dt.setData(limit.getAbsLimitLow());
+        tmpStr+= dt.formateWithUnit(tmpSuffix,5);
+        tmpStr +=" ";
+
+        dt.setData(limit.getAbsLimitHigh());
+        tmpStr+= dt.formateWithUnit(tmpSuffix,5);
+
+        limitShow.append(tmpStr);
+    }
+    query.bindValue(":data10",limitShow.join(","));
 
 
     if( !query.exec())
