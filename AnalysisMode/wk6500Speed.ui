@@ -61,8 +61,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>1414</width>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -86,8 +86,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>1414</width>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -111,8 +111,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>1414</width>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -136,8 +136,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>1414</width>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">

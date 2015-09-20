@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>172</width>
-    <height>130</height>
+    <width>409</width>
+    <height>304</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,26 +22,8 @@
 }</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <property name="spacing">
-    <number>2</number>
-   </property>
-   <property name="leftMargin">
-    <number>2</number>
-   </property>
-   <property name="topMargin">
-    <number>2</number>
-   </property>
-   <property name="rightMargin">
-    <number>2</number>
-   </property>
-   <property name="bottomMargin">
-    <number>2</number>
-   </property>
    <item>
     <layout class="QGridLayout" name="gridLayout">
-     <property name="spacing">
-      <number>2</number>
-     </property>
      <item row="0" column="0">
       <widget class="QPushButton" name="btnC">
        <property name="minimumSize">
@@ -52,8 +34,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>1414</width>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -80,8 +62,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>1414</width>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -108,8 +90,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>1414</width>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -136,8 +118,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>1414</width>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -164,8 +146,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>1414</width>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -192,8 +174,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>1414</width>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -220,8 +202,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>1414</width>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -248,8 +230,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>1414</width>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -276,8 +258,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>1414</width>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -304,8 +286,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>1414</width>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -332,8 +314,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>1414</width>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -354,8 +336,8 @@
       <widget class="QPushButton" name="btnCancel">
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>1414</width>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">

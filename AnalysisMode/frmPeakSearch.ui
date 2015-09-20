@@ -6,14 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>525</width>
-    <height>40</height>
+    <width>531</width>
+    <height>54</height>
    </rect>
   </property>
   <property name="maximumSize">
    <size>
     <width>16777215</width>
-    <height>40</height>
+    <height>54</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -28,7 +28,7 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <property name="spacing">
-    <number>0</number>
+    <number>2</number>
    </property>
    <property name="leftMargin">
     <number>0</number>
@@ -58,7 +58,7 @@
        <property name="maximumSize">
         <size>
          <width>50</width>
-         <height>19</height>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -92,7 +92,7 @@
        <property name="maximumSize">
         <size>
          <width>50</width>
-         <height>19</height>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -137,7 +137,7 @@
        <property name="maximumSize">
         <size>
          <width>50</width>
-         <height>19</height>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -171,7 +171,7 @@
        <property name="maximumSize">
         <size>
          <width>50</width>
-         <height>19</height>
+         <height>1414</height>
         </size>
        </property>
        <property name="font">
@@ -211,7 +211,7 @@
      <property name="maximumSize">
       <size>
        <width>50</width>
-       <height>40</height>
+       <height>1414</height>
       </size>
      </property>
      <property name="font">
@@ -240,7 +240,7 @@
      <property name="maximumSize">
       <size>
        <width>50</width>
-       <height>40</height>
+       <height>1414</height>
       </size>
      </property>
      <property name="font">
@@ -276,7 +276,7 @@
      <property name="maximumSize">
       <size>
        <width>50</width>
-       <height>40</height>
+       <height>1414</height>
       </size>
      </property>
      <property name="font">
@@ -304,7 +304,7 @@
      <property name="maximumSize">
       <size>
        <width>50</width>
-       <height>40</height>
+       <height>1414</height>
       </size>
      </property>
      <property name="font">
@@ -339,7 +339,7 @@
      <property name="maximumSize">
       <size>
        <width>50</width>
-       <height>40</height>
+       <height>1414</height>
       </size>
      </property>
      <property name="font">

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>170</width>
-    <height>44</height>
+    <width>202</width>
+    <height>150</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,23 +21,8 @@
 	background-color: rgb(148, 148, 248);
 }</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout">
-   <property name="spacing">
-    <number>2</number>
-   </property>
-   <property name="leftMargin">
-    <number>2</number>
-   </property>
-   <property name="topMargin">
-    <number>2</number>
-   </property>
-   <property name="rightMargin">
-    <number>2</number>
-   </property>
-   <property name="bottomMargin">
-    <number>2</number>
-   </property>
-   <item>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
     <widget class="QPushButton" name="btnQ">
      <property name="minimumSize">
       <size>
@@ -47,8 +32,8 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>40</width>
-       <height>40</height>
+       <width>1414</width>
+       <height>1414</height>
       </size>
      </property>
      <property name="font">
@@ -65,7 +50,7 @@
      </property>
     </widget>
    </item>
-   <item>
+   <item row="0" column="1">
     <widget class="QPushButton" name="btnD">
      <property name="minimumSize">
       <size>
@@ -75,8 +60,8 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>40</width>
-       <height>40</height>
+       <width>1414</width>
+       <height>1414</height>
       </size>
      </property>
      <property name="font">
@@ -93,7 +78,7 @@
      </property>
     </widget>
    </item>
-   <item>
+   <item row="1" column="0">
     <widget class="QPushButton" name="btnR">
      <property name="minimumSize">
       <size>
@@ -103,8 +88,8 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>40</width>
-       <height>40</height>
+       <width>1414</width>
+       <height>1414</height>
       </size>
      </property>
      <property name="font">
@@ -121,7 +106,7 @@
      </property>
     </widget>
    </item>
-   <item>
+   <item row="1" column="1">
     <widget class="QPushButton" name="btnG">
      <property name="minimumSize">
       <size>
@@ -131,8 +116,8 @@
      </property>
      <property name="maximumSize">
       <size>
-       <width>40</width>
-       <height>40</height>
+       <width>1414</width>
+       <height>1414</height>
       </size>
      </property>
      <property name="font">

@@ -869,6 +869,7 @@ void frmWKEAnalysisMode::on_btnHelp_clicked()
 void frmWKEAnalysisMode::on_btnPeak_clicked()
 {
     frmPeakSearch *dlg = new frmPeakSearch(this->plot,this->gs,this);
+    dlg->setMaximumHeight(btnTrig->height());
     dlg->setGeometry(this->geometry().left()+ btnMeasSetup->frameGeometry().left(),
                      this->geometry().top()+btnMeasSetup->frameGeometry().top()/*+5+(btnPeak->height()/2)*/,
                      btnTraceB->geometry().right()-btnMeasSetup->geometry().left(),

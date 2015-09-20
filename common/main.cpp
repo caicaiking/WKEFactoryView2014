@@ -19,6 +19,7 @@
 #include "clsDataProcess.h"
 #include "doubleType.h"
 #include "NumberInput.h"
+#include "dlgLevelInputBox.h"
 
 int main(int argc, char *argv[])
 {
@@ -33,8 +34,8 @@ int main(int argc, char *argv[])
 
     //如果要是发布无锁版本，请使用clsDog::setProduct(false),有锁版本clsDog::setProduct(true)
 
-    NumberInput inp;
-    return inp.exec();
+//    dlgLevelInputBox inp;
+//    return inp.exec();
 
 
     clsDog::setProduct(false);
