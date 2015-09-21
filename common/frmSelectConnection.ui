@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>458</width>
-    <height>260</height>
+    <width>679</width>
+    <height>326</height>
    </rect>
   </property>
   <property name="font">
@@ -329,9 +329,12 @@
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>248</width>
+            <width>20</width>
             <height>20</height>
            </size>
           </property>

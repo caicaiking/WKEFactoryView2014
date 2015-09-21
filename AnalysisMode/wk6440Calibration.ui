@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>464</width>
-    <height>293</height>
+    <width>641</width>
+    <height>385</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -35,7 +35,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,10">
         <item>
          <widget class="QPushButton" name="btnOpen">
           <property name="minimumSize">
@@ -46,8 +46,8 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>75</width>
-            <height>36</height>
+            <width>11111</width>
+            <height>11111</height>
            </size>
           </property>
           <property name="font">
@@ -78,7 +78,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,10">
         <item>
          <widget class="QPushButton" name="btnShort">
           <property name="minimumSize">
@@ -89,8 +89,8 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>75</width>
-            <height>36</height>
+            <width>11111</width>
+            <height>11111</height>
            </size>
           </property>
           <property name="font">
@@ -136,7 +136,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,10">
         <item>
          <widget class="QPushButton" name="btnHF">
           <property name="minimumSize">
@@ -147,8 +147,8 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>75</width>
-            <height>36</height>
+            <width>11111</width>
+            <height>11111</height>
            </size>
           </property>
           <property name="font">

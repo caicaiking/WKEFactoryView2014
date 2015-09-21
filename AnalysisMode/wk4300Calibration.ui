@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>430</width>
-    <height>157</height>
+    <width>523</width>
+    <height>221</height>
    </rect>
   </property>
   <property name="font">
@@ -71,7 +71,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,10">
         <item>
          <widget class="QPushButton" name="btnOpen">
           <property name="minimumSize">
@@ -82,8 +82,8 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>75</width>
-            <height>36</height>
+            <width>1111</width>
+            <height>1111</height>
            </size>
           </property>
           <property name="font">
@@ -114,7 +114,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,10">
         <item>
          <widget class="QPushButton" name="btnShort">
           <property name="minimumSize">
@@ -125,8 +125,8 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>75</width>
-            <height>36</height>
+            <width>1111</width>
+            <height>1111</height>
            </size>
           </property>
           <property name="font">

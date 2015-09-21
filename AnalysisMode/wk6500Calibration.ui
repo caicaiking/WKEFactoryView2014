@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>500</width>
-    <height>296</height>
+    <width>628</width>
+    <height>475</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -18,7 +18,7 @@
   </property>
   <property name="maximumSize">
    <size>
-    <width>500</width>
+    <width>10101</width>
     <height>16777215</height>
    </size>
   </property>
@@ -42,7 +42,7 @@
 	background-color: rgb(148, 148, 248);
 }</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_4">
+  <layout class="QVBoxLayout" name="verticalLayout_4" stretch="10,10,1">
    <item>
     <widget class="QGroupBox" name="groupBox">
      <property name="font">
@@ -54,9 +54,9 @@
      <property name="title">
       <string>开短路校准</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="10,10">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,10">
         <item>
          <widget class="QPushButton" name="btnOpen">
           <property name="minimumSize">
@@ -67,8 +67,8 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>75</width>
-            <height>36</height>
+            <width>11111</width>
+            <height>11111</height>
            </size>
           </property>
           <property name="font">
@@ -99,7 +99,7 @@
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,10,0">
         <item>
          <widget class="QPushButton" name="btnShort">
           <property name="minimumSize">
@@ -110,8 +110,8 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>75</width>
-            <height>36</height>
+            <width>11111</width>
+            <height>11111</height>
            </size>
           </property>
           <property name="font">
@@ -182,7 +182,7 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,10,0">
         <item>
          <widget class="QPushButton" name="btnHF">
           <property name="minimumSize">
@@ -193,8 +193,8 @@
           </property>
           <property name="maximumSize">
            <size>
-            <width>75</width>
-            <height>36</height>
+            <width>11111</width>
+            <height>11111</height>
            </size>
           </property>
           <property name="font">

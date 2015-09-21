@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>429</width>
-    <height>345</height>
+    <width>941</width>
+    <height>553</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,7 +26,7 @@
      <property name="title">
       <string/>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_6">
+     <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="0,10">
       <property name="spacing">
        <number>2</number>
       </property>
@@ -136,6 +136,19 @@
             <string>0.003</string>
            </property>
           </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
          </item>
         </layout>
        </widget>
@@ -333,8 +346,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>41</width>
-                <height>41</height>
+                <width>1111</width>
+                <height>1111</height>
                </size>
               </property>
               <property name="font">
@@ -361,8 +374,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>41</width>
-                <height>41</height>
+                <width>1111</width>
+                <height>1111</height>
                </size>
               </property>
               <property name="font">
@@ -389,8 +402,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>41</width>
-                <height>41</height>
+                <width>1111</width>
+                <height>1111</height>
                </size>
               </property>
               <property name="font">
@@ -417,8 +430,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>41</width>
-                <height>41</height>
+                <width>1111</width>
+                <height>1111</height>
                </size>
               </property>
               <property name="font">
@@ -445,8 +458,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>41</width>
-                <height>41</height>
+                <width>1111</width>
+                <height>1111</height>
                </size>
               </property>
               <property name="font">
@@ -473,8 +486,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>41</width>
-                <height>41</height>
+                <width>1111</width>
+                <height>1111</height>
                </size>
               </property>
               <property name="font">
@@ -501,8 +514,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>41</width>
-                <height>41</height>
+                <width>1111</width>
+                <height>1111</height>
                </size>
               </property>
               <property name="font">
@@ -529,8 +542,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>41</width>
-                <height>41</height>
+                <width>1111</width>
+                <height>1111</height>
                </size>
               </property>
               <property name="font">
@@ -557,8 +570,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>41</width>
-                <height>41</height>
+                <width>1111</width>
+                <height>1111</height>
                </size>
               </property>
               <property name="font">
@@ -585,8 +598,8 @@
               </property>
               <property name="maximumSize">
                <size>
-                <width>41</width>
-                <height>41</height>
+                <width>1111</width>
+                <height>1111</height>
                </size>
               </property>
               <property name="font">

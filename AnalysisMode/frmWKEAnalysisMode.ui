@@ -816,8 +816,8 @@ ON</string>
         </property>
         <property name="maximumSize">
          <size>
-          <width>90</width>
-          <height>40</height>
+          <width>1111</width>
+          <height>1111</height>
          </size>
         </property>
         <property name="font">
@@ -841,8 +841,8 @@ ON</string>
         </property>
         <property name="maximumSize">
          <size>
-          <width>80</width>
-          <height>40</height>
+          <width>1111</width>
+          <height>1111</height>
          </size>
         </property>
         <property name="font">
@@ -866,8 +866,8 @@ ON</string>
         </property>
         <property name="maximumSize">
          <size>
-          <width>60</width>
-          <height>40</height>
+          <width>1111</width>
+          <height>1111</height>
          </size>
         </property>
         <property name="font">
@@ -891,8 +891,8 @@ ON</string>
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
-          <height>40</height>
+          <width>1111</width>
+          <height>1111</height>
          </size>
         </property>
         <property name="font">
@@ -930,7 +930,7 @@ ON</string>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>40</height>
+          <height>1111</height>
          </size>
         </property>
         <property name="font">
@@ -1055,8 +1055,8 @@ ON</string>
         </property>
         <property name="maximumSize">
          <size>
-          <width>100</width>
-          <height>40</height>
+          <width>1111</width>
+          <height>1111</height>
          </size>
         </property>
         <property name="font">

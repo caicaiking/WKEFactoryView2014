@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>172</width>
-    <height>88</height>
+    <width>363</width>
+    <height>133</height>
    </rect>
   </property>
   <property name="font">
@@ -61,8 +61,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>11111</width>
+         <height>11111</height>
         </size>
        </property>
        <property name="font">
@@ -89,8 +89,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>11111</width>
+         <height>11111</height>
         </size>
        </property>
        <property name="font">
@@ -114,8 +114,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>11111</width>
+         <height>11111</height>
         </size>
        </property>
        <property name="font">
@@ -139,8 +139,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>11111</width>
+         <height>11111</height>
         </size>
        </property>
        <property name="font">
@@ -164,8 +164,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>11111</width>
+         <height>11111</height>
         </size>
        </property>
        <property name="font">
@@ -189,8 +189,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>11111</width>
+         <height>11111</height>
         </size>
        </property>
        <property name="font">
@@ -214,8 +214,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>11111</width>
+         <height>11111</height>
         </size>
        </property>
        <property name="font">
@@ -239,8 +239,8 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>40</width>
-         <height>40</height>
+         <width>11111</width>
+         <height>11111</height>
         </size>
        </property>
        <property name="font">
