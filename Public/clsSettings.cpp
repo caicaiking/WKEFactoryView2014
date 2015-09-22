@@ -3,15 +3,17 @@
 #include <QList>
 #include <QStringList>
 #include <QColor>
+#include "UserfulFunctions.h"
 clsSettings::clsSettings(QObject *parent) :
     QObject(parent)
 {
+    QString settingsFilePath =QString("./Settings_%1.ini").arg(UserfulFunctions::getLanguage());
     configIniWrite = new QSettings(settingsFilePath, QSettings::IniFormat);
 }
 
 bool clsSettings::FileExit()
 {
-    fileExit=QFile::exists("./Settings.ini");
+    fileExit=QFile::exists(QString("./Settings_%1.ini").arg(UserfulFunctions::getLanguage()));
     return fileExit;
 }
 

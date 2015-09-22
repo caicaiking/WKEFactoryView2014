@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en_GB" sourcelanguage="zh_CN">
+<TS version="2.1" language="zh_CN">
 <context>
     <name>MessageDialog</name>
     <message>
         <location filename="../../AnalysisMode/MessageDialog.ui" line="29"/>
         <source>提示信息</source>
-        <translation>Information</translation>
+        <translation>提示資訊</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/MessageDialog.ui" line="129"/>
         <source>确定</source>
-        <translation>OK</translation>
+        <translation>確定</translation>
     </message>
 </context>
 <context>
@@ -48,7 +48,7 @@
     <message>
         <location filename="../../Public/NumberInput.ui" line="194"/>
         <source>清除</source>
-        <translation>Clear</translation>
+        <translation>清除</translation>
     </message>
     <message>
         <location filename="../../Public/NumberInput.ui" line="219"/>
@@ -157,7 +157,7 @@
     <message>
         <location filename="../../Public/NumberInput.ui" line="611"/>
         <source>退出</source>
-        <translation>Quit</translation>
+        <translation>退出</translation>
     </message>
     <message>
         <location filename="../../Public/NumberInput.ui" line="614"/>
@@ -210,61 +210,25 @@
     <message>
         <location filename="../../MeterMode/PassFailLabel.cpp" line="12"/>
         <source>通过</source>
-        <translation>Pass</translation>
+        <translation>通過</translation>
     </message>
 </context>
 <context>
     <name>Plot</name>
     <message>
-        <source>é¢ç</source>
-        <translation type="obsolete">Frequency</translation>
-    </message>
-    <message>
-        <source>é¢ç[Hz]</source>
-        <translation type="obsolete">Frequency[Hz]</translation>
-    </message>
-    <message>
         <location filename="../../AnalysisMode/Plot.cpp" line="67"/>
         <location filename="../../AnalysisMode/Plot.cpp" line="121"/>
         <source>频率</source>
-        <translation>Frequency</translation>
-    </message>
-    <message>
-        <source>??[Hz]</source>
-        <translation type="vanished">Frequency[Hz]</translation>
+        <translation>頻率</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/Plot.h" line="43"/>
         <source>频率[Hz]</source>
-        <translation>Frequency[Hz]</translation>
+        <translation>頻率[Hz]</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
-    <message>
-        <source>æå¿«</source>
-        <translation type="obsolete">Max</translation>
-    </message>
-    <message>
-        <source>å¿«é</source>
-        <translation type="obsolete">Fast</translation>
-    </message>
-    <message>
-        <source>ä¸­é</source>
-        <translation type="obsolete">Med</translation>
-    </message>
-    <message>
-        <source>æ¢é</source>
-        <translation type="obsolete">Slow</translation>
-    </message>
-    <message>
-        <source>ä¸²è</source>
-        <translation type="obsolete">Series</translation>
-    </message>
-    <message>
-        <source>å¹¶è</source>
-        <translation type="obsolete">Parallel</translation>
-    </message>
     <message>
         <location filename="../../AnalysisMode/WK3260.h" line="120"/>
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="33"/>
@@ -275,7 +239,7 @@
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="115"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="130"/>
         <source>最快</source>
-        <translation>Max</translation>
+        <translation>最快</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/WK3260.h" line="122"/>
@@ -284,7 +248,7 @@
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="25"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="118"/>
         <source>快速</source>
-        <translation>Fast</translation>
+        <translation>快速</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/WK3260.h" line="124"/>
@@ -293,7 +257,7 @@
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="29"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="121"/>
         <source>中速</source>
-        <translation>Med</translation>
+        <translation>中速</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/WK3260.h" line="126"/>
@@ -302,7 +266,7 @@
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="33"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="124"/>
         <source>慢速</source>
-        <translation>Slow</translation>
+        <translation>慢速</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/WK3260.h" line="157"/>
@@ -326,7 +290,7 @@
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="50"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="159"/>
         <source>串联</source>
-        <translation>Series</translation>
+        <translation>串聯</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/WK3260.h" line="159"/>
@@ -337,7 +301,7 @@
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="54"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="162"/>
         <source>并联</source>
-        <translation>Parallel</translation>
+        <translation>並聯</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/WK3260.h" line="226"/>
@@ -348,6 +312,24 @@
         <location filename="../../AnalysisMode/WK3260.h" line="228"/>
         <source>Boost</source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsCurveLimit.cpp" line="38"/>
+        <location filename="../../AnalysisMode/clsCurveLimit.cpp" line="46"/>
+        <location filename="../../AnalysisMode/clsMultiLimits.cpp" line="80"/>
+        <location filename="../../AnalysisMode/clsMultiLimits.cpp" line="88"/>
+        <source>没有设定</source>
+        <translation>沒有設定</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsMultiCurveLimt.cpp" line="22"/>
+        <source>通过</source>
+        <translation>通過</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsMultiCurveLimt.cpp" line="22"/>
+        <source>失败</source>
+        <translation>失敗</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="539"/>
@@ -363,101 +345,17 @@
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="209"/>
         <location filename="../../common/main.cpp" line="71"/>
         <source>请插入加密狗！</source>
-        <translation>Please insert the dongle!</translation>
-    </message>
-    <message>
-        <source>è¯·æå¥å å¯çï¼</source>
-        <translation type="obsolete">Please insert the dongle!</translation>
-    </message>
-    <message>
-        <source>é¢ç</source>
-        <translation type="obsolete">Frequency</translation>
-    </message>
-    <message>
-        <source>åç½®çµå</source>
-        <translation type="obsolete">Bias Voltage</translation>
-    </message>
-    <message>
-        <source>çµåä¿¡å·</source>
-        <translation type="obsolete">Voltage Signal</translation>
-    </message>
-    <message>
-        <source>æ¶é´</source>
-        <translation type="obsolete">Time</translation>
-    </message>
-    <message>
-        <source>åç½®çµæµ</source>
-        <translation type="obsolete">Bias Current</translation>
-    </message>
-    <message>
-        <source>çµæµä¿¡å·</source>
-        <translation type="obsolete">Current Signal</translation>
-    </message>
-    <message>
-        <source>é»æ</source>
-        <translation type="obsolete">Impedance</translation>
-    </message>
-    <message>
-        <source>äº¤æµçµé»</source>
-        <translation type="obsolete">Ac Resistance</translation>
-    </message>
-    <message>
-        <source>ç´æµçµé»</source>
-        <translation type="obsolete">Dc Resistance</translation>
-    </message>
-    <message>
-        <source>ç¸ä½</source>
-        <translation type="obsolete">Phase Angle</translation>
-    </message>
-    <message>
-        <source>çµå¯¼</source>
-        <translation type="obsolete">Conductance</translation>
-    </message>
-    <message>
-        <source>çµçº³</source>
-        <translation type="obsolete">Susceptance</translation>
-    </message>
-    <message>
-        <source>å¯¼çº³</source>
-        <translation type="obsolete">Admittance</translation>
-    </message>
-    <message>
-        <source>çµæ</source>
-        <translation type="obsolete">Inductance</translation>
-    </message>
-    <message>
-        <source>çµå®¹</source>
-        <translation type="obsolete">Capacitance</translation>
-    </message>
-    <message>
-        <source>åè´¨å ç´ </source>
-        <translation type="obsolete">Quality Factor</translation>
-    </message>
-    <message>
-        <source>æè</source>
-        <translation type="obsolete">Dissipation Factor</translation>
-    </message>
-    <message>
-        <source>æ­£å¨åå§åæµè¯çªå£ï¼è¯·ç¨ç­...</source>
-        <translation type="obsolete">Test window is initializing, please wait ...</translation>
-    </message>
-    <message>
-        <source>ä¸éï¼</source>
-        <translation type="obsolete">Hi:</translation>
-    </message>
-    <message>
-        <source>ä¸éï¼</source>
-        <translation type="obsolete">Lo:</translation>
+        <translation>請插入加密狗！</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterLimit.cpp" line="209"/>
         <source>上限：</source>
-        <translation>Hi:</translation>
+        <translation>上限：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterLimit.cpp" line="213"/>
         <source>下限：</source>
-        <translation>Low:</translation>
+        <translation>下限：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterLimit.cpp" line="226"/>
@@ -465,159 +363,9 @@
         <translation></translation>
     </message>
     <message>
-        <source>æ¶ä½è°æ¯å¨</source>
-        <translation type="obsolete">Piezo</translation>
-    </message>
-    <message>
-        <source>??</source>
-        <translation type="vanished">Time</translation>
-    </message>
-    <message>
-        <source>????</source>
-        <translation type="vanished">Bias Voltage</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="92"/>
-        <location filename="../../Public/UserfulFunctions.h" line="58"/>
-        <source>频率</source>
-        <translation>Frequency</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="94"/>
-        <location filename="../../Public/UserfulFunctions.h" line="61"/>
-        <source>偏置电压</source>
-        <translation>Bias Voltage</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="94"/>
-        <location filename="../../Public/UserfulFunctions.h" line="67"/>
-        <source>电压信号</source>
-        <translation>Voltage Signal</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="96"/>
-        <location filename="../../Public/UserfulFunctions.h" line="55"/>
-        <source>时间</source>
-        <translation>Time</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="99"/>
-        <location filename="../../Public/UserfulFunctions.h" line="64"/>
-        <source>偏置电流</source>
-        <translation>Bias Current</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="101"/>
-        <location filename="../../Public/UserfulFunctions.h" line="70"/>
-        <source>电流信号</source>
-        <translation>Current Signal</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="103"/>
-        <source>次数</source>
-        <translation>Count</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="114"/>
-        <source>阻抗</source>
-        <translation>Impedance</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="116"/>
-        <source>交流电阻</source>
-        <translation>Impedance</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="118"/>
-        <source>电抗</source>
-        <translation>Reactance</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="120"/>
-        <source>直流电阻</source>
-        <translation>Dc Resistance</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="122"/>
-        <source>相位</source>
-        <translation>Angle</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="124"/>
-        <source>电导</source>
-        <translation>Conductance</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="126"/>
-        <source>电纳</source>
-        <translation>Susceptance</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="128"/>
-        <source>导纳</source>
-        <translation>Admittance</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="130"/>
-        <source>电感</source>
-        <translation>Inductance</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="132"/>
-        <source>电容</source>
-        <translation>Capacitance</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="134"/>
-        <source>品质因素</source>
-        <translation>Quality Factor</translation>
-    </message>
-    <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="136"/>
-        <source>损耗</source>
-        <translation>Dissipation Factor</translation>
-    </message>
-    <message>
-        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="58"/>
-        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="165"/>
-        <source>晶体谐振器</source>
-        <translation>Piezo</translation>
-    </message>
-    <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="20"/>
         <source>连接</source>
-        <translation> conection</translation>
-    </message>
-    <message>
-        <source>测试步骤设定</source>
-        <translation type="vanished">Test step setting</translation>
-    </message>
-    <message>
-        <source>测试结果显示</source>
-        <translation type="vanished">Test result display</translation>
-    </message>
-    <message>
-        <location filename="../../common/main.cpp" line="60"/>
-        <source>正在初始化测试窗口，请稍等...</source>
-        <translation>Test window is initializing, please wait ...</translation>
-    </message>
-    <message>
-        <location filename="../../AnalysisMode/clsCurveLimit.cpp" line="38"/>
-        <location filename="../../AnalysisMode/clsCurveLimit.cpp" line="46"/>
-        <location filename="../../AnalysisMode/clsMultiLimits.cpp" line="80"/>
-        <location filename="../../AnalysisMode/clsMultiLimits.cpp" line="88"/>
-        <source>没有设定</source>
-        <translation>Not Settings</translation>
-    </message>
-    <message>
-        <location filename="../../AnalysisMode/clsMultiCurveLimt.cpp" line="22"/>
-        <source>通过</source>
-        <translation>Pass</translation>
-    </message>
-    <message>
-        <location filename="../../AnalysisMode/clsMultiCurveLimt.cpp" line="22"/>
-        <source>失败</source>
-        <translation>Fail</translation>
+        <translation>連接</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeFactory.cpp" line="29"/>
@@ -632,7 +380,7 @@
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="32"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1002"/>
         <source>自动</source>
-        <translation>Auto</translation>
+        <translation>自動</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="39"/>
@@ -666,13 +414,13 @@
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="479"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="479"/>
         <source>设置速度</source>
-        <translation>Set speed</translation>
+        <translation>設置速度</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="494"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="494"/>
         <source>设置档位</source>
-        <translation>Set range</translation>
+        <translation>設置檔位</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="538"/>
@@ -684,7 +432,7 @@
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="755"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="815"/>
         <source>设置单位</source>
-        <translation>Set unit</translation>
+        <translation>設置單位</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="551"/>
@@ -696,7 +444,7 @@
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="767"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="832"/>
         <source>设置测试参数</source>
-        <translation>Set test item</translation>
+        <translation>設置測試參數</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="653"/>
@@ -704,7 +452,7 @@
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="653"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="872"/>
         <source>设置电平</source>
-        <translation>Set level</translation>
+        <translation>設置電平</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="700"/>
@@ -712,48 +460,144 @@
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="700"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="918"/>
         <source>输入频率</source>
-        <translation>Input frequency</translation>
+        <translation>輸入頻率</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="92"/>
+        <location filename="../../Public/UserfulFunctions.h" line="58"/>
+        <source>频率</source>
+        <translation>頻率</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="94"/>
+        <location filename="../../Public/UserfulFunctions.h" line="61"/>
+        <source>偏置电压</source>
+        <translation>偏置電壓</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="94"/>
+        <location filename="../../Public/UserfulFunctions.h" line="67"/>
+        <source>电压信号</source>
+        <translation>電壓信號</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="96"/>
+        <location filename="../../Public/UserfulFunctions.h" line="55"/>
+        <source>时间</source>
+        <translation>時間</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="99"/>
+        <location filename="../../Public/UserfulFunctions.h" line="64"/>
+        <source>偏置电流</source>
+        <translation>偏置電流</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="101"/>
+        <location filename="../../Public/UserfulFunctions.h" line="70"/>
+        <source>电流信号</source>
+        <translation>電流信號</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="103"/>
+        <source>次数</source>
+        <translation>次數</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="114"/>
+        <source>阻抗</source>
+        <translation>阻抗</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="116"/>
+        <source>交流电阻</source>
+        <translation>交流電阻</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="118"/>
+        <source>电抗</source>
+        <translation>電抗</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="120"/>
+        <source>直流电阻</source>
+        <translation>直流電阻</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="122"/>
+        <source>相位</source>
+        <translation>相位</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="124"/>
+        <source>电导</source>
+        <translation>電導</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="126"/>
+        <source>电纳</source>
+        <translation>電納</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="128"/>
+        <source>导纳</source>
+        <translation>導納</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="130"/>
+        <source>电感</source>
+        <translation>電感</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="132"/>
+        <source>电容</source>
+        <translation>電容</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="134"/>
+        <source>品质因素</source>
+        <translation>品質因素</translation>
+    </message>
+    <message>
+        <location filename="../../Public/UserfulFunctions.cpp" line="136"/>
+        <source>损耗</source>
+        <translation>損耗</translation>
+    </message>
+    <message>
+        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="58"/>
+        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="165"/>
+        <source>晶体谐振器</source>
+        <translation>晶體諧振器</translation>
+    </message>
+    <message>
+        <location filename="../../common/main.cpp" line="60"/>
+        <source>正在初始化测试窗口，请稍等...</source>
+        <translation>正在初始化測試窗口，請稍等...</translation>
     </message>
 </context>
 <context>
     <name>StatusLabel</name>
     <message>
-        <source>å¿ç¢</source>
-        <translation type="obsolete">BUSY</translation>
-    </message>
-    <message>
-        <source>éè¿</source>
-        <translation type="obsolete">PASS</translation>
-    </message>
-    <message>
-        <source>å¤±è´¥</source>
-        <translation type="obsolete">FAIL</translation>
-    </message>
-    <message>
-        <source>ç©ºé²</source>
-        <translation type="obsolete">IDEL</translation>
-    </message>
-    <message>
         <location filename="../../ResonaceMode/StatusLabel.cpp" line="14"/>
         <source>忙碌</source>
-        <translation>Busy</translation>
+        <translation>忙碌</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/StatusLabel.cpp" line="19"/>
         <location filename="../../ResonaceMode/StatusLabel.cpp" line="44"/>
         <source>通过</source>
-        <translation>Pass</translation>
+        <translation>通過</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/StatusLabel.cpp" line="24"/>
         <location filename="../../ResonaceMode/StatusLabel.cpp" line="50"/>
         <source>失败</source>
-        <translation>Fail</translation>
+        <translation>失敗</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/StatusLabel.cpp" line="29"/>
         <source>空闲</source>
-        <translation>Idle</translation>
+        <translation>空閒</translation>
     </message>
 </context>
 <context>
@@ -776,13 +620,13 @@
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="76"/>
         <source>驱动信号：</source>
-        <translation>Drive Level:</translation>
+        <translation>驅動信號</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="90"/>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="594"/>
         <source>频率：</source>
-        <translation>Freq.:</translation>
+        <translation>頻率：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="112"/>
@@ -794,32 +638,32 @@
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="129"/>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="559"/>
         <source>电平：</source>
-        <translation>Level:</translation>
+        <translation>電平：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="151"/>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="581"/>
         <source>1.000V</source>
-        <translation>1.000V</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="169"/>
         <source>档位速度</source>
-        <translation>Range &amp;&amp; Speed</translation>
+        <translation>檔位元速度</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="187"/>
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="46"/>
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="345"/>
         <source>自动</source>
-        <translation>Auto</translation>
+        <translation>自動</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="206"/>
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="47"/>
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="350"/>
         <source>最快</source>
-        <translation>Max</translation>
+        <translation>最快</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="225"/>
@@ -831,19 +675,19 @@
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="977"/>
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="1077"/>
         <source>串联</source>
-        <translation>Series</translation>
+        <translation>串聯</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="245"/>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="684"/>
         <source>测量项目1</source>
-        <translation>Test Item1</translation>
+        <translation>測量項目1</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="257"/>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="696"/>
         <source>项目1：</source>
-        <translation>Item 1:</translation>
+        <translation>項目1：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="279"/>
@@ -857,7 +701,7 @@
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="731"/>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="876"/>
         <source>单位：</source>
-        <translation>Unit：</translation>
+        <translation>單位：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="320"/>
@@ -873,7 +717,7 @@
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="772"/>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="917"/>
         <source>上下限：</source>
-        <translation>HiLowLimit</translation>
+        <translation>上下限：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="355"/>
@@ -887,13 +731,13 @@
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="387"/>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="826"/>
         <source>测量项目2</source>
-        <translation>Test Item2</translation>
+        <translation>測量項目2</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="405"/>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="841"/>
         <source>项目2：</source>
-        <translation>Item 2:</translation>
+        <translation>項目2：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="427"/>
@@ -909,47 +753,47 @@
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="533"/>
         <source>打开测试项目2</source>
-        <translation>Open Test2</translation>
+        <translation>打開測試項目2</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="629"/>
         <source>等效电路：</source>
-        <translation>Equcct:</translation>
+        <translation>等效電路：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="969"/>
         <source>描述：</source>
-        <translation>Description:</translation>
+        <translation>描述：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.ui" line="982"/>
         <source>空白</source>
-        <translation>Empty</translation>
+        <translation>空白</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="220"/>
         <source>已经探测到产品</source>
-        <translation>Production detected</translation>
+        <translation>已經探測到產品</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="230"/>
         <source>正在探测产品</source>
-        <translation>Detecte production in progress</translation>
+        <translation>正在探測產品</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="352"/>
         <source>快速</source>
-        <translation>Fast</translation>
+        <translation>快速</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="354"/>
         <source>中速</source>
-        <translation>Med</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="356"/>
         <source>慢速</source>
-        <translation>Slow</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="767"/>
@@ -965,24 +809,24 @@
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="909"/>
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="1062"/>
         <source>请输入频率</source>
-        <translation>Input frequency</translation>
+        <translation>請輸入頻率</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="926"/>
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="1029"/>
         <source>设置电平</source>
-        <translation>Set level</translation>
+        <translation>設置電平</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="957"/>
         <source>设置测试档位</source>
-        <translation>Set range</translation>
+        <translation>設置測試檔位</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="977"/>
         <location filename="../../MeterMode/cls4100MeterMode.cpp" line="1077"/>
         <source>并联</source>
-        <translation>Parallel</translation>
+        <translation>並聯</translation>
     </message>
 </context>
 <context>
@@ -990,19 +834,19 @@
     <message>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.ui" line="14"/>
         <source>仪表校准</source>
-        <translation>Instrument calibration</translation>
+        <translation>儀錶校準</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.ui" line="37"/>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.cpp" line="74"/>
         <source>开路校准</source>
-        <translation>Open circuit trim</translation>
+        <translation>開路校準</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.ui" line="57"/>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.ui" line="196"/>
         <source>点校准</source>
-        <translation>Spot trim</translation>
+        <translation>點校準</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.ui" line="89"/>
@@ -1014,7 +858,7 @@
         <location filename="../../MeterMode/cls4100MeterModeCalibration.ui" line="121"/>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.ui" line="260"/>
         <source>交流全频</source>
-        <translation>Full Ac</translation>
+        <translation>交流全頻</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.ui" line="153"/>
@@ -1026,181 +870,42 @@
         <location filename="../../MeterMode/cls4100MeterModeCalibration.ui" line="176"/>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.cpp" line="93"/>
         <source>短路校准</source>
-        <translation>Short circuit trim</translation>
+        <translation>短路校準</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.ui" line="367"/>
         <source>完成</source>
-        <translation>Done</translation>
+        <translation>完成</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.cpp" line="74"/>
         <source>移除夹具上的被测物品，然后点击确定！</source>
-        <translation>Remove DUT from fixture,then click ok!</translation>
+        <translation>移除夾具上的被測物品，然後點擊確定！</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.cpp" line="83"/>
         <source>开路校准成功，校准时间：%1 %2</source>
-        <translation>Open circuit calibration ok, calibrate time:%1 %2</translation>
+        <translation>開路校準成功，校準時間：%1 %2</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.cpp" line="87"/>
         <source>开路校准失败。</source>
-        <translation>Open circuit trim failed.</translation>
+        <translation>開路校準失敗。</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.cpp" line="93"/>
         <source>请将夹具短路，然后点击确定</source>
-        <translation>Please short fixture,then click ok</translation>
+        <translation>請將夾具短路，然後點擊確定</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.cpp" line="99"/>
         <source>短路校准成功。校准时间：%1 %2</source>
-        <translation>Short circuit calibration ok, calibrate time:%1 %2</translation>
+        <translation>短路校準成功。校準時間：%1 %2</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.cpp" line="103"/>
         <source>短路校准失败。</source>
-        <translation>Short circuit trim failed.</translation>
-    </message>
-</context>
-<context>
-    <name>cls4300MeterMode</name>
-    <message>
-        <source>WK 4300 4100 仪表</source>
-        <translation type="vanished">WK 4300 4100 Meter</translation>
-    </message>
-    <message>
-        <source>驱动信号：</source>
-        <translation type="vanished">Drive Level</translation>
-    </message>
-    <message>
-        <source>频率：</source>
-        <translation type="vanished">Freq：</translation>
-    </message>
-    <message>
-        <source>电平：</source>
-        <translation type="vanished">Level:</translation>
-    </message>
-    <message>
-        <source>1.000V</source>
-        <translation type="vanished">1.000V</translation>
-    </message>
-    <message>
-        <source>档位速度</source>
-        <translation type="vanished">Range &amp;&amp; Speed</translation>
-    </message>
-    <message>
-        <source>自动</source>
-        <translation type="vanished">Auto</translation>
-    </message>
-    <message>
-        <source>最快</source>
-        <translation type="vanished">Max</translation>
-    </message>
-    <message>
-        <source>串联</source>
-        <translation type="vanished">Series</translation>
-    </message>
-    <message>
-        <source>测量项目1</source>
-        <translation type="vanished">Test Item1</translation>
-    </message>
-    <message>
-        <source>项目1：</source>
-        <translation type="vanished">Item 1:</translation>
-    </message>
-    <message>
-        <source>单位：</source>
-        <translation type="vanished">Unit：</translation>
-    </message>
-    <message>
-        <source>无</source>
-        <translation type="vanished">N/A</translation>
-    </message>
-    <message>
-        <source>上下限：</source>
-        <translation type="vanished">HiLowLimit</translation>
-    </message>
-    <message>
-        <source>测量项目2</source>
-        <translation type="vanished">Test Item2</translation>
-    </message>
-    <message>
-        <source>项目2：</source>
-        <translation type="vanished">Item 2:</translation>
-    </message>
-    <message>
-        <source>偏置设置：</source>
-        <translation type="vanished">Bias Setup:</translation>
-    </message>
-    <message>
-        <source>内置</source>
-        <translation type="vanished">Internal</translation>
-    </message>
-    <message>
-        <source>关</source>
-        <translation type="vanished">OFF</translation>
-    </message>
-    <message>
-        <source>关闭</source>
-        <translation type="vanished">Close</translation>
-    </message>
-    <message>
-        <source>取消</source>
-        <translation type="vanished">Cancel</translation>
-    </message>
-    <message>
-        <source>确定</source>
-        <translation type="vanished">Ok</translation>
-    </message>
-    <message>
-        <source>打开测试项目2</source>
-        <translation type="vanished">Open Test2</translation>
-    </message>
-    <message>
-        <source>等效电路：</source>
-        <translation type="vanished">Equcct:</translation>
-    </message>
-    <message>
-        <source>并联</source>
-        <translation type="vanished">Parallel</translation>
-    </message>
-    <message>
-        <source>开</source>
-        <translation type="vanished">ON</translation>
-    </message>
-    <message>
-        <source>快速</source>
-        <translation type="vanished">Fast</translation>
-    </message>
-    <message>
-        <source>中速</source>
-        <translation type="vanished">Med</translation>
-    </message>
-    <message>
-        <source>慢速</source>
-        <translation type="vanished">Slow</translation>
-    </message>
-    <message>
-        <source>设定上限和下限</source>
-        <translation type="vanished">Set Hi and Low Limit</translation>
-    </message>
-    <message>
-        <source>输入频率</source>
-        <translation type="vanished">Input frequency</translation>
-    </message>
-    <message>
-        <source>设置测试速度</source>
-        <translation type="vanished">Set test speed</translation>
-    </message>
-    <message>
-        <source>测试项目</source>
-        <translation type="vanished">Test Item</translation>
-    </message>
-    <message>
-        <source>外置</source>
-        <translation type="vanished">External</translation>
+        <translation>短路校準失敗。</translation>
     </message>
 </context>
 <context>
@@ -1208,19 +913,19 @@
     <message>
         <location filename="../../MeterMode/cls6440Calibration.ui" line="14"/>
         <source>仪表模式校准</source>
-        <translation>Meter Mode Calibration</translation>
+        <translation>儀錶模式校準</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440Calibration.ui" line="36"/>
         <location filename="../../MeterMode/cls6440Calibration.cpp" line="98"/>
         <source>开路校准</source>
-        <translation>Open circuit trim</translation>
+        <translation>開路校準</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440Calibration.ui" line="56"/>
         <location filename="../../MeterMode/cls6440Calibration.ui" line="195"/>
         <source>点校准</source>
-        <translation>Spot trim</translation>
+        <translation>點校準</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440Calibration.ui" line="88"/>
@@ -1238,74 +943,74 @@
         <location filename="../../MeterMode/cls6440Calibration.ui" line="152"/>
         <location filename="../../MeterMode/cls6440Calibration.ui" line="291"/>
         <source>全频</source>
-        <translation>All Frequency</translation>
+        <translation>全頻</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440Calibration.ui" line="175"/>
         <location filename="../../MeterMode/cls6440Calibration.cpp" line="116"/>
         <source>短路校准</source>
-        <translation>Short circuit trim</translation>
+        <translation>短路校準</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440Calibration.ui" line="314"/>
         <location filename="../../MeterMode/cls6440Calibration.cpp" line="152"/>
         <source>高频校准</source>
-        <translation>HF Trim</translation>
+        <translation>高頻校準</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440Calibration.ui" line="334"/>
         <source>高频</source>
-        <translation>High frequency</translation>
+        <translation>高頻</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440Calibration.ui" line="409"/>
         <source>完成</source>
-        <translation>Done</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440Calibration.cpp" line="98"/>
         <source>移除夹具上的被测物品，然后点击确定！</source>
-        <translation>Remove DUT from fixture,then click ok!</translation>
+        <translation>移除夾具上的被測物品，然後點擊確定！</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440Calibration.cpp" line="107"/>
         <source>开路校准成功，校准时间：%1 %2</source>
-        <translation>Open circuit calibration ok, calibrate time:%1 %2</translation>
+        <translation>開路校準成功，校準時間：%1 %2</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440Calibration.cpp" line="111"/>
         <source>开路校准失败。</source>
-        <translation>Open circuit trim failed.</translation>
+        <translation>開路校準失敗。</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440Calibration.cpp" line="116"/>
         <source>请将夹具短路，然后点击确定</source>
-        <translation>Please short fixture,then click ok</translation>
+        <translation>請將夾具短路，然後點擊確定</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440Calibration.cpp" line="122"/>
         <source>短路校准成功。校准时间：%1 %2</source>
-        <translation>Short circuit calibration ok, calibrate time:%1 %2</translation>
+        <translation>短路校準成功。校準時間：%1 %2</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440Calibration.cpp" line="126"/>
         <source>短路校准失败。</source>
-        <translation>Short circuit trim failed.</translation>
+        <translation>短路校準失敗。</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440Calibration.cpp" line="152"/>
         <source>请连接高频校准器件</source>
-        <translation>Connect 150pF to fixture</translation>
+        <translation>請連接高頻校準器件</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440Calibration.cpp" line="158"/>
         <source>高频校准成功。校准时间：%1 %2</source>
-        <translation>HF calibration ok, calibrate time:%1 %2</translation>
+        <translation>高頻校準成功。校準時間：%1 %2</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440Calibration.cpp" line="162"/>
         <source>高频校准失败。</source>
-        <translation>HF calibration failed.</translation>
+        <translation>高頻校準失敗。</translation>
     </message>
 </context>
 <context>
@@ -1323,17 +1028,17 @@
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="48"/>
         <source>交流参数</source>
-        <translation>AC parameter</translation>
+        <translation>交流參數</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="62"/>
         <source>驱动信号：</source>
-        <translation>Driver Level:</translation>
+        <translation>驅動信號：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="76"/>
         <source>频率：</source>
-        <translation>Freq.:</translation>
+        <translation>頻率：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="104"/>
@@ -1343,12 +1048,12 @@
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="121"/>
         <source>电平：</source>
-        <translation>Level:</translation>
+        <translation>電平：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="149"/>
         <source>1.000V</source>
-        <translation>1.000V</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="176"/>
@@ -1357,12 +1062,12 @@
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="876"/>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="879"/>
         <source>串联</source>
-        <translation>Series</translation>
+        <translation>串聯</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="194"/>
         <source>档位&amp;&amp;速度</source>
-        <translation>Range &amp;&amp; speed</translation>
+        <translation>檔位&amp;&amp;速度</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="218"/>
@@ -1372,7 +1077,7 @@
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="254"/>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="374"/>
         <source>自动</source>
-        <translation>Auto</translation>
+        <translation>自動</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="243"/>
@@ -1381,12 +1086,12 @@
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="259"/>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="363"/>
         <source>最快</source>
-        <translation>Max</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="259"/>
         <source>偏置设置：</source>
-        <translation>Bias Setup:</translation>
+        <translation>偏置設置：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="285"/>
@@ -1395,25 +1100,25 @@
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="910"/>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="913"/>
         <source>内置</source>
-        <translation>Internal</translation>
+        <translation>內置</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="310"/>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="742"/>
         <source>关</source>
-        <translation>OFF</translation>
+        <translation>關</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="328"/>
         <source>主参数：</source>
-        <translation>Major:</translation>
+        <translation>主參數：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="340"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="463"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="688"/>
         <source>项目：</source>
-        <translation>Item:</translation>
+        <translation>項目：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="368"/>
@@ -1426,7 +1131,7 @@
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="504"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="729"/>
         <source>限定：</source>
-        <translation>Limit:</translation>
+        <translation>限定：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="397"/>
@@ -1440,7 +1145,7 @@
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="533"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="758"/>
         <source>单位：</source>
-        <translation>Unit：</translation>
+        <translation>單位：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="438"/>
@@ -1452,17 +1157,17 @@
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="448"/>
         <source>副参数：</source>
-        <translation>Minor:</translation>
+        <translation>副參數：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="574"/>
         <source>直流参数</source>
-        <translation>Rdc Parameter</translation>
+        <translation>直流參數</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="588"/>
         <source>档位&amp;&amp;速度&amp;&amp;电压</source>
-        <translation>Range &amp;&amp; Speed &amp;&amp; Level</translation>
+        <translation>檔位&amp;&amp;&amp;速度&amp;&amp;電壓</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="666"/>
@@ -1472,7 +1177,7 @@
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="676"/>
         <source>直流电阻</source>
-        <translation>Dc Resistance</translation>
+        <translation>直流電阻</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="716"/>
@@ -1482,41 +1187,41 @@
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="817"/>
         <source>描述：</source>
-        <translation>Description:</translation>
+        <translation>描述：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="25"/>
         <source>空白</source>
-        <translation>Empty</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="101"/>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="122"/>
         <source>已经探测到产品</source>
-        <translation>Production detected</translation>
+        <translation>已經探測到產品</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="134"/>
         <source>正在探测产品</source>
-        <translation>Detect production in progress</translation>
+        <translation>正在探測產品</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="261"/>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="365"/>
         <source>快速</source>
-        <translation>Fast</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="263"/>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="367"/>
         <source>中速</source>
-        <translation>Med</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="265"/>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="369"/>
         <source>慢速</source>
-        <translation>Slow</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="642"/>
@@ -1531,64 +1236,64 @@
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="683"/>
         <source>设置主参数上下限</source>
-        <translation>Set Major Limit</translation>
+        <translation>設置主參數上下限</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="696"/>
         <source>设置副参数上下限</source>
-        <translation>Set Minor Limit</translation>
+        <translation>設置副參數上下限</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="710"/>
         <source>设置Rdc上下限</source>
-        <translation>Set Rdc Limit</translation>
+        <translation>設置Rdc上下限</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="742"/>
         <source>开</source>
-        <translation>ON</translation>
+        <translation>開</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="803"/>
         <source>输入测试频率</source>
-        <translation>Set test frequency</translation>
+        <translation>輸入測試頻率</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="839"/>
         <source>输入测试电平</source>
-        <translation>Set test level</translation>
+        <translation>輸入測試電平</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="877"/>
         <source>并联</source>
-        <translation>Parallel</translation>
+        <translation>並聯</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="887"/>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="976"/>
         <source>设置档位</source>
-        <translation>Set range</translation>
+        <translation>設置檔位</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="899"/>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="988"/>
         <source>设置速度</source>
-        <translation>Set speed</translation>
+        <translation>設置速度</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="911"/>
         <source>外置</source>
-        <translation>External</translation>
+        <translation>外置</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="928"/>
         <source>设置测试项目1</source>
-        <translation>Set Item1</translation>
+        <translation>設置測試項目1</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="963"/>
         <source>设置测试项目2</source>
-        <translation>Set Item2</translation>
+        <translation>設置測試項目2</translation>
     </message>
 </context>
 <context>
@@ -1601,21 +1306,21 @@
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="35"/>
         <source>档位速度等效电路：</source>
-        <translation>Rang speed Equcct</translation>
+        <translation>檔位元速度等效電路：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="53"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="20"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="270"/>
         <source>自动</source>
-        <translation>Auto</translation>
+        <translation>自動</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="72"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="21"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="275"/>
         <source>最快</source>
-        <translation>Max</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="91"/>
@@ -1623,17 +1328,17 @@
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="265"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="552"/>
         <source>串联</source>
-        <translation>Series</translation>
+        <translation>串聯</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="107"/>
         <source>驱动信号：</source>
-        <translation>Drive Level</translation>
+        <translation>驅動信號：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="119"/>
         <source>频率：</source>
-        <translation>Freq.:</translation>
+        <translation>頻率：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="147"/>
@@ -1643,22 +1348,22 @@
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="160"/>
         <source>电平：</source>
-        <translation>Level:</translation>
+        <translation>電平：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="188"/>
         <source>1.000V</source>
-        <translation>1.000V</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="206"/>
         <source>偏置设置：</source>
-        <translation>Bias Setup:</translation>
+        <translation>偏置設置：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="218"/>
         <source>大小：</source>
-        <translation>Value:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="240"/>
@@ -1668,31 +1373,31 @@
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="253"/>
         <source>类型：</source>
-        <translation>Type:</translation>
+        <translation>類型：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="275"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="691"/>
         <source>电流</source>
-        <translation>Current</translation>
+        <translation>電流</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="300"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="31"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="697"/>
         <source>关</source>
-        <translation>OFF</translation>
+        <translation>關</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="318"/>
         <source>主参数：</source>
-        <translation>Major:</translation>
+        <translation>主參數：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="330"/>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="465"/>
         <source>项目：</source>
-        <translation>Item:</translation>
+        <translation>項目：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="358"/>
@@ -1704,7 +1409,7 @@
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="371"/>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="506"/>
         <source>限定：</source>
-        <translation>Limit:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="393"/>
@@ -1716,7 +1421,7 @@
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="406"/>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="541"/>
         <source>单位：</source>
-        <translation>Unit：</translation>
+        <translation>單位：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="434"/>
@@ -1727,18 +1432,18 @@
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="450"/>
         <source>副参数：</source>
-        <translation>Minor:</translation>
+        <translation>副參數：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="589"/>
         <source>描述：</source>
-        <translation>Description:</translation>
+        <translation>描述：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="602"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="418"/>
         <source>空白</source>
-        <translation>Empty</translation>
+        <translation>空白</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="30"/>
@@ -1748,39 +1453,39 @@
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="670"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="691"/>
         <source>电压</source>
-        <translation>Voltage</translation>
+        <translation>電壓</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="105"/>
         <source>已经探测到产品</source>
-        <translation>Production detected</translation>
+        <translation>已經探測到產品</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="115"/>
         <source>正在探测产品</source>
-        <translation>detect production in progress</translation>
+        <translation>正在探測產品</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="277"/>
         <source>快速</source>
-        <translation>Fast</translation>
+        <translation>快速</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="279"/>
         <source>中速</source>
-        <translation>Med</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="281"/>
         <source>慢速</source>
-        <translation>Slow</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="307"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="340"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="697"/>
         <source>开</source>
-        <translation>ON</translation>
+        <translation>開</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="472"/>
@@ -1795,42 +1500,42 @@
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="529"/>
         <source>设置6500的测试档位</source>
-        <translation>Set 6500 range</translation>
+        <translation>設置6500的測試檔位</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="541"/>
         <source>设置测试速度</source>
-        <translation>Set test speed</translation>
+        <translation>設置測試速度</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="552"/>
         <source>并联</source>
-        <translation>Parallel</translation>
+        <translation>並聯</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="559"/>
         <source>设定测试频率</source>
-        <translation>Set frequency</translation>
+        <translation>設定測試頻率</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="609"/>
         <source>设置测试电平</source>
-        <translation>Set level</translation>
+        <translation>設置測試電平</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="654"/>
         <source>设置偏置值</source>
-        <translation>set 6500 bias value</translation>
+        <translation>設置偏置值</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="704"/>
         <source>设置6500的测试项目1</source>
-        <translation>Set 6500 item1</translation>
+        <translation>設置6500的測試項目1</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="716"/>
         <source>设置6500的测试项目2</source>
-        <translation>Set 6500 item2</translation>
+        <translation>設置6500的測試項目2</translation>
     </message>
 </context>
 <context>
@@ -1838,12 +1543,12 @@
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="14"/>
         <source>通道校准</source>
-        <translation>Channel calibration</translation>
+        <translation>通道校準</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="36"/>
         <source>频率:</source>
-        <translation>Frequency:</translation>
+        <translation>頻率:</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="58"/>
@@ -1854,45 +1559,60 @@
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="108"/>
         <source>通道：</source>
-        <translation>Channel:</translation>
+        <translation>通道：</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="131"/>
         <source>1</source>
-        <translation>1</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="136"/>
         <source>2</source>
-        <translation>100Point {2?}</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="141"/>
         <source>3</source>
-        <translation>100Point {3?}</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="146"/>
         <source>4</source>
-        <translation>100Point {4?}</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="151"/>
         <source>5</source>
-        <translation>100Point {5?}</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="156"/>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="161"/>
         <source>新建项目</source>
-        <translation>New item</translation>
+        <translation>新建項目</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="183"/>
         <source>下一个
 通道</source>
-        <translation>Next
-Channel</translation>
+        <translation>下一個
+通道</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="225"/>
+        <source>阻抗(Ω)</source>
+        <translation>阻抗(Ω)</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="241"/>
+        <source>相位角(°)</source>
+        <translation>相位角(°)</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="257"/>
+        <source>开路：</source>
+        <translation>開路：</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="311"/>
@@ -1900,52 +1620,37 @@ Channel</translation>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="445"/>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="518"/>
         <source>清除</source>
-        <translation>Clear</translation>
-    </message>
-    <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="461"/>
-        <source>标准负载:</source>
-        <translation>Std. Value:</translation>
-    </message>
-    <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="257"/>
-        <source>开路：</source>
-        <translation>Open:</translation>
-    </message>
-    <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="391"/>
-        <source>负载：</source>
-        <translation>Load:</translation>
+        <translation>清除</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="324"/>
         <source>短路：</source>
-        <translation>Short:</translation>
+        <translation>短路：</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="241"/>
-        <source>相位角(°)</source>
-        <translation>Angle(°)</translation>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="391"/>
+        <source>负载：</source>
+        <translation>負載：</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="225"/>
-        <source>阻抗(Ω)</source>
-        <translation>Impedance(Ω)</translation>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="461"/>
+        <source>标准负载:</source>
+        <translation>標準負載:</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="541"/>
         <source>开路(&amp;O)</source>
-        <translation>Open(&amp;O)</translation>
+        <translation>開路（&amp;0）</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="560"/>
         <source>短路(&amp;S)</source>
-        <translation>Short(&amp;S)</translation>
+        <translation>短路（&amp;S）</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="579"/>
         <source>负载(&amp;L)</source>
-        <translation>Load(&amp;L)</translation>
+        <translation>負載（&amp;L）</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="596"/>
@@ -1980,12 +1685,12 @@ Channel</translation>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="738"/>
         <source>使用负载数据</source>
-        <translation>Use load data</translation>
+        <translation>使用負載資料</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="773"/>
         <source>测试(&amp;T)</source>
-        <translation>Test(&amp;T)</translation>
+        <translation>測試（&amp;T）</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="239"/>
@@ -1995,23 +1700,23 @@ Channel</translation>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="263"/>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="269"/>
         <source>没有数据</source>
-        <translation>No data</translation>
+        <translation>沒有資料</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="275"/>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="281"/>
         <source>点击输入</source>
-        <translation>Click input</translation>
+        <translation>點擊輸入</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="348"/>
         <source>输入标准阻抗</source>
-        <translation>Input standard impedance</translation>
+        <translation>輸入標準阻抗</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="363"/>
         <source>输入标准相位角</source>
-        <translation>Input standard angle</translation>
+        <translation>輸入標準相位角</translation>
     </message>
 </context>
 <context>
@@ -2019,49 +1724,49 @@ Channel</translation>
     <message>
         <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="20"/>
         <source>选择测试通道</source>
-        <translation>Selecte channel:</translation>
+        <translation>選擇測試通道</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="68"/>
         <source>选择的通道：</source>
-        <translation>Selecte channel:</translation>
+        <translation>選擇的通道：</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="113"/>
         <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="82"/>
         <source>选定前10通道</source>
-        <translation>Select 1-10 channel</translation>
+        <translation>選定前10通道</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="141"/>
         <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="105"/>
         <source>全选</source>
-        <translation>All</translation>
+        <translation>全選</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="182"/>
         <source>取消</source>
-        <translation>Cancel</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="207"/>
         <source>确定</source>
-        <translation>Ok</translation>
+        <translation>確定</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="19"/>
         <source>%1 通道</source>
-        <translation>%1 channel</translation>
+        <translation>%1 通道</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="78"/>
         <source>不选前10通道</source>
-        <translation>Don&apos;t select 1-10 channel</translation>
+        <translation>不選前10通道</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="101"/>
         <source>全不选</source>
-        <translation>Not all</translation>
+        <translation>全不選</translation>
     </message>
 </context>
 <context>
@@ -2069,12 +1774,12 @@ Channel</translation>
     <message>
         <location filename="../../ResonaceMode/clsControlBox.cpp" line="95"/>
         <source>等待开关闭合...</source>
-        <translation>Watting relay close...</translation>
+        <translation>等待開關閉合...</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/clsControlBox.cpp" line="104"/>
         <source>等待开关放开...</source>
-        <translation>Waiting relay release...</translation>
+        <translation>等待開關放開...</translation>
     </message>
 </context>
 <context>
@@ -2082,7 +1787,7 @@ Channel</translation>
     <message>
         <location filename="../../AnalysisMode/clsFit.ui" line="17"/>
         <source>选择适应</source>
-        <translation>Select fit</translation>
+        <translation>選擇適應</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsFit.ui" line="52"/>
@@ -2097,7 +1802,7 @@ Channel</translation>
     <message>
         <location filename="../../AnalysisMode/clsFit.ui" line="108"/>
         <source>全部</source>
-        <translation>All</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2110,12 +1815,12 @@ Channel</translation>
     <message>
         <location filename="../../MulitChannalBox/clsMRBDisplayPannel.ui" line="95"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;单击数字标签可以重复测试。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click the number label, do a repeat test.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;按一下數位標籤可以重複測試。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMRBDisplayPannel.ui" line="101"/>
         <source>99</source>
-        <translation>100Point {99?}</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMRBDisplayPannel.ui" line="139"/>
@@ -2125,16 +1830,12 @@ Channel</translation>
     <message>
         <location filename="../../MulitChannalBox/clsMRBDisplayPannel.cpp" line="69"/>
         <source>   没有测试结果</source>
-        <translation>   No test result</translation>
+        <translation>   沒有測試結果</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMRBDisplayPannel.cpp" line="95"/>
         <source>OFF</source>
         <translation></translation>
-    </message>
-    <message>
-        <source>无</source>
-        <translation type="vanished">N/A</translation>
     </message>
 </context>
 <context>
@@ -2147,7 +1848,7 @@ Channel</translation>
     <message>
         <location filename="../../AnalysisMode/clsMarkerItem.ui" line="76"/>
         <source>1</source>
-        <translation>1</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -2155,19 +1856,19 @@ Channel</translation>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="14"/>
         <source>仪表模式</source>
-        <translation>Meter Mode</translation>
+        <translation>儀錶模式</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="57"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;单击可以进行一次测试。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click to perform a test.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;按一下可以進行一次測試。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="60"/>
         <source>单次
 测试</source>
-        <translation>Single
-Shot</translation>
+        <translation>單次
+測試</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="74"/>
@@ -2178,32 +1879,39 @@ Shot</translation>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="99"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;单击可以进行连续测试。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click this button to do repeat test.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;按一下可以進行連續測試。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="102"/>
+        <source>连续
+测试</source>
+        <translation>連續
+測試</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="138"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;单击可以进行探测产品&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click this button to detect production&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;按一下可以進行探測產品&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="141"/>
         <source>开始
 探测</source>
-        <translation>Start
-Detect</translation>
+        <translation>開始
+探測</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="180"/>
         <location filename="../../MeterMode/clsMeterMode.ui" line="391"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;停止探测产品&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Stop detect&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;停止探測產品&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="183"/>
         <source>停止
 测试</source>
-        <translation>Stop
-Test</translation>
+        <translation>停止
+測試</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="197"/>
@@ -2214,36 +1922,103 @@ Test</translation>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="235"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;新建一个测试程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New test program&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;新建一個測試程式&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="238"/>
+        <source>新建
+程序</source>
+        <translation>新建
+程式</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="274"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;打开一个测试程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Open test program&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;打開一個測試程式&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="277"/>
         <source>打开
 程序</source>
-        <translation>Open
-Program</translation>
+        <translation>打開
+程式</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="313"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存测试程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存測試程式&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="316"/>
+        <source>保存
+程序</source>
+        <translation>保存
+程式</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="352"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;设置测试程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;設置測試程式&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="355"/>
+        <source>测试
+设置</source>
+        <translation>測試
+設置</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="394"/>
         <source>导出
 报告</source>
-        <translation>Export
-Report</translation>
+        <translation>會出
+報告</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="433"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存测试数据，可以新建一个数据文件，也可以写入上次存储的数据文件。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save test data,you can save a new data file, or select last data file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存測試資料，可以新建一個資料檔案，也可以寫入上次存儲的資料檔案。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="436"/>
+        <source>保存
+数据</source>
+        <translation>保存
+數據</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="472"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;单击此按钮，进行仪表的校准。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;按一下此按鈕，進行儀錶的校準。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="475"/>
+        <source>仪表
+校准</source>
+        <translation>儀錶
+校準</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="511"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;软件的运行选项设定。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;軟體的運行選項設定。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="514"/>
+        <source>高级
+设定</source>
+        <translation>高級
+設定</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="596"/>
+        <source>TextLabel</source>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="633"/>
         <source>测试文件：</source>
-        <translation>Test program:</translation>
+        <translation>測試文件：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="646"/>
@@ -2255,18 +2030,18 @@ Report</translation>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="659"/>
         <source>存储类型：</source>
-        <translation>Storage type:</translation>
+        <translation>存儲類型：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="672"/>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="545"/>
         <source>全部</source>
-        <translation>All</translation>
+        <translation>全部</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="685"/>
         <source>通过数量：</source>
-        <translation>Pass number:</translation>
+        <translation>通過數量：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="701"/>
@@ -2278,229 +2053,83 @@ Report</translation>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="714"/>
         <source>数据文件：</source>
-        <translation>Data file:</translation>
+        <translation>資料檔案：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="740"/>
         <source>测试数量：</source>
-        <translation>Test number:</translation>
+        <translation>測試數量：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="769"/>
         <source>失败数量：</source>
-        <translation>Fail number:</translation>
+        <translation>失敗數量：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="803"/>
         <source>测试结果显示</source>
-        <translation>Test result display</translation>
-    </message>
-    <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="238"/>
-        <source>新建
-程序</source>
-        <translation>New
-Program</translation>
-    </message>
-    <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="316"/>
-        <source>保存
-程序</source>
-        <translation>Save 
-Program</translation>
-    </message>
-    <message>
-        <source>单步
-测试</source>
-        <translation type="vanished">Single
-Test</translation>
-    </message>
-    <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="102"/>
-        <source>连续
-测试</source>
-        <translation>Repetive
-Test</translation>
-    </message>
-    <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="313"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存测试程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save test program&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="352"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;设置测试程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set test program&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="355"/>
-        <source>测试
-设置</source>
-        <translation>Set
-Program</translation>
-    </message>
-    <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存测试程序，可以新建一个数据文件也可以，写入上次存储的数据文件。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="obsolete">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存测试程序，可以新建一个数据文件也可以，写入上次存储的数据文件。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="436"/>
-        <source>保存
-数据</source>
-        <translation>Save
-Data</translation>
-    </message>
-    <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="472"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;单击此按钮，进行仪表的校准。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click this button, to do instrument calibration.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="475"/>
-        <source>仪表
-校准</source>
-        <translation>Calib-
-ration</translation>
-    </message>
-    <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="511"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;软件的运行选项设定。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Software running settings&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
-    </message>
-    <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="514"/>
-        <source>高级
-设定</source>
-        <translation>Advanced
-Settings</translation>
-    </message>
-    <message>
-        <source>显示
-设置</source>
-        <translation type="vanished">Show
-Setup</translation>
-    </message>
-    <message>
-        <source>测试程序设定</source>
-        <translation type="vanished">Edit test program</translation>
-    </message>
-    <message>
-        <source>单步测试结果显示</source>
-        <translation type="vanished">Single test result display</translation>
-    </message>
-    <message>
-        <source>步骤操作</source>
-        <translation type="vanished">Step operation</translation>
-    </message>
-    <message>
-        <source>保存</source>
-        <translation type="vanished">Save</translation>
-    </message>
-    <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="596"/>
-        <source>TextLabel</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>步骤导航</source>
-        <translation type="vanished">Step navigation</translation>
-    </message>
-    <message>
-        <source>删除</source>
-        <translation type="vanished">Delete</translation>
-    </message>
-    <message>
-        <source>添加</source>
-        <translation type="vanished">Add</translation>
-    </message>
-    <message>
-        <source>测试步骤类型</source>
-        <translation type="vanished">Test step type</translation>
-    </message>
-    <message>
-        <source>仪表</source>
-        <translation type="vanished">Meter</translation>
-    </message>
-    <message>
-        <source>附加功能</source>
-        <translation type="vanished">Useful fuction</translation>
-    </message>
-    <message>
-        <source>测试步骤信息显示</source>
-        <translation type="vanished">Test step information</translation>
-    </message>
-    <message>
-        <source>测试状态显示</source>
-        <translation type="vanished">Test status display</translation>
-    </message>
-    <message>
-        <source>测试步骤设定</source>
-        <translation type="vanished">Test step display</translation>
-    </message>
-    <message>
-        <source>&lt;font color=red&gt; 请选择测试步骤类型，然后在点击添加！&lt;/font&gt;</source>
-        <translation type="vanished">&lt;font color=red&gt; Please select test step,then click Add button&lt;/font&gt;</translation>
+        <translation>測試結果顯示</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="52"/>
         <source>设置测试步骤</source>
-        <translation>Set test steps</translation>
+        <translation>設置測試步驟</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="126"/>
         <source>保存测试任务</source>
-        <translation>Save test program</translation>
+        <translation>保存測試任務</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="127"/>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="156"/>
         <source>WKE FactoryView 任务 (*.wket)</source>
-        <translation>WKE FactoryView program (*.wket)</translation>
+        <translation>WKE FactoryView 任務 (*.wket)</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="155"/>
         <source>打开测试任务</source>
-        <translation>Open test program</translation>
+        <translation>打開測試任務</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="209"/>
         <source>打开的任务不是这个仪表能够测试的任务！</source>
-        <translation>Open the test program not for this instrument!</translation>
+        <translation>打開的任務不是這個儀錶能夠測試的任務！</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="239"/>
         <source>序号</source>
-        <translation>No</translation>
+        <translation>序號</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="239"/>
         <source>项目</source>
-        <translation>Item</translation>
+        <translation>項目</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="239"/>
         <source>下限</source>
-        <translation>Low-Limit</translation>
+        <translation>下限</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="239"/>
         <source>测试值</source>
-        <translation>Test value</translation>
+        <translation>測試值</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="239"/>
         <source>上限</source>
-        <translation>Hi-Limit</translation>
+        <translation>上限</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="239"/>
         <source>判定</source>
-        <translation>Status</translation>
+        <translation>判定</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="239"/>
         <source>描述</source>
-        <translation>Description</translation>
+        <translation>描述</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="415"/>
@@ -2515,45 +2144,37 @@ Setup</translation>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="528"/>
         <source>保存测试数据</source>
-        <translation>Save test data</translation>
+        <translation>保存測試資料</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="528"/>
         <source>CSV逗号分割文件(*.csv)</source>
-        <translation>CSV comma-separated file(*.csv)</translation>
+        <translation>CSV逗號分割檔(*.csv)</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="548"/>
         <source>通过</source>
-        <translation>Pass</translation>
+        <translation>通過</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="551"/>
         <source>失败</source>
-        <translation>Fail</translation>
+        <translation>失敗</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="559"/>
         <source>软件触发</source>
-        <translation>Software trig</translation>
+        <translation>軟體觸發</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="569"/>
         <source>ADU200触发</source>
-        <translation>Adu200 trig</translation>
+        <translation>ADU200觸發</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="584"/>
         <source>自动探测样品触发</source>
-        <translation>Auto detect production</translation>
-    </message>
-    <message>
-        <source>内容</source>
-        <translation type="vanished">Content</translation>
-    </message>
-    <message>
-        <source>&lt;font color=red&gt;请选择要保存的步骤！&lt;/font&gt;</source>
-        <translation type="vanished">&lt;font color=red&gt;Please seletct the step need saved!&lt;/font&gt;</translation>
+        <translation>自動探測樣品觸發</translation>
     </message>
 </context>
 <context>
@@ -2561,89 +2182,89 @@ Setup</translation>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="20"/>
         <source>测试设定</source>
-        <translation>Test Settings</translation>
+        <translation>測試設定</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="39"/>
         <source>触发方式</source>
-        <translation>Trigger type</translation>
+        <translation>觸發方式</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="51"/>
         <source>软件触发</source>
-        <translation>Software trig</translation>
+        <translation>軟體觸發</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="67"/>
         <source>ADU200 触发,忙碌K2,通过K1, 失败K0</source>
-        <translation>Adu200 trig,Busy K2,Pass K1,Fail K0</translation>
+        <translation>ADU200 觸發,忙碌K2,通過K1, 失敗K0</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="82"/>
         <source>自动探测样品触发</source>
-        <translation>Auto detect trigger</translation>
+        <translation>自動探測樣品觸發</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="95"/>
         <source>前延时(ms):</source>
-        <translation>Pre-Delay:</translation>
+        <translation>前延時(ms):</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="121"/>
         <source>后延时(ms):</source>
-        <translation>After delay:</translation>
+        <translation>後延時(ms):</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="156"/>
         <source>保存结果类型</source>
-        <translation>Save result type</translation>
+        <translation>保存結果類型</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="168"/>
         <source>全部</source>
-        <translation>All</translation>
+        <translation>全部</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="184"/>
         <source>通过</source>
-        <translation>Pass</translation>
+        <translation>通過</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="197"/>
         <source>失败</source>
-        <translation>Fail</translation>
+        <translation>失敗</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="213"/>
         <source>序号</source>
-        <translation>No</translation>
+        <translation>序號</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="225"/>
         <source>输入序号：</source>
-        <translation>Input start No</translation>
+        <translation>輸入序號：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="259"/>
         <source>显示设定</source>
-        <translation>Display</translation>
+        <translation>顯示設定</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="271"/>
         <source>显示单次
 测试结果</source>
-        <translation>Display single
-test Result</translation>
+        <translation>顯示單次
+測試結果</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="311"/>
         <source>确定</source>
-        <translation>Ok</translation>
+        <translation>確定</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="330"/>
         <source>取消</source>
-        <translation>Cancel</translation>
+        <translation>取消</translation>
     </message>
 </context>
 <context>
@@ -2651,7 +2272,7 @@ test Result</translation>
     <message>
         <location filename="../../MeterMode/clsMeterUnit.ui" line="20"/>
         <source>设置单位</source>
-        <translation>Set unit</translation>
+        <translation>設置單位</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterUnit.ui" line="68"/>
@@ -2700,12 +2321,12 @@ test Result</translation>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="14"/>
         <source>WK 仪表设置</source>
-        <translation>WK Instrument settings</translation>
+        <translation>WK 儀錶設置</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="32"/>
         <source>测试参数设置</source>
-        <translation>Test settings</translation>
+        <translation>測試參數設置</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="59"/>
@@ -2715,13 +2336,13 @@ test Result</translation>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="73"/>
         <source>驱动信号：</source>
-        <translation>Drive</translation>
+        <translation>驅動信號：</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="87"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="576"/>
         <source>频率：</source>
-        <translation>Freq:</translation>
+        <translation>頻率：</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="109"/>
@@ -2733,40 +2354,40 @@ test Result</translation>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="126"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="541"/>
         <source>电平：</source>
-        <translation>Level:</translation>
+        <translation>電平：</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="148"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="563"/>
         <source>1.000V</source>
-        <translation>1.000V</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="166"/>
         <source>档位速度</source>
-        <translation>Range &amp;&amp; Speed</translation>
+        <translation>檔位速度</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="184"/>
         <source>自动</source>
-        <translation>Auto</translation>
+        <translation>自動</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="203"/>
         <source>最快</source>
-        <translation>Max</translation>
+        <translation>最快</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="222"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="633"/>
         <source>串联</source>
-        <translation>Series</translation>
+        <translation>串聯</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="242"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="666"/>
         <source>测量项目1</source>
-        <translation>Test Item1</translation>
+        <translation>測量項目1</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="262"/>
@@ -2780,7 +2401,7 @@ test Result</translation>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="715"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="846"/>
         <source>单位：</source>
-        <translation>Unit：</translation>
+        <translation>單位：</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="291"/>
@@ -2788,7 +2409,7 @@ test Result</translation>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="731"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="862"/>
         <source>限定：</source>
-        <translation>Limit:</translation>
+        <translation>限定：</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="307"/>
@@ -2802,19 +2423,19 @@ test Result</translation>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="323"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="680"/>
         <source>项目1：</source>
-        <translation>Item 1:</translation>
+        <translation>項目1：</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="378"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="794"/>
         <source>测量项目2</source>
-        <translation>Test Item2</translation>
+        <translation>測量項目2</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="395"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="811"/>
         <source>项目2：</source>
-        <translation>Item 2:</translation>
+        <translation>項目2：</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="417"/>
@@ -2830,17 +2451,17 @@ test Result</translation>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="515"/>
         <source>打开测试项目2</source>
-        <translation>Open Test2</translation>
+        <translation>打開測試項目2</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="611"/>
         <source>等效电路：</source>
-        <translation>Equcct:</translation>
+        <translation>等效電路：</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="944"/>
         <source>确定</source>
-        <translation>OK</translation>
+        <translation>確定</translation>
     </message>
 </context>
 <context>
@@ -2848,13 +2469,7 @@ test Result</translation>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="14"/>
         <source>多通道测试</source>
-        <translation>Multi-channel tester</translation>
-    </message>
-    <message>
-        <source>单次
-测试</source>
-        <translation type="vanished">Single
-Shot</translation>
+        <translation>多通道測試</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="62"/>
@@ -2863,86 +2478,86 @@ Shot</translation>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="412"/>
         <source>开始
 测试</source>
-        <translation>Start
-Test</translation>
+        <translation>開始
+測試</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="97"/>
         <source>测试
 设定</source>
-        <translation>Meas
-Setup</translation>
+        <translation>測試
+設定</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="129"/>
         <source>选择
 通道</source>
-        <translation>Channel
-Setup</translation>
+        <translation>選擇
+通道</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="174"/>
         <source>切换
 模式</source>
-        <translation>Switch
-Mode</translation>
+        <translation>切換
+模式</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="206"/>
         <source>通道
 校准</source>
-        <translation>Channel
-Calibrate</translation>
+        <translation>通道
+校準</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="238"/>
         <source>运行
 设定</source>
-        <translation>Running
-Settings</translation>
+        <translation>運行
+設定</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="270"/>
         <source>打开
 设置</source>
-        <translation>Open
-Settings</translation>
+        <translation>打開
+設置</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="302"/>
         <source>保存
 设置</source>
-        <translation>Save
-Settings</translation>
+        <translation>保存
+設置</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="334"/>
         <source>通道
 测试</source>
-        <translation>Channel
-Test</translation>
+        <translation>通道
+測試</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="366"/>
         <source>打开
 通信</source>
-        <translation>Open
-Communication</translation>
+        <translation>打開
+通信</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="582"/>
         <source>显示参数</source>
-        <translation>Disp. paremeter</translation>
+        <translation>顯示參數</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="596"/>
         <source>项目：</source>
-        <translation>Item:</translation>
+        <translation>項目：</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="626"/>
         <source>采样延时：</source>
-        <translation>Sample Delay:</translation>
+        <translation>採樣延時：</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="648"/>
@@ -2952,7 +2567,7 @@ Communication</translation>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="671"/>
         <source>测试次数：</source>
-        <translation>Test count:</translation>
+        <translation>測試次數：</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="687"/>
@@ -2963,35 +2578,35 @@ Communication</translation>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="707"/>
         <source>周期时间：</source>
-        <translation>Cycle Time:</translation>
+        <translation>週期時間：</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="743"/>
         <source>数据文件夹：</source>
-        <translation>Data Folder:</translation>
+        <translation>資料檔案夾：</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="765"/>
         <source>打开</source>
-        <translation>Open</translation>
+        <translation>打開</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="787"/>
         <source>通道</source>
-        <translation>Channels</translation>
+        <translation>通道</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="900"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;快捷键 &lt;span style=&quot; font-weight:600;&quot;&gt;F2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Shortcut &lt;span style=&quot; font-weight:600;&quot;&gt;F2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;快速鍵 &lt;span style=&quot; font-weight:600;&quot;&gt;F2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="903"/>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="508"/>
         <source>显示
 状态</source>
-        <translation>Display
-Status</translation>
+        <translation>顯示
+狀態</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="917"/>
@@ -3003,14 +2618,14 @@ Status</translation>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="963"/>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="1006"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;快捷键 &lt;span style=&quot; font-weight:600;&quot;&gt;F3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Shortcut &lt;span style=&quot; font-weight:600;&quot;&gt;F3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;快速鍵 &lt;span style=&quot; font-weight:600;&quot;&gt;F3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="936"/>
         <source>清除
 数据</source>
-        <translation>Clear
-Data</translation>
+        <translation>清除
+數據</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="950"/>
@@ -3023,51 +2638,51 @@ Data</translation>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="966"/>
         <source>保存
 图像</source>
-        <translation>Save
-Image</translation>
+        <translation>保存
+圖像</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="1009"/>
         <source>软件
 信息</source>
-        <translation>SoftWare
-Info</translation>
+        <translation>軟體
+信息</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="193"/>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="248"/>
         <source>保存多通道测试文件</source>
-        <translation>Save multi-channel test file</translation>
+        <translation>保存多通道測試檔</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="195"/>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="250"/>
         <source>多通道测试文件 (*.wkm)</source>
-        <translation>Multi-channel test file (*.wkm)</translation>
+        <translation>多通道測試檔 (*.wkm)</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="343"/>
         <source>停止
 测试</source>
-        <translation>Stop
-Test</translation>
+        <translation>停止
+測試</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="502"/>
         <source>显示
 数据</source>
-        <translation>Display
-Data</translation>
+        <translation>顯示
+數據</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="568"/>
         <source>通道:	</source>
-        <translation>Channel:	</translation>
+        <translation>通道:	</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="665"/>
         <source>关于本软件</source>
-        <translation>About me</translation>
+        <translation>關於本軟體</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="674"/>
@@ -3077,7 +2692,7 @@ Data</translation>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="676"/>
         <source>保存测试图像</source>
-        <translation>Save test image</translation>
+        <translation>保存測試圖像</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="678"/>
@@ -3090,12 +2705,12 @@ Data</translation>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="20"/>
         <source>多通道运行设定</source>
-        <translation>Multi-channel Running settings</translation>
+        <translation>多通道運行設定</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="41"/>
         <source>切换通道时延时：</source>
-        <translation>Switch channel delay:</translation>
+        <translation>切換通道時延時：</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="57"/>
@@ -3105,22 +2720,22 @@ Data</translation>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="94"/>
         <source>是否使用负载数据</source>
-        <translation>Use the load data</translation>
+        <translation>是否使用負載資料</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="106"/>
         <source>使用负载数据，如果存在负载数据。</source>
-        <translation>Use the load data, if available.</translation>
+        <translation>使用負載資料，如果存在負載資料。</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="146"/>
         <source>确定</source>
-        <translation>Ok</translation>
+        <translation>確定</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="165"/>
         <source>取消</source>
-        <translation>Cancel</translation>
+        <translation>取消</translation>
     </message>
 </context>
 <context>
@@ -3128,12 +2743,12 @@ Data</translation>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="20"/>
         <source>设置一个限定</source>
-        <translation>Set a limit</translation>
+        <translation>設置一個限定</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="39"/>
         <source>频率范围：</source>
-        <translation>Frequency range:</translation>
+        <translation>頻率範圍：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="78"/>
@@ -3145,44 +2760,44 @@ Data</translation>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="97"/>
         <source>第一参数上下限：</source>
-        <translation>Set item1 limit:</translation>
+        <translation>第一參數上下限：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="158"/>
         <source>第二参数上下限：</source>
-        <translation>Set item2 limit:</translation>
+        <translation>第二參數上下限：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="246"/>
         <source>取消</source>
-        <translation>Cancel</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="265"/>
         <source>确定</source>
-        <translation>Ok</translation>
+        <translation>確定</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitSetting.cpp" line="31"/>
         <source>%1 上下限</source>
-        <translation>%1 limit</translation>
+        <translation>%1 上下限</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitSetting.cpp" line="32"/>
         <source>%2上下限</source>
-        <translation>%2 limit</translation>
+        <translation>%2上下限</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitSetting.cpp" line="53"/>
         <location filename="../../AnalysisMode/clsMultiLimitSetting.cpp" line="67"/>
         <location filename="../../AnalysisMode/clsMultiLimitSetting.cpp" line="81"/>
         <source>设定%1上下限</source>
-        <translation>Set %1 limit</translation>
+        <translation>設定%1上下限</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitSetting.cpp" line="81"/>
         <source>频率</source>
-        <translation>frequency</translation>
+        <translation>頻率</translation>
     </message>
 </context>
 <context>
@@ -3190,43 +2805,43 @@ Data</translation>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitStatusShow.ui" line="20"/>
         <source>限制显示</source>
-        <translation>Limit dispaly</translation>
+        <translation>限制顯示</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitStatusShow.cpp" line="41"/>
         <source>频率范围</source>
-        <translation>Frequency range</translation>
+        <translation>頻率範圍</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitStatusShow.cpp" line="41"/>
         <source> %1 上下限</source>
-        <translation>%1 limit</translation>
+        <translation> %1 上下限</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitStatusShow.cpp" line="41"/>
         <location filename="../../AnalysisMode/clsMultiLimitStatusShow.cpp" line="179"/>
         <source>状态</source>
-        <translation>Status</translation>
+        <translation>狀態</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitStatusShow.cpp" line="91"/>
         <source>扫描范围</source>
-        <translation>Sweep range</translation>
+        <translation>掃描範圍</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitStatusShow.cpp" line="174"/>
         <source>&lt;font color=&quot;green&quot;&gt;通过&lt;/font&gt;</source>
-        <translation>&lt;font color=&quot;green&quot;&gt;Pass&lt;/font&gt;</translation>
+        <translation>&lt;font color=&quot;green&quot;&gt;通過&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitStatusShow.cpp" line="174"/>
         <source>&lt;font color=&quot;red&quot;&gt;失败&lt;/font&gt;</source>
-        <translation>&lt;font color=&quot;red&quot;&gt;Fail&lt;/font&gt;</translation>
+        <translation>&lt;font color=&quot;red&quot;&gt;失敗&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitStatusShow.cpp" line="176"/>
         <source>频率：%1,%2:%3,%4:%5,%6:(%7)</source>
-        <translation>Frequency:%1,%2:%3,%4:%5,%6:(%7)</translation>
+        <translation>頻率：%1,%2:%3,%4:%5,%6:(%7)</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitStatusShow.cpp" line="190"/>
@@ -3244,7 +2859,7 @@ Data</translation>
     <message>
         <location filename="../../AnalysisMode/clsSelectedRef.ui" line="20"/>
         <source>对比曲线</source>
-        <translation>Reference Trace</translation>
+        <translation>對比曲線</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsSelectedRef.ui" line="113"/>
@@ -3303,7 +2918,7 @@ Data</translation>
     <message>
         <location filename="../../AnalysisMode/clsSelectedRef.ui" line="361"/>
         <source>取消</source>
-        <translation>Cancel</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsSelectedRef.ui" line="330"/>
@@ -3321,12 +2936,12 @@ Data</translation>
     <message>
         <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="14"/>
         <source>对比曲线属性</source>
-        <translation>Reference Trace Property</translation>
+        <translation>對比曲線屬性</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="34"/>
         <source>曲线属性</source>
-        <translation>Trace Property</translation>
+        <translation>曲線屬性</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="58"/>
@@ -3336,45 +2951,44 @@ Data</translation>
     <message>
         <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="86"/>
         <source>关</source>
-        <translation>OFF</translation>
+        <translation>關</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="117"/>
         <source>保存
 当前</source>
-        <translatorcomment>Save current </translatorcomment>
-        <translation>Save
-Curr</translation>
+        <translation>保存
+當前</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="152"/>
         <source>曲线A</source>
-        <translation>Curve A</translation>
+        <translation>曲線A</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="165"/>
         <source>曲线B</source>
-        <translation>Curve B</translation>
+        <translation>曲線B</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="248"/>
         <source>相关信息</source>
-        <translation>Related Information</translation>
+        <translation>相關資訊</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="261"/>
         <source>名称：</source>
-        <translation>Name:</translation>
+        <translation>名稱：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="312"/>
         <source>取消</source>
-        <translation>Cancel</translation>
+        <translation>取消</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="334"/>
         <source>确定</source>
-        <translation>OK</translation>
+        <translation>確定</translation>
     </message>
 </context>
 <context>
@@ -3387,112 +3001,98 @@ Curr</translation>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.ui" line="53"/>
         <source>新建</source>
-        <translation>New step</translation>
-    </message>
-    <message>
-        <source>测试</source>
-        <translation type="vanished">Test</translation>
-    </message>
-    <message>
-        <source>保存</source>
-        <translation type="vanished">Save step</translation>
+        <translation>新建</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.ui" line="88"/>
         <source>测试
 此步</source>
-        <translation>Test
-Step</translation>
-    </message>
-    <message>
-        <source>双击
-保存</source>
-        <translation type="vanished">Dbl-Click
-Save</translation>
+        <translation>測試
+此步</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.ui" line="124"/>
         <source>保存
 步骤</source>
-        <translation>Save
-Step</translation>
+        <translation>保存
+步驟</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.ui" line="173"/>
         <source>关闭
 Bias</source>
-        <translation>Turn off
+        <translation>關閉
 Bias</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.ui" line="222"/>
         <source>单步测试结果显示</source>
-        <translation>Single test result display</translation>
+        <translation>單步測試結果顯示</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.ui" line="268"/>
         <source>步骤预览</source>
-        <translation>Steps display</translation>
+        <translation>步驟預覽</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.ui" line="298"/>
         <source>向上</source>
-        <translation>Up</translation>
+        <translation>向上</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.ui" line="327"/>
         <source>向下</source>
-        <translation>Down</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.ui" line="356"/>
         <source>删除</source>
-        <translation>Delete</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.ui" line="385"/>
         <source>清空</source>
-        <translation>Clear</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.ui" line="415"/>
         <source>设置测试步骤</source>
-        <translation>Set test steps</translation>
+        <translation>設置測試步驟</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.ui" line="463"/>
         <source>确定</source>
-        <translation>Ok</translation>
+        <translation>確定</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.ui" line="485"/>
         <source>取消</source>
-        <translation>Cancel</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.cpp" line="13"/>
         <source>没有数据可以显示</source>
-        <translation>No data to display</translation>
+        <translation>沒有資料可以顯示</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.cpp" line="36"/>
         <source>序号</source>
-        <translation>No</translation>
+        <translation>序號</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.cpp" line="37"/>
         <source>简述</source>
-        <translation>Brief</translation>
+        <translation>簡述</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.cpp" line="149"/>
         <source>更新测试条件</source>
-        <translation>Updating test condition</translation>
+        <translation>更新測試條件</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsSetTestStep.cpp" line="151"/>
         <source>正在测试</source>
-        <translation>Test in progress</translation>
+        <translation>正在測試</translation>
     </message>
 </context>
 <context>
@@ -3500,12 +3100,12 @@ Bias</translation>
     <message>
         <location filename="../../MeterMode/clsShowReport.ui" line="14"/>
         <source>导出报告</source>
-        <translation>Export Report</translation>
+        <translation>匯出報告</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsShowReport.ui" line="35"/>
         <source>总规范</source>
-        <translation>Totle Spec</translation>
+        <translation>總規範</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsShowReport.ui" line="54"/>
@@ -3515,7 +3115,7 @@ Bias</translation>
     <message>
         <location filename="../../MeterMode/clsShowReport.ui" line="67"/>
         <source>型号规格</source>
-        <translation>Type Spec</translation>
+        <translation>型號規格</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsShowReport.ui" line="86"/>
@@ -3525,7 +3125,7 @@ Bias</translation>
     <message>
         <location filename="../../MeterMode/clsShowReport.ui" line="99"/>
         <source>详细规范</source>
-        <translation>Detail Spec</translation>
+        <translation>詳細規範</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsShowReport.ui" line="118"/>
@@ -3535,57 +3135,57 @@ Bias</translation>
     <message>
         <location filename="../../MeterMode/clsShowReport.ui" line="131"/>
         <source>生产批号</source>
-        <translation>Product No</translation>
+        <translation>生產批號</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsShowReport.ui" line="150"/>
         <source>256</source>
-        <translation>100Point {256?}</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsShowReport.ui" line="163"/>
         <source>检验批号</source>
-        <translation>Test No</translation>
+        <translation>檢驗批號</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsShowReport.ui" line="182"/>
         <source>759</source>
-        <translation>100Point {759?}</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsShowReport.ui" line="195"/>
         <source>测试仪器</source>
-        <translation>Test machine</translation>
+        <translation>測試儀器</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsShowReport.ui" line="227"/>
         <source>数量（只）</source>
-        <translation>Test Number</translation>
+        <translation>數量（只）</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsShowReport.ui" line="259"/>
         <source>测试频率</source>
-        <translation>Test Freq.</translation>
+        <translation>測試頻率</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsShowReport.ui" line="314"/>
         <source>关闭</source>
-        <translation>Close</translation>
+        <translation>關閉</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsShowReport.ui" line="333"/>
         <source>导出</source>
-        <translation>Export</translation>
+        <translation>匯出</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsShowReport.cpp" line="26"/>
         <source>导出报表</source>
-        <translation>Export Report</translation>
+        <translation>匯出報表</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsShowReport.cpp" line="26"/>
         <source>没有可用的数据，用于导出报表！</source>
-        <translation>No data available for report!</translation>
+        <translation>沒有可用的資料，用於匯出報表！</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsShowReport.cpp" line="149"/>
@@ -3601,7 +3201,7 @@ Bias</translation>
         <location filename="../../MeterMode/clsShowReport.cpp" line="161"/>
         <location filename="../../MeterMode/clsShowReport.cpp" line="168"/>
         <source>串联</source>
-        <translation>Series</translation>
+        <translation>串聯</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsShowReport.cpp" line="166"/>
@@ -3611,7 +3211,7 @@ Bias</translation>
     <message>
         <location filename="../../MeterMode/clsShowReport.cpp" line="303"/>
         <source>保存Excel文件</source>
-        <translation>Save Excel file</translation>
+        <translation>保存Excel檔</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsShowReport.cpp" line="304"/>
@@ -3624,7 +3224,7 @@ Bias</translation>
     <message>
         <location filename="../../ResonaceMode/clsSignalThread.cpp" line="67"/>
         <source>已经捕获触发信号..</source>
-        <translation>Trig signal captrued...</translation>
+        <translation>已經捕獲觸發信號..</translation>
     </message>
 </context>
 <context>
@@ -3632,17 +3232,17 @@ Bias</translation>
     <message>
         <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="20"/>
         <source>测试多通道控制箱</source>
-        <translation>Test switch box</translation>
+        <translation>測試多通道控制箱</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="61"/>
         <source>20个通道循环转换</source>
-        <translation>20 channel cycle conversion</translation>
+        <translation>20個通道迴圈轉換</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="81"/>
         <source>切换到通道:</source>
-        <translation>Switch to channel</translation>
+        <translation>切換到通道:</translation>
     </message>
 </context>
 <context>
@@ -3650,9 +3250,7 @@ Bias</translation>
     <message>
         <location filename="../../AnalysisMode/clsTimeMeasument.cpp" line="48"/>
         <source>&lt;font size=&quot;3&quot; color=&quot;red&quot;&gt;时间间隔太短，不支持%1点.</source>
-        <oldsource>&lt;font size=&quot;3&quot; color=&quot;red&quot;&gt;æ¶é´é´éå¤ªç­ï¼ä¸æ¯æ%1ç¹.</oldsource>
-        <translatorcomment>&lt;font size=&quot;3&quot; color=&quot;red&quot;&gt;时间间隔太短，不支持%1 点。</translatorcomment>
-        <translation>&lt;font size=&quot;3&quot; color=&quot;red&quot;&gt;The time interval is too short, do not support %1 points.</translation>
+        <translation>&lt;font size=&quot;3&quot; color=&quot;red&quot;&gt;時間間隔太短，不支援%1點.</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsTimeMeasument.cpp" line="50"/>
@@ -3665,31 +3263,27 @@ Bias</translation>
     <message>
         <location filename="../../AnalysisMode/clsViewResult.ui" line="26"/>
         <source>浏览测量结果</source>
-        <translation>View Results</translation>
+        <translation>流覽測量結果</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsViewResult.ui" line="72"/>
         <source>取消</source>
-        <translation>Cancel</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsViewResult.ui" line="109"/>
         <source>第</source>
-        <translation>The</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsViewResult.ui" line="138"/>
         <source>组</source>
-        <translation>Group</translation>
+        <translation>組</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsViewResult.ui" line="185"/>
         <source>保存</source>
-        <translation>Save</translation>
-    </message>
-    <message>
-        <source>??</source>
-        <translation type="obsolete">Series</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -3697,7 +3291,7 @@ Bias</translation>
     <message>
         <location filename="../../MeterMode/dlg4300FuctionMajor.ui" line="14"/>
         <source>设置测试参数</source>
-        <translation>Set test item</translation>
+        <translation>設置測試參數</translation>
     </message>
     <message>
         <location filename="../../MeterMode/dlg4300FuctionMajor.ui" line="58"/>
@@ -3765,7 +3359,7 @@ Bias</translation>
     <message>
         <location filename="../../MeterMode/dlg4300FunctionMinor.ui" line="14"/>
         <source>设置测试项目</source>
-        <translation>Set test item</translation>
+        <translation>設置測試項目</translation>
     </message>
     <message>
         <location filename="../../MeterMode/dlg4300FunctionMinor.ui" line="58"/>
@@ -3893,7 +3487,7 @@ Bias</translation>
     <message>
         <location filename="../../AnalysisMode/dlgFunction.ui" line="350"/>
         <source>取消</source>
-        <translation>Quit</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -4057,17 +3651,17 @@ Bias</translation>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="20"/>
         <source>设定曲线上下限</source>
-        <translation>Set curve limit</translation>
+        <translation>設定曲線上下限</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="61"/>
         <source>单一限制</source>
-        <translation>Single limit</translation>
+        <translation>單一限制</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="73"/>
         <source>第一条曲线上下限</source>
-        <translation>First curve limit</translation>
+        <translation>第一條曲線上下限</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="91"/>
@@ -4079,63 +3673,63 @@ Bias</translation>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="114"/>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="253"/>
         <source>上限：</source>
-        <translation>Hi:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="163"/>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="302"/>
         <source>下限：</source>
-        <translation>Low:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="212"/>
         <source>第二条曲线上下限</source>
-        <translation>Second curve limit</translation>
+        <translation>第二條曲線上下限</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="345"/>
         <source>多个限制</source>
-        <translation>Multi-limit</translation>
+        <translation>多個限制</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="365"/>
         <source>添加限制</source>
-        <translation>Add limit</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="384"/>
         <source>删除选择</source>
-        <translation>Del limit</translation>
+        <translation>刪除選擇</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="416"/>
         <source>清除所有</source>
-        <translation>Clear All</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="457"/>
         <source>播放声音</source>
-        <translation>Play sound</translation>
+        <translation>播放聲音</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="472"/>
         <source>通过声音</source>
-        <translation>Pass sound</translation>
+        <translation>通過聲音</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="491"/>
         <source>失败声音</source>
-        <translation>Fail sound</translation>
+        <translation>失敗聲音</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="528"/>
         <source>取消</source>
-        <translation>Cancel</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.ui" line="547"/>
         <source>确定</source>
-        <translation>Ok</translation>
+        <translation>確定</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.cpp" line="20"/>
@@ -4145,17 +3739,17 @@ Bias</translation>
         <location filename="../../AnalysisMode/dlgLimitSetup.cpp" line="145"/>
         <location filename="../../AnalysisMode/dlgLimitSetup.cpp" line="157"/>
         <source>设定 %1 上下限</source>
-        <translation>Set %1 limit</translation>
+        <translation>設定 %1 上下限</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.cpp" line="62"/>
         <source>频率范围</source>
-        <translation>Frequency range</translation>
+        <translation>頻率範圍</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgLimitSetup.cpp" line="62"/>
         <source> %1 上下限</source>
-        <translation>%1 limit</translation>
+        <translation>%1 上下限</translation>
     </message>
 </context>
 <context>
@@ -4169,36 +3763,36 @@ Bias</translation>
         <location filename="../../AnalysisMode/dlgSetupOp.ui" line="34"/>
         <source>打开
 配置文件</source>
-        <translation>Open
-Settings</translation>
+        <translation>打開
+設定檔</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgSetupOp.ui" line="48"/>
         <source>保存
 配置文件</source>
-        <translation>Save
-Settings</translation>
+        <translation>保存
+設定檔</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgSetupOp.ui" line="79"/>
         <source>关闭</source>
-        <translation>Close</translation>
+        <translation>關閉</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgSetupOp.cpp" line="14"/>
         <source>保存配置文件</source>
-        <translation>Save settings file</translation>
+        <translation>保存設定檔</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgSetupOp.cpp" line="15"/>
         <location filename="../../AnalysisMode/dlgSetupOp.cpp" line="30"/>
         <source>配置文件(*.ini)</source>
-        <translation>Settings file(*.ini)</translation>
+        <translation>設定檔(*.ini)</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgSetupOp.cpp" line="29"/>
         <source>打开配置文件</source>
-        <translation>Open Settings file</translation>
+        <translation>打開設定檔</translation>
     </message>
 </context>
 <context>
@@ -4206,17 +3800,17 @@ Settings</translation>
     <message>
         <location filename="../../AnalysisMode/dlgSort.ui" line="23"/>
         <source>选择排序方法</source>
-        <translation>Select sort method</translation>
+        <translation>選擇排序方法</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgSort.ui" line="55"/>
         <source>升序</source>
-        <translation>Asc</translation>
+        <translation>昇冪</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/dlgSort.ui" line="80"/>
         <source>降序</source>
-        <translation>Desc</translation>
+        <translation>降冪</translation>
     </message>
 </context>
 <context>
@@ -4224,47 +3818,31 @@ Settings</translation>
     <message>
         <location filename="../../Public/dlgSpeed.ui" line="23"/>
         <source>设置测量速度</source>
-        <translation>Set test speed</translation>
+        <translation>設置測量速度</translation>
     </message>
     <message>
         <location filename="../../Public/dlgSpeed.ui" line="75"/>
         <location filename="../../Public/dlgSpeed.cpp" line="12"/>
         <source>最快</source>
-        <translation>Max</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../Public/dlgSpeed.ui" line="106"/>
         <location filename="../../Public/dlgSpeed.cpp" line="18"/>
         <source>快速</source>
-        <translation>Fast</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../Public/dlgSpeed.ui" line="131"/>
         <location filename="../../Public/dlgSpeed.cpp" line="24"/>
         <source>中速</source>
-        <translation>Med</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../Public/dlgSpeed.ui" line="156"/>
         <location filename="../../Public/dlgSpeed.cpp" line="30"/>
         <source>慢速</source>
-        <translation>Slow</translation>
-    </message>
-    <message>
-        <source>æå¿«</source>
-        <translation type="obsolete">Max</translation>
-    </message>
-    <message>
-        <source>å¿«é</source>
-        <translation type="obsolete">Fast</translation>
-    </message>
-    <message>
-        <source>ä¸­é</source>
-        <translation type="obsolete">Med</translation>
-    </message>
-    <message>
-        <source>æ¢é</source>
-        <translation type="obsolete">Slow</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -4303,22 +3881,6 @@ Settings</translation>
         <location filename="../../AnalysisMode/dlgWk6440Function1.ui" line="132"/>
         <source>B</source>
         <translation></translation>
-    </message>
-    <message>
-        <source>å¹¶è</source>
-        <translation type="obsolete">Parallel</translation>
-    </message>
-    <message>
-        <source>ä¸²è</source>
-        <translation type="obsolete">Series</translation>
-    </message>
-    <message>
-        <source>并联</source>
-        <translation type="vanished">Parallel</translation>
-    </message>
-    <message>
-        <source>串联</source>
-        <translation type="vanished">Series</translation>
     </message>
 </context>
 <context>
@@ -4387,31 +3949,35 @@ WKE FactoryView2014联机测试软件，深圳市稳科电子仪器有限公司�
 
 软件作者：蔡同松
 电子邮件：Abama.cai@waynekerr.net</source>
-        <translation>Copyright Statement
+        <translation>版權聲明
 
-Copyright © 2014. Shenzhen Waynekerr Electronics Instrument Co.,Ltd. All rights reserved. Shenzhen Waynekerr Electronics Instrument Co.,Ltd has the ownership and interpretation of its English identity &quot;WKE&quot;, image logo and related intellectual property
-.
-Disclaimer
+WKE FactoryView2014軟體為深圳市穩科電子儀器有限公司所擁有，深圳市穩科電子儀器有限公司擁有對其英文標識 “WKE” 、中文標識“穩科電子”和圖像標識，以及相關軟 件智慧財產權的所有權和解釋權。 
 
-Shenzhen Waynekerr Electronics Instrument Co.,Ltd has the interpretation for WKE Factory View 2014 online test software. Please read below informations before use.
-  1.Please read related user manual in detail before use, especially the note part.
-  2.We will not provide related technology support if you use pirated software.
-  3. Any operation by mistake,e.g., disconnecting from analyte impertinently will cause damage to analyte by DC Bias. We will not assume any liability related.
-  4. The type of GPIB-PCI is NI USB-488.2 to adapt this application. We will not provide related technology support if you use others.
-  5.Any act to use, copy, modify, and distribute this software and its documentation is prohibited. Any related derivatives software without permission of Shenzhen Waynekerr Electronics Instrument Co.,Ltd is illegal, use of these softwares will cause unknown risks. We have no responsibility for any related legal dispute and will not provide any support.
+免責聲明
 
-Author:TongSong Cai
-Email:caicaiking@gmail.com</translation>
+WKE FactoryView2014連線測試軟體，深圳市穩科電子儀器有限公司擁有對其的解釋權。為避免產生任何風險，請您在使用此產品過程中注意以下事項： 
+ 1．在使用之前,請認真閱讀軟體的使用說明書,特別是注意事項部分。  
+
+2．如果使用盜版軟體或沒有經過公司出售,軟體作者不提供技術服務。  
+
+3． 在使用軟體時,未正確斷開測試連接部分,導致儀器偏置電壓或電流持續在產品上輸出,導致產品損壞,軟體作者及公司不負有責任。 
+
+ 4． 本軟體的GPIB連接的GPIB卡採用的是NI USB-488.2連接去測試,若採用其他品牌導致連接不穩定,或者無法正常連接,軟體作者和公司不提供任何的技術支援。  
+
+5．不得對本軟體進行反向工程、反向彙編、反向編譯等修改行為，非經深圳市穩科電子儀器有限公司授權開發並正式發佈的其它任何由本軟體衍生的軟體均屬非法，下載、安裝、使用此類軟體，將可能導致不可預知的風險，由此產生的一切法律責任與糾紛一概與深圳市穩科電子儀器有限公司無關，深圳市穩科電子儀器有限公司不對非官方版本軟體提供客服支援。  
+
+軟體作者：蔡同松
+電子郵件：Abama.cai@waynekerr.net</translation>
     </message>
     <message>
         <location filename="../../common/frmAbout.ui" line="135"/>
         <source>关于Qt</source>
-        <translation>About Qt</translation>
+        <translation>關於Qt</translation>
     </message>
     <message>
         <location filename="../../common/frmAbout.ui" line="167"/>
         <source>关闭</source>
-        <translation>Close</translation>
+        <translation>關閉</translation>
     </message>
 </context>
 <context>
@@ -4420,7 +3986,7 @@ Email:caicaiking@gmail.com</translation>
         <location filename="../../AnalysisMode/frmParameter.ui" line="14"/>
         <location filename="../../AnalysisMode/frmParameter.ui" line="48"/>
         <source>选择保存参数</source>
-        <translation>Select save parameters</translation>
+        <translation>選擇保存參數</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmParameter.ui" line="89"/>
@@ -4479,7 +4045,7 @@ Email:caicaiking@gmail.com</translation>
     <message>
         <location filename="../../AnalysisMode/frmParameter.ui" line="260"/>
         <source>确定</source>
-        <translation>Ok</translation>
+        <translation>確定</translation>
     </message>
 </context>
 <context>
@@ -4487,7 +4053,7 @@ Email:caicaiking@gmail.com</translation>
     <message>
         <location filename="../../AnalysisMode/frmPeakSearch.ui" line="20"/>
         <source>极值搜索</source>
-        <translation>Extreme search</translation>
+        <translation>極值搜索</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPeakSearch.ui" line="71"/>
@@ -4502,43 +4068,41 @@ Email:caicaiking@gmail.com</translation>
     <message>
         <location filename="../../AnalysisMode/frmPeakSearch.ui" line="150"/>
         <source>峰值</source>
-        <translation>Peak</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPeakSearch.ui" line="184"/>
         <source>谷值</source>
-        <translation>Dip</translation>
+        <translation>穀值</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPeakSearch.ui" line="224"/>
         <source>搜索
 峰值</source>
-        <translation>Search
-Peak</translation>
+        <translation>搜索
+峰值</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPeakSearch.ui" line="253"/>
         <source>搜索
 谷值</source>
-        <translation>Search
-Dip</translation>
+        <translation>搜索
+穀值</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPeakSearch.ui" line="289"/>
         <source>向左</source>
-        <translation>Next
-Left</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPeakSearch.ui" line="317"/>
         <source>向右</source>
-        <translation>Next
-Right</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPeakSearch.ui" line="352"/>
         <source>退出</source>
-        <translation>Exit</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -4546,12 +4110,12 @@ Right</translation>
     <message>
         <location filename="../../AnalysisMode/frmPointEditor.ui" line="29"/>
         <source>测试点选择</source>
-        <translation>Select test point</translation>
+        <translation>測試點選擇</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPointEditor.ui" line="64"/>
         <source>选择测试点数</source>
-        <translation>Select test points</translation>
+        <translation>選擇測試點數</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPointEditor.ui" line="108"/>
@@ -4601,73 +4165,57 @@ Right</translation>
     <message>
         <location filename="../../AnalysisMode/frmPointEditor.ui" line="387"/>
         <source>自定义</source>
-        <translation>Custom</translation>
+        <translation>自訂</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPointEditor.ui" line="412"/>
         <source>测试点显示和编辑</source>
-        <translation>Test points display and edit</translation>
+        <translation>測試點顯示和編輯</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPointEditor.ui" line="465"/>
         <source>添加点</source>
-        <translation>New Point</translation>
+        <translation>添加點</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPointEditor.ui" line="490"/>
         <source>排序</source>
-        <translation>Sort</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPointEditor.ui" line="515"/>
         <source>删除</source>
-        <translation>Delete</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPointEditor.ui" line="559"/>
         <source>确定</source>
-        <translation>Ok</translation>
+        <translation>確定</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPointEditor.ui" line="587"/>
         <source>取消</source>
-        <translation>Cancel</translation>
-    </message>
-    <message>
-        <source>åºå·</source>
-        <translation type="obsolete">No.</translation>
-    </message>
-    <message>
-        <source>æµè¯ç¹</source>
-        <translation type="obsolete">Test Points</translation>
-    </message>
-    <message>
-        <source>è¾å¥èªå®ä¹ç¹æ°</source>
-        <translation type="obsolete">Enter custom points</translation>
-    </message>
-    <message>
-        <source>è¾å¥èªå®ä¹æµè¯ç¹</source>
-        <translation type="obsolete">Enter custom test point</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPointEditor.cpp" line="89"/>
         <source>序号</source>
-        <translation>No</translation>
+        <translation>序號</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPointEditor.cpp" line="90"/>
         <source>测试点</source>
-        <translation>Test Points</translation>
+        <translation>測試點</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPointEditor.cpp" line="225"/>
         <source>输入自定义点数</source>
-        <translation>Enter custom points</translation>
+        <translation>輸入自訂點數</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmPointEditor.cpp" line="238"/>
         <source>输入自定义测试点</source>
-        <translation>Enter custom test point</translation>
+        <translation>輸入自訂測試點</translation>
     </message>
 </context>
 <context>
@@ -4675,22 +4223,22 @@ Right</translation>
     <message>
         <location filename="../../ResonaceMode/frmResoType.ui" line="20"/>
         <source>选择谐振点类型</source>
-        <translation>Select resonace type</translation>
+        <translation>選擇諧振點類型</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/frmResoType.ui" line="60"/>
         <source>串联</source>
-        <translation>Series</translation>
+        <translation>串聯</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/frmResoType.ui" line="79"/>
         <source>并联</source>
-        <translation>Parallel</translation>
+        <translation>並聯</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/frmResoType.ui" line="98"/>
         <source>晶体谐振器</source>
-        <translation>Piezo</translation>
+        <translation>晶體諧振器</translation>
     </message>
 </context>
 <context>
@@ -4698,12 +4246,16 @@ Right</translation>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="20"/>
         <source>登录界面</source>
-        <translation>Login</translation>
+        <translation>登錄介面</translation>
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="54"/>
         <source>选择语言</source>
-        <translation>Select Language</translation>
+        <translation>選擇語言</translation>
+    </message>
+    <message>
+        <source>中文</source>
+        <translation type="vanished">中文</translation>
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="66"/>
@@ -4723,42 +4275,42 @@ Right</translation>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="130"/>
         <source>切换</source>
-        <translation></translation>
+        <translation>切換</translation>
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="156"/>
         <source>选择测试模式</source>
-        <translation>Select Mode</translation>
+        <translation>選擇測試模式</translation>
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="174"/>
         <source>仪表模式(&amp;M)</source>
-        <translation>&amp;Meter mode</translation>
+        <translation>儀錶模式（&amp;M）</translation>
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="193"/>
         <source>分析模式(&amp;S)</source>
-        <translation>Analysi&amp;s Mode</translation>
+        <translation>分析模式（&amp;S）</translation>
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="212"/>
         <source>谐振模式（&amp;R）</source>
-        <translation>&amp;Resonace Mode</translation>
+        <translation>諧振模式（&amp;R）</translation>
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="231"/>
         <source>多通道测试(&amp;C)</source>
-        <translation>Multi-Channel Mode</translation>
+        <translation>多通道測試（&amp;C)</translation>
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="247"/>
         <source>选择连接方式</source>
-        <translation>Select connection type</translation>
+        <translation>選擇連接方式</translation>
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="261"/>
         <source>如果选择GPIB连接仪器，请设置地址范围1~32</source>
-        <translation>If you choose to connect GPIB instrument, set the address range from 1 to 32</translation>
+        <translation>如果選擇GPIB連接儀器，請設置位址範圍1~32</translation>
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="264"/>
@@ -4769,8 +4321,8 @@ Right</translation>
         <location filename="../../common/frmSelectConnection.ui" line="280"/>
         <source>如果连接6500请输入IP地址形如：192.168.1.102,6500
 如果连接4300请输入Ip地址形如：192.168.1.102,4300</source>
-        <translation>If the connection is 6500 enter the IP address like this: 192.168.1.102,6500
-If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</translation>
+        <translation>如果連接6500請輸入IP位址形如：192.168.1.102,6500
+如果連接4300請輸入Ip位址形如：192.168.1.102,4300</translation>
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="284"/>
@@ -4785,7 +4337,7 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</tr
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="314"/>
         <source>地址(&amp;A)：</source>
-        <translation>&amp;Address:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="336"/>
@@ -4794,32 +4346,25 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</tr
 
 如果连接LAN连接6500请输入IP地址形如：192.168.1.102,6500
 如果连接LAN连接4300请输入Ip地址形如：192.168.1.102,4300</source>
-        <translation>If you choose to connect GPIB instrument, set the address range from 1 to 32
-If the connection is 6500 enter the IP address like this: 192.168.1.102,6500
-If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</translation>
+        <translation>如果選擇GPIB連接儀器，請設置位址範圍1~32
+
+如果連接LAN連接6500請輸入IP位址形如：192.168.1.102,6500
+如果連接LAN連接4300請輸入Ip位址形如：192.168.1.102,4300</translation>
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="374"/>
         <source>连接(&amp;T)</source>
-        <translation>Connec&amp;t</translation>
-    </message>
-    <message>
-        <source>åå§åè¿æ¥å¤±è´¥ï¼</source>
-        <translation type="obsolete">Initialize the connection failed!</translation>
-    </message>
-    <message>
-        <source>ä»ªå¨IDï¼%1</source>
-        <translation type="obsolete">Instrument ID:%1</translation>
+        <translation>連接（&amp;T)</translation>
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.cpp" line="61"/>
         <source>初始化连接失败！</source>
-        <translation>Initialize the connection failed!</translation>
+        <translation>初始化連接失敗！</translation>
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.cpp" line="66"/>
         <source>仪器ID：%1</source>
-        <translation>Instrument ID:%1</translation>
+        <translation>儀器ID：%1</translation>
     </message>
 </context>
 <context>
@@ -4827,18 +4372,18 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</tr
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="14"/>
         <source>设置上下限</source>
-        <translation>Set  Lo-Limit</translation>
+        <translation>設置上下限</translation>
     </message>
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="48"/>
         <source>绝对值</source>
-        <translation>Absolute</translation>
+        <translation>絕對值</translation>
     </message>
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="73"/>
         <location filename="../../MeterMode/frmSetLimit.ui" line="258"/>
         <source>上限：</source>
-        <translation>Hi:</translation>
+        <translation>上限：</translation>
     </message>
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="95"/>
@@ -4849,7 +4394,7 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</tr
         <location filename="../../MeterMode/frmSetLimit.ui" line="114"/>
         <location filename="../../MeterMode/frmSetLimit.ui" line="299"/>
         <source>下限：</source>
-        <translation>Low:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="136"/>
@@ -4859,12 +4404,12 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</tr
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="180"/>
         <source>百分比</source>
-        <translation>Percentage</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="204"/>
         <source>中心值：</source>
-        <translation>Nominal:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="226"/>
@@ -4884,7 +4429,7 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</tr
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="336"/>
         <source>误差代码</source>
-        <translation>Error code</translation>
+        <translation>誤差代碼</translation>
     </message>
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="360"/>
@@ -4989,41 +4534,29 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</tr
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="658"/>
         <source>取消</source>
-        <translation>Cancel</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="677"/>
         <source>确定</source>
-        <translation>Ok</translation>
-    </message>
-    <message>
-        <source>è¾å¥ä¸éå¼</source>
-        <translation type="obsolete">Input Hi-Limit</translation>
-    </message>
-    <message>
-        <source>è¾å¥ä¸éå¼</source>
-        <translation type="obsolete">Input Lo-Limit</translation>
-    </message>
-    <message>
-        <source>è¾å¥ä¸­å¿å¼</source>
-        <translation type="obsolete">Input Nominal Value</translation>
+        <translation>確定</translation>
     </message>
     <message>
         <location filename="../../MeterMode/frmSetLimit.cpp" line="163"/>
         <location filename="../../MeterMode/frmSetLimit.cpp" line="200"/>
         <source>输入上限值</source>
-        <translation>Input Hi-Limit</translation>
+        <translation>輸入上限值</translation>
     </message>
     <message>
         <location filename="../../MeterMode/frmSetLimit.cpp" line="176"/>
         <location filename="../../MeterMode/frmSetLimit.cpp" line="212"/>
         <source>输入下限值</source>
-        <translation>Input Lo-Limit</translation>
+        <translation>輸入下限值</translation>
     </message>
     <message>
         <location filename="../../MeterMode/frmSetLimit.cpp" line="188"/>
         <source>输入中心值</source>
-        <translation>Input Nominal Value</translation>
+        <translation>輸入中心值</translation>
     </message>
 </context>
 <context>
@@ -5031,53 +4564,53 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</tr
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="20"/>
         <source>曲线轨迹设置</source>
-        <translation>Curve settings</translation>
+        <translation>曲線軌跡設置</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="57"/>
         <source>扫描参数</source>
-        <translation>Sweep</translation>
+        <translation>掃描參數</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="96"/>
         <source>频率</source>
-        <translation>Freq</translation>
+        <translation>頻率</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="130"/>
         <source>偏压</source>
-        <translation>Bias V</translation>
+        <translation>偏壓</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="161"/>
         <source>偏流</source>
-        <translation>Bias A</translation>
+        <translation>偏流</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="192"/>
         <source>时间</source>
-        <translation>Time</translation>
+        <translation>時間</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="245"/>
         <source>100点</source>
-        <translation>100Point</translation>
+        <translation>100點</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="276"/>
         <source>标题</source>
-        <translation>Title</translation>
+        <translation>標題</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="306"/>
         <location filename="../../AnalysisMode/frmTraceSetup.cpp" line="62"/>
         <source>时间范围（s）</source>
-        <translation>Time Range(s)</translation>
+        <translation>時間範圍（s）</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="340"/>
         <source>开始</source>
-        <translation>Start</translation>
+        <translation>開始</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="368"/>
@@ -5089,7 +4622,7 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</tr
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="388"/>
         <source>终止</source>
-        <translation>Stop</translation>
+        <translation>終止</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="416"/>
@@ -5101,7 +4634,7 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</tr
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="447"/>
         <source>速率</source>
-        <translation>Rate</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="479"/>
@@ -5112,125 +4645,81 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</tr
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="497"/>
         <source>显示范围</source>
-        <translation>Disp. Range</translation>
+        <translation>顯示範圍</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="524"/>
         <source>项目1</source>
-        <translation>Item1</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="647"/>
         <source>项目2</source>
-        <translation>Item2</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="769"/>
         <source>取消</source>
-        <translation>Cancel</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.ui" line="800"/>
         <source>确定</source>
-        <translation>Ok</translation>
-    </message>
-    <message>
-        <source>æ¶é´èå´ï¼sï¼</source>
-        <translation type="obsolete">Input Title</translation>
-    </message>
-    <message>
-        <source>é¢çèå´ï¼Hzï¼</source>
-        <translation type="obsolete">Frequency</translation>
-    </message>
-    <message>
-        <source>åç½®èå´ï¼Vï¼</source>
-        <translation type="obsolete">Bias(V)</translation>
-    </message>
-    <message>
-        <source>åç½®èå´ï¼Aï¼</source>
-        <translation type="obsolete">Bias(A)</translation>
-    </message>
-    <message>
-        <source>ç¹</source>
-        <translation type="obsolete">Point</translation>
-    </message>
-    <message>
-        <source>éçï¼</source>
-        <translation type="obsolete">Rate:</translation>
-    </message>
-    <message>
-        <source>è¾å¥æå°å¼</source>
-        <translation type="obsolete">Enter the minimum value</translation>
-    </message>
-    <message>
-        <source>è¾å¥æå¤§å¼</source>
-        <translation type="obsolete">Input the maximum value</translation>
-    </message>
-    <message>
-        <source>è¾å¥æ é¢</source>
-        <translation type="obsolete">Input title</translation>
-    </message>
-    <message>
-        <source>æ é¢:</source>
-        <translation type="obsolete">Title:</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®åç½®çµåéç</source>
-        <translation type="obsolete">Set the bias voltage rate</translation>
+        <translation>確定</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.cpp" line="66"/>
         <source>频率范围（Hz）</source>
-        <translation>Frequency(Hz)</translation>
+        <translation>頻率範圍（Hz）</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.cpp" line="70"/>
         <source>偏置范围（V）</source>
-        <translation>Bias(V)</translation>
+        <translation>偏置範圍（V）</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.cpp" line="75"/>
         <source>偏置范围（A）</source>
-        <translation>Bias(A)</translation>
+        <translation>偏置範圍（A）</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.cpp" line="317"/>
         <source>点</source>
-        <translation>Point</translation>
+        <translation>點</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.cpp" line="325"/>
         <source>速率：</source>
-        <translation>Rate:</translation>
+        <translation>速率：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.cpp" line="331"/>
         <location filename="../../AnalysisMode/frmTraceSetup.cpp" line="380"/>
         <location filename="../../AnalysisMode/frmTraceSetup.cpp" line="396"/>
         <source>输入最小值</source>
-        <translation>Enter the minimum value</translation>
+        <translation>輸入最小值</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.cpp" line="362"/>
         <location filename="../../AnalysisMode/frmTraceSetup.cpp" line="412"/>
         <location filename="../../AnalysisMode/frmTraceSetup.cpp" line="428"/>
         <source>输入最大值</source>
-        <translation>Input the maximum value</translation>
+        <translation>輸入最大值</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.cpp" line="445"/>
         <source>输入标题</source>
-        <translation>Input title</translation>
+        <translation>輸入標題</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.cpp" line="446"/>
         <source>标题:</source>
-        <translation>Title:</translation>
+        <translation>標題:</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmTraceSetup.cpp" line="505"/>
         <source>设置偏置电压速率</source>
-        <translation>Set the bias voltage rate</translation>
+        <translation>設置偏置電壓速率</translation>
     </message>
 </context>
 <context>
@@ -5243,21 +4732,21 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</tr
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="40"/>
         <source>Norm模式</source>
-        <translation>Norm Mode</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="52"/>
         <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="218"/>
         <source>开短路校准</source>
-        <translation>OC &amp;&amp; SC Trim</translation>
+        <translation>開短路校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="78"/>
         <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="244"/>
         <source>开路
 校准</source>
-        <translation>Open
-Trim</translation>
+        <translation>開路
+校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="92"/>
@@ -5267,15 +4756,15 @@ Trim</translation>
         <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="301"/>
         <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="359"/>
         <source>工厂默认值。</source>
-        <translation>Factory default.</translation>
+        <translation>工廠預設值。</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="121"/>
         <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="287"/>
         <source>短路
 校准</source>
-        <translation>Short
-Trim</translation>
+        <translation>短路
+校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="153"/>
@@ -5283,127 +4772,83 @@ Trim</translation>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="169"/>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="215"/>
         <source>高频校准</source>
-        <translation>High Frequency Trim</translation>
+        <translation>高頻校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="179"/>
         <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="345"/>
         <source>高频
 校准</source>
-        <translation>HF
-Trim</translation>
+        <translation>高頻
+校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="206"/>
         <source>Boost模式</source>
-        <translation>Boost Mode</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="421"/>
         <source>完成</source>
-        <translation>Done</translation>
-    </message>
-    <message>
-        <source>%1æ ¡åæåï¼æ ¡åæ¶é´ï¼%2 %3</source>
-        <translation type="obsolete">%1calibration ok, calibrate time:%2 %3</translation>
-    </message>
-    <message>
-        <source>%1æ ¡åå¤±è´¥</source>
-        <translation type="obsolete">%1 calibration failed</translation>
-    </message>
-    <message>
-        <source>è¯·ä¿æå¤¹å·å¼è·¯ç¶æ</source>
-        <translation type="obsolete">Please keep fixture open</translation>
-    </message>
-    <message>
-        <source>å¼è·¯æ ¡å</source>
-        <translation type="obsolete">Open circuit trim</translation>
-    </message>
-    <message>
-        <source>å¼è·¯</source>
-        <translation type="obsolete">Open circuit</translation>
-    </message>
-    <message>
-        <source>è¯·ä¿æå¤¹å·ç­è·¯ç¶æ</source>
-        <translation type="obsolete">Please keep fixture short</translation>
-    </message>
-    <message>
-        <source>ç­è·¯æ ¡å</source>
-        <translation type="obsolete">Short circuit trim</translation>
-    </message>
-    <message>
-        <source>ç­è·¯</source>
-        <translation type="obsolete">Short circuit</translation>
-    </message>
-    <message>
-        <source>è¯·è¿æ¥é«é¢æ ¡åå¨ä»¶</source>
-        <translation type="obsolete">Connect 150pF to fixture</translation>
-    </message>
-    <message>
-        <source>é«é¢æ ¡å</source>
-        <translation type="obsolete">HF trim</translation>
-    </message>
-    <message>
-        <source>é«é¢</source>
-        <translation type="obsolete">High frequency</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="89"/>
         <source>%1校准成功，校准时间：%2 %3</source>
-        <translation>%1calibration ok, calibrate time:%2 %3</translation>
+        <translation>%1校準成功，校準時間：%2 %3</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="96"/>
         <source>%1校准失败</source>
-        <translation>%1 calibration failed</translation>
+        <translation>%1校準失敗</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="104"/>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="180"/>
         <source>请保持夹具开路状态</source>
-        <translation>Please keep fixture open</translation>
+        <translation>請保持夾具開路狀態</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="104"/>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="180"/>
         <source>开路校准</source>
-        <translation>Open circuit trim</translation>
+        <translation>開路校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="114"/>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="190"/>
         <source>开路</source>
-        <translation>Open circuit</translation>
+        <translation>開路</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="153"/>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="197"/>
         <source>请保持夹具短路状态</source>
-        <translation>Please keep fixture short</translation>
+        <translation>請保持夾具短路狀態</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="153"/>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="197"/>
         <source>短路校准</source>
-        <translation>Short circuit trim</translation>
+        <translation>短路校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="162"/>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="208"/>
         <source>短路</source>
-        <translation>Short circuit</translation>
+        <translation>短路</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="169"/>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="215"/>
         <source>请连接高频校准器件</source>
-        <translation>Connect 150pF to fixture</translation>
+        <translation>請連接高頻校準器件</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="174"/>
         <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="220"/>
         <source>高频</source>
-        <translation>High frequency</translation>
+        <translation>高頻</translation>
     </message>
 </context>
 <context>
@@ -5411,44 +4856,44 @@ Trim</translation>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="22"/>
         <source>FactoryView 分析模式</source>
-        <translation>FactoryView Analysis Mode</translation>
+        <translation>FactoryView 分析模式</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="76"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;单击可以进行一次测试。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click to perform a test.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;按一下可以進行一次測試。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="79"/>
         <source>单次
 测试</source>
-        <translation>Single
-Shot</translation>
+        <translation>單次
+測試</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="115"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;单击可以进行重复测试。&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click to repeated tests.&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;按一下可以進行重複測試。&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="118"/>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="788"/>
         <source>重复
 测试</source>
-        <translation>Repeat
-Test</translation>
+        <translation>重複
+測試</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="154"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;测试参数的设置，包括测试的项目，测试的电平，测试的速度等。&lt;/p&gt;&lt;p&gt;快捷键 Ctrl+M&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; test parameters, including test items, test level, test speed. &lt;/p&gt;&lt;p&gt; shortcut Ctrl+M&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;測試參數的設置，包括測試的項目，測試的電平，測試的速度等。&lt;/p&gt;&lt;p&gt;快速鍵 Ctrl+M&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="157"/>
         <source>参数
 设置</source>
-        <translation>Meas
-Setup</translation>
+        <translation>參數
+設置</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="171"/>
@@ -5458,14 +4903,14 @@ Setup</translation>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="190"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;对扫描类型和显示图像的设置。&lt;/p&gt;&lt;p&gt;快捷键Ctrl+T&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set the sweep type and display &lt;/p&gt;&lt;p&gt;Shortcut Ctrl+T&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;對掃描類型和顯示圖像的設置。&lt;/p&gt;&lt;p&gt;快速鍵Ctrl+T&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="193"/>
         <source>扫描
 设置</source>
-        <translation>Trace
-Setup</translation>
+        <translation>掃描
+設置</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="207"/>
@@ -5475,14 +4920,14 @@ Setup</translation>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="226"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;设定曲线上下限。&lt;/p&gt;&lt;p&gt;快捷键Ctrl+L&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set curve limit.&lt;/p&gt;&lt;p&gt;Shortcut Ctrl+L&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;設定曲線上下限。&lt;/p&gt;&lt;p&gt;快速鍵Ctrl+L&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="229"/>
         <source>限定
 设置</source>
-        <translation>Limit
-Setup</translation>
+        <translation>限定
+設置</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="243"/>
@@ -5492,14 +4937,14 @@ Setup</translation>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="262"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;让测试的曲线更好的显示。&lt;/p&gt;&lt;p&gt;快捷键Ctrl+A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Let test curves get better display.&lt;/p&gt;&lt;p&gt;ShortCut Ctrl+A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;讓測試的曲線更好的顯示。&lt;/p&gt;&lt;p&gt;快速鍵Ctrl+A&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="265"/>
         <source>自动
 适应</source>
-        <translation>Auto
-Fit</translation>
+        <translation>自動
+適應</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="279"/>
@@ -5509,13 +4954,14 @@ Fit</translation>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="298"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;细化曲线区域扫描。&lt;/p&gt;&lt;p&gt;快捷键Ctrl+Z&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Refinement curve scan area.&lt;/p&gt;&lt;p&gt;Shortcut Ctrl+Z&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;細化曲線區域掃描。&lt;/p&gt;&lt;p&gt;快速鍵Ctrl+Z&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="301"/>
         <source>曲线
 放大</source>
-        <translation>Zoom</translation>
+        <translation>曲線
+放大</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="315"/>
@@ -5525,14 +4971,14 @@ Fit</translation>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="337"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;设置多条曲线进行对比。&lt;/p&gt;&lt;p&gt;快捷键Ctrl+Q&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set multiple curves were compared.&lt;/p&gt;&lt;p&gt;ShortCut Ctrl+Q&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;設置多條曲線進行對比。&lt;/p&gt;&lt;p&gt;快速鍵Ctrl+Q&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="340"/>
         <source>对比
 曲线</source>
-        <translation>Ref.
-Trace</translation>
+        <translation>對比
+曲線</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="354"/>
@@ -5542,14 +4988,14 @@ Trace</translation>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="373"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;多个游标显示&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;快捷键 ctrl+G&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Multi-Marker display&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;Shortcut ctrl+G&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;多個游標顯示&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;快速鍵  ctrl+G&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="376"/>
         <source>游标
 标记</source>
-        <translation>Multi-
-Marker</translation>
+        <translation>游標
+標記</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="390"/>
@@ -5559,14 +5005,14 @@ Marker</translation>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="412"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;搜索曲线的最大最小值&lt;/p&gt;&lt;p&gt;快捷键Ctrl+B&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Search curve,get maximum and minimum value&lt;/p&gt;&lt;p&gt;Shortcut Ctrl+B&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;搜索曲線的最大最小值&lt;/p&gt;&lt;p&gt;快速鍵Ctrl+B&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="415"/>
         <source>极值
 搜索</source>
-        <translation>Peak
-Search</translation>
+        <translation>極值
+搜索</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="429"/>
@@ -5576,14 +5022,14 @@ Search</translation>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="461"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;仪表校准。&lt;/p&gt;&lt;p&gt;快捷键 Ctrl+C&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Instrument calibration&lt;/p&gt;&lt;p&gt;Shortcut Ctrl+C&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;儀錶校準。&lt;/p&gt;&lt;p&gt;快速鍵  Ctrl+C&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="464"/>
         <source>仪表
 校准</source>
-        <translation>Calib-
-ration</translation>
+        <translation>儀錶
+校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="478"/>
@@ -5593,14 +5039,14 @@ ration</translation>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="497"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;自动保存测试结果文件名称设定。&lt;/p&gt;&lt;p&gt;快捷键 Ctrl+R&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Auto save test result,set data file first.&lt;/p&gt;&lt;p&gt;Shortcut Ctrl+R&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;自動保存測試結果檔案名稱設定。&lt;/p&gt;&lt;p&gt;快速鍵  Ctrl+R&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="500"/>
         <source>自动
 保存</source>
-        <translation>Auto
-Save</translation>
+        <translation>自動
+保存</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="514"/>
@@ -5610,14 +5056,14 @@ Save</translation>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="533"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;浏览测试的数据，其中也可以通过此按钮打开保存窗口。&lt;/p&gt;&lt;p&gt;快捷键 Ctrl+V&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Browse test data, which can be saved through this button to open the window.&lt;/p&gt;&lt;p&gt;ShortCut Ctrl+V&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;流覽測試的資料，其中也可以通過此按鈕打開保存視窗&lt;/p&gt;&lt;p&gt;快速鍵  Ctrl+V&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="536"/>
         <source>浏览
 数据</source>
-        <translation>View
-Result</translation>
+        <translation>流覽
+數據</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="550"/>
@@ -5627,14 +5073,14 @@ Result</translation>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="569"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存测试图像，可以有多种文件格式，默认为png格式。&lt;/p&gt;&lt;p&gt;快捷键 Ctrl+P&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; save the test image, you can have a variety of file formats, the default is png format. &lt;/p&gt;&lt;p&gt; shortcut Ctrl+P&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存測試圖像，可以有多種檔案格式，默認為png格式。&lt;/p&gt;&lt;p&gt;快速鍵  Ctrl+P&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="572"/>
         <source>保存
 图像</source>
-        <translation>Save
-Image</translation>
+        <translation>保存
+圖像</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="586"/>
@@ -5644,14 +5090,14 @@ Image</translation>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="605"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存当前文件的配置或者加载配置文件。&lt;/p&gt;&lt;p&gt;快捷键 Ctrl+S&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save current settings file or load settings file.&lt;/p&gt;&lt;p&gt;Shortcut Ctrl+S&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存當前檔的配置或者載入設定檔。&lt;/p&gt;&lt;p&gt;快速鍵  Ctrl+S&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="608"/>
         <source>配置
 文件</source>
-        <translation>Settings
-File Oper</translation>
+        <translation>配置
+文件</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="622"/>
@@ -5661,7 +5107,7 @@ File Oper</translation>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="647"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;打开或者关闭项目1曲线。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Open or close the item1 curve.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;打開或者關閉專案1曲線。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="650"/>
@@ -5672,7 +5118,7 @@ ON</source>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="682"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;打开或者关闭项目2曲线。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Open or close the item2 curve.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;打開或者關閉專案2曲線。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="685"/>
@@ -5683,7 +5129,7 @@ ON</source>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="772"/>
         <source>游标显示</source>
-        <translation>Markers display</translation>
+        <translation>游標顯示</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="830"/>
@@ -5698,7 +5144,7 @@ ON</source>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="880"/>
         <source>快速</source>
-        <translation>Fast</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="905"/>
@@ -5708,7 +5154,7 @@ ON</source>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="943"/>
         <source>状态显示</source>
-        <translation>Status dispaly</translation>
+        <translation>狀態顯示</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="1003"/>
@@ -5719,8 +5165,8 @@ ON</source>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="1069"/>
         <source>软件
 信息</source>
-        <translation>SoftWare
-Info</translation>
+        <translation>軟體
+信息</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="1091"/>
@@ -5728,8 +5174,19 @@ Info</translation>
         <translation></translation>
     </message>
     <message>
-        <source>ä»ªå¨ï¼WK %1</source>
-        <translation type="obsolete">Instrument: WK %1</translation>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="35"/>
+        <source>仪器：WK %1</source>
+        <translation>儀器：WK %1</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="74"/>
+        <source>通过</source>
+        <translation>通過</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="78"/>
+        <source>失败</source>
+        <translation>失敗</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="250"/>
@@ -5738,8 +5195,21 @@ Info</translation>
         <translation></translation>
     </message>
     <message>
-        <source>é»è®¤</source>
-        <translation type="obsolete">Default</translation>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="335"/>
+        <source>默认</source>
+        <translation>默認</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="381"/>
+        <source>曲线放大</source>
+        <translation>曲線放大</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="381"/>
+        <source>放大范围：
+从%1到%2</source>
+        <translation>放大範圍：
+從%1到%2</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="420"/>
@@ -5747,45 +5217,9 @@ Info</translation>
         <translation></translation>
     </message>
     <message>
-        <source>ä¿å­æµè¯å¾å</source>
-        <translation type="obsolete">Save test image</translation>
-    </message>
-    <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="35"/>
-        <source>仪器：WK %1</source>
-        <translation>Instrument: WK %1</translation>
-    </message>
-    <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="74"/>
-        <source>通过</source>
-        <translation>Pass</translation>
-    </message>
-    <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="78"/>
-        <source>失败</source>
-        <translation>Fail</translation>
-    </message>
-    <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="335"/>
-        <source>默认</source>
-        <translation>Default</translation>
-    </message>
-    <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="381"/>
-        <source>曲线放大</source>
-        <translation>Curve zoom</translation>
-    </message>
-    <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="381"/>
-        <source>放大范围：
-从%1到%2</source>
-        <translation>Zoom range:
-from %1 to %2</translation>
-    </message>
-    <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="422"/>
         <source>保存测试图像</source>
-        <translation>Save test image</translation>
+        <translation>保存測試圖像</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="424"/>
@@ -5813,28 +5247,28 @@ from %1 to %2</translation>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="511"/>
         <source>扫描设定</source>
-        <translation>Sweep settings</translation>
+        <translation>掃描設定</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="593"/>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="765"/>
         <source>停止
 测试</source>
-        <translation>Stop
-Test</translation>
+        <translation>停止
+測試</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="604"/>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="614"/>
         <source>开始
 测试</source>
-        <translation>Single
-Shot</translation>
+        <translation>開始
+測試</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="728"/>
         <source>日期:,%1,时间:,%2,状态:,%3</source>
-        <translation>Date:,%1,Time:,%2,Status:,%3</translation>
+        <translation>日期:,%1,時間:,%2,狀態:,%3</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="742"/>
@@ -5845,12 +5279,12 @@ Shot</translation>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="865"/>
         <source>关于本软件</source>
-        <translation>About me</translation>
+        <translation>關於本軟體</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="916"/>
         <source>打开数据文件</source>
-        <translation>Open data file</translation>
+        <translation>打開資料檔案</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="916"/>
@@ -5860,33 +5294,7 @@ Shot</translation>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="928"/>
         <source>配置文件操作</source>
-        <translation>Settings file operation</translation>
-    </message>
-    <message>
-        <source>æ«æè®¾å®</source>
-        <translation type="obsolete">Sweep settings</translation>
-    </message>
-    <message>
-        <source>åæ­¢
-æµè¯</source>
-        <translation type="obsolete">Stop
-Test</translation>
-    </message>
-    <message>
-        <source>å¼å§
-æµè¯</source>
-        <translation type="obsolete">Single
-Shot</translation>
-    </message>
-    <message>
-        <source>éå¤
-æµè¯</source>
-        <translation type="obsolete">Repeat
-Test</translation>
-    </message>
-    <message>
-        <source>å³äºæ¬è½¯ä»¶</source>
-        <translation type="obsolete">About me</translation>
+        <translation>設定檔操作</translation>
     </message>
 </context>
 <context>
@@ -5894,17 +5302,17 @@ Test</translation>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="20"/>
         <source>仪表参数设置</source>
-        <translation>Meter setup</translation>
+        <translation>儀錶參數設置</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="60"/>
         <source>测试参数</source>
-        <translation>Select Items</translation>
+        <translation>測試參數</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="72"/>
         <source>项目1</source>
-        <translation>Item 1</translation>
+        <translation>項目1</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="98"/>
@@ -5924,7 +5332,7 @@ Test</translation>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="122"/>
         <source>项目2</source>
-        <translation>Item 2</translation>
+        <translation>項目2</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="148"/>
@@ -5944,12 +5352,12 @@ Test</translation>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="175"/>
         <source>Bias 控制</source>
-        <translation>Bias control</translation>
+        <translation>Bias 控制</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="187"/>
         <source>Bias状态</source>
-        <translation>Bias Status</translation>
+        <translation>Bias狀態</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="210"/>
@@ -5980,7 +5388,7 @@ Test</translation>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="271"/>
         <source>Bias 值</source>
-        <translation>Bias Value</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="293"/>
@@ -5990,17 +5398,17 @@ Test</translation>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="306"/>
         <source>Bias 开关</source>
-        <translation>Bias ONOFF</translation>
+        <translation>Bias 開關</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="348"/>
         <source>电平&amp;&amp;频率</source>
-        <translation>Level &amp;&amp; Frequency</translation>
+        <translation>電平&amp;&amp;頻率</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="360"/>
         <source>电平</source>
-        <translation>Level</translation>
+        <translation>電平</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="379"/>
@@ -6010,7 +5418,7 @@ Test</translation>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="392"/>
         <source>频率</source>
-        <translation>Freq</translation>
+        <translation>頻率</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="411"/>
@@ -6020,102 +5428,82 @@ Test</translation>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="427"/>
         <source>速度&amp;&amp;等效电路</source>
-        <translation>Speed &amp;&amp; Equ-cct</translation>
+        <translation>速度&amp;&amp;等效電路</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="439"/>
         <source>测试速度</source>
-        <translation>Test Speed</translation>
+        <translation>測試速度</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="459"/>
         <source>最快</source>
-        <translation>Max</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="464"/>
         <source>快速</source>
-        <translation>Fast</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="469"/>
         <source>中速</source>
-        <translation>Med</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="474"/>
         <source>慢速</source>
-        <translation>Slow</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="488"/>
         <source>等效电路</source>
-        <translation>Equ-CCT</translation>
+        <translation>等效電路</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="508"/>
         <source>串联</source>
-        <translation>Series</translation>
+        <translation>串聯</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="513"/>
         <source>并联</source>
-        <translation>Parallel</translation>
+        <translation>並聯</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="564"/>
         <source>确定</source>
-        <translation>OK</translation>
+        <translation>確定</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="586"/>
         <source>取消</source>
-        <translation>Cancel</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®æµè¯éåº¦</source>
-        <translation type="obsolete">Set test speed</translation>
-    </message>
-    <message>
-        <source>ä»ªå¨æ ¡å</source>
-        <translation type="obsolete">Instrument calibration</translation>
-    </message>
-    <message>
-        <source>è®¾å®æµè¯çµå¹³</source>
-        <translation type="obsolete">Set level value</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®æµè¯é¢ç</source>
-        <translation type="obsolete">Set frequency</translation>
-    </message>
-    <message>
-        <source>è¾å¥Biaså¼</source>
-        <translation type="obsolete">Set bias value</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.cpp" line="52"/>
         <source>设置测试速度</source>
-        <translation>Set test speed</translation>
+        <translation>設置測試速度</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.cpp" line="202"/>
         <source>仪器校准</source>
-        <translation>Instrument calibration</translation>
+        <translation>儀器校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.cpp" line="368"/>
         <source>设定测试电平</source>
-        <translation>Set level value</translation>
+        <translation>設定測試電平</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.cpp" line="405"/>
         <source>设置测试频率</source>
-        <translation>Set frequency</translation>
+        <translation>設置測試頻率</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.cpp" line="545"/>
         <source>输入Bias值</source>
-        <translation>Set bias value</translation>
+        <translation>輸入Bias值</translation>
     </message>
 </context>
 <context>
@@ -6123,7 +5511,7 @@ Test</translation>
     <message>
         <location filename="../../MulitChannalBox/multiModePlot.cpp" line="46"/>
         <source>次数</source>
-        <translation>Count</translation>
+        <translation>次數</translation>
     </message>
 </context>
 <context>
@@ -6204,17 +5592,17 @@ Test</translation>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="23"/>
         <source>仪表测量条件设置</source>
-        <translation>Meter setup</translation>
+        <translation>儀錶測量條件設置</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="45"/>
         <source>测量项目</source>
-        <translation>Select Items</translation>
+        <translation>測量項目</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="59"/>
         <source>项目1：</source>
-        <translation>Item 1:</translation>
+        <translation>項目1：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="78"/>
@@ -6224,7 +5612,7 @@ Test</translation>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="95"/>
         <source>项目2：</source>
-        <translation>Item 2:</translation>
+        <translation>項目2：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="114"/>
@@ -6237,17 +5625,17 @@ Test</translation>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="245"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="408"/>
         <source>串联</source>
-        <translation>Series</translation>
+        <translation>串聯</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="151"/>
         <source>驱动信号：</source>
-        <translation>Drive Level:</translation>
+        <translation>驅動信號：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="165"/>
         <source>频率：</source>
-        <translation>Freq:</translation>
+        <translation>頻率：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="190"/>
@@ -6257,7 +5645,7 @@ Test</translation>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="207"/>
         <source>电平：</source>
-        <translation>Level:</translation>
+        <translation>電平：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="232"/>
@@ -6267,7 +5655,7 @@ Test</translation>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="250"/>
         <source>偏置设置：</source>
-        <translation>Bias Setup:</translation>
+        <translation>偏置設置：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="270"/>
@@ -6278,7 +5666,7 @@ Test</translation>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="539"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="560"/>
         <source>内置</source>
-        <translation>Internal</translation>
+        <translation>內置</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="295"/>
@@ -6287,168 +5675,100 @@ Test</translation>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="401"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="648"/>
         <source>关</source>
-        <translation>OFF</translation>
+        <translation>關</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="313"/>
         <source>档位速度</source>
-        <translation>Range &amp;&amp; Speed</translation>
+        <translation>檔位速度</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="331"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="116"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="250"/>
         <source>自动</source>
-        <translation>Auto</translation>
+        <translation>自動</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="350"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="159"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="255"/>
         <source>最快</source>
-        <translation>Fast</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="383"/>
         <source>取消</source>
-        <translation>Cancel</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="408"/>
         <source>确定</source>
-        <translation>OK</translation>
-    </message>
-    <message>
-        <source>ä¸²è</source>
-        <translation type="obsolete">Series</translation>
-    </message>
-    <message>
-        <source>èªå¨</source>
-        <translation type="obsolete">Auto</translation>
-    </message>
-    <message>
-        <source>å¼</source>
-        <translation type="obsolete">ON</translation>
-    </message>
-    <message>
-        <source>å³</source>
-        <translation type="obsolete">OFF</translation>
-    </message>
-    <message>
-        <source>åç½®</source>
-        <translation type="obsolete">Internal</translation>
-    </message>
-    <message>
-        <source>æå¿«</source>
-        <translation type="obsolete">Max</translation>
-    </message>
-    <message>
-        <source>å¿«é</source>
-        <translation type="obsolete">Fast</translation>
-    </message>
-    <message>
-        <source>ä¸­é</source>
-        <translation type="obsolete">Med</translation>
-    </message>
-    <message>
-        <source>æ¢é</source>
-        <translation type="obsolete">Slow</translation>
-    </message>
-    <message>
-        <source>å¹¶è</source>
-        <translation type="obsolete">Parallel</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®4300çæµè¯æ¡£ä½</source>
-        <translation type="obsolete">Set 4300 test Range</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®4300çæµè¯é¡¹ç®1</source>
-        <translation type="obsolete">Set 4300 test item1</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®4300çæµè¯é¡¹ç®2</source>
-        <translation type="obsolete">Set 4300 item2</translation>
-    </message>
-    <message>
-        <source>è®¾å®æµè¯é¢ç</source>
-        <translation type="obsolete">Set frequency</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®æµè¯çµå¹³</source>
-        <translation type="obsolete">Set level value</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®æµè¯éåº¦</source>
-        <translation type="obsolete">Set test speed</translation>
-    </message>
-    <message>
-        <source>å¤ç½®</source>
-        <translation type="obsolete">External</translation>
+        <translation>確定</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="143"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="398"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="648"/>
         <source>开</source>
-        <translation>ON</translation>
+        <translation>開</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="257"/>
         <source>快速</source>
-        <translation>Fast</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="259"/>
         <source>中速</source>
-        <translation>Med</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="261"/>
         <source>慢速</source>
-        <translation>Slow</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="408"/>
         <source>并联</source>
-        <translation>Parallel</translation>
+        <translation>並聯</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="416"/>
         <source>设置4300的测试档位</source>
-        <translation>Set 4300 test Range</translation>
+        <translation>設置4300的測試檔位</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="428"/>
         <source>设置4300的测试项目1</source>
-        <translation>Set 4300 test item1</translation>
+        <translation>設置4300的測試項目1</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="441"/>
         <source>设置4300的测试项目2</source>
-        <translation>Set 4300 item2</translation>
+        <translation>設置4300的測試項目2</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="454"/>
         <source>设定测试频率</source>
-        <translation>Set frequency</translation>
+        <translation>設定測試頻率</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="476"/>
         <source>设置测试电平</source>
-        <translation>Set level value</translation>
+        <translation>設置測試電平</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="520"/>
         <source>设置测试速度</source>
-        <translation>Set test speed</translation>
+        <translation>設置測試速度</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="533"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="534"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="560"/>
         <source>外置</source>
-        <translation>External</translation>
+        <translation>外置</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="570"/>
@@ -6458,11 +5778,7 @@ Test</translation>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="571"/>
         <source>不能正确的查询Bias的状态，请检查连接。</source>
-        <translation>Can not query bias status, please check connection.</translation>
-    </message>
-    <message>
-        <source>ä¸è½æ­£ç¡®çæ¥è¯¢Biasçç¶æï¼è¯·æ£æ¥è¿æ¥ã</source>
-        <translation type="obsolete">Can not query bias status, please check connection.</translation>
+        <translation>不能正確的查詢Bias的狀態，請檢查連接。</translation>
     </message>
 </context>
 <context>
@@ -6470,109 +5786,77 @@ Test</translation>
     <message>
         <location filename="../../AnalysisMode/wk4300Calibration.ui" line="23"/>
         <source>WK4300仪器校准</source>
-        <translation>WK4300 calibration</translation>
+        <translation>WK4300儀器校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300Calibration.ui" line="70"/>
         <source>开短路校准</source>
-        <translation>Open short trim</translation>
+        <translation>開短路校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300Calibration.ui" line="96"/>
         <source>开路
 校准</source>
-        <translation>Open
-Trim</translation>
+        <translation>開路
+校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300Calibration.ui" line="110"/>
         <location filename="../../AnalysisMode/wk4300Calibration.ui" line="153"/>
         <source>工厂默认值。</source>
-        <translation>Factory default value.</translation>
+        <translation>工廠預設值。</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300Calibration.ui" line="139"/>
         <source>短路
 校准</source>
-        <translation>Short
-Trim</translation>
+        <translation>短路
+校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300Calibration.ui" line="211"/>
         <source>完成</source>
-        <translation>Done</translation>
-    </message>
-    <message>
-        <source>ç§»é¤å¤¹å·ä¸çè¢«æµç©åï¼ç¶åç¹å»ç¡®å®ï¼</source>
-        <translation type="obsolete">Remove DUT from fixture, then click ok!</translation>
-    </message>
-    <message>
-        <source>å¼è·¯æ ¡å</source>
-        <translation type="obsolete">Open circuit trim</translation>
-    </message>
-    <message>
-        <source>å¼è·¯æ ¡åæåï¼æ ¡åæ¶é´ï¼%1 %2</source>
-        <translation type="obsolete">Open circuit calibration ok, calibrate time:%1 %2</translation>
-    </message>
-    <message>
-        <source>ç­è·¯æ ¡åæåãæ ¡åæ¶é´ï¼%1 %2</source>
-        <translation type="obsolete">Short circuit calibration ok, calibrate time:%1 %2</translation>
-    </message>
-    <message>
-        <source>å¼è·¯æ ¡åå¤±è´¥ã</source>
-        <translation type="obsolete">Open circuit trim failed.</translation>
-    </message>
-    <message>
-        <source>ç­è·¯æ ¡åå¤±è´¥ã</source>
-        <translation type="obsolete">Short circuit trim failed.</translation>
-    </message>
-    <message>
-        <source>è¯·å°å¤¹å·ç­è·¯ï¼ç¶åç¹å»ç¡®å®</source>
-        <translation type="obsolete">Please short fixture,then click ok</translation>
-    </message>
-    <message>
-        <source>ç­è·¯æ ¡å</source>
-        <translation type="obsolete">Short circuit trim</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="46"/>
         <source>移除夹具上的被测物品，然后点击确定！</source>
-        <translation>Remove DUT from fixture, then click ok!</translation>
+        <translation>移除夾具上的被測物品，然後點擊確定！</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="46"/>
         <source>开路校准</source>
-        <translation>Open circuit trim</translation>
+        <translation>開路校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="86"/>
         <source>开路校准成功，校准时间：%1 %2</source>
-        <translation>Open circuit calibration ok, calibrate time:%1 %2</translation>
+        <translation>開路校準成功，校準時間：%1 %2</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="92"/>
         <source>短路校准成功。校准时间：%1 %2</source>
-        <translation>Short circuit calibration ok, calibrate time:%1 %2</translation>
+        <translation>短路校準成功。校準時間：%1 %2</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="101"/>
         <source>开路校准失败。</source>
-        <translation>Open circuit trim failed.</translation>
+        <translation>開路校準失敗。</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="105"/>
         <source>短路校准失败。</source>
-        <translation>Short circuit trim failed.</translation>
+        <translation>短路校準失敗。</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="120"/>
         <source>请将夹具短路，然后点击确定</source>
-        <translation>Please short fixture,then click ok</translation>
+        <translation>請將夾具短路，然後點擊確定</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="120"/>
         <source>短路校准</source>
-        <translation>Short circuit trim</translation>
+        <translation>短路校準</translation>
     </message>
 </context>
 <context>
@@ -6580,17 +5864,17 @@ Trim</translation>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="14"/>
         <source>设置测试参数</source>
-        <translation>Measurement Setup</translation>
+        <translation>設置測試參數</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="51"/>
         <source>测量项目</source>
-        <translation>Select Items</translation>
+        <translation>測量項目</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="65"/>
         <source>项目1：</source>
-        <translation>Item 1:</translation>
+        <translation>項目1：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="90"/>
@@ -6600,7 +5884,7 @@ Trim</translation>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="107"/>
         <source>项目2：</source>
-        <translation>Item 2:</translation>
+        <translation>項目2：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="132"/>
@@ -6614,17 +5898,17 @@ Trim</translation>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="556"/>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="560"/>
         <source>串联</source>
-        <translation>Series</translation>
+        <translation>串聯</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="175"/>
         <source>驱动信号：</source>
-        <translation>Drive Level:</translation>
+        <translation>驅動信號：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="189"/>
         <source>频率：</source>
-        <translation>Freq:</translation>
+        <translation>頻率：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="214"/>
@@ -6634,17 +5918,17 @@ Trim</translation>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="231"/>
         <source>电平：</source>
-        <translation>Level:</translation>
+        <translation>電平：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="256"/>
         <source>1.000V</source>
-        <translation>1.000V</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="274"/>
         <source>偏置设置：</source>
-        <translation>Bias Setup:</translation>
+        <translation>偏置設置：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="300"/>
@@ -6655,7 +5939,7 @@ Trim</translation>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="671"/>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="672"/>
         <source>内置</source>
-        <translation>Internal</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="325"/>
@@ -6663,76 +5947,36 @@ Trim</translation>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="476"/>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="679"/>
         <source>关</source>
-        <translation>OFF</translation>
+        <translation>關</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="343"/>
         <source>档位速度</source>
-        <translation>Range &amp;&amp; Speed</translation>
+        <translation>檔位速度</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="367"/>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="139"/>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="264"/>
         <source>自动</source>
-        <translation>Auto</translation>
+        <translation>自動</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="392"/>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="135"/>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="269"/>
         <source>最快</source>
-        <translation>Max</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="422"/>
         <source>取消</source>
-        <translation>Cancel</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="453"/>
         <source>确定</source>
-        <translation>Ok</translation>
-    </message>
-    <message>
-        <source>ä¸²è</source>
-        <translation type="obsolete">Series</translation>
-    </message>
-    <message>
-        <source>æå¿«</source>
-        <translation type="obsolete">Max</translation>
-    </message>
-    <message>
-        <source>èªå¨</source>
-        <translation type="obsolete">Auto</translation>
-    </message>
-    <message>
-        <source>åç½®</source>
-        <translation type="obsolete">Internal</translation>
-    </message>
-    <message>
-        <source>å¼</source>
-        <translation type="obsolete">ON</translation>
-    </message>
-    <message>
-        <source>å³</source>
-        <translation type="obsolete">OFF</translation>
-    </message>
-    <message>
-        <source>å¿«é</source>
-        <translation type="obsolete">Fast</translation>
-    </message>
-    <message>
-        <source>ä¸­é</source>
-        <translation type="obsolete">Med</translation>
-    </message>
-    <message>
-        <source>æ¢é</source>
-        <translation type="obsolete">Slow</translation>
-    </message>
-    <message>
-        <source>å¤ç½®</source>
-        <translation type="obsolete">External</translation>
+        <translation>確定</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="177"/>
@@ -6740,29 +5984,29 @@ Trim</translation>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="679"/>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="681"/>
         <source>开</source>
-        <translation>ON</translation>
+        <translation>開</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="271"/>
         <source>快速</source>
-        <translation>Fast</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="273"/>
         <source>中速</source>
-        <translation>Med</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="275"/>
         <source>慢速</source>
-        <translation>Slow</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="426"/>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="666"/>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="667"/>
         <source>外置</source>
-        <translation>External</translation>
+        <translation>外置</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="436"/>
@@ -6772,75 +6016,43 @@ Trim</translation>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="437"/>
         <source>不能正确的查询Bias的状态，请检查连接。</source>
-        <translation>Can not query bias status, please check connection.</translation>
+        <translation>不能正確的查詢Bias的狀態，請檢查連接。</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="511"/>
         <source>设置测试项目1</source>
-        <translation>Set Item1</translation>
+        <translation>設置測試項目1</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="543"/>
         <source>设置测试项目2</source>
-        <translation>Set Item2</translation>
+        <translation>設置測試項目1</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="556"/>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="566"/>
         <source>并联</source>
-        <translation>Parallel</translation>
+        <translation>並聯</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="576"/>
         <source>设置档位</source>
-        <translation>Set range</translation>
+        <translation>設置檔位</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="588"/>
         <source>设置速度</source>
-        <translation>Set speed</translation>
+        <translation>設置速度</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="600"/>
         <source>设置频率</source>
-        <translation>Set frequency</translation>
+        <translation>設置頻率</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.cpp" line="622"/>
         <source>设置电平</source>
-        <translation>Set level</translation>
-    </message>
-    <message>
-        <source>ä¸è½æ­£ç¡®çæ¥è¯¢Biasçç¶æï¼è¯·æ£æ¥è¿æ¥ã</source>
-        <translation type="obsolete">Can not query bias status, please check connection.</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®æµè¯é¡¹ç®1</source>
-        <translation type="obsolete">Set Item1</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®æµè¯é¡¹ç®2</source>
-        <translation type="obsolete">Set Item2</translation>
-    </message>
-    <message>
-        <source>å¹¶è</source>
-        <translation type="obsolete">Parallel</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®æ¡£ä½</source>
-        <translation type="obsolete">Set range</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®éåº¦</source>
-        <translation type="obsolete">Set speed</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®é¢ç</source>
-        <translation type="obsolete">Set frequency</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®çµå¹³</source>
-        <translation type="obsolete">Set level</translation>
+        <translation>設置電平</translation>
     </message>
 </context>
 <context>
@@ -6848,154 +6060,106 @@ Trim</translation>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.ui" line="14"/>
         <source>仪表校准</source>
-        <translation>Instrument calibration</translation>
+        <translation>儀錶校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.ui" line="34"/>
         <source>开短路校准</source>
-        <translation>OC/SC trim</translation>
+        <translation>開短路校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.ui" line="60"/>
         <source>开路
 校准</source>
-        <translation>Open
-Trim</translation>
+        <translation>開路
+校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.ui" line="74"/>
         <location filename="../../AnalysisMode/wk6440Calibration.ui" line="117"/>
         <location filename="../../AnalysisMode/wk6440Calibration.ui" line="175"/>
         <source>工厂默认值。</source>
-        <translation>Factory default.</translation>
+        <translation>工廠預設值。</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.ui" line="103"/>
         <source>短路
 校准</source>
-        <translation>Short
-Trim</translation>
+        <translation>短路
+校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.ui" line="135"/>
         <location filename="../../AnalysisMode/wk6440Calibration.cpp" line="133"/>
         <source>高频校准</source>
-        <translation>High frequency calibration</translation>
+        <translation>高頻校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.ui" line="161"/>
         <source>高频
 校准</source>
-        <translation>HF
-Trim</translation>
+        <translation>高頻
+校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.ui" line="245"/>
         <source>完成</source>
-        <translation>Done</translation>
-    </message>
-    <message>
-        <source>ç§»é¤å¤¹å·ä¸çè¢«æµç©åï¼ç¶åç¹å»ç¡®å®ï¼</source>
-        <translation type="obsolete">Remove DUT from fixture, then click ok!</translation>
-    </message>
-    <message>
-        <source>å¼è·¯æ ¡å</source>
-        <translation type="obsolete">Open circuit trim</translation>
-    </message>
-    <message>
-        <source>å¼è·¯æ ¡åæåï¼æ ¡åæ¶é´ï¼%1 %2</source>
-        <translation type="obsolete">Open circuit calibration ok, calibrate time:%1 %2</translation>
-    </message>
-    <message>
-        <source>å¼è·¯æ ¡åå¤±è´¥ã</source>
-        <translation type="obsolete">Open circuit trim failed.</translation>
-    </message>
-    <message>
-        <source>è¯·å°å¤¹å·ç­è·¯ï¼ç¶åç¹å»ç¡®å®</source>
-        <translation type="obsolete">Please short fixture,then click ok</translation>
-    </message>
-    <message>
-        <source>ç­è·¯æ ¡å</source>
-        <translation type="obsolete">Short circuit trim</translation>
-    </message>
-    <message>
-        <source>ç­è·¯æ ¡åæåãæ ¡åæ¶é´ï¼%1 %2</source>
-        <translation type="obsolete">Short circuit calibration ok, calibrate time:%1 %2</translation>
-    </message>
-    <message>
-        <source>ç­è·¯æ ¡åå¤±è´¥ã</source>
-        <translation type="obsolete">Short circuit trim failed.</translation>
-    </message>
-    <message>
-        <source>è¯·è¿æ¥é«é¢æ ¡åå¨ä»¶</source>
-        <translation type="obsolete">Connect 150pF to fixture</translation>
-    </message>
-    <message>
-        <source>é«é¢æ ¡å</source>
-        <translation type="obsolete">HF trim</translation>
-    </message>
-    <message>
-        <source>é«é¢æ ¡åæåãæ ¡åæ¶é´ï¼%1 %2</source>
-        <translation type="obsolete">HF calibration ok, calibrate time:%1 %2</translation>
-    </message>
-    <message>
-        <source>é«é¢æ ¡åå¤±è´¥ã</source>
-        <translation type="obsolete">HF calibration failed</translation>
+        <translation>完成</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.cpp" line="103"/>
         <source>移除夹具上的被测物品，然后点击确定！</source>
-        <translation>Remove DUT from fixture, then click ok!</translation>
+        <translation>移除夾具上的被測物品，然後點擊確定！</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.cpp" line="103"/>
         <source>开路校准</source>
-        <translation>Open circuit trim</translation>
+        <translation>開路校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.cpp" line="111"/>
         <source>开路校准成功，校准时间：%1 %2</source>
-        <translation>Open circuit calibration ok, calibrate time:%1 %2</translation>
+        <translation>開路校準成功，校準時間：%1 %2</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.cpp" line="115"/>
         <source>开路校准失败。</source>
-        <translation>Open circuit trim failed.</translation>
+        <translation>開路校準失敗。</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.cpp" line="120"/>
         <source>请将夹具短路，然后点击确定</source>
-        <translation>Please short fixture,then click ok</translation>
+        <translation>請將夾具短路，然後點擊確定</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.cpp" line="120"/>
         <source>短路校准</source>
-        <translation>Short circuit trim</translation>
+        <translation>短路校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.cpp" line="124"/>
         <source>短路校准成功。校准时间：%1 %2</source>
-        <translation>Short circuit calibration ok, calibrate time:%1 %2</translation>
+        <translation>短路校準成功。校準時間：%1 %2</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.cpp" line="128"/>
         <source>短路校准失败。</source>
-        <translation>Short circuit trim failed.</translation>
+        <translation>短路校準失敗。</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.cpp" line="133"/>
         <source>请连接高频校准器件</source>
-        <translation>Connect 150pF to fixture</translation>
+        <translation>請連接高頻校準器件</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.cpp" line="137"/>
         <source>高频校准成功。校准时间：%1 %2</source>
-        <translation>HF calibration ok, calibrate time:%1 %2</translation>
+        <translation>高頻校準成功。校準時間：%1 %2</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440Calibration.cpp" line="141"/>
         <source>高频校准失败。</source>
-        <translation>HF calibration failed.</translation>
+        <translation>高頻校準失敗。</translation>
     </message>
 </context>
 <context>
@@ -7003,17 +6167,17 @@ Trim</translation>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="23"/>
         <source>WK 6500 仪表设置</source>
-        <translation>WK 6500 meter setup</translation>
+        <translation>WK 6500 儀錶設置</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="45"/>
         <source>测量项目</source>
-        <translation>Select items</translation>
+        <translation>測量項目</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="59"/>
         <source>项目1：</source>
-        <translation>Item 1:</translation>
+        <translation>項目1：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="78"/>
@@ -7023,7 +6187,7 @@ Trim</translation>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="95"/>
         <source>项目2：</source>
-        <translation>Item 2:</translation>
+        <translation>項目2：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="114"/>
@@ -7036,17 +6200,17 @@ Trim</translation>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="362"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="568"/>
         <source>串联</source>
-        <translation>Series</translation>
+        <translation>串聯</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="151"/>
         <source>驱动信号：</source>
-        <translation>Drive level:</translation>
+        <translation>驅動信號：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="165"/>
         <source>频率：</source>
-        <translation>Freq.:</translation>
+        <translation>頻率：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="190"/>
@@ -7056,7 +6220,7 @@ Trim</translation>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="207"/>
         <source>电平：</source>
-        <translation>Level:</translation>
+        <translation>電平：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="232"/>
@@ -7066,12 +6230,12 @@ Trim</translation>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="250"/>
         <source>偏置设置：</source>
-        <translation>Bias Setup:</translation>
+        <translation>偏置設置：</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="264"/>
         <source>大小：</source>
-        <translation>Value:</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="289"/>
@@ -7083,7 +6247,7 @@ Trim</translation>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="109"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="535"/>
         <source>电流</source>
-        <translation>Current</translation>
+        <translation>電流</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="337"/>
@@ -7092,108 +6256,36 @@ Trim</translation>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="558"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="561"/>
         <source>关</source>
-        <translation>OFF</translation>
+        <translation>關</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="355"/>
         <source>档位速度</source>
-        <translation>Range &amp;&amp; Speed</translation>
+        <translation>檔位速度</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="373"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="230"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="367"/>
         <source>自动</source>
-        <translation>Auto</translation>
+        <translation>自動</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="392"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="282"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="372"/>
         <source>最快</source>
-        <translation>Max</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="437"/>
         <source>取消</source>
-        <translation>Cancel</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="456"/>
         <source>确定</source>
-        <translation>Ok</translation>
-    </message>
-    <message>
-        <source>çµå</source>
-        <translation type="obsolete">Voltage</translation>
-    </message>
-    <message>
-        <source>çµæµ</source>
-        <translation type="obsolete">Current</translation>
-    </message>
-    <message>
-        <source>å¼</source>
-        <translation type="obsolete">ON</translation>
-    </message>
-    <message>
-        <source>å³</source>
-        <translation type="obsolete">OFF</translation>
-    </message>
-    <message>
-        <source>ä¸²è</source>
-        <translation type="obsolete">Series</translation>
-    </message>
-    <message>
-        <source>èªå¨</source>
-        <translation type="obsolete">Auto</translation>
-    </message>
-    <message>
-        <source>æå¿«</source>
-        <translation type="obsolete">Max</translation>
-    </message>
-    <message>
-        <source>å¿«é</source>
-        <translation type="obsolete">Fast</translation>
-    </message>
-    <message>
-        <source>ä¸­é</source>
-        <translation type="obsolete">Med</translation>
-    </message>
-    <message>
-        <source>æ¢é</source>
-        <translation type="obsolete">Slow</translation>
-    </message>
-    <message>
-        <source>å¹¶è</source>
-        <translation type="obsolete">Parallel</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®6500çæµè¯æ¡£ä½</source>
-        <translation type="obsolete">Set 6500 range</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®6500çæµè¯é¡¹ç®1</source>
-        <translation type="obsolete">Set 6500 item1</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®6500çæµè¯é¡¹ç®2</source>
-        <translation type="obsolete">Set 6500 item2</translation>
-    </message>
-    <message>
-        <source>è®¾å®æµè¯é¢ç</source>
-        <translation type="obsolete">Set test frequency</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®æµè¯çµå¹³</source>
-        <translation type="obsolete">set 6500 level</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®åç½®å¼</source>
-        <translation type="obsolete">set 6500 bias value</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®æµè¯éåº¦</source>
-        <translation type="obsolete">set 6500 speed</translation>
+        <translation>確定</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="98"/>
@@ -7207,77 +6299,69 @@ Trim</translation>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="687"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="699"/>
         <source>电压</source>
-        <translation>Voltage</translation>
+        <translation>電壓</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="195"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="257"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="558"/>
         <source>开</source>
-        <translation>ON</translation>
+        <translation>開</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="374"/>
         <source>快速</source>
-        <translation>Fast</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="376"/>
         <source>中速</source>
-        <translation>Med</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="378"/>
         <source>慢速</source>
-        <translation>Slow</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="568"/>
         <source>并联</source>
-        <translation>Parallel</translation>
+        <translation>並聯</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="578"/>
         <source>设置6500的测试档位</source>
-        <translation>Set 6500 range</translation>
+        <translation>設置6500的測試檔位</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="590"/>
         <source>设置6500的测试项目1</source>
-        <translation>Set 6500 item1</translation>
+        <translation>設置6500的測試項目1</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="603"/>
         <source>设置6500的测试项目2</source>
-        <translation>Set 6500 item2</translation>
+        <translation>設置6500的測試項目2</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="616"/>
         <source>设定测试频率</source>
-        <translation>Set test frequency</translation>
+        <translation>設定測試頻率</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="639"/>
         <source>设置测试电平</source>
-        <translation>set 6500 level</translation>
+        <translation>設置測試電平</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="683"/>
         <source>设置偏置值</source>
-        <translation>set 6500 bias value</translation>
+        <translation>設置偏置值</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="723"/>
         <source>设置测试速度</source>
-        <translation>set 6500 speed</translation>
-    </message>
-    <message>
-        <source>不能正确的查询Bias的状态，请检查连接。</source>
-        <translation type="vanished">Can not query bias status, please check connection.</translation>
-    </message>
-    <message>
-        <source>ä¸è½æ­£ç¡®çæ¥è¯¢Biasçç¶æï¼è¯·æ£æ¥è¿æ¥ã</source>
-        <translation type="obsolete">Can not query bias status, please check connection.</translation>
+        <translation>設置測試速度</translation>
     </message>
 </context>
 <context>
@@ -7285,19 +6369,19 @@ Trim</translation>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.ui" line="35"/>
         <source>6500B校准界面</source>
-        <translation>6500B Calibration</translation>
+        <translation>6500B校準介面</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.ui" line="55"/>
         <source>开短路校准</source>
-        <translation>Open and short trim</translation>
+        <translation>開短路校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.ui" line="81"/>
         <source>开路
 校准</source>
-        <translation>Open
-Trim</translation>
+        <translation>開路
+校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.ui" line="95"/>
@@ -7307,37 +6391,37 @@ Trim</translation>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="230"/>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="344"/>
         <source>工厂默认值。</source>
-        <translation>Factory default value.</translation>
+        <translation>工廠預設值。</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.ui" line="124"/>
         <source>短路
 校准</source>
-        <translation>Short
-Trim</translation>
+        <translation>短路
+校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.ui" line="163"/>
         <location filename="../../AnalysisMode/wk6500Calibration.ui" line="246"/>
         <source>清除</source>
-        <translation>Clear</translation>
+        <translation>清除</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.ui" line="181"/>
         <source>高频校准</source>
-        <translation>High frequency trim</translation>
+        <translation>高頻校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.ui" line="207"/>
         <source>高频
 校准</source>
-        <translation>HF
-Trim</translation>
+        <translation>高頻
+校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.ui" line="269"/>
         <source>校准截止频率</source>
-        <translation>Max Frequency</translation>
+        <translation>校準截止頻率</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.ui" line="293"/>
@@ -7347,150 +6431,98 @@ Trim</translation>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.ui" line="356"/>
         <source>完成</source>
-        <translation>Done</translation>
-    </message>
-    <message>
-        <source>??????????????????</source>
-        <translation type="obsolete">Remove DUT from fixture,then click ok!</translation>
-    </message>
-    <message>
-        <source>????</source>
-        <translation type="obsolete">Open circuit trim</translation>
-    </message>
-    <message>
-        <source>??????????%1?
-?????%2 %3</source>
-        <translation type="obsolete">Open circuit trim successful,frequency up to %1.
-Calibration time: %2 %3</translation>
-    </message>
-    <message>
-        <source>???????</source>
-        <translation type="obsolete">Open circuit trim failed.</translation>
-    </message>
-    <message>
-        <source>??????</source>
-        <translation type="obsolete">Select trim frequency</translation>
-    </message>
-    <message>
-        <source>?????????????</source>
-        <translation type="obsolete">Please short fixture,then click ok.</translation>
-    </message>
-    <message>
-        <source>???????100R??</source>
-        <translation type="obsolete">Connect 100R to fixture.</translation>
-    </message>
-    <message>
-        <source>100R ??</source>
-        <translation type="obsolete">100R resistor</translation>
-    </message>
-    <message>
-        <source>???????100pF??</source>
-        <translation type="obsolete">Connect 100pF to fixture</translation>
-    </message>
-    <message>
-        <source>100pF ??</source>
-        <translation type="obsolete">100pF capacitor</translation>
-    </message>
-    <message>
-        <source>???????????????</source>
-        <translation type="obsolete">HF calibration failed, use factory default value!</translation>
-    </message>
-    <message>
-        <source>???????10pF??</source>
-        <translation type="obsolete">Connect 10pF to fixture</translation>
-    </message>
-    <message>
-        <source>10pF ??</source>
-        <translation type="obsolete">10pF capacitor</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="132"/>
         <source>移除夹具上的被测物品，然后点击确定！</source>
-        <translation>Remove DUT from fixture,then click ok!</translation>
+        <translation>移除夾具上的被測物品，然後點擊確定！</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="132"/>
         <source>开路校准</source>
-        <translation>Open circuit trim</translation>
+        <translation>開路校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="157"/>
         <source>开路校准成功，频率至%1。
 校准时间：%2 %3</source>
-        <translation>Open circuit trim successful,frequency up to %1.
-Calibration time: %2 %3</translation>
+        <translation>開路校準成功，頻率至%1。
+校準時間：%2 %3</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="166"/>
         <source>开路校准失败。</source>
-        <translation>Open circuit trim failed.</translation>
+        <translation>開路校準失敗。</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="191"/>
         <source>选择校准频率</source>
-        <translation>Select trim frequency</translation>
+        <translation>選擇校準頻率</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="239"/>
         <source>请将夹具短路，然后点击确定</source>
-        <translation>Please short fixture,then click ok</translation>
+        <translation>請將夾具短路，然後點擊確定</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="239"/>
         <source>短路校准</source>
-        <translation>Short circuit trim</translation>
+        <translation>短路校準</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="263"/>
         <source>短路校准成功，频率至%1。
 校准时间：%2 %3</source>
-        <translation></translation>
+        <translation>短路校準成功，頻率至%1。
+校準時間：%2 %3</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="272"/>
         <source>短路校准失败。</source>
-        <translation>Short circuit trim failed.</translation>
+        <translation>短路校準失敗。</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="296"/>
         <source>请在夹具上连接100R电阻</source>
-        <translation>Connect 100R to fixture</translation>
+        <translation>請在夾具上連接100R電阻</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="296"/>
         <source>100R 电阻</source>
-        <translation>100R resistor</translation>
+        <translation>100R 電阻</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="305"/>
         <source>请在夹具上连接100pF电容</source>
-        <translation>Connect 100pF to fixture</translation>
+        <translation>請在夾具上連接100pF電容</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="305"/>
         <source>100pF 电容</source>
-        <translation>100pF capacitor</translation>
+        <translation>100pF 電容</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="318"/>
         <source>高频校准成功，频率至%1。
 校准时间：%2 %3</source>
-        <translation>HF calibration ok, Frequency upto%1. Calibration time:%2 %3</translation>
+        <translation>高頻校準成功，頻率至%1。
+校準時間：%2 %3</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="327"/>
         <source>高频校准失败，使用工厂默认值！</source>
-        <translation>HF calibration failed, use factory default value!</translation>
+        <translation>高頻校準失敗，使用工廠預設值！</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="333"/>
         <source>请在夹具上连接10pF电容</source>
-        <translation>Connect 10pF to fixture</translation>
+        <translation>請在夾具上連接10pF電容</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.cpp" line="333"/>
         <source>10pF 电容</source>
-        <translation>10pF capacitor</translation>
+        <translation>10pF 電容</translation>
     </message>
 </context>
 <context>
@@ -7527,7 +6559,7 @@ Calibration time: %2 %3</translation>
     <message>
         <location filename="../../AnalysisMode/wk6500LevelInputBox.ui" line="212"/>
         <source>清除</source>
-        <translation>Clr</translation>
+        <translation>清除</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500LevelInputBox.ui" line="237"/>
@@ -7676,7 +6708,7 @@ Calibration time: %2 %3</translation>
     <message>
         <location filename="../../AnalysisMode/wk6500LevelInputBox.ui" line="744"/>
         <source>取消</source>
-        <translation>Cancel</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500LevelInputBox.ui" line="747"/>
@@ -7689,13 +6721,13 @@ Calibration time: %2 %3</translation>
     <message>
         <location filename="../../AnalysisMode/wk6500Range.ui" line="23"/>
         <source>设置WK 6500B 测试量程</source>
-        <translation>Set WK6500 Test Range</translation>
+        <translation>設置WK 6500B 測試量程</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Range.ui" line="75"/>
         <location filename="../../AnalysisMode/wk6500Range.cpp" line="12"/>
         <source>自动</source>
-        <translation>Auto</translation>
+        <translation>自動</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Range.ui" line="103"/>
@@ -7732,37 +6764,33 @@ Calibration time: %2 %3</translation>
         <source>7</source>
         <translation></translation>
     </message>
-    <message>
-        <source>èªå¨</source>
-        <translation type="obsolete">Auto</translation>
-    </message>
 </context>
 <context>
     <name>wk6500Speed</name>
     <message>
         <location filename="../../AnalysisMode/wk6500Speed.ui" line="23"/>
         <source>设置测量速度</source>
-        <translation>Test Speed Setup</translation>
+        <translation>設置測量速度</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Speed.ui" line="75"/>
         <source>最快</source>
-        <translation>Max</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Speed.ui" line="100"/>
         <source>快速</source>
-        <translation>Fast</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Speed.ui" line="125"/>
         <source>中速</source>
-        <translation>Med</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Speed.ui" line="150"/>
         <source>慢速</source>
-        <translation>Slow</translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -7770,85 +6798,85 @@ Calibration time: %2 %3</translation>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="20"/>
         <source>谐振点搜索模式</source>
-        <translation>Resonace Mode</translation>
+        <translation>諧振點搜索模式</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="72"/>
         <source>搜索</source>
-        <translation>Search</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="126"/>
         <source>保存
 数据</source>
-        <translation>Save
-Data</translation>
+        <translation>保存
+數據</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="165"/>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="299"/>
         <source>隐藏
 设置</source>
-        <translation>Hide
-Setup</translation>
+        <translation>隱藏
+設置</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="217"/>
         <source>退出</source>
-        <translation>Exit</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="252"/>
         <source>软件
 信息</source>
-        <translation>SoftWare
-Info</translation>
+        <translation>軟體
+信息</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="290"/>
         <source>搜索设置</source>
-        <translation>Search setup</translation>
+        <translation>搜索設置</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="308"/>
         <source>谐振点类型</source>
-        <translation>Reso. Type</translation>
+        <translation>諧振點類型</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="332"/>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="221"/>
         <source>串联</source>
-        <translation>Series</translation>
+        <translation>串聯</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="348"/>
         <source>速度</source>
-        <translation>Speed</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="372"/>
         <source>最快</source>
-        <translation>Max</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="388"/>
         <source>搜索深度</source>
-        <translation>Depth</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="412"/>
         <source>16</source>
-        <translation>100Point {16?}</translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="432"/>
         <source>搜索范围</source>
-        <translation>Range</translation>
+        <translation>搜索範圍</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="444"/>
         <source>开始：</source>
-        <translation>Start:</translation>
+        <translation>開始：</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="469"/>
@@ -7858,7 +6886,7 @@ Info</translation>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="482"/>
         <source>终止：</source>
-        <translation>Stop:</translation>
+        <translation>終止：</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="507"/>
@@ -7868,7 +6896,7 @@ Info</translation>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="532"/>
         <source>预搜索</source>
-        <translation>Check Valid</translation>
+        <translation>預搜索</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="548"/>
@@ -7878,7 +6906,7 @@ Info</translation>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="568"/>
         <source>谐振频率上下限</source>
-        <translation>Resonace freq. limits</translation>
+        <translation>諧振頻率上下限</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="586"/>
@@ -7891,22 +6919,22 @@ Info</translation>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="602"/>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="277"/>
         <source>设定fa-fr上下限</source>
-        <translation>Set fa-fr limits</translation>
+        <translation>設定fa-fr上下限</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="672"/>
         <source>测试状态</source>
-        <translation>Test status</translation>
+        <translation>測試狀態</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="720"/>
         <source>搜索结果</source>
-        <translation>Search results</translation>
+        <translation>搜索結果</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="734"/>
         <source>模型参数</source>
-        <translation>Model parameters</translation>
+        <translation>模型參數</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="760"/>
@@ -7934,7 +6962,7 @@ Info</translation>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="953"/>
         <source>其他参数</source>
-        <translation>Other parameters</translation>
+        <translation>其他參數</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="979"/>
@@ -7955,12 +6983,12 @@ Info</translation>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="1124"/>
         <source>频率显示</source>
-        <translation>Frequencies</translation>
+        <translation>頻率顯示</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="1151"/>
         <source>频率：</source>
-        <translation>Freq:</translation>
+        <translation>頻率：</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="1221"/>
@@ -7998,71 +7026,39 @@ Info</translation>
         <translation></translation>
     </message>
     <message>
-        <source>æ¶æ¯ï¼æ§å¶çå·²è¿æ¥ï¼</source>
-        <translation type="obsolete">Info: control box is connected!</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®è°æ¯ç¹æç´¢éåº¦</source>
-        <translation type="obsolete">Set search speed</translation>
-    </message>
-    <message>
-        <source>æ¶ä½è°æ¯å¨</source>
-        <translation type="obsolete">Piezo</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®æç´¢æ·±åº¦</source>
-        <translation type="obsolete">Set search depth</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®å¼å§é¢ç</source>
-        <translation type="obsolete">Set start frequency</translation>
-    </message>
-    <message>
-        <source>è®¾ç½®ç»æ­¢é¢ç</source>
-        <translation type="obsolete">Set stop frequency</translation>
-    </message>
-    <message>
-        <source>ä¸²è</source>
-        <translation type="obsolete">Series</translation>
-    </message>
-    <message>
-        <source>å¹¶è</source>
-        <translation type="obsolete">Parallel</translation>
-    </message>
-    <message>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="45"/>
         <source>消息：控制盒已连接！</source>
-        <translation>Info: control box is connected!</translation>
+        <translation>消息：控制盒已連接！</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="101"/>
         <source>设置谐振点搜索速度</source>
-        <translation>Set search speed</translation>
+        <translation>設置諧振點搜索速度</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="114"/>
         <source>晶体谐振器</source>
-        <translation>Piezo</translation>
+        <translation>晶體諧振器</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="146"/>
         <source>设置搜索深度</source>
-        <translation>Set search depth</translation>
+        <translation>設置搜索深度</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="164"/>
         <source>设置开始频率</source>
-        <translation>Set start frequency</translation>
+        <translation>設置開始頻率</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="184"/>
         <source>设置终止频率</source>
-        <translation>Set stop frequency</translation>
+        <translation>設置終止頻率</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="221"/>
         <source>并联</source>
-        <translation>Parallel</translation>
+        <translation>並聯</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="237"/>
@@ -8073,24 +7069,24 @@ Info</translation>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="254"/>
         <source>本次测试用时</source>
-        <translation>The test time</translation>
+        <translation>本次測試用時</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="262"/>
         <source>设定谐振频率上下限</source>
-        <translation>Set Resonace frequency limits</translation>
+        <translation>設定諧振頻率上下限</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="294"/>
         <source>显示
 设置</source>
-        <translation>Show
-Setup</translation>
+        <translation>顯示
+設置</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="315"/>
         <source>打开数据文件</source>
-        <translation>Open data file</translation>
+        <translation>打開資料檔案</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="315"/>
@@ -8100,7 +7096,7 @@ Setup</translation>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="320"/>
         <source>数据文件：%1</source>
-        <translation>Data file %1</translation>
+        <translation>資料檔案：%1</translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="341"/>
@@ -8126,31 +7122,7 @@ Setup</translation>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="388"/>
         <source>关于本软件</source>
-        <translation>About me</translation>
-    </message>
-    <message>
-        <source>æ¬æ¬¡æµè¯ç¨æ¶</source>
-        <translation type="obsolete">The test time</translation>
-    </message>
-    <message>
-        <source>è®¾å®è°æ¯é¢çä¸ä¸é</source>
-        <translation type="obsolete">Set Resonace frequency limits</translation>
-    </message>
-    <message>
-        <source>è®¾å®fa-frä¸ä¸é</source>
-        <translation type="obsolete">Set fa-fr limits</translation>
-    </message>
-    <message>
-        <source>æ¾ç¤º
-è®¾ç½®</source>
-        <translation type="obsolete">Show
-Setup</translation>
-    </message>
-    <message>
-        <source>éè
-è®¾ç½®</source>
-        <translation type="obsolete">Hide
-Setup</translation>
+        <translation>關於本軟體</translation>
     </message>
 </context>
 </TS>

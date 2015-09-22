@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>679</width>
-    <height>326</height>
+    <width>458</width>
+    <height>260</height>
    </rect>
   </property>
   <property name="font">
@@ -63,7 +63,7 @@
          </font>
         </property>
         <property name="text">
-         <string>中文</string>
+         <string>简体中文</string>
         </property>
         <property name="checked">
          <bool>true</bool>
@@ -80,6 +80,22 @@
         </property>
         <property name="text">
          <string>English</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="rbTwLan">
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>繁體中文</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
         </property>
        </widget>
       </item>

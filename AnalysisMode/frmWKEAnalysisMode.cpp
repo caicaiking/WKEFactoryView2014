@@ -1,4 +1,4 @@
-﻿#include "frmWKEAnalysisMode.h"
+#include "frmWKEAnalysisMode.h"
 #include <QBoxLayout>
 #include <QFileDialog>
 #include <Qwt/qwt_plot_renderer.h>
@@ -47,7 +47,7 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     btnSetLimit->setVisible(false);
 
 
-//    connect(this->statusLabel,SIGNAL(Clicked()),this,SLOT(showMulitLimit()));
+    //    connect(this->statusLabel,SIGNAL(Clicked()),this,SLOT(showMulitLimit()));
 
 
 
@@ -91,7 +91,7 @@ void frmWKEAnalysisMode::captureTrig()
 
 void frmWKEAnalysisMode::setCurrentMarker(int value)
 {
-   // qDebug()<<"Marker button click :" << value;
+    // qDebug()<<"Marker button click :" << value;
 
     for(int i =0; i< markers.length();i++)
     {
@@ -130,7 +130,8 @@ void frmWKEAnalysisMode::init()
     frmTraceSetup::readSettings(gs,true);
 
     meas = MeasFactory::getMeas(gs.sweepType);
-    meas->setPoint(&gs.points);
+    if(gs.points.length()!=0)
+        meas->setPoint(&gs.points);
     connect(meas,SIGNAL(showProgress(int)),this->progressBar,SLOT(setValue(int)));
     updateGraph();
     updateButtons();
@@ -270,8 +271,8 @@ void frmWKEAnalysisMode::updateGraph()
     if(meter->getItem1() !="Z" && meter->getItem1() !="Y")
         gs.logYleft=false;
 
-//    if(gs.sweepType !=Frequency)
-//        gs.logX=false;
+    //    if(gs.sweepType !=Frequency)
+    //        gs.logX=false;
 
     plot->setScale(gs.xmin,gs.xmax,gs.logX,
                    gs.yLeftMin,gs.yLeftMax,gs.logYleft,
@@ -987,12 +988,12 @@ void frmWKEAnalysisMode::on_btnMarker_toggled(bool checked)
 
 void frmWKEAnalysisMode::resetMarker()
 {
-//    for(int i = 0; i< markers.length(); i++)
-//    {
-//        plot->setMarkerVisual(i, false);
-//        markers.at(i)->setText("");
-//    }
+    //    for(int i = 0; i< markers.length(); i++)
+    //    {
+    //        plot->setMarkerVisual(i, false);
+    //        markers.at(i)->setText("");
+    //    }
 
-//    plot->setCurrentMarker(0);
+    //    plot->setCurrentMarker(0);
 }
 

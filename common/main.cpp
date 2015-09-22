@@ -1,4 +1,4 @@
-﻿#include <QApplication>
+#include <QApplication>
 #include <QTextCodec>
 #include <QSplashScreen>
 #include <QDebug>
@@ -17,9 +17,7 @@
 #include "clsMultiChannaeBox.h"
 #include <QMessageBox>
 #include "clsDataProcess.h"
-#include "doubleType.h"
-#include "NumberInput.h"
-#include "dlgLevelInputBox.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -34,19 +32,23 @@ int main(int argc, char *argv[])
 
     //如果要是发布无锁版本，请使用clsDog::setProduct(false),有锁版本clsDog::setProduct(true)
 
-//    dlgLevelInputBox inp;
-//    return inp.exec();
+    //    dlgLevelInputBox inp;
+    //    return inp.exec();
 
 
     clsDog::setProduct(false);
 
     //这儿是加载英文的翻译，如果要是实用界面为英文，请去掉此处的注释
+
+
 RELOAD:
     QTranslator translator;
     if(UserfulFunctions::getLanguage()==1)
         translator.load(":/Translation/WKEFV_EN.qm");
-    else
+    else if(UserfulFunctions::getLanguage()==0)
         translator.load(":/Translation/WKEFV_ZH.qm");
+    else if(UserfulFunctions::getLanguage()==2)
+        translator.load(":/Translation/WKEFV_Tw.qm");
 
     a.installTranslator(&translator);
 

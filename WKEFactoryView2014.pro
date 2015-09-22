@@ -363,4 +363,5 @@ FORMS += \
 
 
 TRANSLATIONS = recFile/Translation/WKEFV_EN.ts \
-               recFile/Translation/WKEFV_Zh.ts
+               recFile/Translation/WKEFV_Zh.ts \
+               recFile/Translation/WKEFV_Tw.ts

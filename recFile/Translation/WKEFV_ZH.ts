@@ -22,185 +22,185 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="100"/>
-        <location filename="../../Public/NumberInput.ui" line="103"/>
+        <location filename="../../Public/NumberInput.ui" line="82"/>
+        <location filename="../../Public/NumberInput.ui" line="85"/>
         <source>7</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="128"/>
-        <location filename="../../Public/NumberInput.ui" line="131"/>
+        <location filename="../../Public/NumberInput.ui" line="110"/>
+        <location filename="../../Public/NumberInput.ui" line="113"/>
         <source>8</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="156"/>
-        <location filename="../../Public/NumberInput.ui" line="159"/>
+        <location filename="../../Public/NumberInput.ui" line="138"/>
+        <location filename="../../Public/NumberInput.ui" line="141"/>
         <source>9</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="184"/>
-        <location filename="../../Public/NumberInput.ui" line="187"/>
+        <location filename="../../Public/NumberInput.ui" line="166"/>
+        <location filename="../../Public/NumberInput.ui" line="169"/>
         <source>G</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="212"/>
+        <location filename="../../Public/NumberInput.ui" line="194"/>
         <source>清除</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="237"/>
-        <location filename="../../Public/NumberInput.ui" line="240"/>
+        <location filename="../../Public/NumberInput.ui" line="219"/>
+        <location filename="../../Public/NumberInput.ui" line="222"/>
         <source>4</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="265"/>
-        <location filename="../../Public/NumberInput.ui" line="268"/>
+        <location filename="../../Public/NumberInput.ui" line="247"/>
+        <location filename="../../Public/NumberInput.ui" line="250"/>
         <source>5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="293"/>
-        <location filename="../../Public/NumberInput.ui" line="296"/>
+        <location filename="../../Public/NumberInput.ui" line="275"/>
+        <location filename="../../Public/NumberInput.ui" line="278"/>
         <source>6</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="321"/>
-        <location filename="../../Public/NumberInput.ui" line="492"/>
+        <location filename="../../Public/NumberInput.ui" line="303"/>
+        <location filename="../../Public/NumberInput.ui" line="474"/>
         <source>M</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="324"/>
+        <location filename="../../Public/NumberInput.ui" line="306"/>
         <source>Shift+M</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="349"/>
+        <location filename="../../Public/NumberInput.ui" line="331"/>
         <source>&lt;--</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="352"/>
+        <location filename="../../Public/NumberInput.ui" line="334"/>
         <source>Backspace</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="377"/>
-        <location filename="../../Public/NumberInput.ui" line="380"/>
+        <location filename="../../Public/NumberInput.ui" line="359"/>
+        <location filename="../../Public/NumberInput.ui" line="362"/>
         <source>1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="405"/>
-        <location filename="../../Public/NumberInput.ui" line="408"/>
+        <location filename="../../Public/NumberInput.ui" line="387"/>
+        <location filename="../../Public/NumberInput.ui" line="390"/>
         <source>2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="433"/>
-        <location filename="../../Public/NumberInput.ui" line="436"/>
+        <location filename="../../Public/NumberInput.ui" line="415"/>
+        <location filename="../../Public/NumberInput.ui" line="418"/>
         <source>3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="461"/>
+        <location filename="../../Public/NumberInput.ui" line="443"/>
         <source>k</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="464"/>
+        <location filename="../../Public/NumberInput.ui" line="446"/>
         <source>K</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="489"/>
+        <location filename="../../Public/NumberInput.ui" line="471"/>
         <source>m</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="517"/>
-        <location filename="../../Public/NumberInput.ui" line="520"/>
+        <location filename="../../Public/NumberInput.ui" line="499"/>
+        <location filename="../../Public/NumberInput.ui" line="502"/>
         <source>0</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="545"/>
-        <location filename="../../Public/NumberInput.ui" line="548"/>
+        <location filename="../../Public/NumberInput.ui" line="527"/>
+        <location filename="../../Public/NumberInput.ui" line="530"/>
         <source>.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="573"/>
+        <location filename="../../Public/NumberInput.ui" line="555"/>
         <source>±</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="576"/>
+        <location filename="../../Public/NumberInput.ui" line="558"/>
         <source>Shift+A</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="601"/>
+        <location filename="../../Public/NumberInput.ui" line="583"/>
         <source>u</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="604"/>
+        <location filename="../../Public/NumberInput.ui" line="586"/>
         <source>U</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="629"/>
+        <location filename="../../Public/NumberInput.ui" line="611"/>
         <source>退出</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="632"/>
+        <location filename="../../Public/NumberInput.ui" line="614"/>
         <source>Esc</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="657"/>
+        <location filename="../../Public/NumberInput.ui" line="639"/>
         <source>n</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="660"/>
+        <location filename="../../Public/NumberInput.ui" line="642"/>
         <source>N</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="685"/>
+        <location filename="../../Public/NumberInput.ui" line="667"/>
         <source>p</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="688"/>
+        <location filename="../../Public/NumberInput.ui" line="670"/>
         <source>P</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="713"/>
+        <location filename="../../Public/NumberInput.ui" line="695"/>
         <source>f</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="716"/>
+        <location filename="../../Public/NumberInput.ui" line="698"/>
         <source>F</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="741"/>
+        <location filename="../../Public/NumberInput.ui" line="723"/>
         <source>OK</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/NumberInput.ui" line="744"/>
+        <location filename="../../Public/NumberInput.ui" line="726"/>
         <source>Shift+V</source>
         <translation></translation>
     </message>
@@ -336,14 +336,14 @@
         <location filename="../../MeterMode/clsMeterModeFactory.cpp" line="29"/>
         <location filename="../../MulitChannalBox/clsMultiChannelMeterFactory.h" line="28"/>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="209"/>
-        <location filename="../../common/main.cpp" line="65"/>
+        <location filename="../../common/main.cpp" line="71"/>
         <source>WKE FactoryView 2014</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="539"/>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="209"/>
-        <location filename="../../common/main.cpp" line="65"/>
+        <location filename="../../common/main.cpp" line="71"/>
         <source>请插入加密狗！</source>
         <translation></translation>
     </message>
@@ -570,7 +570,7 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/main.cpp" line="54"/>
+        <location filename="../../common/main.cpp" line="60"/>
         <source>正在初始化测试窗口，请稍等...</source>
         <translation></translation>
     </message>
@@ -1341,106 +1341,106 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="141"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="147"/>
         <source>100.00kHz</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="154"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="160"/>
         <source>电平：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="176"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="188"/>
         <source>1.000V</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="194"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="206"/>
         <source>偏置设置：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="206"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="218"/>
         <source>大小：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="228"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="240"/>
         <source>100mA</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="241"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="253"/>
         <source>类型：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="263"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="275"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="691"/>
         <source>电流</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="288"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="300"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="31"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="697"/>
         <source>关</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="306"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="318"/>
         <source>主参数：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="318"/>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="453"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="330"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="465"/>
         <source>项目：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="346"/>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="481"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="358"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="493"/>
         <source>Z</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="359"/>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="494"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="371"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="506"/>
         <source>限定：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="381"/>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="516"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="393"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="528"/>
         <source>TextLabel</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="394"/>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="529"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="406"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="541"/>
         <source>单位：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="422"/>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="557"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="434"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="569"/>
         <source>m</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="438"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="450"/>
         <source>副参数：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="577"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="589"/>
         <source>描述：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6500MeterMode.ui" line="590"/>
+        <location filename="../../MeterMode/cls6500MeterMode.ui" line="602"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="418"/>
         <source>空白</source>
         <translation></translation>
@@ -1731,24 +1731,24 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="107"/>
+        <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="113"/>
         <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="82"/>
         <source>选定前10通道</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="129"/>
+        <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="141"/>
         <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="105"/>
         <source>全选</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="164"/>
+        <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="182"/>
         <source>取消</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="183"/>
+        <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="207"/>
         <source>确定</source>
         <translation></translation>
     </message>
@@ -1785,21 +1785,21 @@
     <name>clsFit</name>
     <message>
         <location filename="../../AnalysisMode/clsFit.ui" line="17"/>
-        <source>Select fit</source>
+        <source>选择适应</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsFit.ui" line="72"/>
+        <location filename="../../AnalysisMode/clsFit.ui" line="52"/>
         <source>Z</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsFit.ui" line="100"/>
+        <location filename="../../AnalysisMode/clsFit.ui" line="80"/>
         <source>θ</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsFit.ui" line="128"/>
+        <location filename="../../AnalysisMode/clsFit.ui" line="108"/>
         <source>全部</source>
         <translation></translation>
     </message>
@@ -2716,34 +2716,34 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="54"/>
+        <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="39"/>
         <source>频率范围：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="93"/>
-        <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="154"/>
-        <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="215"/>
+        <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="78"/>
+        <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="139"/>
+        <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="200"/>
         <source>---------</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="112"/>
+        <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="97"/>
         <source>第一参数上下限：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="173"/>
+        <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="158"/>
         <source>第二参数上下限：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="264"/>
+        <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="246"/>
         <source>取消</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="283"/>
+        <location filename="../../AnalysisMode/clsMultiLimitSetting.ui" line="265"/>
         <source>确定</source>
         <translation></translation>
     </message>
@@ -2832,71 +2832,71 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="66"/>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="69"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="113"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="116"/>
         <source>3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="97"/>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="100"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="82"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="85"/>
         <source>2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="128"/>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="131"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="237"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="240"/>
         <source>7</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="159"/>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="162"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="299"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="302"/>
         <source>9</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="190"/>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="193"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="51"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="54"/>
         <source>1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="221"/>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="224"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="175"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="178"/>
         <source>5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="252"/>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="255"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="144"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="147"/>
         <source>4</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="283"/>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="286"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="206"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="209"/>
         <source>6</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="314"/>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="317"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="268"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="271"/>
         <source>8</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="345"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="361"/>
         <source>取消</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="373"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="330"/>
         <source>10</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="376"/>
+        <location filename="../../AnalysisMode/clsSelectedRef.ui" line="333"/>
         <source>0</source>
         <translation></translation>
     </message>
@@ -2909,53 +2909,53 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="49"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="34"/>
         <source>曲线属性</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="77"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="58"/>
         <source>1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="105"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="86"/>
         <source>关</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="136"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="117"/>
         <source>保存
 当前</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="173"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="152"/>
         <source>曲线A</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="186"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="165"/>
         <source>曲线B</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="271"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="248"/>
         <source>相关信息</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="284"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="261"/>
         <source>名称：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="335"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="312"/>
         <source>取消</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="357"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="334"/>
         <source>确定</source>
         <translation></translation>
     </message>
@@ -2968,70 +2968,70 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsSetTestStep.ui" line="47"/>
+        <location filename="../../MeterMode/clsSetTestStep.ui" line="53"/>
         <source>新建</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsSetTestStep.ui" line="76"/>
+        <location filename="../../MeterMode/clsSetTestStep.ui" line="88"/>
         <source>测试
 此步</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsSetTestStep.ui" line="106"/>
+        <location filename="../../MeterMode/clsSetTestStep.ui" line="124"/>
         <source>保存
 步骤</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsSetTestStep.ui" line="149"/>
+        <location filename="../../MeterMode/clsSetTestStep.ui" line="173"/>
         <source>关闭
 Bias</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsSetTestStep.ui" line="198"/>
+        <location filename="../../MeterMode/clsSetTestStep.ui" line="222"/>
         <source>单步测试结果显示</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsSetTestStep.ui" line="244"/>
+        <location filename="../../MeterMode/clsSetTestStep.ui" line="268"/>
         <source>步骤预览</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsSetTestStep.ui" line="268"/>
+        <location filename="../../MeterMode/clsSetTestStep.ui" line="298"/>
         <source>向上</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsSetTestStep.ui" line="291"/>
+        <location filename="../../MeterMode/clsSetTestStep.ui" line="327"/>
         <source>向下</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsSetTestStep.ui" line="314"/>
+        <location filename="../../MeterMode/clsSetTestStep.ui" line="356"/>
         <source>删除</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsSetTestStep.ui" line="337"/>
+        <location filename="../../MeterMode/clsSetTestStep.ui" line="385"/>
         <source>清空</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsSetTestStep.ui" line="367"/>
+        <location filename="../../MeterMode/clsSetTestStep.ui" line="415"/>
         <source>设置测试步骤</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsSetTestStep.ui" line="415"/>
+        <location filename="../../MeterMode/clsSetTestStep.ui" line="463"/>
         <source>确定</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsSetTestStep.ui" line="437"/>
+        <location filename="../../MeterMode/clsSetTestStep.ui" line="485"/>
         <source>取消</source>
         <translation></translation>
     </message>
@@ -3154,33 +3154,33 @@ Bias</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsShowReport.cpp" line="146"/>
+        <location filename="../../MeterMode/clsShowReport.cpp" line="149"/>
         <source>θ</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsShowReport.cpp" line="154"/>
+        <location filename="../../MeterMode/clsShowReport.cpp" line="157"/>
         <source>LCR</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsShowReport.cpp" line="158"/>
-        <location filename="../../MeterMode/clsShowReport.cpp" line="165"/>
+        <location filename="../../MeterMode/clsShowReport.cpp" line="161"/>
+        <location filename="../../MeterMode/clsShowReport.cpp" line="168"/>
         <source>串联</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsShowReport.cpp" line="163"/>
+        <location filename="../../MeterMode/clsShowReport.cpp" line="166"/>
         <source>A</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsShowReport.cpp" line="282"/>
+        <location filename="../../MeterMode/clsShowReport.cpp" line="303"/>
         <source>保存Excel文件</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsShowReport.cpp" line="283"/>
+        <location filename="../../MeterMode/clsShowReport.cpp" line="304"/>
         <source>Excel Files (*.xls)</source>
         <translation></translation>
     </message>
@@ -3242,12 +3242,12 @@ Bias</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsViewResult.ui" line="132"/>
+        <location filename="../../AnalysisMode/clsViewResult.ui" line="138"/>
         <source>组</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsViewResult.ui" line="173"/>
+        <location filename="../../AnalysisMode/clsViewResult.ui" line="185"/>
         <source>保存</source>
         <translation></translation>
     </message>
@@ -3396,62 +3396,62 @@ Bias</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgFunction.ui" line="66"/>
+        <location filename="../../AnalysisMode/dlgFunction.ui" line="48"/>
         <source>C</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgFunction.ui" line="94"/>
+        <location filename="../../AnalysisMode/dlgFunction.ui" line="76"/>
         <source>D</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgFunction.ui" line="122"/>
+        <location filename="../../AnalysisMode/dlgFunction.ui" line="104"/>
         <source>L</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgFunction.ui" line="150"/>
+        <location filename="../../AnalysisMode/dlgFunction.ui" line="132"/>
         <source>Q</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgFunction.ui" line="178"/>
+        <location filename="../../AnalysisMode/dlgFunction.ui" line="160"/>
         <source>R</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgFunction.ui" line="206"/>
+        <location filename="../../AnalysisMode/dlgFunction.ui" line="188"/>
         <source>X</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgFunction.ui" line="234"/>
+        <location filename="../../AnalysisMode/dlgFunction.ui" line="216"/>
         <source>G</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgFunction.ui" line="262"/>
+        <location filename="../../AnalysisMode/dlgFunction.ui" line="244"/>
         <source>B</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgFunction.ui" line="290"/>
+        <location filename="../../AnalysisMode/dlgFunction.ui" line="272"/>
         <source>Z</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgFunction.ui" line="318"/>
+        <location filename="../../AnalysisMode/dlgFunction.ui" line="300"/>
         <source>θ</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgFunction.ui" line="346"/>
+        <location filename="../../AnalysisMode/dlgFunction.ui" line="328"/>
         <source>Y</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgFunction.ui" line="368"/>
+        <location filename="../../AnalysisMode/dlgFunction.ui" line="350"/>
         <source>取消</source>
         <translation></translation>
     </message>
@@ -3464,150 +3464,150 @@ Bias</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="67"/>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="410"/>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="413"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="52"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="390"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="393"/>
         <source>1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="103"/>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="106"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="83"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="86"/>
         <source>7</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="134"/>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="137"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="114"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="117"/>
         <source>8</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="165"/>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="168"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="145"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="148"/>
         <source>9</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="196"/>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="630"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="176"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="610"/>
         <source>M</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="199"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="179"/>
         <source>Shift+M</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="227"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="207"/>
         <source>Clr</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="255"/>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="258"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="235"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="238"/>
         <source>4</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="286"/>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="289"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="266"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="269"/>
         <source>5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="317"/>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="320"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="297"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="300"/>
         <source>6</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="348"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="328"/>
         <source>k</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="351"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="331"/>
         <source>K</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="379"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="359"/>
         <source>&lt;--</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="382"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="362"/>
         <source>Backspace</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="441"/>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="444"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="421"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="424"/>
         <source>2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="472"/>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="475"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="452"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="455"/>
         <source>3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="503"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="483"/>
         <source>u</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="506"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="486"/>
         <source>U</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="534"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="514"/>
         <source>Quit</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="537"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="517"/>
         <source>Esc</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="565"/>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="568"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="545"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="548"/>
         <source>0</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="596"/>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="599"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="576"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="579"/>
         <source>.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="627"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="607"/>
         <source>m</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="661"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="641"/>
         <source>A</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="664"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="644"/>
         <source>Shift+A</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="692"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="672"/>
         <source>V</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../Public/dlgLevelInputBox.ui" line="695"/>
+        <location filename="../../Public/dlgLevelInputBox.ui" line="675"/>
         <source>Shift+V</source>
         <translation></translation>
     </message>
@@ -3817,32 +3817,32 @@ Bias</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgWk6440Function1.ui" line="66"/>
+        <location filename="../../AnalysisMode/dlgWk6440Function1.ui" line="76"/>
         <source>L</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgWk6440Function1.ui" line="94"/>
+        <location filename="../../AnalysisMode/dlgWk6440Function1.ui" line="48"/>
         <source>C</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgWk6440Function1.ui" line="122"/>
+        <location filename="../../AnalysisMode/dlgWk6440Function1.ui" line="188"/>
         <source>Y</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgWk6440Function1.ui" line="150"/>
+        <location filename="../../AnalysisMode/dlgWk6440Function1.ui" line="160"/>
         <source>Z</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgWk6440Function1.ui" line="178"/>
+        <location filename="../../AnalysisMode/dlgWk6440Function1.ui" line="104"/>
         <source>X</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgWk6440Function1.ui" line="206"/>
+        <location filename="../../AnalysisMode/dlgWk6440Function1.ui" line="132"/>
         <source>B</source>
         <translation></translation>
     </message>
@@ -3855,22 +3855,22 @@ Bias</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgWk6440Function2.ui" line="61"/>
+        <location filename="../../AnalysisMode/dlgWk6440Function2.ui" line="46"/>
         <source>Q</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgWk6440Function2.ui" line="89"/>
+        <location filename="../../AnalysisMode/dlgWk6440Function2.ui" line="74"/>
         <source>D</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgWk6440Function2.ui" line="117"/>
+        <location filename="../../AnalysisMode/dlgWk6440Function2.ui" line="102"/>
         <source>R</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/dlgWk6440Function2.ui" line="145"/>
+        <location filename="../../AnalysisMode/dlgWk6440Function2.ui" line="130"/>
         <source>G</source>
         <translation></translation>
     </message>
@@ -3935,61 +3935,61 @@ WKE FactoryView2014联机测试软件，深圳市稳科电子仪器有限公司�
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="77"/>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="80"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="89"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="92"/>
         <source>Y</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="93"/>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="96"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="105"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="108"/>
         <source>L</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="109"/>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="112"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="121"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="124"/>
         <source>R</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="125"/>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="128"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="137"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="140"/>
         <source>D</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="141"/>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="144"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="153"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="156"/>
         <source>G</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="157"/>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="160"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="169"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="172"/>
         <source>B</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="173"/>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="176"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="185"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="188"/>
         <source>Q</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="189"/>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="192"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="201"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="204"/>
         <source>X</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="205"/>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="208"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="217"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="220"/>
         <source>C</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmParameter.ui" line="249"/>
+        <location filename="../../AnalysisMode/frmParameter.ui" line="260"/>
         <source>确定</source>
         <translation></translation>
     </message>
@@ -4199,7 +4199,7 @@ WKE FactoryView2014联机测试软件，深圳市稳科电子仪器有限公司�
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="66"/>
-        <source>中文</source>
+        <source>简体中文</source>
         <translation></translation>
     </message>
     <message>
@@ -4208,74 +4208,79 @@ WKE FactoryView2014联机测试软件，深圳市稳科电子仪器有限公司�
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="114"/>
+        <location filename="../../common/frmSelectConnection.ui" line="95"/>
+        <source>繁體中文</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../common/frmSelectConnection.ui" line="130"/>
         <source>切换</source>
         <translation>Switch</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="140"/>
+        <location filename="../../common/frmSelectConnection.ui" line="156"/>
         <source>选择测试模式</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="158"/>
+        <location filename="../../common/frmSelectConnection.ui" line="174"/>
         <source>仪表模式(&amp;M)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="177"/>
+        <location filename="../../common/frmSelectConnection.ui" line="193"/>
         <source>分析模式(&amp;S)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="196"/>
+        <location filename="../../common/frmSelectConnection.ui" line="212"/>
         <source>谐振模式（&amp;R）</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="215"/>
+        <location filename="../../common/frmSelectConnection.ui" line="231"/>
         <source>多通道测试(&amp;C)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="231"/>
+        <location filename="../../common/frmSelectConnection.ui" line="247"/>
         <source>选择连接方式</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="245"/>
+        <location filename="../../common/frmSelectConnection.ui" line="261"/>
         <source>如果选择GPIB连接仪器，请设置地址范围1~32</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="248"/>
+        <location filename="../../common/frmSelectConnection.ui" line="264"/>
         <source>&amp;GPIB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="264"/>
+        <location filename="../../common/frmSelectConnection.ui" line="280"/>
         <source>如果连接6500请输入IP地址形如：192.168.1.102,6500
 如果连接4300请输入Ip地址形如：192.168.1.102,4300</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="268"/>
+        <location filename="../../common/frmSelectConnection.ui" line="284"/>
         <source>&amp;LAN</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="281"/>
+        <location filename="../../common/frmSelectConnection.ui" line="297"/>
         <source>&amp;USB</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="298"/>
+        <location filename="../../common/frmSelectConnection.ui" line="314"/>
         <source>地址(&amp;A)：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="320"/>
-        <location filename="../../common/frmSelectConnection.ui" line="373"/>
+        <location filename="../../common/frmSelectConnection.ui" line="336"/>
+        <location filename="../../common/frmSelectConnection.ui" line="392"/>
         <source>如果选择GPIB连接仪器，请设置地址范围1~32
 
 如果连接LAN连接6500请输入IP地址形如：192.168.1.102,6500
@@ -4283,17 +4288,17 @@ WKE FactoryView2014联机测试软件，深圳市稳科电子仪器有限公司�
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="355"/>
+        <location filename="../../common/frmSelectConnection.ui" line="374"/>
         <source>连接(&amp;T)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.cpp" line="45"/>
+        <location filename="../../common/frmSelectConnection.cpp" line="61"/>
         <source>初始化连接失败！</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.cpp" line="50"/>
+        <location filename="../../common/frmSelectConnection.cpp" line="66"/>
         <source>仪器ID：%1</source>
         <translation></translation>
     </message>
@@ -4312,7 +4317,7 @@ WKE FactoryView2014联机测试软件，深圳市稳科电子仪器有限公司�
     </message>
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="73"/>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="245"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="258"/>
         <source>上限：</source>
         <translation></translation>
     </message>
@@ -4323,7 +4328,7 @@ WKE FactoryView2014联机测试软件，深圳市稳科电子仪器有限公司�
     </message>
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="114"/>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="286"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="299"/>
         <source>下限：</source>
         <translation></translation>
     </message>
@@ -4333,142 +4338,142 @@ WKE FactoryView2014联机测试软件，深圳市稳科电子仪器有限公司�
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="167"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="180"/>
         <source>百分比</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="191"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="204"/>
         <source>中心值：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="213"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="226"/>
         <source>100</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="267"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="280"/>
         <source>5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="308"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="321"/>
         <source>-5</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="323"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="336"/>
         <source>误差代码</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="347"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="360"/>
         <source>±0.1%</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="350"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="363"/>
         <source>&amp;B</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="375"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="388"/>
         <source>±0.25%</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="378"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="391"/>
         <source>&amp;C</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="403"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="416"/>
         <source>±0.5%</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="406"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="419"/>
         <source>&amp;D</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="431"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="444"/>
         <source>±1%</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="434"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="447"/>
         <source>&amp;F</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="459"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="472"/>
         <source>±2%</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="462"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="475"/>
         <source>&amp;G</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="487"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="500"/>
         <source>±5%</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="490"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="503"/>
         <source>&amp;J</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="515"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="528"/>
         <source>±10%</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="518"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="531"/>
         <source>&amp;K</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="543"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="556"/>
         <source>±20%</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="546"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="559"/>
         <source>&amp;M</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="571"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="584"/>
         <source>±30%</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="574"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="587"/>
         <source>&amp;N</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="599"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="612"/>
         <source>±0.05%</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="602"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="615"/>
         <source>&amp;W</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="645"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="658"/>
         <source>取消</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/frmSetLimit.ui" line="664"/>
+        <location filename="../../MeterMode/frmSetLimit.ui" line="677"/>
         <source>确定</source>
         <translation></translation>
     </message>
@@ -4503,98 +4508,98 @@ WKE FactoryView2014联机测试软件，深圳市稳科电子仪器有限公司�
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="90"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="96"/>
         <source>频率</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="118"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="130"/>
         <source>偏压</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="143"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="161"/>
         <source>偏流</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="168"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="192"/>
         <source>时间</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="215"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="245"/>
         <source>100点</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="240"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="276"/>
         <source>标题</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="270"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="306"/>
         <location filename="../../AnalysisMode/frmTraceSetup.cpp" line="62"/>
         <source>时间范围（s）</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="304"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="340"/>
         <source>开始</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="332"/>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="526"/>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="644"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="368"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="568"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="686"/>
         <source>1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="352"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="388"/>
         <source>终止</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="380"/>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="551"/>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="669"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="416"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="593"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="711"/>
         <source>100</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="405"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="447"/>
         <source>速率</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="437"/>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="587"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="479"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="629"/>
         <source>Log</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="455"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="497"/>
         <source>显示范围</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="482"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="524"/>
         <source>项目1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="605"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="647"/>
         <source>项目2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="721"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="769"/>
         <source>取消</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="746"/>
+        <location filename="../../AnalysisMode/frmTraceSetup.ui" line="800"/>
         <source>确定</source>
         <translation></translation>
     </message>
@@ -4891,7 +4896,6 @@ WKE FactoryView2014联机测试软件，深圳市稳科电子仪器有限公司�
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="337"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="373"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;设置多条曲线进行对比。&lt;/p&gt;&lt;p&gt;快捷键Ctrl+Q&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation></translation>
     </message>
@@ -4903,14 +4907,23 @@ WKE FactoryView2014联机测试软件，深圳市稳科电子仪器有限公司�
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="354"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="390"/>
         <source>Ctrl+Q</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="373"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;多个游标显示&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;快捷键 ctrl+G&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="376"/>
         <source>游标
 标记</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="390"/>
+        <source>Ctrl+G</source>
         <translation></translation>
     </message>
     <message>
@@ -5183,17 +5196,17 @@ ON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="915"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="916"/>
         <source>打开数据文件</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="915"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="916"/>
         <source>CSV Files (*.csv)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="927"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="928"/>
         <source>配置文件操作</source>
         <translation></translation>
     </message>
@@ -5539,27 +5552,27 @@ ON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="184"/>
+        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="190"/>
         <source>100.00kHz</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="201"/>
+        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="207"/>
         <source>电平：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="220"/>
+        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="232"/>
         <source>1.000V</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="238"/>
+        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="250"/>
         <source>偏置设置：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="258"/>
+        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="270"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="147"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="275"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="531"/>
@@ -5570,7 +5583,7 @@ ON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="283"/>
+        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="295"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="143"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="398"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="401"/>
@@ -5579,31 +5592,31 @@ ON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="301"/>
+        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="313"/>
         <source>档位速度</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="319"/>
+        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="331"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="116"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="250"/>
         <source>自动</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="338"/>
+        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="350"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="159"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="255"/>
         <source>最快</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="371"/>
+        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="383"/>
         <source>取消</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="396"/>
+        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="408"/>
         <source>确定</source>
         <translation></translation>
     </message>
@@ -6109,44 +6122,44 @@ ON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="184"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="190"/>
         <source>100.00kHz</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="201"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="207"/>
         <source>电平：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="220"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="232"/>
         <source>1.000V</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="238"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="250"/>
         <source>偏置设置：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="252"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="264"/>
         <source>大小：</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="271"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="289"/>
         <source>100mA</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="294"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="312"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="109"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="535"/>
         <source>电流</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="319"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="337"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="195"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="257"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="558"/>
@@ -6155,31 +6168,31 @@ ON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="337"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="355"/>
         <source>档位速度</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="355"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="373"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="230"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="367"/>
         <source>自动</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="374"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="392"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="282"/>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="372"/>
         <source>最快</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="419"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="437"/>
         <source>取消</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="438"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="456"/>
         <source>确定</source>
         <translation></translation>
     </message>

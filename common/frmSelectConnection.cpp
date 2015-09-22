@@ -1,4 +1,4 @@
-﻿#include "frmSelectConnection.h"
+#include "frmSelectConnection.h"
 #include "clsRuningSettings.h"
 #include "clsSettings.h"
 #include <QRegExp>
@@ -18,6 +18,22 @@ frmSelectConnection::frmSelectConnection(QWidget *parent) :
     intSelect=0;
     isReboot=0;
     readSettings();
+
+    int selectLan = UserfulFunctions::getLanguage();
+
+    switch (selectLan) {
+    case 0:
+        rbChinese->setChecked(true);
+        break;
+    case 1:
+        rbEnglish->setChecked(true);
+        break;
+    case 2:
+        rbTwLan->setChecked(true);
+        break;
+    default:
+        break;
+    }
 }
 
 void frmSelectConnection::on_btnTest_clicked()
@@ -276,8 +292,14 @@ void frmSelectConnection::on_btnSwitch_clicked()
 {
     if(rbChinese->isChecked())
         UserfulFunctions::setLanguage(0);
-    else
+    else if(rbEnglish->isChecked())
         UserfulFunctions::setLanguage(1);
+    else if(rbTwLan->isChecked())
+        UserfulFunctions::setLanguage(2);
+    else
+    {
+        //Do nonthing here
+    }
 
     qApp->processEvents();
     UserfulFunctions::sleepMs(15);

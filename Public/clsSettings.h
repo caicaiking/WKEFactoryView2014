@@ -5,7 +5,7 @@
 #include <QSettings>
 #include <QFile>
 
-const QString settingsFilePath ="./Settings.ini";
+
 
 class clsSettings : public QObject
 {

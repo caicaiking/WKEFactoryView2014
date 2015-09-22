@@ -1,10 +1,11 @@
-﻿#include "clsFit.h"
+#include "clsFit.h"
 
 clsFit::clsFit(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
      setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+
 }
 
 void clsFit::setTraceTitle(QString strTraceA, QString strTraceB)
