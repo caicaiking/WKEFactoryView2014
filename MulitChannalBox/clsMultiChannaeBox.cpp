@@ -34,6 +34,7 @@ clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
     btnSwitchBoxTest->setEnabled(initCom);
 
     meter = clsMultiChannelMeterFactory::getMeter(clsRS::getInst().meterSeries);
+    meter->setConditionForCalibration(0);
 
     channels="1";
     tableWidget->setColumnCount(4);

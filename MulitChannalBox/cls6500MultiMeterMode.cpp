@@ -107,6 +107,7 @@ void cls6500MultiMeterMode::setConditionForCalibration(int i)
         setLevel(test1LevelV,test1LevelA,test1LevelType);
     else
         setLevel(test2LevelV,test2LevelA,test2LevelType);
+    clsRS::getInst().sendCommand(":METER:EQU-CCT SER");
 
    // clsRS::getInst().sendCommand(":MEAS:LEV 1.0V"); //设置测试条件为1V，仪器有更好的精准度
     //clsRS::getInst().sendCommand(":FAST-GPIB ON");
