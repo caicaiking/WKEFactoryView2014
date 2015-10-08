@@ -5,7 +5,7 @@
 #define MyAppName "WKE FactoryView 2014"#define MyAppPublisher "Wayne Kerr Electronics"
 #define MyAppURL "http://www.waynekerr.com/"
 #define MyAppExeName "WKEFactoryView2014.exe"
-#define SpecialCompanyVersion ""
+#define SpecialCompanyVersion "- ZhenHuaFu"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
@@ -34,7 +34,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 Name: "quicklaunchicon"; Description: "{cm:CreateQuickLaunchIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked; OnlyBelowVersion: 0,6.1
 
-[Files]
+[Files]                                          
 Source: "D:\QT\build-WKEFactoryView2014-Qt531-Release\release\WKEFactoryView2014.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\QT\build-WKEFactoryView2014-Qt531-Release\release\WKEFactoryView2014.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "D:\QT\WKEFactoryView2014\Run\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs

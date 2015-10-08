@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
     //    return inp.exec();
 
 
-    clsDog::setProduct(false);
+    clsDog::setProduct(true);
 
     //这儿是加载英文的翻译，如果要是实用界面为英文，请去掉此处的注释
 

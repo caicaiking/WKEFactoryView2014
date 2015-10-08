@@ -11,7 +11,8 @@ RC_FILE  =Icon.rc
 
 
  LIBS += dog_windows_3147311.lib
-#Tr的编码都是UTF-8的，这样在linguist里面可以很好的识�?
+
+#Tr鐨勭紪鐮侀兘鏄疷TF-8鐨勶紝杩欐牱鍦╨inguist閲岄潰鍙互寰堝ソ鐨勮瘑鍒?
 CODECFORTR = UTF-8
 
 INCLUDEPATH +=connections \
@@ -156,7 +157,7 @@ OTHER_FILES += \
     connections/ReadMe.txt \
     AnalysisMode/ProgramDescription.txt
 
-# QWT 的引�?   #######################################################
+# QWT 鐨勫紩鍏?   #######################################################
 DEFINES    += QT_DLL QWT_DLL
 
 win32:CONFIG(release, debug|release): LIBS += -L$(QTDIR)/bin -lqwt
@@ -164,7 +165,7 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$(QTDIR)/bin  -lqwtd
 
 #######################################################################
 
-#压缩文件的动态链接库###################################################
+#鍘嬬缉鏂囦欢鐨勫姩鎬侀摼鎺ュ簱###################################################
 
 LIBS += -L $(QTDIR)/bin -lquazip
 
