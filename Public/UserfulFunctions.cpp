@@ -91,6 +91,8 @@ QString UserfulFunctions::getSuffix(const QString &value)
         return value;
     if(value.toUpper()=="FREQUENCY" || value.toUpper()==QObject::tr("频率").toUpper())
         return "Hz";
+    if(value.toUpper() =="SRF")
+        return "Hz";
     if(value.toUpper()=="BIAS" || value.toUpper()==QObject::tr("偏置电压").toUpper() || value.toUpper()==QObject::tr("电压信号"))
         return "V";
     if(value.toUpper()=="TIME" || value.toUpper()==QObject::tr("时间").toUpper())

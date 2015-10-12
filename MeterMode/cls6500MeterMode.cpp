@@ -17,6 +17,12 @@ cls6500MeterMode::cls6500MeterMode(WKEMeterMode *parent) :
 
     connect(this->lblItem1Limit,SIGNAL(Clicked()),this,SLOT(lblLmItem1()));
     connect(this->lblItem2Limit,SIGNAL(Clicked()),this,SLOT(lblLmItem2()));
+    connect(this->lblFreqLimit,SIGNAL(Clicked()),this,SLOT(lblLmFreq()));
+    connect(this->lblRLimit,SIGNAL(Clicked()),this,SLOT(lblLmR()));
+    connect(this->lblCLimit,SIGNAL(Clicked()),this,SLOT(lblLmC()));
+    connect(this->lblLLimit,SIGNAL(Clicked()),this,SLOT(lblLmL()));
+
+    intSelectMode =0; //模式的是LCR测试模式
     range=tr("自动");
     speed=tr("最快");
     equcct=tr("串联");
@@ -33,6 +39,22 @@ cls6500MeterMode::cls6500MeterMode(WKEMeterMode *parent) :
     item2="D";
     item1Suffix="";
     item2Suffix="";
+
+    //Res Mode default
+    freqStart=1000;
+    freqStop = 1000000;
+    resEqucct = tr("串联");
+    resSpeed = tr("最快");
+    resDepth = 16;
+    blFreq = true;
+    blR = false;
+    blC = false;
+    blL = false;
+    freqSuffix="";
+    rSuffix ="";
+    cSuffix ="";
+    lSuffix ="";
+
     updateButtons();
 }
 
@@ -122,6 +144,7 @@ bool cls6500MeterMode::detectDut()
 
 void cls6500MeterMode::updateButtons()
 {
+    tabTestMode->setCurrentIndex(intSelectMode);
     btnRange->setText(range);
     btnSpeed->setText(speed);
     btnEqucct->setText(equcct);
@@ -164,6 +187,33 @@ void cls6500MeterMode::updateButtons()
     lblItem1Limit->setText(mlItem1.showLimits(UserfulFunctions::getSuffix(item1)));
     lblItem2Limit->setText(mlItem2.showLimits(UserfulFunctions::getSuffix(item2)));
 
+    //Res Mode
+    doubleType dtRes;
+    dtRes.setData(freqStart);
+    btnStart->setText(dtRes.formateToString()+"Hz");
+
+    dtRes.setData(freqStop);
+    btnStop->setText(dtRes.formateToString()+"Hz");
+
+    btnResEqucct->setText(resEqucct);
+    btnResSpeed->setText(resSpeed);
+    btnDepth->setText(QString::number(resDepth));
+
+    grpFreq->setChecked(blFreq);
+    grpR->setChecked(blR);
+    grpC->setChecked(blC);
+    grpL->setChecked(blL);
+
+    lblFreqLimit->setText(mlFreq.showLimits(UserfulFunctions::getSuffix(tr("频率"))));
+    lblRLimit->setText(mlR.showLimits(UserfulFunctions::getSuffix("R")));
+    lblCLimit->setText(mlC.showLimits(UserfulFunctions::getSuffix("C")));
+    lblLLimit->setText(mlL.showLimits(UserfulFunctions::getSuffix("L")));
+
+    btnFreqUnit->setText(freqSuffix+UserfulFunctions::getSuffix(tr("频率")));
+    btnRUnit->setText(rSuffix+UserfulFunctions::getSuffix("R"));
+    btnCUnit->setText(cSuffix+UserfulFunctions::getSuffix("C"));
+    btnLUnit->setText(lSuffix+UserfulFunctions::getSuffix("L"));
+
 }
 
 void cls6500MeterMode::stopDetect()
@@ -204,6 +254,27 @@ void cls6500MeterMode::setCondition(QString value)
                 this->mlItem2.setString(result["mlItem2"].toString());
                 this->txtDescription->setText(result["txtDescription"].toString());
                 this->grpTest2->setChecked(result["grpTest2"].toBool());
+
+                //Res Mode to do test
+                this->intSelectMode = result["selectMode"].toInt();
+                this->freqStart = result["freqStart"].toDouble();
+                this->freqStop = result["freqStop"].toDouble();
+                this->resEqucct =result["resEqucct"].toString();
+                this->resSpeed = result["resSpeed"].toString();
+                this->resDepth = result["resDepth"].toInt();
+                this->mlFreq.setString(result["mlFreq"].toString());
+                this->mlR.setString(result["mlR"].toString());
+                this->mlC.setString(result["mlC"].toString());
+                this->mlL.setString(result["mlL"].toString());
+                this->freqSuffix = result["freqSuffix"].toString();
+                this->rSuffix = result["rSuffix"].toString();
+                this->cSuffix = result["cSuffix"].toString();
+                this->lSuffix = result["lSuffix"].toString();
+                this->blFreq=result["blFreq"].toBool();
+                this->blR = result["blR"].toBool();
+                this->blC = result["blC"].toBool();
+                this->blL = result["blL"].toBool();
+
                 updateButtons();
             }
         }
@@ -234,7 +305,25 @@ QString cls6500MeterMode::getConditon()
     step.insert("mlItem2",this->mlItem2.toString());
     step.insert("txtDescription",this->txtDescription->text());
     step.insert("grpTest2",this->grpTest2->isChecked());
-
+    //add 2015/10/12 Res Mode
+    step.insert("selectMode",this->intSelectMode);
+    step.insert("freqStart",this->freqStart);
+    step.insert("freqStop",this->freqStop);
+    step.insert("resEqucct",this->resEqucct);
+    step.insert("resSpeed",this->resSpeed);
+    step.insert("resDepth",this->resDepth);
+    step.insert("mlFreq",this->mlFreq.toString());
+    step.insert("mlR",this->mlR.toString());
+    step.insert("mlC",this->mlC.toString());
+    step.insert("mlL",this->mlL.toString());
+    step.insert("freqSuffix",this->freqSuffix);
+    step.insert("rSuffix",this->rSuffix);
+    step.insert("cSuffix",this->cSuffix);
+    step.insert("lSuffix",this->lSuffix);
+    step.insert("blFreq",this->blFreq);
+    step.insert("blR",this->blR);
+    step.insert("blC",this->blC);
+    step.insert("blL",this->blL);
 
     QJsonDocument jsonDocument  = QJsonDocument::fromVariant(step);
 
@@ -245,7 +334,7 @@ QString cls6500MeterMode::getConditon()
 
 }
 
-void cls6500MeterMode::updateGPIB()
+void cls6500MeterMode::updateLCRGpib()
 {
     QStringList gpibCmd;
     QString meter=":METER:";
@@ -259,8 +348,6 @@ void cls6500MeterMode::updateGPIB()
         gpibCmd.append(meter+"FUNC:2 "+"ANGLE"+";");  //item1 GPIB
     else
         gpibCmd.append(meter+"FUNC:2 "+item2+";");  //item1 GPIB
-
-
 
     if(equcct==tr("串联"))                       //等效电路
         gpibCmd.append(meter+"EQU-CCT "+"SER"+";");
@@ -341,10 +428,84 @@ void cls6500MeterMode::updateGPIB()
         emit biasStatus(true);
     else
         emit biasStatus(false);
-
-
-
 }
+
+void cls6500MeterMode::updateResGpib()
+{
+    QStringList gpibCmd;
+    QString RESONANCE =":METER:RESO:";
+
+    gpibCmd<<QString("%1ST %2").arg(RESONANCE,QString::number(freqStart));
+    gpibCmd<<QString("%1SP %2").arg(RESONANCE,QString::number(freqStop));
+
+    QString gpibSpeed;
+
+    if(resSpeed ==QObject::tr("最快"))
+    {
+        gpibSpeed="MAX";
+    }
+    else if(resSpeed ==QObject::tr("快速"))
+    {
+        gpibSpeed="FAST";
+    }
+    else if(resSpeed ==QObject::tr("中速"))
+    {
+        gpibSpeed="MED";
+    }
+    else if(resSpeed ==QObject::tr("慢速"))
+    {
+        gpibSpeed="SLOW";
+    }
+    else
+    {
+        gpibSpeed="MAX";
+    }
+    gpibCmd<<QString("%1SPEED %2").arg(RESONANCE).arg(gpibSpeed);
+
+    QString gpibEqucct;
+    if(resEqucct == QObject::tr("串联"))
+    {
+        gpibEqucct="SER";
+    }
+    else if(resEqucct == QObject::tr("并联"))
+    {
+        gpibEqucct="PAR";
+    }
+    else
+    {
+        gpibEqucct="SER";
+    }
+    gpibCmd<<QString("%1EQU-CCT %2").arg(RESONANCE).arg(gpibEqucct);
+    gpibCmd<<QString("%1DEPTH %2").arg(RESONANCE).arg(QString::number(resDepth));
+
+    if(clsRS::getInst().gpibCommands.gpibTest2.length() != gpibCmd.length())
+    {
+        for(int i=0; i<gpibCmd.length();i++)
+        {
+            clsRS::getInst().sendCommand(gpibCmd.at(i),false);
+        }
+        clsRS::getInst().gpibCommands.gpibTest2= gpibCmd;
+    }
+    else
+    {
+        for(int i=0; i< gpibCmd.length(); i++)
+        {
+            if(clsRS::getInst().gpibCommands.gpibTest2.at(i)!=gpibCmd.at(i))
+                clsRS::getInst().sendCommand(gpibCmd.at(i));
+        }
+        clsRS::getInst().gpibCommands.gpibTest2= gpibCmd;
+    }
+}
+
+void cls6500MeterMode::updateGPIB()
+{
+ if(intSelectMode==0)
+    updateLCRGpib();
+ else
+     updateResGpib();
+}
+
+
 
 bool cls6500MeterMode::getTotalStatus()
 {
@@ -362,27 +523,75 @@ bool cls6500MeterMode::getTotalStatus()
 
 int cls6500MeterMode::getCountTestItems()
 {
-    if(grpTest2->isChecked())
-        return 2;
+    if(intSelectMode==0)
+    {
+        if(grpTest2->isChecked())
+            return 2;
+        else
+            return 1;
+    }
     else
-        return 1;
+    {
+        int count =0;
+        if(grpFreq->isChecked())
+            count++;
+        if(grpR->isChecked())
+            count++;
+        if(grpC->isChecked())
+            count++;
+        if(grpL->isChecked())
+            count++;
+        return count;
+    }
 }
 
 QString cls6500MeterMode::getItem(int i)
 {
-    QStringList tmp;
-    tmp.append(item1);
-    tmp.append(item2);
-    return tmp.at(i);
+    if(intSelectMode ==0)
+    {
+        QStringList tmp;
+        tmp.append(item1);
+        tmp.append(item2);
+        return tmp.at(i);
+    }
+    else
+    {
+        QStringList itm;
+        if(grpFreq->isChecked())
+            itm.append("SRF");
+        if(grpR->isChecked())
+            itm.append("R");
+        if(grpC->isChecked())
+            itm.append("C");
+        if(grpL->isChecked())
+            itm.append("L");
+        return itm.at(i);
+    }
 }
 
 clsMeterLimit cls6500MeterMode::getLimit(int i)
 {
-    QList<clsMeterLimit> list;
-    list.append(mlItem1);
-    list.append(mlItem2);
+    if(intSelectMode==0)
+    {
+        QList<clsMeterLimit> list;
+        list.append(mlItem1);
+        list.append(mlItem2);
 
-    return list.at(i);
+        return list.at(i);
+    }
+    else
+    {
+        QList<clsMeterLimit> tmp;
+        if(grpFreq->isChecked())
+            tmp.append(mlFreq);
+        if(grpR->isChecked())
+            tmp.append(mlR);
+        if(grpC->isChecked())
+            tmp.append(mlC);
+        if(grpL->isChecked())
+            tmp.append(mlL);
+        return tmp.at(i);
+    }
 }
 
 void cls6500MeterMode::calibration()
@@ -393,18 +602,38 @@ void cls6500MeterMode::calibration()
 
 QString cls6500MeterMode::getBrief()
 {
-    QStringList tmp;
-    tmp.append(item1);
+    if(intSelectMode ==0)
+    {
+        QStringList tmp;
+        tmp.append(item1);
 
-    if(grpTest2->isChecked())
-        tmp.append(item2);
+        if(grpTest2->isChecked())
+            tmp.append(item2);
 
-    tmp.append(btnLevel->text());
-    tmp.append(btnEqucct->text());
-    tmp.append(btnFrequency->text());
-    tmp.append(btnBiasLevel->text());
-    tmp.append(btnBiasStatus->text());
-    return tmp.join(",");
+        tmp.append(btnLevel->text());
+        tmp.append(btnEqucct->text());
+        tmp.append(btnFrequency->text());
+        tmp.append(btnBiasLevel->text());
+        tmp.append(btnBiasStatus->text());
+        return tmp.join(",");
+    }
+    else
+    {
+        QStringList tmp;
+        tmp.append(btnResEqucct->text());
+        tmp.append(btnResSpeed->text());
+        tmp.append(btnStart->text());
+        tmp.append(btnStop->text());
+        if(grpFreq->isChecked())
+            tmp.append("SRF");
+        if(grpR->isChecked())
+            tmp.append("R");
+        if(grpC->isChecked())
+            tmp.append("C");
+        if(grpL->isChecked())
+            tmp.append("L");
+        return QString("%1:%2").arg("Res. 搜索",tmp.join(","));
+    }
 }
 
 QString cls6500MeterMode::getMeterSeries()
@@ -435,14 +664,28 @@ void cls6500MeterMode::turnOffBias()
 
 void cls6500MeterMode::singleTrig()
 {
-    QString trigCmd = ":METER:TRIG";
+    if(intSelectMode==0)
+    {
+        QString trigCmd = ":METER:TRIG";
 
-    QString strRes = clsRS::getInst().sendCommand(trigCmd,true);
-    strRes +=",,";
+        QString strRes = clsRS::getInst().sendCommand(trigCmd,true);
+        strRes +=",,";
 
-    item1Res= strRes.split(",").at(0).toDouble();
-    item2Res = strRes.split(",").at(1).toDouble();
+        item1Res= strRes.split(",").at(0).toDouble();
+        item2Res = strRes.split(",").at(1).toDouble();
+    }
+    else
+    {
+        QString trigCmd = ":METER:RESO:TRIG";
 
+        QString strRes = clsRS::getInst().sendCommand(trigCmd,true);
+        strRes +=",,,,,,,";
+
+        res1= strRes.split(",").at(0).toDouble();
+        res2 = strRes.split(",").at(5).toDouble();
+        res3= strRes.split(",").at(3).toDouble();
+        res4 = strRes.split(",").at(4).toDouble();
+    }
 
 
     QStringList showTest;
@@ -484,43 +727,96 @@ QString cls6500MeterMode::getItemShow(const QString &item, const double &value ,
     return tmp.join(",");
 
 }
-
+//用于产品测试。
 void cls6500MeterMode::repetiveTrig()
 {
-    QString trigCmd = ":METER:TRIG";
+    if(intSelectMode == 0)
+    {
+        QString trigCmd = ":METER:TRIG";
 
-    QString strRes = clsRS::getInst().sendCommand(trigCmd,true);
-    strRes +=",,";
+        QString strRes = clsRS::getInst().sendCommand(trigCmd,true);
+        strRes +=",,";
 
-    item1Res= strRes.split(",").at(0).toDouble();
-    item2Res = strRes.split(",").at(1).toDouble();
+        item1Res= strRes.split(",").at(0).toDouble();
+        item2Res = strRes.split(",").at(1).toDouble();
+    }
+    else
+    {
+        QString trigCmd = ":METER:RESO:TRIG";
+
+        QString strRes = clsRS::getInst().sendCommand(trigCmd,true);
+        strRes +=",,,,,,,";
+
+        res1= strRes.split(",").at(0).toDouble();
+        res2 = strRes.split(",").at(5).toDouble();
+        res3= strRes.split(",").at(3).toDouble();
+        res4 = strRes.split(",").at(4).toDouble();
+    }
 
 }
 
 double cls6500MeterMode::getResult(int i)
 {
-    QList<double> tmp;
-    tmp.append(item1Res);
-    tmp.append(item2Res);
-    return tmp.at(i);
+    if(intSelectMode ==0)
+    {
+        QList<double> tmp;
+        tmp.append(item1Res);
+        tmp.append(item2Res);
+        return tmp.at(i);
+    }
+    else
+    {
+        QList<double> tmp;
+        if(grpFreq->isChecked())
+            tmp.append(res1);
+        if(grpR->isChecked())
+            tmp.append(res2);
+        if(grpC->isChecked())
+            tmp.append(res3);
+        if(grpL->isChecked())
+            tmp.append(res4);
+        return tmp.at(i);
+    }
 }
 
 QString cls6500MeterMode::getSuffix(int i)
 {
-    QStringList tmp;
-    tmp.append(item1Suffix);
-    tmp.append(item2Suffix);
-    return tmp.at(i);
+    if(intSelectMode ==0)
+    {
+        QStringList tmp;
+        tmp.append(item1Suffix);
+        tmp.append(item2Suffix);
+        return tmp.at(i);
+    }
+    else
+    {
+        QList<QString> tmp;
+        if(grpFreq->isChecked())
+            tmp.append(freqSuffix);
+        if(grpR->isChecked())
+            tmp.append(rSuffix);
+        if(grpC->isChecked())
+            tmp.append(cSuffix);
+        if(grpL->isChecked())
+            tmp.append(lSuffix);
+        return tmp.at(i);
+    }
 }
 
 QString cls6500MeterMode::getFreq()
 {
-    return this->btnFrequency->text();
+    if(intSelectMode==0)
+        return this->btnFrequency->text();
+    else
+        return "N/A";
 }
 
 QString cls6500MeterMode::getEqucct()
 {
-    return this->btnEqucct->text();
+    if(intSelectMode==0)
+        return this->btnEqucct->text();
+    else
+        return this->resEqucct;
 }
 
 void cls6500MeterMode::on_btnRange_clicked()
@@ -601,7 +897,6 @@ double cls6500MeterMode::getMaxFrequency(QString value)
     }
     return 120000000;
 }
-
 
 void cls6500MeterMode::on_btnLevel_clicked()
 {
@@ -771,6 +1066,54 @@ void cls6500MeterMode::lblLmItem2()
 
 }
 
+void cls6500MeterMode::lblLmFreq()
+{
+    frmSetLimit *dlg = new frmSetLimit(this);
+    dlg->setLimits(mlFreq);
+    dlg->setItem(tr("频率"));
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        mlFreq = dlg->getMeterLimit();
+        updateButtons();
+    }
+}
+
+void cls6500MeterMode::lblLmR()
+{
+    frmSetLimit *dlg = new frmSetLimit(this);
+    dlg->setLimits(mlR);
+    dlg->setItem("R");
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        mlR = dlg->getMeterLimit();
+        updateButtons();
+    }
+}
+
+void cls6500MeterMode::lblLmC()
+{
+    frmSetLimit *dlg = new frmSetLimit(this);
+    dlg->setLimits(mlC);
+    dlg->setItem("C");
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        mlC = dlg->getMeterLimit();
+        updateButtons();
+    }
+}
+
+void cls6500MeterMode::lblLmL()
+{
+    frmSetLimit *dlg = new frmSetLimit(this);
+    dlg->setLimits(mlL);
+    dlg->setItem("L");
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        mlL = dlg->getMeterLimit();
+        updateButtons();
+    }
+}
+
 double cls6500MeterMode::getMaxBiasA()
 {
     static double maxC =0;
@@ -792,10 +1135,149 @@ double cls6500MeterMode::getMaxBiasA()
 
             return maxC;
         }
+    }
+    return maxC;
+}
 
+void cls6500MeterMode::on_tabTestMode_currentChanged(int index)
+{
+    intSelectMode = index;
+    //qDebug()<< index;
+}
 
+void cls6500MeterMode::on_grpFreq_toggled(bool arg1)
+{
+    blFreq = arg1;
+}
+
+void cls6500MeterMode::on_grpR_toggled(bool arg1)
+{
+    blR = arg1;
+}
+
+void cls6500MeterMode::on_grpC_toggled(bool arg1)
+{
+    blC = arg1;
+}
+
+void cls6500MeterMode::on_grpL_toggled(bool arg1)
+{
+    blL = arg1;
+}
+
+void cls6500MeterMode::on_btnFreqUnit_clicked()
+{
+    clsMeterUnit *dlg = new clsMeterUnit(this);
+    dlg->setItem(tr("频率"));
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        this->freqSuffix= dlg->getSuffix();
+        updateButtons();
+    }
+}
+
+void cls6500MeterMode::on_btnRUnit_clicked()
+{
+    clsMeterUnit *dlg = new clsMeterUnit(this);
+    dlg->setItem("R");
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        this->rSuffix= dlg->getSuffix();
+        updateButtons();
+    }
+}
+
+void cls6500MeterMode::on_btnCUnit_clicked()
+{
+    clsMeterUnit *dlg = new clsMeterUnit(this);
+    dlg->setItem("C");
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        this->cSuffix= dlg->getSuffix();
+        updateButtons();
+    }
+}
+
+void cls6500MeterMode::on_btnLUnit_clicked()
+{
+    clsMeterUnit *dlg = new clsMeterUnit(this);
+    dlg->setItem("L");
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        this->lSuffix= dlg->getSuffix();
+        updateButtons();
+    }
+}
+
+void cls6500MeterMode::on_btnStart_clicked()
+{
+    NumberInput *dlg = new NumberInput;
+    dlg->setWindowTitle(tr("设定起始频率"));
+    dlg->setValueAndSuffix(freqStart,"");
+
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        freqStart = dlg->getNumber();
+        freqStart =(freqStart<20? 20:freqStart);
+        double maxFreq =getMaxFrequency(clsRS::getInst().instrumentModel);
+        freqStart =(freqStart>maxFreq?maxFreq:freqStart);
+        updateButtons();
+    }
+}
+
+void cls6500MeterMode::on_btnStop_clicked()
+{
+    NumberInput *dlg = new NumberInput;
+    dlg->setWindowTitle(tr("设定终止频率"));
+    dlg->setValueAndSuffix(freqStop,"");
+
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        freqStop = dlg->getNumber();
+        freqStop =(freqStop<20? 20:freqStop);
+        double maxFreq =getMaxFrequency(clsRS::getInst().instrumentModel);
+        freqStop =(freqStop>maxFreq?maxFreq:freqStop);
+        updateButtons();
+    }
+}
+
+void cls6500MeterMode::on_btnDepth_clicked()
+{
+    NumberInput *dlg = new NumberInput;
+    dlg->setWindowTitle(tr("设定扫描深度(0-16)"));
+    dlg->setValueAndSuffix(resDepth,"");
+
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        resDepth = (int)dlg->getNumber();
+        resDepth =(resDepth<0? 0:resDepth);
+        resDepth =(resDepth>16?16:resDepth);
+        updateButtons();
+    }
+}
+
+void cls6500MeterMode::on_btnResSpeed_clicked()
+{
+    dlgSpeed *dlg = new dlgSpeed;
+    dlg->setWindowTitle(tr("设置搜索速度"));
+
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        resSpeed = dlg->getSpeed();
+        updateButtons();
+    }
+}
+
+void cls6500MeterMode::on_btnResEqucct_clicked()
+{
+    if( resEqucct == tr("串联"))
+    {
+        resEqucct = tr("并联");
+    }
+    else
+    {
+        resEqucct = tr("串联");
     }
 
-
-    return maxC;
+    updateButtons();
 }

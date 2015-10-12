@@ -1,5 +1,5 @@
 #include <windows.h>
+IDI_ICON1 ICON DISCARDABLE "wk.ico"
 
-ID_ICON    ICON    DISCARDABLE "wk.ico"
 
 CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "FV2014.exe.manifest"

@@ -27,6 +27,7 @@ private:
     void saveSettings();
     void updateButtons();
     void printError(QSqlError error);
+    void addCmbReport();//添加了多个报表导出
 };
 
 #endif // CLSSHOWREPORT_H

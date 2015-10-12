@@ -9,12 +9,14 @@
 #include <QSqlQuery>
 #include "clsMeterLimit.h"
 #include "UserfulFunctions.h"
+
 clsShowReport::clsShowReport(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     readSettings();
+    addCmbReport();
 }
 
 void clsShowReport::setData(clsDataStore *value)
@@ -67,7 +69,13 @@ void clsShowReport::on_btnExport_clicked() {
     if(QFile::exists("./Sample.xls"))
         QFile::remove("./Sample.xls");
 
-    QFile::copy("./Sample/Sample.xls","./Sample.xls");
+    if(cmbReport->currentText().isEmpty())
+    {
+        QMessageBox::warning(this,tr("报表样板"),tr("没有可用的报表样板！"));
+        return;
+    }
+    QString reportSample= QString("./Sample/%1").arg(cmbReport->currentText());
+    QFile::copy(reportSample,"./Sample.xls");
 
     // 注意啦 在这儿是创建的表头的数据表 ·················
     QString sheetName = "TitleSheet";
@@ -359,3 +367,25 @@ void clsShowReport::printError( QSqlError error)
     qDebug( qPrintable(sqlerr));
 }
 
+void clsShowReport::addCmbReport()
+{
+    QDir dir("./Sample");
+    if(!dir.exists())
+        return;
+
+    dir.setFilter(QDir::Files);
+    QStringList filter;
+    filter<<"*.xls";
+    QFileInfoList list = dir.entryInfoList(filter);
+
+    QStringList excels;
+    for(int i=0; i<list.length(); i++)
+    {
+         excels<<list.at(i).fileName();
+    }
+
+    if(excels.isEmpty())
+        return;
+
+    cmbReport->addItems(excels);
+}
