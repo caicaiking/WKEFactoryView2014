@@ -50,7 +50,7 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     //    connect(this->statusLabel,SIGNAL(Clicked()),this,SLOT(showMulitLimit()));
 
 
-    setDemoVersion(!isProduct);
+    setDemoVersion(SingletonDog::Instance()->getVersion());
 }
 
 void frmWKEAnalysisMode::setDemoVersion(bool value)
@@ -541,7 +541,7 @@ void frmWKEAnalysisMode::on_btnTraceSetup_clicked()
 bool frmWKEAnalysisMode::checkDog()
 {
     QString strProductName;
-    if((!clsDog::getName(strProductName))|| (strProductName !="WKE FactoryView 2014"))
+    if((!SingletonDog::Instance()->getName(strProductName))|| (strProductName !="WKE FactoryView 2014"))
     {
         QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
         return false;

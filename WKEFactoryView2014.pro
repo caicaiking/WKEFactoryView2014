@@ -12,7 +12,7 @@ RC_FILE  =Icon.rc
 
  LIBS += dog_windows_3147311.lib
 
-#Tr鐨勭紪鐮侀兘鏄疷TF-8鐨勶紝杩欐牱鍦╨inguist閲岄潰鍙互寰堝ソ鐨勮瘑鍒?
+#Tr鐨勭紪鐮侀兘鏄疷TF-8鐨勶紝杩欐牱鍦╨inguist閲岄潰鍙互寰堝ソ鐨勮瘑�??
 CODECFORTR = UTF-8
 
 INCLUDEPATH +=connections \
@@ -300,7 +300,8 @@ HEADERS += \
     MulitChannalBox/cls6500MultiMeterMode.h \
     MeterMode/clsTestResult.h \
     MeterMode/clsShowReport.h \
-    MeterMode/clsDataStore.h
+    MeterMode/clsDataStore.h \
+    Public/singleton.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \

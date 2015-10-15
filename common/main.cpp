@@ -36,8 +36,9 @@ int main(int argc, char *argv[])
     //    return inp.exec();
 
 
-    clsDog::setProduct(true);
 
+
+    //qDebug()<<isProduct;
     //这儿是加载英文的翻译，如果要是实用界面为英文，请去掉此处的注释
 
 
@@ -68,11 +69,22 @@ RELOAD:
 
 
     QString strProductName;
-    if((!clsDog::getName(strProductName))|| (strProductName !="WKE FactoryView 2014"))
+
+    //SingletonDog::Instance()->setProduct(true);
+
+    bool keyStatus =( SingletonDog::Instance()->getName(strProductName)) && (strProductName =="WKE FactoryView 2014");
+
+    if(!keyStatus)
     {
-        QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
-        return 0;
+        //        QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
+        SingletonDog::Instance()->setProduct(false);
     }
+    else
+    {
+        SingletonDog::Instance()->setProduct(true);
+
+    }
+
 
 RESELECT:
 

@@ -4,8 +4,10 @@
 #include <time.h>
 #include <string.h>
 #include <windows.h>
+#include <QDebug>
 clsDog::clsDog()
 {
+    isProduct= true;
 }
 
 bool clsDog::getName(QString &retValue)
@@ -24,4 +26,10 @@ bool clsDog::getName(QString &retValue)
 void clsDog::setProduct(bool value)
 {
    isProduct= value;
+   //qDebug()<<isProduct;
+}
+
+bool clsDog::getVersion()
+{
+    return this->isProduct;
 }

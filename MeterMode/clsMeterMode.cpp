@@ -38,7 +38,8 @@ clsMeterMode::clsMeterMode(QWidget *parent) :
     updateMessage();
     this->showMaximized();
 
-    setDemoVersion(!isProduct);
+
+    setDemoVersion(SingletonDog::Instance()->getVersion());
 }
 
 void clsMeterMode:: setDemoVersion(bool value)
@@ -315,6 +316,9 @@ QTableWidgetItem* clsMeterMode::getTableTestItem(const QString &content,int colo
 //单次测试
 void clsMeterMode::trig()
 {
+    if(!checkDog())
+        return;
+
     //为了避免一个测试没有完成又进行下一次测试，做了一下修改
     if(lblStatus->getStatus()== BUSY)
         return;
@@ -457,6 +461,17 @@ void clsMeterMode::trig()
 
     //关闭Bias
     meter->turnOffBias();
+}
+
+bool clsMeterMode::checkDog()
+{
+    QString strProductName;
+    if((!SingletonDog::Instance()->getName(strProductName))|| (strProductName !="WKE FactoryView 2014"))
+    {
+        QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
+        return false;
+    }
+    return true;
 }
 
 //保存测试数据文件

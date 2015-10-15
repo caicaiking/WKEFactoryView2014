@@ -2,16 +2,20 @@
 #define CLSDOG_H
 
 #include "DogControl.h"
-static bool isProduct= true;
+#include "singleton.h"
 class clsDog
 {
 public:
     clsDog();
-    static bool getName(QString &retValue);
-    static void setProduct(bool value=true);
+    bool getName(QString &retValue);
+    void setProduct(bool value=true);
+    bool getVersion();
+private:
+    bool isProduct;
 
 };
 
+typedef Singleton<clsDog> SingletonDog;
 
 
 #endif // CLSDOG_H

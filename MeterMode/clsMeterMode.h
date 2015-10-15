@@ -107,6 +107,7 @@ private:
     void updateMessage();
     void saveDataFile(QString value);
     void setDemoVersion(bool value);
+    bool checkDog();
 };
 
 #endif // CLSMETERMODE_H

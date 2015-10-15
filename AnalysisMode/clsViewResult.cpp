@@ -49,7 +49,10 @@ clsViewResult::clsViewResult(const QList<PlotCurves> value,
     showCurve(txtGroup->value());
 
     connect(txtGroup,SIGNAL(valueChanged(int)),this,SLOT(showCurve(int)));
-    setDemoVersion(!isProduct);
+
+
+
+    setDemoVersion(!SingletonDog::Instance()->getVersion());
 }
 
 void clsViewResult::setDemoVersion(bool value)

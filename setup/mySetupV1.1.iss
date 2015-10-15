@@ -5,7 +5,7 @@
 #define MyAppName "WKE FactoryView 2014"#define MyAppPublisher "Wayne Kerr Electronics"
 #define MyAppURL "http://www.waynekerr.com/"
 #define MyAppExeName "WKEFactoryView2014.exe"
-#define SpecialCompanyVersion "- DemoVersion"
+#define SpecialCompanyVersion ""
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
