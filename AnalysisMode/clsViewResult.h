@@ -45,6 +45,7 @@ private:
      SweepType sweepType;
 
      QStringList saveValues;
+     void setDemoVersion(bool value);
 };
 
 #endif // CLSVIEWRESULT_H

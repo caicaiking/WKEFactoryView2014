@@ -9,6 +9,7 @@
 #include <QFileInfo>
 #include "frmParameter.h"
 #include "clsComplexOp.h"
+#include "clsDog.h"
 
 clsViewResult::clsViewResult(const QList<PlotCurves> value,
                              const QStringList Headers, QWidget *parent):
@@ -48,8 +49,13 @@ clsViewResult::clsViewResult(const QList<PlotCurves> value,
     showCurve(txtGroup->value());
 
     connect(txtGroup,SIGNAL(valueChanged(int)),this,SLOT(showCurve(int)));
+    setDemoVersion(!isProduct);
 }
 
+void clsViewResult::setDemoVersion(bool value)
+{
+    this->btnSave->setEnabled(value);
+}
 
 void clsViewResult::setCurves(const QList<PlotCurves> &value)
 {

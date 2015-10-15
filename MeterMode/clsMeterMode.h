@@ -106,6 +106,7 @@ private:
     void saveSettings();
     void updateMessage();
     void saveDataFile(QString value);
+    void setDemoVersion(bool value);
 };
 
 #endif // CLSMETERMODE_H

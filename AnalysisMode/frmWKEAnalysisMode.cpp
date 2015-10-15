@@ -50,7 +50,13 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     //    connect(this->statusLabel,SIGNAL(Clicked()),this,SLOT(showMulitLimit()));
 
 
+    setDemoVersion(!isProduct);
+}
 
+void frmWKEAnalysisMode::setDemoVersion(bool value)
+{
+    this->btnSavePic->setEnabled(value);
+    this->btnSaveRes->setEnabled(value);
 }
 
 void frmWKEAnalysisMode::showMulitLimit()

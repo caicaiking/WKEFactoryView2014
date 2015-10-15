@@ -96,6 +96,7 @@ private:
    QList< clsMarkerItem *>markers ;
    void finishTest();
    void resetMarker();
+   void setDemoVersion(bool value);
 protected:
     void closeEvent(QCloseEvent *e);
     void keyPressEvent(QKeyEvent *event);

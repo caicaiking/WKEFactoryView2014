@@ -1,6 +1,7 @@
 #include "clsMeterMode.h"
 #include "clsRuningSettings.h"
 #include "UserfulFunctions.h"
+#include "clsDog.h"
 #include "clsSettings.h"
 #include "cls6440MeterMode.h"
 #include <QJsonDocument>
@@ -37,7 +38,18 @@ clsMeterMode::clsMeterMode(QWidget *parent) :
     updateMessage();
     this->showMaximized();
 
+    setDemoVersion(!isProduct);
 }
+
+void clsMeterMode:: setDemoVersion(bool value)
+{
+    this->btnOpenTask->setEnabled(value);
+    this->btnSaveTask->setEnabled(value);
+    this->btnSaveData->setEnabled(value);
+    this->btnReport->setEnabled(value);
+
+}
+
 
 //显示软件运行信息
 void clsMeterMode::showMessage(QString value)
