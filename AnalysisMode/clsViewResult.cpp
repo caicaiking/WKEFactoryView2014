@@ -52,7 +52,7 @@ clsViewResult::clsViewResult(const QList<PlotCurves> value,
 
 
 
-    setDemoVersion(!SingletonDog::Instance()->getVersion());
+    setDemoVersion(SingletonDog::Instance()->getVersion());
 }
 
 void clsViewResult::setDemoVersion(bool value)
