@@ -31,6 +31,7 @@ public:
     QString getSuffix(int i);         //获取显示数据的后缀
     QString getFreq();                //获取测试频率
     QString getEqucct();              //获取测试等效电路
+    QString getLevel();               //获取测试的电平
 
 private slots:
     void on_btnRange_clicked();

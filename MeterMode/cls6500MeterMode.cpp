@@ -339,6 +339,8 @@ void cls6500MeterMode::updateLCRGpib()
     QStringList gpibCmd;
     QString meter=":METER:";
 
+    gpibCmd.append(meter+"FREQ "+QString::number(frequency)+";");   //频率
+    UserfulFunctions::sleepMs(10); //让仪器有时间更换测试频率
     if(item1==QString("θ"))
         gpibCmd.append(meter+"FUNC:1 "+"ANGLE"+";");  //item1 GPIB
     else
@@ -370,7 +372,7 @@ void cls6500MeterMode::updateLCRGpib()
     else
         gpibCmd.append(meter+"SPEED "+"MAX"+";");
 
-    gpibCmd.append(meter+"FREQ "+QString::number(frequency,'f',6)+";");   //频率
+
     if(levelType=="V")                                              //电平
         gpibCmd.append(meter+"LEVEL "+QString::number(levelVValue)+levelType+";");
     else
@@ -701,7 +703,6 @@ void cls6500MeterMode::singleTrig()
     emit signalTestResult(showTest.join(","));
 }
 
-
 QString cls6500MeterMode::getItemShow(const QString &item, const double &value , clsMeterLimit &limit, const QString &/*suffix*/)
 {
     QStringList tmp;
@@ -744,7 +745,7 @@ void cls6500MeterMode::repetiveTrig()
     {
         QString trigCmd = ":METER:RESO:TRIG";
 
-        QString strRes = clsRS::getInst().sendCommand(trigCmd,true);
+        QString strRes = clsRS::getInst().sendCommand(trigCmd,true,13);
         strRes +=",,,,,,,";
 
         res1= strRes.split(",").at(0).toDouble();
@@ -817,6 +818,11 @@ QString cls6500MeterMode::getEqucct()
         return this->btnEqucct->text();
     else
         return this->resEqucct;
+}
+
+QString cls6500MeterMode::getLevel()
+{
+    return this->btnLevel->text();
 }
 
 void cls6500MeterMode::on_btnRange_clicked()

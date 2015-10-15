@@ -484,6 +484,11 @@ QString cls6440MeterMode::getEqucct()
     return this->btnEqucct->text();
 }
 
+QString cls6440MeterMode::getLevel()
+{
+    return this->btnLevel->text();
+}
+
 
 double cls6440MeterMode::getResult(int i)
 {

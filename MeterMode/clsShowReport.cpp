@@ -15,8 +15,8 @@ clsShowReport::clsShowReport(QWidget *parent) :
 {
     setupUi(this);
     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
-    readSettings();
     addCmbReport();
+    readSettings();
 }
 
 void clsShowReport::setData(clsDataStore *value)
@@ -48,6 +48,7 @@ void clsShowReport::updateButtons()
 
     result->getMeter()->setCondition(conditon);
     txtTestFreq->setText(result->getMeter()->getFreq());
+    strLevel = result->getMeter()->getLevel();
 
 }
 
@@ -110,7 +111,7 @@ void clsShowReport::on_btnExport_clicked() {
     //最后一个参数 本来是使用char（800） 但是由于数据的字段长度超过了255 不能正确的运行， 更改成text 但是不知道会有什么问题？？
     sSql += "[TotleSpec] char(80),[Spec] char(80),[TestLotNo] char(80), [DetailSpec] char(80), "
             "[LotNo] char(80),[TestNumber] char(80),[TestFreq] char(80),[Instrument] char(80),"
-            "[TestPar] text, [TestLimits] text";
+            "[TestPar] text, [TestLimits] text, [TestLevel] char(80)";
     sSql += ")";
     state = query.prepare( sSql);
     if( !query.exec()) {
@@ -120,8 +121,8 @@ void clsShowReport::on_btnExport_clicked() {
 
     //insert a record
     sSql = QString("INSERT INTO [%1] ").arg( sheetName);
-    sSql += "(TotleSpec, Spec, TestLotNo, DetailSpec, LotNo, TestNumber, TestFreq, Instrument,TestPar,TestLimits)"
-            " VALUES(:data1, :data2, :data3, :data4, :data5, :data6, :data7, :data8, :data9, :data10)";
+    sSql += "(TotleSpec, Spec, TestLotNo, DetailSpec, LotNo, TestNumber, TestFreq, Instrument,TestPar,TestLimits,TestLevel)"
+            " VALUES(:data1, :data2, :data3, :data4, :data5, :data6, :data7, :data8, :data9, :data10, :data11)";
     state = query.prepare( sSql);
 
     //circle
@@ -207,7 +208,7 @@ void clsShowReport::on_btnExport_clicked() {
         limitShow.append(tmpStr);
     }
     query.bindValue(":data10",limitShow.join(","));
-
+    query.bindValue(":data11",strLevel);
 
     if( !query.exec())
     {
@@ -324,6 +325,7 @@ CLOSE:
 
     }
     btnExport->setEnabled(true);
+    saveSettings();
 }
 
 void clsShowReport::readSettings()
@@ -345,6 +347,8 @@ void clsShowReport::readSettings()
     txtLotNo->setText(tmp);
     settings.readSetting(strNode+"TestLotNo",tmp);
     txtTestLotNo->setText(tmp);
+    settings.readSetting(strNode +"SampleReport",tmp);
+    cmbReport->setCurrentText(tmp);
 
 }
 
@@ -359,6 +363,7 @@ void clsShowReport::saveSettings()
     settings.writeSetting(strNode+"DetailSpec",this->txtDetailSpec->text());
     settings.writeSetting(strNode+"LotNo",this->txtLotNo->text());
     settings.writeSetting(strNode+"TestLotNo",this->txtTestLotNo->text());
+    settings.writeSetting(strNode+"SampleReport",cmbReport->currentText());
 }
 
 void clsShowReport::printError( QSqlError error)

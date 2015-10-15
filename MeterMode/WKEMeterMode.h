@@ -36,6 +36,7 @@ public:
     virtual void repetiveTrig()=0;              //重复测试模式
     virtual QString getFreq()=0;                //获取测试频率
     virtual QString getEqucct()=0;              //获取测试等效电路
+    virtual QString getLevel()=0;               //获取测试的电平
 
 signals:
     void biasStatus(bool);                      //更新Bias状态

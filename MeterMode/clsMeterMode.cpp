@@ -16,7 +16,7 @@ clsMeterMode::clsMeterMode(QWidget *parent) :
     QMainWindow(parent)
 {
     setupUi(this);
-
+    btnRep300->setVisible(false);
     lblConnectionType->setText(clsRS::getInst().getConnectionType() + QObject::tr("连接"));
     lblTime->showTime();
     lblStatus->setStatus(IDEL);
@@ -132,7 +132,7 @@ void clsMeterMode::on_btnSaveTask_clicked()
     {
         strTaskFile = strTmp;
         tmpDir = QFileInfo(strTaskFile).absoluteDir().path();
-        qDebug()<<tmpDir;
+       // qDebug()<<tmpDir;
         txtTaskFile->setText(QFileInfo(strTaskFile).fileName());
     }
 
@@ -337,6 +337,7 @@ void clsMeterMode::trig()
 
         meter->setCondition(steps.at(i)->getConditon());
         meter->updateGPIB();    //更新GPIB指令
+      //  UserfulFunctions::sleepMs(20);
         meter->repetiveTrig(); //触发仪器，获取测试结果
         QVector<double> singleStepData;
         for(int j=0; j< meter->getCountTestItems(); j++)
@@ -633,6 +634,16 @@ void clsMeterMode::closeEvent(QCloseEvent *)
         adu200->stop();
     }
 }
+
+void clsMeterMode::keyPressEvent(QKeyEvent *e)
+{
+    if(e->modifiers() == Qt::ControlModifier && e->key()==Qt::Key_9)
+    {
+        btnRep300->setVisible(!btnRep300->isVisible());
+    }
+}
+
+
 //读取设定
 void clsMeterMode::readSettings()
 {
@@ -694,11 +705,11 @@ void clsMeterMode::on_btnReport_clicked()
     dlg->setData(&this->result);
 }
 
-//重复10次
-//void clsMeterMode::on_btnRep10_clicked()
-//{
-//    for(int i=0; i< 500; i++)
-//    {
-//        trig();
-//    }
-//}
+void clsMeterMode::on_btnRep300_clicked()
+{
+        for(int i=0; i< 300; i++)
+        {
+            trig();
+            UserfulFunctions::sleepMs(10);
+        }
+}

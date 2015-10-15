@@ -903,6 +903,11 @@ QString cls4100MeterMode::getEqucct()
     return this->btnTest1Equcct->text()+","+this->btnTest2Equcct->text();
 }
 
+QString cls4100MeterMode::getLevel()
+{
+    return this->btnTest1Level->text();
+}
+
 void cls4100MeterMode::on_btnTest1Frequency_clicked()
 {
     NumberInput *dlg = new NumberInput(this);

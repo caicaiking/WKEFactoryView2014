@@ -828,7 +828,7 @@
              </font>
             </property>
             <property name="title">
-             <string>频率</string>
+             <string>频率(SRF)</string>
             </property>
             <property name="checkable">
              <bool>true</bool>
@@ -922,7 +922,7 @@
              </font>
             </property>
             <property name="title">
-             <string>电阻</string>
+             <string>电阻(R)</string>
             </property>
             <property name="checkable">
              <bool>true</bool>
@@ -1016,7 +1016,7 @@
              </font>
             </property>
             <property name="title">
-             <string>电容</string>
+             <string>电容(C)</string>
             </property>
             <property name="checkable">
              <bool>true</bool>
@@ -1110,7 +1110,7 @@
              </font>
             </property>
             <property name="title">
-             <string>电感</string>
+             <string>电感(L)</string>
             </property>
             <property name="checkable">
              <bool>true</bool>

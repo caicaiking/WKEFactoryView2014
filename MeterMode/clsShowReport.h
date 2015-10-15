@@ -22,6 +22,7 @@ private slots:
 private:
     clsDataStore *result;
     QString tmpDir;
+    QString strLevel;
 private:
     void readSettings();
     void saveSettings();
