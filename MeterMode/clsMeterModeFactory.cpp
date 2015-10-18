@@ -2,6 +2,7 @@
 #include "cls4100MeterMode.h"
 #include "cls6440MeterMode.h"
 #include "cls6500MeterMode.h"
+#include "cls3260MeterMode.h"
 #include <QMessageBox>
 
 clsMeterModeFactory::clsMeterModeFactory()
@@ -24,6 +25,8 @@ WKEMeterMode *clsMeterModeFactory::getFunction(QString meterSeries)
         return new cls4100MeterMode();
     else if(meterSeries =="6500")
         return new cls6500MeterMode();
+    else if(meterSeries =="3260")
+        return new cls3260MeterMode();
     else
     {
         QMessageBox::information(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("Not support this instrument now! \n Comming soon!"));

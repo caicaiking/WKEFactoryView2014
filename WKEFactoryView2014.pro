@@ -143,7 +143,11 @@ SOURCES +=\
     MulitChannalBox/cls6500MultiMeterMode.cpp \
     MeterMode/clsTestResult.cpp \
     MeterMode/clsDataStore.cpp \
-    MeterMode/clsShowReport.cpp
+    MeterMode/clsShowReport.cpp \
+    MeterMode/cls3260Calibration.cpp \
+    MeterMode/cls3260MeterMode.cpp \
+    MeterMode/cls3260majorfunction.cpp \
+    MeterMode/cls3260minorfunction.cpp
 
 
 
@@ -301,7 +305,11 @@ HEADERS += \
     MeterMode/clsTestResult.h \
     MeterMode/clsShowReport.h \
     MeterMode/clsDataStore.h \
-    Public/singleton.h
+    Public/singleton.h \
+    MeterMode/cls3260Calibration.h \
+    MeterMode/cls3260MeterMode.h \
+    MeterMode/cls3260majorfunction.h \
+    MeterMode/cls3260minorfunction.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \
@@ -361,7 +369,11 @@ FORMS += \
     MulitChannalBox/clsCalibration.ui \
     MulitChannalBox/clsMultModeMeterUi.ui \
     MulitChannalBox/clsMultiChannelSettings.ui \
-    MeterMode/clsShowReport.ui
+    MeterMode/clsShowReport.ui \
+    MeterMode/cls3260Calibration.ui \
+    MeterMode/cls3260MeterMode.ui \
+    MeterMode/cls3260majorfunction.ui \
+    MeterMode/cls3260minorfunction.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV_EN.ts \
