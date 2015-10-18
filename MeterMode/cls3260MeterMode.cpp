@@ -230,14 +230,13 @@ QString cls3260MeterMode::getConditon()
 void cls3260MeterMode::updateGPIB()
 {
     QString meter=getMeter();
-
     if(tabMeter->currentIndex()==0)
     {
         if(clsRS::getInst().gpibCommands.testMode !="AC")
         {
             clsRS::getInst().sendCommand(meter,false);
-            clsRS::getInst().sendCommand(meter+"TEST",false);
-            clsRS::getInst().sendCommand(meter+"TEST:AC",false);
+            clsRS::getInst().sendCommand(meter+":TEST",false);
+            clsRS::getInst().sendCommand(meter+":TEST:AC",false);
             clsRS::getInst().gpibCommands.testMode ="AC";
         }
         QStringList gpibCmd;
@@ -245,55 +244,55 @@ void cls3260MeterMode::updateGPIB()
         // QString meter2="MEAS:";
 
         if(equcct==tr("串联"))
-            gpibCmd.append(meter+"EQU-CCT "+"SER");
+            gpibCmd.append(meter+":EQU-CCT "+"SER");
         else
-            gpibCmd.append(meter+"EQU-CCT "+"PAR");
+            gpibCmd.append(meter+":EQU-CCT "+"PAR");
 
 
 
         if(item1 !="Z" && item1 !="Y")
         {
-            gpibCmd.append(meter+"FUNC:"+item1 +";" +item2);
+            gpibCmd.append(meter+":FUNC:"+item1 +";" +item2);
         }
         else
         {
-            gpibCmd.append(meter+"FUNC:"+ item1 );  //item1 GPIB
+            gpibCmd.append(meter+":FUNC:"+ item1 );  //item1 GPIB
         }
 
         if(range==tr("自动"))
-            gpibCmd.append(meter+"RANGE "+"AUTO");
+            gpibCmd.append(meter+":RANGE "+"AUTO");
         else
-            gpibCmd.append(meter+"RANGE "+range);
+            gpibCmd.append(meter+":RANGE "+range);
 
         if(speed==tr("最快"))
-            gpibCmd.append(meter+"SPEED "+"MAX");
+            gpibCmd.append(meter+":SPEED "+"MAX");
         else if(speed==tr("快速"))
-            gpibCmd.append(meter+"SPEED "+"FAST");
+            gpibCmd.append(meter+":SPEED "+"FAST");
         else if(speed==tr("中速"))
-            gpibCmd.append(meter+"SPEED "+"MED");
+            gpibCmd.append(meter+":SPEED "+"MED");
         else if(speed==tr("慢速"))
-            gpibCmd.append(meter+"SPEED "+"SLOW");
+            gpibCmd.append(meter+":SPEED "+"SLOW");
         else
-            gpibCmd.append(meter+"SPEED "+"MAX");
+            gpibCmd.append(meter+":SPEED "+"MAX");
 
-        gpibCmd.append(meter+"FREQ "+QString::number(frequency));
+        gpibCmd.append(meter+":FREQ "+QString::number(frequency));
 
         if(levelType=="V")
         {
-            gpibCmd.append(meter+"LEV "+QString::number(level)+"V");
+            gpibCmd.append(meter+":LEV "+QString::number(level)+"V");
         }
         else
         {
-            gpibCmd.append(meter+"LEV "+QString::number(level)+"A");
+            gpibCmd.append(meter+":LEV "+QString::number(level)+"A");
         }
 
         if(biasType == tr("Norm"))
-            gpibCmd.append(meter+"BIAS INT");
+            gpibCmd.append(meter+":BIAS INT");
         else
-            gpibCmd.append(meter+"BIAS EEXT");
+            gpibCmd.append(meter+":BIAS EEXT");
 
-        gpibCmd.append(meter+"I-SWEEP "+biasSpeed.toUpper());
-        gpibCmd.append(meter+"BIAS "+ QString::number(this->biasValue));
+        gpibCmd.append(meter+":I-SWEEP "+biasSpeed.toUpper());
+        gpibCmd.append(meter+":BIAS "+ QString::number(this->biasValue));
 
         //change Bias condition to GPIB commands.
 
@@ -344,11 +343,11 @@ void cls3260MeterMode::updateGPIB()
         QString tmpBiasString;
         if(!blBiasStatus)
         {
-            tmpBiasString=meter+"BIAS "+"OFF";
+            tmpBiasString=meter+":BIAS "+"OFF";
         }
         else
         {
-            tmpBiasString=meter+"BIAS "+"ON";
+            tmpBiasString=meter+":BIAS "+"ON";
         }
         if(clsRS::getInst().gpibCommands.biasCommand != tmpBiasString)
         {
@@ -360,7 +359,7 @@ void cls3260MeterMode::updateGPIB()
 
 
 
-        QString xx =QString(meter+"FREQ?");
+        QString xx =QString(meter+":FREQ?");
         QString retFreq = clsRS::getInst().sendCommand(xx,true);
 
         this->frequency = retFreq.toDouble();
@@ -371,30 +370,30 @@ void cls3260MeterMode::updateGPIB()
     {
         if(clsRS::getInst().gpibCommands.testMode !="RDC")
         {
-            clsRS::getInst().sendCommand(":MEAS",false);
-            clsRS::getInst().sendCommand(":MEAS:TEST",false);
-            clsRS::getInst().sendCommand(":MEAS:TEST:RDC",false);
+            clsRS::getInst().sendCommand(meter,false);
+            clsRS::getInst().sendCommand(meter+":TEST",false);
+            clsRS::getInst().sendCommand(meter+":TEST:RDC",false);
             clsRS::getInst().gpibCommands.testMode ="RDC";
         }
 
         QStringList gpibCmd;
 
         if(speed==tr("最快"))
-            gpibCmd.append(meter+"SPEED "+"MAX");
+            gpibCmd.append(meter+":SPEED "+"MAX");
         else if(speed==tr("快速"))
-            gpibCmd.append(meter+"SPEED "+"FAST");
+            gpibCmd.append(meter+":SPEED "+"FAST");
         else if(speed==tr("中速"))
-            gpibCmd.append(meter+"SPEED "+"MED");
+            gpibCmd.append(meter+":SPEED "+"MED");
         else if(speed==tr("慢速"))
-            gpibCmd.append(meter+"SPEED "+"SLOW");
+            gpibCmd.append(meter+":SPEED "+"SLOW");
         else
-            gpibCmd.append(meter+"SPEED "+"MAX");
+            gpibCmd.append(meter+":SPEED "+"MAX");
 
         if(range==tr("自动"))
-            gpibCmd.append(meter+"RANGE "+"AUTO");
+            gpibCmd.append(meter+":RANGE "+"AUTO");
         else
-            gpibCmd.append(meter+"RANGE "+range);
-        gpibCmd.append(meter+"LEV "+QString::number(levelRdc)+"V");
+            gpibCmd.append(meter+":RANGE "+range);
+        gpibCmd.append(meter+":LEV "+QString::number(levelRdc)+"V");
 
         if(clsRS::getInst().gpibCommands.gpibTest2.length()!= gpibCmd.length())
         {
@@ -420,7 +419,7 @@ void cls3260MeterMode::updateGPIB()
         }
 
         clsRS::getInst().gpibCommands.gpibTest2 = gpibCmd;
-        clsRS::getInst().gpibCommands.biasCommand = meter+"BIAS OFF";
+        clsRS::getInst().gpibCommands.biasCommand = meter+":BIAS OFF";
         emit biasStatus(false);
     }
 
@@ -598,6 +597,7 @@ QString cls3260MeterMode::getDescription()
 
 void cls3260MeterMode::turnOffBias()
 {
+    QString meter = getMeter();
     if(clsRS::getInst().gpibCommands.testMode=="RDC")
     {
         emit biasStatus(false);
@@ -605,15 +605,15 @@ void cls3260MeterMode::turnOffBias()
     }
     else
     {
-        if(clsRS::getInst().gpibCommands.biasCommand==":MEAS:BIAS OFF")
+        if(clsRS::getInst().gpibCommands.biasCommand==meter+":BIAS OFF")
         {
             emit biasStatus(false);
         }
         else
         {
 
-            clsRS::getInst().sendCommand(":MEAS:BIAS OFF",false);
-            clsRS::getInst().gpibCommands.biasCommand = ":MEAS:BIAS OFF";
+            clsRS::getInst().sendCommand(meter+":BIAS OFF",false);
+            clsRS::getInst().gpibCommands.biasCommand = meter+":BIAS OFF";
             emit biasStatus(false);
         }
     }
@@ -621,7 +621,7 @@ void cls3260MeterMode::turnOffBias()
 
 void cls3260MeterMode::singleTrig()
 {
-    QString trigCmd =getMeter()+"TRIG";
+    QString trigCmd =getMeter()+":TRIG";
 
     QString strRes = clsRS::getInst().sendCommand(trigCmd,true);
 
@@ -682,7 +682,7 @@ QString cls3260MeterMode::getItemShow(const QString &item, const double &value ,
 
 void cls3260MeterMode::repetiveTrig()
 {
-    QString trigCmd = getMeter()+"TRIG";
+    QString trigCmd = getMeter()+":TRIG";
 
     QString strRes = clsRS::getInst().sendCommand(trigCmd,true);
 
@@ -869,7 +869,7 @@ void cls3260MeterMode::on_btnFrequency_clicked()
 
 double cls3260MeterMode::getMaxFreq()
 {
-    if(clsRS::getInst().instrumentModel=="6430")
+    if(clsRS::getInst().instrumentModel=="3255")
         return 500000;
     else
         return 3000000;
@@ -1093,7 +1093,7 @@ void cls3260MeterMode::on_btnBiasValue_clicked()
 QString cls3260MeterMode::getMeter()
 {
     if(clsRS::getInst().meterSeries=="3260")
-        return ":IMP:";
+        return ":IMP";
     else
-        return ":MEAS:";
+        return ":MEAS";
 }
