@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network serialport xml sql
+QT       += core gui network serialport xml sql ftp
 RC_FILE  =Icon.rc
 
 
@@ -12,7 +12,7 @@ RC_FILE  =Icon.rc
 
  LIBS += dog_windows_3147311.lib
 
-#Tréگ¨ه‹­ç´ھéگ®ن¾€ه…کéڈ„ç–·TF-8éگ¨ه‹¶ç´‌و‌©و¬گç‰±éچ¦â•¨inguisté–²ه²„و½°éچ™îˆ™ن؛’ه¯°ه ‌م‚½éگ¨ه‹®çک‘éچ??
+
 CODECFORTR = UTF-8
 
 INCLUDEPATH +=connections \
@@ -149,7 +149,9 @@ SOURCES +=\
     MeterMode/cls3260MeterMode.cpp \
     MeterMode/cls3260majorfunction.cpp \
     MeterMode/cls3260minorfunction.cpp \
-    AppMode/clsAppMode.cpp
+    AppMode/clsAppMode.cpp \
+    AppMode/clsDownLoad.cpp \
+    AppMode/clsMyPushButton.cpp
 
 
 
@@ -163,7 +165,7 @@ OTHER_FILES += \
     connections/ReadMe.txt \
     AnalysisMode/ProgramDescription.txt
 
-# QWT éگ¨ه‹«ç´©éچڈ?   #######################################################
+# QWT Ã©Ú¯Â¨Ù‡â€¹Â«Ã§Â´Â©Ã©Ú†�  #######################################################
 DEFINES    += QT_DLL QWT_DLL
 
 win32:CONFIG(release, debug|release): LIBS += -L$(QTDIR)/bin -lqwt
@@ -171,7 +173,7 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$(QTDIR)/bin  -lqwtd
 
 #######################################################################
 
-#éچکه¬¬ç¼‰éڈ‚ه›¦و¬¢éگ¨ه‹«ه§©éژ¬ن¾€و‘¼éژ؛مƒ¥ç°±###################################################
+#Ã©Ú†Ú©Ù‡Â¬Â¬Ã§Â¼â€°Ã©Úˆâ€šÙ‡â€ºÂ¦ÙˆÂ¬Â¢Ã©Ú¯Â¨Ù‡â€¹Â«Ù‡Â§Â©Ã©Ú˜Â¬Ù†Â¾â‚¬Ùˆâ€˜Â¼Ã©Ú˜Ø›Ù…Æ’Â¥Ã§Â°�#################################################
 
 LIBS += -L $(QTDIR)/bin -lquazip
 
@@ -312,7 +314,9 @@ HEADERS += \
     MeterMode/cls3260MeterMode.h \
     MeterMode/cls3260majorfunction.h \
     MeterMode/cls3260minorfunction.h \
-    AppMode/clsAppMode.h
+    AppMode/clsAppMode.h \
+    AppMode/clsDownLoad.h \
+    AppMode/clsMyPushButton.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \
@@ -377,7 +381,9 @@ FORMS += \
     MeterMode/cls3260MeterMode.ui \
     MeterMode/cls3260majorfunction.ui \
     MeterMode/cls3260minorfunction.ui \
-    AppMode/clsAppMode.ui
+    AppMode/clsAppMode.ui \
+    AppMode/clsDownLoad.ui \
+    AppMode/clsMyPushButton.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV_EN.ts \
