@@ -151,7 +151,11 @@ SOURCES +=\
     MeterMode/cls3260minorfunction.cpp \
     AppMode/clsAppMode.cpp \
     AppMode/clsDownLoad.cpp \
-    AppMode/clsMyPushButton.cpp
+    AppMode/clsMyPushButton.cpp \
+    MeterMode/clsStatistics.cpp \
+    MeterMode/clsMyBarChartPlot.cpp \
+    MeterMode/PlotDataAnlysis.cpp \
+    MeterMode/PlotSettings.cpp
 
 
 
@@ -316,7 +320,11 @@ HEADERS += \
     MeterMode/cls3260minorfunction.h \
     AppMode/clsAppMode.h \
     AppMode/clsDownLoad.h \
-    AppMode/clsMyPushButton.h
+    AppMode/clsMyPushButton.h \
+    MeterMode/clsStatistics.h \
+    MeterMode/clsMyBarChartPlot.h \
+    MeterMode/PlotDataAnlysis.h \
+    MeterMode/PlotSettings.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \
@@ -383,7 +391,8 @@ FORMS += \
     MeterMode/cls3260minorfunction.ui \
     AppMode/clsAppMode.ui \
     AppMode/clsDownLoad.ui \
-    AppMode/clsMyPushButton.ui
+    AppMode/clsMyPushButton.ui \
+    MeterMode/clsStatistics.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV_EN.ts \
