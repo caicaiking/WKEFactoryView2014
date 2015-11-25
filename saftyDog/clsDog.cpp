@@ -20,7 +20,11 @@ bool clsDog::getName(QString &retValue)
         return true;
     }
     else
-        return getProductName(retValue);
+    {
+        retValue = "WKE FactoryView 2014";
+        return true;
+    }
+       // return getProductName(retValue);
 }
 
 void clsDog::setProduct(bool value)

@@ -72,7 +72,7 @@ void frmSelectConnection::on_btnTest_clicked()
     //qDebug()<<ls;
     if(ls.length()>=2)
     {
-        if(!ls.at(0).contains("WAYNE"))
+        if(!(ls.at(0).contains("WAYNE")|| ls.at(0).contains("KUWAKI")))
             return;
 
         qDebug()<<"Instrument id " <<ls.at(1);

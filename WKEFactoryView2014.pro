@@ -27,6 +27,7 @@ INCLUDEPATH +=connections \
 
 
 
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = WKEFactoryView2014
@@ -169,7 +170,7 @@ OTHER_FILES += \
     connections/ReadMe.txt \
     AnalysisMode/ProgramDescription.txt
 
-# QWT Ã©Ú¯Â¨Ù‡â€¹Â«Ã§Â´Â©Ã©Ú†�  #######################################################
+# QWT ÃƒÂ©ÃšÂ¯Ã‚Â¨Ã™â€¡Ã¢â‚¬Â¹Ã‚Â«ÃƒÂ§Ã‚Â´Ã‚Â©ÃƒÂ©Ãšâ€ Ã  #######################################################
 DEFINES    += QT_DLL QWT_DLL
 
 win32:CONFIG(release, debug|release): LIBS += -L$(QTDIR)/bin -lqwt
@@ -177,7 +178,7 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$(QTDIR)/bin  -lqwtd
 
 #######################################################################
 
-#Ã©Ú†Ú©Ù‡Â¬Â¬Ã§Â¼â€°Ã©Úˆâ€šÙ‡â€ºÂ¦ÙˆÂ¬Â¢Ã©Ú¯Â¨Ù‡â€¹Â«Ù‡Â§Â©Ã©Ú˜Â¬Ù†Â¾â‚¬Ùˆâ€˜Â¼Ã©Ú˜Ø›Ù…Æ’Â¥Ã§Â°�#################################################
+#ÃƒÂ©Ãšâ€ ÃšÂ©Ã™â€¡Ã‚Â¬Ã‚Â¬ÃƒÂ§Ã‚Â¼Ã¢â‚¬Â°ÃƒÂ©ÃšË†Ã¢â‚¬Å¡Ã™â€¡Ã¢â‚¬ÂºÃ‚Â¦Ã™Ë†Ã‚Â¬Ã‚Â¢ÃƒÂ©ÃšÂ¯Ã‚Â¨Ã™â€¡Ã¢â‚¬Â¹Ã‚Â«Ã™â€¡Ã‚Â§Ã‚Â©ÃƒÂ©ÃšËœÃ‚Â¬Ã™â€ Ã‚Â¾Ã¢â€šÂ¬Ã™Ë†Ã¢â‚¬ËœÃ‚Â¼ÃƒÂ©ÃšËœÃ˜â€ºÃ™â€¦Ã†â€™Ã‚Â¥ÃƒÂ§Ã‚Â°Ã#################################################
 
 LIBS += -L $(QTDIR)/bin -lquazip
 
@@ -397,4 +398,6 @@ FORMS += \
 
 TRANSLATIONS = recFile/Translation/WKEFV_EN.ts \
                recFile/Translation/WKEFV_Zh.ts \
-               recFile/Translation/WKEFV_Tw.ts
+               recFile/Translation/WKEFV_Tw.ts \
+               recFile/Translation/WKEFV_GM.ts \
+               recFile/Translation/WKEFV_JP.ts
