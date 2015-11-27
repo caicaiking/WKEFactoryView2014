@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>458</width>
+    <width>590</width>
     <height>260</height>
    </rect>
   </property>
@@ -229,6 +229,25 @@
         </property>
         <property name="text">
          <string>多通道测试(&amp;C)</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnAppMode">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>App 模式（&amp;P）</string>
         </property>
        </widget>
       </item>

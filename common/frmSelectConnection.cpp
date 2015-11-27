@@ -11,6 +11,8 @@ frmSelectConnection::frmSelectConnection(QWidget *parent) :
     this->btnAnalysis->setEnabled(false);
     this->btnRansonace->setVisible(false);
     this->btnMeter->setEnabled(false);
+//    this->btnAppMode->setVisible(false);
+//    this->btnAppMode->setEnabled(false);
     //this->btnMeter->setVisible(false);
     this->btnMulitChannel->setEnabled(false);
     // this->btnMulitChannel->setVisible(false);
@@ -146,6 +148,7 @@ void frmSelectConnection::buttonOp(bool value)
     if(clsRS::getInst().meterSeries=="6500")
     {
         btnRansonace->setVisible(true);
+
     }
 
 }
@@ -307,4 +310,10 @@ void frmSelectConnection::on_btnSwitch_clicked()
     isReboot = 100;
 
     this->reject();
+}
+
+void frmSelectConnection::on_btnAppMode_clicked()
+{
+    this->mode = AppMode;
+    this->accept();
 }

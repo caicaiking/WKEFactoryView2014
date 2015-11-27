@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network serialport xml sql
+QT       += core gui network serialport xml sql ftp
 RC_FILE  =Icon.rc
 
 
@@ -12,7 +12,7 @@ RC_FILE  =Icon.rc
 
  LIBS += dog_windows_3147311.lib
 
-#Tr鐨勭紪鐮侀兘鏄疷TF-8鐨勶紝杩欐牱鍦╨inguist閲岄潰鍙互寰堝ソ鐨勮瘑�??
+
 CODECFORTR = UTF-8
 
 INCLUDEPATH +=connections \
@@ -22,7 +22,8 @@ INCLUDEPATH +=connections \
              MeterMode \
              saftyDog \
              ResonaceMode \
-             MulitChannalBox
+             MulitChannalBox \
+             AppMode
 
 
 
@@ -147,7 +148,14 @@ SOURCES +=\
     MeterMode/cls3260Calibration.cpp \
     MeterMode/cls3260MeterMode.cpp \
     MeterMode/cls3260majorfunction.cpp \
-    MeterMode/cls3260minorfunction.cpp
+    MeterMode/cls3260minorfunction.cpp \
+    AppMode/clsAppMode.cpp \
+    AppMode/clsDownLoad.cpp \
+    AppMode/clsMyPushButton.cpp \
+    MeterMode/clsStatistics.cpp \
+    MeterMode/clsMyBarChartPlot.cpp \
+    MeterMode/PlotDataAnlysis.cpp \
+    MeterMode/PlotSettings.cpp
 
 
 
@@ -161,7 +169,7 @@ OTHER_FILES += \
     connections/ReadMe.txt \
     AnalysisMode/ProgramDescription.txt
 
-# QWT 鐨勫紩鍏?   #######################################################
+# QWT Ã©Ú¯Â¨Ù‡â€¹Â«Ã§Â´Â©Ã©Ú†�  #######################################################
 DEFINES    += QT_DLL QWT_DLL
 
 win32:CONFIG(release, debug|release): LIBS += -L$(QTDIR)/bin -lqwt
@@ -169,7 +177,7 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$(QTDIR)/bin  -lqwtd
 
 #######################################################################
 
-#鍘嬬缉鏂囦欢鐨勫姩鎬侀摼鎺ュ簱###################################################
+#Ã©Ú†Ú©Ù‡Â¬Â¬Ã§Â¼â€°Ã©Úˆâ€šÙ‡â€ºÂ¦ÙˆÂ¬Â¢Ã©Ú¯Â¨Ù‡â€¹Â«Ù‡Â§Â©Ã©Ú˜Â¬Ù†Â¾â‚¬Ùˆâ€˜Â¼Ã©Ú˜Ø›Ù…Æ’Â¥Ã§Â°�#################################################
 
 LIBS += -L $(QTDIR)/bin -lquazip
 
@@ -309,7 +317,14 @@ HEADERS += \
     MeterMode/cls3260Calibration.h \
     MeterMode/cls3260MeterMode.h \
     MeterMode/cls3260majorfunction.h \
-    MeterMode/cls3260minorfunction.h
+    MeterMode/cls3260minorfunction.h \
+    AppMode/clsAppMode.h \
+    AppMode/clsDownLoad.h \
+    AppMode/clsMyPushButton.h \
+    MeterMode/clsStatistics.h \
+    MeterMode/clsMyBarChartPlot.h \
+    MeterMode/PlotDataAnlysis.h \
+    MeterMode/PlotSettings.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \
@@ -373,7 +388,11 @@ FORMS += \
     MeterMode/cls3260Calibration.ui \
     MeterMode/cls3260MeterMode.ui \
     MeterMode/cls3260majorfunction.ui \
-    MeterMode/cls3260minorfunction.ui
+    MeterMode/cls3260minorfunction.ui \
+    AppMode/clsAppMode.ui \
+    AppMode/clsDownLoad.ui \
+    AppMode/clsMyPushButton.ui \
+    MeterMode/clsStatistics.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV_EN.ts \
