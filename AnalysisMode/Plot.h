@@ -109,8 +109,6 @@ private:
 
     QList<QwtPlotMarker *> markers;
 
-
-    //    QwtPlotMarker *d_marker2;
     QwtPlotGrid *gridX;
     QwtPlotGrid *gridYLeft;
     QwtPlotGrid *gridYRight;
