@@ -87,6 +87,7 @@ QString clsMeterModeSettings::getSp() const
 void clsMeterModeSettings::setSp(const QString &value)
 {
     sp = value;
+    this->cmbSp->setCurrentText(sp);
 }
 int clsMeterModeSettings::getStartNumber() const
 {

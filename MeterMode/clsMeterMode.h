@@ -97,6 +97,7 @@ private:
     MeterSettings mSettings;
     clsSignalThread * adu200;
     clsTestResult result;   //用于记录保存数据
+    QString sp;
 
 private:
     void initTable();
@@ -108,7 +109,7 @@ private:
     void saveDataFile(QString value);
     void setDemoVersion(bool value);
     bool checkDog();
-    QString sp;
+
 };
 
 #endif // CLSMETERMODE_H

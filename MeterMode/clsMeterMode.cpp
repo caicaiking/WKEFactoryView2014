@@ -109,11 +109,13 @@ void clsMeterMode::on_btnAdvance_clicked()
     dlg->setCondition(this->mSettings);
     dlg->setStartNumber(this->count.getTotle().toInt());
     dlg->setSingleRes(this->blSingleDisplay);
+    dlg->setSp(this->sp);
     if(dlg->exec())
     {
         mSettings = dlg->getCondtion();
         this->blSingleDisplay = dlg->getSingleRes();
         this->count.totle = dlg->getStartNumber();
+        this->sp = dlg->getSp();
         saveSettings();
         updateMessage();
     }
@@ -478,6 +480,11 @@ bool clsMeterMode::checkDog()
 //保存测试数据文件
 void clsMeterMode::saveDataFile(QString value)
 {
+
+    //在这儿添加一个 Log，记录所有的测试数据。
+    //
+    //________________________________________
+
     if(strDataFile.isEmpty())
         return;
 
@@ -688,7 +695,14 @@ void clsMeterMode::readSettings()
     settings.readSetting(strNode+"tmpDir",tmpDir);
     settings.readSetting(strNode+"singleDisplay",this->blSingleDisplay);
     settings.readSetting(strNode+"Sp",this->sp);
-    sp=(sp.isEmpty()?",":sp);
+
+    if(sp.isEmpty())
+    {
+        if(QLocale().decimalPoint()==QChar('.'))
+            sp=",";
+        else
+            sp=";";
+    }
 }
 //保存设定
 void clsMeterMode::saveSettings()
