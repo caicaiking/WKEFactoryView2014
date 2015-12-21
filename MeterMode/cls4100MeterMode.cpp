@@ -750,7 +750,7 @@ void cls4100MeterMode::singleTrig()
         QString toShow =getItemShow(item,value,lm,suffix);
         showTest.append( toShow);
     }
-    emit signalTestResult(showTest.join(","));
+    emit signalTestResult(showTest.join("|"));
 
 }
 
@@ -768,7 +768,7 @@ QString cls4100MeterMode::getItemShow(const QString &item, const double &value ,
 
     if((item=="Q") || (item=="D"))
     {
-        tmp.append(dt.formateWithUnit(",",7)+UserfulFunctions::getSuffix(item));
+        tmp.append(dt.formateWithUnit(" ",7)+UserfulFunctions::getSuffix(item));
     }
     else
     {
@@ -776,7 +776,7 @@ QString cls4100MeterMode::getItemShow(const QString &item, const double &value ,
     }
     tmp.append(strPassFail);
 
-    return tmp.join(",");
+    return tmp.join("|");
 
 }
 

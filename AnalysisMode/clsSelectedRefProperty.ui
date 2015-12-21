@@ -177,7 +177,7 @@
          <widget class="ClickedLabel" name="clrTraceA">
           <property name="minimumSize">
            <size>
-            <width>0</width>
+            <width>40</width>
             <height>0</height>
            </size>
           </property>
@@ -198,7 +198,7 @@ background-color: rgb(0, 255, 0);</string>
            <enum>QFrame::Plain</enum>
           </property>
           <property name="text">
-           <string>   </string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -206,7 +206,7 @@ background-color: rgb(0, 255, 0);</string>
          <widget class="ClickedLabel" name="clrTraceB">
           <property name="minimumSize">
            <size>
-            <width>0</width>
+            <width>40</width>
             <height>0</height>
            </size>
           </property>
@@ -227,7 +227,7 @@ background-color: rgb(0, 255, 0);</string>
            <enum>QFrame::Plain</enum>
           </property>
           <property name="text">
-           <string>   </string>
+           <string/>
           </property>
          </widget>
         </item>
@@ -255,6 +255,7 @@ background-color: rgb(0, 255, 0);</string>
           <property name="font">
            <font>
             <family>楷体</family>
+            <pointsize>12</pointsize>
            </font>
           </property>
           <property name="text">

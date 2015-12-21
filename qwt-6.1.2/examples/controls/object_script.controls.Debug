@@ -1,0 +1,15 @@
+INPUT(
+./debug\sliderbox.o
+./debug\slidertab.o
+./debug\wheelbox.o
+./debug\wheeltab.o
+./debug\knobbox.o
+./debug\knobtab.o
+./debug\dialbox.o
+./debug\dialtab.o
+./debug\main.o
+./debug\moc_sliderbox.o
+./debug\moc_wheelbox.o
+./debug\moc_knobbox.o
+./debug\moc_dialbox.o
+);

@@ -1,0 +1,15 @@
+INPUT(
+./release\signaldata.o
+./release\plot.o
+./release\knob.o
+./release\wheelbox.o
+./release\samplingthread.o
+./release\curvedata.o
+./release\mainwindow.o
+./release\main.o
+./release\moc_plot.o
+./release\moc_knob.o
+./release\moc_wheelbox.o
+./release\moc_samplingthread.o
+./release\moc_mainwindow.o
+);

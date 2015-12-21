@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\scrollzoomer.o
+./release\scrollbar.o
+./release\incrementalplot.o
+./release\randomplot.o
+./release\moc_mainwindow.o
+./release\moc_scrollzoomer.o
+./release\moc_scrollbar.o
+./release\moc_incrementalplot.o
+./release\moc_randomplot.o
+);

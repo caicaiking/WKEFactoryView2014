@@ -310,7 +310,7 @@
     </message>
     <message>
         <location filename="../../AnalysisMode/WK3260.h" line="157"/>
-        <location filename="../../AnalysisMode/clsViewResult.cpp" line="79"/>
+        <location filename="../../AnalysisMode/clsViewResult.cpp" line="81"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="468"/>
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="23"/>
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="30"/>
@@ -531,7 +531,7 @@
     <message>
         <location filename="../../Public/UserfulFunctions.cpp" line="118"/>
         <source>交流电阻</source>
-        <translation>Impedance</translation>
+        <translation>Resistance</translation>
     </message>
     <message>
         <location filename="../../Public/UserfulFunctions.cpp" line="120"/>
@@ -765,9 +765,13 @@
 <context>
     <name>cls3260Calibration</name>
     <message>
-        <location filename="../../MeterMode/cls3260Calibration.ui" line="14"/>
         <source>仪表模式校准</source>
-        <translation>Meter Mode Calibration</translation>
+        <translation type="vanished">Meter Mode Calibration</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls3260Calibration.ui" line="14"/>
+        <source>仪表校准</source>
+        <translation>Instrument calibration</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls3260Calibration.ui" line="36"/>
@@ -1519,7 +1523,7 @@
     <message>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.cpp" line="83"/>
         <source>开路校准成功，校准时间：%1 %2</source>
-        <translation>Open circuit calibration ok, calibrate time:%1 %2</translation>
+        <translation>Open circuit calibration ok, calibrate time:%1 %2</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls4100MeterModeCalibration.cpp" line="87"/>
@@ -1684,9 +1688,13 @@
 <context>
     <name>cls6440Calibration</name>
     <message>
-        <location filename="../../MeterMode/cls6440Calibration.ui" line="14"/>
         <source>仪表模式校准</source>
-        <translation>Meter Mode Calibration</translation>
+        <translation type="vanished">Meter Mode Calibration</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440Calibration.ui" line="14"/>
+        <source>仪表校准</source>
+        <translation>Instrument calibration</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440Calibration.ui" line="36"/>
@@ -2441,8 +2449,8 @@
     <name>clsAppMode</name>
     <message>
         <location filename="../../AppMode/clsAppMode.ui" line="14"/>
-        <source>WK App Mode</source>
-        <translation></translation>
+        <source>App Mode</source>
+        <translation>App Mode</translation>
     </message>
     <message>
         <location filename="../../AppMode/clsAppMode.ui" line="41"/>
@@ -3499,9 +3507,13 @@ test Result</translation>
 <context>
     <name>clsMultModeMeterUi</name>
     <message>
-        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="14"/>
         <source>WK 仪表设置</source>
-        <translation>WK Instrument settings</translation>
+        <translation type="vanished">WK Instrument settings</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="14"/>
+        <source>仪表设置</source>
+        <translation>Instrument calibration</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="32"/>
@@ -4176,17 +4188,17 @@ Curr</translation>
         <translation>Related Information</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="261"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="262"/>
         <source>名称：</source>
         <translation>Name:</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="312"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="313"/>
         <source>取消</source>
         <translation>Cancel</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="334"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="335"/>
         <source>确定</source>
         <translation>OK</translation>
     </message>
@@ -4595,16 +4607,31 @@ Bias</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsViewResult.ui" line="109"/>
+        <source>列表分隔符：</source>
+        <translation>List seperator:</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsViewResult.ui" line="132"/>
+        <source>,</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsViewResult.ui" line="137"/>
+        <source>;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsViewResult.ui" line="164"/>
         <source>第</source>
         <translation>The</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsViewResult.ui" line="138"/>
+        <location filename="../../AnalysisMode/clsViewResult.ui" line="205"/>
         <source>组</source>
         <translation>Group</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsViewResult.ui" line="185"/>
+        <location filename="../../AnalysisMode/clsViewResult.ui" line="252"/>
         <source>保存</source>
         <translation>Save</translation>
     </message>
@@ -5738,12 +5765,12 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</tr
         <translation type="obsolete">Instrument ID:%1</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.cpp" line="63"/>
+        <location filename="../../common/frmSelectConnection.cpp" line="64"/>
         <source>初始化连接失败！</source>
         <translation>Initialize the connection failed!</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.cpp" line="68"/>
+        <location filename="../../common/frmSelectConnection.cpp" line="69"/>
         <source>仪器ID：%1</source>
         <translation>Instrument ID:%1</translation>
     </message>
@@ -6677,9 +6704,13 @@ Info</translation>
         <translation type="obsolete">Save test image</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="35"/>
         <source>仪器：WK %1</source>
-        <translation>Instrument: WK %1</translation>
+        <translation type="vanished">Instrument: WK %1</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="35"/>
+        <source>仪器： %1</source>
+        <translation>Instrument: %1</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="80"/>
@@ -6818,9 +6849,13 @@ Test</translation>
 <context>
     <name>frmWk3260</name>
     <message>
-        <location filename="../../AnalysisMode/frmWk3260.ui" line="20"/>
         <source>仪表参数设置</source>
-        <translation>Meter setup</translation>
+        <translation type="vanished">Meter setup</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWk3260.ui" line="20"/>
+        <source>参数设置</source>
+        <translation>Measurement setup</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWk3260.ui" line="60"/>
@@ -7128,9 +7163,13 @@ Test</translation>
 <context>
     <name>wk4300AnalysisMeter</name>
     <message>
-        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="23"/>
         <source>仪表测量条件设置</source>
-        <translation>Meter setup</translation>
+        <translation type="vanished">Meter setup</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="23"/>
+        <source>参数设置</source>
+        <translation>Measurement setup</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="45"/>
@@ -7394,9 +7433,13 @@ Test</translation>
 <context>
     <name>wk4300Calibration</name>
     <message>
-        <location filename="../../AnalysisMode/wk4300Calibration.ui" line="23"/>
         <source>WK4300仪器校准</source>
-        <translation>WK4300 calibration</translation>
+        <translation type="vanished">WK4300 calibration</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/wk4300Calibration.ui" line="23"/>
+        <source>仪器校准</source>
+        <translation>Instrument calibration</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300Calibration.ui" line="70"/>
@@ -7504,9 +7547,13 @@ Trim</translation>
 <context>
     <name>wk6440AnalysisMeter</name>
     <message>
-        <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="14"/>
         <source>设置测试参数</source>
-        <translation>Measurement Setup</translation>
+        <translation type="vanished">Measurement Setup</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="14"/>
+        <source>参数设置</source>
+        <translation>Measurement setup</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6440AnalysisMeter.ui" line="51"/>
@@ -7927,9 +7974,13 @@ Trim</translation>
 <context>
     <name>wk6500AnalysisMeter</name>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="23"/>
         <source>WK 6500 仪表设置</source>
-        <translation>WK 6500 meter setup</translation>
+        <translation type="vanished">WK 6500 meter setup</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="23"/>
+        <source>参数设置</source>
+        <translation>Measurement setup</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="45"/>
@@ -8209,9 +8260,13 @@ Trim</translation>
 <context>
     <name>wk6500Calibration</name>
     <message>
-        <location filename="../../AnalysisMode/wk6500Calibration.ui" line="35"/>
         <source>6500B校准界面</source>
-        <translation>6500B Calibration</translation>
+        <translation type="vanished">6500B Calibration</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/wk6500Calibration.ui" line="35"/>
+        <source>仪器校准</source>
+        <translation>Instrument calibration</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Calibration.ui" line="55"/>
@@ -8613,9 +8668,13 @@ Calibration time: %2 %3</translation>
 <context>
     <name>wk6500Range</name>
     <message>
-        <location filename="../../AnalysisMode/wk6500Range.ui" line="23"/>
         <source>设置WK 6500B 测试量程</source>
-        <translation>Set WK6500 Test Range</translation>
+        <translation type="vanished">Set WK6500 Test Range</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/wk6500Range.ui" line="23"/>
+        <source>测试量程</source>
+        <translation>Set range</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500Range.ui" line="75"/>

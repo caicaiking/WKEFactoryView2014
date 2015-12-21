@@ -20,7 +20,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>WK4300仪器校准</string>
+   <string>仪器校准</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog

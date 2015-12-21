@@ -108,6 +108,7 @@ private:
     void saveDataFile(QString value);
     void setDemoVersion(bool value);
     bool checkDog();
+    QString sp;
 };
 
 #endif // CLSMETERMODE_H

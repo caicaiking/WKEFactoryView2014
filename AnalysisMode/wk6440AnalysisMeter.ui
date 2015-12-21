@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>设置测试参数</string>
+   <string>参数设置</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog

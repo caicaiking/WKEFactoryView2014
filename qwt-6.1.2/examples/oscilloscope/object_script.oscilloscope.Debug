@@ -1,0 +1,15 @@
+INPUT(
+./debug\signaldata.o
+./debug\plot.o
+./debug\knob.o
+./debug\wheelbox.o
+./debug\samplingthread.o
+./debug\curvedata.o
+./debug\mainwindow.o
+./debug\main.o
+./debug\moc_plot.o
+./debug\moc_knob.o
+./debug\moc_wheelbox.o
+./debug\moc_samplingthread.o
+./debug\moc_mainwindow.o
+);

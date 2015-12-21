@@ -444,17 +444,17 @@ void clsMeterMode::trig()
         if(mSettings.saveResType==AllRes)
         {
             result.addTestData(allStepData); //用于报表数据
-            saveDataFile(strSaveRes.join(","));
+            saveDataFile(strSaveRes.join(sp));
         }
         else if((mSettings.saveResType==PassRes) && status)
         {
             result.addTestData(allStepData); //用于报表数据
-            saveDataFile(strSaveRes.join(","));
+            saveDataFile(strSaveRes.join(sp));
         }
         else if((mSettings.saveResType==FailRes) && (!status))
         {
             result.addTestData(allStepData); //用于报表数据
-            saveDataFile(strSaveRes.join(","));
+            saveDataFile(strSaveRes.join(sp));
         }
         else
         {/*Donthing here!*/}
@@ -687,6 +687,8 @@ void clsMeterMode::readSettings()
     mSettings.saveResType=(SaveResultType)tmp;
     settings.readSetting(strNode+"tmpDir",tmpDir);
     settings.readSetting(strNode+"singleDisplay",this->blSingleDisplay);
+    settings.readSetting(strNode+"Sp",this->sp);
+    sp=(sp.isEmpty()?",":sp);
 }
 //保存设定
 void clsMeterMode::saveSettings()
@@ -700,6 +702,7 @@ void clsMeterMode::saveSettings()
     settings.writeSetting(strNode+"saveType",mSettings.saveResType);
     settings.writeSetting(strNode+"tmpDir",tmpDir);
     settings.writeSetting(strNode+"singleDisplay",this->blSingleDisplay);
+    settings.writeSetting(strNode+"Sp",sp);
 
 }
 
