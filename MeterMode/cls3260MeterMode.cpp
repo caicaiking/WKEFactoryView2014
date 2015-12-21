@@ -638,7 +638,7 @@ void cls3260MeterMode::singleTrig()
 
         if(grpMinor->isChecked())
         {
-            tmp+=",";
+            tmp+="|";
             tmp+= getItemShow(item2,dblItem2,lmMinor,minorUnit);
         }
 
@@ -668,7 +668,7 @@ QString cls3260MeterMode::getItemShow(const QString &item, const double &value ,
 
     if((item=="Q") || (item=="D"))
     {
-        tmp.append(dt.formateWithUnit(",",7)+UserfulFunctions::getSuffix(item));
+        tmp.append(dt.formateWithUnit("",7)+UserfulFunctions::getSuffix(item));
     }
     else
     {
@@ -676,7 +676,7 @@ QString cls3260MeterMode::getItemShow(const QString &item, const double &value ,
     }
     tmp.append(strPassFail);
 
-    return tmp.join(",");
+    return tmp.join("|");
 
 }
 

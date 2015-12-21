@@ -16,6 +16,7 @@ frmSelectConnection::frmSelectConnection(QWidget *parent) :
     //this->btnMeter->setVisible(false);
     this->btnMulitChannel->setEnabled(false);
     // this->btnMulitChannel->setVisible(false);
+    this->btnAppMode->setVisible(false);
 
     intSelect=0;
     isReboot=0;

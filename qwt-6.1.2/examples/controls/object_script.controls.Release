@@ -1,0 +1,15 @@
+INPUT(
+./release\sliderbox.o
+./release\slidertab.o
+./release\wheelbox.o
+./release\wheeltab.o
+./release\knobbox.o
+./release\knobtab.o
+./release\dialbox.o
+./release\dialtab.o
+./release\main.o
+./release\moc_sliderbox.o
+./release\moc_wheelbox.o
+./release\moc_knobbox.o
+./release\moc_dialbox.o
+);

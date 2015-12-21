@@ -109,11 +109,13 @@ void clsMeterMode::on_btnAdvance_clicked()
     dlg->setCondition(this->mSettings);
     dlg->setStartNumber(this->count.getTotle().toInt());
     dlg->setSingleRes(this->blSingleDisplay);
+    dlg->setSp(this->sp);
     if(dlg->exec())
     {
         mSettings = dlg->getCondtion();
         this->blSingleDisplay = dlg->getSingleRes();
         this->count.totle = dlg->getStartNumber();
+        this->sp = dlg->getSp();
         saveSettings();
         updateMessage();
     }
@@ -444,17 +446,17 @@ void clsMeterMode::trig()
         if(mSettings.saveResType==AllRes)
         {
             result.addTestData(allStepData); //用于报表数据
-            saveDataFile(strSaveRes.join(","));
+            saveDataFile(strSaveRes.join(sp));
         }
         else if((mSettings.saveResType==PassRes) && status)
         {
             result.addTestData(allStepData); //用于报表数据
-            saveDataFile(strSaveRes.join(","));
+            saveDataFile(strSaveRes.join(sp));
         }
         else if((mSettings.saveResType==FailRes) && (!status))
         {
             result.addTestData(allStepData); //用于报表数据
-            saveDataFile(strSaveRes.join(","));
+            saveDataFile(strSaveRes.join(sp));
         }
         else
         {/*Donthing here!*/}
@@ -478,6 +480,11 @@ bool clsMeterMode::checkDog()
 //保存测试数据文件
 void clsMeterMode::saveDataFile(QString value)
 {
+
+    //在这儿添加一个 Log，记录所有的测试数据。
+    //
+    //________________________________________
+
     if(strDataFile.isEmpty())
         return;
 
@@ -687,6 +694,15 @@ void clsMeterMode::readSettings()
     mSettings.saveResType=(SaveResultType)tmp;
     settings.readSetting(strNode+"tmpDir",tmpDir);
     settings.readSetting(strNode+"singleDisplay",this->blSingleDisplay);
+    settings.readSetting(strNode+"Sp",this->sp);
+
+    if(sp.isEmpty())
+    {
+        if(QLocale().decimalPoint()==QChar('.'))
+            sp=",";
+        else
+            sp=";";
+    }
 }
 //保存设定
 void clsMeterMode::saveSettings()
@@ -700,6 +716,7 @@ void clsMeterMode::saveSettings()
     settings.writeSetting(strNode+"saveType",mSettings.saveResType);
     settings.writeSetting(strNode+"tmpDir",tmpDir);
     settings.writeSetting(strNode+"singleDisplay",this->blSingleDisplay);
+    settings.writeSetting(strNode+"Sp",sp);
 
 }
 

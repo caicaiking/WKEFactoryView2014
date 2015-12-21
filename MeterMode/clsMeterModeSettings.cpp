@@ -70,12 +70,24 @@ MeterSettings clsMeterModeSettings::getCondtion()
 
 void clsMeterModeSettings::on_btnOk_clicked()
 {
+    this->sp = cmbSp->currentText();
     this->accept();
 }
 
 void clsMeterModeSettings::on_btnCancel_clicked()
 {
     this->reject();
+}
+
+QString clsMeterModeSettings::getSp() const
+{
+    return sp;
+}
+
+void clsMeterModeSettings::setSp(const QString &value)
+{
+    sp = value;
+    this->cmbSp->setCurrentText(sp);
 }
 int clsMeterModeSettings::getStartNumber() const
 {

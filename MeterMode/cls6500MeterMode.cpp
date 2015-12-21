@@ -700,7 +700,7 @@ void cls6500MeterMode::singleTrig()
         QString toShow =getItemShow(item,value,lm,suffix);
         showTest.append( toShow);
     }
-    emit signalTestResult(showTest.join(","));
+    emit signalTestResult(showTest.join("|"));
 }
 
 QString cls6500MeterMode::getItemShow(const QString &item, const double &value , clsMeterLimit &limit, const QString &/*suffix*/)

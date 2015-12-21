@@ -32,7 +32,7 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
 
     this->statusBar()->setVisible(false);
     progressBar->setVisible(false);
-    lblDisplayMsg->setText(tr("仪器：WK %1").arg(clsRS::getInst().instrumentModel));
+    lblDisplayMsg->setText(tr("仪器： %1").arg(clsRS::getInst().instrumentModel));
 
     init();
 

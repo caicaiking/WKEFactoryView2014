@@ -20,7 +20,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>仪表测量条件设置</string>
+   <string>参数设置</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog
