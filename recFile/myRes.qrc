@@ -74,5 +74,7 @@
         <file>Translation/WKEFV_ZH.qm</file>
         <file>Icons/ReleaseNote.txt</file>
         <file>Translation/WKEFV_Tw.qm</file>
+        <file>Icons/dir.png</file>
+        <file>Icons/file.png</file>
     </qresource>
 </RCC>

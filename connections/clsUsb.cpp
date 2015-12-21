@@ -61,7 +61,7 @@ bool clsUsb::init()
         buffer[retLen]='\0';
     strResult=QString((const char*)buffer);
 
-    if(strResult.contains("WAYNE"))
+    if(strResult.contains("WAYNE")|| strResult.contains("KUWAKI"))
     {
         this->blInit=true;
         return true;

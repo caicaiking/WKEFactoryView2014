@@ -6,7 +6,7 @@
 
 enum SelectMode
 {
-    Analysis=1,Meter=2,Resonace=3,MultiChannel=4
+    Analysis=1,Meter=2,Resonace=3,MultiChannel=4,AppMode=5
 };
 
 class frmSelectConnection : public QDialog, private Ui::frmSelectConnection
@@ -45,6 +45,8 @@ private slots:
 
 
     void on_btnSwitch_clicked();
+
+    void on_btnAppMode_clicked();
 
 protected:
     void closeEvent(QCloseEvent *);

@@ -115,9 +115,15 @@ complexType complexType::operator *(complexType value)
 complexType complexType::operator /(complexType value)
 {
     std::complex<double> a(this->getR(),this->getX());
-    std::complex<double> b(value.getR(),value.getX());
 
-    std::complex<double> c = a/b;
+    std::complex<double> c1;
+
+    if(value.getR()!=0)
+        c1=std::complex<double>(value.getR(),value.getX());
+    else
+        c1=std::complex<double> (1E-19,value.getX());
+
+    std::complex<double> c = a/c1;
     complexType tmp;
     tmp.setRX(c.real(),c.imag());
     return tmp;

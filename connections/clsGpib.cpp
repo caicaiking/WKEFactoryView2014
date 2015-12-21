@@ -50,7 +50,7 @@ bool clsGpib::init()
     }
     else
     {
-        if(strData.contains("WAYNE"))
+        if(strData.contains("WAYNE") || strData.contains("KUWAKI"))
         {
 
             blInit = true;

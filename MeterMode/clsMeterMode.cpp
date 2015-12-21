@@ -12,6 +12,7 @@
 #include <QFileDialog>
 #include "clsMeterModeSettings.h"
 #include <QMessageBox>
+#include "clsStatistics.h"
 #include "clsShowReport.h"
 clsMeterMode::clsMeterMode(QWidget *parent) :
     QMainWindow(parent)
@@ -728,8 +729,13 @@ Stop:
 //打印报表
 void clsMeterMode::on_btnReport_clicked()
 {
-    clsShowReport *dlg = new clsShowReport(this);
-    dlg->setData(&this->result);
+//    clsShowReport *dlg = new clsShowReport(this);
+//    dlg->setData(&this->result);
+
+
+    clsStatistics *dlg = new clsStatistics(this);
+    dlg->setData(&result);
+
 }
 
 void clsMeterMode::on_btnRep300_clicked()
