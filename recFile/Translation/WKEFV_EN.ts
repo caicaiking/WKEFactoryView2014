@@ -7271,7 +7271,7 @@ Test</translation>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="159"/>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.cpp" line="255"/>
         <source>最快</source>
-        <translation>Fast</translation>
+        <translation type="unfinished">Max</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk4300AnalysisMeter.ui" line="383"/>

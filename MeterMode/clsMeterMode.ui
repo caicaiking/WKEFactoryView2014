@@ -355,6 +355,84 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="btnExportData">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存测试数据，可以新建一个数据文件，也可以写入上次存储的数据文件。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>保存
+数据</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../recFile/myRes.qrc">
+          <normaloff>:/Icons/stepSave.png</normaloff>:/Icons/stepSave.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnSaveData">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="toolTip">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存测试数据，可以新建一个数据文件，也可以写入上次存储的数据文件。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="text">
+         <string>数据
+文件</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../recFile/myRes.qrc">
+          <normaloff>:/Icons/dataFile.png</normaloff>:/Icons/dataFile.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QPushButton" name="btnSetStep">
         <property name="minimumSize">
          <size>
@@ -426,45 +504,6 @@
         </property>
         <property name="shortcut">
          <string>Esc</string>
-        </property>
-        <property name="checkable">
-         <bool>false</bool>
-        </property>
-        <property name="autoExclusive">
-         <bool>false</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnSaveData">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>40</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="toolTip">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存测试数据，可以新建一个数据文件，也可以写入上次存储的数据文件。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-        <property name="text">
-         <string>保存
-数据</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../recFile/myRes.qrc">
-          <normaloff>:/Icons/stepSave.png</normaloff>:/Icons/stepSave.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
         </property>
         <property name="checkable">
          <bool>false</bool>
@@ -1036,14 +1075,14 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>clsMyMessageLabel</class>
-   <extends>QLabel</extends>
-   <header>clsMyMessageLabel.h</header>
-  </customwidget>
-  <customwidget>
    <class>StatusLabel</class>
    <extends>QLabel</extends>
    <header>StatusLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>clsMyMessageLabel</class>
+   <extends>QLabel</extends>
+   <header>clsMyMessageLabel.h</header>
   </customwidget>
  </customwidgets>
  <resources>

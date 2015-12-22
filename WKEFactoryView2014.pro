@@ -156,7 +156,8 @@ SOURCES +=\
     MeterMode/clsStatistics.cpp \
     MeterMode/clsMyBarChartPlot.cpp \
     MeterMode/PlotDataAnlysis.cpp \
-    MeterMode/PlotSettings.cpp
+    MeterMode/PlotSettings.cpp \
+    MeterMode/clsLog.cpp
 
 
 
@@ -178,7 +179,7 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$(QTDIR)/bin  -lqwtd
 
 #######################################################################
 
-#ÃƒÂ©Ãšâ€ ÃšÂ©Ã™â€¡Ã‚Â¬Ã‚Â¬ÃƒÂ§Ã‚Â¼Ã¢â‚¬Â°ÃƒÂ©ÃšË†Ã¢â‚¬Å¡Ã™â€¡Ã¢â‚¬ÂºÃ‚Â¦Ã™Ë†Ã‚Â¬Ã‚Â¢ÃƒÂ©ÃšÂ¯Ã‚Â¨Ã™â€¡Ã¢â‚¬Â¹Ã‚Â«Ã™â€¡Ã‚Â§Ã‚Â©ÃƒÂ©ÃšËœÃ‚Â¬Ã™â€ Ã‚Â¾Ã¢â€šÂ¬Ã™Ë†Ã¢â‚¬ËœÃ‚Â¼ÃƒÂ©ÃšËœÃ˜â€ºÃ™â€¦Ã†â€™Ã‚Â¥ÃƒÂ§Ã‚Â°Ã#################################################
+#ÃƒÂ©Ãšâ�ÃšÂ©Ã™â€¡Ã‚Â¬Ã‚Â¬ÃƒÂ§Ã‚Â¼Ã¢â‚¬Â°ÃƒÂ©ÃšË†Ã¢â‚¬Å¡Ã™â€¡Ã¢â‚¬ÂºÃ‚Â¦Ã™Ë†Ã‚Â¬Ã‚Â¢ÃƒÂ©ÃšÂ¯Ã‚Â¨Ã™â€¡Ã¢â‚¬Â¹Ã‚Â«Ã™â€¡Ã‚Â§Ã‚Â©ÃƒÂ©ÃšËœÃ‚Â¬Ã™â�Ã‚Â¾Ã¢â€šÂ¬Ã™Ë†Ã¢â‚¬ËœÃ‚Â¼ÃƒÂ©ÃšËœÃ˜â€ºÃ™â€¦Ã†â€™Ã‚Â¥ÃƒÂ§Ã‚Â°�################################################
 
 LIBS += -L $(QTDIR)/bin -lquazip
 
@@ -325,7 +326,8 @@ HEADERS += \
     MeterMode/clsStatistics.h \
     MeterMode/clsMyBarChartPlot.h \
     MeterMode/PlotDataAnlysis.h \
-    MeterMode/PlotSettings.h
+    MeterMode/PlotSettings.h \
+    MeterMode/clsLog.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \
