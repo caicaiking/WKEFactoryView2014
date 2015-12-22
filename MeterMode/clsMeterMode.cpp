@@ -14,6 +14,7 @@
 #include <QMessageBox>
 #include "clsStatistics.h"
 #include "clsShowReport.h"
+
 clsMeterMode::clsMeterMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -41,6 +42,8 @@ clsMeterMode::clsMeterMode(QWidget *parent) :
 
 
     setDemoVersion(SingletonDog::Instance()->getVersion());
+
+    initLog();
 }
 
 void clsMeterMode:: setDemoVersion(bool value)
@@ -49,7 +52,27 @@ void clsMeterMode:: setDemoVersion(bool value)
     this->btnSaveTask->setEnabled(value);
     this->btnSaveData->setEnabled(value);
     this->btnReport->setEnabled(value);
+}
 
+//初始化Log记录
+void clsMeterMode::initLog()
+{
+    passDataLog = new clsLog(this);
+    passDataLog->setFileName("pass.log");
+
+    failDataLog = new clsLog(this);
+    failDataLog->setFileName("fail.log");
+
+    allDataLog = new clsLog(this);
+    allDataLog->setFileName("all.log");
+
+    connect(passDataLog,SIGNAL(showErrorMessage(QString)),this,SLOT(showLogError(QString)));
+    connect(failDataLog,SIGNAL(showErrorMessage(QString)),this,SLOT(showLogError(QString)));
+    connect(allDataLog,SIGNAL(showErrorMessage(QString)),this,SLOT(showLogError(QString)));
+
+    passDataLog->run();
+    failDataLog->run();
+    allDataLog->run();
 }
 
 
@@ -84,7 +107,7 @@ void clsMeterMode::on_btnSetStep_clicked()
 
         steps.clear();
         tmp.clear();
-
+        clearLogFile();
 
         tmp = dlg->getTestSteps();
 
@@ -148,7 +171,7 @@ void clsMeterMode::on_btnSaveTask_clicked()
     {
         strTaskFile = strTmp;
         tmpDir = QFileInfo(strTaskFile).absoluteDir().path();
-       // qDebug()<<tmpDir;
+        // qDebug()<<tmpDir;
         txtTaskFile->setText(QFileInfo(strTaskFile).fileName());
     }
 
@@ -161,6 +184,14 @@ void clsMeterMode::on_btnSaveTask_clicked()
 
     out.flush();
     file.close();
+}
+
+
+void clsMeterMode::clearLogFile()
+{
+    allDataLog->clearFile();
+    passDataLog->clearFile();
+    failDataLog->clearFile();
 }
 
 //读取测试任务
@@ -228,6 +259,8 @@ void clsMeterMode::on_btnOpenTask_clicked()
             }
         }
     }
+
+    clearLogFile();
 }
 
 //用于软件触发
@@ -356,7 +389,7 @@ void clsMeterMode::trig()
 
         meter->setCondition(steps.at(i)->getConditon());
         meter->updateGPIB();    //更新GPIB指令
-      //  UserfulFunctions::sleepMs(20);
+        //  UserfulFunctions::sleepMs(20);
         meter->repetiveTrig(); //触发仪器，获取测试结果
         QVector<double> singleStepData;
         for(int j=0; j< meter->getCountTestItems(); j++)
@@ -442,6 +475,11 @@ void clsMeterMode::trig()
         txtPassNumber->setText(count.getPass());
         txtFailNumber->setText(count.getFail());
 
+        allDataLog->writeLine(strSaveRes.join(sp)); //数据写入log文件
+        if(status)
+            passDataLog->writeLine(strSaveRes.join(sp)); //数据写入log文件
+        else
+            failDataLog->writeLine(strSaveRes.join(sp)); //数据写入log文件
 
         if(mSettings.saveResType==AllRes)
         {
@@ -464,6 +502,11 @@ void clsMeterMode::trig()
 
     //关闭Bias
     meter->turnOffBias();
+}
+
+void clsMeterMode::showLogError(QString value)
+{
+    QMessageBox::warning(this,tr("警告"),value);
 }
 
 bool clsMeterMode::checkDog()
@@ -663,6 +706,9 @@ void clsMeterMode::setAdu200(Status value)
 void clsMeterMode::closeEvent(QCloseEvent *)
 {
     btnStop->click();
+    allDataLog->stop();
+    passDataLog->stop();
+    failDataLog->stop();
 
     if(mSettings.trigMode==Adu200Trig)
     {
@@ -746,8 +792,8 @@ Stop:
 //打印报表
 void clsMeterMode::on_btnReport_clicked()
 {
-//    clsShowReport *dlg = new clsShowReport(this);
-//    dlg->setData(&this->result);
+    //    clsShowReport *dlg = new clsShowReport(this);
+    //    dlg->setData(&this->result);
 
 
     clsStatistics *dlg = new clsStatistics(this);
@@ -757,9 +803,50 @@ void clsMeterMode::on_btnReport_clicked()
 
 void clsMeterMode::on_btnRep300_clicked()
 {
-        for(int i=0; i< 300; i++)
-        {
-            trig();
-            UserfulFunctions::sleepMs(10);
-        }
+    for(int i=0; i< 300; i++)
+    {
+        trig();
+        UserfulFunctions::sleepMs(10);
+    }
+}
+
+void clsMeterMode::on_btnExportData_clicked()
+{
+
+    allDataLog->flushResult();
+    passDataLog->flushResult();
+    failDataLog->flushResult();
+
+    QString strTmp  = QFileDialog::getSaveFileName(this,tr("保存测试数据"), tmpDir,tr("CSV逗号分割文件(*.csv)"),0,QFileDialog::DontConfirmOverwrite);
+
+    QString myTmpDatafile;
+    if(strTmp.isEmpty())
+        return;
+
+    myTmpDatafile = strTmp;
+    tmpDir = QFileInfo(myTmpDatafile).absoluteDir().path();
+
+
+
+    if(mSettings.saveResType==AllRes)
+    {
+        if(QFile::exists("all.log"))
+            QFile::copy("all.log", myTmpDatafile);
+        else
+            QMessageBox::information(this,tr("消息"),tr("没有数据可以保存"));
+    }
+    else if((mSettings.saveResType==PassRes))
+    {
+        if(QFile::exists("pass.log"))
+            QFile::copy("pass.log", myTmpDatafile);
+        else
+            QMessageBox::information(this,tr("消息"),tr("没有数据可以保存"));
+    }
+    else if((mSettings.saveResType==FailRes))
+    {
+        if(QFile::exists("fail.log"))
+            QFile::copy("fail.log", myTmpDatafile);
+        else
+            QMessageBox::information(this,tr("消息"),tr("没有数据可以保存"));
+    }
 }
