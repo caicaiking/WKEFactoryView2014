@@ -706,6 +706,9 @@ void clsMeterMode::setAdu200(Status value)
 void clsMeterMode::closeEvent(QCloseEvent *)
 {
     btnStop->click();
+    allDataLog->stop();
+    passDataLog->stop();
+    failDataLog->stop();
 
     if(mSettings.trigMode==Adu200Trig)
     {

@@ -373,7 +373,7 @@
         </property>
         <property name="text">
          <string>保存
-数据</string>
+结果</string>
         </property>
         <property name="icon">
          <iconset resource="../recFile/myRes.qrc">
