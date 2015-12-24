@@ -247,6 +247,71 @@ void Plot::addNewCurve(const int index,
     }
 }
 
+//为了 Ref trace 使用的2
+void Plot::addNewCurve(curveProperty property, QVector<double> x, QVector<double> y1, QVector<double> y2)
+{
+    // qDebug()<<"Ref index: " << property.index;
+
+    if(curves.contains(property.index))
+    {
+        //qDebug()<<"Ref index: " << property.index<<"  user old curves";
+        curves.value(property.index).cur1->setPen(QPen(property.traceA));
+        curves.value(property.index).cur2->setPen(QPen(property.traceB));
+        curves.value(property.index).cur1->setTitle(property.title);
+        curves.value(property.index).cur2->setTitle(property.title);
+    }
+    else
+    {
+        //  qDebug()<<"Ref index: " << property.index<<"  creat new curves";
+        QwtPlotCurve *d_curve1;
+
+
+        d_curve1 = new QwtPlotCurve(property.title);
+        d_curve1->setRenderHint(QwtPlotItem::RenderAntialiased);
+        d_curve1->setPen(QPen(property.traceA));
+        d_curve1->setLegendAttribute(QwtPlotCurve::LegendShowLine);
+        d_curve1->setYAxis(QwtPlot::yLeft);
+
+        QwtPlotCurve *d_curve2;
+        d_curve2 = new QwtPlotCurve(property.title);
+        d_curve2->setRenderHint(QwtPlotItem::RenderAntialiased);
+        d_curve2->setPen(QPen(property.traceB));
+        d_curve2->setLegendAttribute(QwtPlotCurve::LegendShowLine);
+        d_curve2->setYAxis(QwtPlot::yRight);
+
+        PlotCurves cr;
+        cr.cur1=d_curve1;
+        cr.cur2=d_curve2;
+        curves.insert(property.index,cr);
+    }
+
+
+    curves.value(property.index).cur1->setSamples(UserfulFunctions::getPlotCurveData(x,y1).toVector());
+    curves.value(property.index).cur2->setSamples(UserfulFunctions::getPlotCurveData(x,y2).toVector());
+
+
+    if(property.isOn)
+    {
+        if(this->axisEnabled(QwtPlot::yLeft))
+            curves.value(property.index).cur1->attach(this);
+        else
+            curves.value(property.index).cur1->detach();
+
+        if(this->axisEnabled(QwtPlot::yRight))
+            curves.value(property.index).cur2->attach(this);
+        else
+            curves.value(property.index).cur2->detach();
+    }
+    else
+    {
+        curves.value(property.index).cur1->detach();
+        curves.value(property.index).cur2->detach();
+    }
+
+    this->replot();
+}
+
+//为了Ref trace 使用的1
 void Plot::addNewCurve(curveProperty property, bool isSetCurrent)
 {
     // qDebug()<<"Ref index: " << property.index;

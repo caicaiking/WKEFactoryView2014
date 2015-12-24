@@ -833,6 +833,10 @@ void frmWKEAnalysisMode::on_btnRefTrace_clicked()
     connect(selectedRefProperty,SIGNAL(refTraceChanged(curveProperty,bool)),
             plot,SLOT(addNewCurve(curveProperty,bool)));
 
+    connect(selectedRefProperty,SIGNAL(refTraceChanged(curveProperty,QVector<double>,QVector<double>,QVector<double>)),
+            plot,SLOT(addNewCurve(curveProperty,QVector<double>,QVector<double>,QVector<double>)));
+
+
     if( selectedRefProperty->exec()!= QDialog::Accepted)
         return;
 
