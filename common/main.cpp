@@ -71,14 +71,14 @@ RELOAD:
 
     QString strProductName;
 
-    //SingletonDog::Instance()->setProduct(true);
+    SingletonDog::Instance()->setProduct(true);
 
     bool keyStatus =( SingletonDog::Instance()->getName(strProductName)) && (strProductName =="WKE FactoryView 2014");
 
     if(!keyStatus)
     {
         //        QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
-        SingletonDog::Instance()->setProduct(true);
+        SingletonDog::Instance()->setProduct(false);
     }
     else
     {

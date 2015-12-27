@@ -18,6 +18,7 @@ frmSelectConnection::frmSelectConnection(QWidget *parent) :
     // this->btnMulitChannel->setVisible(false);
     this->btnAppMode->setVisible(false);
 
+    rbTwLan->setVisible(false);
     intSelect=0;
     isReboot=0;
     readSettings();

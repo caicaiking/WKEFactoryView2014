@@ -149,6 +149,22 @@ void UserfulFunctions::sleepMs(int svalue)
         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
 }
 
+QList<QPointF> UserfulFunctions::getPlotCurveData(QVector<double> x, QVector<double> y)
+{
+    QList<QPointF> res;
+
+    if(x.length() != y.length())
+        return res;
+
+    for(int i=0; i< x.length();i ++)
+    {
+        QPointF tmp(x.at(i),y.at(i));
+        res.append(tmp);
+    }
+
+    return res;
+}
+
 QList<QPointF> UserfulFunctions::getPlotCurveData(QwtPlotCurve *curve)
 {
    QList<QPointF> data;

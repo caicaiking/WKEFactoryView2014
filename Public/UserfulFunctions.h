@@ -44,6 +44,7 @@ public:
     static double getNearItem(const QList<double> &arry, const double value, const bool isLog=false);
     static double Abs(double x);
     static QList<QPointF> getPlotCurveData(QwtPlotCurve *curve);
+    static QList<QPointF> getPlotCurveData(QVector<double> x, QVector<double> y);
     static QList<double> resultPro(const QString &resultString);
     static QString converToQString(QList<QString> tmp,QChar sp=',');
     static QString converToQString(QList<double> tmp);
@@ -108,6 +109,7 @@ public:
 
    static int getLanguage();
    static void setLanguage(int value);
+
 
 };
 
