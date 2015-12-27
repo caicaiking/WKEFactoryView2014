@@ -25,4 +25,8 @@ Makefile*
 
 *.autosave
 
-wk.ico
+
+wk.ico merge=ours
+./recFile/Icons/wk.ico merge=ours
+./recFile/Icons/splashScreen.png merge=ours
+./setup/mySetupV1.1.iss merge=ours

@@ -3,7 +3,7 @@
 
 #define MyAppVersion "1.0.0"
 
-#define MyAppName "WKE FactoryView 2014"#define MyAppPublisher "Wayne Kerr Electronics"
+#define MyAppName "KE FactoryView 2014"#define MyAppPublisher "Wayne Kerr Electronics"
 #define MyAppURL "http://www.waynekerr.com/"
 #define MyAppExeName "WKEFactoryView2014.exe"
 #define SpecialCompanyVersion ""
@@ -12,7 +12,7 @@
 ; NOTE: The value of AppId uniquely identifies this application.
 ; Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{E7100E37-96EC-4F3C-943F-A874B332EB6C}
+AppId={{E7FAC558-7336-42E6-8198-6DC52DA5C3FE}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}

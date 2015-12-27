@@ -24,22 +24,6 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QLabel" name="label">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="pixmap">
-        <pixmap resource="../recFile/myRes.qrc">:/Icons/wk.ico</pixmap>
-       </property>
-      </widget>
-     </item>
-     <item>
       <layout class="QHBoxLayout" name="horizontalLayout" stretch="10,0">
        <item>
         <widget class="QLabel" name="label_2">
@@ -172,8 +156,6 @@ WKE FactoryView2014联机测试软件，深圳市稳科电子仪器有限公司�
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../recFile/myRes.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

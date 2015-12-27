@@ -27,7 +27,7 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     QMainWindow(parent)
 {
     setupUi(this);
-
+    btnHelp->setVisible(false);
     initPlot();
 
     this->statusBar()->setVisible(false);
