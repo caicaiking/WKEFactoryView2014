@@ -12,8 +12,6 @@ clsDog::clsDog()
 
 bool clsDog::getName(QString &retValue)
 {
-    //在做产品的时候要却掉这个；
-
     if(isProduct == false)
     {
         retValue = "WKE FactoryView 2014";
@@ -21,10 +19,9 @@ bool clsDog::getName(QString &retValue)
     }
     else
     {
-        retValue = "WKE FactoryView 2014";
-        return true;
+        return getProductName(retValue);
+        //return true;
     }
-       // return getProductName(retValue);
 }
 
 void clsDog::setProduct(bool value)

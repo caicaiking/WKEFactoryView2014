@@ -339,7 +339,7 @@
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="546"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="517"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="522"/>
         <location filename="../../MeterMode/clsMeterModeFactory.cpp" line="32"/>
         <location filename="../../MulitChannalBox/clsMultiChannelMeterFactory.h" line="28"/>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="209"/>
@@ -348,7 +348,7 @@
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="546"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="517"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="522"/>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="209"/>
         <source>请插入加密狗！</source>
         <translation type="unfinished"></translation>
@@ -470,37 +470,37 @@
     </message>
     <message>
         <location filename="../../Public/UserfulFunctions.cpp" line="92"/>
-        <location filename="../../Public/UserfulFunctions.h" line="58"/>
+        <location filename="../../Public/UserfulFunctions.h" line="59"/>
         <source>频率</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Public/UserfulFunctions.cpp" line="96"/>
-        <location filename="../../Public/UserfulFunctions.h" line="61"/>
+        <location filename="../../Public/UserfulFunctions.h" line="62"/>
         <source>偏置电压</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Public/UserfulFunctions.cpp" line="96"/>
-        <location filename="../../Public/UserfulFunctions.h" line="67"/>
+        <location filename="../../Public/UserfulFunctions.h" line="68"/>
         <source>电压信号</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Public/UserfulFunctions.cpp" line="98"/>
-        <location filename="../../Public/UserfulFunctions.h" line="55"/>
+        <location filename="../../Public/UserfulFunctions.h" line="56"/>
         <source>时间</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Public/UserfulFunctions.cpp" line="101"/>
-        <location filename="../../Public/UserfulFunctions.h" line="64"/>
+        <location filename="../../Public/UserfulFunctions.h" line="65"/>
         <source>偏置电流</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../Public/UserfulFunctions.cpp" line="103"/>
-        <location filename="../../Public/UserfulFunctions.h" line="70"/>
+        <location filename="../../Public/UserfulFunctions.h" line="71"/>
         <source>电流信号</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2728,46 +2728,46 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="294"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="333"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;打开一个测试程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="297"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="336"/>
         <source>打开
 程序</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="333"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="372"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存测试程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="336"/>
-        <source>保存
-程序</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="375"/>
         <source>保存
-结果</source>
+程序</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="414"/>
+        <source>保存
+结果</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="453"/>
         <source>数据
 文件</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="450"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="294"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;设置测试程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="453"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="297"/>
         <source>测试
 设置</source>
         <translation type="unfinished"></translation>
@@ -2779,8 +2779,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="372"/>
         <location filename="../../MeterMode/clsMeterMode.ui" line="411"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="450"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存测试数据，可以新建一个数据文件，也可以写入上次存储的数据文件。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2819,7 +2819,7 @@
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="705"/>
         <location filename="../../MeterMode/clsMeterMode.ui" line="786"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="589"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="591"/>
         <source>None</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2830,7 +2830,7 @@
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="731"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="624"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="626"/>
         <source>全部</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2943,53 +2943,53 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="607"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="817"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="609"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="822"/>
         <source>保存测试数据</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="607"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="817"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="609"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="822"/>
         <source>CSV逗号分割文件(*.csv)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="627"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="629"/>
         <source>通过</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="630"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="632"/>
         <source>失败</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="638"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="640"/>
         <source>软件触发</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="648"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="650"/>
         <source>ADU200触发</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="663"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="665"/>
         <source>自动探测样品触发</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="833"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="840"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="847"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="838"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="845"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="852"/>
         <source>消息</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="833"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="840"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="847"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="838"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="845"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="852"/>
         <source>没有数据可以保存</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3782,39 +3782,50 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="117"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="204"/>
         <source>保存
 当前</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="152"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="120"/>
         <source>曲线A</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="165"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="133"/>
         <source>曲线B</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="248"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="178"/>
         <source>相关信息</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="262"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="236"/>
+        <source>加载
+文件</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="273"/>
         <source>名称：</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="313"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="325"/>
         <source>取消</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="335"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.ui" line="347"/>
         <source>确定</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.cpp" line="146"/>
+        <source>打开数据文件</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -6176,22 +6187,22 @@ ON</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="872"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="876"/>
         <source>关于本软件</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="923"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="927"/>
         <source>打开数据文件</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="923"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="927"/>
         <source>CSV Files (*.csv)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="935"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="939"/>
         <source>配置文件操作</source>
         <translation type="unfinished"></translation>
     </message>

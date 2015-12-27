@@ -52,6 +52,7 @@ void clsMeterMode:: setDemoVersion(bool value)
     this->btnSaveTask->setEnabled(value);
     this->btnSaveData->setEnabled(value);
     this->btnReport->setEnabled(value);
+    this->btnExportData->setEnabled(value);
 }
 
 //初始化Log记录
@@ -512,10 +513,16 @@ void clsMeterMode::showLogError(QString value)
 bool clsMeterMode::checkDog()
 {
     QString strProductName;
-    if((!SingletonDog::Instance()->getName(strProductName))|| (strProductName !="WKE FactoryView 2014"))
+
+    if(!SingletonDog::Instance()->getVersion())
+    {}
+    else
     {
-        QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
-        return false;
+        if(((!SingletonDog::Instance()->getName(strProductName))|| (strProductName !="WKE FactoryView 2014")))
+        {
+            QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
+            return false;
+        }
     }
     return true;
 }
@@ -523,10 +530,6 @@ bool clsMeterMode::checkDog()
 //保存测试数据文件
 void clsMeterMode::saveDataFile(QString value)
 {
-
-    //在这儿添加一个 Log，记录所有的测试数据。
-    //
-    //________________________________________
 
     if(strDataFile.isEmpty())
         return;
