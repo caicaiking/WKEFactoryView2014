@@ -34,7 +34,7 @@ public:
 
     static bool IsDouble(const QStringList r);
     static bool IsDouble(const QString r);
-
+    static QString getVersion();
     static QString getSuffix(const QString& value);
     static QString getName(const QString &value);
     static void sleepMs(int svalue);
