@@ -3,6 +3,7 @@
 #include "clsAppMode.h"
 #include <QSplashScreen>
 #include <QDebug>
+#include <QDesktopWidget>
 #include "clsRuningSettings.h"
 #include "UserfulFunctions.h"
 #include "frmSelectConnection.h"
@@ -58,15 +59,21 @@ RELOAD:
 
     //设置Splash 屏幕
     QPixmap pixmap(":/Icons/splashScreen.png");
+
+
+
+
     QSplashScreen splash(pixmap);
+
     splash.show();
     splash.setFont(QFont("楷体",14, QFont::Bold));
-    splash.showMessage(QObject::tr("正在初始化测试窗口，请稍等..."),Qt::AlignBottom |Qt::AlignRight,Qt::red);
+    splash.showMessage(QObject::tr("版本号：%1 正在初始化测试窗口，请稍等...").arg(UserfulFunctions::getVersion()),Qt::AlignBottom |Qt::AlignRight,Qt::red);
     a.processEvents();
 
-    UserfulFunctions::sleepMs(500);
     frmSelectConnection w;
-    splash.finish(&w);
+    UserfulFunctions::sleepMs(1200);
+
+
 
 
     QString strProductName;
@@ -91,6 +98,8 @@ RESELECT:
 
     if( w.exec()==QDialog::Accepted)
     {
+
+        splash.finish(&w);
         if(w.getMode()==Analysis)
         {
             frmWKEAnalysisMode analysis;

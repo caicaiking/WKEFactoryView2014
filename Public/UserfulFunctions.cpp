@@ -1,5 +1,6 @@
 #include "UserfulFunctions.h"
 #include <QStringList>
+#include <QFile>
 #include <QString>
 #include <QSettings>
 #include <QTime>
@@ -67,6 +68,20 @@ bool UserfulFunctions::IsDouble(const QString r)
 
     r.toDouble(&ok);
     return ok;
+}
+
+QString UserfulFunctions::getVersion()
+{
+    QFile file(":/Icons/version.txt");
+
+    if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return "0.0.0";
+
+    QString text = file.readLine();
+
+    file.close();
+    return text;
+
 }
 
 

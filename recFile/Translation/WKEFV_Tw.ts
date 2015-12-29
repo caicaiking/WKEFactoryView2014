@@ -339,7 +339,7 @@
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="546"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="522"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="523"/>
         <location filename="../../MeterMode/clsMeterModeFactory.cpp" line="32"/>
         <location filename="../../MulitChannalBox/clsMultiChannelMeterFactory.h" line="28"/>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="209"/>
@@ -348,7 +348,7 @@
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="546"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="522"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="523"/>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="209"/>
         <source>请插入加密狗！</source>
         <translation>請插入加密狗！</translation>
@@ -469,103 +469,103 @@
         <translation>輸入頻率</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="92"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="107"/>
         <location filename="../../Public/UserfulFunctions.h" line="59"/>
         <source>频率</source>
         <translation>頻率</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="96"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="111"/>
         <location filename="../../Public/UserfulFunctions.h" line="62"/>
         <source>偏置电压</source>
         <translation>偏置電壓</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="96"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="111"/>
         <location filename="../../Public/UserfulFunctions.h" line="68"/>
         <source>电压信号</source>
         <translation>電壓信號</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="98"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="113"/>
         <location filename="../../Public/UserfulFunctions.h" line="56"/>
         <source>时间</source>
         <translation>時間</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="101"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="116"/>
         <location filename="../../Public/UserfulFunctions.h" line="65"/>
         <source>偏置电流</source>
         <translation>偏置電流</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="103"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="118"/>
         <location filename="../../Public/UserfulFunctions.h" line="71"/>
         <source>电流信号</source>
         <translation>電流信號</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="105"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="120"/>
         <source>次数</source>
         <translation>次數</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="116"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="131"/>
         <source>阻抗</source>
         <translation>阻抗</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="118"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="133"/>
         <source>交流电阻</source>
         <translation>交流電阻</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="120"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="135"/>
         <source>电抗</source>
         <translation>電抗</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="122"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="137"/>
         <source>直流电阻</source>
         <translation>直流電阻</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="124"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="139"/>
         <source>相位</source>
         <translation>相位</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="126"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="141"/>
         <source>电导</source>
         <translation>電導</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="128"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="143"/>
         <source>电纳</source>
         <translation>電納</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="130"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="145"/>
         <source>导纳</source>
         <translation>導納</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="132"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="147"/>
         <source>电感</source>
         <translation>電感</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="134"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="149"/>
         <source>电容</source>
         <translation>電容</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="136"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="151"/>
         <source>品质因素</source>
         <translation>品質因素</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="138"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="153"/>
         <source>损耗</source>
         <translation>損耗</translation>
     </message>
@@ -576,9 +576,13 @@
         <translation>晶體諧振器</translation>
     </message>
     <message>
-        <location filename="../../common/main.cpp" line="64"/>
         <source>正在初始化测试窗口，请稍等...</source>
-        <translation>正在初始化測試窗口，請稍等...</translation>
+        <translation type="vanished">正在初始化測試窗口，請稍等...</translation>
+    </message>
+    <message>
+        <location filename="../../common/main.cpp" line="70"/>
+        <source>版本号：%1 正在初始化测试窗口，请稍等...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2850,7 +2854,7 @@
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="705"/>
         <location filename="../../MeterMode/clsMeterMode.ui" line="786"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="591"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="592"/>
         <source>None</source>
         <translation></translation>
     </message>
@@ -2861,7 +2865,7 @@
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="731"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="626"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="627"/>
         <source>全部</source>
         <translation>全部</translation>
     </message>
@@ -2898,129 +2902,129 @@
         <translation>測試結果顯示</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="89"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="90"/>
         <source>设置测试步骤</source>
         <translation>設置測試步驟</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="165"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="166"/>
         <source>保存测试任务</source>
         <translation>保存測試任務</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="166"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="203"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="167"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="204"/>
         <source>WKE FactoryView 任务 (*.wket)</source>
         <translation>WKE FactoryView 任務 (*.wket)</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="202"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="203"/>
         <source>打开测试任务</source>
         <translation>打開測試任務</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="256"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="257"/>
         <source>打开的任务不是这个仪表能够测试的任务！</source>
         <translation>打開的任務不是這個儀錶能夠測試的任務！</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="288"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="289"/>
         <source>序号</source>
         <translation>序號</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="288"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="289"/>
         <source>项目</source>
         <translation>項目</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="288"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="289"/>
         <source>下限</source>
         <translation>下限</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="288"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="289"/>
         <source>测试值</source>
         <translation>測試值</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="288"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="289"/>
         <source>上限</source>
         <translation>上限</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="288"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="289"/>
         <source>判定</source>
         <translation>判定</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="288"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="289"/>
         <source>描述</source>
         <translation>描述</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="468"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="469"/>
         <source>PASS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="468"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="469"/>
         <source>FAIL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="509"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="510"/>
         <source>警告</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="609"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="822"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="610"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="823"/>
         <source>保存测试数据</source>
         <translation>保存測試資料</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="609"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="822"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="610"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="823"/>
         <source>CSV逗号分割文件(*.csv)</source>
         <translation>CSV逗號分割檔(*.csv)</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="629"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="630"/>
         <source>通过</source>
         <translation>通過</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="632"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="633"/>
         <source>失败</source>
         <translation>失敗</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="640"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="641"/>
         <source>软件触发</source>
         <translation>軟體觸發</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="650"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="651"/>
         <source>ADU200触发</source>
         <translation>ADU200觸發</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="665"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="666"/>
         <source>自动探测样品触发</source>
         <translation>自動探測樣品觸發</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="838"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="845"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="852"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="839"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="846"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="853"/>
         <source>消息</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="838"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="845"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="852"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="839"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="846"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="853"/>
         <source>没有数据可以保存</source>
         <translation type="unfinished"></translation>
     </message>
@@ -5375,12 +5379,12 @@ WKE FactoryView2014連線測試軟體，深圳市穩科電子儀器有限公司�
         <translation>連接（&amp;T)</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.cpp" line="64"/>
+        <location filename="../../common/frmSelectConnection.cpp" line="65"/>
         <source>初始化连接失败！</source>
         <translation>初始化連接失敗！</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.cpp" line="69"/>
+        <location filename="../../common/frmSelectConnection.cpp" line="70"/>
         <source>仪器ID：%1</source>
         <translation>儀器ID：%1</translation>
     </message>
