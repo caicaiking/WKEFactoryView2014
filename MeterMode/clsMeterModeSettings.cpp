@@ -4,6 +4,7 @@ clsMeterModeSettings::clsMeterModeSettings(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
+    chkFailRetest->setEnabled(false);
     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
 }
 

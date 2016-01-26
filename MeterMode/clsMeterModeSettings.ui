@@ -410,5 +410,22 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>chkFailPass</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>chkFailRetest</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>66</x>
+     <y>242</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>315</x>
+     <y>247</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
