@@ -19,7 +19,7 @@ void frmAbout::readVersion()
         return;
 
     QTextStream in(&file);
-    QString strRead = in.readAll();
+    QString strRead = in.readLine();
 
     QString version =QString("<font color=red>%1</font>").arg(strRead);
     lblVersion->setText(version);

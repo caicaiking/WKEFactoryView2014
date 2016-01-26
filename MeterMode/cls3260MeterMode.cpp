@@ -60,7 +60,7 @@ bool cls3260MeterMode::detectDut()
 
     if(clsRS::getInst().gpibCommands.testMode=="AC")
     {
-        int index = clsRS::getInst().sendCommand(meter+"FUNC:MAJOR?",true).toInt();
+        int index = clsRS::getInst().sendCommand(meter+":FUNC:MAJOR?",true).toInt();
 
         switch (index) {
         case 0:
@@ -77,7 +77,7 @@ bool cls3260MeterMode::detectDut()
         }
 
         if(item!="C")
-            clsRS::getInst().sendCommand(QString(meter+"FUNC:C"),false);
+            clsRS::getInst().sendCommand(QString(meter+":FUNC:C"),false);
     }
 
     while(blStop)
@@ -86,7 +86,7 @@ bool cls3260MeterMode::detectDut()
 
         if(clsRS::getInst().gpibCommands.testMode=="RDC")
         {
-            QString retValue = clsRS::getInst().sendCommand(meter+"TRIG",true);
+            QString retValue = clsRS::getInst().sendCommand(meter+":TRIG",true);
 
             double value = retValue.toDouble();
 
@@ -106,15 +106,15 @@ bool cls3260MeterMode::detectDut()
         }
         else
         {
-            QString retValue = clsRS::getInst().sendCommand(meter+"TRIG",true);
+            QString retValue = clsRS::getInst().sendCommand(meter+":TRIG",true);
 
             double value = retValue.split(",").at(0).toDouble();
 
-            if(qAbs(value)>5E-12)
+            if(qAbs(value)>50E-12)
             {
                 if(isEmpty)
                 {
-                    clsRS::getInst().sendCommand(QString(meter+"FUNC:%1").arg(item),false);
+                    clsRS::getInst().sendCommand(QString(meter+":FUNC:%1").arg(item),false);
                     emit detectInProgress(tr("已经探测到产品"));
                     return true;
                 }

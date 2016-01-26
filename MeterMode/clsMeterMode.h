@@ -96,14 +96,14 @@ private:
     WKEMeterMode *meter;
     product_Static count;
     bool isStop;
-    bool blSingleDisplay;
+
     QString strTaskFile;
     QString strDataFile;
     QString tmpDir;
     MeterSettings mSettings;
     clsSignalThread * adu200;
     clsTestResult result;   //用于记录保存数据
-    QString sp;
+
 
 private:
     void initTable();

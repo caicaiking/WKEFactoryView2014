@@ -20,10 +20,15 @@ enum SaveResultType
 
 struct MeterSettings
 {
-    double preDelay;
-    double lastDelay;
-    TrigMode trigMode;
-    SaveResultType saveResType;
+    double preDelay; //前延时
+    double lastDelay; //后延时
+    bool failPass; //失败通过
+    bool failRetestOnce; //失败重新测试一次
+    TrigMode trigMode; //测试模式
+    SaveResultType saveResType; //保存结果类型
+    bool displayResultType; //显示结果类型
+    int startNumber; //开始号码
+    QString sp; //分割数据
 };
 
 
