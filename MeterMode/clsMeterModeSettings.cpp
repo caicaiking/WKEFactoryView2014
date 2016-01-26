@@ -4,13 +4,16 @@ clsMeterModeSettings::clsMeterModeSettings(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
-     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+    chkFailRetest->setEnabled(false);
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
 }
 
 void clsMeterModeSettings::setCondition(const MeterSettings &st)
 {
     txtPreDelay->setValue(st.preDelay);
     txtLastDelay->setValue(st.lastDelay);
+    chkFailPass->setChecked(st.failPass);
+    chkFailRetest->setChecked(st.failRetestOnce);
 
     switch (st.trigMode) {
     case SWTrig:
@@ -40,6 +43,13 @@ void clsMeterModeSettings::setCondition(const MeterSettings &st)
     default:
         break;
     }
+
+    this->txtStartNumber->setValue(st.startNumber);
+
+    chkFailPass->setChecked(st.failPass);
+    chkFailRetest->setChecked(st.failRetestOnce);
+    this->cmbSp->setCurrentText(st.sp);
+    rbSingleRes->setChecked(st.displayResultType);
 }
 
 MeterSettings clsMeterModeSettings::getCondtion()
@@ -65,12 +75,19 @@ MeterSettings clsMeterModeSettings::getCondtion()
     if(rbFail->isChecked())
         tmp.saveResType = FailRes;
 
+    tmp.displayResultType = rbSingleRes->isChecked();
+
+    tmp.failPass = chkFailPass->isChecked();
+    tmp.failRetestOnce = chkFailRetest->isChecked();
+
+    tmp.sp = cmbSp->currentText();
+
     return tmp;
 }
 
 void clsMeterModeSettings::on_btnOk_clicked()
 {
-    this->sp = cmbSp->currentText();
+
     this->accept();
 }
 
@@ -79,35 +96,13 @@ void clsMeterModeSettings::on_btnCancel_clicked()
     this->reject();
 }
 
-QString clsMeterModeSettings::getSp() const
-{
-    return sp;
-}
 
-void clsMeterModeSettings::setSp(const QString &value)
-{
-    sp = value;
-    this->cmbSp->setCurrentText(sp);
-}
-int clsMeterModeSettings::getStartNumber() const
-{
-    return txtStartNumber->value();
-}
 
-void clsMeterModeSettings::setStartNumber(int value)
-{
-    startNumber = value;
-      txtStartNumber->setValue(value);
-}
 
-bool clsMeterModeSettings::getSingleRes() const
-{
-    return rbSingleRes->isChecked();
-}
 
-void clsMeterModeSettings::setSingleRes(bool value)
-{
-    singleRes = value;
-  this->rbSingleRes->setChecked(value);
-}
+
+
+
+
+
 

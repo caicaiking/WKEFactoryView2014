@@ -339,7 +339,7 @@
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="546"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="523"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="554"/>
         <location filename="../../MeterMode/clsMeterModeFactory.cpp" line="32"/>
         <location filename="../../MulitChannalBox/clsMultiChannelMeterFactory.h" line="28"/>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="209"/>
@@ -348,7 +348,7 @@
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="546"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="523"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="554"/>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="209"/>
         <source>请插入加密狗！</source>
         <translation>請插入加密狗！</translation>
@@ -470,37 +470,37 @@
     </message>
     <message>
         <location filename="../../Public/UserfulFunctions.cpp" line="107"/>
-        <location filename="../../Public/UserfulFunctions.h" line="59"/>
+        <location filename="../../Public/UserfulFunctions.h" line="64"/>
         <source>频率</source>
         <translation>頻率</translation>
     </message>
     <message>
         <location filename="../../Public/UserfulFunctions.cpp" line="111"/>
-        <location filename="../../Public/UserfulFunctions.h" line="62"/>
+        <location filename="../../Public/UserfulFunctions.h" line="67"/>
         <source>偏置电压</source>
         <translation>偏置電壓</translation>
     </message>
     <message>
         <location filename="../../Public/UserfulFunctions.cpp" line="111"/>
-        <location filename="../../Public/UserfulFunctions.h" line="68"/>
+        <location filename="../../Public/UserfulFunctions.h" line="73"/>
         <source>电压信号</source>
         <translation>電壓信號</translation>
     </message>
     <message>
         <location filename="../../Public/UserfulFunctions.cpp" line="113"/>
-        <location filename="../../Public/UserfulFunctions.h" line="56"/>
+        <location filename="../../Public/UserfulFunctions.h" line="61"/>
         <source>时间</source>
         <translation>時間</translation>
     </message>
     <message>
         <location filename="../../Public/UserfulFunctions.cpp" line="116"/>
-        <location filename="../../Public/UserfulFunctions.h" line="65"/>
+        <location filename="../../Public/UserfulFunctions.h" line="70"/>
         <source>偏置电流</source>
         <translation>偏置電流</translation>
     </message>
     <message>
         <location filename="../../Public/UserfulFunctions.cpp" line="118"/>
-        <location filename="../../Public/UserfulFunctions.h" line="71"/>
+        <location filename="../../Public/UserfulFunctions.h" line="76"/>
         <source>电流信号</source>
         <translation>電流信號</translation>
     </message>
@@ -2854,7 +2854,7 @@
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="705"/>
         <location filename="../../MeterMode/clsMeterMode.ui" line="786"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="592"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="623"/>
         <source>None</source>
         <translation></translation>
     </message>
@@ -2865,7 +2865,7 @@
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="731"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="627"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="658"/>
         <source>全部</source>
         <translation>全部</translation>
     </message>
@@ -2963,68 +2963,73 @@
         <translation>描述</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="469"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="369"/>
+        <source>已经开始第二次测试</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="497"/>
         <source>PASS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="469"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="497"/>
         <source>FAIL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="510"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="541"/>
         <source>警告</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="610"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="823"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="641"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="858"/>
         <source>保存测试数据</source>
         <translation>保存測試資料</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="610"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="823"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="641"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="858"/>
         <source>CSV逗号分割文件(*.csv)</source>
         <translation>CSV逗號分割檔(*.csv)</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="630"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="661"/>
         <source>通过</source>
         <translation>通過</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="633"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="664"/>
         <source>失败</source>
         <translation>失敗</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="641"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="672"/>
         <source>软件触发</source>
         <translation>軟體觸發</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="651"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="682"/>
         <source>ADU200触发</source>
         <translation>ADU200觸發</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="666"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="697"/>
         <source>自动探测样品触发</source>
         <translation>自動探測樣品觸發</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="839"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="846"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="853"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="874"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="881"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="888"/>
         <source>消息</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="839"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="846"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="853"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="874"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="881"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="888"/>
         <source>没有数据可以保存</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3033,6 +3038,7 @@
     <name>clsMeterModeSettings</name>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="20"/>
+        <location filename="../../MeterMode/clsMeterModeSettings.ui" line="290"/>
         <source>测试设定</source>
         <translation>測試設定</translation>
     </message>
@@ -3109,27 +3115,37 @@
 測試結果</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterModeSettings.ui" line="292"/>
+        <location filename="../../MeterMode/clsMeterModeSettings.ui" line="302"/>
+        <source>单步不通过，不进行后续测试</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/clsMeterModeSettings.ui" line="315"/>
+        <source>测试失败再进行一次测试</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/clsMeterModeSettings.ui" line="333"/>
         <source>列表分割符：</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterModeSettings.ui" line="306"/>
+        <location filename="../../MeterMode/clsMeterModeSettings.ui" line="347"/>
         <source>,</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterModeSettings.ui" line="311"/>
+        <location filename="../../MeterMode/clsMeterModeSettings.ui" line="352"/>
         <source>;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterModeSettings.ui" line="344"/>
+        <location filename="../../MeterMode/clsMeterModeSettings.ui" line="385"/>
         <source>确定</source>
         <translation>確定</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterModeSettings.ui" line="363"/>
+        <location filename="../../MeterMode/clsMeterModeSettings.ui" line="404"/>
         <source>取消</source>
         <translation>取消</translation>
     </message>
