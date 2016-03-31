@@ -28,6 +28,9 @@ const QString UserfulFunctions::getSweepFunctionSuffix(SweepType value)
     case BiasV:
         return "V";
         break;
+    case BiasExtV:
+        return "V";
+        break;
     case BiasA:
         return "A";
         break;
@@ -108,7 +111,7 @@ QString UserfulFunctions::getSuffix(const QString &value)
         return "Hz";
     if(value.toUpper() =="SRF")
         return "Hz";
-    if(value.toUpper()=="BIAS" || value.toUpper()==QObject::tr("偏置电压").toUpper() || value.toUpper()==QObject::tr("电压信号"))
+    if(value.toUpper()=="BIAS" || value.toUpper()==QObject::tr("偏置电压").toUpper() || value.toUpper()==QObject::tr("外置偏压").toUpper() || value.toUpper()==QObject::tr("电压信号"))
         return "V";
     if(value.toUpper()=="TIME" || value.toUpper()==QObject::tr("时间").toUpper())
         return "s";

@@ -403,7 +403,7 @@ double wk6440AnalysisMeter::getMinFrequency()
 QString wk6440AnalysisMeter::getSuportFunction()
 {
     //"freq,BiasV,BiasA,Time"
-    return "1,0,0,1";
+    return "1,0,0,1,1";
 }
 
 bool wk6440AnalysisMeter::queryBiasStatus()

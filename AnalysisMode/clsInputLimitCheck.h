@@ -32,6 +32,22 @@ private:
   //  WKEInstrument *meter;
 };
 
+class biasExtLimitCheck:public LimitCheck
+{
+public:
+    biasExtLimitCheck(WKEInstrument *meter);
+    double compareMin(double value);
+    double compareMax(double value);
+    void setMeter(WKEInstrument * meter);
+
+private:
+    double minValue ;
+    double maxValue ;
+  //  WKEInstrument *meter;
+};
+
+
+
 class frequencyLimitCheck:public LimitCheck
 {
 public:

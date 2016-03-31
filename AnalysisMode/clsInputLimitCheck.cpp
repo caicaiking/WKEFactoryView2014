@@ -176,6 +176,9 @@ LimitCheck *LimitCheckFactory::getLimitCheckType(SweepType t, WKEInstrument *met
     case BiasV:
         return new biasVLimitCheck(meter);
         break;
+    case BiasExtV:
+        return new biasExtLimitCheck(meter);
+        break;
     case BiasA:
         return new biasALimitCheck(meter);
         break;
@@ -195,4 +198,32 @@ LimitCheck *LimitCheckFactory::getLimitCheckType(SweepType t, WKEInstrument *met
 LimitCheck::LimitCheck(WKEInstrument *meter)
 {
    this->meter = meter;
+}
+
+biasExtLimitCheck::biasExtLimitCheck(WKEInstrument *meter):LimitCheck(meter)
+{
+    minValue=0;
+    maxValue=200;
+}
+
+double biasExtLimitCheck::compareMin(double value)
+{
+    if(value < minValue)
+        return minValue;
+    else
+        return value;
+    return minValue;
+}
+
+double biasExtLimitCheck::compareMax(double value)
+{
+    if(value > maxValue)
+        return maxValue;
+    else
+        return value;
+}
+
+void biasExtLimitCheck::setMeter(WKEInstrument *meter)
+{
+    this->meter=meter;
 }

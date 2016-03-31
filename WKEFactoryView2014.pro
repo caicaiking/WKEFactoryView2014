@@ -157,7 +157,11 @@ SOURCES +=\
     MeterMode/clsMyBarChartPlot.cpp \
     MeterMode/PlotDataAnlysis.cpp \
     MeterMode/PlotSettings.cpp \
-    MeterMode/clsLog.cpp
+    MeterMode/clsLog.cpp \
+    AnalysisMode/clsBiasExtMeasument.cpp \
+    AnalysisMode/clsGwPsw800.cpp \
+    AnalysisMode/clsMyserialPort.cpp \
+    AnalysisMode/clsSelectComport.cpp
 
 
 
@@ -327,7 +331,12 @@ HEADERS += \
     MeterMode/clsMyBarChartPlot.h \
     MeterMode/PlotDataAnlysis.h \
     MeterMode/PlotSettings.h \
-    MeterMode/clsLog.h
+    MeterMode/clsLog.h \
+    AnalysisMode/clsBiasExtMeasument.h \
+    AnalysisMode/clsGwPsw800.h \
+    AnalysisMode/clsMyserialPort.h \
+    AnalysisMode/clsPowerSupply.h \
+    AnalysisMode/clsSelectComport.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \
@@ -395,7 +404,8 @@ FORMS += \
     AppMode/clsAppMode.ui \
     AppMode/clsDownLoad.ui \
     AppMode/clsMyPushButton.ui \
-    MeterMode/clsStatistics.ui
+    MeterMode/clsStatistics.ui \
+    AnalysisMode/clsSelectComport.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV_EN.ts \

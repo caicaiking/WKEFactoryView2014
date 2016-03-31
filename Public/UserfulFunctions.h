@@ -66,6 +66,9 @@ public:
         case BiasV:
             return QObject::tr("偏置电压");
             break;
+        case BiasExtV:
+            return QObject::tr("外置偏压");
+            break;
         case BiasA:
             return QObject::tr("偏置电流");
             break;
@@ -91,6 +94,9 @@ public:
             return "Hz";
             break;
         case BiasV:
+            return "V";
+            break;
+        case BiasExtV:
             return "V";
             break;
         case BiasA:

@@ -513,7 +513,7 @@ QString wk6500AnalysisMeter::getSuportFunction()
 {
     //"freq,BiasV,BiasA,Time"
 
-    return "1,1,1,1";
+    return "1,1,1,1,1";
 }
 
 void wk6500AnalysisMeter::on_btnCancel_clicked()

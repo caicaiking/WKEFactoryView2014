@@ -320,7 +320,7 @@ QString frmWk3260::getSuportFunction()
 {
     //"freq,BiasV,BiasA,Time"
 
-    return "1,0,1,1";
+    return "1,0,1,1,0";
 }
 
 void frmWk3260::on_cmbFuction1_currentIndexChanged(const QString &arg1)
