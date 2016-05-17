@@ -266,7 +266,7 @@ double frmWk3260::getMinBiasV()
 
 double frmWk3260::getMaxBiasA()
 {
-    return 125.0;
+    return 250.0;
 }
 
 double frmWk3260::getMinBiasA()

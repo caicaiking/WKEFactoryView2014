@@ -1081,7 +1081,7 @@ void cls3260MeterMode::on_btnBiasValue_clicked()
         else
         {
             value = (value<0? 0: value);
-            value = (value> 125? 125:value);
+            value = (value> 250? 250:value);
         }
 
         biasValue = value;

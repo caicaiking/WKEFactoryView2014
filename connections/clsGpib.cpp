@@ -13,12 +13,12 @@
  *
  *!*/
 
-#include "connections/clsGpib.h"
-#include "connections/clsConnection.h"
-#include "connections/gpib488.h"
+#include "clsGpib.h"
+#include "clsConnection.h"
+#include "gpib488.h"
 #include <QStringList>
 #include <QDebug>
-#include "UserfulFunctions.h"
+
 
 clsGpib::clsGpib()
 {
@@ -44,6 +44,7 @@ bool clsGpib::init()
     else
         strData="";
 
+    qDebug()<< strData;
     if(strData.isEmpty())
     {
         blInit=false;
