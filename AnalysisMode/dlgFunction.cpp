@@ -4,9 +4,21 @@ dlgFunction::dlgFunction(bool btnOffVisible, bool btnRdcVisible, QWidget *parent
     QDialog(parent)
 {
     setupUi(this);
-     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
-//    this->btnOFF->setVisible(btnOffVisible);
-//    this->btnRdc->setVisible(btnRdcVisible);
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+    this->chkMaterial->setVisible(false);
+    grpMaterial->setVisible(false);
+    this->layout()->setSizeConstraint(QLayout::SetFixedSize);
+    this->setMinimumSize(this->sizeHint());
+    //    this->btnOFF->setVisible(btnOffVisible);
+    //    this->btnRdc->setVisible(btnRdcVisible);
+
+    connect(this->chkMaterial,SIGNAL(clicked(bool)),this->grpMaterial,SLOT(setVisible(bool)));
+
+}
+
+void dlgFunction::setMateralFunction(bool value)
+{
+    chkMaterial->setVisible(value);
 }
 
 void dlgFunction::on_btnC_clicked()
@@ -83,7 +95,7 @@ void dlgFunction::on_btnY_clicked()
 
 void dlgFunction::on_btnCancel_clicked()
 {
-   this->reject();
+    this->reject();
 }
 
 //void dlgFunction::on_btnOFF_clicked()
@@ -91,3 +103,41 @@ void dlgFunction::on_btnCancel_clicked()
 //    strItem="OFF";
 //    this->accept();
 //}
+
+
+
+void dlgFunction::on_btnE1R_clicked()
+{
+    strItem= btnE1R->text();
+    this->accept();
+}
+
+void dlgFunction::on_btnE2R_clicked()
+{
+    strItem= btnE2R->text();
+    this->accept();
+}
+
+void dlgFunction::on_btnDe_clicked()
+{
+    strItem= btnDe->text();
+    this->accept();
+}
+
+void dlgFunction::on_btnU1R_clicked()
+{
+    strItem= btnU1R->text();
+    this->accept();
+}
+
+void dlgFunction::on_btnU2R_clicked()
+{
+    strItem= btnU2R->text();
+    this->accept();
+}
+
+void dlgFunction::on_btnDu_clicked()
+{
+    strItem= btnDu->text();
+    this->accept();
+}

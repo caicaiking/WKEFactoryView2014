@@ -161,7 +161,8 @@ SOURCES +=\
     AnalysisMode/clsBiasExtMeasument.cpp \
     AnalysisMode/clsGwPsw800.cpp \
     AnalysisMode/clsMyserialPort.cpp \
-    AnalysisMode/clsSelectComport.cpp
+    AnalysisMode/clsSelectComport.cpp \
+    AnalysisMode/clsMaterialSettings.cpp
 
 
 
@@ -336,7 +337,8 @@ HEADERS += \
     AnalysisMode/clsGwPsw800.h \
     AnalysisMode/clsMyserialPort.h \
     AnalysisMode/clsPowerSupply.h \
-    AnalysisMode/clsSelectComport.h
+    AnalysisMode/clsSelectComport.h \
+    AnalysisMode/clsMaterialSettings.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \
@@ -405,7 +407,8 @@ FORMS += \
     AppMode/clsDownLoad.ui \
     AppMode/clsMyPushButton.ui \
     MeterMode/clsStatistics.ui \
-    AnalysisMode/clsSelectComport.ui
+    AnalysisMode/clsSelectComport.ui \
+    AnalysisMode/clsMaterialSettings.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV_EN.ts \

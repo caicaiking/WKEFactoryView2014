@@ -101,6 +101,12 @@ QString UserfulFunctions::getSuffix(const QString &value)
     if(value=="G" || value=="B" || value=="Y")
         return "S";
 
+    if(value=="E'r" || value=="E\"r" || value=="U'r" || value=="U\"r")
+        return "U";
+
+    if(value =="De" || value == "Du")
+        return "D";
+
     if(value=="L")
         return "H";
     if(value=="C")
@@ -154,6 +160,20 @@ QString UserfulFunctions::getName(const QString &value)
         return QObject::tr("品质因素");
     else if(value=="D")
         return QObject::tr("损耗");
+
+    else if(value=="E'r")
+        return QObject::tr("介电实部");
+    else if(value=="E\"r")
+        return QObject::tr("介电虚部");
+    else if(value=="De")
+        return QObject::tr("损耗");
+    else if(value=="U'r")
+        return QObject::tr("磁导率实部");
+    else if(value=="U\"r")
+        return QObject::tr("磁导率虚部");
+    else if(value=="Du")
+        return QObject::tr("损耗");
+
     else
         return QString::null;
 

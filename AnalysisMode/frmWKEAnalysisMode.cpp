@@ -18,7 +18,7 @@
 #include "frmAbout.h"
 #include "clsDog.h"
 #include <QMessageBox>
-
+#include "clsMaterialSettings.h"
 #include "dlgLimitSetup.h"
 
 #include "dlgSetupOp.h"
@@ -51,6 +51,8 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
 
 
     setDemoVersion(SingletonDog::Instance()->getVersion());
+
+    btnMaterialSettings->setVisible(this->getMaterialOption());
 }
 
 void frmWKEAnalysisMode::setDemoVersion(bool value)
@@ -1007,3 +1009,28 @@ void frmWKEAnalysisMode::resetMarker()
     //    plot->setCurrentMarker(0);
 }
 
+/*!
+ * \brief frmWKEAnalysisMode::getMaterialOption
+ * 返回6500仪器上的/K选配，是否选配
+ * \return
+ */
+
+bool frmWKEAnalysisMode::getMaterialOption()
+{
+    if(clsRS::getInst().meterSeries !="6500")
+        return false;
+
+    QString strOption= clsRS::getInst().sendCommand("*OPT2?",true);
+
+    if(strOption.length()>4)
+    {
+        return  (strOption.at(4)=='1');
+    }
+    else
+        return false;
+}
+
+void frmWKEAnalysisMode::on_btnMaterialSettings_clicked()
+{
+    sngMaterialSettings::Instance()->exec();
+}

@@ -68,6 +68,8 @@ private slots:
     void showCurrentMarkerMsg(int, QString);
 
 
+    void on_btnMaterialSettings_clicked();
+
 private:
     Plot *plot;
     void initPlot();
@@ -97,6 +99,7 @@ private:
    void finishTest();
    void resetMarker();
    void setDemoVersion(bool value);
+   bool getMaterialOption();
 protected:
     void closeEvent(QCloseEvent *e);
     void keyPressEvent(QKeyEvent *event);

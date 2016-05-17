@@ -20,6 +20,8 @@
 #include <QMessageBox>
 #include "clsDataProcess.h"
 
+#include "dlgFunction.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -43,6 +45,10 @@ int main(int argc, char *argv[])
     //qDebug()<<isProduct;
     //这儿是加载英文的翻译，如果要是实用界面为英文，请去掉此处的注释
 
+//    dlgFunction dlg;
+//    dlg.setMateralFunction(false);
+//    dlg.exec();
+//    exit(0);
 
 RELOAD:
     QTranslator translator;
