@@ -14,21 +14,19 @@
 #define DUMP_SPACE_COLS        8
 
 const unsigned char vendor_code[] =
-
-        "FYqLT8uT6HadrrztaO1WVyZ3IOEtBqqIX4unLZFEMmUnyuu9WfcAQMIxpNG60vfBXDpLCUn2Aq"
-        "gro8oB/Ds0Q8DNzrtF0XUhXzPiMdwuCaNL20udvhRFMaR63LeAFX4tCX8V+WHURb0MqMIIRdcX"
-        "Mhxv3D/MUZ2wiUVjxe71Wgr9/16U46gU5XZlLM2XAUDySgAYKzF0JQ7X6duj2uh78TVgCR6+J1"
-        "ZWwEJvpPFhbQDBdTpUkpnyfX+ASBmtCHan66LbiS+OyYvgG8jdOrHXe/OgWuR3gAS9rGCFM/0n"
-        "by6D9Ops4rBls5kxuWbLIi+oFUpq1tSaGOdoRpfLho+derZ4ouKYMahF7J4KbfjCm8OTTNJZc+"
-        "N8C4j9gGZjC4ZKTubTKQYTYxe5n6DBwlxw5jsLhMpCOGpAaZ4wywOCTOD0JhGD+dImDgGB9/ex"
-        "CMgqw3aJhW9YJ4GSD9W4UPVllTL66+vB8p5CnocP5TPopUVtzhN9gjHhxh8R+i7UzIRJuIyPNB"
-        "WzBNr/CbUTL+AJ54HwGPnyLNirHNxdvSysCSoh+UpE8SBgIQWowZu0uW2YWvh+Xalb+W596yNJ"
-        "3FDAS8hiIVSrP1fTRzq3c0HVoGweoKWWzuLb8SdFDBahX9jD3/H8CvUGCwqfiQhpoeJ3JWJig0"
-        "ZmCcC3rC8mUfutaDVoFq6Ww2R0onoiwYQOAo6bN9qk0+WO96QrnY51Hd6KBY5JAsF7YRGYe9ft"
-        "77muSAgwkYeKnBFSeuKMJL9DI8SOItZIwqoXFdp2Y8WgKh6DgdzlqyiDfo3W5f+jNDRQyKTWVa"
-        "cM9nWHXXVhWa5Fd+cjSu4Le+MXmpiTtfEoljNPukvMcSCgqpMf8NfW3bzrxC68njRdoaNeUzG6"
-        "ufeiv7MJp12QVhXXAPzEZ5WmB12bj5A0aBAVQe6Q04HgR0Y/Q9XL+N8aJpJmME6AXHoqUcU7iu"
-        "3K7p8iQyyN5wrV6FnXFw==";
+       "t+8SQJkRWRO9dKx+gnFAL+iS/s7oK9heJc3zlkfN3m83mPfKF4GWTFmX+4fdMr5/XVUE4NRYeP+F4T"
+       "aquLZtXmpdb+NwjkmJte0A1WoU9czpeS/96wdSHGpYln3ldXSLQccrZaNpipJUI/tMlCOlN6Vl5o3u"
+       "Jv01TwuPo2T2fMnLzjYFB6nzRgLEL3yEcWmwPld4ap3x34TF09xyeyfGeoVbyNtoc6PimyptgAo11z"
+       "XdQdE7TxMJeGnffMBAT7Oh4imAsyf2/WgmQZ/tiSUFF4eIiwEfdicAhwIS8I1hK9FEnDmk1jdsVkbc"
+       "M+YL/mSN2VW4YeXTFg/BduOYg9xY+HlyjDp1laWtWzBo1mqkPuT4WZmzMgweI9iTH3T8i2K+PBB6Hi"
+       "Cc8rAyIJv1h5cgF2wqaKeKAMVSWgGeEVxv+EcOt/por5mFw0hiArx/6Ycm6Rccy2/NbRY2FQGpiPrC"
+       "E59OZMs9vdEkUJ36pCF1Crg5oW5HazJsWQ/HpAxOSpzj8uGPiHcmBtFqOUn43CzFB/gWhHpMhOLnsK"
+       "+GYGLQ+9b6aN0HQRLOVKQqHy70wN51+XgwGka4EW7fWLG8xDAEBTuVqWqaA+mNJaF5rGrmykT1FSjc"
+       "/kq5Mo8GvHA0Nqz9dS4ulumYVpz866U0hsph4qd1KyT2Mqjml0HRNFXcCduw3nQAo+e20Y4Ukh03//"
+       "5pOes1qVqxwb/6SxcB0EmQmC5FRVGn6Uk/UwSEbhsZM5Rh/pzryHfOpzQt0Iec0ykEzoGpMCpJfqUj"
+       "OgDxj51aP5BQDkemzCPl1Ct9zQz+MFNvlCftfOUWDGO3W7w16n0Y5ogrnH8a0sT6ZlR+Pojo3kP/p2"
+       "GQxaPQkxJxcUaZg35OlRoWPpqxwkT/SCNOSCuOOEQEW8rju3GjG3RD+tCL/fiRPz74QKwC6yFnlc7C"
+       "ZxcGODFKqlRKfDquJy9ueBAc/h3ZBZJ9iaN7hs9rRw6xIA==";
 
 //WKE FactoryView 2014
 #define ENCRYPT_BUFFER_FEATUREID1 1    //feature id which is selected
@@ -39,7 +37,7 @@ const int isString1 = 1;    //This is a string buffer
 /*The encrypted array is in UTF-8 format. Please convert it to proper format before using it.*/
 
 const unsigned char encryptStrArr1[20] = {
-   0x38, 0x20, 0xC1, 0x28, 0x8B, 0xD9, 0x20, 0x8C, 0xF2, 0x55, 0x5B, 0x15, 0x28, 0xBC, 0x71, 0x52, 0x9C, 0xFC, 0xED, 0x79
+   0x54, 0x76, 0x04, 0xA9, 0x57, 0x08, 0xA9, 0x71, 0x71, 0xDE, 0x77, 0xC5, 0x18, 0xC5, 0x6D, 0x45, 0x26, 0x0B, 0x46, 0xF3
  };
 
 typedef __int32 ENCRYPT_DATA_TYPE1;

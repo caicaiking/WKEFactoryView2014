@@ -10,7 +10,7 @@ RC_FILE  =Icon.rc
 
 
 
- LIBS += dog_windows_3149546.dll
+ LIBS += dog_windows_3149756.dll
 
 
 CODECFORTR = UTF-8
