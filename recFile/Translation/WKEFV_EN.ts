@@ -6151,27 +6151,31 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</tr
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="355"/>
-        <location filename="../../common/frmSelectConnection.ui" line="437"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;如果选择GPIB连接仪器，请设置地址范围1~32&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;如果连接LAN连接6500请输入IP地址形如：192.168.1.102&lt;/p&gt;&lt;p&gt;如果连接LAN连接4300请输入Ip地址形如：192.168.1.102&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../common/frmSelectConnection.ui" line="434"/>
         <source>如果选择GPIB连接仪器，请设置地址范围1~32
 
 如果连接LAN连接6500请输入IP地址形如：192.168.1.102,6500
 如果连接LAN连接4300请输入Ip地址形如：192.168.1.102,4300</source>
         <translation>If you choose to connect GPIB instrument, set the address range from 1 to 32
-If the connection is 6500 enter the IP address like this: 192.168.1.102,6500
-If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</translation>
+If the connection is 6500 enter the IP address like this: 192.168.1.102
+If the connection is 4300 enter the Ip address like this: 192.168.1.102</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="378"/>
+        <location filename="../../common/frmSelectConnection.ui" line="375"/>
         <source>4300</source>
         <translation>4300</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="383"/>
+        <location filename="../../common/frmSelectConnection.ui" line="380"/>
         <source>6500</source>
         <translation>6500</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="419"/>
+        <location filename="../../common/frmSelectConnection.ui" line="416"/>
         <source>连接(&amp;T)</source>
         <translation>Connec&amp;t</translation>
     </message>

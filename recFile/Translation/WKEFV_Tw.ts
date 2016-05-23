@@ -5691,7 +5691,11 @@ WKE FactoryView2014連線測試軟體，深圳市穩科電子儀器有限公司�
     </message>
     <message>
         <location filename="../../common/frmSelectConnection.ui" line="355"/>
-        <location filename="../../common/frmSelectConnection.ui" line="437"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;如果选择GPIB连接仪器，请设置地址范围1~32&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;如果连接LAN连接6500请输入IP地址形如：192.168.1.102&lt;/p&gt;&lt;p&gt;如果连接LAN连接4300请输入Ip地址形如：192.168.1.102&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../common/frmSelectConnection.ui" line="434"/>
         <source>如果选择GPIB连接仪器，请设置地址范围1~32
 
 如果连接LAN连接6500请输入IP地址形如：192.168.1.102,6500
@@ -5702,17 +5706,17 @@ WKE FactoryView2014連線測試軟體，深圳市穩科電子儀器有限公司�
 如果連接LAN連接4300請輸入Ip位址形如：192.168.1.102,4300</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="378"/>
+        <location filename="../../common/frmSelectConnection.ui" line="375"/>
         <source>4300</source>
         <translation type="unfinished">100點 {4300?}</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="383"/>
+        <location filename="../../common/frmSelectConnection.ui" line="380"/>
         <source>6500</source>
         <translation type="unfinished">100點 {6500?}</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="419"/>
+        <location filename="../../common/frmSelectConnection.ui" line="416"/>
         <source>连接(&amp;T)</source>
         <translation>連接（&amp;T)</translation>
     </message>
