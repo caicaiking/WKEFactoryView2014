@@ -57,18 +57,16 @@ private slots:
     void on_btnSetLimit_clicked();
     void on_btnSaveRes_clicked();
     void on_btnSettings_clicked();
-
     void testConnection();
     void captureTrig();
     void showMulitLimit();
-
     void on_btnMarker_toggled(bool checked);
-
     void setCurrentMarker(int value);
     void showCurrentMarkerMsg(int, QString);
-
-
     void on_btnMaterialSettings_clicked();
+    void on_btnBiasSettings_clicked();
+
+    void on_btnContactTest_clicked();
 
 private:
     Plot *plot;

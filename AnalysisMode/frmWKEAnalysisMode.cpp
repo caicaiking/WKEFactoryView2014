@@ -20,8 +20,9 @@
 #include <QMessageBox>
 #include "clsMaterialSettings.h"
 #include "dlgLimitSetup.h"
-
+#include "clsBiasAOperation.h"
 #include "dlgSetupOp.h"
+#include "clsSampleTest.h"
 #include <windows.h>
 frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     QMainWindow(parent)
@@ -53,6 +54,7 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     setDemoVersion(SingletonDog::Instance()->getVersion());
 
     btnMaterialSettings->setVisible(this->getMaterialOption());
+
 }
 
 void frmWKEAnalysisMode::setDemoVersion(bool value)
@@ -293,8 +295,14 @@ void frmWKEAnalysisMode::updateGraph()
 
     meter->saveSettings();
     frmTraceSetup::writeSettings(this->gs);
-
-
+    if(gs.sweepType==BiasA)
+    {
+        btnBiasSettings->setVisible(true);
+    }
+    else
+    {
+        btnBiasSettings->setVisible(false);
+    }
 }
 
 void frmWKEAnalysisMode::updateButtons()
@@ -1033,4 +1041,17 @@ bool frmWKEAnalysisMode::getMaterialOption()
 void frmWKEAnalysisMode::on_btnMaterialSettings_clicked()
 {
     sngMaterialSettings::Instance()->exec();
+}
+
+void frmWKEAnalysisMode::on_btnBiasSettings_clicked()
+{
+    clsBiasAOperation * dlg = new clsBiasAOperation();
+    dlg->setWindowTitle(tr("偏流设置"));
+    dlg->exec();
+}
+
+void frmWKEAnalysisMode::on_btnContactTest_clicked()
+{
+    clsSampleTest *dlg = new clsSampleTest(meter,this);
+    dlg->exec();
 }

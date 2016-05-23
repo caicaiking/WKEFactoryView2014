@@ -162,7 +162,10 @@ SOURCES +=\
     AnalysisMode/clsGwPsw800.cpp \
     AnalysisMode/clsMyserialPort.cpp \
     AnalysisMode/clsSelectComport.cpp \
-    AnalysisMode/clsMaterialSettings.cpp
+    AnalysisMode/clsMaterialSettings.cpp \
+    AnalysisMode/clsBiasAOp.cpp \
+    AnalysisMode/clsBiasAOperation.cpp \
+    AnalysisMode/clsSampleTest.cpp
 
 
 
@@ -176,7 +179,7 @@ OTHER_FILES += \
     connections/ReadMe.txt \
     AnalysisMode/ProgramDescription.txt
 
-# QWT 脙茠脗漏脙拧脗炉脙鈥毭偮冣劉芒鈧∶兟⒚⑩€毬偮姑冣€毭偮兤捗偮冣€毭偮疵冣€毭偮┟兤捗偮┟兣∶⑩偓 脙  #######################################################
+# QWT 脙茠脗漏脙拧脗炉脙鈥毭偮冣劉芒鈧∶兟⒚⑩€毬偮姑冣€毭偮兤捗偮冣€毭偮疵冣€毭偮┟兤捗偮┟兣∶⑩偓 � #######################################################
 DEFINES    += QT_DLL QWT_DLL
 
 win32:CONFIG(release, debug|release): LIBS += -L$(QTDIR)/bin -lqwt
@@ -338,7 +341,10 @@ HEADERS += \
     AnalysisMode/clsMyserialPort.h \
     AnalysisMode/clsPowerSupply.h \
     AnalysisMode/clsSelectComport.h \
-    AnalysisMode/clsMaterialSettings.h
+    AnalysisMode/clsMaterialSettings.h \
+    AnalysisMode/clsBiasAOp.h \
+    AnalysisMode/clsBiasAOperation.h \
+    AnalysisMode/clsSampleTest.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \
@@ -408,7 +414,9 @@ FORMS += \
     AppMode/clsMyPushButton.ui \
     MeterMode/clsStatistics.ui \
     AnalysisMode/clsSelectComport.ui \
-    AnalysisMode/clsMaterialSettings.ui
+    AnalysisMode/clsMaterialSettings.ui \
+    AnalysisMode/clsBiasAOperation.ui \
+    AnalysisMode/clsSampleTest.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV_EN.ts \

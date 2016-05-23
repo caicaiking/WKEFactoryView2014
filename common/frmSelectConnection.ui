@@ -360,6 +360,32 @@
          </widget>
         </item>
         <item>
+         <widget class="QComboBox" name="cmbModel">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>楷体</family>
+            <pointsize>11</pointsize>
+           </font>
+          </property>
+          <item>
+           <property name="text">
+            <string>4300</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>6500</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+        <item>
          <spacer name="horizontalSpacer_4">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>

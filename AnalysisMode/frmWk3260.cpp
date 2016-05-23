@@ -182,6 +182,8 @@ QString frmWk3260::trig()
 {
     int i=0;
 RETEST:
+
+
     QString meter=getGpibMeter();
     QString gpibCmd =QString("%1:TRIG").arg(meter);
 

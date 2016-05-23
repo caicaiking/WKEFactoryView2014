@@ -11,8 +11,8 @@ frmSelectConnection::frmSelectConnection(QWidget *parent) :
     this->btnAnalysis->setEnabled(false);
     this->btnRansonace->setVisible(false);
     this->btnMeter->setEnabled(false);
-//    this->btnAppMode->setVisible(false);
-//    this->btnAppMode->setEnabled(false);
+    //    this->btnAppMode->setVisible(false);
+    //    this->btnAppMode->setEnabled(false);
     //this->btnMeter->setVisible(false);
     this->btnMulitChannel->setEnabled(false);
     // this->btnMulitChannel->setVisible(false);
@@ -57,7 +57,13 @@ void frmSelectConnection::on_btnTest_clicked()
         break;
     }
 
-    clsRS::getInst().setAddress(txtAddress->text());
+    QString newAddress;
+    if(intSelect==1)
+        newAddress =QString("%1,%2").arg(txtAddress->text()).arg(cmbModel->currentText());
+    else
+        newAddress = txtAddress->text();
+
+    clsRS::getInst().setAddress(newAddress);
     bool isInit =clsRS::getInst().initConnection();
 
     if(!isInit)
@@ -177,7 +183,7 @@ void frmSelectConnection::writeSttings()
         settings.writeSetting(strNode+"GPIBAddress",txtAddress->text());
         break;
     case 1:
-        settings.writeSetting(strNode+"LANAddress",txtAddress->text());
+        settings.writeSetting(strNode+"LANAddress",txtAddress->text()+","+cmbModel->currentText());
         break;
     case 2:
         settings.writeSetting(strNode+"USBAddress",txtAddress->text());
@@ -200,20 +206,36 @@ void frmSelectConnection::readSettings()
     case 0:
         rbGpib->setChecked(true);
         settings.readSetting(strNode+"GPIBAddress",this->strAddress);
+        cmbModel->setVisible(false);
         break;
     case 1:
         rbLan->setChecked(true);
         settings.readSetting(strNode+"LANAddress",this->strAddress);
+        cmbModel->setVisible(true);
         break;
     case 2:
         rbUsb->setChecked(true);
         settings.readSetting(strNode+"USBAddress",this->strAddress);
+        cmbModel->setVisible(false);
         break;
     default:
         break;
     }
 
-    txtAddress->setText(strAddress);
+    if(intSelect==1)
+    {
+        QStringList st= strAddress.split(",");
+        if(st.length()>1 && (!st.at(1).isEmpty()))
+            cmbModel->setCurrentText(st.at(1));
+
+        this->txtAddress->setText(st.at(0));
+    }
+    else
+    {
+        txtAddress->setText(strAddress);
+    }
+
+
 
     if(UserfulFunctions::getLanguage()==1)
     {
@@ -226,6 +248,7 @@ void frmSelectConnection::on_rbUsb_toggled(bool checked)
 {
     lblAddress->setVisible(!checked);
     txtAddress->setVisible(!checked);
+    cmbModel->setVisible(false);
 }
 
 void frmSelectConnection::on_rbGpib_clicked()
@@ -236,6 +259,7 @@ void frmSelectConnection::on_rbGpib_clicked()
     QString strNode ="Connection/";
     settings.readSetting(strNode+"GPIBAddress",this->strAddress);
     this->txtAddress->setText(strAddress);
+    cmbModel->setVisible(false);
 }
 
 void frmSelectConnection::on_rbLan_clicked()
@@ -245,7 +269,14 @@ void frmSelectConnection::on_rbLan_clicked()
     clsSettings settings;
     QString strNode ="Connection/";
     settings.readSetting(strNode+"LANAddress",this->strAddress);
-    this->txtAddress->setText(strAddress);
+
+    QStringList st= strAddress.split(",");
+    if(st.length()>1 && (!st.at(1).isEmpty()))
+        cmbModel->setCurrentText(st.at(1));
+
+    this->txtAddress->setText(st.at(0));
+
+    cmbModel->setVisible(true);
 }
 
 void frmSelectConnection::on_rbUsb_clicked()
@@ -256,6 +287,7 @@ void frmSelectConnection::on_rbUsb_clicked()
     QString strNode ="Connection/";
     settings.readSetting(strNode+"USBAddress",this->strAddress);
     this->txtAddress->setText(strAddress);
+
 }
 
 void frmSelectConnection::closeEvent(QCloseEvent *)
