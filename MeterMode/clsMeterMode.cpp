@@ -14,6 +14,7 @@
 #include <QMessageBox>
 #include "clsStatistics.h"
 #include "clsShowReport.h"
+
 clsMeterMode::clsMeterMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -41,6 +42,8 @@ clsMeterMode::clsMeterMode(QWidget *parent) :
 
 
     setDemoVersion(SingletonDog::Instance()->getVersion());
+
+    initLog();
 }
 
 void clsMeterMode:: setDemoVersion(bool value)
@@ -49,7 +52,28 @@ void clsMeterMode:: setDemoVersion(bool value)
     this->btnSaveTask->setEnabled(value);
     this->btnSaveData->setEnabled(value);
     this->btnReport->setEnabled(value);
+    this->btnExportData->setEnabled(value);
+}
 
+//初始化Log记录
+void clsMeterMode::initLog()
+{
+    passDataLog = new clsLog(this);
+    passDataLog->setFileName("pass.log");
+
+    failDataLog = new clsLog(this);
+    failDataLog->setFileName("fail.log");
+
+    allDataLog = new clsLog(this);
+    allDataLog->setFileName("all.log");
+
+    connect(passDataLog,SIGNAL(showErrorMessage(QString)),this,SLOT(showLogError(QString)));
+    connect(failDataLog,SIGNAL(showErrorMessage(QString)),this,SLOT(showLogError(QString)));
+    connect(allDataLog,SIGNAL(showErrorMessage(QString)),this,SLOT(showLogError(QString)));
+
+    passDataLog->run();
+    failDataLog->run();
+    allDataLog->run();
 }
 
 
@@ -84,7 +108,11 @@ void clsMeterMode::on_btnSetStep_clicked()
 
         steps.clear();
         tmp.clear();
+        clearLogFile();
 
+        count.fail=0;
+        count.pass=0;
+        count.totle=1;
 
         tmp = dlg->getTestSteps();
 
@@ -106,14 +134,12 @@ void clsMeterMode::on_btnAdvance_clicked()
 {
     clsMeterModeSettings *dlg = new clsMeterModeSettings(this);
 
+    this->mSettings.startNumber = this->count.getTotle().toInt();
     dlg->setCondition(this->mSettings);
-    dlg->setStartNumber(this->count.getTotle().toInt());
-    dlg->setSingleRes(this->blSingleDisplay);
+
     if(dlg->exec())
     {
         mSettings = dlg->getCondtion();
-        this->blSingleDisplay = dlg->getSingleRes();
-        this->count.totle = dlg->getStartNumber();
         saveSettings();
         updateMessage();
     }
@@ -146,7 +172,7 @@ void clsMeterMode::on_btnSaveTask_clicked()
     {
         strTaskFile = strTmp;
         tmpDir = QFileInfo(strTaskFile).absoluteDir().path();
-       // qDebug()<<tmpDir;
+        // qDebug()<<tmpDir;
         txtTaskFile->setText(QFileInfo(strTaskFile).fileName());
     }
 
@@ -159,6 +185,14 @@ void clsMeterMode::on_btnSaveTask_clicked()
 
     out.flush();
     file.close();
+}
+
+
+void clsMeterMode::clearLogFile()
+{
+    allDataLog->clearFile();
+    passDataLog->clearFile();
+    failDataLog->clearFile();
 }
 
 //读取测试任务
@@ -226,6 +260,8 @@ void clsMeterMode::on_btnOpenTask_clicked()
             }
         }
     }
+
+    clearLogFile();
 }
 
 //用于软件触发
@@ -324,8 +360,15 @@ void clsMeterMode::trig()
     if(lblStatus->getStatus()== BUSY)
         return;
 
+     bool blRetest = false;
+RETEST:
     int totleRow=0 ;
     bool status=true;
+    if(blRetest)
+    {
+        lblInfo->showMessage(tr("已经开始第二次测试"),2);
+    }
+
 
 
     lblStatus->setStatus(BUSY);
@@ -337,7 +380,7 @@ void clsMeterMode::trig()
 
 
     //是否是单次显示
-    if(blSingleDisplay)
+    if(this->mSettings.displayResultType)
     {
         tabResult->clear();
         tabResult->setRowCount(0);
@@ -354,7 +397,7 @@ void clsMeterMode::trig()
 
         meter->setCondition(steps.at(i)->getConditon());
         meter->updateGPIB();    //更新GPIB指令
-      //  UserfulFunctions::sleepMs(20);
+        //  UserfulFunctions::sleepMs(20);
         meter->repetiveTrig(); //触发仪器，获取测试结果
         QVector<double> singleStepData;
         for(int j=0; j< meter->getCountTestItems(); j++)
@@ -398,6 +441,27 @@ void clsMeterMode::trig()
 
             status = status && isPass;
             //  tabResult->setItem(tabResult->rowCount()-1,6,getTableTestItem(meter->getDescription(),2));
+
+            //在这儿进行单步的是否通过做一个判断
+            if(mSettings.failPass && (!status))
+            {
+                if(mSettings.failRetestOnce==false)
+                    goto PASSTEST;
+                else
+                {
+                    if(blRetest==true)
+                        goto PASSTEST;
+                    else
+                    {
+                        blRetest = true;
+                        goto RETEST;
+                    }
+                }
+            }
+
+
+
+
         }
 
         allStepData.data.append(singleStepData);
@@ -428,7 +492,7 @@ void clsMeterMode::trig()
     }
 
 
-    lblStatus->setStatus(status);
+
 
     strSaveRes.append(status?tr("PASS"):tr("FAIL"));
 
@@ -440,37 +504,56 @@ void clsMeterMode::trig()
         txtPassNumber->setText(count.getPass());
         txtFailNumber->setText(count.getFail());
 
+        allDataLog->writeLine(strSaveRes.join(this->mSettings.sp)); //数据写入log文件
+        if(status)
+            passDataLog->writeLine(strSaveRes.join(this->mSettings.sp)); //数据写入log文件
+        else
+            failDataLog->writeLine(strSaveRes.join(mSettings.sp)); //数据写入log文件
 
         if(mSettings.saveResType==AllRes)
         {
             result.addTestData(allStepData); //用于报表数据
-            saveDataFile(strSaveRes.join(","));
+            saveDataFile(strSaveRes.join(mSettings.sp));
         }
         else if((mSettings.saveResType==PassRes) && status)
         {
             result.addTestData(allStepData); //用于报表数据
-            saveDataFile(strSaveRes.join(","));
+            saveDataFile(strSaveRes.join(mSettings.sp));
         }
         else if((mSettings.saveResType==FailRes) && (!status))
         {
             result.addTestData(allStepData); //用于报表数据
-            saveDataFile(strSaveRes.join(","));
+            saveDataFile(strSaveRes.join(mSettings.sp));
         }
         else
         {/*Donthing here!*/}
     }
 
+PASSTEST:
+    lblStatus->setStatus(status);
+
     //关闭Bias
     meter->turnOffBias();
+}
+
+void clsMeterMode::showLogError(QString value)
+{
+    QMessageBox::warning(this,tr("警告"),value);
 }
 
 bool clsMeterMode::checkDog()
 {
     QString strProductName;
-    if((!SingletonDog::Instance()->getName(strProductName))|| (strProductName !="WKE FactoryView 2014"))
+
+    if(!SingletonDog::Instance()->getVersion())
+    {}
+    else
     {
-        QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
-        return false;
+        if(((!SingletonDog::Instance()->getName(strProductName))|| (strProductName !="WKE FactoryView 2014")))
+        {
+            QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
+            return false;
+        }
     }
     return true;
 }
@@ -478,6 +561,7 @@ bool clsMeterMode::checkDog()
 //保存测试数据文件
 void clsMeterMode::saveDataFile(QString value)
 {
+
     if(strDataFile.isEmpty())
         return;
 
@@ -656,6 +740,9 @@ void clsMeterMode::setAdu200(Status value)
 void clsMeterMode::closeEvent(QCloseEvent *)
 {
     btnStop->click();
+    allDataLog->stop();
+    passDataLog->stop();
+    failDataLog->stop();
 
     if(mSettings.trigMode==Adu200Trig)
     {
@@ -686,7 +773,18 @@ void clsMeterMode::readSettings()
     settings.readSetting(strNode+"saveType",tmp);
     mSettings.saveResType=(SaveResultType)tmp;
     settings.readSetting(strNode+"tmpDir",tmpDir);
-    settings.readSetting(strNode+"singleDisplay",this->blSingleDisplay);
+    settings.readSetting(strNode+"singleDisplay",this->mSettings.displayResultType);
+    settings.readSetting(strNode+"FailPassDut",this->mSettings.failPass);
+    settings.readSetting(strNode+"failRetest",this->mSettings.failRetestOnce);
+    settings.readSetting(strNode+"Sp",this->mSettings.sp);
+
+    if(this->mSettings.sp.isEmpty())
+    {
+        if(QLocale().decimalPoint()==QChar('.'))
+            mSettings.sp=",";
+        else
+            mSettings.sp=";";
+    }
 }
 //保存设定
 void clsMeterMode::saveSettings()
@@ -694,13 +792,16 @@ void clsMeterMode::saveSettings()
     clsSettings settings;
     QString strNode ="MeterMode/";
 
+    settings.writeSetting(strNode+"tmpDir",tmpDir);
     settings.writeSetting(strNode+"PreDelay",mSettings.preDelay);
     settings.writeSetting(strNode+"lastDelay",mSettings.lastDelay);
     settings.writeSetting(strNode+"trigMode",mSettings.trigMode);
     settings.writeSetting(strNode+"saveType",mSettings.saveResType);
-    settings.writeSetting(strNode+"tmpDir",tmpDir);
-    settings.writeSetting(strNode+"singleDisplay",this->blSingleDisplay);
 
+    settings.writeSetting(strNode+"singleDisplay",this->mSettings.displayResultType);
+    settings.writeSetting(strNode+"FailPassDut",this->mSettings.failPass);
+    settings.writeSetting(strNode+"failRetest",this->mSettings.failRetestOnce);
+    settings.writeSetting(strNode+"Sp",this->mSettings.sp);
 }
 
 //开始探测
@@ -729,20 +830,61 @@ Stop:
 //打印报表
 void clsMeterMode::on_btnReport_clicked()
 {
-//    clsShowReport *dlg = new clsShowReport(this);
-//    dlg->setData(&this->result);
+        clsShowReport *dlg = new clsShowReport(this);
+        dlg->setData(&this->result);
 
 
-    clsStatistics *dlg = new clsStatistics(this);
-    dlg->setData(&result);
+//    clsStatistics *dlg = new clsStatistics(this);
+//    dlg->setData(&result);
 
 }
 
 void clsMeterMode::on_btnRep300_clicked()
 {
-        for(int i=0; i< 300; i++)
-        {
-            trig();
-            UserfulFunctions::sleepMs(10);
-        }
+    for(int i=0; i< 300; i++)
+    {
+        trig();
+        UserfulFunctions::sleepMs(10);
+    }
+}
+
+void clsMeterMode::on_btnExportData_clicked()
+{
+
+    allDataLog->flushResult();
+    passDataLog->flushResult();
+    failDataLog->flushResult();
+
+    QString strTmp  = QFileDialog::getSaveFileName(this,tr("保存测试数据"), tmpDir,tr("CSV逗号分割文件(*.csv)"),0,QFileDialog::DontConfirmOverwrite);
+
+    QString myTmpDatafile;
+    if(strTmp.isEmpty())
+        return;
+
+    myTmpDatafile = strTmp;
+    tmpDir = QFileInfo(myTmpDatafile).absoluteDir().path();
+
+
+
+    if(mSettings.saveResType==AllRes)
+    {
+        if(QFile::exists("all.log"))
+            QFile::copy("all.log", myTmpDatafile);
+        else
+            QMessageBox::information(this,tr("消息"),tr("没有数据可以保存"));
+    }
+    else if((mSettings.saveResType==PassRes))
+    {
+        if(QFile::exists("pass.log"))
+            QFile::copy("pass.log", myTmpDatafile);
+        else
+            QMessageBox::information(this,tr("消息"),tr("没有数据可以保存"));
+    }
+    else if((mSettings.saveResType==FailRes))
+    {
+        if(QFile::exists("fail.log"))
+            QFile::copy("fail.log", myTmpDatafile);
+        else
+            QMessageBox::information(this,tr("消息"),tr("没有数据可以保存"));
+    }
 }

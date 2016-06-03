@@ -376,7 +376,7 @@ double wk4300AnalysisMeter::getMinFrequency()
 QString wk4300AnalysisMeter::getSuportFunction()
 {
     //"freq,BiasV,BiasA,Time"
-    return "1,0,0,1";
+    return "1,0,0,1,1";
 }
 
 

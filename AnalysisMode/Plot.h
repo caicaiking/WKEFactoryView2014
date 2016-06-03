@@ -93,6 +93,7 @@ signals:
 public slots:
     QString setMarker(const double& freq, const int intSelected=0);
     void addNewCurve(curveProperty property, bool isSetCurrent=false);
+    void addNewCurve(curveProperty property, QVector<double> x, QVector<double> y1, QVector<double> y2);
 protected:
     void mouseMoveEvent(QMouseEvent *e);
 
@@ -109,8 +110,6 @@ private:
 
     QList<QwtPlotMarker *> markers;
 
-
-    //    QwtPlotMarker *d_marker2;
     QwtPlotGrid *gridX;
     QwtPlotGrid *gridYLeft;
     QwtPlotGrid *gridYRight;

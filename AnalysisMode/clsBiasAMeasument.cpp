@@ -1,6 +1,7 @@
 #include "clsBiasAMeasument.h"
 #include "UserfulFunctions.h"
 #include "clsRuningSettings.h"
+#include "clsBiasAOp.h"
 void clsBiasAMeasument::setMin(double value)
 {
     this->dblMin=value;
@@ -22,7 +23,7 @@ void clsBiasAMeasument::setPoint(QList<double> *point)
 {
     this->points = point;
 
-      qSort(*this->points);
+    qSort(*this->points);
 }
 
 void clsBiasAMeasument::setItemsAndPoints(const QString &item1, const QString &item2,
@@ -40,6 +41,9 @@ void clsBiasAMeasument::trig()
     item1.clear();
     item2.clear();
 
+    sngBiasAOp::Instance()->setMeter(this->meter);
+    sngBiasAOp::Instance()->readSettings();
+
 
     for(int i=0;i<points->length();i++)
     {
@@ -56,12 +60,15 @@ void clsBiasAMeasument::trig()
         if(!bias.contains(tmpBias))
         {
             meter->turnOnBias();
+            sngBiasAOp::Instance()->preOperation();
             QString strRes=meter->trig();
             QList<double> res=UserfulFunctions::resultPro(strRes);
             bias<<tmpBias;
             item1<<res.at(0);
             item2<<res.at(1);
             updatePlot();
+            if(i<points->length()-1)
+                sngBiasAOp::Instance()->afterOperation();
         }
         qApp->processEvents();
         emit showProgress((int)((i+1)*100/points->length()));

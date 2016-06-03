@@ -20,7 +20,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>设置WK 6500B 测试量程</string>
+   <string>测试量程</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog

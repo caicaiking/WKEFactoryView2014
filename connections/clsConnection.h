@@ -26,7 +26,7 @@ public:
 
     static clsConnection *getUsb();
 
-   static clsConnection *getLan();
+
    static clsConnection *getGpib();
 };
 

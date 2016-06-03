@@ -20,10 +20,15 @@ enum SaveResultType
 
 struct MeterSettings
 {
-    double preDelay;
-    double lastDelay;
-    TrigMode trigMode;
-    SaveResultType saveResType;
+    double preDelay; //前延时
+    double lastDelay; //后延时
+    bool failPass; //失败通过
+    bool failRetestOnce; //失败重新测试一次
+    TrigMode trigMode; //测试模式
+    SaveResultType saveResType; //保存结果类型
+    bool displayResultType; //显示结果类型
+    int startNumber; //开始号码
+    QString sp; //分割数据
 };
 
 
@@ -34,7 +39,7 @@ public:
 
     static bool IsDouble(const QStringList r);
     static bool IsDouble(const QString r);
-
+    static QString getVersion();
     static QString getSuffix(const QString& value);
     static QString getName(const QString &value);
     static void sleepMs(int svalue);
@@ -44,6 +49,7 @@ public:
     static double getNearItem(const QList<double> &arry, const double value, const bool isLog=false);
     static double Abs(double x);
     static QList<QPointF> getPlotCurveData(QwtPlotCurve *curve);
+    static QList<QPointF> getPlotCurveData(QVector<double> x, QVector<double> y);
     static QList<double> resultPro(const QString &resultString);
     static QString converToQString(QList<QString> tmp,QChar sp=',');
     static QString converToQString(QList<double> tmp);
@@ -59,6 +65,9 @@ public:
             break;
         case BiasV:
             return QObject::tr("偏置电压");
+            break;
+        case BiasExtV:
+            return QObject::tr("外置偏压");
             break;
         case BiasA:
             return QObject::tr("偏置电流");
@@ -87,6 +96,9 @@ public:
         case BiasV:
             return "V";
             break;
+        case BiasExtV:
+            return "V";
+            break;
         case BiasA:
             return "A";
             break;
@@ -108,6 +120,7 @@ public:
 
    static int getLanguage();
    static void setLanguage(int value);
+
 
 };
 

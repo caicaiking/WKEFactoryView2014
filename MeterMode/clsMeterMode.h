@@ -3,6 +3,7 @@
 
 #include "ui_clsMeterMode.h"
 #include "WKEMeterMode.h"
+#include "clsLog.h"
 #include <QList>
 #include <QPointer>
 #include "UserfulFunctions.h"
@@ -62,6 +63,8 @@ class clsMeterMode : public QMainWindow, private Ui::clsMeterMode
 public:
     explicit clsMeterMode(QWidget *parent = 0);
 
+
+
 private slots:
     void on_btnSetStep_clicked();
     void on_btnSaveTask_clicked();
@@ -75,12 +78,15 @@ private slots:
     void on_btnSaveData_clicked();
     void on_btnAdvance_clicked();
     void trig();
+    void showLogError(QString);
     void setAdu200(Status value);
     void on_btnStartDetect_clicked();
     void showMessage(QString value);
     void on_btnReport_clicked();
     void adu200Trig();
     void on_btnRep300_clicked();
+
+    void on_btnExportData_clicked();
 
 protected:
     void closeEvent(QCloseEvent *);
@@ -90,13 +96,14 @@ private:
     WKEMeterMode *meter;
     product_Static count;
     bool isStop;
-    bool blSingleDisplay;
+
     QString strTaskFile;
     QString strDataFile;
     QString tmpDir;
     MeterSettings mSettings;
     clsSignalThread * adu200;
     clsTestResult result;   //用于记录保存数据
+
 
 private:
     void initTable();
@@ -108,6 +115,10 @@ private:
     void saveDataFile(QString value);
     void setDemoVersion(bool value);
     bool checkDog();
+
+    clsLog *passDataLog, *failDataLog,*allDataLog;
+    void clearLogFile();
+    void initLog();
 };
 
 #endif // CLSMETERMODE_H

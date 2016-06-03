@@ -16,7 +16,7 @@ void singleStepTestDisplay::setMessage(const QString &msg, int value)
         break;
     case 1:
         stcWidget->setCurrentIndex(1);
-        tmp = msg.split(",");
+        tmp = msg.split("|");
         if(tmp.length()==3*1)
         {
             lbl1Par->setText(tmp.at(0));
@@ -27,7 +27,7 @@ void singleStepTestDisplay::setMessage(const QString &msg, int value)
         break;
     case 2:
         stcWidget->setCurrentIndex(2);
-        tmp = msg.split(",");
+        tmp = msg.split("|");
         if(tmp.length()==3*2)
         {
             lbl2Par1->setText(tmp.at(0));
@@ -42,7 +42,7 @@ void singleStepTestDisplay::setMessage(const QString &msg, int value)
         break;
     case 3:
         stcWidget->setCurrentIndex(3);
-        tmp = msg.split(",");
+        tmp = msg.split("|");
         if(tmp.length()==3*3)
         {
             lbl3Par1->setText(tmp.at(0));
@@ -59,7 +59,7 @@ void singleStepTestDisplay::setMessage(const QString &msg, int value)
         break;
     case 4:
         stcWidget->setCurrentIndex(4);
-        tmp = msg.split(",");
+        tmp = msg.split("|");
         if(tmp.length()==3*4)
         {
             lbl4Par1->setText(tmp.at(0));

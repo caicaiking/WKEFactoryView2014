@@ -3,6 +3,7 @@
 #include "clsAppMode.h"
 #include <QSplashScreen>
 #include <QDebug>
+#include <QDesktopWidget>
 #include "clsRuningSettings.h"
 #include "UserfulFunctions.h"
 #include "frmSelectConnection.h"
@@ -18,6 +19,8 @@
 #include "clsMultiChannaeBox.h"
 #include <QMessageBox>
 #include "clsDataProcess.h"
+
+#include "dlgFunction.h"
 
 
 int main(int argc, char *argv[])
@@ -42,6 +45,10 @@ int main(int argc, char *argv[])
     //qDebug()<<isProduct;
     //这儿是加载英文的翻译，如果要是实用界面为英文，请去掉此处的注释
 
+//    dlgFunction dlg;
+//    dlg.setMateralFunction(false);
+//    dlg.exec();
+//    exit(0);
 
 RELOAD:
     QTranslator translator;
@@ -58,20 +65,26 @@ RELOAD:
 
     //设置Splash 屏幕
     QPixmap pixmap(":/Icons/splashScreen.png");
+
+
+
+
     QSplashScreen splash(pixmap);
+
     splash.show();
     splash.setFont(QFont("楷体",14, QFont::Bold));
-    splash.showMessage(QObject::tr("正在初始化测试窗口，请稍等..."),Qt::AlignBottom |Qt::AlignRight,Qt::red);
+    splash.showMessage(QObject::tr("版本号：%1 正在初始化测试窗口，请稍等...").arg(UserfulFunctions::getVersion()),Qt::AlignBottom |Qt::AlignRight,Qt::red);
     a.processEvents();
 
-    UserfulFunctions::sleepMs(500);
     frmSelectConnection w;
-    splash.finish(&w);
+    UserfulFunctions::sleepMs(1200);
+
+
 
 
     QString strProductName;
 
-    //SingletonDog::Instance()->setProduct(true);
+    SingletonDog::Instance()->setProduct(true);
 
     bool keyStatus =( SingletonDog::Instance()->getName(strProductName)) && (strProductName =="WKE FactoryView 2014");
 
@@ -91,6 +104,8 @@ RESELECT:
 
     if( w.exec()==QDialog::Accepted)
     {
+
+        splash.finish(&w);
         if(w.getMode()==Analysis)
         {
             frmWKEAnalysisMode analysis;

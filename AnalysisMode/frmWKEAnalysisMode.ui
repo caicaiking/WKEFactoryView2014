@@ -444,6 +444,114 @@
          </spacer>
         </item>
         <item>
+         <widget class="QPushButton" name="btnContactTest">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>楷体</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>样品
+检测</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../recFile/myRes.qrc">
+            <normaloff>:/Icons/Auto.png</normaloff>:/Icons/Auto.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>25</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="shortcut">
+           <string>Ctrl+B</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnBiasSettings">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>楷体</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>偏置
+设置</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../recFile/myRes.qrc">
+            <normaloff>:/Icons/switch.png</normaloff>:/Icons/switch.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>25</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="shortcut">
+           <string>Ctrl+B</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnMaterialSettings">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>楷体</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>材料
+设置</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../recFile/myRes.qrc">
+            <normaloff>:/Icons/detect.png</normaloff>:/Icons/detect.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>25</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="shortcut">
+           <string>Ctrl+B</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="btnCalibration">
           <property name="minimumSize">
            <size>

@@ -5,6 +5,7 @@
 #include "clsFreqMeasument.h"
 #include "clsBiasMeasument.h"
 #include "clsBiasAMeasument.h"
+#include "clsBiasExtMeasument.h"
 class MeasFactory
 {
 public:
@@ -19,6 +20,8 @@ public:
             break;
         case BiasV:
             return new clsBiasMeasument();
+        case BiasExtV:
+            return new clsBiasExtMeasument();
         case BiasA:
             return new clsBiasAMeasument();
         default:

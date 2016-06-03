@@ -51,12 +51,9 @@ clsConnection *connectionFactory::getUsb()
     return new clsUsb;
 }
 
+//clsConnection *connectionFactory::getGpib()
+//{
+//    return new clsGpib;
+//}
 
-/*可以通过工厂模式去获取LAN，也可以通过调用这个程序来获取
- *
- *V1.0
- *!*/
-clsConnection *connectionFactory::getLan()
-{
-    return new clsLan;
-}
+

@@ -1,5 +1,6 @@
 #include "UserfulFunctions.h"
 #include <QStringList>
+#include <QFile>
 #include <QString>
 #include <QSettings>
 #include <QTime>
@@ -25,6 +26,9 @@ const QString UserfulFunctions::getSweepFunctionSuffix(SweepType value)
         return "Hz";
         break;
     case BiasV:
+        return "V";
+        break;
+    case BiasExtV:
         return "V";
         break;
     case BiasA:
@@ -69,6 +73,20 @@ bool UserfulFunctions::IsDouble(const QString r)
     return ok;
 }
 
+QString UserfulFunctions::getVersion()
+{
+    QFile file(":/Icons/version.txt");
+
+    if(!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return "0.0.0";
+
+    QString text = file.readLine();
+
+    file.close();
+    return text;
+
+}
+
 
 //value is like Z R Rdc etc.
 QString UserfulFunctions::getSuffix(const QString &value)
@@ -83,6 +101,12 @@ QString UserfulFunctions::getSuffix(const QString &value)
     if(value=="G" || value=="B" || value=="Y")
         return "S";
 
+    if(value=="E'r" || value=="E\"r" || value=="U'r" || value=="U\"r")
+        return "U";
+
+    if(value =="De" || value == "Du")
+        return "D";
+
     if(value=="L")
         return "H";
     if(value=="C")
@@ -93,7 +117,7 @@ QString UserfulFunctions::getSuffix(const QString &value)
         return "Hz";
     if(value.toUpper() =="SRF")
         return "Hz";
-    if(value.toUpper()=="BIAS" || value.toUpper()==QObject::tr("偏置电压").toUpper() || value.toUpper()==QObject::tr("电压信号"))
+    if(value.toUpper()=="BIAS" || value.toUpper()==QObject::tr("偏置电压").toUpper() || value.toUpper()==QObject::tr("外置偏压").toUpper() || value.toUpper()==QObject::tr("电压信号"))
         return "V";
     if(value.toUpper()=="TIME" || value.toUpper()==QObject::tr("时间").toUpper())
         return "s";
@@ -136,6 +160,20 @@ QString UserfulFunctions::getName(const QString &value)
         return QObject::tr("品质因素");
     else if(value=="D")
         return QObject::tr("损耗");
+
+    else if(value=="E'r")
+        return QObject::tr("介电实部");
+    else if(value=="E\"r")
+        return QObject::tr("介电虚部");
+    else if(value=="De")
+        return QObject::tr("损耗");
+    else if(value=="U'r")
+        return QObject::tr("磁导率实部");
+    else if(value=="U\"r")
+        return QObject::tr("磁导率虚部");
+    else if(value=="Du")
+        return QObject::tr("损耗");
+
     else
         return QString::null;
 
@@ -147,6 +185,22 @@ void UserfulFunctions::sleepMs(int svalue)
     QTime dieTime = QTime::currentTime().addMSecs(svalue);
     while( QTime::currentTime() < dieTime )
         QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+}
+
+QList<QPointF> UserfulFunctions::getPlotCurveData(QVector<double> x, QVector<double> y)
+{
+    QList<QPointF> res;
+
+    if(x.length() != y.length())
+        return res;
+
+    for(int i=0; i< x.length();i ++)
+    {
+        QPointF tmp(x.at(i),y.at(i));
+        res.append(tmp);
+    }
+
+    return res;
 }
 
 QList<QPointF> UserfulFunctions::getPlotCurveData(QwtPlotCurve *curve)

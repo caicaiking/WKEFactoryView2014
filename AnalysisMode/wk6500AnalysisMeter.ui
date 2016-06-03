@@ -20,7 +20,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>WK 6500 仪表设置</string>
+   <string>参数设置</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog

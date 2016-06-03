@@ -44,6 +44,8 @@ private slots:
 
     void on_btnRate_clicked();
 
+    void on_btnBiasExt_clicked();
+
 private:
     graphSetup gsetup;
     LimitCheck *checkLimit;

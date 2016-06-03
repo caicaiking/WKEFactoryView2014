@@ -4,8 +4,8 @@
  <widget class="QDialog" name="frmWk3260">
   <property name="geometry">
    <rect>
-    <x>459</x>
-    <y>345</y>
+    <x>0</x>
+    <y>0</y>
     <width>347</width>
     <height>266</height>
    </rect>
@@ -17,7 +17,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>仪表参数设置</string>
+   <string>参数设置</string>
   </property>
   <property name="windowIcon">
    <iconset>

@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>WK App Mode</string>
+   <string>App Mode</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QMainWindow

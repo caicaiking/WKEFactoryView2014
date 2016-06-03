@@ -16,7 +16,6 @@ wk6500AnalysisMeter::wk6500AnalysisMeter(WKEInstrument *parent) :
     setupUi(this);
     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     readSettings();
-
 }
 
 void wk6500AnalysisMeter::setFrequency(double value)
@@ -351,13 +350,33 @@ void wk6500AnalysisMeter::calibration()
     dlg->exec();
 }
 
+QString wk6500AnalysisMeter::changeItemToGpib(QString value)
+{
+    if(value == "E'r")
+        return "EPR";
+    if(value == "E\"r")
+        return "EPPR";
+    if(value == "De")
+        return "DE";
+    if(value == "U'r")
+        return "UPR";
+    if(value == "U\"r")
+        return "UPPR";
+    if(value == "Du")
+        return "DU";
+
+    return value;
+
+
+}
+
 void wk6500AnalysisMeter::updateInstrument()
 {
     QString gpibCmd;
     QString meter=":METER:";
 
-    gpibCmd.append(meter+"FUNC:1 "+item1+";");  //item1 GPIB
-    gpibCmd.append(meter+"FUNC:2 "+item2+";");  //Item2 GPIB
+    gpibCmd.append(meter+"FUNC:1 "+changeItemToGpib(item1)+";");  //item1 GPIB
+    gpibCmd.append(meter+"FUNC:2 "+changeItemToGpib(item2)+";");  //Item2 GPIB
 
     if(equcct==tr("串联"))                       //等效电路
         gpibCmd.append(meter+"EQU-CCT "+"SER"+";");
@@ -513,7 +532,7 @@ QString wk6500AnalysisMeter::getSuportFunction()
 {
     //"freq,BiasV,BiasA,Time"
 
-    return "1,1,1,1";
+    return "1,1,1,1,1";
 }
 
 void wk6500AnalysisMeter::on_btnCancel_clicked()
@@ -588,7 +607,7 @@ void wk6500AnalysisMeter::on_btnItem1_clicked()
 {
     dlgFunction *dlg = new dlgFunction;
     dlg->setWindowTitle(tr("设置6500的测试项目1"));
-
+    dlg->setMateralFunction(getMaterialOption());
     if(dlg->exec()==QDialog::Accepted)
     {
         item1 = dlg->getItem();
@@ -601,7 +620,7 @@ void wk6500AnalysisMeter::on_btnItem2_clicked()
 {
     dlgFunction *dlg = new dlgFunction;
     dlg->setWindowTitle(tr("设置6500的测试项目2"));
-
+    dlg->setMateralFunction(getMaterialOption());
     if(dlg->exec()==QDialog::Accepted)
     {
         item2 = dlg->getItem();
@@ -779,4 +798,19 @@ double wk6500AnalysisMeter::getMaxFrequency1(QString value)
         return 120000000;
     }
     return 120000000;
+}
+
+
+bool wk6500AnalysisMeter::getMaterialOption()
+{
+    QString strOption= clsRS::getInst().sendCommand("*OPT2?",true);
+
+    if(strOption.length()>4)
+    {
+        return  (strOption.at(4)=='1');
+    }
+    else
+        return false;
+
+
 }

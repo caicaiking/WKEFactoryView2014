@@ -182,6 +182,8 @@ QString frmWk3260::trig()
 {
     int i=0;
 RETEST:
+
+
     QString meter=getGpibMeter();
     QString gpibCmd =QString("%1:TRIG").arg(meter);
 
@@ -266,7 +268,7 @@ double frmWk3260::getMinBiasV()
 
 double frmWk3260::getMaxBiasA()
 {
-    return 125.0;
+    return 250.0;
 }
 
 double frmWk3260::getMinBiasA()
@@ -320,7 +322,7 @@ QString frmWk3260::getSuportFunction()
 {
     //"freq,BiasV,BiasA,Time"
 
-    return "1,0,1,1";
+    return "1,0,1,1,0";
 }
 
 void frmWk3260::on_cmbFuction1_currentIndexChanged(const QString &arg1)

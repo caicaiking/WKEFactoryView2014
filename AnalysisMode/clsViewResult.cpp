@@ -17,7 +17,7 @@ clsViewResult::clsViewResult(const QList<PlotCurves> value,
 {
 
     setupUi(this);
- setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     this->curves=value;
 
     txtGroup->setMaximum(curves.length());
@@ -49,10 +49,12 @@ clsViewResult::clsViewResult(const QList<PlotCurves> value,
     showCurve(txtGroup->value());
 
     connect(txtGroup,SIGNAL(valueChanged(int)),this,SLOT(showCurve(int)));
-
-
-
     setDemoVersion(SingletonDog::Instance()->getVersion());
+
+    if(QLocale().decimalPoint()=='.')
+        cmbSp->setCurrentIndex(0);
+    else
+        cmbSp->setCurrentIndex(1);
 }
 
 void clsViewResult::setDemoVersion(bool value)
@@ -92,6 +94,8 @@ void clsViewResult::on_btnSave_clicked()
 {
     btnSave->setEnabled(false);
 
+    sp = cmbSp->currentText();
+
     QString items="Aθ";
 
     if((item1!=item2)&&(item1=="Z") &&(items.contains(item2)) &&(this->sweepType==Frequency))
@@ -104,12 +108,12 @@ void clsViewResult::on_btnSave_clicked()
         }
     }
 
-   // qDebug()<< saveValues;
+    // qDebug()<< saveValues;
 
     QString fileName=txtTitle->text();
     fileName = QFileDialog::getSaveFileName(
                 this, "Export Test Result File Name", fileName,
-                "Excel 97-2003 Work Book(*.xls);;CSV files (*.csv)", NULL/*, QFileDialog::DontConfirmOverwrite*/);
+                "CSV files (*.csv);;Excel 97-2003 Work Book(*.xls)", NULL/*, QFileDialog::DontConfirmOverwrite*/);
 
 
     if(fileName.isNull())
@@ -312,15 +316,19 @@ void clsViewResult::saveCsv(QString fileName)
         return;
 
     QTextStream t(&file);
+
+    QLocale loc;
+    loc.setNumberOptions(QLocale::OmitGroupSeparator);
+
     t.setCodec("GBK");
 
-    t<<tvResult->horizontalHeaderItem(0)->text()<<","
-    <<tvResult->horizontalHeaderItem(1)->text()<<","
+    t<<tvResult->horizontalHeaderItem(0)->text()<<sp
+    <<tvResult->horizontalHeaderItem(1)->text()<<sp
     <<tvResult->horizontalHeaderItem(2)->text();
     for(int i=0 ; i<saveValues.length(); i++)
     {
 
-        t<<","<< QString("%1(%2)").arg(UserfulFunctions::getName(saveValues.at(i)))
+        t<<sp<< QString("%1(%2)").arg(UserfulFunctions::getName(saveValues.at(i)))
            .arg(UserfulFunctions::getSuffix(saveValues.at(i)));
     }
     t<<"\n";
@@ -332,15 +340,16 @@ void clsViewResult::saveCsv(QString fileName)
         double sweepKey=it.key();
         QPointF testData= it.value();
 
-        t<< QString("%1").arg(sweepKey)<<","
-         <<QString("%1").arg(testData.x())<<","
-        <<QString("%1").arg(testData.y());
+
+        t<< loc.toString(sweepKey)<<sp
+         <<loc.toString(testData.x())<<sp
+        <<loc.toString(testData.y());
 
         QList<double> moreValues = getValues(testData.x(),testData.y(),sweepKey);
 
         for(int ii=0;ii<moreValues.length();ii++)
         {
-            t<<","<< QString("%1").arg(moreValues.at(ii));
+            t<<sp<< loc.toString(moreValues.at(ii));
         }
         t<<"\n";
 
@@ -356,7 +365,7 @@ QList <double> clsViewResult::getValues(double z, double a,double freq)
 {
     //qDebug()<<"Z"<< z<<"\t"<<"A"<< a<<"\t"<< "Freq:"<<freq;
     QList<double> values;
-   // qDebug()<<"Equ-CCT"<<this->equcct;
+    // qDebug()<<"Equ-CCT"<<this->equcct;
     clsComplexOp cp(z,a,freq,this->equcct);
 
 

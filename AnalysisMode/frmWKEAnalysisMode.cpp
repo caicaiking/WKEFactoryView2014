@@ -18,10 +18,11 @@
 #include "frmAbout.h"
 #include "clsDog.h"
 #include <QMessageBox>
-
+#include "clsMaterialSettings.h"
 #include "dlgLimitSetup.h"
-
+#include "clsBiasAOperation.h"
 #include "dlgSetupOp.h"
+#include "clsSampleTest.h"
 #include <windows.h>
 frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     QMainWindow(parent)
@@ -32,7 +33,7 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
 
     this->statusBar()->setVisible(false);
     progressBar->setVisible(false);
-    lblDisplayMsg->setText(tr("仪器：WK %1").arg(clsRS::getInst().instrumentModel));
+    lblDisplayMsg->setText(tr("仪器： %1").arg(clsRS::getInst().instrumentModel));
 
     init();
 
@@ -51,6 +52,9 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
 
 
     setDemoVersion(SingletonDog::Instance()->getVersion());
+
+    btnMaterialSettings->setVisible(this->getMaterialOption());
+
 }
 
 void frmWKEAnalysisMode::setDemoVersion(bool value)
@@ -291,8 +295,14 @@ void frmWKEAnalysisMode::updateGraph()
 
     meter->saveSettings();
     frmTraceSetup::writeSettings(this->gs);
-
-
+    if(gs.sweepType==BiasA)
+    {
+        btnBiasSettings->setVisible(true);
+    }
+    else
+    {
+        btnBiasSettings->setVisible(false);
+    }
 }
 
 void frmWKEAnalysisMode::updateButtons()
@@ -833,6 +843,10 @@ void frmWKEAnalysisMode::on_btnRefTrace_clicked()
     connect(selectedRefProperty,SIGNAL(refTraceChanged(curveProperty,bool)),
             plot,SLOT(addNewCurve(curveProperty,bool)));
 
+    connect(selectedRefProperty,SIGNAL(refTraceChanged(curveProperty,QVector<double>,QVector<double>,QVector<double>)),
+            plot,SLOT(addNewCurve(curveProperty,QVector<double>,QVector<double>,QVector<double>)));
+
+
     if( selectedRefProperty->exec()!= QDialog::Accepted)
         return;
 
@@ -1003,3 +1017,41 @@ void frmWKEAnalysisMode::resetMarker()
     //    plot->setCurrentMarker(0);
 }
 
+/*!
+ * \brief frmWKEAnalysisMode::getMaterialOption
+ * 返回6500仪器上的/K选配，是否选配
+ * \return
+ */
+
+bool frmWKEAnalysisMode::getMaterialOption()
+{
+    if(clsRS::getInst().meterSeries !="6500")
+        return false;
+
+    QString strOption= clsRS::getInst().sendCommand("*OPT2?",true);
+
+    if(strOption.length()>4)
+    {
+        return  (strOption.at(4)=='1');
+    }
+    else
+        return false;
+}
+
+void frmWKEAnalysisMode::on_btnMaterialSettings_clicked()
+{
+    sngMaterialSettings::Instance()->exec();
+}
+
+void frmWKEAnalysisMode::on_btnBiasSettings_clicked()
+{
+    clsBiasAOperation * dlg = new clsBiasAOperation();
+    dlg->setWindowTitle(tr("偏流设置"));
+    dlg->exec();
+}
+
+void frmWKEAnalysisMode::on_btnContactTest_clicked()
+{
+    clsSampleTest *dlg = new clsSampleTest(meter,this);
+    dlg->exec();
+}

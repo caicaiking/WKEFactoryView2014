@@ -32,7 +32,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>6500B校准界面</string>
+   <string>仪器校准</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog

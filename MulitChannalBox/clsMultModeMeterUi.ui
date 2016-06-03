@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>WK 仪表设置</string>
+   <string>仪表设置</string>
   </property>
   <property name="styleSheet">
    <string notr="true">clsMultiModeMeterUi

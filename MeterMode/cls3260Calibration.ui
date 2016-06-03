@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>仪表模式校准</string>
+   <string>仪表校准</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QDialog

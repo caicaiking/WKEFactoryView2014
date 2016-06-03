@@ -10,7 +10,7 @@ RC_FILE  =Icon.rc
 
 
 
- LIBS += dog_windows_3147311.lib
+ LIBS += dog_windows_3149756.dll
 
 
 CODECFORTR = UTF-8
@@ -24,6 +24,7 @@ INCLUDEPATH +=connections \
              ResonaceMode \
              MulitChannalBox \
              AppMode
+
 
 
 
@@ -155,7 +156,16 @@ SOURCES +=\
     MeterMode/clsStatistics.cpp \
     MeterMode/clsMyBarChartPlot.cpp \
     MeterMode/PlotDataAnlysis.cpp \
-    MeterMode/PlotSettings.cpp
+    MeterMode/PlotSettings.cpp \
+    MeterMode/clsLog.cpp \
+    AnalysisMode/clsBiasExtMeasument.cpp \
+    AnalysisMode/clsGwPsw800.cpp \
+    AnalysisMode/clsMyserialPort.cpp \
+    AnalysisMode/clsSelectComport.cpp \
+    AnalysisMode/clsMaterialSettings.cpp \
+    AnalysisMode/clsBiasAOp.cpp \
+    AnalysisMode/clsBiasAOperation.cpp \
+    AnalysisMode/clsSampleTest.cpp
 
 
 
@@ -169,7 +179,7 @@ OTHER_FILES += \
     connections/ReadMe.txt \
     AnalysisMode/ProgramDescription.txt
 
-# QWT Ã©Ú¯Â¨Ù‡â€¹Â«Ã§Â´Â©Ã©Ú†�  #######################################################
+# QWT 脙茠脗漏脙拧脗炉脙鈥毭偮冣劉芒鈧∶兟⒚⑩€毬偮姑冣€毭偮兤捗偮冣€毭偮疵冣€毭偮┟兤捗偮┟兣∶⑩偓 � #######################################################
 DEFINES    += QT_DLL QWT_DLL
 
 win32:CONFIG(release, debug|release): LIBS += -L$(QTDIR)/bin -lqwt
@@ -177,7 +187,7 @@ else:win32:CONFIG(debug, debug|release): LIBS += -L$(QTDIR)/bin  -lqwtd
 
 #######################################################################
 
-#Ã©Ú†Ú©Ù‡Â¬Â¬Ã§Â¼â€°Ã©Úˆâ€šÙ‡â€ºÂ¦ÙˆÂ¬Â¢Ã©Ú¯Â¨Ù‡â€¹Â«Ù‡Â§Â©Ã©Ú˜Â¬Ù†Â¾â‚¬Ùˆâ€˜Â¼Ã©Ú˜Ø›Ù…Æ’Â¥Ã§Â°�#################################################
+#脙茠脗漏脙拧芒鈧脙拧脗漏脙鈩⒚⑩偓隆脙鈥毭偮冣€毭偮兤捗偮冣€毭偮济兟⒚⑩€毬偮懊兤捗偮┟兣∶嬧€犆兟⒚⑩€毬吢∶冣劉芒鈧∶兟⒚⑩€毬偮好冣€毭偮γ冣劉脣鈥犆冣€毭偮冣€毭偮⒚兤捗偮┟兣∶偮冣€毭偮冣劉芒鈧∶兟⒚⑩€毬偮姑冣€毭偮冣劉芒鈧∶冣€毭偮冣€毭偮┟兤捗偮┟兣∶嬇撁冣€毭偮冣劉芒鈧脙鈥毭偮久兟⒚⑩偓拧脗卢脙鈩⒚嬧€犆兟⒚⑩€毬嬇撁冣€毭偮济兤捗偮┟兣∶嬇撁兯溍⑩偓潞脙鈩⒚⑩偓娄脙鈥犆⑩偓鈩⒚冣€毭偮ッ兤捗偮冣€毭偮懊################################################
 
 LIBS += -L $(QTDIR)/bin -lquazip
 
@@ -324,7 +334,17 @@ HEADERS += \
     MeterMode/clsStatistics.h \
     MeterMode/clsMyBarChartPlot.h \
     MeterMode/PlotDataAnlysis.h \
-    MeterMode/PlotSettings.h
+    MeterMode/PlotSettings.h \
+    MeterMode/clsLog.h \
+    AnalysisMode/clsBiasExtMeasument.h \
+    AnalysisMode/clsGwPsw800.h \
+    AnalysisMode/clsMyserialPort.h \
+    AnalysisMode/clsPowerSupply.h \
+    AnalysisMode/clsSelectComport.h \
+    AnalysisMode/clsMaterialSettings.h \
+    AnalysisMode/clsBiasAOp.h \
+    AnalysisMode/clsBiasAOperation.h \
+    AnalysisMode/clsSampleTest.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \
@@ -392,9 +412,15 @@ FORMS += \
     AppMode/clsAppMode.ui \
     AppMode/clsDownLoad.ui \
     AppMode/clsMyPushButton.ui \
-    MeterMode/clsStatistics.ui
+    MeterMode/clsStatistics.ui \
+    AnalysisMode/clsSelectComport.ui \
+    AnalysisMode/clsMaterialSettings.ui \
+    AnalysisMode/clsBiasAOperation.ui \
+    AnalysisMode/clsSampleTest.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV_EN.ts \
                recFile/Translation/WKEFV_Zh.ts \
-               recFile/Translation/WKEFV_Tw.ts
+               recFile/Translation/WKEFV_Tw.ts \
+               recFile/Translation/WKEFV_GM.ts \
+               recFile/Translation/WKEFV_JP.ts

@@ -76,5 +76,7 @@
         <file>Translation/WKEFV_Tw.qm</file>
         <file>Icons/dir.png</file>
         <file>Icons/file.png</file>
+        <file>Icons/dataFile.png</file>
+        <file>Icons/BiasSettings.png</file>
     </qresource>
 </RCC>

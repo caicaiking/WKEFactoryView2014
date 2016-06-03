@@ -46,6 +46,8 @@ private:
 
      QStringList saveValues;
      void setDemoVersion(bool value);
+
+     QString sp;
 };
 
 #endif // CLSVIEWRESULT_H

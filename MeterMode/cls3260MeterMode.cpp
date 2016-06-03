@@ -60,7 +60,7 @@ bool cls3260MeterMode::detectDut()
 
     if(clsRS::getInst().gpibCommands.testMode=="AC")
     {
-        int index = clsRS::getInst().sendCommand(meter+"FUNC:MAJOR?",true).toInt();
+        int index = clsRS::getInst().sendCommand(meter+":FUNC:MAJOR?",true).toInt();
 
         switch (index) {
         case 0:
@@ -77,7 +77,7 @@ bool cls3260MeterMode::detectDut()
         }
 
         if(item!="C")
-            clsRS::getInst().sendCommand(QString(meter+"FUNC:C"),false);
+            clsRS::getInst().sendCommand(QString(meter+":FUNC:C"),false);
     }
 
     while(blStop)
@@ -86,7 +86,7 @@ bool cls3260MeterMode::detectDut()
 
         if(clsRS::getInst().gpibCommands.testMode=="RDC")
         {
-            QString retValue = clsRS::getInst().sendCommand(meter+"TRIG",true);
+            QString retValue = clsRS::getInst().sendCommand(meter+":TRIG",true);
 
             double value = retValue.toDouble();
 
@@ -106,15 +106,15 @@ bool cls3260MeterMode::detectDut()
         }
         else
         {
-            QString retValue = clsRS::getInst().sendCommand(meter+"TRIG",true);
+            QString retValue = clsRS::getInst().sendCommand(meter+":TRIG",true);
 
             double value = retValue.split(",").at(0).toDouble();
 
-            if(qAbs(value)>5E-12)
+            if(qAbs(value)>50E-12)
             {
                 if(isEmpty)
                 {
-                    clsRS::getInst().sendCommand(QString(meter+"FUNC:%1").arg(item),false);
+                    clsRS::getInst().sendCommand(QString(meter+":FUNC:%1").arg(item),false);
                     emit detectInProgress(tr("已经探测到产品"));
                     return true;
                 }
@@ -638,7 +638,7 @@ void cls3260MeterMode::singleTrig()
 
         if(grpMinor->isChecked())
         {
-            tmp+=",";
+            tmp+="|";
             tmp+= getItemShow(item2,dblItem2,lmMinor,minorUnit);
         }
 
@@ -668,7 +668,7 @@ QString cls3260MeterMode::getItemShow(const QString &item, const double &value ,
 
     if((item=="Q") || (item=="D"))
     {
-        tmp.append(dt.formateWithUnit(",",7)+UserfulFunctions::getSuffix(item));
+        tmp.append(dt.formateWithUnit("",7)+UserfulFunctions::getSuffix(item));
     }
     else
     {
@@ -676,7 +676,7 @@ QString cls3260MeterMode::getItemShow(const QString &item, const double &value ,
     }
     tmp.append(strPassFail);
 
-    return tmp.join(",");
+    return tmp.join("|");
 
 }
 
@@ -1081,7 +1081,7 @@ void cls3260MeterMode::on_btnBiasValue_clicked()
         else
         {
             value = (value<0? 0: value);
-            value = (value> 125? 125:value);
+            value = (value> 250? 250:value);
         }
 
         biasValue = value;
