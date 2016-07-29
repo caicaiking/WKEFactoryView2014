@@ -15,6 +15,7 @@
 #include "clsStatistics.h"
 #include "clsShowReport.h"
 
+
 clsMeterMode::clsMeterMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -279,8 +280,10 @@ void clsMeterMode::initTable()
 {
     tabResult->verticalHeader()->setVisible(false);
     tabResult->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    tabResult->setSelectionMode(QAbstractItemView::SingleSelection);
-    tabResult->setSelectionBehavior(QTableView::SelectRows);
+    //  tabResult->setSelectionMode(QAbstractItemView::SingleSelection);
+    //  tabResult->setSelectionBehavior(QTableView::SelectRows);
+
+
     //    this->tabResult->setColumnCount(2);
     //    this->tabResult->setColumnWidth(0,50);
     //    this->tabResult->horizontalHeader()->setSectionResizeMode(1,QHeaderView::ResizeToContents);
@@ -360,7 +363,7 @@ void clsMeterMode::trig()
     if(lblStatus->getStatus()== BUSY)
         return;
 
-     bool blRetest = false;
+    bool blRetest = false;
 RETEST:
     int totleRow=0 ;
     bool status=true;
@@ -830,22 +833,30 @@ Stop:
 //打印报表
 void clsMeterMode::on_btnReport_clicked()
 {
-        clsShowReport *dlg = new clsShowReport(this);
-        dlg->setData(&this->result);
+    clsShowReport *dlg = new clsShowReport(this);
+    dlg->setData(&this->result);
 
 
-//    clsStatistics *dlg = new clsStatistics(this);
-//    dlg->setData(&result);
+    //    clsStatistics *dlg = new clsStatistics(this);
+    //    dlg->setData(&result);
 
 }
 
 void clsMeterMode::on_btnRep300_clicked()
 {
-    for(int i=0; i< 300; i++)
+
+
+    btnRep300->setText(tr("停止\n测试"));
+
+
+
+    while(btnRep300->isChecked())
     {
         trig();
         UserfulFunctions::sleepMs(10);
     }
+    btnRep300->setText(tr("重复\n测试"));
+
 }
 
 void clsMeterMode::on_btnExportData_clicked()
@@ -888,3 +899,35 @@ void clsMeterMode::on_btnExportData_clicked()
             QMessageBox::information(this,tr("消息"),tr("没有数据可以保存"));
     }
 }
+
+void clsMeterMode::on_btnStatics_clicked()
+{
+    clsStatistics *dlg = new clsStatistics(this);
+    dlg->setData(&result);
+}
+
+void clsMeterMode::on_btnCopy_clicked()
+{
+
+    int row = tabResult->rowCount();
+    int col = tabResult->columnCount();
+    //qDebug()<< row <<" " <<col;
+    QString strCp;
+    for(int r=0; r< row; r++)
+    {
+
+        for(int c=0; c<col; c++)
+        {
+            QTableWidgetItem * item = tabResult->item(r,c);
+            if(item!=NULL && item->isSelected())
+            {
+                strCp+=tabResult->item(r,c)->text();
+                strCp+= "\t";
+            }
+        }
+        strCp += "\n";
+    }
+   // qDebug()<<strCp;
+    QApplication::clipboard()->setText(strCp);
+}
+

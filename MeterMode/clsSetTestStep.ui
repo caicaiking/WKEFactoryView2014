@@ -85,8 +85,8 @@
         </font>
        </property>
        <property name="text">
-        <string>测试
-此步</string>
+        <string>重复
+测试</string>
        </property>
        <property name="icon">
         <iconset resource="../recFile/myRes.qrc">
@@ -97,6 +97,9 @@
          <width>22</width>
          <height>22</height>
         </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
        </property>
       </widget>
      </item>

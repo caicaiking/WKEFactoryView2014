@@ -748,7 +748,7 @@
         <translation>Input frequency</translation>
     </message>
     <message>
-        <location filename="../../common/main.cpp" line="76"/>
+        <location filename="../../common/main.cpp" line="75"/>
         <source>版本号：%1 正在初始化测试窗口，请稍等...</source>
         <translation>Software version: %1 Test window is initializing, please wait ...</translation>
     </message>
@@ -1870,10 +1870,18 @@
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="176"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="37"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="238"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="881"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="884"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="895"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="41"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="49"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="296"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="480"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="840"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="925"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1027"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1173"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1176"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1375"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1378"/>
         <source>串联</source>
         <translation>Series</translation>
     </message>
@@ -1885,19 +1893,22 @@
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="218"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="614"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="34"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="35"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="254"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="374"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="38"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="39"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="312"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="432"/>
         <source>自动</source>
         <translation>Auto</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="243"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="639"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="36"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="259"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="363"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="996"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="40"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="50"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="317"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="421"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="485"/>
         <source>最快</source>
         <translation>Max</translation>
     </message>
@@ -1908,16 +1919,16 @@
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="285"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="32"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="281"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="915"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="918"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="36"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="339"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1207"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1210"/>
         <source>内置</source>
         <translation>Internal</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="310"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="747"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="998"/>
         <source>关</source>
         <translation>OFF</translation>
     </message>
@@ -1943,6 +1954,10 @@
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="381"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="504"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="729"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1060"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1154"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1248"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1342"/>
         <source>限定：</source>
         <translation>Limit:</translation>
     </message>
@@ -1950,6 +1965,10 @@
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="397"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="520"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="745"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1082"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1176"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1270"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1364"/>
         <source>TextLabel</source>
         <translation></translation>
     </message>
@@ -1957,6 +1976,10 @@
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="410"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="533"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="758"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1095"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1189"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1283"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1377"/>
         <source>单位：</source>
         <translation>Unit：</translation>
     </message>
@@ -1964,6 +1987,10 @@
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="438"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="561"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="786"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1123"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1217"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1311"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1405"/>
         <source>m</source>
         <translation></translation>
     </message>
@@ -1998,115 +2025,217 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.ui" line="817"/>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="812"/>
+        <source>谐振搜索</source>
+        <translation>Res. Search</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="832"/>
+        <source>终止频率</source>
+        <translation>Stop freq.</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="854"/>
+        <source>开始频率</source>
+        <translation>Start freq.</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="876"/>
+        <source>1.000MHz</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="914"/>
+        <source>4</source>
+        <translation>4</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="933"/>
+        <source>类型</source>
+        <translation>Type</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="955"/>
+        <source>搜索深度</source>
+        <translation>Depth</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="977"/>
+        <source>1.000kHz</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1015"/>
+        <source>速度</source>
+        <translation>Speed</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1033"/>
+        <source>结果输出</source>
+        <translation>Result</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1045"/>
+        <source>频率(SRF)</source>
+        <translation>Frequency(SRF)</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1139"/>
+        <source>电阻(R)</source>
+        <translation>Resistor(R)</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1233"/>
+        <source>电容(C)</source>
+        <translation>Capacitance(C)</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1327"/>
+        <source>电感(L)</source>
+        <translation>Inductor(L)</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.ui" line="1424"/>
         <source>描述：</source>
         <translation>Description:</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="25"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="29"/>
         <source>空白</source>
         <translation>Empty</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="101"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="122"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="117"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="138"/>
         <source>已经探测到产品</source>
         <translation>Production detected</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="134"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="150"/>
         <source>正在探测产品</source>
         <translation>Detect production in progress</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="261"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="365"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="319"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="423"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="487"/>
         <source>快速</source>
         <translation>Fast</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="263"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="367"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="321"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="425"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="489"/>
         <source>中速</source>
         <translation>Med</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="265"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="369"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="323"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="427"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="491"/>
         <source>慢速</source>
         <translation>Slow</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="647"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="885"/>
         <source>PASS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="647"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="885"/>
         <source>FAIL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="688"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="939"/>
         <source>设置主参数上下限</source>
         <translation>Set Major Limit</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="701"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="952"/>
         <source>设置副参数上下限</source>
         <translation>Set Minor Limit</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="715"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="966"/>
         <source>设置Rdc上下限</source>
         <translation>Set Rdc Limit</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="747"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="998"/>
         <source>开</source>
         <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="808"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1100"/>
         <source>输入测试频率</source>
         <translation>Set test frequency</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="844"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1136"/>
         <source>输入测试电平</source>
         <translation>Set test level</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="882"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1174"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1376"/>
         <source>并联</source>
         <translation>Parallel</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="892"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="981"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1184"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1273"/>
         <source>设置档位</source>
         <translation>Set range</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="904"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="993"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1196"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1285"/>
         <source>设置速度</source>
         <translation>Set speed</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="916"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1208"/>
         <source>外置</source>
         <translation>External</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="933"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1225"/>
         <source>设置测试项目1</source>
         <translation>Set Item1</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="968"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1260"/>
         <source>设置测试项目2</source>
         <translation>Set Item2</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1320"/>
+        <source>输入开始频率</source>
+        <translation>Input start frequency</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1348"/>
+        <source>输入终止频率</source>
+        <translation>Input stop frequency</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1385"/>
+        <source>设定扫描深度(0-12)</source>
+        <translation>Set sweep depth(0-12)</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1400"/>
+        <source>扫描速度</source>
+        <translation>Search depth</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1457"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1470"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1483"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1496"/>
+        <source>设置上下限</source>
+        <translation>Set  Limit</translation>
     </message>
 </context>
 <context>
@@ -2297,7 +2426,7 @@
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="700"/>
         <source>4</source>
-        <translation>100Point {4?}</translation>
+        <translation>4</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.ui" line="719"/>
@@ -2404,6 +2533,11 @@
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="998"/>
         <source>开</source>
         <translation>ON</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls6500MeterMode.cpp" line="637"/>
+        <source>Res. 搜索</source>
+        <translation>Res. search</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="716"/>
@@ -3232,6 +3366,7 @@ Detect</translation>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="180"/>
         <location filename="../../MeterMode/clsMeterMode.ui" line="489"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="531"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;停止探测产品&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Stop detect&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -3245,6 +3380,7 @@ Test</translation>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="197"/>
         <location filename="../../MeterMode/clsMeterMode.ui" line="506"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="548"/>
         <source>Esc</source>
         <translation></translation>
     </message>
@@ -3287,9 +3423,10 @@ Results</translation>
 File</translation>
     </message>
     <message>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="492"/>
         <source>统计
 分析</source>
-        <translation type="vanished">Statistical
+        <translation>Statistical
 analysis</translation>
     </message>
     <message>
@@ -3305,64 +3442,64 @@ Report</translation>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save test data,you can save a new data file, or select last data file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="492"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="534"/>
         <source>导出
 报表</source>
         <translation>Export
 Report</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="692"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="734"/>
         <source>测试文件：</source>
         <translation>Test program:</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="705"/>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="786"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="747"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="828"/>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="623"/>
         <source>None</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="718"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="760"/>
         <source>存储类型：</source>
         <translation>Storage type:</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="731"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="773"/>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="658"/>
         <source>全部</source>
         <translation>All</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="744"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="786"/>
         <source>通过数量：</source>
         <translation>Pass number:</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="760"/>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="815"/>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="844"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="802"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="857"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="886"/>
         <source>N/A</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="773"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="815"/>
         <source>数据文件：</source>
         <translation>Data file:</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="799"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="841"/>
         <source>测试数量：</source>
         <translation>Test number:</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="828"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="870"/>
         <source>失败数量：</source>
         <translation>Fail number:</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="862"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="904"/>
         <source>测试结果显示</source>
         <translation>Test result display</translation>
     </message>
@@ -3421,24 +3558,24 @@ Program</translation>
 Results</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="531"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="573"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;单击此按钮，进行仪表的校准。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click this button, to do instrument calibration.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="534"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="576"/>
         <source>仪表
 校准</source>
         <translation>Calib-
 ration</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="570"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="612"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;软件的运行选项设定。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Software running settings&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="573"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="615"/>
         <source>高级
 设定</source>
         <translation>Advanced
@@ -3467,7 +3604,7 @@ Setup</translation>
         <translation type="vanished">Save</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="655"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="697"/>
         <source>TextLabel</source>
         <translation></translation>
     </message>

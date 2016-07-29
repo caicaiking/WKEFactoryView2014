@@ -634,7 +634,7 @@ QString cls6500MeterMode::getBrief()
             tmp.append("C");
         if(grpL->isChecked())
             tmp.append("L");
-        return QString("%1:%2").arg("Res. 搜索",tmp.join(","));
+        return QString("%1:%2").arg(tr("Res. 搜索"),tmp.join(","));
     }
 }
 

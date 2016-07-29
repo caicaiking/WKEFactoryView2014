@@ -21,6 +21,7 @@ void clsSampleTest::on_btnClose_clicked()
 
 void clsSampleTest::on_btnTrig_clicked()
 {
+    btnTrig->setEnabled(false);
     QString str = meter->trig();
 
     QList<double> res = UserfulFunctions::resultPro(str);
@@ -33,5 +34,8 @@ void clsSampleTest::on_btnTrig_clicked()
         dt.setData(res.at(1));
         lblTest2->setText(dt.formateToString()+UserfulFunctions::getSuffix(meter->getItem2()));
     }
+
+    btnTrig->setEnabled(true);
+    btnTrig->setFocus();
 
 }

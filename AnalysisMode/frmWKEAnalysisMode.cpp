@@ -954,17 +954,18 @@ void frmWKEAnalysisMode::on_btnSettings_clicked()
 
         if(select ==0)
         {
-            QFile file("./Settings.ini");
+            //载入配置文件
+            QFile file(clsSettings::getSettingsFileName());
             if(file.exists())
             {
                 qDebug()<<"old setting file is removed: "<< file.remove();
             }
 
-            QFile::copy(filePath,"./Settings.ini");
+            QFile::copy(filePath,clsSettings::getSettingsFileName());
             init();
             plot->clearData();
         }
-        else
+        else //保存 配置文件
         {
             //qDebug()<<QFile::exists("./Settings.ini");
 
@@ -973,7 +974,7 @@ void frmWKEAnalysisMode::on_btnSettings_clicked()
                 QFile::remove(filePath);
             }
 
-            QFile::copy("./Settings.ini",filePath);
+            QFile::copy(clsSettings::getSettingsFileName(),filePath);
 
         }
     }

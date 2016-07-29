@@ -8,6 +8,7 @@
 #include <QPointer>
 #include "UserfulFunctions.h"
 #include "clsSignalThread.h"
+
 #include "clsTestResult.h"
 /*!
  * 用于产品的统计
@@ -88,6 +89,10 @@ private slots:
 
     void on_btnExportData_clicked();
 
+    void on_btnStatics_clicked();
+
+    void on_btnCopy_clicked();
+
 protected:
     void closeEvent(QCloseEvent *);
     void keyPressEvent(QKeyEvent *e);
@@ -119,6 +124,7 @@ private:
     clsLog *passDataLog, *failDataLog,*allDataLog;
     void clearLogFile();
     void initLog();
+
 };
 
 #endif // CLSMETERMODE_H

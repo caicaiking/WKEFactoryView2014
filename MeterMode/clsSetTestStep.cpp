@@ -5,11 +5,12 @@
 #include <QBoxLayout>
 #include <QDebug>
 
+#include "UserfulFunctions.h"
 clsSetTestStep::clsSetTestStep(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
-     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint &~Qt::WindowCloseButtonHint);
     sngTestDisplay->setMessage(tr("没有数据可以显示"),0);
     meter = clsMeterModeFactory::getFunction(clsRS::getInst().meterSeries);
     QHBoxLayout *layout = new QHBoxLayout();
@@ -128,12 +129,18 @@ void clsSetTestStep::showTaskList()
 
 void clsSetTestStep::on_btnOk_clicked()
 {
+    btnTest->setChecked(false);
+    qApp->processEvents();
     this->accept();
+
 }
 
 void clsSetTestStep::on_btnCancel_clicked()
 {
+    btnTest->setChecked(false);
+    qApp->processEvents();
     this->reject();
+
 }
 
 
@@ -146,10 +153,17 @@ void clsSetTestStep::on_btnTurnOffBias_clicked()
 
 void clsSetTestStep::on_btnTest_clicked()
 {
-    sngTestDisplay->setMessage(tr("更新测试条件"),0);
-    meter->updateGPIB();
-    sngTestDisplay->setMessage(tr("正在测试"),0);
-    meter->singleTrig();
+    btnTest->setText(tr("停止\n测试"));
+    while(btnTest->isChecked())
+    {
+        sngTestDisplay->setMessage(tr("更新测试条件"),0);
+        meter->updateGPIB();
+        sngTestDisplay->setMessage(tr("正在测试"),0);
+        meter->singleTrig();
+        UserfulFunctions::sleepMs(10);
+    }
+
+    btnTest->setText(tr("重复\n测试"));
 }
 
 
@@ -187,6 +201,8 @@ void clsSetTestStep::on_btnSave_clicked()
         tbTaskList->setCurrentCell(0,0);
     }
 
+    btnTest->setChecked(false);
+
 }
 
 
@@ -201,33 +217,33 @@ void clsSetTestStep::on_tbTaskList_clicked(const QModelIndex &index)
 void clsSetTestStep::on_btnUp_clicked()
 {
     //没有选择 返回
-      if(tbTaskList->selectedItems().length()<=0)
-          return;
-      //判断选择行数
-      int intSelectedRow = tbTaskList->selectedItems().at(0)->row();
+    if(tbTaskList->selectedItems().length()<=0)
+        return;
+    //判断选择行数
+    int intSelectedRow = tbTaskList->selectedItems().at(0)->row();
 
-      if(intSelectedRow<1)
-          return;
+    if(intSelectedRow<1)
+        return;
 
-      steps.swap(intSelectedRow,intSelectedRow-1);
-      showTaskList();
-      tbTaskList->setCurrentCell(intSelectedRow-1,0);
+    steps.swap(intSelectedRow,intSelectedRow-1);
+    showTaskList();
+    tbTaskList->setCurrentCell(intSelectedRow-1,0);
 }
 
 void clsSetTestStep::on_btnDown_clicked()
 {
     //没有选择 返回
-        if(tbTaskList->selectedItems().length()<=0)
-            return;
-        //判断选择行数
-        int intSelectedRow = tbTaskList->selectedItems().at(0)->row();
+    if(tbTaskList->selectedItems().length()<=0)
+        return;
+    //判断选择行数
+    int intSelectedRow = tbTaskList->selectedItems().at(0)->row();
 
-        if((intSelectedRow+1)>=steps.length())
-            return;
+    if((intSelectedRow+1)>=steps.length())
+        return;
 
-        steps.swap(intSelectedRow,intSelectedRow+1);
-        showTaskList();
-        tbTaskList->setCurrentCell(intSelectedRow+1,0);
+    steps.swap(intSelectedRow,intSelectedRow+1);
+    showTaskList();
+    tbTaskList->setCurrentCell(intSelectedRow+1,0);
 }
 
 void clsSetTestStep::on_btnDelete_clicked()

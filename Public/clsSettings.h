@@ -25,6 +25,8 @@ public:
     void readSetting(QString strPath, QStringList &value);
 
     void readSetting(QString strPath, QColor &value);
+
+    static QString getSettingsFileName();
 signals:
     
 public slots:
