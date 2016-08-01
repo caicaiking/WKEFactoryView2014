@@ -22,6 +22,15 @@ clsSetTestStep::clsSetTestStep(QWidget *parent) :
     connect(meter,SIGNAL(signalTestResult(QString)),this,SLOT(showRes(QString)));
 
     initSheetTitle();
+
+    connect(btnTest,SIGNAL(toggled(bool)),this,SLOT(enableSingleTestButton(bool)));
+
+
+}
+
+void clsSetTestStep::enableSingleTestButton(bool value)
+{
+    btnSingle->setEnabled(!value);
 }
 
 void clsSetTestStep:: initSheetTitle()
@@ -267,4 +276,12 @@ void clsSetTestStep::on_btnClear_clicked()
 {
     steps.clear();
     showTaskList();
+}
+
+void clsSetTestStep::on_btnSingle_clicked()
+{
+    sngTestDisplay->setMessage(tr("更新测试条件"),0);
+    meter->updateGPIB();
+    sngTestDisplay->setMessage(tr("正在测试"),0);
+    meter->singleTrig();
 }

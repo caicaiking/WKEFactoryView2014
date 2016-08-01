@@ -43,6 +43,9 @@ private slots:
 
     void on_btnClear_clicked();
 
+    void on_btnSingle_clicked();
+
+    void enableSingleTestButton(bool value);
 private:
     WKEMeterMode *meter;
 
