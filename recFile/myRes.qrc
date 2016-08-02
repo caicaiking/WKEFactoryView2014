@@ -79,5 +79,6 @@
         <file>Icons/dataFile.png</file>
         <file>Icons/BiasSettings.png</file>
         <file>Icons/copy.png</file>
+        <file>Icons/Percentage.png</file>
     </qresource>
 </RCC>

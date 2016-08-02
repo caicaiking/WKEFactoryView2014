@@ -165,9 +165,9 @@ void clsSetTestStep::on_btnTest_clicked()
     btnTest->setText(tr("停止\n测试"));
     while(btnTest->isChecked())
     {
-        sngTestDisplay->setMessage(tr("更新测试条件"),0);
+       // sngTestDisplay->setMessage(tr("更新测试条件"),0);
         meter->updateGPIB();
-        sngTestDisplay->setMessage(tr("正在测试"),0);
+       // sngTestDisplay->setMessage(tr("正在测试"),0);
         meter->singleTrig();
         UserfulFunctions::sleepMs(10);
     }

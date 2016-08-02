@@ -821,7 +821,7 @@ ON</string>
        <widget class="QStackedWidget" name="stackedWidget">
         <property name="minimumSize">
          <size>
-          <width>150</width>
+          <width>200</width>
           <height>0</height>
          </size>
         </property>
@@ -832,7 +832,7 @@ ON</string>
          <enum>QFrame::Raised</enum>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="page">
          <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -862,10 +862,10 @@ ON</string>
             <widget class="QLabel" name="lblMarkerTitle">
              <property name="geometry">
               <rect>
-               <x>10</x>
+               <x>0</x>
                <y>0</y>
-               <width>121</width>
-               <height>16</height>
+               <width>191</width>
+               <height>20</height>
               </rect>
              </property>
              <property name="font">
@@ -1150,6 +1150,45 @@ ON</string>
         </property>
         <property name="pixmap">
          <pixmap resource="../recFile/myRes.qrc">:/Icons/wk.ico</pixmap>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnOpenPercentage">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>34</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1111</width>
+          <height>1111</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Marker
+%显示</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../recFile/myRes.qrc">
+          <normaloff>:/Icons/Percentage.png</normaloff>:/Icons/Percentage.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
         </property>
        </widget>
       </item>

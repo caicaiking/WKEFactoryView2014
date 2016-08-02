@@ -139,6 +139,11 @@ void Plot::mouseMoveEvent(QMouseEvent */*e*/)
 
 }
 
+void Plot::setShowPercetage(bool value)
+{
+    showPercetage = value;
+}
+
 void Plot::clearData()
 {
     QVector<double> x;
@@ -666,13 +671,38 @@ QString Plot::setMarker(const double &freq, const int /*intSelected*/)
             .arg(QString::number(item1)).arg(QString::number(item2));
 
     //格式化输出
+
+    QString strItem1Per="";
+    QString strItem2Per="";
+
+    if(showPercetage)
+    {
+        double dblStartItem1 = myPrivateData.first().x();
+        double dblStartItem2 = myPrivateData.first().y();
+
+        if(dblStartItem1==0.0)
+            strItem1Per=" NAN%";
+        else
+        {
+            strItem1Per =QString(" ")+ QString::number(item1/dblStartItem1*100.0,'f',2)+"%";
+        }
+
+        if(dblStartItem2==0.0)
+            strItem2Per="NAN%";
+        else
+        {
+            strItem2Per = QString(" ")+QString::number(item2/dblStartItem2*100.0,'f',2)+"%";
+        }
+    }
+
+
     doubleType dt;
     dt.setData(freqValue,"");
     QString strX= dt.formateToString() + UserfulFunctions::getSuffix(strXTrace);
     dt.setData(item1,"");
-    QString strItem1= dt.formateToString() + UserfulFunctions::getSuffix(strTraceA);
+    QString strItem1= dt.formateToString() + UserfulFunctions::getSuffix(strTraceA) +strItem1Per;
     dt.setData(item2,"");
-    QString strItem2=dt.formateToString() + UserfulFunctions::getSuffix(strTraceB);
+    QString strItem2=dt.formateToString() + UserfulFunctions::getSuffix(strTraceB) +strItem2Per;
 
     //消息相关设置
     QString info;
@@ -719,6 +749,8 @@ QString Plot::setMarker(const double &freq, const int /*intSelected*/)
         label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#0BFF0B\">%1</p>").arg(strX);
 
     }
+
+
     QwtText text(label);
     text.setFont(QFont("Helvetica", 10, QFont::Bold));
     text.setColor(Qt::green);

@@ -1056,3 +1056,8 @@ void frmWKEAnalysisMode::on_btnContactTest_clicked()
     clsSampleTest *dlg = new clsSampleTest(meter,this);
     dlg->exec();
 }
+
+void frmWKEAnalysisMode::on_btnOpenPercentage_toggled(bool checked)
+{
+    plot->setShowPercetage(checked);
+}
