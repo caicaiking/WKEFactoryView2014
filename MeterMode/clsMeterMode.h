@@ -110,6 +110,8 @@ private:
     clsTestResult result;   //用于记录保存数据
 
 
+    const int NoCol=0,ItemCol=1,ConCol=2,LowCol=3,ResCol=4,HiCol=5,StaCol=6,DescCol=7;
+
 private:
     void initTable();
     QTableWidgetItem *getTableTitleItem(const QString &content);

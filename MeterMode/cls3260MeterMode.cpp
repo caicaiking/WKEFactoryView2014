@@ -179,6 +179,8 @@ void cls3260MeterMode::setCondition(QString value)
                 this->lmRdc.setString(result["lmRdc"].toString());
                 this->rdcUnit = result["rdcSuffix"].toString();
                 this->strDescription= result["description"].toString();
+                txtBiasOn->setValue(result["biasOnTime"].toInt());
+                txtBiasOff->setValue(result["biasOffTime"].toInt());
                 updateButtons();
             }
         }
@@ -216,6 +218,8 @@ QString cls3260MeterMode::getConditon()
     step.insert("rdcSuffix",this->rdcUnit);
 
     step.insert("description",this->strDescription);
+    step.insert("biasOnTime",this->txtBiasOn->value());
+    step.insert("biasOffTime",this->txtBiasOff->value());
 
     QJsonDocument jsonDocument  = QJsonDocument::fromVariant(step);
 
@@ -337,8 +341,6 @@ void cls3260MeterMode::updateGPIB()
         }
 
         clsRS::getInst().gpibCommands.gpibTest1 = gpibCmd;
-
-
 
         QString tmpBiasString;
         if(!blBiasStatus)
@@ -507,6 +509,11 @@ QString cls3260MeterMode::getLevel()
     return this->btnLevel->text();
 }
 
+QString cls3260MeterMode::getBias()
+{
+    return this->btnBiasValue->text() + " " + btnBiasOnOFF->text();
+}
+
 
 double cls3260MeterMode::getResult(int i)
 {
@@ -623,6 +630,16 @@ void cls3260MeterMode::singleTrig()
 {
     QString trigCmd =getMeter()+":TRIG";
 
+    if(tabMeter->currentIndex()==0)
+    {
+        if(btnBiasOnOFF->text()==tr("开") && (txtBiasOn->value() !=0))
+        {
+            txtStatus->setText(tr("bias持续"));
+            UserfulFunctions::sleepMs(txtBiasOn->value());
+        }
+    }
+
+
     QString strRes = clsRS::getInst().sendCommand(trigCmd,true);
 
     strRes+=",,";
@@ -644,6 +661,15 @@ void cls3260MeterMode::singleTrig()
 
 
         emit signalTestResult(tmp);
+
+
+        if(btnBiasOnOFF->text()==tr("开") && (txtBiasOff->value() !=0))
+        {
+            this->turnOffBias();
+            txtStatus->setText(tr("bias休息"));
+            UserfulFunctions::sleepMs(txtBiasOff->value());
+        }
+        txtStatus->setText(tr("---"));
     }
     else
     {
@@ -683,7 +709,14 @@ QString cls3260MeterMode::getItemShow(const QString &item, const double &value ,
 void cls3260MeterMode::repetiveTrig()
 {
     QString trigCmd = getMeter()+":TRIG";
-
+    if(tabMeter->currentIndex()==0)
+    {
+        if(btnBiasOnOFF->text()==tr("开") && (txtBiasOn->value() !=0))
+        {
+            txtStatus->setText(tr("bias持续"));
+            UserfulFunctions::sleepMs(txtBiasOn->value());
+        }
+    }
     QString strRes = clsRS::getInst().sendCommand(trigCmd,true);
 
     strRes+=",,";
@@ -697,7 +730,16 @@ void cls3260MeterMode::repetiveTrig()
     {
         dblRdc = lsRes.at(0).toDouble();
     }
-
+    if(tabMeter->currentIndex()==0)
+    {
+        if(btnBiasOnOFF->text()==tr("开") && (txtBiasOff->value() !=0))
+        {
+            this->turnOffBias();
+            txtStatus->setText(tr("bias休息"));
+            UserfulFunctions::sleepMs(txtBiasOff->value());
+        }
+        txtStatus->setText(tr("---"));
+    }
 }
 
 
