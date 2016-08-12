@@ -15,6 +15,7 @@
 #include "clsStatistics.h"
 #include "clsShowReport.h"
 
+
 clsMeterMode::clsMeterMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -279,16 +280,18 @@ void clsMeterMode::initTable()
 {
     tabResult->verticalHeader()->setVisible(false);
     tabResult->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    tabResult->setSelectionMode(QAbstractItemView::SingleSelection);
-    tabResult->setSelectionBehavior(QTableView::SelectRows);
+    //  tabResult->setSelectionMode(QAbstractItemView::SingleSelection);
+    //  tabResult->setSelectionBehavior(QTableView::SelectRows);
+
+
     //    this->tabResult->setColumnCount(2);
     //    this->tabResult->setColumnWidth(0,50);
     //    this->tabResult->horizontalHeader()->setSectionResizeMode(1,QHeaderView::ResizeToContents);
 
     QStringList headers;
-    headers <<tr("序号")<<tr("项目")<<tr("下限")<<tr("测试值")<<tr("上限")<<tr("判定")<<tr("描述");
+    headers <<tr("序号")<<tr("项目")<<tr("测试条件")<<tr("下限")<<tr("测试值")<<tr("上限")<<tr("判定")<<tr("描述");
     tabResult->setColumnCount(headers.length());
-    this->tabResult->setColumnWidth(0,60);
+    this->tabResult->setColumnWidth(0,80);
     for(int i=0; i< headers.length();i++)
     {
         tabResult->setHorizontalHeaderItem(i,getTableTitleItem(headers.at(i)));
@@ -360,7 +363,7 @@ void clsMeterMode::trig()
     if(lblStatus->getStatus()== BUSY)
         return;
 
-     bool blRetest = false;
+    bool blRetest = false;
 RETEST:
     int totleRow=0 ;
     bool status=true;
@@ -407,10 +410,14 @@ RETEST:
             //显示序号
             QString number;
             number = QString("%1-%2").arg(count.getTotle()).arg(i+1);
-            tabResult->setItem(tabResult->rowCount()-1,0,getTableTestItem(number,2));
+            tabResult->setItem(tabResult->rowCount()-1,NoCol,getTableTestItem(number,2));
             //显示测试项目
-            tabResult->setItem(tabResult->rowCount()-1,1,getTableTestItem(meter->getItem(j),2));
+            tabResult->setItem(tabResult->rowCount()-1,ItemCol,getTableTestItem(meter->getItem(j),2));
             strSaveRes.append(meter->getItem(j));
+
+            //显示测试条件
+            QString testCon = meter->getFreq()+" "+meter->getLevel()+" "+meter->getBias();
+             tabResult->setItem(tabResult->rowCount()-1,ConCol,getTableTestItem(testCon,2));
             //显示下限
             clsMeterLimit tmp = meter->getLimit(j);
             double lowLimit = tmp.getAbsLimitLow();
@@ -418,25 +425,25 @@ RETEST:
 
             doubleType dt;
             dt.setData(lowLimit);
-            tabResult->setItem(tabResult->rowCount()-1,2,getTableTestItem(dt.formateWithUnit(suffix,7)+suffix+UserfulFunctions::getSuffix(meter->getItem(j)),2));
+            tabResult->setItem(tabResult->rowCount()-1,LowCol,getTableTestItem(dt.formateWithUnit(suffix,7)+suffix+UserfulFunctions::getSuffix(meter->getItem(j)),2));
 
             //显示测试值
             double dblRes = meter->getResult(j);
             singleStepData.append(dblRes); //用于报表显示保存数据
             dt.setData(dblRes);
-            tabResult->setItem(tabResult->rowCount()-1,3,getTableTestItem(dt.formateWithUnit(suffix,7)+suffix+UserfulFunctions::getSuffix(meter->getItem(j)),2));
+            tabResult->setItem(tabResult->rowCount()-1,ResCol,getTableTestItem(dt.formateWithUnit(suffix,7)+suffix+UserfulFunctions::getSuffix(meter->getItem(j)),2));
             strSaveRes.append(dt.formateWithUnit(suffix,7)); // 用于保存数据到硬盘
             strSaveRes.append(suffix+UserfulFunctions::getSuffix(meter->getItem(j)));
 
             //显示上限
             double hiLimit = tmp.getAbsLimitHigh();
             dt.setData(hiLimit);
-            tabResult->setItem(tabResult->rowCount()-1,4,getTableTestItem(dt.formateWithUnit(suffix,7)+suffix+UserfulFunctions::getSuffix(meter->getItem(j)),2));
+            tabResult->setItem(tabResult->rowCount()-1,HiCol,getTableTestItem(dt.formateWithUnit(suffix,7)+suffix+UserfulFunctions::getSuffix(meter->getItem(j)),2));
 
             //显示判定
             QString type;
             bool isPass= tmp.comparaValue(dblRes,type);
-            tabResult->setItem(tabResult->rowCount()-1,5,getTableTestItem(type,isPass?1:0));
+            tabResult->setItem(tabResult->rowCount()-1,StaCol,getTableTestItem(type,isPass?1:0));
             strSaveRes.append(type);
 
             status = status && isPass;
@@ -470,8 +477,8 @@ RETEST:
         if(meter->getCountTestItems()>=1)
         {
             if(meter->getCountTestItems()>1)
-                tabResult->setSpan(tabResult->rowCount()-meter->getCountTestItems(),6,meter->getCountTestItems(),1);
-            tabResult->setItem(tabResult->rowCount()-meter->getCountTestItems(),6,getTableTestItem(meter->getDescription(),2));
+                tabResult->setSpan(tabResult->rowCount()-meter->getCountTestItems(),DescCol,meter->getCountTestItems(),1);
+            tabResult->setItem(tabResult->rowCount()-meter->getCountTestItems(),DescCol,getTableTestItem(meter->getDescription(),2));
 
         }
         // UserfulFunctions::sleepMs(2000);
@@ -830,22 +837,30 @@ Stop:
 //打印报表
 void clsMeterMode::on_btnReport_clicked()
 {
-        clsShowReport *dlg = new clsShowReport(this);
-        dlg->setData(&this->result);
+    clsShowReport *dlg = new clsShowReport(this);
+    dlg->setData(&this->result);
 
 
-//    clsStatistics *dlg = new clsStatistics(this);
-//    dlg->setData(&result);
+    //    clsStatistics *dlg = new clsStatistics(this);
+    //    dlg->setData(&result);
 
 }
 
 void clsMeterMode::on_btnRep300_clicked()
 {
-    for(int i=0; i< 300; i++)
+
+
+    btnRep300->setText(tr("停止\n测试"));
+
+
+
+    while(btnRep300->isChecked())
     {
         trig();
         UserfulFunctions::sleepMs(10);
     }
+    btnRep300->setText(tr("重复\n测试"));
+
 }
 
 void clsMeterMode::on_btnExportData_clicked()
@@ -888,3 +903,35 @@ void clsMeterMode::on_btnExportData_clicked()
             QMessageBox::information(this,tr("消息"),tr("没有数据可以保存"));
     }
 }
+
+void clsMeterMode::on_btnStatics_clicked()
+{
+    clsStatistics *dlg = new clsStatistics(this);
+    dlg->setData(&result);
+}
+
+void clsMeterMode::on_btnCopy_clicked()
+{
+
+    int row = tabResult->rowCount();
+    int col = tabResult->columnCount();
+    //qDebug()<< row <<" " <<col;
+    QString strCp;
+    for(int r=0; r< row; r++)
+    {
+
+        for(int c=0; c<col; c++)
+        {
+            QTableWidgetItem * item = tabResult->item(r,c);
+            if(item!=NULL && item->isSelected())
+            {
+                strCp+=tabResult->item(r,c)->text();
+                strCp+= "\t";
+            }
+        }
+        strCp += "\n";
+    }
+   // qDebug()<<strCp;
+    QApplication::clipboard()->setText(strCp);
+}
+

@@ -8,6 +8,7 @@
 #include <QPointer>
 #include "UserfulFunctions.h"
 #include "clsSignalThread.h"
+
 #include "clsTestResult.h"
 /*!
  * 用于产品的统计
@@ -88,6 +89,10 @@ private slots:
 
     void on_btnExportData_clicked();
 
+    void on_btnStatics_clicked();
+
+    void on_btnCopy_clicked();
+
 protected:
     void closeEvent(QCloseEvent *);
     void keyPressEvent(QKeyEvent *e);
@@ -105,6 +110,8 @@ private:
     clsTestResult result;   //用于记录保存数据
 
 
+    const int NoCol=0,ItemCol=1,ConCol=2,LowCol=3,ResCol=4,HiCol=5,StaCol=6,DescCol=7;
+
 private:
     void initTable();
     QTableWidgetItem *getTableTitleItem(const QString &content);
@@ -119,6 +126,7 @@ private:
     clsLog *passDataLog, *failDataLog,*allDataLog;
     void clearLogFile();
     void initLog();
+
 };
 
 #endif // CLSMETERMODE_H

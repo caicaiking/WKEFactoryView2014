@@ -87,6 +87,8 @@ public:
     void setCurrentMarker(int value);
     void setMarkerVisual(int i, bool value);
     void setDataEnd();
+    void setShowPercetage(bool value);
+
 signals:
     void showMarkerMessage(int , QString);
 
@@ -127,6 +129,8 @@ private:
     double yRightMin;
 
     clsCurveLimit curveLimit;
+
+    bool showPercetage;
 };
 
 #endif // PLOT_H

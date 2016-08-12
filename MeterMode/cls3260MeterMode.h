@@ -33,6 +33,7 @@ public:
     QString getFreq();                //获取测试频率
     QString getEqucct();              //获取测试等效电路
     QString getLevel();               //获取测试的电平
+    QString getBias();                //获取Bias值
 signals:
 
 private slots:

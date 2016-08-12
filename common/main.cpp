@@ -19,7 +19,6 @@
 #include "clsMultiChannaeBox.h"
 #include <QMessageBox>
 #include "clsDataProcess.h"
-
 #include "dlgFunction.h"
 
 

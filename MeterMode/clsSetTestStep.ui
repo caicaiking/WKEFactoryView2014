@@ -65,6 +65,45 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="btnSingle">
+       <property name="minimumSize">
+        <size>
+         <width>80</width>
+         <height>42</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>1111</width>
+         <height>1111</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>单次
+测试</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../recFile/myRes.qrc">
+         <normaloff>:/Icons/single.png</normaloff>:/Icons/single.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>22</width>
+         <height>22</height>
+        </size>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="btnTest">
        <property name="minimumSize">
         <size>
@@ -85,8 +124,8 @@
         </font>
        </property>
        <property name="text">
-        <string>测试
-此步</string>
+        <string>重复
+测试</string>
        </property>
        <property name="icon">
         <iconset resource="../recFile/myRes.qrc">
@@ -97,6 +136,9 @@
          <width>22</width>
          <height>22</height>
         </size>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
        </property>
       </widget>
      </item>

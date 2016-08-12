@@ -21,6 +21,10 @@ cls6440MeterMode::cls6440MeterMode(WKEMeterMode *parent) :
     connect(lblMaijor,SIGNAL(Clicked()),this,SLOT(limitMajorClick()));
     connect(lblMinor,SIGNAL(Clicked()),this,SLOT(limitMinorClick()));
     connect(lblRdc,SIGNAL(Clicked()),this,SLOT(limitRdcClick()));
+    connect(lblFreqLimit,SIGNAL(Clicked()),this,SLOT(lblFreqLimit_click()));
+    connect(lblLLimit,SIGNAL(Clicked()),this,SLOT(lblLLimit_click()));
+    connect(lblCLimit,SIGNAL(Clicked()),this,SLOT(lblCLimit_click()));
+    connect(lblRLimit,SIGNAL(Clicked()),this,SLOT(lblRLimit_click()));
 
     strDescription = tr("空白");
     item1="Z";
@@ -39,6 +43,18 @@ cls6440MeterMode::cls6440MeterMode(WKEMeterMode *parent) :
     majorUnit="";
     minorUnit="";
     rdcUnit="";
+
+    dblStartFreq = 109.09E3;
+    dblStopFreq = 133.33E3;
+    strResEqucct = tr("串联");
+    strResSpeed = tr("最快");
+    intDeeps = 12;
+    strFreqUnit="k";
+    strRUnit="";
+    strCUnit="n";
+    strLUnit="n";
+    strQUnit="";
+
     blStop = false;
 
     updateButtons();
@@ -135,7 +151,7 @@ bool cls6440MeterMode::detectDut()
     }
     clsRS::getInst().sendCommand(QString(":MEAS:FUNC:%1").arg(item),false);
 
- emit detectInProgress("");
+    emit detectInProgress("");
     return false;
 }
 
@@ -178,6 +194,27 @@ void cls6440MeterMode::setCondition(QString value)
                 this->lmRdc.setString(result["lmRdc"].toString());
                 this->rdcUnit = result["rdcSuffix"].toString();
                 this->strDescription= result["description"].toString();
+
+                //Res search mode
+                this->dblStartFreq = result["dblStartFrequency"].toDouble();
+                this->dblStopFreq = result["dblStopFreq"].toDouble();
+                this->strResEqucct = result["strResEqucct"].toString();
+                this->strResSpeed = result["strResSpeed"].toString();
+                this->intDeeps = result["intDeeps"].toInt();
+                this->strFreqUnit = result["strFreqUnit"].toString();
+                strRUnit = result["strRUnit"].toString();
+                strCUnit = result["strCUnit"].toString();
+                strLUnit = result["strLUnit"].toString();
+                strQUnit = result["strQUnit"].toString();
+                lmFreq.setString( result["lmFreq"].toString());
+                lmR.setString(result["lmR"].toString());
+                lmC.setString(result["lmC"].toString());
+                lmL.setString(result["lmL"].toString());
+                lmQ.setString(result["lmQ"].toString());
+                this->blFreq=result["blFreq"].toBool();
+                this->blR = result["blR"].toBool();
+                this->blC = result["blC"].toBool();
+                this->blL = result["blL"].toBool();
                 updateButtons();
             }
         }
@@ -210,6 +247,29 @@ QString cls6440MeterMode::getConditon()
 
     step.insert("description",this->strDescription);
 
+    //Res search mode
+    step.insert("dblStartFrequency",this->dblStartFreq);
+    step.insert("dblStopFreq",this->dblStopFreq);
+    step.insert("strResEqucct",this->strResEqucct);
+    step.insert("strResSpeed",this->strResSpeed);
+    step.insert("intDeeps",this->intDeeps);
+    step.insert("strFreqUnit",this->strFreqUnit);
+    step.insert("strRUnit",this->strRUnit);
+    step.insert("strCUnit",this->strCUnit);
+    step.insert("strLUnit",this->strLUnit);
+    step.insert("strQUnit",this->strQUnit);
+    step.insert("lmFreq",this->lmFreq.toString());
+    step.insert("lmR",this->lmR.toString());
+    step.insert("lmC",this->lmC.toString());
+    step.insert("lmL",this->lmL.toString());
+    step.insert("lmQ",this->lmQ.toString());
+    step.insert("blFreq",this->blFreq);
+    step.insert("blR",this->blR);
+    step.insert("blC",this->blC);
+    step.insert("blL",this->blL);
+
+
+
     QJsonDocument jsonDocument  = QJsonDocument::fromVariant(step);
 
     if(!jsonDocument.isNull())
@@ -217,8 +277,6 @@ QString cls6440MeterMode::getConditon()
     else
         return "";
 }
-
-
 
 void cls6440MeterMode::updateGPIB()
 {
@@ -347,7 +405,7 @@ void cls6440MeterMode::updateGPIB()
         updateButtons();
     }
 
-    else
+    else if(tabMeter->currentIndex()==1)
     {
         if(clsRS::getInst().gpibCommands.testMode !="RDC")
         {
@@ -404,7 +462,67 @@ void cls6440MeterMode::updateGPIB()
         clsRS::getInst().gpibCommands.biasCommand = ":MEAS:BIAS OFF";
         emit biasStatus(false);
     }
+    else //Res mode command
+    {
+        if(clsRS::getInst().gpibCommands.testMode !="RES")
+        {
+            clsRS::getInst().sendCommand(":RESO",false);
+            clsRS::getInst().gpibCommands.testMode ="RES";
+        }
 
+
+        QStringList gpibCmd;
+        QString meter=":RESO:";
+
+        gpibCmd.append(meter+"ST "+QString::number(dblStartFreq));
+        gpibCmd.append(meter+"SP "+QString::number(dblStopFreq));
+
+        if(strResEqucct==tr("串联"))
+            gpibCmd.append(meter+"EQU-CCT "+"SER");
+        else
+            gpibCmd.append(meter+"EQU-CCT "+"PAR");
+
+        if(speed==tr("最快"))
+            gpibCmd.append(meter+"SPEED "+"MAX");
+        else if(speed==tr("快速"))
+            gpibCmd.append(meter+"SPEED "+"FAST");
+        else if(speed==tr("中速"))
+            gpibCmd.append(meter+"SPEED "+"MED");
+        else if(speed==tr("慢速"))
+            gpibCmd.append(meter+"SPEED "+"SLOW");
+        else
+            gpibCmd.append(meter+"SPEED "+"MAX");
+
+        gpibCmd.append(meter+"EXTRP ON");
+        gpibCmd.append(meter+"DEPTH "+QString::number(intDeeps));
+
+        if(clsRS::getInst().gpibCommands.gpibRes.length()!= gpibCmd.length())
+        {
+            clsRS::getInst().gpibCommands.gpibRes.clear();
+
+            for(int i=0; i< gpibCmd.length();i++)
+            {
+                clsRS::getInst().sendCommand(gpibCmd.at(i),false);
+                UserfulFunctions::sleepMs(50);
+
+            }
+        }
+        else
+        {
+            for(int i=0; i< gpibCmd.length();i++)
+            {
+                if(clsRS::getInst().gpibCommands.gpibRes.at(i)!= gpibCmd.at(i))
+                {
+                    clsRS::getInst().sendCommand(gpibCmd.at(i),false);
+                    UserfulFunctions::sleepMs(50);
+                }
+            }
+        }
+
+        clsRS::getInst().gpibCommands.gpibRes = gpibCmd;
+
+
+    }
 }
 
 bool cls6440MeterMode::getTotalStatus()
@@ -415,12 +533,14 @@ bool cls6440MeterMode::getTotalStatus()
     {
         return lmRdc.comparaValue(dblRdc);
     }
+    else if(tabMeter->currentIndex()==0)
+    {
+        tmp = lmMajor.comparaValue(this->dblItem1);
+        if(grpMinor->isChecked())
+            tmp = tmp && lmMinor.comparaValue(dblItem2);
 
-    tmp = lmMajor.comparaValue(this->dblItem1);
-    if(grpMinor->isChecked())
-        tmp = tmp && lmMinor.comparaValue(dblItem2);
-
-    return tmp;
+        return tmp;
+    }
 
 }
 
@@ -433,6 +553,19 @@ int cls6440MeterMode::getCountTestItems()
     else if(tabMeter->currentIndex()==1)
     {
         return 1;
+    }
+    else if(tabMeter->currentIndex()==2)
+    {
+        int testItemCount=0;
+        if(blFreq)
+            testItemCount++;
+        if(blL)
+            testItemCount++;
+        if(blR)
+            testItemCount++;
+        if(blC)
+            testItemCount++;
+        return testItemCount;
     }
     else
         return 0;
@@ -453,6 +586,21 @@ QString cls6440MeterMode::getItem(int i)
         else
             return item1;
     }
+    else if(tabMeter->currentIndex()==2)
+    {
+        QStringList items;
+        if(blFreq)
+            items.append("SRF");
+        if(blL)
+            items.append("L");
+        if(blR)
+            items.append("R");
+        if(blC)
+            items.append("C");
+
+        return items.at(i);
+    }
+    return "";
 }
 
 QString cls6440MeterMode::getSuffix(int i)
@@ -461,7 +609,7 @@ QString cls6440MeterMode::getSuffix(int i)
     {
         return rdcUnit;
     }
-    else
+    else if(tabMeter->currentIndex()==0)
     {
         if(grpMinor->isChecked())
         {
@@ -472,6 +620,20 @@ QString cls6440MeterMode::getSuffix(int i)
         else
             return majorUnit;
     }
+    else if(tabMeter->currentIndex()==2)
+    {
+        QStringList items;
+        if(blFreq)
+            items.append(strFreqUnit);
+        if(blL)
+            items.append(strLUnit);
+        if(blR)
+            items.append(strRUnit);
+        if(blC)
+            items.append(strCUnit);
+        return items.at(i);
+    }
+    return "";
 }
 
 QString cls6440MeterMode::getFreq()
@@ -507,8 +669,23 @@ double cls6440MeterMode::getResult(int i)
         else
             return dblItem1;
     }
-    else
+    else if(tabMeter->currentIndex()==1)
         return dblRdc;
+    else if(tabMeter->currentIndex()==2)
+    {
+        QList<double> tmp;
+        if(blFreq)
+            tmp.append(dblFreqRes);
+        if(blL)
+            tmp.append(dblLRes);
+        if(blR)
+            tmp.append(dblRRes);
+        if(blC)
+            tmp.append(dblCRes);
+        return tmp.at(i);
+
+    }
+
 
 }
 
@@ -526,6 +703,20 @@ clsMeterLimit cls6440MeterMode::getLimit(int i)
         }
         else
             return lmMajor;
+    }
+    else if(tabMeter->currentIndex()==2)
+    {
+        QList<clsMeterLimit> tmp;
+        if(blFreq)
+            tmp.append(lmFreq);
+        if(blL)
+            tmp.append(lmL);
+        if(blR)
+            tmp.append(lmR);
+        if(blC)
+            tmp.append(lmC);
+
+        return tmp.at(i);
     }
 }
 
@@ -554,13 +745,21 @@ QString cls6440MeterMode::getBrief()
         tmp.append(btnBiasSource->text()+",");
         tmp.append(btnBiasStatus->text());
     }
-    else
+    else if(tabMeter->currentIndex()==1)
     {
         tmp.append("Rdc");
         tmp.append(",");
         tmp.append(btnRdcLevel->text()+",");
         tmp.append(btnRdcSpeed->text()+",");
         tmp.append(btnRdcRange->text());
+    }
+    else
+    {
+        tmp.append("Res");
+        tmp.append(",ST:");
+        tmp.append(btnStart->text()+",SP:");
+        tmp.append(btnStop->text()+",Type");
+        tmp.append(btnResEqucct->text());
     }
 
     return tmp;
@@ -601,11 +800,15 @@ void cls6440MeterMode::turnOffBias()
 
 void cls6440MeterMode::singleTrig()
 {
-    QString trigCmd =":MEAS:TRIG";
+    QString trigCmd;
+    if(tabMeter->currentIndex()==0 || tabMeter->currentIndex()==1)
+        trigCmd=":MEAS:TRIG";
+    else if(tabMeter->currentIndex()==2)
+        trigCmd =":RESO:TRIG";
 
     QString strRes = clsRS::getInst().sendCommand(trigCmd,true);
 
-    strRes+=",,";
+    strRes+=",,,,,";
 
     QStringList lsRes = strRes.split(",");
 
@@ -625,13 +828,48 @@ void cls6440MeterMode::singleTrig()
 
         emit signalTestResult(tmp);
     }
-    else
+    else if(tabMeter->currentIndex()==1)
     {
         dblRdc = lsRes.at(0).toDouble();
         QString tmp = getItemShow("RDC",dblRdc,lmRdc,rdcUnit);
         emit signalTestResult(tmp);
     }
+    else if(tabMeter->currentIndex()==2)
+    {
+        dblFreqRes = lsRes.at(0).toDouble();
+        if(strResEqucct==tr("串联"))
+            dblLRes = lsRes.at(1).toDouble();
+        else
+            dblCRes = lsRes.at(1).toDouble();
+        dblRRes=lsRes.at(2).toDouble();
 
+        QString tmp;
+        for(int i=0; i< getCountTestItems(); i++)
+        {
+            clsMeterLimit st = getLimit(i);
+            tmp += getItemShow(getItem(i),getResult(i),st,getResUnit(i));
+            if(i< getCountTestItems()-1)
+                tmp+="|";
+        }
+         emit signalTestResult(tmp);
+    }
+
+
+}
+
+QString cls6440MeterMode::getResUnit(int i)
+{
+    QStringList tmp;
+    if(blFreq)
+        tmp.append(strFreqUnit);
+    if(blL)
+        tmp.append(strLUnit);
+    if(blR)
+        tmp.append(strRUnit);
+    if(blC)
+        tmp.append(strCUnit);
+
+    return tmp.at(i);
 }
 
 QString cls6440MeterMode::getItemShow(const QString &item, const double &value , clsMeterLimit &limit, const QString &/*suffix*/)
@@ -662,20 +900,33 @@ QString cls6440MeterMode::getItemShow(const QString &item, const double &value ,
 
 void cls6440MeterMode::repetiveTrig()
 {
-    QString trigCmd =":MEAS:TRIG";
+    QString trigCmd;
+    if(tabMeter->currentIndex()==0 || tabMeter->currentIndex()==1)
+        trigCmd=":MEAS:TRIG";
+    else if(tabMeter->currentIndex()==2)
+        trigCmd =":RESO:TRIG";
 
     QString strRes = clsRS::getInst().sendCommand(trigCmd,true);
 
-    strRes+=",,";
+    strRes+=",,,,";
     QStringList lsRes = strRes.split(",");
     if(tabMeter->currentIndex()==0)
     {
         dblItem1 = lsRes.at(0).toDouble();
         dblItem2 = lsRes.at(1).toDouble();
     }
-    else
+    else  if(tabMeter->currentIndex()==1)
     {
         dblRdc = lsRes.at(0).toDouble();
+    }
+    else if(tabMeter->currentIndex()==2)
+    {
+        dblFreqRes = lsRes.at(0).toDouble();
+        if(strResEqucct==tr("串联"))
+            dblLRes = lsRes.at(1).toDouble();
+        else
+            dblCRes = lsRes.at(1).toDouble();
+        dblRRes=lsRes.at(2).toDouble();
     }
 
 }
@@ -765,6 +1016,47 @@ void cls6440MeterMode::updateButtons()
     btnRdcRange->setText(this->rangeRdc);
 
     this->txtDescription->setText(this->strDescription);
+
+    //Res Search
+    dt.setData(dblStartFreq);
+    btnStart->setText(dt.formateToString(6)+"Hz");
+    dt.setData(dblStopFreq);
+    btnStop->setText(dt.formateToString(6)+"Hz");
+    btnResEqucct->setText(strResEqucct);
+
+    if(strResEqucct==tr("串联"))
+    {
+        grpC->setVisible(false);
+        grpL->setVisible(true);
+        blC=false;
+    }
+    else
+    {
+        grpL->setVisible(false);
+        grpC->setVisible(true);
+        blL = false;
+    }
+
+    grpFreq->setChecked(blFreq);
+    grpL->setChecked(blL);
+    grpR->setChecked(blR);
+    grpC->setChecked(blC);
+
+
+    btnResSpeed->setText(strResSpeed);
+    btnDepth->setText(QString::number(intDeeps));
+
+    lblFreqLimit->setText(lmFreq.showLimits("Hz"));
+    lblRLimit->setText(lmR.showLimits(UserfulFunctions::getSuffix("R")));
+    lblCLimit->setText(lmR.showLimits(UserfulFunctions::getSuffix("C")));
+    lblLLimit->setText(lmR.showLimits(UserfulFunctions::getSuffix("L")));
+
+    btnFreqUnit->setText(strFreqUnit+"Hz");
+    btnLUnit->setText(strLUnit+UserfulFunctions::getSuffix("L"));
+    btnCUnit->setText(strCUnit+UserfulFunctions::getSuffix("C"));
+    btnRUnit->setText(strRUnit+UserfulFunctions::getSuffix("R"));
+
+
 }
 
 
@@ -1019,5 +1311,217 @@ void cls6440MeterMode::on_txtDescription_textChanged(const QString &arg1)
 void cls6440MeterMode::on_grpMinor_clicked(bool checked)
 {
     enableMinor= checked;
+    updateButtons();
+}
+
+void cls6440MeterMode::on_btnStart_clicked()
+{
+    NumberInput *dlg = new NumberInput(this);
+    dlg->setWindowTitle(tr("输入开始频率"));
+
+    doubleType dt;
+    dt.setData(this->dblStartFreq);
+
+    double tmp;
+    QString suffix;
+
+    dt.getDataAndUnit(tmp,suffix);
+    dlg->setValueAndSuffix(tmp,suffix);
+
+
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        tmp = dlg->getNumber();
+
+        tmp = tmp>getMaxFreq()? getMaxFreq(): tmp;
+        tmp = tmp<20.0? 20: tmp;
+
+        this->dblStartFreq = tmp;
+        updateButtons();
+    }
+
+}
+
+void cls6440MeterMode::on_btnStop_clicked()
+{
+    NumberInput *dlg = new NumberInput(this);
+    dlg->setWindowTitle(tr("输入终止频率"));
+
+    doubleType dt;
+    dt.setData(this->dblStopFreq);
+
+    double tmp;
+    QString suffix;
+
+    dt.getDataAndUnit(tmp,suffix);
+    dlg->setValueAndSuffix(tmp,suffix);
+
+
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        tmp = dlg->getNumber();
+
+        tmp = tmp>getMaxFreq()? getMaxFreq(): tmp;
+        tmp = tmp<20.0? 20: tmp;
+
+        this->dblStopFreq = tmp;
+        updateButtons();
+    }
+
+}
+
+void cls6440MeterMode::on_btnResEqucct_clicked()
+{
+    if(this->strResEqucct ==tr("串联"))
+        this->strResEqucct = tr("并联");
+    else
+        this->strResEqucct =tr("串联") ;
+    updateButtons();
+}
+
+void cls6440MeterMode::on_btnDepth_clicked()
+{
+    NumberInput *dlg = new NumberInput;
+    dlg->setWindowTitle(tr("设定扫描深度(0-12)"));
+    dlg->setValueAndSuffix(intDeeps,"");
+
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        intDeeps = (int)dlg->getNumber();
+        intDeeps =(intDeeps<0? 0:intDeeps);
+        intDeeps =(intDeeps>12?12:intDeeps);
+        updateButtons();
+    }
+}
+
+void cls6440MeterMode::on_btnResSpeed_clicked()
+{
+    dlgSpeed *dlg=new dlgSpeed(this);
+    dlg->setWindowTitle(tr("扫描速度"));
+
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        strResSpeed=dlg->getSpeed();
+        updateButtons();
+    }
+}
+
+void cls6440MeterMode::on_btnFreqUnit_clicked()
+{
+    clsMeterUnit *dlg = new clsMeterUnit(this);
+    dlg->setItem("Frequency");
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        strFreqUnit = dlg->getSuffix();
+        updateButtons();
+    }
+}
+
+void cls6440MeterMode::on_btnRUnit_clicked()
+{
+    clsMeterUnit *dlg = new clsMeterUnit(this);
+    dlg->setItem("R");
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        strRUnit = dlg->getSuffix();
+        updateButtons();
+    }
+}
+
+void cls6440MeterMode::on_btnCUnit_clicked()
+{
+    clsMeterUnit *dlg = new clsMeterUnit(this);
+    dlg->setItem("C");
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        strCUnit = dlg->getSuffix();
+        updateButtons();
+    }
+}
+
+void cls6440MeterMode::on_btnLUnit_clicked()
+{
+    clsMeterUnit *dlg = new clsMeterUnit(this);
+    dlg->setItem("L");
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        strLUnit = dlg->getSuffix();
+        updateButtons();
+    }
+}
+
+void cls6440MeterMode::lblFreqLimit_click()
+{
+    frmSetLimit *dlg = new frmSetLimit(this);
+    dlg->setLimits(lmFreq);
+    dlg->setWindowTitle(tr("设置上下限"));
+    dlg->setItem("Frequency");
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        lmFreq = dlg->getMeterLimit();
+        updateButtons();
+    }
+}
+
+void cls6440MeterMode::lblLLimit_click()
+{
+    frmSetLimit *dlg = new frmSetLimit(this);
+    dlg->setLimits(lmL);
+    dlg->setWindowTitle(tr("设置上下限"));
+    dlg->setItem("L");
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        lmL = dlg->getMeterLimit();
+        updateButtons();
+    }
+}
+
+void cls6440MeterMode::lblCLimit_click()
+{
+    frmSetLimit *dlg = new frmSetLimit(this);
+    dlg->setLimits(lmC);
+    dlg->setWindowTitle(tr("设置上下限"));
+    dlg->setItem("C");
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        lmC = dlg->getMeterLimit();
+        updateButtons();
+    }
+}
+
+void cls6440MeterMode::lblRLimit_click()
+{
+    frmSetLimit *dlg = new frmSetLimit(this);
+    dlg->setLimits(lmR);
+    dlg->setWindowTitle(tr("设置上下限"));
+    dlg->setItem("R");
+    if(dlg->exec()==QDialog::Accepted)
+    {
+        lmR = dlg->getMeterLimit();
+        updateButtons();
+    }
+}
+
+void cls6440MeterMode::on_grpFreq_toggled(bool arg1)
+{
+    blFreq = arg1;
+    updateButtons();
+}
+
+void cls6440MeterMode::on_grpR_toggled(bool arg1)
+{
+    blR=arg1;
+    updateButtons();
+}
+
+void cls6440MeterMode::on_grpC_toggled(bool arg1)
+{
+    blC=arg1;
+    updateButtons();
+}
+
+void cls6440MeterMode::on_grpL_toggled(bool arg1)
+{
+    blL = arg1;
     updateButtons();
 }

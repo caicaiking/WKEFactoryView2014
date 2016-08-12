@@ -56,6 +56,12 @@ void clsSettings::readSetting(QString strPath, QColor &value)
     value =  configIniWrite->value(strPath).value<QColor>();
 }
 
+QString clsSettings::getSettingsFileName()
+{
+    QString settingsFilePath =QString("./Settings_%1.ini").arg(UserfulFunctions::getLanguage());
+    return settingsFilePath;
+}
+
 void clsSettings::readSetting(QString strPath, QString & value)
 {
     value =configIniWrite->value(strPath).toString();
