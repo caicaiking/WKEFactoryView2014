@@ -8,6 +8,9 @@ clsUsb::clsUsb()
 
 bool clsUsb::init()
 {
+    if(blInit)
+        return blInit;
+
     /* Begin by initializing the system*/
     status = viOpenDefaultRM(&defaultRM);
     if(status < VI_SUCCESS)
@@ -112,6 +115,7 @@ QString clsUsb::sendCommand(QString strCommand, bool hasReturn, int /*waitDelay*
 
 void clsUsb::disConnect()
 {
+    blInit=false;
     viClose(instr);
        qDebug("Usb Disconnected!");
 }
