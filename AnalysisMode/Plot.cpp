@@ -119,6 +119,7 @@ Plot::Plot(QWidget *parent) :
     setTraceA(QString("Z"));
     setTraceB(QString("A"));
     setXTrace(QString(tr("频率")));
+    showPercetage=false;
 }
 
 

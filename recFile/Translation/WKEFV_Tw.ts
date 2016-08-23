@@ -820,18 +820,18 @@
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="184"/>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="760"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="35"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="271"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="383"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="36"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="272"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="384"/>
         <source>最快</source>
         <translation type="unfinished">最快</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="209"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="36"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="250"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="960"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="963"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="37"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="251"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="970"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="973"/>
         <source>串联</source>
         <translation type="unfinished">串聯</translation>
     </message>
@@ -847,9 +847,9 @@
     </message>
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="260"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="42"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="293"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1118"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="43"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="294"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1128"/>
         <source>Norm</source>
         <translation type="unfinished"></translation>
     </message>
@@ -866,7 +866,7 @@
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="302"/>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="378"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="44"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="45"/>
         <source>OFF</source>
         <translation type="unfinished"></translation>
     </message>
@@ -958,8 +958,8 @@
     </message>
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="684"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="672"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="741"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="682"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="751"/>
         <source>---</source>
         <translation type="unfinished"></translation>
     </message>
@@ -975,10 +975,10 @@
     </message>
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="735"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="33"/>
         <location filename="../../MeterMode/cls3260MeterMode.cpp" line="34"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="266"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="394"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="35"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="267"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="395"/>
         <source>自动</source>
         <translation type="unfinished">自動</translation>
     </message>
@@ -1003,128 +1003,128 @@
         <translation type="unfinished">描述：</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="25"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="26"/>
         <source>空白</source>
         <translation type="unfinished">空白</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="97"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="118"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="98"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="119"/>
         <source>已经探测到产品</source>
         <translation type="unfinished">已經探測到產品</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="130"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="131"/>
         <source>正在探测产品</source>
         <translation type="unfinished">正在探測產品</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="273"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="385"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="274"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="386"/>
         <source>快速</source>
         <translation type="unfinished">快速</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="275"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="387"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="276"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="388"/>
         <source>中速</source>
         <translation type="unfinished">中速</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="277"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="389"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="278"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="390"/>
         <source>慢速</source>
         <translation type="unfinished">慢速</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="637"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="716"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="647"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="726"/>
         <source>bias持续</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="669"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="738"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="679"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="748"/>
         <source>bias休息</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="693"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="703"/>
         <source>PASS</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="693"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="703"/>
         <source>FAIL</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="750"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="760"/>
         <source>设置主参数上下限</source>
         <translation type="unfinished">設置主參數上下限</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="763"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="773"/>
         <source>设置副参数上下限</source>
         <translation type="unfinished">設置副參數上下限</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="777"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="787"/>
         <source>设置Rdc上下限</source>
         <translation type="unfinished">設置Rdc上下限</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="635"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="666"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="714"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="735"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="811"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="645"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="676"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="724"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="745"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="821"/>
         <source>开</source>
         <translation type="unfinished">開</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="811"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="821"/>
         <source>关</source>
         <translation type="unfinished">關</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="887"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="897"/>
         <source>输入测试频率</source>
         <translation type="unfinished">輸入測試頻率</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="923"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="933"/>
         <source>输入测试电平</source>
         <translation type="unfinished">輸入測試電平</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="961"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="971"/>
         <source>并联</source>
         <translation type="unfinished">並聯</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="973"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1047"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="983"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1057"/>
         <source>设置速度</source>
         <translation type="unfinished">設置速度</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="987"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="997"/>
         <source>设置测试项目1</source>
         <translation type="unfinished">設置測試項目1</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1022"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1032"/>
         <source>设置测试项目2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1035"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1045"/>
         <source>设置档位</source>
         <translation type="unfinished">設置檔位</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1112"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1122"/>
         <source>设定测试Bias的值</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4211,8 +4211,23 @@
         <translation type="unfinished">關閉</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSampleTest.ui" line="132"/>
+        <location filename="../../AnalysisMode/clsSampleTest.ui" line="116"/>
+        <source>Esc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsSampleTest.ui" line="135"/>
         <source>测试</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsSampleTest.ui" line="157"/>
+        <source>确定</source>
+        <translation type="unfinished">確定</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsSampleTest.ui" line="160"/>
+        <source>Return</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -7477,32 +7492,32 @@ ON</source>
         <translation>開路校準</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="86"/>
+        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="93"/>
         <source>开路校准成功，校准时间：%1 %2</source>
         <translation>開路校準成功，校準時間：%1 %2</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="92"/>
+        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="99"/>
         <source>短路校准成功。校准时间：%1 %2</source>
         <translation>短路校準成功。校準時間：%1 %2</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="101"/>
+        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="108"/>
         <source>开路校准失败。</source>
         <translation>開路校準失敗。</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="105"/>
+        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="112"/>
         <source>短路校准失败。</source>
         <translation>短路校準失敗。</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="120"/>
+        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="127"/>
         <source>请将夹具短路，然后点击确定</source>
         <translation>請將夾具短路，然後點擊確定</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="120"/>
+        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="127"/>
         <source>短路校准</source>
         <translation>短路校準</translation>
     </message>

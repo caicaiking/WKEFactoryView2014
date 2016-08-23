@@ -65,9 +65,7 @@ private slots:
     void showCurrentMarkerMsg(int, QString);
     void on_btnMaterialSettings_clicked();
     void on_btnBiasSettings_clicked();
-
     void on_btnContactTest_clicked();
-
     void on_btnOpenPercentage_toggled(bool checked);
 
 private:

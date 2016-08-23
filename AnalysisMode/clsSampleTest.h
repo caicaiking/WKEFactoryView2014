@@ -16,6 +16,8 @@ private slots:
 
     void on_btnTrig_clicked();
 
+    void on_btnOk_clicked();
+
 private:
     WKEInstrument *meter;
 };

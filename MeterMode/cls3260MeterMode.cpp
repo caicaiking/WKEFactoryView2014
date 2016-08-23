@@ -11,6 +11,7 @@
 #include "NumberInput.h"
 #include "wk6500Range.h"
 #include "dlgSpeed.h"
+#include "cls3260Calibration.h"
 #include "cls6440Calibration.h"
 #include <QJsonDocument>
 cls3260MeterMode::cls3260MeterMode(WKEMeterMode *parent) :
@@ -556,8 +557,17 @@ clsMeterLimit cls3260MeterMode::getLimit(int i)
 
 void cls3260MeterMode::calibration()
 {
-    cls6440Calibration *dlg = new cls6440Calibration(this);
-    dlg->exec();
+
+    if(clsRS::getInst().meterSeries=="3260")
+    {
+        cls3260Calibration *dlg = new cls3260Calibration(this);
+        dlg->exec();
+    }
+    else
+    {
+        cls6440Calibration *dlg = new cls6440Calibration(this);
+        dlg->exec();
+    }
 }
 
 QString cls3260MeterMode::getBrief()
