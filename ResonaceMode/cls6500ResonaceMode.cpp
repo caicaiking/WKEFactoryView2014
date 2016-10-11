@@ -65,7 +65,7 @@ void cls6500ResonaceMode::setEqucct(QString value)
     }
 
     QString gpibCmd=QString("%1EQU-CCT %2").arg(RESONANCE).arg(myValue);
-    qDebug()<< gpibCmd;
+    //qDebug()<< gpibCmd;
     clsRS::getInst().sendCommand(gpibCmd,false);
 }
 
@@ -83,7 +83,16 @@ void cls6500ResonaceMode::setDepth(int value)
 
 void cls6500ResonaceMode::setCheckCp(bool value)
 {
-
+    QString gpibCmd;
+    if(value)
+    {
+        gpibCmd=QString("%1ENABLE-CP %2").arg(RESONANCE).arg(1);
+    }
+    else
+    {
+        gpibCmd=QString("%1ENABLE-CP %2").arg(RESONANCE).arg(0);
+    }
+    clsRS::getInst().sendCommand(gpibCmd,false);
 }
 
 
@@ -139,12 +148,15 @@ int cls6500ResonaceMode::getDepth()
 
 bool cls6500ResonaceMode::getCheckCp()
 {
+    QString gpibCmd=QString("%1ENABLE-CP?").arg(RESONANCE);
+    QString strRet = clsRS::getInst().sendCommand(gpibCmd,true);
 
+    return (strRet =="1"?true:false);
 }
 
 QString cls6500ResonaceMode::training()
 {
-    QString strReturn =clsRS::getInst().sendCommand(":METER:RESO:TRAIN",true);
+    QString strReturn =clsRS::getInst().sendCommand(":METER:RESO:TRAIN",true,10);
     return strReturn;
 }
 
@@ -168,4 +180,28 @@ QString cls6500ResonaceMode::getEqucct()
         break;
     }
     return "";
+}
+
+QString cls6500ResonaceMode::getFmFn()
+{
+    QString strReturn =clsRS::getInst().sendCommand(":METER:RESO:FM-FN?",true);
+    return strReturn;
+}
+
+QString cls6500ResonaceMode::getFsFp()
+{
+    QString strReturn =clsRS::getInst().sendCommand(":METER:RESO:FS-FP?",true);
+    return strReturn;
+}
+
+double cls6500ResonaceMode::getCp1K()
+{
+    QString strReturn =clsRS::getInst().sendCommand(":METER:RESO:CP-1K?",true);
+    return strReturn.toDouble();
+}
+
+double cls6500ResonaceMode::getKeff()
+{
+    QString strReturn =clsRS::getInst().sendCommand(":METER:RESO:KEFF?",true);
+    return strReturn.toDouble();
 }

@@ -22,6 +22,12 @@ public:
     bool getCheckCp();
     QString training();
     QString getEqucct();
+
+    virtual QString getFmFn();
+    virtual QString getFsFp();
+    virtual double getCp1K();
+    virtual double getKeff();
+
 signals:
 
 public slots:
