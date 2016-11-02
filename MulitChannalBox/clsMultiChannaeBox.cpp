@@ -10,7 +10,7 @@
 #include "clsMultModeMeterUi.h"
 #include <QFile>
 #include <QDir>
-#include <Quazip/JlCompress.h>
+#include <JlCompress.h>
 #include <QFileDialog>
 #include "clsChennalSelect.h"
 #include <QTime>

@@ -46,7 +46,7 @@ private slots:
 
     void on_btnSwitch_clicked();
 
-    void on_btnAppMode_clicked();
+//    void on_btnAppMode_clicked();
 
 protected:
     void closeEvent(QCloseEvent *);

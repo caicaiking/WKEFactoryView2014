@@ -2,11 +2,11 @@
 #define USERFULFUNCTIONS_H
 #include <QMap>
 
-#include <Qwt/qwt_plot_curve.h>
+#include <qwt_plot_curve.h>
 class QStringList;
 class QString;
 #include "Globle.h"
-#include <Qwt/qwt.h>
+#include <qwt.h>
 
 enum TrigMode
 {

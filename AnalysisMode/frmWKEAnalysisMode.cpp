@@ -1,9 +1,9 @@
 #include "frmWKEAnalysisMode.h"
 #include <QBoxLayout>
 #include <QFileDialog>
-#include <Qwt/qwt_plot_renderer.h>
+#include <qwt_plot_renderer.h>
 #include <QImageWriter>
-#include "Qwt/qwt_picker_machine.h"
+#include "qwt_picker_machine.h"
 #include "frmPeakSearch.h"
 #include "clsRuningSettings.h"
 #include "frmTraceSetup.h"

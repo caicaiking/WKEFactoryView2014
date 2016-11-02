@@ -5,7 +5,7 @@
 #include "doubleType.h"
 #include <QObject>
 #include <QList>
-#include "Qwt/qwt_plot_curve.h"
+#include "qwt_plot_curve.h"
 enum SweepType
 {
     Time=0,Frequency=1,BiasV=2,BiasA=3,levelV=4,levelA=5,BiasExtV=6

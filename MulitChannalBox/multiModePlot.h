@@ -3,10 +3,10 @@
 
 #include <QObject>
 #include <QWidget>
-#include <Qwt/qwt_plot.h>
-#include <Qwt/qwt_plot_curve.h>
+#include <qwt_plot.h>
+#include <qwt_plot_curve.h>
 #include <QVector>
-#include <Qwt/qwt_symbol.h>
+#include <qwt_symbol.h>
 class TestCurve
 {
 public:

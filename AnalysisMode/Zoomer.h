@@ -1,7 +1,7 @@
 #ifndef ZOOMER_H
 #define ZOOMER_H
-#include "Qwt/qwt_plot_zoomer.h"
-#include "Qwt/qwt_plot_canvas.h"
+#include "qwt_plot_zoomer.h"
+#include "qwt_plot_canvas.h"
 class Zoomer: public QwtPlotZoomer
 {
 public:

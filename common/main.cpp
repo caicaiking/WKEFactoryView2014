@@ -1,6 +1,5 @@
 #include <QApplication>
 #include <QTextCodec>
-#include "clsAppMode.h"
 #include <QSplashScreen>
 #include <QDebug>
 #include <QDesktopWidget>
@@ -130,13 +129,6 @@ RESELECT:
         {
             clsMultiChannaeBox multiChannel;
             multiChannel.show();
-            a.exec();
-            goto RESELECT;
-        }
-        else if(w.getMode() == AppMode)
-        {
-            clsAppMode appMode;
-            appMode.show();
             a.exec();
             goto RESELECT;
         }
