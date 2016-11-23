@@ -344,6 +344,7 @@ void clsMultiChannaeBox::on_btnSignleTest_clicked()
     btnSignleTest->setText(tr("停止\n测试"));
     btnSignleTest->setIcon(QIcon(":/Icons/stop.png"));
 
+    //产品测试模式
     if(dispStactWindow->currentIndex()==0)
     {
         setIdeal();
@@ -357,7 +358,7 @@ void clsMultiChannaeBox::on_btnSignleTest_clicked()
             }
         }
     }
-    else
+    else //这里面是曲线记录模式
     {
         double count=0;
         plotWidget->clearData(); //清除所有数据
@@ -388,6 +389,8 @@ void clsMultiChannaeBox::on_btnSignleTest_clicked()
                     clsConnectSWBox::Instance()->sendCommand(ch.toInt()-1);
                     UserfulFunctions::sleepMs(this->switchDelay);
                     qApp->processEvents();
+                    meter->setChannel(ch.toInt());
+                    meter->setUseLoad(isUseLoadValue); //以后再说
                     meter->trig();
 
                     QList<double> tmpRes;
@@ -425,7 +428,7 @@ void clsMultiChannaeBox::keyPressEvent(QKeyEvent *event)
 {
     if(event->key() == Qt::Key_Enter || event->key() ==Qt::Key_Return)
     {
-       // btnSignleTest->clicked();
+        // btnSignleTest->clicked();
     }
     else
     {
