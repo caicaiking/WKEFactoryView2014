@@ -77,6 +77,13 @@ void wk4300Calibration::showProgress(int i)
         myProgressBar->setValue(myProgressBar->value()+1);
     }
 
+    if(clsRS::getInst().getConnectionType().toUpper()=="USB")
+    {
+        UserfulFunctions::sleepMs(2000);
+        clsRS::getInst().disConnect();
+    }
+
+
     QString calRes = clsRS::getInst().sendCommand(":CAL:RES?",true);
 
     if(calRes.toInt()==1)

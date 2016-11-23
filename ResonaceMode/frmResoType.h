@@ -20,6 +20,7 @@ private slots:
 
 private:
     QString res;
+    bool getResOption();
 };
 
 #endif // FRMRESOTYPE_H

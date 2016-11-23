@@ -15,6 +15,7 @@ clsSampleTest::clsSampleTest(WKEInstrument *value,QWidget *parent) :
 
 void clsSampleTest::on_btnClose_clicked()
 {
+    this->reject();
     this->close();
 }
 
@@ -38,4 +39,9 @@ void clsSampleTest::on_btnTrig_clicked()
     btnTrig->setEnabled(true);
     btnTrig->setFocus();
 
+}
+
+void clsSampleTest::on_btnOk_clicked()
+{
+    this->accept();
 }

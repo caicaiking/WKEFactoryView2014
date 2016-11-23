@@ -1,10 +1,10 @@
 #ifndef PLOT_H
 #define PLOT_H
 #include "Globle.h"
-#include <Qwt/qwt_plot.h>
+#include <qwt_plot.h>
 #include <QWidget>
 #include <clsRefTraceProperty.h>
-#include <Qwt/qwt_plot_curve.h>
+#include <qwt_plot_curve.h>
 #include "clsCurveLimit.h"
 
 

@@ -346,8 +346,8 @@ void frmSelectConnection::on_btnSwitch_clicked()
     this->reject();
 }
 
-void frmSelectConnection::on_btnAppMode_clicked()
-{
-    this->mode = AppMode;
-    this->accept();
-}
+//void frmSelectConnection::on_btnAppMode_clicked()
+//{
+//    this->mode = AppMode;
+//    this->accept();
+//}

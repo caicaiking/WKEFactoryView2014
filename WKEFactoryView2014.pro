@@ -4,14 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network serialport xml sql ftp
+QT       += core gui network serialport xml sql
 RC_FILE  =Icon.rc
-
-
-
-
- LIBS += dog_windows_3149756.dll
-
 
 CODECFORTR = UTF-8
 
@@ -23,19 +17,20 @@ INCLUDEPATH +=connections \
              saftyDog \
              ResonaceMode \
              MulitChannalBox \
-             AppMode
-
-
-
+             QwtInclude \
+             quazip\Include
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = WKEFactoryView2014
+DESTDIR =$$PWD/libs/
 TEMPLATE = app
 
-LIBS    += gpib488.obj \
-           visa.lib \
-           AduHid.lib
+LIBS    += $$PWD/libs/gpib488.obj \
+           $$PWD/libs/visa.lib \
+           $$PWD/libs/AduHid.lib \
+           $$PWD/libs/AduHid.dll \
+           $$PWD/libs/dog_windows_3149756.dll
 
 
 SOURCES +=\
@@ -150,9 +145,6 @@ SOURCES +=\
     MeterMode/cls3260MeterMode.cpp \
     MeterMode/cls3260majorfunction.cpp \
     MeterMode/cls3260minorfunction.cpp \
-    AppMode/clsAppMode.cpp \
-    AppMode/clsDownLoad.cpp \
-    AppMode/clsMyPushButton.cpp \
     MeterMode/clsStatistics.cpp \
     MeterMode/clsMyBarChartPlot.cpp \
     MeterMode/PlotDataAnlysis.cpp \
@@ -167,11 +159,6 @@ SOURCES +=\
     AnalysisMode/clsBiasAOperation.cpp \
     AnalysisMode/clsSampleTest.cpp
 
-
-
-
-
-
 RESOURCES += \
     recFile/myRes.qrc
 
@@ -179,20 +166,14 @@ OTHER_FILES += \
     connections/ReadMe.txt \
     AnalysisMode/ProgramDescription.txt
 
-# QWT 脙茠脗漏脙拧脗炉脙鈥毭偮冣劉芒鈧∶兟⒚⑩€毬偮姑冣€毭偮兤捗偮冣€毭偮疵冣€毭偮┟兤捗偮┟兣∶⑩偓 � #######################################################
+
 DEFINES    += QT_DLL QWT_DLL
 
-win32:CONFIG(release, debug|release): LIBS += -L$(QTDIR)/bin -lqwt
-else:win32:CONFIG(debug, debug|release): LIBS += -L$(QTDIR)/bin  -lqwtd
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/QwtLib -lqwt
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/QwtLib  -lqwtd
 
-#######################################################################
+LIBS += -L$$PWD/quazip/ -lquazip
 
-#脙茠脗漏脙拧芒鈧脙拧脗漏脙鈩⒚⑩偓隆脙鈥毭偮冣€毭偮兤捗偮冣€毭偮济兟⒚⑩€毬偮懊兤捗偮┟兣∶嬧€犆兟⒚⑩€毬吢∶冣劉芒鈧∶兟⒚⑩€毬偮好冣€毭偮γ冣劉脣鈥犆冣€毭偮冣€毭偮⒚兤捗偮┟兣∶偮冣€毭偮冣劉芒鈧∶兟⒚⑩€毬偮姑冣€毭偮冣劉芒鈧∶冣€毭偮冣€毭偮┟兤捗偮┟兣∶嬇撁冣€毭偮冣劉芒鈧脙鈥毭偮久兟⒚⑩偓拧脗卢脙鈩⒚嬧€犆兟⒚⑩€毬嬇撁冣€毭偮济兤捗偮┟兣∶嬇撁兯溍⑩偓潞脙鈩⒚⑩偓娄脙鈥犆⑩偓鈩⒚冣€毭偮ッ兤捗偮冣€毭偮懊################################################
-
-LIBS += -L $(QTDIR)/bin -lquazip
-
-#######################################################################
-RESOURCES +=
 
 QT+=axcontainer
 
@@ -328,9 +309,6 @@ HEADERS += \
     MeterMode/cls3260MeterMode.h \
     MeterMode/cls3260majorfunction.h \
     MeterMode/cls3260minorfunction.h \
-    AppMode/clsAppMode.h \
-    AppMode/clsDownLoad.h \
-    AppMode/clsMyPushButton.h \
     MeterMode/clsStatistics.h \
     MeterMode/clsMyBarChartPlot.h \
     MeterMode/PlotDataAnlysis.h \
@@ -409,9 +387,6 @@ FORMS += \
     MeterMode/cls3260MeterMode.ui \
     MeterMode/cls3260majorfunction.ui \
     MeterMode/cls3260minorfunction.ui \
-    AppMode/clsAppMode.ui \
-    AppMode/clsDownLoad.ui \
-    AppMode/clsMyPushButton.ui \
     MeterMode/clsStatistics.ui \
     AnalysisMode/clsSelectComport.ui \
     AnalysisMode/clsMaterialSettings.ui \

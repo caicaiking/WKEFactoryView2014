@@ -98,7 +98,7 @@ QString cls3260Calibration::openTrim(int type, int delay)
    if(!PopUpmessage(tr("移除夹具上的被测物品，然后点击确定！"),tr("开路校准")))
        return "";
 
-    clsRS::getInst().sendCommand(QString(":CAL:OC-TRIM %1").arg(type),false);
+    clsRS::getInst().sendCommand(QString(":CAL:OC-TRIM-P %1").arg(type),false);
 
 
     DelaySec(delay);
@@ -116,7 +116,7 @@ QString cls3260Calibration::shortTrim(int type, int delay)
     if(! PopUpmessage(tr("请将夹具短路，然后点击确定"),tr("短路校准")))
         return "";
 
-    clsRS::getInst().sendCommand(QString(":CAL:SC-TRIM %1").arg(type),false);
+    clsRS::getInst().sendCommand(QString(":CAL:SC-TRIM-P %1").arg(type),false);
     DelaySec(delay);
     if(getCalibrationRes())
         return (tr("短路校准成功。校准时间：%1 %2")

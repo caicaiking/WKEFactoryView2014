@@ -26,9 +26,10 @@ wkResonaceMode::wkResonaceMode(QWidget *parent) :
     resStop = resMode->getStop();
     resDepth = resMode->getDepth();
     resSpeed = resMode->getSpeed();
+    cpChecked = resMode->getCheckCp();
     this->updateBtn();
 
-    m1.setString("Norm,150000,142000,0,0,0");
+    m1.setString("Norm,0,0,0,0,0");
     lblLimit->setText(m1.showLimits("Hz"));
     lblLimitFafr->setText(m2.showLimits("Hz"));
     lblStatus->setStatus(IDEL);
@@ -63,6 +64,7 @@ void wkResonaceMode::updateBtn()
     btnStart->setText(dt.formateToString()+"Hz");
     dt.setData(resStop,"");
     btnStop->setText(dt.formateToString()+"Hz");
+    chkCp->setChecked(cpChecked);
     resTypeChanged(resEqucct);
 }
 
@@ -77,7 +79,6 @@ void wkResonaceMode::closeEvent(QCloseEvent *e)
 
 void wkResonaceMode::on_chkCp_toggled(bool checked)
 {
-
     this->lblCp1->setVisible(checked);
     this->lblCp->setVisible(checked);
 }
@@ -123,6 +124,9 @@ void wkResonaceMode::resTypeChanged(const QString &value)
         lblKeff1->setVisible(true);
         this->lblC0->setVisible(true);
         lblC01->setVisible(true);
+
+        lblCp->setVisible(cpChecked && chkCp->isChecked());
+        lblCp1->setVisible(cpChecked && chkCp->isChecked());
     }
     else
     {
@@ -137,6 +141,9 @@ void wkResonaceMode::resTypeChanged(const QString &value)
         lblKeff1->setVisible(false);
         this->lblC0->setVisible(false);
         lblC01->setVisible(false);
+
+        lblCp->setVisible(false);
+        lblCp1->setVisible(false);
     }
 }
 
@@ -197,7 +204,19 @@ void wkResonaceMode::on_btnStop_clicked()
 //预搜索按钮
 void wkResonaceMode::on_btnPreSearch_clicked()
 {
-    qDebug()<<"Tranning res: "<<resMode->training();
+
+    this->btnPreSearch->setEnabled(false);
+
+    int res =resMode->training().toInt();
+
+    qDebug()<<"Pre training :" << res;
+
+    if(res==1)
+        QMessageBox::information(this,tr("预搜索结果"),tr("搜索范围有效"),QMessageBox::Ok);
+    else
+        QMessageBox::warning(this,tr("预搜索结果"),tr("搜索范围无效"),QMessageBox::Ok);
+
+    this->btnPreSearch->setEnabled(true);
 }
 
 //开始搜索谐振点
@@ -214,6 +233,7 @@ void wkResonaceMode::on_btnSearch_clicked()
     lblStatus->setStatus(BUSY);
     qApp->processEvents();
     QString strRes =resMode->trig()+",,,,,,,,";
+   // qDebug()<<strRes;
     QList<double>lstRes=UserfulFunctions::resultPro(strRes);
 
     status =true;
@@ -247,6 +267,95 @@ void wkResonaceMode::on_btnSearch_clicked()
             writeData(lstRes.at(0),lstRes.at(3),lstRes.at(4),lstRes.at(5),lstRes.at(6));
         }
     }
+    else //Crystal 的结果显示
+    {
+        double fr, fa;
+        fr = lstRes.at(0);
+        fa = lstRes.at(1);
+
+        dt.setData(fr);
+        lblfr->setText(dt.formateToString(8)+"Hz");
+        dt.setData(fa);
+        lblfa->setText(dt.formateToString(8)+"Hz");
+
+        dt.setData(lstRes.at(5));
+        lblR->setText(dt.formateToString()+UserfulFunctions::getSuffix("R"));
+        dt.setData(lstRes.at(3));
+        lblC->setText(dt.formateToString()+"F");
+        dt.setData(lstRes.at(4));
+        lblL->setText(dt.formateToString()+"H");
+        dt.setData(lstRes.at(2));
+        lblC01->setText(dt.formateToString()+"F");
+        dt.setData(lstRes.at(6));
+        lblQ->setText(dt.formateWithUnit("")+"");
+        double keff = resMode->getKeff();
+        dt.setData(keff);
+        lblKeff1->setText(dt.formateToString());
+
+        double cp1=0;
+        if(chkCp->isChecked())
+        {
+            cp1=resMode->getCp1K();
+            dt.setData(cp1);
+            lblCp1->setText(dt.formateToString()+"F");
+        }
+
+        QString strFmFn = resMode->getFmFn()+",,,,,";
+        QList<double> dblFmFn = UserfulFunctions::resultPro(strFmFn);
+        dt.setData(dblFmFn.at(0));
+        lblfm->setText(dt.formateToString(8)+"Hz");
+        dt.setData(dblFmFn.at(1));
+        lblfn->setText(dt.formateToString(8)+"Hz");
+
+        QString strFsFp = resMode->getFsFp()+",,,,,";
+        QList<double> dblFsFp = UserfulFunctions::resultPro(strFsFp);
+        dt.setData(dblFsFp.at(0));
+        lblfs->setText(dt.formateToString(8)+"Hz");
+        dt.setData(dblFsFp.at(1));
+        lblfp->setText(dt.formateToString(8)+"Hz");
+
+        dt.setData(fa-fr);
+        lblfafr->setText(dt.formateToString(8)+"Hz");
+
+        if(grpLimit->isChecked() || grpFafr->isChecked())
+        {
+            bool ok=true;
+            QString tmp;
+            if(grpLimit->isChecked())
+            {
+                bool ok1 = m1.comparaValue(fr,tmp);
+                lblFrPassFail->setText(ok1?tr("Pass"):tmp);
+                ok=ok && ok1;
+            }
+            else
+                lblFrPassFail->setText("");
+
+            if(grpFafr->isChecked())
+            {
+                bool ok2 = m2.comparaValue(fa-fr,tmp);
+                lblFafrPassFail->setText(ok2?tr("Pass"):tmp);
+                ok= ok && ok2;
+            }
+            else
+                lblFafrPassFail->setText("");
+
+            status = status && ok;
+            lblStatus->setStatus(status);
+            writeData(lstRes.at(5),lstRes.at(3),lstRes.at(4),lstRes.at(2),lstRes.at(6),keff,
+                      cp1,fr,fa,dblFmFn.at(0),dblFmFn.at(1),dblFsFp.at(0),dblFsFp.at(1),
+                      fa-fr,status);
+        }
+        else
+        {
+            lblStatus->setStatus(IDEL);
+            lblFrPassFail->setText("");
+            lblFafrPassFail->setText("");
+            writeData(lstRes.at(5),lstRes.at(3),lstRes.at(4),lstRes.at(2),lstRes.at(6),keff,
+                      cp1,fr,fa,dblFmFn.at(0),dblFmFn.at(1),dblFsFp.at(0),dblFsFp.at(1),
+                      fa-fr,status);
+        }
+    }
+
 
     btnSearch->setEnabled(true);
     QTime t2 = QTime::currentTime();
@@ -281,7 +390,7 @@ void wkResonaceMode::setLimitFafr()
     if(dlg->exec()==QDialog::Accepted)
     {
         m2 = dlg->getMeterLimit();
-        lblLimitFafr->setText("fa-fr:"+m2.showLimits("Hz"));
+        lblLimitFafr->setText(m2.showLimits("Hz"));
 
     }
 }
@@ -338,9 +447,18 @@ void wkResonaceMode::writeFileHead()
 
     if(line.isEmpty())
     {
-        in<<tr("Time")<<","<<tr("Frequency") <<","
-         <<tr("C")<<","<<tr("L")<<","
-        <<tr("R")<<","<<tr("Q")<<","<<tr("Status\n");
+        if(resEqucct==tr("串联") || resEqucct==tr("并联"))
+        {
+            in<<tr("Time")<<","<<tr("Frequency") <<","
+             <<tr("C")<<","<<tr("L")<<","
+            <<tr("R")<<","<<tr("Q")<<","<<tr("Status\n");
+        }
+        else
+        {
+            in<<tr("Time")<<","<<tr("R")<<"," <<tr("C")<<","<<tr("L")<< "," <<tr("C0") <<","
+             <<tr("Q") <<","<<tr("keff") <<","<<tr("Cp@1kHz") <<","
+            <<"fr"<<","<<"fa"<<","<<"fm"<<","<<"fn"<<","<<"fs"<<","<<"fp"<<","<<"fa-fr"<<","<<tr("Status\n");
+        }
     }
 
     in.flush();
@@ -371,11 +489,55 @@ void wkResonaceMode::writeData(double freq,double c, double l, double r, double 
             .arg(QDate::currentDate().toString("yyyy-MM-dd"))
             .arg(QTime::currentTime().toString("hh:mm:ss"));
     out<<strDate<<","<<QString::number(freq)<<","
-        <<QString::number(c)<<","
-        <<QString::number(l)<<","
-        <<QString::number(r)<<","
-        <<QString::number(q)<<","
-        <<strStatus<<"\n";
+      <<QString::number(c)<<","
+     <<QString::number(l)<<","
+    <<QString::number(r)<<","
+    <<QString::number(q)<<","
+    <<strStatus<<"\n";
+
+    out.flush();
+    file.close();
+
+}
+
+void wkResonaceMode::writeData(double r, double c, double l, double C0,
+                               double q, double keff, double cp1,
+                               double fr, double fa, double fm, double fn, double fs, double fp,double fafr, bool status)
+{
+    if(strFilePath.isEmpty())
+        return;
+    QString strStatus;
+
+    strStatus =(status? tr("Pass"):tr("Fail"));
+
+
+    QFile file(strFilePath);
+    if(!file.open(QIODevice::Append|QIODevice::Text))
+    {
+        return;
+    }
+
+    QTextStream out(&file);
+
+    QString strDate = QString("%1 %2")
+            .arg(QDate::currentDate().toString("yyyy-MM-dd"))
+            .arg(QTime::currentTime().toString("hh:mm:ss"));
+    out<<strDate<<","
+      <<QString::number(r)<<","
+     <<QString::number(c)<<","
+    <<QString::number(l)<<","
+    <<QString::number(C0)<<","
+    <<QString::number(q)<<","
+    <<QString::number(keff)<<","
+    <<QString::number(cp1)<<","
+    <<QString::number(fr)<<","
+    <<QString::number(fa)<<","
+    <<QString::number(fm)<<","
+    <<QString::number(fn)<<","
+    <<QString::number(fs)<<","
+    <<QString::number(fp)<<","
+    <<QString::number(fafr)<<","
+    <<strStatus<<"\n";
 
     out.flush();
     file.close();
@@ -387,4 +549,9 @@ void wkResonaceMode::on_btnInfo_clicked()
     frmAbout dlg;
     dlg.setWindowTitle(tr("关于本软件"));
     dlg.exec();
+}
+
+void wkResonaceMode::on_chkCp_clicked()
+{
+    resMode->setCheckCp(chkCp->isChecked());
 }

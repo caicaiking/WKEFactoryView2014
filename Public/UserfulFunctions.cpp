@@ -8,7 +8,7 @@
 #include <QCoreApplication>
 #include <Plot.h>
 #include <QDebug>
-#include <Qwt/qwt_plot_curve.h>
+#include <qwt_plot_curve.h>
 #include <QMap>
 #include <QTime>
 using  std::vector;

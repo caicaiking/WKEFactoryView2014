@@ -237,8 +237,8 @@
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="33"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1009"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="21"/>
-        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="115"/>
-        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="130"/>
+        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="124"/>
+        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="139"/>
         <source>最快</source>
         <translation></translation>
     </message>
@@ -248,7 +248,7 @@
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="988"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1011"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="25"/>
-        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="118"/>
+        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="127"/>
         <source>快速</source>
         <translation></translation>
     </message>
@@ -258,7 +258,7 @@
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="990"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1013"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="29"/>
-        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="121"/>
+        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="130"/>
         <source>中速</source>
         <translation></translation>
     </message>
@@ -268,7 +268,7 @@
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="992"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1015"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="33"/>
-        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="124"/>
+        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="133"/>
         <source>慢速</source>
         <translation></translation>
     </message>
@@ -293,7 +293,7 @@
         <location filename="../../MulitChannalBox/clsDataProcess.cpp" line="86"/>
         <location filename="../../MulitChannalBox/clsDataProcess.cpp" line="87"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="50"/>
-        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="159"/>
+        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="171"/>
         <source>串联</source>
         <translation></translation>
     </message>
@@ -305,7 +305,7 @@
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="630"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="847"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="54"/>
-        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="162"/>
+        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="174"/>
         <source>并联</source>
         <translation></translation>
     </message>
@@ -342,14 +342,14 @@
         <location filename="../../MeterMode/clsMeterMode.cpp" line="561"/>
         <location filename="../../MeterMode/clsMeterModeFactory.cpp" line="32"/>
         <location filename="../../MulitChannalBox/clsMultiChannelMeterFactory.h" line="28"/>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="209"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="228"/>
         <source>WKE FactoryView 2014</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="556"/>
         <location filename="../../MeterMode/clsMeterMode.cpp" line="561"/>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="209"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="228"/>
         <source>请插入加密狗！</source>
         <translation></translation>
     </message>
@@ -599,7 +599,7 @@
     </message>
     <message>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="58"/>
-        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="165"/>
+        <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="177"/>
         <source>晶体谐振器</source>
         <translation></translation>
     </message>
@@ -812,18 +812,18 @@
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="184"/>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="760"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="35"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="271"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="383"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="36"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="272"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="384"/>
         <source>最快</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="209"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="36"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="250"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="960"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="963"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="37"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="251"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="970"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="973"/>
         <source>串联</source>
         <translation></translation>
     </message>
@@ -839,9 +839,9 @@
     </message>
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="260"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="42"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="293"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1118"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="43"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="294"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1128"/>
         <source>Norm</source>
         <translation></translation>
     </message>
@@ -858,7 +858,7 @@
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="302"/>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="378"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="44"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="45"/>
         <source>OFF</source>
         <translation></translation>
     </message>
@@ -950,8 +950,8 @@
     </message>
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="684"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="672"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="741"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="682"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="751"/>
         <source>---</source>
         <translation></translation>
     </message>
@@ -967,10 +967,10 @@
     </message>
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="735"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="33"/>
         <location filename="../../MeterMode/cls3260MeterMode.cpp" line="34"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="266"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="394"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="35"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="267"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="395"/>
         <source>自动</source>
         <translation></translation>
     </message>
@@ -995,128 +995,128 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="25"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="26"/>
         <source>空白</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="97"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="118"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="98"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="119"/>
         <source>已经探测到产品</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="130"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="131"/>
         <source>正在探测产品</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="273"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="385"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="274"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="386"/>
         <source>快速</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="275"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="387"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="276"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="388"/>
         <source>中速</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="277"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="389"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="278"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="390"/>
         <source>慢速</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="637"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="716"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="647"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="726"/>
         <source>bias持续</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="669"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="738"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="679"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="748"/>
         <source>bias休息</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="693"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="703"/>
         <source>PASS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="693"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="703"/>
         <source>FAIL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="750"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="760"/>
         <source>设置主参数上下限</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="763"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="773"/>
         <source>设置副参数上下限</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="777"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="787"/>
         <source>设置Rdc上下限</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="635"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="666"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="714"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="735"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="811"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="645"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="676"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="724"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="745"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="821"/>
         <source>开</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="811"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="821"/>
         <source>关</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="887"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="897"/>
         <source>输入测试频率</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="923"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="933"/>
         <source>输入测试电平</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="961"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="971"/>
         <source>并联</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="973"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1047"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="983"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1057"/>
         <source>设置速度</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="987"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="997"/>
         <source>设置测试项目1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1022"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1032"/>
         <source>设置测试项目2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1035"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1045"/>
         <source>设置档位</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1112"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1122"/>
         <source>设定测试Bias的值</source>
         <translation></translation>
     </message>
@@ -4154,8 +4154,23 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSampleTest.ui" line="132"/>
+        <location filename="../../AnalysisMode/clsSampleTest.ui" line="116"/>
+        <source>Esc</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsSampleTest.ui" line="135"/>
         <source>测试</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsSampleTest.ui" line="157"/>
+        <source>确定</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsSampleTest.ui" line="160"/>
+        <source>Return</source>
         <translation></translation>
     </message>
 </context>
@@ -7338,32 +7353,32 @@ ON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="86"/>
+        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="93"/>
         <source>开路校准成功，校准时间：%1 %2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="92"/>
+        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="99"/>
         <source>短路校准成功。校准时间：%1 %2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="101"/>
+        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="108"/>
         <source>开路校准失败。</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="105"/>
+        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="112"/>
         <source>短路校准失败。</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="120"/>
+        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="127"/>
         <source>请将夹具短路，然后点击确定</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="120"/>
+        <location filename="../../AnalysisMode/wk4300Calibration.cpp" line="127"/>
         <source>短路校准</source>
         <translation></translation>
     </message>
@@ -8313,7 +8328,7 @@ ON</source>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="165"/>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="299"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="408"/>
         <source>隐藏
 设置</source>
         <translation></translation>
@@ -8341,7 +8356,8 @@ ON</source>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="332"/>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="221"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="241"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="450"/>
         <source>串联</source>
         <translation></translation>
     </message>
@@ -8397,6 +8413,7 @@ ON</source>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="548"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="459"/>
         <source>Cp@1kHz</source>
         <translation></translation>
     </message>
@@ -8414,7 +8431,7 @@ ON</source>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="602"/>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="277"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="386"/>
         <source>设定fa-fr上下限</source>
         <translation></translation>
     </message>
@@ -8435,24 +8452,28 @@ ON</source>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="760"/>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="343"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="454"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="458"/>
         <source>R</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="810"/>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="342"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="453"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="458"/>
         <source>C</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="860"/>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="342"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="453"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="458"/>
         <source>L</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="910"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="458"/>
         <source>C0</source>
         <translation></translation>
     </message>
@@ -8463,12 +8484,14 @@ ON</source>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="979"/>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="343"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="454"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="459"/>
         <source>Q</source>
         <translation></translation>
     </message>
     <message>
         <location filename="../../ResonaceMode/wkResonaceMode.ui" line="1029"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="459"/>
         <source>keff</source>
         <translation></translation>
     </message>
@@ -8523,100 +8546,123 @@ ON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="45"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="46"/>
         <source>消息：控制盒已连接！</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="101"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="102"/>
         <source>设置谐振点搜索速度</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="114"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="115"/>
         <source>晶体谐振器</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="146"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="153"/>
         <source>设置搜索深度</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="164"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="171"/>
         <source>设置开始频率</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="184"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="191"/>
         <source>设置终止频率</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="221"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="215"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="217"/>
+        <source>预搜索结果</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="215"/>
+        <source>搜索范围有效</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="217"/>
+        <source>搜索范围无效</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="241"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="450"/>
         <source>并联</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="237"/>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="359"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="257"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="327"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="336"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="477"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="511"/>
         <source>Pass</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="254"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="363"/>
         <source>本次测试用时</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="262"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="371"/>
         <source>设定谐振频率上下限</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="294"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="403"/>
         <source>显示
 设置</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="315"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="424"/>
         <source>打开数据文件</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="315"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="424"/>
         <source>CSV Files (*.csv)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="320"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="429"/>
         <source>数据文件：%1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="341"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="452"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="458"/>
         <source>Time</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="341"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="452"/>
         <source>Frequency</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="343"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="454"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="460"/>
         <source>Status
 </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="359"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="477"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="511"/>
         <source>Fail</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="388"/>
+        <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="550"/>
         <source>关于本软件</source>
         <translation></translation>
     </message>
