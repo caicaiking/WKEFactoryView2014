@@ -18,13 +18,14 @@ void clsSwitchBoxTest::on_btnLoop_clicked()
     int i=0;
 
     //注释的语句是用来测试切换的时间的。
-    // QTime time=QTime::currentTime();
+
     while(btnLoop->isChecked())
     {
         qApp->processEvents();
         i=i+1;
+        QTime time=QTime::currentTime();
         clsConnectSWBox::Instance()->selectChannel(i);
-
+        qDebug()<< time.msecsTo(QTime::currentTime());
         i=i%(20*2/terminal);
 
         qApp->processEvents();
