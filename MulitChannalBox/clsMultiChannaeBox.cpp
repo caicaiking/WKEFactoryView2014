@@ -458,7 +458,7 @@ void clsMultiChannaeBox::on_btnSelectChennal_clicked()
 {
     clsChennalSelect dlg(this->terminal,this);
     dlg.setChennal(this->channels);
-    if(dlg.exec())
+    if(dlg.exec()==QDialog::Accepted)
     {
         this->channels=dlg.getChennal();
         stop();
@@ -485,7 +485,8 @@ void clsMultiChannaeBox::initPannel()
 
     pannel.clear();
 
-    foreach (QString tmp, channels.split(",")) {
+    foreach (QString tmp, channels.split(","))
+    {
         bool ok;
         int value = tmp.toInt(&ok);
 

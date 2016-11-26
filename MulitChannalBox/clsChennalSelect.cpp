@@ -38,6 +38,7 @@ clsChennalSelect::clsChennalSelect(int terminal,QWidget *parent) :
 
 void clsChennalSelect::setChennal(QString value)
 {
+    //qDebug()<<value;
     QStringList list = value.split(',');
 
     QList<int> listChennal;
@@ -47,7 +48,7 @@ void clsChennalSelect::setChennal(QString value)
 
     for(int i=0; i<listChennal.length();i++)
     {
-        if(listChennal.at(i)<totleChannel && listChennal.at(i)>0)
+        if(listChennal.at(i)<=totleChannel && listChennal.at(i)>0)
         {
             chennals.at(listChennal.at(i)-1)->setChecked(true);
         }
