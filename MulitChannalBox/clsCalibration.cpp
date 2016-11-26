@@ -9,7 +9,7 @@ clsCalibration::clsCalibration(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
-     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     ocZ=99.999E12;
     ocA=99.999E12;
     scZ=99.999E12;
@@ -45,8 +45,9 @@ void clsCalibration::setChannels(QStringList value)
         if(!channels.at(i).isEmpty())
             cmbChannel->addItem(channels.at(i));
     }
-    clsConnectSWBox::Instance()->sendCommand(cmbChannel->currentText().toInt()-1);
-
+    clsConnectSWBox::Instance()->selectChannel(cmbChannel->currentText().toInt());
+    clsConnectSWBox::Instance()->turnOffAllLight();
+    clsConnectSWBox::Instance()->setOnlyOneOrangeLEDON(cmbChannel->currentText().toInt());
     getAllDataFromDb(freq,cmbChannel->currentText().toInt());
 
 }
@@ -197,8 +198,11 @@ void clsCalibration::on_btnNextChannel_clicked()
 {
     int index = cmbChannel->currentIndex();
     cmbChannel->setCurrentIndex((index+1)%cmbChannel->count());
-    clsConnectSWBox::Instance()->sendCommand(
-                cmbChannel->currentText().toInt()-1);
+    clsConnectSWBox::Instance()->selectChannel(
+                cmbChannel->currentText().toInt());
+
+    clsConnectSWBox::Instance()->turnOffAllLight();
+    clsConnectSWBox::Instance()->setOnlyOneOrangeLEDON(cmbChannel->currentText().toInt());
 
     getAllDataFromDb(freq,cmbChannel->currentText().toInt());
 }

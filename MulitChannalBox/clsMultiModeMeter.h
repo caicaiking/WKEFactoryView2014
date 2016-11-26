@@ -83,6 +83,7 @@ public:
     virtual QList<double> getOriginZA()=0;  //获得原始的没有进行过校准的Z A
     virtual void setFreqencyForCal(int)=0; //设置频率，为了校准
     virtual double getFreqency(int value )=0; //获取测试的频率
+    virtual void turnOnScreen(bool value){} //关闭测试屏幕
 };
 
 #endif // CLSMULTIMODEMETER_H

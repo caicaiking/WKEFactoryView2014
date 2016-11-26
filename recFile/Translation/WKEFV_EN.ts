@@ -269,9 +269,9 @@
         <location filename="../../AnalysisMode/WK3260.h" line="120"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="445"/>
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="33"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="986"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="994"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="33"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1009"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1017"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="21"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="124"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="139"/>
@@ -281,8 +281,8 @@
     <message>
         <location filename="../../AnalysisMode/WK3260.h" line="122"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="449"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="988"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1011"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="996"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1019"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="25"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="127"/>
         <source>快速</source>
@@ -291,8 +291,8 @@
     <message>
         <location filename="../../AnalysisMode/WK3260.h" line="124"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="453"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="990"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1013"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="998"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1021"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="29"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="130"/>
         <source>中速</source>
@@ -301,8 +301,8 @@
     <message>
         <location filename="../../AnalysisMode/WK3260.h" line="126"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="457"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="992"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1015"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="1000"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1023"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="33"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="133"/>
         <source>慢速</source>
@@ -314,18 +314,18 @@
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="468"/>
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="23"/>
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="30"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="629"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="847"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="637"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="855"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="23"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="30"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="630"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="847"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="96"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="638"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="855"/>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="97"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="105"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="98"/>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="106"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="114"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="117"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="107"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="115"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="118"/>
         <location filename="../../MulitChannalBox/clsDataProcess.cpp" line="86"/>
         <location filename="../../MulitChannalBox/clsDataProcess.cpp" line="87"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="50"/>
@@ -336,10 +336,10 @@
     <message>
         <location filename="../../AnalysisMode/WK3260.h" line="159"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="472"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="629"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="847"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="630"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="847"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="637"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="855"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="638"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="855"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="54"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="174"/>
         <source>并联</source>
@@ -661,9 +661,9 @@
     </message>
     <message>
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="32"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="980"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="988"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="32"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1003"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1011"/>
         <source>自动</source>
         <translation>Auto</translation>
     </message>
@@ -672,83 +672,83 @@
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="42"/>
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="45"/>
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="47"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="510"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="513"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="565"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="568"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="727"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="730"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="804"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="807"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="518"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="521"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="573"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="576"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="735"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="738"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="812"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="815"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="39"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="42"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="45"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="47"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="511"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="514"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="566"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="569"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="728"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="731"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="804"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="807"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="519"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="522"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="574"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="577"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="736"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="739"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="812"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="815"/>
         <source>OFF</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="479"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="480"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="487"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="488"/>
         <source>设置速度</source>
         <translation>Set speed</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="494"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="495"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="502"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="503"/>
         <source>设置档位</source>
         <translation>Set range</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="538"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="592"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="756"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="816"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="539"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="593"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="756"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="816"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="546"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="600"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="764"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="824"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="547"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="601"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="764"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="824"/>
         <source>设置单位</source>
         <translation>Set unit</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="551"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="605"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="768"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="833"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="552"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="606"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="768"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="833"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="559"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="613"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="776"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="841"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="560"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="614"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="776"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="841"/>
         <source>设置测试参数</source>
         <translation>Set test item</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="653"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="873"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="654"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="873"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="661"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="881"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="662"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="881"/>
         <source>设置电平</source>
         <translation>Set level</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="700"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="919"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="701"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="919"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="708"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="927"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="709"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="927"/>
         <source>输入频率</source>
         <translation>Input frequency</translation>
     </message>
     <message>
-        <location filename="../../common/main.cpp" line="75"/>
+        <location filename="../../common/main.cpp" line="74"/>
         <source>版本号：%1 正在初始化测试窗口，请稍等...</source>
         <translation>Software version: %1 Test window is initializing, please wait ...</translation>
     </message>
@@ -2652,14 +2652,8 @@
 <context>
     <name>clsAppMode</name>
     <message>
-        <location filename="../../AppMode/clsAppMode.ui" line="14"/>
         <source>App Mode</source>
-        <translation>App Mode</translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsAppMode.ui" line="41"/>
-        <source>Check New App</source>
-        <translation></translation>
+        <translation type="vanished">App Mode</translation>
     </message>
 </context>
 <context>
@@ -2866,28 +2860,28 @@ Channel</translation>
         <translation>Test(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="239"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="245"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="251"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="257"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="263"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="269"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="243"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="249"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="255"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="261"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="267"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="273"/>
         <source>没有数据</source>
         <translation>No data</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="275"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="281"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="279"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="285"/>
         <source>点击输入</source>
         <translation>Click input</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="348"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="352"/>
         <source>输入标准阻抗</source>
         <translation>Input standard impedance</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="363"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="367"/>
         <source>输入标准相位角</source>
         <translation>Input standard angle</translation>
     </message>
@@ -2906,13 +2900,13 @@ Channel</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="113"/>
-        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="82"/>
+        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="85"/>
         <source>选定前10通道</source>
         <translation>Select 1-10 channel</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="141"/>
-        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="105"/>
+        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="108"/>
         <source>全选</source>
         <translation>All</translation>
     </message>
@@ -2927,17 +2921,17 @@ Channel</translation>
         <translation>Ok</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="19"/>
+        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="22"/>
         <source>%1 通道</source>
         <translation>%1 channel</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="78"/>
+        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="81"/>
         <source>不选前10通道</source>
         <translation>Don&apos;t select 1-10 channel</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="101"/>
+        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="104"/>
         <source>全不选</source>
         <translation>Not all</translation>
     </message>
@@ -2953,177 +2947,6 @@ Channel</translation>
         <location filename="../../ResonaceMode/clsControlBox.cpp" line="104"/>
         <source>等待开关放开...</source>
         <translation>Waiting relay release...</translation>
-    </message>
-</context>
-<context>
-    <name>clsDownLoad</name>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.ui" line="20"/>
-        <source>Download Data file</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.ui" line="40"/>
-        <source>Ftp Server:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.ui" line="53"/>
-        <source>ftp7.gmoserver.jp</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.ui" line="83"/>
-        <source>Connect</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.ui" line="115"/>
-        <source>Upload</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.ui" line="128"/>
-        <source>Download</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.ui" line="141"/>
-        <source>Quit</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="20"/>
-        <source>Name</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="20"/>
-        <source>Size</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="20"/>
-        <source>Owner</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="20"/>
-        <source>Group</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="20"/>
-        <source>Time</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="49"/>
-        <source>connect</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="53"/>
-        <source>please input ftp server name.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="83"/>
-        <source>Opening network session.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="98"/>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="110"/>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="178"/>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="440"/>
-        <source>FTP</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="99"/>
-        <source>There already exists a file called %1 in the current directory.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="111"/>
-        <source>Unable to save the file %1: %2.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="121"/>
-        <source>%1 file downloading..</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="165"/>
-        <source>DisConnect</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="167"/>
-        <source>Have connect to %1..</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="179"/>
-        <source>Unable to connect to the FTP server at %1. Please check that the host name is correct.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="186"/>
-        <source>Have logged to server: %1.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="203"/>
-        <source>upload cancel %1.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="209"/>
-        <source>upload %1 file to current dir.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="224"/>
-        <source>Download cancel %1.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="230"/>
-        <source>download  %1 file to current dir.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="244"/>
-        <source>&lt;empty&gt;</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="393"/>
-        <source>Please input ftp server name.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="431"/>
-        <source>open file</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="431"/>
-        <source>data file (*.csv)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="441"/>
-        <source>can not read file %1: %2.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="451"/>
-        <source>%1 file uploading..</source>
-        <translation></translation>
     </message>
 </context>
 <context>
@@ -4031,7 +3854,7 @@ test Result</translation>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="14"/>
         <source>仪表设置</source>
-        <translation>Instrument calibration</translation>
+        <translation>Instrument settings</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="32"/>
@@ -4109,7 +3932,7 @@ test Result</translation>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="275"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="430"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="715"/>
-        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="846"/>
+        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="854"/>
         <source>单位：</source>
         <translation>Unit：</translation>
     </message>
@@ -4117,7 +3940,7 @@ test Result</translation>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="291"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="446"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="731"/>
-        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="862"/>
+        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="870"/>
         <source>限定：</source>
         <translation>Limit:</translation>
     </message>
@@ -4125,7 +3948,7 @@ test Result</translation>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="307"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="462"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="747"/>
-        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="878"/>
+        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="886"/>
         <source>--</source>
         <translation></translation>
     </message>
@@ -4137,19 +3960,19 @@ test Result</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="378"/>
-        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="794"/>
+        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="802"/>
         <source>测量项目2</source>
         <translation>Test Item2</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="395"/>
-        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="811"/>
+        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="819"/>
         <source>项目2：</source>
         <translation>Item 2:</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="417"/>
-        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="833"/>
+        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="841"/>
         <source>θ</source>
         <translation></translation>
     </message>
@@ -4169,7 +3992,7 @@ test Result</translation>
         <translation>Equcct:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="944"/>
+        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="960"/>
         <source>确定</source>
         <translation>OK</translation>
     </message>
@@ -4189,9 +4012,9 @@ Shot</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="62"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="181"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="355"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="413"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="186"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="363"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="427"/>
         <source>开始
 测试</source>
         <translation>Start
@@ -4220,200 +4043,214 @@ Mode</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="206"/>
+        <source>2端口
+测试</source>
+        <translation>2Terminal
+Test</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="238"/>
         <source>通道
 校准</source>
         <translation>Channel
 Calibrate</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="238"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="270"/>
         <source>运行
 设定</source>
         <translation>Running
 Settings</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="270"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="302"/>
         <source>打开
 设置</source>
         <translation>Open
 Settings</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="302"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="334"/>
         <source>保存
 设置</source>
         <translation>Save
 Settings</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="334"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="366"/>
         <source>通道
 测试</source>
         <translation>Channel
 Test</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="366"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="398"/>
         <source>打开
 通信</source>
         <translation>Open
 Communication</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="582"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="614"/>
         <source>显示参数</source>
         <translation>Disp. paremeter</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="596"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="628"/>
         <source>项目：</source>
         <translation>Item:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="626"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="658"/>
         <source>采样延时：</source>
         <translation>Sample Delay:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="648"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="680"/>
         <source>ms</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="671"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="703"/>
         <source>测试次数：</source>
         <translation>Test count:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="687"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="723"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="719"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="755"/>
         <source>N/A</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="707"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="739"/>
         <source>周期时间：</source>
         <translation>Cycle Time:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="743"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="775"/>
         <source>数据文件夹：</source>
         <translation>Data Folder:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="765"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="797"/>
         <source>打开</source>
         <translation>Open</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="787"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="819"/>
         <source>通道</source>
         <translation>Channels</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="900"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="932"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;快捷键 &lt;span style=&quot; font-weight:600;&quot;&gt;F2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Shortcut &lt;span style=&quot; font-weight:600;&quot;&gt;F2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="903"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="509"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="935"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="523"/>
         <source>显示
 状态</source>
         <translation>Display
 Status</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="917"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="949"/>
         <source>F2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="933"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="963"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="1006"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="965"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="995"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="1038"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;快捷键 &lt;span style=&quot; font-weight:600;&quot;&gt;F3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Shortcut &lt;span style=&quot; font-weight:600;&quot;&gt;F3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="936"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="968"/>
         <source>清除
 数据</source>
         <translation>Clear
 Data</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="950"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="980"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="1023"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="982"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="1012"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="1055"/>
         <source>F3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="966"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="998"/>
         <source>保存
 图像</source>
         <translation>Save
 Image</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="1009"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="1041"/>
         <source>软件
 信息</source>
         <translation>SoftWare
 Info</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="194"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="249"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="199"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="255"/>
         <source>保存多通道测试文件</source>
         <translation>Save multi-channel test file</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="196"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="251"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="201"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="257"/>
         <source>多通道测试文件 (*.wkm)</source>
         <translation>Multi-channel test file (*.wkm)</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="344"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="351"/>
         <source>停止
 测试</source>
         <translation>Stop
 Test</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="503"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="517"/>
         <source>显示
 数据</source>
         <translation>Display
 Data</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="569"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="590"/>
         <source>通道:	</source>
         <translation>Channel:	</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="666"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="692"/>
         <source>关于本软件</source>
         <translation>About me</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="675"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="701"/>
         <source>/untitled.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="677"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="703"/>
         <source>保存测试图像</source>
         <translation>Save test image</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="679"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="705"/>
         <source>%1 Files (*.%2);;All Files (*)</source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="725"/>
+        <source>%1端口
+测试</source>
+        <translation>%1Terminal
+Test</translation>
     </message>
 </context>
 <context>
@@ -4435,21 +4272,46 @@ Data</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="94"/>
+        <source>屏幕显示</source>
+        <translation>Instrument Display</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="106"/>
+        <source>显示数据更新</source>
+        <translation>Show Data update</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="122"/>
+        <source>关闭数据更新</source>
+        <translation>Stop data update</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="141"/>
+        <source>夹具LED指示灯</source>
+        <translation>Fixture Led lights</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="153"/>
+        <source>使用夹具LED指示灯</source>
+        <translation>Use fixture Led lights</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="172"/>
         <source>是否使用负载数据</source>
         <translation>Use the load data</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="106"/>
+        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="184"/>
         <source>使用负载数据，如果存在负载数据。</source>
         <translation>Use the load data, if available.</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="146"/>
+        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="224"/>
         <source>确定</source>
         <translation>Ok</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="165"/>
+        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="243"/>
         <source>取消</source>
         <translation>Cancel</translation>
     </message>
@@ -4567,19 +4429,6 @@ Data</translation>
     <message>
         <location filename="../../AnalysisMode/clsMultiLimitStatusShow.cpp" line="195"/>
         <source>×</source>
-        <translation></translation>
-    </message>
-</context>
-<context>
-    <name>clsMyPushButton</name>
-    <message>
-        <location filename="../../AppMode/clsMyPushButton.ui" line="14"/>
-        <source>Form</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsMyPushButton.ui" line="53"/>
-        <source>PushButton</source>
         <translation></translation>
     </message>
 </context>
@@ -5183,12 +5032,46 @@ Test</translation>
         <translation>Test switch box</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="61"/>
-        <source>20个通道循环转换</source>
-        <translation>20 channel cycle conversion</translation>
+        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="48"/>
+        <source>2Terminal</source>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="81"/>
+        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="69"/>
+        <source>4 Terminal</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="92"/>
+        <source>通道循环转换</source>
+        <translation>Channels Repeat</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="161"/>
+        <source>Set Pass</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="182"/>
+        <source>Set Fail</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="203"/>
+        <source>Set Idel</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="246"/>
+        <source>发送指令</source>
+        <translation>Send command</translation>
+    </message>
+    <message>
+        <source>20个通道循环转换</source>
+        <translation type="vanished">20 channel cycle conversion</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="112"/>
         <source>切换到通道:</source>
         <translation>Switch to channel</translation>
     </message>

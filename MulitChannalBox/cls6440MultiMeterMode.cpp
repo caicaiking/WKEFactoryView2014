@@ -89,6 +89,14 @@ QString cls6440MultiMeterMode::getConditon()
     return "";
 }
 
+void cls6440MultiMeterMode::turnOnScreen(bool value)
+{
+    if(value)
+        clsRS::getInst().sendCommand(":FAST-GPIB ON");
+    else
+        clsRS::getInst().sendCommand(":FAST-GPIB OFF");
+}
+
 void cls6440MultiMeterMode::setChannel(int value)
 {
     this->channel = value;
@@ -108,7 +116,7 @@ void cls6440MultiMeterMode::setConditionForCalibration(int i)
     else
         setLevel(test2LevelV,test2LevelA,test2LevelType);
 
-   // clsRS::getInst().sendCommand(":MEAS:LEV 1.0V"); //设置测试条件为1V，仪器有更好的精准度
+    // clsRS::getInst().sendCommand(":MEAS:LEV 1.0V"); //设置测试条件为1V，仪器有更好的精准度
     //clsRS::getInst().sendCommand(":FAST-GPIB ON");
     clsRS::getInst().sendCommand(":MEAS:SPEED SLOW"); //设置测试速度慢速
     clsRS::getInst().gpibCommands.gpibTest1.clear(); //清除内存中GPIB指令
@@ -342,9 +350,9 @@ void cls6440MultiMeterMode::trig()
 {
     updateGpib();
 
-//    QString fastGpib = clsRS::getInst().sendCommand(":FAST-GPIB?",true);
-//    if(fastGpib=="0")
-//        clsRS::getInst().sendCommand(":FAST-GPIB ON");
+    //    QString fastGpib = clsRS::getInst().sendCommand(":FAST-GPIB?",true);
+    //    if(fastGpib=="0")
+    //        clsRS::getInst().sendCommand(":FAST-GPIB ON");
     //For test1
     setFrequcy(this->test1Freq);
     setLevel(test1LevelV,test1LevelA,test1LevelType);
@@ -588,7 +596,7 @@ void cls6440MultiMeterMode::setTest2Item1Limit()
 void cls6440MultiMeterMode::setTest2Item1Unit()
 {
     clsMeterUnit * dlg = new clsMeterUnit();
-     dlg->setOFFEnable(true);
+    dlg->setOFFEnable(true);
     dlg->setWindowTitle(QObject::tr("设置单位"));
     dlg->setItem(test2Item1);
 
@@ -752,7 +760,7 @@ void cls6440MultiMeterMode::setTest1Item2Limit()
 void cls6440MultiMeterMode::setTest1Item2Unit()
 {
     clsMeterUnit * dlg = new clsMeterUnit();
-     dlg->setOFFEnable(true);
+    dlg->setOFFEnable(true);
     dlg->setWindowTitle(QObject::tr("设置单位"));
     dlg->setItem(test1Item2);
 
@@ -812,7 +820,7 @@ QString cls6440MultiMeterMode::getTest1Item1Unit()
 void cls6440MultiMeterMode::setTest1Item1Unit()
 {
     clsMeterUnit * dlg = new clsMeterUnit();
-     dlg->setOFFEnable(true);
+    dlg->setOFFEnable(true);
     dlg->setWindowTitle(QObject::tr("设置单位"));
     dlg->setItem(test1Item1);
 

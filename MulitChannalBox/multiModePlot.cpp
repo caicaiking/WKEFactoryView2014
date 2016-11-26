@@ -56,9 +56,12 @@ void multiModePlot::setChannalAndItems(QString channel, QStringList items)
 
     testData.clear();
     QStringList color;
-    color<<"#e0861a"<<"#99cc00"<<"#9f991a"<<"#a48033"<<"#a9664d"<<"#ae4d66"<<"#b33380"<<"#dbce8f"
-        <<"#a64086"<<"#994d8d"<<"#8d5a93"<<"#806699"<<"#8073a6"<<"#8080b3"<<"#ffd400"
-       <<"#145b7d"<<"#99b389"<<"#11264f"<<"#99e600"<<"#8a2e3b";
+//    color<<"#e0861a"<<"#99cc00"<<"#9f991a"<<"#a48033"<<"#a9664d"<<"#ae4d66"<<"#b33380"<<"#dbce8f"
+//        <<"#a64086"<<"#994d8d"<<"#8d5a93"<<"#806699"<<"#8073a6"<<"#8080b3"<<"#ffd400"
+//       <<"#145b7d"<<"#99b389"<<"#11264f"<<"#99e600"<<"#8a2e3b";
+    color <<"#84DE02"<<"#FFBF00"<<"#FF033E"<<"#00FFFF"<<"#D0FF14"<<"#FDEE00"<<"#FF2052"<<"#E0218A"
+         <<"#FA6E79"<<"#FE6F5E"<<"#ACE5EE"<<"#1F75FE"<<"#ACE5EE"<<"#66FF00"<<"#D891EF"<<"#FF007F"
+        <<"#08E8DE"<<"#D19FE8"<<"#FFAA1D"<<"#FF55A3";
 
     for(int i=0; i< channel.split(",").length(); i++)
     {
@@ -70,6 +73,7 @@ void multiModePlot::setChannalAndItems(QString channel, QStringList items)
             QwtPlotCurve* curve =new QwtPlotCurve("curve");
 //            curve->setSymbol(new QwtSymbol(QwtSymbol::Cross, Qt::NoBrush,
 //                                           QPen(Qt::red), QSize(5, 5) ) );
+
             cur.setCurve(curve);
             cur.getCurve()->attach(this);
             cur.setColor(color.at(i%20));

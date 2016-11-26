@@ -1,4 +1,5 @@
-﻿#ifndef CLSMULTICHANNAEBOX_H
+﻿void on_btnSwitchTerminal_clicked();
+#ifndef CLSMULTICHANNAEBOX_H
 #define CLSMULTICHANNAEBOX_H
 
 #include "ui_clsMultiChannaeBox.h"
@@ -18,9 +19,10 @@ class clsMultiChannaeBox : public QMainWindow, private Ui::clsMultiChannaeBox
 
 public:
     explicit clsMultiChannaeBox(QWidget *parent = 0);
-    static QStringList initCommand();
+
     void itemTrig(clsMRBDisplayPannel *value);
 
+    void initTestTable();
 private slots:
 
     void on_btnOpen_clicked();
@@ -50,6 +52,7 @@ private slots:
     void on_btnAboutMe_clicked();
 
     void on_btnSavePic_clicked();
+    void on_btnSwitchTerminal_clicked();
 
 protected: void keyPressEvent(QKeyEvent *event);
     void closeEvent(QCloseEvent *);
@@ -62,6 +65,9 @@ private:
 
     QList<QCheckBox*> checkBoxs;
 
+    int terminal;
+    bool isFastGpibOn;
+    bool isLedOff;
 
     void initPannel();
     void initSweepMode();
@@ -75,6 +81,7 @@ private:
     bool isUseLoadValue;
 
     void mkDataDir();
+    void setTerminal(int value);
 };
 
 #endif // CLSMULTICHANNAEBOX_H

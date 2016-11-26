@@ -126,7 +126,7 @@ void clsMRBDisplayPannel::setNumberLabel(Status value)
 {
     if(value ==IDEL)
     {
-        this->lblNumber->setStyleSheet("background-color: rgb(183, 255, 172); border-radius: 20px");
+        this->lblNumber->setStyleSheet("background-color: rgb(255, 104, 32); border-radius: 20px");
     }
 }
 

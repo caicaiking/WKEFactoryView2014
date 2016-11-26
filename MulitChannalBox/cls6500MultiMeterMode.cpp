@@ -89,6 +89,14 @@ QString cls6500MultiMeterMode::getConditon()
     return "";
 }
 
+void cls6500MultiMeterMode::turnOnScreen(bool value)
+{
+    if(value)
+    clsRS::getInst().sendCommand(":METER:FAST-GPIB ON");
+    else
+        clsRS::getInst().sendCommand(":METER:FAST-GPIB OFF");
+}
+
 void cls6500MultiMeterMode::setChannel(int value)
 {
     this->channel = value;
