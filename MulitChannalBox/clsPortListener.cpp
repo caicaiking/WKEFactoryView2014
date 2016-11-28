@@ -71,6 +71,8 @@ bool clsPortListener::getInit() const
  */
 int clsPortListener::sendCommand(QString value)
 {
+    if(this->init == false)
+        return 99;
     value =value+"\r";
     /*int writeBytes= */ port->write(value.toStdString().c_str());
 
