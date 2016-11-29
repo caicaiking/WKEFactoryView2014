@@ -1,4 +1,5 @@
-﻿#ifndef CLSCALIBRATION_H
+﻿void on_btnInputAllStdValue_clicked();
+#ifndef CLSCALIBRATION_H
 #define CLSCALIBRATION_H
 
 #include "ui_clsCalibration.h"
@@ -21,34 +22,19 @@ private slots:
     void on_btnTest_clicked();
     void on_btnOpen_clicked();
     void on_btnShort_clicked();
-
-
-
     void on_btnLoad_clicked();
-
     void on_btnTest1Freq_toggled(bool checked);
-
     void on_btnTest2Freq_toggled(bool checked);
-
     void on_btnNextChannel_clicked();
-
     void on_btnStdZ_clicked();
-
     void on_btnStdA_clicked();
-
-
-
     void on_btnTest2Freq_clicked();
-
     void on_btnTest1Freq_clicked();
-
     void on_btnClearOpen_clicked();
-
     void on_btnClearShort_clicked();
-
     void on_btnClearLoad_clicked();
-
     void on_btnClearStdLoad_clicked();
+    void on_btnInputAllStdValue_clicked();
 
 private:
     double ocZ,ocA,scZ,scA,loadZ,loadA, stdA,stdZ;

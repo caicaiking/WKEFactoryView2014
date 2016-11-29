@@ -5,19 +5,20 @@
 #include "clsDataProcess.h"
 #include "clsCalibrationDbOp.h"
 #include "NumberInput.h"
+#include "clsStandardValueInput.h"
 clsCalibration::clsCalibration(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
-    ocZ=99.999E12;
-    ocA=99.999E12;
-    scZ=99.999E12;
-    scA=99.999E12;
-    loadZ=99.999E12;
-    loadA=99.999E12;
-    stdA=99.999E12;
-    stdZ=99.999E12;
+    ocZ=OR;
+    ocA=OR;
+    scZ=OR;
+    scA=OR;
+    loadZ=OR;
+    loadA=OR;
+    stdA=OR;
+    stdZ=OR;
 }
 
 void clsCalibration::setMeter(clsMultiModeMeter *meter)
@@ -239,49 +240,49 @@ void clsCalibration::updataText()
     doubleType dt;
 
     dt.setData(ocZ);
-    if(ocZ==99.999E12)
+    if(ocZ==OR)
         txtOpenZ->setText(tr("没有数据"));
     else
         txtOpenZ->setText(dt.formateToString());
 
     dt.setData(ocA);
-    if(ocA==99.999E12)
+    if(ocA==OR)
         txtOpenA->setText(tr("没有数据"));
     else
         txtOpenA->setText(dt.formateToString());
 
     dt.setData(scZ);
-    if(scZ==99.999E12)
+    if(scZ==OR)
         txtShortZ->setText(tr("没有数据"));
     else
         txtShortZ->setText(dt.formateToString());
 
     dt.setData(scA);
-    if(scA==99.999E12)
+    if(scA==OR)
         txtShortA->setText(tr("没有数据"));
     else
         txtShortA->setText(dt.formateToString());
 
     dt.setData(loadZ);
-    if(loadZ==99.999E12)
+    if(loadZ==OR)
         txtLoadZ->setText(tr("没有数据"));
     else
         txtLoadZ->setText(dt.formateToString());
 
     dt.setData(loadA);
-    if(loadA==99.999E12)
+    if(loadA==OR)
         txtLoadA->setText(tr("没有数据"));
     else
         txtLoadA->setText(dt.formateToString());
 
     dt.setData(stdZ);
-    if(stdZ==99.999E12)
+    if(stdZ==OR)
         btnStdZ->setText(tr("点击输入"));
     else
         btnStdZ->setText(dt.formateToString());
 
     dt.setData(stdA);
-    if(stdA==99.999E12)
+    if(stdA==OR)
         btnStdA->setText(tr("点击输入"));
     else
         btnStdA->setText(dt.formateToString());
@@ -299,8 +300,8 @@ void clsCalibration::getAllDataFromDb(double freq, int channel)
     }
     else
     {
-        ocZ=99.999E12;
-        ocA=99.999E12;
+        ocZ=OR;
+        ocA=OR;
     }
 
     tmp = clsCalDb::getInst()->getCalData(freq,channel,"S"); //短路值
@@ -312,8 +313,8 @@ void clsCalibration::getAllDataFromDb(double freq, int channel)
     }
     else
     {
-        scZ=99.999E12;
-        scA=99.999E12;
+        scZ=OR;
+        scA=OR;
     }
 
     tmp = clsCalDb::getInst()->getCalData(freq,channel,"Lm"); //短路值
@@ -325,8 +326,8 @@ void clsCalibration::getAllDataFromDb(double freq, int channel)
     }
     else
     {
-        loadZ=99.999E12;
-        loadA=99.999E12;
+        loadZ=OR;
+        loadA=OR;
     }
 
     tmp = clsCalDb::getInst()->getCalData(freq,channel,"Ls"); //短路值
@@ -338,8 +339,8 @@ void clsCalibration::getAllDataFromDb(double freq, int channel)
     }
     else
     {
-        stdZ=99.999E12;
-        stdA=99.999E12;
+        stdZ=OR;
+        stdA=OR;
     }
 
     updataText();
@@ -413,4 +414,24 @@ void clsCalibration::on_btnClearStdLoad_clicked()
 {
     clsCalDb::getInst()->deleteRecord(freq,cmbChannel->currentText().toInt(),"Ls");
     getAllDataFromDb(freq,cmbChannel->currentText().toInt());
+}
+
+void clsCalibration::on_btnInputAllStdValue_clicked()
+{
+    doubleType dt;
+    dt.setData(freq);
+    clsStandardValueInput *dlg = new clsStandardValueInput(this);
+    dlg->setWindowTitle(tr("输入%1的标准负载值").arg(dt.formateToString()+"Hz"));
+    dlg->setFrequency(freq);
+
+    if(dlg->exec() == QDialog::Accepted)
+    {
+        double z = dlg->getZ();
+        double a = dlg->getA();
+
+        for(int i =0; i< cmbChannel->count(); i++)
+        clsCalDb::getInst()->insertRecord(freq,cmbChannel->itemText(i).toInt(),
+                                          z,a,"Ls");
+        getAllDataFromDb(freq,cmbChannel->currentText().toInt());
+    }
 }

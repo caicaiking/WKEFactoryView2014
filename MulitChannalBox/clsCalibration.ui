@@ -188,6 +188,38 @@
       </layout>
      </item>
      <item>
+      <widget class="QPushButton" name="btnInputAllStdValue">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>楷体</family>
+         <pointsize>11</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>输入所有通道
+标准负载值</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../recFile/myRes.qrc">
+         <normaloff>:/Icons/standard.png</normaloff>:/Icons/standard.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>25</width>
+         <height>25</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
       <spacer name="verticalSpacer">
        <property name="orientation">
         <enum>Qt::Vertical</enum>
@@ -780,6 +812,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../recFile/myRes.qrc"/>
+ </resources>
  <connections/>
 </ui>

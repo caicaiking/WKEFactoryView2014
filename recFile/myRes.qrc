@@ -82,5 +82,6 @@
         <file>Icons/Percentage.png</file>
         <file>Icons/2T.png</file>
         <file>Icons/4T.png</file>
+        <file>Icons/standard.png</file>
     </qresource>
 </RCC>

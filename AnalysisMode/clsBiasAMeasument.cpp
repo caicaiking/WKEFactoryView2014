@@ -68,8 +68,10 @@ void clsBiasAMeasument::trig()
         if(!bias.contains(tmpBias))
         {
             if(tmpBias!=0)
-                meter->turnOnBias(); sngBiasAOp::Instance()->preOperation();
-
+            {
+                meter->turnOnBias();
+                sngBiasAOp::Instance()->preOperation();
+            }
             QString strRes=meter->trig();
             QList<double> res=UserfulFunctions::resultPro(strRes);
             bias<<tmpBias;
