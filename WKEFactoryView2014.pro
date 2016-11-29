@@ -158,7 +158,8 @@ SOURCES +=\
     AnalysisMode/clsBiasAOp.cpp \
     AnalysisMode/clsBiasAOperation.cpp \
     AnalysisMode/clsSampleTest.cpp \
-    MulitChannalBox/clsStandardValueInput.cpp
+    MulitChannalBox/clsStandardValueInput.cpp \
+    AnalysisMode/clsRetryDialog.cpp
 
 RESOURCES += \
     recFile/myRes.qrc
@@ -324,7 +325,8 @@ HEADERS += \
     AnalysisMode/clsBiasAOp.h \
     AnalysisMode/clsBiasAOperation.h \
     AnalysisMode/clsSampleTest.h \
-    MulitChannalBox/clsStandardValueInput.h
+    MulitChannalBox/clsStandardValueInput.h \
+    AnalysisMode/clsRetryDialog.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \
@@ -394,7 +396,8 @@ FORMS += \
     AnalysisMode/clsMaterialSettings.ui \
     AnalysisMode/clsBiasAOperation.ui \
     AnalysisMode/clsSampleTest.ui \
-    MulitChannalBox/clsStandardValueInput.ui
+    MulitChannalBox/clsStandardValueInput.ui \
+    AnalysisMode/clsRetryDialog.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV_EN.ts \

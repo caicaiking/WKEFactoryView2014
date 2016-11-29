@@ -4445,6 +4445,29 @@ Test</translation>
     </message>
 </context>
 <context>
+    <name>clsRetryDialog</name>
+    <message>
+        <location filename="../../AnalysisMode/clsRetryDialog.ui" line="14"/>
+        <source>重试窗口</source>
+        <translation>Retry Window</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsRetryDialog.ui" line="43"/>
+        <source>s</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsRetryDialog.ui" line="80"/>
+        <source>放弃</source>
+        <translation>Give up</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsRetryDialog.ui" line="99"/>
+        <source>重试</source>
+        <translation>Retry</translation>
+    </message>
+</context>
+<context>
     <name>clsSampleTest</name>
     <message>
         <location filename="../../AnalysisMode/clsSampleTest.ui" line="14"/>
@@ -7756,27 +7779,32 @@ Test</translation>
         <translation type="obsolete">Set bias value</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWk3260.cpp" line="52"/>
+        <location filename="../../AnalysisMode/frmWk3260.cpp" line="53"/>
         <source>设置测试速度</source>
         <translation>Set test speed</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWk3260.cpp" line="204"/>
+        <location filename="../../AnalysisMode/frmWk3260.cpp" line="202"/>
+        <source>打开bias出现问题,是否需要重试？</source>
+        <translation>Turn on bias has problem, want retry?</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWk3260.cpp" line="239"/>
         <source>仪器校准</source>
         <translation>Instrument calibration</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWk3260.cpp" line="370"/>
+        <location filename="../../AnalysisMode/frmWk3260.cpp" line="405"/>
         <source>设定测试电平</source>
         <translation>Set level value</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWk3260.cpp" line="407"/>
+        <location filename="../../AnalysisMode/frmWk3260.cpp" line="442"/>
         <source>设置测试频率</source>
         <translation>Set frequency</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWk3260.cpp" line="547"/>
+        <location filename="../../AnalysisMode/frmWk3260.cpp" line="583"/>
         <source>输入Bias值</source>
         <translation>Set bias value</translation>
     </message>
