@@ -14,6 +14,7 @@
 #include <QVariantMap>
 #include "clsCalibrationDbOp.h"
 #include "clsDataProcess.h"
+#include "wk6500Calibration.h"
 cls6500MultiMeterMode::cls6500MultiMeterMode()
 {
     test1Freq=10000.0;
@@ -89,6 +90,13 @@ QString cls6500MultiMeterMode::getConditon()
     return "";
 }
 
+void cls6500MultiMeterMode::calibration()
+{
+    wk6500Calibration *dlg = new wk6500Calibration(wk6500Calibration::GetMaxFrequency());
+    dlg->exec();
+    dlg->close();
+}
+
 void cls6500MultiMeterMode::turnOnScreen(bool value)
 {
     if(value)
@@ -128,7 +136,7 @@ void cls6500MultiMeterMode::setConditionForCalibration(int i)
 QList<double> cls6500MultiMeterMode::getOriginZA()
 {
     QString strRes = clsRS::getInst().sendCommand(":METER:TRIG",true);
-    return UserfulFunctions::resultPro(strRes);
+    return UserfulFunctions::resultPro(strRes+",,,,");
 }
 
 void cls6500MultiMeterMode::setFreqencyForCal(int value)

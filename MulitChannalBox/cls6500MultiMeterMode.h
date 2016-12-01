@@ -72,6 +72,7 @@ public:
     /*55-1*/  bool getStatus(int );       //获取单个测试状态
     /*56*/    void setCondition(QString value);
     /*57*/    QString getConditon();
+     /*58*/   void calibration();      //仪表单通道校准
               void turnOnScreen(bool value);
 
     void setChannel(int value);   //通道测试

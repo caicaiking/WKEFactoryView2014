@@ -1,11 +1,13 @@
 ﻿#include "clsCalibration.h"
 #include "UserfulFunctions.h"
 #include "doubleType.h"
+#include "MessageDialog.h"
 #include "doubleType.h"
 #include "clsDataProcess.h"
 #include "clsCalibrationDbOp.h"
 #include "NumberInput.h"
 #include "clsStandardValueInput.h"
+#include "clsSettings.h"
 clsCalibration::clsCalibration(QWidget *parent) :
     QDialog(parent)
 {
@@ -19,6 +21,9 @@ clsCalibration::clsCalibration(QWidget *parent) :
     loadA=OR;
     stdA=OR;
     stdZ=OR;
+
+    this->stkCalibration->setCurrentIndex(0);
+    connect(this->lblswtich,SIGNAL(Clicked()),this,SLOT(changeWidget()));
 }
 
 void clsCalibration::setMeter(clsMultiModeMeter *meter)
@@ -40,16 +45,22 @@ void clsCalibration::setChannels(QStringList value)
 {
     this->channels = value;
     cmbChannel->clear();
+    this->cmbChannel_2->clear();
 
     for(int i=0; i< channels.length(); i++)
     {
         if(!channels.at(i).isEmpty())
+        {
             cmbChannel->addItem(channels.at(i));
+            cmbChannel_2->addItem(channels.at(i));
+        }
     }
     clsConnectSWBox::Instance()->selectChannel(cmbChannel->currentText().toInt());
     clsConnectSWBox::Instance()->turnOffAllLight();
     clsConnectSWBox::Instance()->setOnlyOneOrangeLEDON(cmbChannel->currentText().toInt());
     getAllDataFromDb(freq,cmbChannel->currentText().toInt());
+
+    readSettings();
 
 }
 
@@ -430,8 +441,255 @@ void clsCalibration::on_btnInputAllStdValue_clicked()
         double a = dlg->getA();
 
         for(int i =0; i< cmbChannel->count(); i++)
-        clsCalDb::getInst()->insertRecord(freq,cmbChannel->itemText(i).toInt(),
-                                          z,a,"Ls");
+            clsCalDb::getInst()->insertRecord(freq,cmbChannel->itemText(i).toInt(),
+                                              z,a,"Ls");
         getAllDataFromDb(freq,cmbChannel->currentText().toInt());
     }
+}
+
+void clsCalibration::on_btnDone_clicked()
+{
+    this->close();
+}
+
+void clsCalibration::on_btnCancel_clicked()
+{
+    this->close();
+}
+
+void clsCalibration::on_btnLoadTrim_clicked()
+{
+    btnNextChannel_2->clicked();
+    QList<double> calFrequencys = getCalFrequencys();
+    QList<int> calChannels = this->getCalChannels();
+
+    MessageDialog* dlg = new MessageDialog(this);
+    dlg->setMessage(tr("将继电器控制盒调到仪器校准的通道。"),tr("负载校准"));
+    dlg->layout()->setSizeConstraint(QLayout::SetFixedSize);
+    if(dlg->exec()!=QDialog::Accepted)
+        return;
+
+    dlg->setMessage(tr("请放入标准负载"),tr("负载校准"));
+    if(dlg->exec()!=QDialog::Accepted)
+        return;
+
+
+    for(int x =0; x<calFrequencys.length(); x++)
+    {
+        meter->setConditionForCalibration(x);
+        meter->setFreqencyForCal(x);
+
+        clsStandardValueInput * dlg = new clsStandardValueInput(this);
+        doubleType dt;
+        dt.setData(calFrequencys.at(x));
+        dlg->setWindowTitle(tr("输入%1的标准负载值").arg(dt.formateToString()+"Hz"));
+        dlg->setFrequency(calFrequencys.at(x));
+
+        QList<double> resValue=meter->getOriginZA();
+        stdZ =  resValue.at(0);
+        stdA = resValue.at(1);
+        dlg->setZ(stdZ);
+        dlg->setA(stdA);
+        if(dlg->exec()!=QDialog::Accepted)
+            return;
+
+        for(int j=0; j< calChannels.length(); j++)
+        {
+            clsCalDb::getInst()->insertRecord(calFrequencys.at(x),calChannels.at(j),
+                                              stdZ,stdA,"Ls");
+        }
+
+    }
+
+    for(int c=0; c< calChannels.length(); c++)
+    {
+        int currentChannel = calChannels.at(c);
+        clsConnectSWBox::Instance()->selectChannel(currentChannel);
+        clsConnectSWBox::Instance()->turnOffAllLight();
+        clsConnectSWBox::Instance()->setOnlyOneOrangeLEDON(currentChannel);
+
+        showCalMessage(tr("负载校准"),currentChannel);
+
+        for(int f=0; f<calFrequencys.length(); f++)
+        {
+            showCalMessage(tr("负载校准"),calFrequencys.at(f),currentChannel);
+
+            meter->setFreqencyForCal(f);
+            meter->setConditionForCalibration(f);
+            QList<double> resValue = meter->getOriginZA();
+            loadZ=resValue.at(0);
+            loadA=resValue.at(1);
+            clsCalDb::getInst()->insertRecord(calFrequencys.at(f),currentChannel,
+                                              loadZ,loadA,"Lm");
+
+        }
+    }
+    setCalLabelInfo(lblHFTrim,tr("负载校准"));
+}
+
+void clsCalibration::on_btnOpenTrim_clicked()
+{
+    QList<double> calFrequencys = getCalFrequencys();
+    QList<int> calChannels = this->getCalChannels();
+
+    for(int c=0; c< calChannels.length(); c++)
+    {
+        int currentChannel = calChannels.at(c);
+        clsConnectSWBox::Instance()->selectChannel(currentChannel);
+        clsConnectSWBox::Instance()->turnOffAllLight();
+        clsConnectSWBox::Instance()->setOnlyOneOrangeLEDON(currentChannel);
+
+        showCalMessage(tr("开路校准"),currentChannel);
+
+        for(int f=0; f<calFrequencys.length(); f++)
+        {
+            showCalMessage(tr("开路校准"),calFrequencys.at(f),currentChannel);
+            meter->setFreqencyForCal(f);
+            meter->setConditionForCalibration(f);
+            QList<double> resValue = meter->getOriginZA();
+
+            doubleType dt;
+            dt.setData(resValue.at(0));
+            ocZ = dt.Data();
+
+            dt.setData(resValue.at(1));
+            ocA = dt.Data();
+
+            clsCalDb::getInst()->insertRecord(calFrequencys.at(f),currentChannel,
+                                              ocZ,ocA,"O");
+
+        }
+    }
+    setCalLabelInfo(lblOpenTrim,tr("开路校准"));
+}
+
+void clsCalibration::on_btnShortTrim_clicked()
+{
+    QList<double> calFrequencys = getCalFrequencys();
+    QList<int> calChannels = this->getCalChannels();
+
+    for(int c=0; c< calChannels.length(); c++)
+    {
+        int currentChannel = calChannels.at(c);
+        clsConnectSWBox::Instance()->selectChannel(currentChannel);
+        clsConnectSWBox::Instance()->turnOffAllLight();
+        clsConnectSWBox::Instance()->setOnlyOneOrangeLEDON(currentChannel);
+
+        showCalMessage(tr("短路校准"),currentChannel);
+
+        for(int f=0; f<calFrequencys.length(); f++)
+        {
+            showCalMessage(tr("短路校准"),calFrequencys.at(f),currentChannel);
+
+            meter->setFreqencyForCal(f);
+            meter->setConditionForCalibration(f);
+            QList<double> resValue = meter->getOriginZA();
+
+            doubleType dt;
+            dt.setData(resValue.at(0));
+            scZ = dt.Data();
+
+            dt.setData(resValue.at(1));
+            scA = dt.Data();
+
+            clsCalDb::getInst()->insertRecord(calFrequencys.at(f),currentChannel,
+                                              scZ,scA,"S");
+
+        }
+    }
+    setCalLabelInfo(lblShortTrim,tr("短路校准"));
+}
+
+QList<double> clsCalibration::getCalFrequencys()
+{
+    QList<double> tmp;
+    tmp.append(meter->getFreqency(0));
+    if(meter->getTest2On())
+        tmp.append(meter->getFreqency(1));
+    return tmp;
+
+}
+QList<int> clsCalibration::getCalChannels()
+{
+    QList<int> tmp;
+    for(int i=0; i< channels.length(); i++)
+    {
+        if(!channels.at(i).isEmpty())
+            tmp.append(channels.at(i).toInt());
+    }
+
+    return tmp;
+}
+
+void clsCalibration::showCalMessage(QString calType, double calFreq, int channel)
+{
+    this->lblCalbrationType->setText(calType);
+    doubleType dt;
+    dt.setData(calFreq,"");
+    this->lblCalFrequency->setText(dt.formateToString()+"Hz");
+    lblCalChannel->setText(QString::number(channel));
+    qApp->processEvents();
+}
+
+void clsCalibration::showCalMessage(QString calType, int channel)
+{
+    MessageDialog *ms = new MessageDialog(this);
+
+    ms->layout()->setSizeConstraint(QLayout::SetFixedSize);
+    QString strMessage = tr("<p>现在第<strong><span style=\"font-size:16px;color:#E53333;\">%1</span></strong>通道</p>").arg(channel);
+    ms->setMessage(strMessage,calType);
+    ms->exec();
+}
+
+void clsCalibration::setCalLabelInfo(QLabel *lbl, QString calType)
+{
+    lbl->setText(tr("%3时间为：%1 %2").arg(QDate::currentDate().toString("yyyy-M-dd"))
+                 .arg(QTime::currentTime().toString("hh:mm:ss"))
+                 .arg(calType));
+    this->saveSettings();
+}
+
+void clsCalibration::on_btnNextChannel_2_clicked()
+{
+    clsConnectSWBox::Instance()->selectChannel(cmbChannel_2->currentText().toInt());
+    clsConnectSWBox::Instance()->turnOffAllLight();
+    clsConnectSWBox::Instance()->setOnlyOneOrangeLEDON(cmbChannel_2->currentText().toInt());
+    saveSettings();
+}
+
+void clsCalibration::on_btnInstumentCal_clicked()
+{
+    meter->calibration();
+}
+
+void clsCalibration::readSettings()
+{
+
+    clsSettings settings;
+    QString strNode ="MulitChannel/";
+    QString tmp;
+    settings.readSetting(strNode +"Cal-Channel",tmp);
+    this->cmbChannel_2->setCurrentText(tmp);
+    settings.readSetting(strNode +"OpenTrim", tmp);
+    lblOpenTrim->setText(tmp);
+    settings.readSetting(strNode + "ShortTrim",tmp);
+    lblShortTrim->setText(tmp);
+    settings.readSetting(strNode +"LoadTrim",tmp);
+    lblHFTrim->setText(tmp);
+    btnNextChannel_2->click();
+}
+
+void clsCalibration::saveSettings()
+{
+    clsSettings settings;
+    QString strNode ="MulitChannel/";
+    settings.writeSetting(strNode +"Cal-Channel",this->cmbChannel_2->currentText());
+    settings.writeSetting(strNode +"OpenTrim", lblOpenTrim->text());
+    settings.writeSetting(strNode +"ShortTrim",lblShortTrim->text());
+    settings.writeSetting(strNode +"LoadTrim",lblHFTrim->text());
+}
+
+void clsCalibration::changeWidget()
+{
+    stkCalibration->setCurrentIndex(1);
 }

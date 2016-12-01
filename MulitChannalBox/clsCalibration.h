@@ -1,4 +1,5 @@
-﻿void on_btnInputAllStdValue_clicked();
+﻿void on_btnDone_clicked();
+void on_btnInputAllStdValue_clicked();
 #ifndef CLSCALIBRATION_H
 #define CLSCALIBRATION_H
 
@@ -17,6 +18,7 @@ public:
     void setChannels(QStringList value);
     void insertRecord(double freq, int channal, double z, double a, QString type);
     void updataText();
+    void saveSettings();
 private slots:
 
     void on_btnTest_clicked();
@@ -36,6 +38,19 @@ private slots:
     void on_btnClearStdLoad_clicked();
     void on_btnInputAllStdValue_clicked();
 
+    void on_btnCancel_clicked();
+
+    void on_btnDone_clicked();
+    void  on_btnOpenTrim_clicked();
+   void on_btnLoadTrim_clicked();
+
+    void on_btnShortTrim_clicked();
+
+    void on_btnNextChannel_2_clicked();
+
+    void on_btnInstumentCal_clicked();
+
+    void changeWidget();
 private:
     double ocZ,ocA,scZ,scA,loadZ,loadA, stdA,stdZ;
     double freq;
@@ -43,6 +58,12 @@ private:
     QStringList channels;
     QList<double> getCalDataFromDb(double freq, int channal, QString type);
     void getAllDataFromDb(double freq, int channel);
+    QList<double> getCalFrequencys();
+    QList<int> getCalChannels();
+    void showCalMessage(QString calType, double calFreq, int channel);
+    void showCalMessage(QString calType, int channel);
+    void setCalLabelInfo(QLabel *lbl, QString calType);
+    void readSettings();
 };
 
 #endif // CLSCALIBRATION_H

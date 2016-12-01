@@ -56,6 +56,20 @@ double clsStandardValueInput::getA() const
 {
     return a;
 }
+
+void clsStandardValueInput::setZ(double value)
+{
+    this->z =value;
+    dblItem1=z;
+    updateText();
+}
+
+void clsStandardValueInput::setA(double value)
+{
+    this->a=value;
+    dblItem2 = a;
+    updateText();
+}
 double clsStandardValueInput::getZ() const
 {
     return z;

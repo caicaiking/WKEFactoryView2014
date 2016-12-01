@@ -14,6 +14,7 @@
 #include <QVariantMap>
 #include "clsCalibrationDbOp.h"
 #include "clsDataProcess.h"
+#include "wk6440Calibration.h"
 cls6440MultiMeterMode::cls6440MultiMeterMode()
 {
     test1Freq=10000.0;
@@ -89,6 +90,13 @@ QString cls6440MultiMeterMode::getConditon()
     return "";
 }
 
+void cls6440MultiMeterMode::calibration()
+{
+    wk6440Calibration *dlg = new wk6440Calibration();
+    dlg->exec();
+    dlg->close();
+}
+
 void cls6440MultiMeterMode::turnOnScreen(bool value)
 {
     if(value)
@@ -127,7 +135,7 @@ void cls6440MultiMeterMode::setConditionForCalibration(int i)
 QList<double> cls6440MultiMeterMode::getOriginZA()
 {
     QString strRes = clsRS::getInst().sendCommand(":MEAS:TRIG",true);
-    return UserfulFunctions::resultPro(strRes);
+    return UserfulFunctions::resultPro(strRes+",,,,,");
 }
 
 void cls6440MultiMeterMode::setFreqencyForCal(int value)

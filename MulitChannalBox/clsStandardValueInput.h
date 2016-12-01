@@ -12,6 +12,8 @@ public:
     void setFrequency(double value);
     double getZ() const;
     double getA() const;
+    void setZ(double value);
+    void setA(double value);
 
 
 private slots:
