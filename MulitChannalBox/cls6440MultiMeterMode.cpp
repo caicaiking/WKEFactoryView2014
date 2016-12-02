@@ -97,6 +97,11 @@ void cls6440MultiMeterMode::calibration()
     dlg->close();
 }
 
+void cls6440MultiMeterMode::set10KHz()
+{
+   this->setFrequcy(10000);
+}
+
 void cls6440MultiMeterMode::turnOnScreen(bool value)
 {
     if(value)
@@ -126,6 +131,7 @@ void cls6440MultiMeterMode::setConditionForCalibration(int i)
 
     // clsRS::getInst().sendCommand(":MEAS:LEV 1.0V"); //设置测试条件为1V，仪器有更好的精准度
     //clsRS::getInst().sendCommand(":FAST-GPIB ON");
+    //clsRS::getInst().sendCommand(":MEAS:FREQ 10000");
     clsRS::getInst().sendCommand(":MEAS:SPEED SLOW"); //设置测试速度慢速
     clsRS::getInst().gpibCommands.gpibTest1.clear(); //清除内存中GPIB指令
 }

@@ -72,6 +72,7 @@ public:
     /*56*/    void setCondition(QString value);
     /*57*/    QString getConditon();
      /*58*/    void calibration();      //仪表单通道校准
+     /*59*/ void set10KHz();
     void turnOnScreen(bool value);
 
     void setChannel(int value);   //通道测试

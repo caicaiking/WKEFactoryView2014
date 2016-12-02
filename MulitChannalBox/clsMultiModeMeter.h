@@ -76,6 +76,7 @@ public:
     /*56*/    virtual void setCondition(QString json)=0;
     /*57*/    virtual QString getConditon()=0;
     /*58*/    virtual void calibration(){}      //仪表单通道校准
+    /*59*/   virtual void set10KHz(){}          //设置10kHz为了校准
 
     virtual void setChannel(int value)=0;   //通道测试
     virtual void setUseLoad(bool value)=0;  //使用Load数据

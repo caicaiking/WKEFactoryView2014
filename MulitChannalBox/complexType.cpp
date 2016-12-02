@@ -37,8 +37,8 @@ void complexType::convertRxToZa()
 
 void complexType::convertZaToRx()
 {
-    mR =  mZ * cos(mA/180.0*3.14159);
-    mX = mZ * sin(mA/180.0*3.14159);
+    mR = mZ * cos(mA/180.0*3.1415926);
+    mX = mZ * sin(mA/180.0*3.1415926);
 }
 
 double complexType::getR() const

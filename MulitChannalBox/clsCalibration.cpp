@@ -559,6 +559,13 @@ void clsCalibration::on_btnOpenTrim_clicked()
                                               ocZ,ocA,"O");
 
         }
+        // 10kHz 为了高频校准
+        meter->set10KHz();
+        QList<double> resValue = meter->getOriginZA();
+
+        clsCalDb::getInst()->insertRecord(10000.0,currentChannel,
+                                          resValue.at(0),resValue.at(1),"OC_10k");
+
     }
     setCalLabelInfo(lblOpenTrim,tr("开路校准"));
 }
@@ -596,6 +603,13 @@ void clsCalibration::on_btnShortTrim_clicked()
                                               scZ,scA,"S");
 
         }
+
+        // 10kHz 为了高频校准
+        meter->set10KHz();
+        QList<double> resValue = meter->getOriginZA();
+
+        clsCalDb::getInst()->insertRecord(10000.0,currentChannel,
+                                          resValue.at(0),resValue.at(1),"SC_10k");
     }
     setCalLabelInfo(lblShortTrim,tr("短路校准"));
 }
@@ -621,7 +635,7 @@ QList<int> clsCalibration::getCalChannels()
     return tmp;
 }
 
-void clsCalibration::showCalMessage(QString calType, double calFreq, int channel)
+int clsCalibration::showCalMessage(QString calType, double calFreq, int channel)
 {
     this->lblCalbrationType->setText(calType);
     doubleType dt;
@@ -629,16 +643,17 @@ void clsCalibration::showCalMessage(QString calType, double calFreq, int channel
     this->lblCalFrequency->setText(dt.formateToString()+"Hz");
     lblCalChannel->setText(QString::number(channel));
     qApp->processEvents();
+    return 0;
 }
 
-void clsCalibration::showCalMessage(QString calType, int channel)
+int clsCalibration::showCalMessage(QString calType, int channel)
 {
     MessageDialog *ms = new MessageDialog(this);
 
     ms->layout()->setSizeConstraint(QLayout::SetFixedSize);
     QString strMessage = tr("<p>现在第<strong><span style=\"font-size:16px;color:#E53333;\">%1</span></strong>通道</p>").arg(channel);
     ms->setMessage(strMessage,calType);
-    ms->exec();
+    return ms->exec();
 }
 
 void clsCalibration::setCalLabelInfo(QLabel *lbl, QString calType)
@@ -692,4 +707,139 @@ void clsCalibration::saveSettings()
 void clsCalibration::changeWidget()
 {
     stkCalibration->setCurrentIndex(1);
+}
+
+
+
+void clsCalibration::on_btnRCLoadCalibration_clicked()
+{
+    MessageDialog *dlg = new MessageDialog(this);
+    dlg->setMessage(tr("确定是否已经做完了开路和短路校准"),tr("阻容校准"));
+
+    if(dlg->exec()!=QDialog::Accepted)
+        return;
+
+    dlg->setMessage(tr("放入负载100R"),tr("阻容校准"));
+    dlg->exec();
+    if(dlg->result()!=QDialog::Accepted)
+        return;
+
+
+    QList<double> calFrequencys = getCalFrequencys();
+    QList<int> calChannels = this->getCalChannels();
+
+    for(int c=0; c< calChannels.length(); c++)
+    {
+        int currentChannel = calChannels.at(c);
+        clsConnectSWBox::Instance()->selectChannel(currentChannel);
+        clsConnectSWBox::Instance()->turnOffAllLight();
+        clsConnectSWBox::Instance()->setOnlyOneOrangeLEDON(currentChannel);
+
+        showCalMessage(tr("100R校准"),currentChannel);
+
+        meter->set10KHz();
+        meter->setConditionForCalibration(0);
+        QList<double> res = meter->getOriginZA();
+
+        double Zm_100R_10K = res.at(0);
+        double A_100R_10k = res.at(1);
+
+        //获取开路和短路值
+        //获取开路值
+        QList<double> oc_10k = clsCalDb::getInst()->getCalData(10000.0,currentChannel,"OC_10k");
+        //获取短路值
+        QList<double> sc_10k = clsCalDb::getInst()->getCalData(10000.0,currentChannel,"SC_10k");
+
+        clsDataProcess c100R(Zm_100R_10K,A_100R_10k,10000);
+        if((oc_10k.length()==2)&&(sc_10k.length()==2))
+        {
+            c100R.applyOpenData(oc_10k.at(0),oc_10k.at(1));
+            c100R.applyShortData(sc_10k.at(0),sc_10k.at(1));
+            c100R.useLoadData(false);
+            //c100R.doCalibration();
+        }
+
+        double z100R = c100R.getItem("Z",tr("串联"));
+        double a100R = c100R.getItem("A",tr("串联"));
+
+        clsCalDb::getInst()->insertRecord(10000,currentChannel,z100R,a100R,"HF_100RRef");
+
+
+        for(int f=0; f<calFrequencys.length(); f++)
+        {
+            showCalMessage(tr("100R校准"),calFrequencys.at(f),currentChannel);
+
+            meter->setFreqencyForCal(f);
+            meter->setConditionForCalibration(f);
+            QList<double> resValue = meter->getOriginZA();
+
+
+            clsCalDb::getInst()->insertRecord(calFrequencys.at(f),currentChannel,
+                                              resValue.at(0),resValue.at(1),"HF_C100R");
+
+        }
+    }
+    //100pF校准
+    dlg->setMessage(tr("放入负载100pF"),tr("阻容校准"));
+    dlg->exec();
+    if(dlg->result()!=QDialog::Accepted)
+        return;
+
+
+
+
+    for(int c=0; c< calChannels.length(); c++)
+    {
+        int currentChannel = calChannels.at(c);
+        clsConnectSWBox::Instance()->selectChannel(currentChannel);
+        clsConnectSWBox::Instance()->turnOffAllLight();
+        clsConnectSWBox::Instance()->setOnlyOneOrangeLEDON(currentChannel);
+
+        showCalMessage(tr("100pF校准"),currentChannel);
+
+        meter->set10KHz();
+        meter->setConditionForCalibration(0);
+        QList<double> res = meter->getOriginZA();
+
+        double Zm_100P_10K = res.at(0);
+        double A_100P_10k = res.at(1);
+
+        //获取开路和短路值
+        //获取开路值
+        QList<double> oc_10k = clsCalDb::getInst()->getCalData(10000.0,currentChannel,"OC_10k");
+        //获取短路值
+        QList<double> sc_10k = clsCalDb::getInst()->getCalData(10000.0,currentChannel,"SC_10k");
+
+        clsDataProcess c100P(Zm_100P_10K,A_100P_10k,10000);
+        if((oc_10k.length()==2)&&(sc_10k.length()==2))
+        {
+            c100P.applyOpenData(oc_10k.at(0),oc_10k.at(1));
+            c100P.applyShortData(sc_10k.at(0),sc_10k.at(1));
+            c100P.useLoadData(false);
+            //c100P.doCalibration();
+        }
+
+        double z100P = c100P.getItem("Z",tr("串联"));
+        double a100P = c100P.getItem("A",tr("串联"));
+
+        clsCalDb::getInst()->insertRecord(10000,currentChannel,z100P,a100P,"HF_100PRef");
+
+
+        for(int f=0; f<calFrequencys.length(); f++)
+        {
+            showCalMessage(tr("100P校准"),calFrequencys.at(f),currentChannel);
+
+            meter->setFreqencyForCal(f);
+            meter->setConditionForCalibration(f);
+            QList<double> resValue = meter->getOriginZA();
+
+
+            clsCalDb::getInst()->insertRecord(calFrequencys.at(f),currentChannel,
+                                              resValue.at(0),resValue.at(1),"HF_C100P");
+
+        }
+
+    }
+    setCalLabelInfo(lblRCTrime,tr("阻容校准"));
+
 }

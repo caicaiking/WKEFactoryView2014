@@ -1,4 +1,5 @@
-﻿void on_btnDone_clicked();
+﻿void on_btnRCLoadCalibration_clicked();
+void on_btnDone_clicked();
 void on_btnInputAllStdValue_clicked();
 #ifndef CLSCALIBRATION_H
 #define CLSCALIBRATION_H
@@ -51,6 +52,7 @@ private slots:
     void on_btnInstumentCal_clicked();
 
     void changeWidget();
+    void on_btnRCLoadCalibration_clicked();
 private:
     double ocZ,ocA,scZ,scA,loadZ,loadA, stdA,stdZ;
     double freq;
@@ -60,8 +62,8 @@ private:
     void getAllDataFromDb(double freq, int channel);
     QList<double> getCalFrequencys();
     QList<int> getCalChannels();
-    void showCalMessage(QString calType, double calFreq, int channel);
-    void showCalMessage(QString calType, int channel);
+    int showCalMessage(QString calType, double calFreq, int channel);
+    int showCalMessage(QString calType, int channel);
     void setCalLabelInfo(QLabel *lbl, QString calType);
     void readSettings();
 };

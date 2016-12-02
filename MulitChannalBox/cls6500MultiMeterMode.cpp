@@ -15,6 +15,7 @@
 #include "clsCalibrationDbOp.h"
 #include "clsDataProcess.h"
 #include "wk6500Calibration.h"
+#include "clsSingleTrig.h"
 cls6500MultiMeterMode::cls6500MultiMeterMode()
 {
     test1Freq=10000.0;
@@ -115,6 +116,11 @@ void cls6500MultiMeterMode::setUseLoad(bool value)
     this->useLoad = value;
 }
 
+void cls6500MultiMeterMode::set10KHz()
+{
+    this->setFrequcy(10000);
+}
+
 void cls6500MultiMeterMode::setConditionForCalibration(int i)
 {
     updateGpib();
@@ -127,8 +133,10 @@ void cls6500MultiMeterMode::setConditionForCalibration(int i)
 
    // clsRS::getInst().sendCommand(":MEAS:LEV 1.0V"); //设置测试条件为1V，仪器有更好的精准度
     //clsRS::getInst().sendCommand(":FAST-GPIB ON");
+   // clsRS::getInst().sendCommand(":METER:FREQ 10000");
     clsRS::getInst().sendCommand(":METER:SPEED SLOW"); //设置测试速度慢速
     clsRS::getInst().gpibCommands.gpibTest1.clear(); //清除内存中GPIB指令
+
 }
 
 
@@ -370,40 +378,49 @@ void cls6500MultiMeterMode::trig()
     if(resValue.length()<2)
         return;
 
-    double z,a;
-    z = resValue.at(0)+(resValue.at(0)==0?1.0E-9:0.0); //末尾加上1.0E-9 是为了防止Z=0；
-    a = resValue.at(1)+(resValue.at(1)==0?1.0E-9:0.0); //末尾加上1.0E-5 是为了防止A=0；
-    //获取开路值
-    QList<double> openData = clsCalDb::getInst()->getCalData(test1Freq,channel,"O");
-    //获取短路值
-    QList<double> shortData = clsCalDb::getInst()->getCalData(test1Freq,channel,"S");
-    //获取负载测试值
-    QList<double> loadData = clsCalDb::getInst()->getCalData(test1Freq,channel,"Lm");
-    //获取负载标准值
-    QList<double> stdData = clsCalDb::getInst()->getCalData(test1Freq,channel,"Ls");
+    clsSingleTrig d;
+    d.setZm(resValue.at(0));
+    d.setAm(resValue.at(1));
+    d.setFrequency(this->test1Freq);
+    d.setChannel(this->channel);
 
-    clsDataProcess d(z,a,test1Freq);
+    d.doRCCalibration();
 
-    if((openData.length() ==2) && (shortData.length() ==2))
-    {
-        d.applyOpenData(openData.at(0),openData.at(1));
-        d.applyShortData(shortData.at(0),shortData.at(1));
 
-        if((loadData.length()==2) &&
-                (stdData.length()==2) &&
-                useLoad)
-        {
-            d.applyLoadData(loadData.at(0),loadData.at(1));
-            d.applyStdData(stdData.at(0),stdData.at(1));
-            d.useLoadData(true);
-            d.doCalibration();
-        }
-        else
-        {
-            d.useLoadData(false);
-            d.doCalibration();
-        }
-    }
+//    double z,a;
+//    z = resValue.at(0)+(resValue.at(0)==0?1.0E-9:0.0); //末尾加上1.0E-9 是为了防止Z=0；
+//    a = resValue.at(1)+(resValue.at(1)==0?1.0E-9:0.0); //末尾加上1.0E-5 是为了防止A=0；
+//    //获取开路值
+//    QList<double> openData = clsCalDb::getInst()->getCalData(test1Freq,channel,"O");
+//    //获取短路值
+//    QList<double> shortData = clsCalDb::getInst()->getCalData(test1Freq,channel,"S");
+//    //获取负载测试值
+//    QList<double> loadData = clsCalDb::getInst()->getCalData(test1Freq,channel,"Lm");
+//    //获取负载标准值
+//    QList<double> stdData = clsCalDb::getInst()->getCalData(test1Freq,channel,"Ls");
+
+//    clsDataProcess d(z,a,test1Freq);
+
+//    if((openData.length() ==2) && (shortData.length() ==2))
+//    {
+//        d.applyOpenData(openData.at(0),openData.at(1));
+//        d.applyShortData(shortData.at(0),shortData.at(1));
+
+//        if((loadData.length()==2) &&
+//                (stdData.length()==2) &&
+//                useLoad)
+//        {
+//            d.applyLoadData(loadData.at(0),loadData.at(1));
+//            d.applyStdData(stdData.at(0),stdData.at(1));
+//            d.useLoadData(true);
+//            d.doCalibration();
+//        }
+//        else
+//        {
+//            d.useLoadData(false);
+//            d.doCalibration();
+//        }
+//    }
 
     test1Res1 = d.getItem(test1Item1,test1Equcct);
     test1Res2 = d.getItem(test1Item2,test1Equcct);
@@ -444,41 +461,49 @@ void cls6500MultiMeterMode::trig()
     if(resValue2.length()<2)
         return;
 
-    double z2,a2;
-    z2 = resValue2.at(0)+(resValue2.at(0)==0?1.0E-9:0.0);
-    a2 = resValue2.at(1)+(resValue2.at(1)==0?1.0E-9:0.0);
+    clsSingleTrig d2;
+    d2.setZm(resValue2.at(0));
+    d2.setAm(resValue2.at(1));
+    d2.setFrequency(this->test2Freq);
+    d2.setChannel(this->channel);
 
-    //获取开路值
-    QList<double> openData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"O");
-    //获取短路值
-    QList<double> shortData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"S");
-    //获取负载测试值
-    QList<double> loadData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"Lm");
-    //获取负载标准值
-    QList<double> stdData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"Ls");
+    d2.doRCCalibration();
 
-    clsDataProcess d2(z2,a2,test2Freq);
+//    double z2,a2;
+//    z2 = resValue2.at(0)+(resValue2.at(0)==0?1.0E-9:0.0);
+//    a2 = resValue2.at(1)+(resValue2.at(1)==0?1.0E-9:0.0);
 
-    if((openData2.length() ==2) && (shortData2.length() ==2))
-    {
-        d2.applyOpenData(openData2.at(0),openData2.at(1));
-        d2.applyShortData(shortData2.at(0),shortData2.at(1));
+//    //获取开路值
+//    QList<double> openData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"O");
+//    //获取短路值
+//    QList<double> shortData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"S");
+//    //获取负载测试值
+//    QList<double> loadData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"Lm");
+//    //获取负载标准值
+//    QList<double> stdData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"Ls");
 
-        if((loadData2.length()==2) &&
-                (stdData2.length()==2) &&
-                useLoad)
-        {
-            d2.applyLoadData(loadData2.at(0),loadData2.at(1));
-            d2.applyStdData(stdData2.at(0),stdData2.at(1));
-            d2.useLoadData(true);
-            d2.doCalibration();
-        }
-        else
-        {
-            d2.useLoadData(false);
-            d2.doCalibration();
-        }
-    }
+//    clsDataProcess d2(z2,a2,test2Freq);
+
+//    if((openData2.length() ==2) && (shortData2.length() ==2))
+//    {
+//        d2.applyOpenData(openData2.at(0),openData2.at(1));
+//        d2.applyShortData(shortData2.at(0),shortData2.at(1));
+
+//        if((loadData2.length()==2) &&
+//                (stdData2.length()==2) &&
+//                useLoad)
+//        {
+//            d2.applyLoadData(loadData2.at(0),loadData2.at(1));
+//            d2.applyStdData(stdData2.at(0),stdData2.at(1));
+//            d2.useLoadData(true);
+//            d2.doCalibration();
+//        }
+//        else
+//        {
+//            d2.useLoadData(false);
+//            d2.doCalibration();
+//        }
+//    }
 
 
     test2Res1 =d2.getItem(test2Item1,test2Equcct);
