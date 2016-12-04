@@ -159,7 +159,8 @@ SOURCES +=\
     AnalysisMode/clsBiasAOperation.cpp \
     AnalysisMode/clsSampleTest.cpp \
     MulitChannalBox/clsStandardValueInput.cpp \
-    AnalysisMode/clsRetryDialog.cpp
+    AnalysisMode/clsRetryDialog.cpp \
+    MulitChannalBox/clsSingleTrig.cpp
 
 RESOURCES += \
     recFile/myRes.qrc
@@ -326,7 +327,8 @@ HEADERS += \
     AnalysisMode/clsBiasAOperation.h \
     AnalysisMode/clsSampleTest.h \
     MulitChannalBox/clsStandardValueInput.h \
-    AnalysisMode/clsRetryDialog.h
+    AnalysisMode/clsRetryDialog.h \
+    MulitChannalBox/clsSingleTrig.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \
