@@ -11,6 +11,7 @@ void clsMultiChannelSettings::setCondition(int delay, bool isUseLoadData)
 {
     txtSwitchDaley->setValue(delay);
     radUserLoad->setChecked(isUseLoadData);
+    rbRCLoad->setChecked(!isUseLoadData);
 }
 
 void clsMultiChannelSettings::setCondition(bool isFastGpibOn)

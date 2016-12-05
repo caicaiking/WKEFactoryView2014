@@ -81,6 +81,7 @@ public:
     void setConditionForCalibration(int i) ; //设置条件为了校准；
     QList<double> getOriginZA() ;  //获得原始的没有进行过校准的Z A
     void setFreqencyForCal(int value);
+    void setFreqencyForCal(double value);
     double getFreqency(int value ); //获取测试的频率
 private:
     double test1Freq;

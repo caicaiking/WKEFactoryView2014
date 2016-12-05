@@ -101,7 +101,7 @@ void cls6500MultiMeterMode::calibration()
 void cls6500MultiMeterMode::turnOnScreen(bool value)
 {
     if(value)
-    clsRS::getInst().sendCommand(":METER:FAST-GPIB ON");
+        clsRS::getInst().sendCommand(":METER:FAST-GPIB ON");
     else
         clsRS::getInst().sendCommand(":METER:FAST-GPIB OFF");
 }
@@ -131,9 +131,9 @@ void cls6500MultiMeterMode::setConditionForCalibration(int i)
         setLevel(test2LevelV,test2LevelA,test2LevelType);
     clsRS::getInst().sendCommand(":METER:EQU-CCT SER");
 
-   // clsRS::getInst().sendCommand(":MEAS:LEV 1.0V"); //设置测试条件为1V，仪器有更好的精准度
+    // clsRS::getInst().sendCommand(":MEAS:LEV 1.0V"); //设置测试条件为1V，仪器有更好的精准度
     //clsRS::getInst().sendCommand(":FAST-GPIB ON");
-   // clsRS::getInst().sendCommand(":METER:FREQ 10000");
+    // clsRS::getInst().sendCommand(":METER:FREQ 10000");
     clsRS::getInst().sendCommand(":METER:SPEED SLOW"); //设置测试速度慢速
     clsRS::getInst().gpibCommands.gpibTest1.clear(); //清除内存中GPIB指令
 
@@ -153,6 +153,11 @@ void cls6500MultiMeterMode::setFreqencyForCal(int value)
         setFrequcy(test1Freq);
     else
         setFrequcy(test2Freq);
+}
+
+void cls6500MultiMeterMode::setFreqencyForCal(double value)
+{
+    this->setFrequcy(value);
 }
 
 double cls6500MultiMeterMode::getFreqency(int value)
@@ -367,9 +372,9 @@ void cls6500MultiMeterMode::trig()
 {
     updateGpib();
 
-//    QString fastGpib = clsRS::getInst().sendCommand(":FAST-GPIB?",true);
-//    if(fastGpib=="0")
-//        clsRS::getInst().sendCommand(":FAST-GPIB ON");
+    //    QString fastGpib = clsRS::getInst().sendCommand(":FAST-GPIB?",true);
+    //    if(fastGpib=="0")
+    //        clsRS::getInst().sendCommand(":FAST-GPIB ON");
     //For test1
     setFrequcy(this->test1Freq);
     setLevel(test1LevelV,test1LevelA,test1LevelType);
@@ -384,43 +389,11 @@ void cls6500MultiMeterMode::trig()
     d.setFrequency(this->test1Freq);
     d.setChannel(this->channel);
 
-    d.doRCCalibration();
+    if(this->useLoad)
+        d.doLoadCalibration();
+    else
+        d.doRCCalibration();
 
-
-//    double z,a;
-//    z = resValue.at(0)+(resValue.at(0)==0?1.0E-9:0.0); //末尾加上1.0E-9 是为了防止Z=0；
-//    a = resValue.at(1)+(resValue.at(1)==0?1.0E-9:0.0); //末尾加上1.0E-5 是为了防止A=0；
-//    //获取开路值
-//    QList<double> openData = clsCalDb::getInst()->getCalData(test1Freq,channel,"O");
-//    //获取短路值
-//    QList<double> shortData = clsCalDb::getInst()->getCalData(test1Freq,channel,"S");
-//    //获取负载测试值
-//    QList<double> loadData = clsCalDb::getInst()->getCalData(test1Freq,channel,"Lm");
-//    //获取负载标准值
-//    QList<double> stdData = clsCalDb::getInst()->getCalData(test1Freq,channel,"Ls");
-
-//    clsDataProcess d(z,a,test1Freq);
-
-//    if((openData.length() ==2) && (shortData.length() ==2))
-//    {
-//        d.applyOpenData(openData.at(0),openData.at(1));
-//        d.applyShortData(shortData.at(0),shortData.at(1));
-
-//        if((loadData.length()==2) &&
-//                (stdData.length()==2) &&
-//                useLoad)
-//        {
-//            d.applyLoadData(loadData.at(0),loadData.at(1));
-//            d.applyStdData(stdData.at(0),stdData.at(1));
-//            d.useLoadData(true);
-//            d.doCalibration();
-//        }
-//        else
-//        {
-//            d.useLoadData(false);
-//            d.doCalibration();
-//        }
-//    }
 
     test1Res1 = d.getItem(test1Item1,test1Equcct);
     test1Res2 = d.getItem(test1Item2,test1Equcct);
@@ -466,45 +439,10 @@ void cls6500MultiMeterMode::trig()
     d2.setAm(resValue2.at(1));
     d2.setFrequency(this->test2Freq);
     d2.setChannel(this->channel);
-
-    d2.doRCCalibration();
-
-//    double z2,a2;
-//    z2 = resValue2.at(0)+(resValue2.at(0)==0?1.0E-9:0.0);
-//    a2 = resValue2.at(1)+(resValue2.at(1)==0?1.0E-9:0.0);
-
-//    //获取开路值
-//    QList<double> openData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"O");
-//    //获取短路值
-//    QList<double> shortData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"S");
-//    //获取负载测试值
-//    QList<double> loadData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"Lm");
-//    //获取负载标准值
-//    QList<double> stdData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"Ls");
-
-//    clsDataProcess d2(z2,a2,test2Freq);
-
-//    if((openData2.length() ==2) && (shortData2.length() ==2))
-//    {
-//        d2.applyOpenData(openData2.at(0),openData2.at(1));
-//        d2.applyShortData(shortData2.at(0),shortData2.at(1));
-
-//        if((loadData2.length()==2) &&
-//                (stdData2.length()==2) &&
-//                useLoad)
-//        {
-//            d2.applyLoadData(loadData2.at(0),loadData2.at(1));
-//            d2.applyStdData(stdData2.at(0),stdData2.at(1));
-//            d2.useLoadData(true);
-//            d2.doCalibration();
-//        }
-//        else
-//        {
-//            d2.useLoadData(false);
-//            d2.doCalibration();
-//        }
-//    }
-
+    if(this->useLoad)
+        d2.doLoadCalibration();
+    else
+        d2.doRCCalibration();
 
     test2Res1 =d2.getItem(test2Item1,test2Equcct);
     test2Res2 = d2.getItem(test2Item2,test2Equcct);
@@ -630,7 +568,7 @@ void cls6500MultiMeterMode::setTest2Item1Limit()
 void cls6500MultiMeterMode::setTest2Item1Unit()
 {
     clsMeterUnit * dlg = new clsMeterUnit();
-     dlg->setOFFEnable(true);
+    dlg->setOFFEnable(true);
     dlg->setWindowTitle(QObject::tr("设置单位"));
     dlg->setItem(test2Item1);
 
@@ -793,7 +731,7 @@ void cls6500MultiMeterMode::setTest1Item2Limit()
 void cls6500MultiMeterMode::setTest1Item2Unit()
 {
     clsMeterUnit * dlg = new clsMeterUnit();
-     dlg->setOFFEnable(true);
+    dlg->setOFFEnable(true);
     dlg->setWindowTitle(QObject::tr("设置单位"));
     dlg->setItem(test1Item2);
 
@@ -853,7 +791,7 @@ QString cls6500MultiMeterMode::getTest1Item1Unit()
 void cls6500MultiMeterMode::setTest1Item1Unit()
 {
     clsMeterUnit * dlg = new clsMeterUnit();
-     dlg->setOFFEnable(true);
+    dlg->setOFFEnable(true);
     dlg->setWindowTitle(QObject::tr("设置单位"));
     dlg->setItem(test1Item1);
 

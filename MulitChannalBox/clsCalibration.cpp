@@ -8,6 +8,7 @@
 #include "NumberInput.h"
 #include "clsStandardValueInput.h"
 #include "clsSettings.h"
+#include <QFileDialog>
 clsCalibration::clsCalibration(QWidget *parent) :
     QDialog(parent)
 {
@@ -24,6 +25,8 @@ clsCalibration::clsCalibration(QWidget *parent) :
 
     this->stkCalibration->setCurrentIndex(0);
     connect(this->lblswtich,SIGNAL(Clicked()),this,SLOT(changeWidget()));
+    grpInstrument->setVisible(false);
+    this->layout()->setSizeConstraint(QLayout::SetFixedSize);
 }
 
 void clsCalibration::setMeter(clsMultiModeMeter *meter)
@@ -464,7 +467,7 @@ void clsCalibration::on_btnLoadTrim_clicked()
     QList<int> calChannels = this->getCalChannels();
 
     MessageDialog* dlg = new MessageDialog(this);
-    dlg->setMessage(tr("将继电器控制盒调到仪器校准的通道。"),tr("负载校准"));
+    dlg->setMessage(tr("将继电器控制盒调到 %1 通道。").arg(cmbChannel_2->currentText()),tr("负载校准"));
     dlg->layout()->setSizeConstraint(QLayout::SetFixedSize);
     if(dlg->exec()!=QDialog::Accepted)
         return;
@@ -477,7 +480,7 @@ void clsCalibration::on_btnLoadTrim_clicked()
     for(int x =0; x<calFrequencys.length(); x++)
     {
         meter->setConditionForCalibration(x);
-        meter->setFreqencyForCal(x);
+        meter->setFreqencyForCal((double)calFrequencys.at(x));
 
         clsStandardValueInput * dlg = new clsStandardValueInput(this);
         doubleType dt;
@@ -486,7 +489,7 @@ void clsCalibration::on_btnLoadTrim_clicked()
         dlg->setFrequency(calFrequencys.at(x));
 
         QList<double> resValue=meter->getOriginZA();
-        stdZ =  resValue.at(0);
+        stdZ = resValue.at(0);
         stdA = resValue.at(1);
         dlg->setZ(stdZ);
         dlg->setA(stdA);
@@ -496,7 +499,7 @@ void clsCalibration::on_btnLoadTrim_clicked()
         for(int j=0; j< calChannels.length(); j++)
         {
             clsCalDb::getInst()->insertRecord(calFrequencys.at(x),calChannels.at(j),
-                                              stdZ,stdA,"Ls");
+                                              dlg->getZ(),dlg->getA(),"Ls");
         }
 
     }
@@ -514,7 +517,7 @@ void clsCalibration::on_btnLoadTrim_clicked()
         {
             showCalMessage(tr("负载校准"),calFrequencys.at(f),currentChannel);
 
-            meter->setFreqencyForCal(f);
+            meter->setFreqencyForCal((double)calFrequencys.at(f));
             meter->setConditionForCalibration(f);
             QList<double> resValue = meter->getOriginZA();
             loadZ=resValue.at(0);
@@ -532,6 +535,8 @@ void clsCalibration::on_btnOpenTrim_clicked()
     QList<double> calFrequencys = getCalFrequencys();
     QList<int> calChannels = this->getCalChannels();
 
+     meter->setConditionForCalibration(0);
+
     for(int c=0; c< calChannels.length(); c++)
     {
         int currentChannel = calChannels.at(c);
@@ -544,8 +549,8 @@ void clsCalibration::on_btnOpenTrim_clicked()
         for(int f=0; f<calFrequencys.length(); f++)
         {
             showCalMessage(tr("开路校准"),calFrequencys.at(f),currentChannel);
-            meter->setFreqencyForCal(f);
-            meter->setConditionForCalibration(f);
+            meter->setFreqencyForCal((double)calFrequencys.at(f));
+
             QList<double> resValue = meter->getOriginZA();
 
             doubleType dt;
@@ -575,6 +580,7 @@ void clsCalibration::on_btnShortTrim_clicked()
     QList<double> calFrequencys = getCalFrequencys();
     QList<int> calChannels = this->getCalChannels();
 
+     meter->setConditionForCalibration(0);
     for(int c=0; c< calChannels.length(); c++)
     {
         int currentChannel = calChannels.at(c);
@@ -588,8 +594,8 @@ void clsCalibration::on_btnShortTrim_clicked()
         {
             showCalMessage(tr("短路校准"),calFrequencys.at(f),currentChannel);
 
-            meter->setFreqencyForCal(f);
-            meter->setConditionForCalibration(f);
+            meter->setFreqencyForCal((double)calFrequencys.at(f));
+
             QList<double> resValue = meter->getOriginZA();
 
             doubleType dt;
@@ -616,11 +622,25 @@ void clsCalibration::on_btnShortTrim_clicked()
 
 QList<double> clsCalibration::getCalFrequencys()
 {
-    QList<double> tmp;
-    tmp.append(meter->getFreqency(0));
-    if(meter->getTest2On())
-        tmp.append(meter->getFreqency(1));
-    return tmp;
+
+
+    if(freqList.empty())
+    {
+        QList<double> tmp;
+        tmp.append(meter->getFreqency(0));
+        if(meter->getTest2On())
+            tmp.append(meter->getFreqency(1));
+        return tmp;
+    }
+    else
+    {
+        if(!freqList.contains(meter->getFreqency(0)))
+            freqList.append(meter->getFreqency(0));
+        if(!freqList.contains(meter->getFreqency(1)))
+            freqList.append(meter->getFreqency(1));
+        qSort(freqList);
+        return freqList;
+    }
 
 }
 QList<int> clsCalibration::getCalChannels()
@@ -691,6 +711,10 @@ void clsCalibration::readSettings()
     lblShortTrim->setText(tmp);
     settings.readSetting(strNode +"LoadTrim",tmp);
     lblHFTrim->setText(tmp);
+
+    settings.readSetting(strNode +"HFTrim",tmp);
+    lblRCTrime->setText(tmp);
+
     btnNextChannel_2->click();
 }
 
@@ -702,6 +726,7 @@ void clsCalibration::saveSettings()
     settings.writeSetting(strNode +"OpenTrim", lblOpenTrim->text());
     settings.writeSetting(strNode +"ShortTrim",lblShortTrim->text());
     settings.writeSetting(strNode +"LoadTrim",lblHFTrim->text());
+    settings.writeSetting(strNode +"HFTrim",lblRCTrime->text());
 }
 
 void clsCalibration::changeWidget()
@@ -756,7 +781,7 @@ void clsCalibration::on_btnRCLoadCalibration_clicked()
             c100R.applyOpenData(oc_10k.at(0),oc_10k.at(1));
             c100R.applyShortData(sc_10k.at(0),sc_10k.at(1));
             c100R.useLoadData(false);
-            //c100R.doCalibration();
+            c100R.doCalibration();
         }
 
         double z100R = c100R.getItem("Z",tr("串联"));
@@ -769,7 +794,7 @@ void clsCalibration::on_btnRCLoadCalibration_clicked()
         {
             showCalMessage(tr("100R校准"),calFrequencys.at(f),currentChannel);
 
-            meter->setFreqencyForCal(f);
+            meter->setFreqencyForCal((double)calFrequencys.at(f));
             meter->setConditionForCalibration(f);
             QList<double> resValue = meter->getOriginZA();
 
@@ -784,9 +809,6 @@ void clsCalibration::on_btnRCLoadCalibration_clicked()
     dlg->exec();
     if(dlg->result()!=QDialog::Accepted)
         return;
-
-
-
 
     for(int c=0; c< calChannels.length(); c++)
     {
@@ -816,7 +838,7 @@ void clsCalibration::on_btnRCLoadCalibration_clicked()
             c100P.applyOpenData(oc_10k.at(0),oc_10k.at(1));
             c100P.applyShortData(sc_10k.at(0),sc_10k.at(1));
             c100P.useLoadData(false);
-            //c100P.doCalibration();
+            c100P.doCalibration();
         }
 
         double z100P = c100P.getItem("Z",tr("串联"));
@@ -829,7 +851,7 @@ void clsCalibration::on_btnRCLoadCalibration_clicked()
         {
             showCalMessage(tr("100P校准"),calFrequencys.at(f),currentChannel);
 
-            meter->setFreqencyForCal(f);
+            meter->setFreqencyForCal((double)calFrequencys.at(f));
             meter->setConditionForCalibration(f);
             QList<double> resValue = meter->getOriginZA();
 
@@ -842,4 +864,31 @@ void clsCalibration::on_btnRCLoadCalibration_clicked()
     }
     setCalLabelInfo(lblRCTrime,tr("阻容校准"));
 
+}
+
+void clsCalibration::on_btnMultiFreq_clicked()
+{
+    QString fileName=QFileDialog::getOpenFileName(this,tr("打开频率点数据文件"),"./",tr("CSV 文件(*.csv)"));
+
+    QFile file(fileName);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return;
+    freqList.clear();
+    while (!file.atEnd()) {
+        QString line = file.readLine();
+        QStringList lineList = line.split(",");
+        if(!lineList.isEmpty())
+        {
+            QString strFreq = lineList.at(0);
+            bool ok;
+
+            double freq = strFreq.toDouble(&ok);
+            if(ok)
+                freqList.append(freq);
+        }
+    }
+
+    file.close();
+
+    qDebug()<<freqList;
 }

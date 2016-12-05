@@ -15,6 +15,7 @@
 #include "clsCalibrationDbOp.h"
 #include "clsDataProcess.h"
 #include "wk6440Calibration.h"
+#include "clsSingleTrig.h"
 cls6440MultiMeterMode::cls6440MultiMeterMode()
 {
     test1Freq=10000.0;
@@ -150,6 +151,11 @@ void cls6440MultiMeterMode::setFreqencyForCal(int value)
         setFrequcy(test1Freq);
     else
         setFrequcy(test2Freq);
+}
+
+void cls6440MultiMeterMode::setFreqencyForCal(double value)
+{
+    this->setFrequcy(value);
 }
 
 double cls6440MultiMeterMode::getFreqency(int value)
@@ -368,6 +374,127 @@ void cls6440MultiMeterMode::trig()
     //    if(fastGpib=="0")
     //        clsRS::getInst().sendCommand(":FAST-GPIB ON");
     //For test1
+//    setFrequcy(this->test1Freq);
+//    setLevel(test1LevelV,test1LevelA,test1LevelType);
+
+//    QList<double> resValue =getOriginZA();
+//    if(resValue.length()<2)
+//        return;
+
+//    double z,a;
+//    z = resValue.at(0)+(resValue.at(0)==0?1.0E-9:0.0); //末尾加上1.0E-9 是为了防止Z=0；
+//    a = resValue.at(1)+(resValue.at(1)==0?1.0E-9:0.0); //末尾加上1.0E-5 是为了防止A=0；
+//    //获取开路值
+//    QList<double> openData = clsCalDb::getInst()->getCalData(test1Freq,channel,"O");
+//    //获取短路值
+//    QList<double> shortData = clsCalDb::getInst()->getCalData(test1Freq,channel,"S");
+//    //获取负载测试值
+//    QList<double> loadData = clsCalDb::getInst()->getCalData(test1Freq,channel,"Lm");
+//    //获取负载标准值
+//    QList<double> stdData = clsCalDb::getInst()->getCalData(test1Freq,channel,"Ls");
+
+//    clsDataProcess d(z,a,test1Freq);
+
+//    if((openData.length() ==2) && (shortData.length() ==2))
+//    {
+//        d.applyOpenData(openData.at(0),openData.at(1));
+//        d.applyShortData(shortData.at(0),shortData.at(1));
+
+//        if((loadData.length()==2) &&
+//                (stdData.length()==2) &&
+//                useLoad)
+//        {
+//            d.applyLoadData(loadData.at(0),loadData.at(1));
+//            d.applyStdData(stdData.at(0),stdData.at(1));
+//            d.useLoadData(true);
+//            d.doCalibration();
+//        }
+//        else
+//        {
+//            d.useLoadData(false);
+//            d.doCalibration();
+//        }
+//    }
+
+//    test1Res1 = d.getItem(test1Item1,test1Equcct);
+//    test1Res2 = d.getItem(test1Item2,test1Equcct);
+
+
+
+//    //For test2
+//    if(!test2IsOn)
+//        return;
+//    //如果测试的电平和频率
+//    if((test1Freq == test2Freq) && (test1LevelType==test2LevelType))
+//    {
+//        if(test1LevelType=="V")
+//        {
+//            if(test1LevelV == test2LevelV)
+//            {
+//                test2Res1 = d.getItem(test2Item1,test2Equcct);
+//                test2Res2 = d.getItem(test2Item2,test2Equcct);
+//                return;
+//            }
+//            else
+//            {
+//                if(test1LevelA == test2LevelA)
+//                {
+//                    test2Res1 = d.getItem(test2Item1,test2Equcct);
+//                    test2Res2 = d.getItem(test2Item2,test2Equcct);
+//                    return;
+//                }
+//            }
+//        }
+//    }
+
+//    UserfulFunctions::sleepMs(5);
+//    setFrequcy(this->test2Freq);
+//    setLevel(test2LevelV,test2LevelA,test2LevelType);
+
+//    QList<double> resValue2 =getOriginZA();
+//    if(resValue2.length()<2)
+//        return;
+
+//    double z2,a2;
+//    z2 = resValue2.at(0)+(resValue2.at(0)==0?1.0E-9:0.0);
+//    a2 = resValue2.at(1)+(resValue2.at(1)==0?1.0E-9:0.0);
+
+//    //获取开路值
+//    QList<double> openData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"O");
+//    //获取短路值
+//    QList<double> shortData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"S");
+//    //获取负载测试值
+//    QList<double> loadData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"Lm");
+//    //获取负载标准值
+//    QList<double> stdData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"Ls");
+
+//    clsDataProcess d2(z2,a2,test2Freq);
+
+//    if((openData2.length() ==2) && (shortData2.length() ==2))
+//    {
+//        d2.applyOpenData(openData2.at(0),openData2.at(1));
+//        d2.applyShortData(shortData2.at(0),shortData2.at(1));
+
+//        if((loadData2.length()==2) &&
+//                (stdData2.length()==2) &&
+//                useLoad)
+//        {
+//            d2.applyLoadData(loadData2.at(0),loadData2.at(1));
+//            d2.applyStdData(stdData2.at(0),stdData2.at(1));
+//            d2.useLoadData(true);
+//            d2.doCalibration();
+//        }
+//        else
+//        {
+//            d2.useLoadData(false);
+//            d2.doCalibration();
+//        }
+//    }
+
+
+//    test2Res1 =d2.getItem(test2Item1,test2Equcct);
+//    test2Res2 = d2.getItem(test2Item2,test2Equcct);
+
     setFrequcy(this->test1Freq);
     setLevel(test1LevelV,test1LevelA,test1LevelType);
 
@@ -375,40 +502,17 @@ void cls6440MultiMeterMode::trig()
     if(resValue.length()<2)
         return;
 
-    double z,a;
-    z = resValue.at(0)+(resValue.at(0)==0?1.0E-9:0.0); //末尾加上1.0E-9 是为了防止Z=0；
-    a = resValue.at(1)+(resValue.at(1)==0?1.0E-9:0.0); //末尾加上1.0E-5 是为了防止A=0；
-    //获取开路值
-    QList<double> openData = clsCalDb::getInst()->getCalData(test1Freq,channel,"O");
-    //获取短路值
-    QList<double> shortData = clsCalDb::getInst()->getCalData(test1Freq,channel,"S");
-    //获取负载测试值
-    QList<double> loadData = clsCalDb::getInst()->getCalData(test1Freq,channel,"Lm");
-    //获取负载标准值
-    QList<double> stdData = clsCalDb::getInst()->getCalData(test1Freq,channel,"Ls");
+    clsSingleTrig d;
+    d.setZm(resValue.at(0));
+    d.setAm(resValue.at(1));
+    d.setFrequency(this->test1Freq);
+    d.setChannel(this->channel);
 
-    clsDataProcess d(z,a,test1Freq);
+    if(this->useLoad)
+        d.doLoadCalibration();
+    else
+        d.doRCCalibration();
 
-    if((openData.length() ==2) && (shortData.length() ==2))
-    {
-        d.applyOpenData(openData.at(0),openData.at(1));
-        d.applyShortData(shortData.at(0),shortData.at(1));
-
-        if((loadData.length()==2) &&
-                (stdData.length()==2) &&
-                useLoad)
-        {
-            d.applyLoadData(loadData.at(0),loadData.at(1));
-            d.applyStdData(stdData.at(0),stdData.at(1));
-            d.useLoadData(true);
-            d.doCalibration();
-        }
-        else
-        {
-            d.useLoadData(false);
-            d.doCalibration();
-        }
-    }
 
     test1Res1 = d.getItem(test1Item1,test1Equcct);
     test1Res2 = d.getItem(test1Item2,test1Equcct);
@@ -449,45 +553,19 @@ void cls6440MultiMeterMode::trig()
     if(resValue2.length()<2)
         return;
 
-    double z2,a2;
-    z2 = resValue2.at(0)+(resValue2.at(0)==0?1.0E-9:0.0);
-    a2 = resValue2.at(1)+(resValue2.at(1)==0?1.0E-9:0.0);
-
-    //获取开路值
-    QList<double> openData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"O");
-    //获取短路值
-    QList<double> shortData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"S");
-    //获取负载测试值
-    QList<double> loadData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"Lm");
-    //获取负载标准值
-    QList<double> stdData2 = clsCalDb::getInst()->getCalData(test2Freq,channel,"Ls");
-
-    clsDataProcess d2(z2,a2,test2Freq);
-
-    if((openData2.length() ==2) && (shortData2.length() ==2))
-    {
-        d2.applyOpenData(openData2.at(0),openData2.at(1));
-        d2.applyShortData(shortData2.at(0),shortData2.at(1));
-
-        if((loadData2.length()==2) &&
-                (stdData2.length()==2) &&
-                useLoad)
-        {
-            d2.applyLoadData(loadData2.at(0),loadData2.at(1));
-            d2.applyStdData(stdData2.at(0),stdData2.at(1));
-            d2.useLoadData(true);
-            d2.doCalibration();
-        }
-        else
-        {
-            d2.useLoadData(false);
-            d2.doCalibration();
-        }
-    }
-
+    clsSingleTrig d2;
+    d2.setZm(resValue2.at(0));
+    d2.setAm(resValue2.at(1));
+    d2.setFrequency(this->test2Freq);
+    d2.setChannel(this->channel);
+    if(this->useLoad)
+        d2.doLoadCalibration();
+    else
+        d2.doRCCalibration();
 
     test2Res1 =d2.getItem(test2Item1,test2Equcct);
     test2Res2 = d2.getItem(test2Item2,test2Equcct);
+
 }
 
 QString cls6440MultiMeterMode::getSpeed()

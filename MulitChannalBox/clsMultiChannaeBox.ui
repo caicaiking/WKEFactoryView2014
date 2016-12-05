@@ -142,6 +142,70 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="btnChannalCal">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>通道
+校准</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../recFile/myRes.qrc">
+          <normaloff>:/Icons/advance.png</normaloff>:/Icons/advance.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnRunningSettings">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>10</pointsize>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>运行
+设定</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../recFile/myRes.qrc">
+          <normaloff>:/Icons/calibration.png</normaloff>:/Icons/calibration.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -209,70 +273,6 @@
         <property name="icon">
          <iconset resource="../recFile/myRes.qrc">
           <normaloff>:/Icons/2T.png</normaloff>:/Icons/2T.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnChannalCal">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>40</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>10</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>通道
-校准</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../recFile/myRes.qrc">
-          <normaloff>:/Icons/advance.png</normaloff>:/Icons/advance.png</iconset>
-        </property>
-        <property name="iconSize">
-         <size>
-          <width>20</width>
-          <height>20</height>
-         </size>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="btnRunningSettings">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>40</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>10</pointsize>
-          <weight>50</weight>
-          <bold>false</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>运行
-设定</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../recFile/myRes.qrc">
-          <normaloff>:/Icons/calibration.png</normaloff>:/Icons/calibration.png</iconset>
         </property>
         <property name="iconSize">
          <size>
@@ -853,8 +853,8 @@
                     <rect>
                      <x>0</x>
                      <y>0</y>
-                     <width>174</width>
-                     <height>358</height>
+                     <width>18</width>
+                     <height>16</height>
                     </rect>
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_10">

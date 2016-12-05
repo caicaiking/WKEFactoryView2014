@@ -105,6 +105,7 @@ QString clsMRBDisplayPannel::formatToString(const QString &item, const QString &
 
     retStr+=UserfulFunctions::getSuffix(item.toUpper())+"\t";
 
+    //qDebug()<< retStr;
     if(status)
     {
         retStr+="√" ;

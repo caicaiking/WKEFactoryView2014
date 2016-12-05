@@ -23,6 +23,7 @@ public:
 private slots:
 
     void on_btnTest_clicked();
+    void on_btnMultiFreq_clicked();
     void on_btnOpen_clicked();
     void on_btnShort_clicked();
     void on_btnLoad_clicked();
@@ -38,24 +39,19 @@ private slots:
     void on_btnClearLoad_clicked();
     void on_btnClearStdLoad_clicked();
     void on_btnInputAllStdValue_clicked();
-
     void on_btnCancel_clicked();
-
     void on_btnDone_clicked();
     void  on_btnOpenTrim_clicked();
-   void on_btnLoadTrim_clicked();
-
+    void on_btnLoadTrim_clicked();
     void on_btnShortTrim_clicked();
-
     void on_btnNextChannel_2_clicked();
-
     void on_btnInstumentCal_clicked();
-
     void changeWidget();
     void on_btnRCLoadCalibration_clicked();
 private:
     double ocZ,ocA,scZ,scA,loadZ,loadA, stdA,stdZ;
     double freq;
+    QList<double> freqList;
     clsMultiModeMeter *meter;
     QStringList channels;
     QList<double> getCalDataFromDb(double freq, int channal, QString type);

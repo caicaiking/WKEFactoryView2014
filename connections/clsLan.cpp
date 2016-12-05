@@ -117,7 +117,7 @@ QString clsLan::sendCommand(QString strCommand, bool hasReturn, int waitDaly)
     {
         //qDebug()<<waitDaly;
         if(waitDaly==0)
-            socket->waitForReadyRead(3000);
+            socket->waitForReadyRead(10000);
         else
             socket->waitForReadyRead(waitDaly*3000);
 

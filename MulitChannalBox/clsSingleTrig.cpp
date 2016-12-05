@@ -82,7 +82,14 @@ void clsSingleTrig::doLoadCalibration()
     }
 
     Zm = d.getItem("Z",QObject::tr("串联"));
+
     Am = d.getItem("A",QObject::tr("串联"));
+    if(Am > 180)
+        Am =Am - 360.0;
+    else if(Am < -180.0)
+        Am += 360.0;
+
+
 }
 
 void clsSingleTrig::doRCCalibration()
@@ -90,14 +97,16 @@ void clsSingleTrig::doRCCalibration()
     Zm = Zm +(Zm==0? 1.0E-9:0.0);
     Am = Am +(Am==0? 1.0E-9:0.0);
 
-
-
     QList<double> openData = clsCalDb::getInst()->getCalData(frequency,channel,"O");
     QList<double> shortData = clsCalDb::getInst()->getCalData(frequency,channel,"S");
     QList<double> z100Rref = clsCalDb::getInst()->getCalData(10000.0,channel,"HF_100RRef");
     QList<double> z100CR = clsCalDb::getInst()->getCalData(frequency,channel,"HF_C100R");
     QList<double> z100Pref = clsCalDb::getInst()->getCalData(10000.0,channel,"HF_100PRef");
     QList<double> z100CP = clsCalDb::getInst()->getCalData(frequency,channel,"HF_C100P");
+
+//    QList<double> zLoads = clsCalDb::getInst()->getCalData(frequency,channel,"Ls");
+//    QList<double> zLoadm = clsCalDb::getInst()->getCalData(frequency,channel,"Lm");
+
 
     if((openData.length() !=2) ||(shortData.length() !=2))
         return;
@@ -136,22 +145,38 @@ void clsSingleTrig::doRCCalibration()
 
     double aFactor = z100CPTrimed.getItem("A",QObject::tr("串联"))  - z100Pref.last();
     Am = Am - aFactor-(z100Pref.last()+90.000);
+    if(Am > 180)
+        Am =Am - 360.0;
+    else if(Am < -180.0)
+        Am += 360.0;
+
+
+
 
     clsDataProcess end(Zm,Am,frequency);
-    end.applyOpenData(openData.at(0),openData.at(1));
-    end.applyShortData(shortData.at(0),shortData.at(1));
-    end.useLoadData(false);
-   // end.doCalibration();
 
-    Zm=end.getItem("Z",QObject::tr("串联")) ;
+    Zm=end.getItem("Z",QObject::tr("串联"));
     Am=end.getItem("A",QObject::tr("串联"));
 
+//    if((blUseLoad==false) || (zLoadm.length()!=2) || (zLoads.length()!=2))
+//        return;
+//    end.applyOpenData(openData.at(0),openData.at(1));
+//    end.applyShortData(shortData.at(0),shortData.at(1));
+//    end.applyLoadData(zLoadm.first(),zLoadm.last());
+//    end.applyStdData(zLoads.first(),zLoads.last());
+//    end.setImpedance(Zm);
+//    end.setAngle(Am);
+//    end.useLoadData(true);
+//    end.doCalibration();
+
+//    Zm=end.getItem("Z",QObject::tr("串联"));
+//    Am=end.getItem("A",QObject::tr("串联"));
 
 }
 
 double clsSingleTrig::getItem(QString item, QString equcct)
 {
-     clsDataProcess d(Zm,Am,frequency);
+    clsDataProcess d(Zm,Am,frequency);
 
     return d.getItem(item,equcct);
 }

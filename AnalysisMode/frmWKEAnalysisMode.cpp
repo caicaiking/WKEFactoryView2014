@@ -24,6 +24,7 @@
 #include "dlgSetupOp.h"
 #include "clsSampleTest.h"
 #include <windows.h>
+#include "clsCalibrationDbOp.h"
 frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -54,6 +55,14 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     setDemoVersion(SingletonDog::Instance()->getVersion());
 
     btnMaterialSettings->setVisible(this->getMaterialOption());
+
+
+    //For TEst
+//    clsCalDb::getInst()->setStrDataBaseName(QString("./McbCal.db"));
+//    //clsCalDb::getInst()->setStrDataBaseName(QString(":memory:"));//生成数据库在内存中
+//    clsCalDb::getInst()->openDataBase();
+//    clsCalDb::getInst()->initTable();
+
 
 }
 

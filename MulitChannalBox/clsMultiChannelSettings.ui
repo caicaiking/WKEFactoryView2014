@@ -169,9 +169,28 @@
       </font>
      </property>
      <property name="title">
-      <string>是否使用负载数据</string>
+      <string>高频补偿</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout_3">
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QCheckBox" name="rbRCLoad">
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>使用阻容补偿</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
       <item>
        <widget class="QCheckBox" name="radUserLoad">
         <property name="font">
@@ -181,9 +200,12 @@
          </font>
         </property>
         <property name="text">
-         <string>使用负载数据，如果存在负载数据。</string>
+         <string>使用标准产品补偿</string>
         </property>
         <property name="checked">
+         <bool>true</bool>
+        </property>
+        <property name="autoExclusive">
          <bool>true</bool>
         </property>
        </widget>

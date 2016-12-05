@@ -27,7 +27,7 @@ clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
 {
     setupUi(this);
 
-    //this->terminal =2;
+    this->terminal =2;
     isFastGpibOn = false;
     isLedOff = false;
 
