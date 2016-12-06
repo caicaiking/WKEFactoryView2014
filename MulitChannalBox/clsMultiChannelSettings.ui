@@ -200,7 +200,7 @@
          </font>
         </property>
         <property name="text">
-         <string>使用标准产品补偿</string>
+         <string>使用标样补偿</string>
         </property>
         <property name="checked">
          <bool>true</bool>

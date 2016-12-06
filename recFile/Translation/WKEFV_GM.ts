@@ -2511,7 +2511,7 @@
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="356"/>
-        <source>负载
+        <source>标样
 校准</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4065,7 +4065,7 @@
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="203"/>
-        <source>使用标准产品补偿</source>
+        <source>使用标样补偿</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -6048,30 +6048,17 @@ WKE FactoryView2014联机测试软件，深圳市稳科电子仪器有限公司�
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="355"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;如果选择GPIB连接仪器，请设置地址范围1~32&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;如果连接LAN连接6500请输入IP地址形如：192.168.1.102&lt;/p&gt;&lt;p&gt;如果连接LAN连接4300请输入Ip地址形如：192.168.1.102&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../common/frmSelectConnection.ui" line="434"/>
-        <source>如果选择GPIB连接仪器，请设置地址范围1~32
-
-如果连接LAN连接6500请输入IP地址形如：192.168.1.102,6500
-如果连接LAN连接4300请输入Ip地址形如：192.168.1.102,4300</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../common/frmSelectConnection.ui" line="375"/>
+        <location filename="../../common/frmSelectConnection.ui" line="372"/>
         <source>4300</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="380"/>
+        <location filename="../../common/frmSelectConnection.ui" line="377"/>
         <source>6500</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="416"/>
+        <location filename="../../common/frmSelectConnection.ui" line="413"/>
         <source>连接(&amp;T)</source>
         <translation type="unfinished"></translation>
     </message>

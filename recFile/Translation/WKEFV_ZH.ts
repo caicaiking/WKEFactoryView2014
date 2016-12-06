@@ -1039,7 +1039,7 @@
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.cpp" line="565"/>
         <source>仪表校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.cpp" line="649"/>
@@ -2431,17 +2431,17 @@
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="14"/>
         <source>多通道扫描箱校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="54"/>
         <source>仪器单通道校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="74"/>
         <source>选定通道</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="105"/>
@@ -2479,77 +2479,77 @@
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="165"/>
         <source>仪表
 校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="182"/>
         <source>多通道校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="204"/>
         <source>开路
 校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="247"/>
         <source>短路
 校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="287"/>
         <source>多通道负载校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="309"/>
         <source>阻容
 校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="356"/>
-        <source>负载
+        <source>标样
 校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="396"/>
         <source>消息显示</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="416"/>
         <source>校准类型</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="440"/>
         <source>校准频率</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="464"/>
         <source>校准通道</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="572"/>
         <source>频率点
 文件</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="607"/>
         <source>取消</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="628"/>
         <source>完成</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="800"/>
@@ -2695,46 +2695,46 @@
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="518"/>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="530"/>
         <source>负载校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="470"/>
         <source>将继电器控制盒调到 %1 通道。</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="475"/>
         <source>请放入标准负载</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="547"/>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="551"/>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="575"/>
         <source>开路校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="591"/>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="595"/>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="620"/>
         <source>短路校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="674"/>
         <source>&lt;p&gt;现在第&lt;strong&gt;&lt;span style=&quot;font-size:16px;color:#E53333;&quot;&gt;%1&lt;/span&gt;&lt;/strong&gt;通道&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="681"/>
         <source>%3时间为：%1 %2</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="742"/>
         <source>确定是否已经做完了开路和短路校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="742"/>
@@ -2742,18 +2742,18 @@
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="808"/>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="865"/>
         <source>阻容校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="747"/>
         <source>放入负载100R</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="763"/>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="795"/>
         <source>100R校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="787"/>
@@ -2761,32 +2761,32 @@
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="844"/>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="845"/>
         <source>串联</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="808"/>
         <source>放入负载100pF</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="820"/>
         <source>100pF校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="852"/>
         <source>100P校准</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="871"/>
         <source>打开频率点数据文件</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="871"/>
         <source>CSV 文件(*.csv)</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -4056,17 +4056,17 @@
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="172"/>
         <source>高频补偿</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="184"/>
         <source>使用阻容补偿</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="203"/>
-        <source>使用标准产品补偿</source>
-        <translation type="unfinished"></translation>
+        <source>使用标样补偿</source>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="246"/>
@@ -6048,30 +6048,17 @@ WKE FactoryView2014联机测试软件，深圳市稳科电子仪器有限公司�
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="355"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;如果选择GPIB连接仪器，请设置地址范围1~32&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;如果连接LAN连接6500请输入IP地址形如：192.168.1.102&lt;/p&gt;&lt;p&gt;如果连接LAN连接4300请输入Ip地址形如：192.168.1.102&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../common/frmSelectConnection.ui" line="434"/>
-        <source>如果选择GPIB连接仪器，请设置地址范围1~32
-
-如果连接LAN连接6500请输入IP地址形如：192.168.1.102,6500
-如果连接LAN连接4300请输入Ip地址形如：192.168.1.102,4300</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../common/frmSelectConnection.ui" line="375"/>
+        <location filename="../../common/frmSelectConnection.ui" line="372"/>
         <source>4300</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="380"/>
+        <location filename="../../common/frmSelectConnection.ui" line="377"/>
         <source>6500</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="416"/>
+        <location filename="../../common/frmSelectConnection.ui" line="413"/>
         <source>连接(&amp;T)</source>
         <translation></translation>
     </message>

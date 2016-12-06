@@ -511,8 +511,9 @@ void clsCalibration::on_btnLoadTrim_clicked()
         clsConnectSWBox::Instance()->turnOffAllLight();
         clsConnectSWBox::Instance()->setOnlyOneOrangeLEDON(currentChannel);
 
-        showCalMessage(tr("负载校准"),currentChannel);
-
+        int res=showCalMessage(tr("负载校准"),currentChannel);
+        if(res==QDialog::Rejected)
+            return;
         for(int f=0; f<calFrequencys.length(); f++)
         {
             showCalMessage(tr("负载校准"),calFrequencys.at(f),currentChannel);
@@ -535,7 +536,7 @@ void clsCalibration::on_btnOpenTrim_clicked()
     QList<double> calFrequencys = getCalFrequencys();
     QList<int> calChannels = this->getCalChannels();
 
-     meter->setConditionForCalibration(0);
+    meter->setConditionForCalibration(0);
 
     for(int c=0; c< calChannels.length(); c++)
     {
@@ -544,8 +545,9 @@ void clsCalibration::on_btnOpenTrim_clicked()
         clsConnectSWBox::Instance()->turnOffAllLight();
         clsConnectSWBox::Instance()->setOnlyOneOrangeLEDON(currentChannel);
 
-        showCalMessage(tr("开路校准"),currentChannel);
-
+        int res=showCalMessage(tr("开路校准"),currentChannel);
+        if(res==QDialog::Rejected)
+            return;
         for(int f=0; f<calFrequencys.length(); f++)
         {
             showCalMessage(tr("开路校准"),calFrequencys.at(f),currentChannel);
@@ -580,7 +582,7 @@ void clsCalibration::on_btnShortTrim_clicked()
     QList<double> calFrequencys = getCalFrequencys();
     QList<int> calChannels = this->getCalChannels();
 
-     meter->setConditionForCalibration(0);
+    meter->setConditionForCalibration(0);
     for(int c=0; c< calChannels.length(); c++)
     {
         int currentChannel = calChannels.at(c);
@@ -588,8 +590,9 @@ void clsCalibration::on_btnShortTrim_clicked()
         clsConnectSWBox::Instance()->turnOffAllLight();
         clsConnectSWBox::Instance()->setOnlyOneOrangeLEDON(currentChannel);
 
-        showCalMessage(tr("短路校准"),currentChannel);
-
+        int res=showCalMessage(tr("短路校准"),currentChannel);
+        if(res==QDialog::Rejected)
+            return;
         for(int f=0; f<calFrequencys.length(); f++)
         {
             showCalMessage(tr("短路校准"),calFrequencys.at(f),currentChannel);
@@ -760,8 +763,9 @@ void clsCalibration::on_btnRCLoadCalibration_clicked()
         clsConnectSWBox::Instance()->turnOffAllLight();
         clsConnectSWBox::Instance()->setOnlyOneOrangeLEDON(currentChannel);
 
-        showCalMessage(tr("100R校准"),currentChannel);
-
+        int res1= showCalMessage(tr("100R校准"),currentChannel);
+        if(res1==QDialog::Rejected)
+            return;
         meter->set10KHz();
         meter->setConditionForCalibration(0);
         QList<double> res = meter->getOriginZA();

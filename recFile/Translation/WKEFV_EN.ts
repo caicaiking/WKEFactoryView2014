@@ -2779,6 +2779,12 @@
         <translation>New item</translation>
     </message>
     <message>
+        <source>产品
+校准</source>
+        <translation type="vanished">Std Product
+Compensation</translation>
+    </message>
+    <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="800"/>
         <source>下一个
 通道</source>
@@ -2809,6 +2815,13 @@ Std. value</translation>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="906"/>
         <source>开路：</source>
         <translation>Open:</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="356"/>
+        <source>标样
+校准</source>
+        <translation>Std Product
+Compensation</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsCalibration.ui" line="1040"/>
@@ -2884,10 +2897,9 @@ Trim</translation>
 Compensation</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="356"/>
         <source>负载
 校准</source>
-        <translation>Product
+        <translation type="vanished">Product
 Compensation</translation>
     </message>
     <message>
@@ -4538,8 +4550,12 @@ Test</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="203"/>
+        <source>使用标样补偿</source>
+        <translation>Use std. product load</translation>
+    </message>
+    <message>
         <source>使用标准产品补偿</source>
-        <translation>Use product load</translation>
+        <translation type="vanished">Use product load</translation>
     </message>
     <message>
         <source>使用负载补偿</source>
@@ -6645,32 +6661,26 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</tr
         <translation>&amp;Address:</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="355"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;如果选择GPIB连接仪器，请设置地址范围1~32&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;如果连接LAN连接6500请输入IP地址形如：192.168.1.102&lt;/p&gt;&lt;p&gt;如果连接LAN连接4300请输入Ip地址形如：192.168.1.102&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../common/frmSelectConnection.ui" line="434"/>
         <source>如果选择GPIB连接仪器，请设置地址范围1~32
 
 如果连接LAN连接6500请输入IP地址形如：192.168.1.102,6500
 如果连接LAN连接4300请输入Ip地址形如：192.168.1.102,4300</source>
-        <translation>If you choose to connect GPIB instrument, set the address range from 1 to 32
+        <translation type="vanished">If you choose to connect GPIB instrument, set the address range from 1 to 32
 If the connection is 6500 enter the IP address like this: 192.168.1.102
 If the connection is 4300 enter the Ip address like this: 192.168.1.102</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="375"/>
+        <location filename="../../common/frmSelectConnection.ui" line="372"/>
         <source>4300</source>
         <translation>4300</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="380"/>
+        <location filename="../../common/frmSelectConnection.ui" line="377"/>
         <source>6500</source>
         <translation>6500</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="416"/>
+        <location filename="../../common/frmSelectConnection.ui" line="413"/>
         <source>连接(&amp;T)</source>
         <translation>Connec&amp;t</translation>
     </message>
