@@ -39,11 +39,16 @@ void clsWriteDataToFile::stopRecord()
 void clsWriteDataToFile::setData(QString ch, QList<double> v)
 {
     QStringList tmp ;
+    QLocale loc;
+
+    loc.setNumberOptions(QLocale::OmitGroupSeparator);
+    QString sp =(QLocale().decimalPoint()=='.'?",":";");
+
     for(int i=0; i< v.length();i++)
     {
-        tmp.append(QString::number(v.at(i)));
+        tmp.append(loc.toString(v.at(i)));
     }
-    threads[ch.toInt()]->setData(tmp.join(","));
+    threads[ch.toInt()]->setData(tmp.join(sp));
 }
 
 void clsWriteDataToFile::setChannel(QString value)

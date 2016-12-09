@@ -377,11 +377,14 @@ void clsMultiChannaeBox::on_btnSignleTest_clicked()
         file.setPath("./MultiChannelDataFile/");
 
         QStringList items;
+
+        QString sp =(QLocale().decimalPoint()=='.'?",":";");
+
         for(int i=0; i<meter->getTotleItemCount();i++)
         {
             items.append(meter->getItem(i));
         }
-        file.writeTitle(items.join(","));
+        file.writeTitle(items.join(sp));
 
         clsConnectSWBox::Instance()->turnOffAllLight();
 

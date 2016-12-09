@@ -73,7 +73,10 @@ void clsConnectSWBox::closeSeriesPort()
  */
 int clsConnectSWBox::sendCommand(QString value)
 {
-    return   serialPort->sendCommand(value);
+    if(serialPort->getInit())
+        return   serialPort->sendCommand(value);
+    else
+        return 99;
 }
 
 using namespace std;

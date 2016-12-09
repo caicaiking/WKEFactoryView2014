@@ -2692,8 +2692,8 @@
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="470"/>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="475"/>
         <location filename="../../MulitChannalBox/clsCalibration.cpp" line="514"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="518"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="530"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="519"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="531"/>
         <source>负载校准</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2708,83 +2708,83 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="547"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="551"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="575"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="548"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="553"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="577"/>
         <source>开路校准</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="591"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="595"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="620"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="593"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="598"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="623"/>
         <source>短路校准</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="674"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="677"/>
         <source>&lt;p&gt;现在第&lt;strong&gt;&lt;span style=&quot;font-size:16px;color:#E53333;&quot;&gt;%1&lt;/span&gt;&lt;/strong&gt;通道&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="681"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="684"/>
         <source>%3时间为：%1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="742"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="745"/>
         <source>确定是否已经做完了开路和短路校准</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="742"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="747"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="808"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="865"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="745"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="750"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="812"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="869"/>
         <source>阻容校准</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="747"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="750"/>
         <source>放入负载100R</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="763"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="795"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="766"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="799"/>
         <source>100R校准</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="787"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="788"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="844"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="845"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="791"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="792"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="848"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="849"/>
         <source>串联</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="808"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="812"/>
         <source>放入负载100pF</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="820"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="824"/>
         <source>100pF校准</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="852"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="856"/>
         <source>100P校准</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="871"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="875"/>
         <source>打开频率点数据文件</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="871"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="875"/>
         <source>CSV 文件(*.csv)</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3151,34 +3151,34 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="336"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="300"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;新建一个测试程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="339"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="303"/>
         <source>新建
 程序</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="414"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="378"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;打开一个测试程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="417"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="381"/>
         <source>打开
 程序</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="453"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="417"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存测试程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="456"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="420"/>
         <source>保存
 程序</source>
         <translation type="unfinished"></translation>
@@ -3196,7 +3196,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="375"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="339"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;设置测试程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3208,23 +3208,23 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="300"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="456"/>
         <source>快捷键 Ctrl+C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="303"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="459"/>
         <source>复制
 选择</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="317"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="473"/>
         <source>Ctrl+C</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="378"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="342"/>
         <source>测试
 设置</source>
         <translation type="unfinished"></translation>
