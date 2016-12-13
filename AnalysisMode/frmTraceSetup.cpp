@@ -9,7 +9,7 @@ frmTraceSetup::frmTraceSetup(WKEInstrument *ms, QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
-     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     this->meter=ms;
 
     getSupportFunction();

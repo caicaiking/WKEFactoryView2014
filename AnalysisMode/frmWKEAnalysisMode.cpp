@@ -57,13 +57,6 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     btnMaterialSettings->setVisible(this->getMaterialOption());
 
 
-    //For TEst
-//    clsCalDb::getInst()->setStrDataBaseName(QString("./McbCal.db"));
-//    //clsCalDb::getInst()->setStrDataBaseName(QString(":memory:"));//生成数据库在内存中
-//    clsCalDb::getInst()->openDataBase();
-//    clsCalDb::getInst()->initTable();
-
-
 }
 
 void frmWKEAnalysisMode::setDemoVersion(bool value)
