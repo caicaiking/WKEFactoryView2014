@@ -6765,7 +6765,7 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102</transla
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="336"/>
         <source>误差代码</source>
-        <translation>Error code</translation>
+        <translation>Accuracy code</translation>
     </message>
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="360"/>

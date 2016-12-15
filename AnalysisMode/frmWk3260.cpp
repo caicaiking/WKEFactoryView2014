@@ -166,13 +166,13 @@ bool frmWk3260::getBiasOn()
         if(wk3260.biasValue.value<=1.0)
             UserfulFunctions::sleepMs(3000);
         else if(wk3260.biasValue.value<10)
-            UserfulFunctions::sleepMs(600);
+            UserfulFunctions::sleepMs(800);
         else if(wk3260.biasValue.value<20)
             UserfulFunctions::sleepMs(800);
         else if(wk3260.biasValue.value<30)
             UserfulFunctions::sleepMs(1000);
         else
-            UserfulFunctions::sleepMs(650);
+            UserfulFunctions::sleepMs(800);
     }
     else
     {
