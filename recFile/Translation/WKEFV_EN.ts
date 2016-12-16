@@ -4021,7 +4021,7 @@ test Result</translation>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="333"/>
         <source>列表分割符：</source>
-        <translation>List seperator:</translation>
+        <translation type="unfinished">List separator:</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="347"/>
@@ -5493,7 +5493,7 @@ Test</translation>
     <message>
         <location filename="../../AnalysisMode/clsViewResult.ui" line="109"/>
         <source>列表分隔符：</source>
-        <translation>List seperator:</translation>
+        <translation type="unfinished">List separator:</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsViewResult.ui" line="132"/>
