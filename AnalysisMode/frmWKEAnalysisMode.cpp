@@ -24,6 +24,7 @@
 #include "dlgSetupOp.h"
 #include "clsSampleTest.h"
 #include <windows.h>
+#include "clsCalibrationDbOp.h"
 frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -54,6 +55,7 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     setDemoVersion(SingletonDog::Instance()->getVersion());
 
     btnMaterialSettings->setVisible(this->getMaterialOption());
+
 
 }
 
@@ -526,15 +528,22 @@ void frmWKEAnalysisMode::on_btnTraceSetup_clicked()
 {
     frmTraceSetup * dlg  = new frmTraceSetup(this->meter);
     dlg->setWindowTitle(tr("扫描设定"));
+    bool isChanged = true;
     if(dlg->exec() ==QDialog::Accepted)
     {
         if(!this->gs.equal( dlg->getGsetup()))
+        {
+            isChanged = false;
             plot->clearData();
-
+        }
         if(this->gs.sweepType!= dlg->getGsetup().sweepType)
         {
             plot->turnOffRefTrace();
+            isChanged = false;
         }
+
+        if(this->gs.points != dlg->getGsetup().points)
+            isChanged = false;
 
         this->gs = dlg->getGsetup();
 
@@ -543,7 +552,8 @@ void frmWKEAnalysisMode::on_btnTraceSetup_clicked()
         meas->setPoint(&gs.points);
         // qDebug()<< gs.points;
         connect(meas,SIGNAL(showProgress(int)),this->progressBar,SLOT(setValue(int)));
-        updateGraph();
+
+            updateGraph();
         updateButtons();
     }
 }

@@ -20,6 +20,7 @@ qrc_*.cpp
 ui_*.h
 Makefile*
 *-build-*
+/libs/*
 
 
 # QtCreator

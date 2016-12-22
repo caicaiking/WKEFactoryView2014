@@ -98,6 +98,7 @@ QString UserfulFunctions::getSuffix(const QString &value)
     if(value=="A" || value==QString("θ"))
         return QString("°");
 
+
     if(value=="G" || value=="B" || value=="Y")
         return "S";
 

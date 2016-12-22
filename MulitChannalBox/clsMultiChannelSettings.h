@@ -9,9 +9,13 @@ class clsMultiChannelSettings : public QDialog, private Ui::clsMultiChannelSetti
 
 public:
     explicit clsMultiChannelSettings(QWidget *parent = 0);
-    void setConditon(int delay, bool isUseLoadData);
+    void setCondition(int delay, bool isUseLoadData);
     int getSwitchDelay();
     bool isUseLoadData();
+    bool getTurnOnScreen();
+    void setCondition(bool isFastGpibOn);
+    void setLedLightEnable(bool value);
+    bool getLedEnable();
 private slots:
     void on_btnOk_clicked();
     void on_btnCancel_clicked();

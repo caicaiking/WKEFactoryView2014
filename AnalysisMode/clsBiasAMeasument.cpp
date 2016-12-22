@@ -68,8 +68,11 @@ void clsBiasAMeasument::trig()
         if(!bias.contains(tmpBias))
         {
             if(tmpBias!=0)
-                meter->turnOnBias(); sngBiasAOp::Instance()->preOperation();
-
+            {
+                if(!meter->turnOnBias())
+                    goto NextBiasPoint;
+                sngBiasAOp::Instance()->preOperation();
+            }
             QString strRes=meter->trig();
             QList<double> res=UserfulFunctions::resultPro(strRes);
             bias<<tmpBias;
@@ -79,6 +82,7 @@ void clsBiasAMeasument::trig()
             if(i<points->length()-1)
                 sngBiasAOp::Instance()->afterOperation();
         }
+NextBiasPoint:
         qApp->processEvents();
         emit showProgress((int)((i+1)*100/points->length()));
         qApp->processEvents();

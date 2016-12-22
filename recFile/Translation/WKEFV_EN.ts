@@ -268,10 +268,10 @@
     <message>
         <location filename="../../AnalysisMode/WK3260.h" line="120"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="445"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="33"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="986"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="33"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1009"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="35"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="1086"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="35"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="988"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="21"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="124"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="139"/>
@@ -281,8 +281,8 @@
     <message>
         <location filename="../../AnalysisMode/WK3260.h" line="122"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="449"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="988"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1011"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="1088"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="990"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="25"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="127"/>
         <source>快速</source>
@@ -291,8 +291,8 @@
     <message>
         <location filename="../../AnalysisMode/WK3260.h" line="124"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="453"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="990"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1013"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="1090"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="992"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="29"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="130"/>
         <source>中速</source>
@@ -301,8 +301,8 @@
     <message>
         <location filename="../../AnalysisMode/WK3260.h" line="126"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="457"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="992"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1015"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="1092"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="994"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="33"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="133"/>
         <source>慢速</source>
@@ -312,22 +312,30 @@
         <location filename="../../AnalysisMode/WK3260.h" line="157"/>
         <location filename="../../AnalysisMode/clsViewResult.cpp" line="81"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="468"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="23"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="30"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="629"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="847"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="23"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="30"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="630"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="847"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="96"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="97"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="105"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="106"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="114"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="117"/>
-        <location filename="../../MulitChannalBox/clsDataProcess.cpp" line="86"/>
-        <location filename="../../MulitChannalBox/clsDataProcess.cpp" line="87"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="25"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="32"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="729"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="947"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="25"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="32"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="609"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="826"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="112"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="113"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="121"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="122"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="130"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="133"/>
+        <location filename="../../MulitChannalBox/clsDataProcess.cpp" line="88"/>
+        <location filename="../../MulitChannalBox/clsDataProcess.cpp" line="89"/>
+        <location filename="../../MulitChannalBox/clsSingleTrig.cpp" line="84"/>
+        <location filename="../../MulitChannalBox/clsSingleTrig.cpp" line="86"/>
+        <location filename="../../MulitChannalBox/clsSingleTrig.cpp" line="120"/>
+        <location filename="../../MulitChannalBox/clsSingleTrig.cpp" line="121"/>
+        <location filename="../../MulitChannalBox/clsSingleTrig.cpp" line="143"/>
+        <location filename="../../MulitChannalBox/clsSingleTrig.cpp" line="146"/>
+        <location filename="../../MulitChannalBox/clsSingleTrig.cpp" line="158"/>
+        <location filename="../../MulitChannalBox/clsSingleTrig.cpp" line="159"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="50"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="171"/>
         <source>串联</source>
@@ -336,10 +344,10 @@
     <message>
         <location filename="../../AnalysisMode/WK3260.h" line="159"/>
         <location filename="../../MeterMode/cls6500MeterMode.cpp" line="472"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="629"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="847"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="630"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="847"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="729"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="947"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="609"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="826"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="54"/>
         <location filename="../../ResonaceMode/cls6500ResonaceMode.cpp" line="174"/>
         <source>并联</source>
@@ -356,8 +364,8 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="556"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="561"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="565"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="566"/>
         <location filename="../../MeterMode/clsMeterModeFactory.cpp" line="32"/>
         <location filename="../../MulitChannalBox/clsMultiChannelMeterFactory.h" line="28"/>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="228"/>
@@ -365,8 +373,8 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="556"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="561"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="565"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="566"/>
         <location filename="../../ResonaceMode/wkResonaceMode.cpp" line="228"/>
         <source>请插入加密狗！</source>
         <translation>Please insert the dongle!</translation>
@@ -483,131 +491,131 @@
         <translation type="vanished">Bias Voltage</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="116"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="117"/>
         <location filename="../../Public/UserfulFunctions.h" line="64"/>
         <source>频率</source>
         <translation>Frequency</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="120"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="121"/>
         <location filename="../../Public/UserfulFunctions.h" line="67"/>
         <source>偏置电压</source>
         <translation>Bias Voltage</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="120"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="121"/>
         <location filename="../../Public/UserfulFunctions.h" line="76"/>
         <source>电压信号</source>
         <translation>Voltage Signal</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="120"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="121"/>
         <location filename="../../Public/UserfulFunctions.h" line="70"/>
         <source>外置偏压</source>
         <translation>External Bias</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="122"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="123"/>
         <location filename="../../Public/UserfulFunctions.h" line="61"/>
         <source>时间</source>
         <translation>Time</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="125"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="126"/>
         <location filename="../../Public/UserfulFunctions.h" line="73"/>
         <source>偏置电流</source>
         <translation>Bias Current</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="127"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="128"/>
         <location filename="../../Public/UserfulFunctions.h" line="79"/>
         <source>电流信号</source>
         <translation>Current Signal</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="129"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="130"/>
         <source>次数</source>
         <translation>Count</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="140"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="141"/>
         <source>阻抗</source>
         <translation>Impedance</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="142"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="143"/>
         <source>交流电阻</source>
         <translation>Resistance</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="144"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="145"/>
         <source>电抗</source>
         <translation>Reactance</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="146"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="147"/>
         <source>直流电阻</source>
         <translation>Dc Resistance</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="148"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="149"/>
         <source>相位</source>
         <translation>Angle</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="150"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="151"/>
         <source>电导</source>
         <translation>Conductance</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="152"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="153"/>
         <source>电纳</source>
         <translation>Susceptance</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="154"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="155"/>
         <source>导纳</source>
         <translation>Admittance</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="156"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="157"/>
         <source>电感</source>
         <translation>Inductance</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="158"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="159"/>
         <source>电容</source>
         <translation>Capacitance</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="160"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="161"/>
         <source>品质因素</source>
         <translation>Quality Factor</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="162"/>
-        <location filename="../../Public/UserfulFunctions.cpp" line="169"/>
-        <location filename="../../Public/UserfulFunctions.cpp" line="175"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="163"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="170"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="176"/>
         <source>损耗</source>
         <translation>Dissipation Factor</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="165"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="166"/>
         <source>介电实部</source>
         <translation>Permittivity Real</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="167"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="168"/>
         <source>介电虚部</source>
         <translation>Permittivity Image</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="171"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="172"/>
         <source>磁导率实部</source>
         <translation>Permeability Real</translation>
     </message>
     <message>
-        <location filename="../../Public/UserfulFunctions.cpp" line="173"/>
+        <location filename="../../Public/UserfulFunctions.cpp" line="174"/>
         <source>磁导率虚部</source>
         <translation>Permeability Image</translation>
     </message>
@@ -618,7 +626,7 @@
         <translation>Piezo</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="24"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="25"/>
         <source>连接</source>
         <translation> conection</translation>
     </message>
@@ -660,95 +668,95 @@
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="32"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="980"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="32"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="1003"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="34"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="1080"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="34"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="982"/>
         <source>自动</source>
         <translation>Auto</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="39"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="42"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="45"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="41"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="44"/>
         <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="47"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="510"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="513"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="565"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="568"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="727"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="730"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="804"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="807"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="39"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="42"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="45"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="49"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="610"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="613"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="665"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="668"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="827"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="830"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="904"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="907"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="41"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="44"/>
         <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="47"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="511"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="514"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="566"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="569"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="728"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="731"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="804"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="807"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="49"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="490"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="493"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="545"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="548"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="707"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="710"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="783"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="786"/>
         <source>OFF</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="479"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="480"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="579"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="459"/>
         <source>设置速度</source>
         <translation>Set speed</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="494"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="495"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="594"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="474"/>
         <source>设置档位</source>
         <translation>Set range</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="538"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="592"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="756"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="816"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="539"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="593"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="756"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="816"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="638"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="692"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="856"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="916"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="518"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="572"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="735"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="795"/>
         <source>设置单位</source>
         <translation>Set unit</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="551"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="605"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="768"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="833"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="552"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="606"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="768"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="833"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="651"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="705"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="868"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="933"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="531"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="585"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="747"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="812"/>
         <source>设置测试参数</source>
         <translation>Set test item</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="653"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="873"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="654"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="873"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="753"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="973"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="633"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="852"/>
         <source>设置电平</source>
         <translation>Set level</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="700"/>
-        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="919"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="701"/>
-        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="919"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="800"/>
+        <location filename="../../MulitChannalBox/cls6440MultiMeterMode.cpp" line="1019"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="680"/>
+        <location filename="../../MulitChannalBox/cls6500MultiMeterMode.cpp" line="898"/>
         <source>输入频率</source>
         <translation>Input frequency</translation>
     </message>
     <message>
-        <location filename="../../common/main.cpp" line="75"/>
+        <location filename="../../common/main.cpp" line="74"/>
         <source>版本号：%1 正在初始化测试窗口，请稍等...</source>
         <translation>Software version: %1 Test window is initializing, please wait ...</translation>
     </message>
@@ -976,18 +984,18 @@
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="184"/>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="760"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="36"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="272"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="384"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="37"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="273"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="385"/>
         <source>最快</source>
         <translation>Max</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="209"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="37"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="251"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="970"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="973"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="38"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="252"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="972"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="975"/>
         <source>串联</source>
         <translation>Series</translation>
     </message>
@@ -1003,9 +1011,9 @@
     </message>
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="260"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="43"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="294"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1128"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="44"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="295"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1130"/>
         <source>Norm</source>
         <translation></translation>
     </message>
@@ -1022,7 +1030,7 @@
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="302"/>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="378"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="45"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="46"/>
         <source>OFF</source>
         <translation></translation>
     </message>
@@ -1114,8 +1122,8 @@
     </message>
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="684"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="682"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="751"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="684"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="753"/>
         <source>---</source>
         <translation></translation>
     </message>
@@ -1131,10 +1139,10 @@
     </message>
     <message>
         <location filename="../../MeterMode/cls3260MeterMode.ui" line="735"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="34"/>
         <location filename="../../MeterMode/cls3260MeterMode.cpp" line="35"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="267"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="395"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="36"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="268"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="396"/>
         <source>自动</source>
         <translation>Auto</translation>
     </message>
@@ -1159,128 +1167,133 @@
         <translation>Description:</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="26"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="27"/>
         <source>空白</source>
         <translation>Empty</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="98"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="119"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="99"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="120"/>
         <source>已经探测到产品</source>
         <translation>Production detected</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="131"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="132"/>
         <source>正在探测产品</source>
         <translation>Detect product in progress</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="274"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="386"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="275"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="387"/>
         <source>快速</source>
         <translation>Fast</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="276"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="388"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="277"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="389"/>
         <source>中速</source>
         <translation>Med</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="278"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="390"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="279"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="391"/>
         <source>慢速</source>
         <translation>Slow</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="647"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="726"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="565"/>
+        <source>仪表校准</source>
+        <translation>Instrument calibration</translation>
+    </message>
+    <message>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="649"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="728"/>
         <source>bias持续</source>
         <translation>Bias On</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="679"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="748"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="681"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="750"/>
         <source>bias休息</source>
         <translation>bias Off</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="703"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="705"/>
         <source>PASS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="703"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="705"/>
         <source>FAIL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="760"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="762"/>
         <source>设置主参数上下限</source>
         <translation>Set Major Limit</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="773"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="775"/>
         <source>设置副参数上下限</source>
         <translation>Set Minor Limit</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="787"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="789"/>
         <source>设置Rdc上下限</source>
         <translation>Set Rdc Limit</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="645"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="676"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="724"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="745"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="821"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="647"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="678"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="726"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="747"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="823"/>
         <source>开</source>
         <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="821"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="823"/>
         <source>关</source>
         <translation>OFF</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="897"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="899"/>
         <source>输入测试频率</source>
         <translation>Set test frequency</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="933"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="935"/>
         <source>输入测试电平</source>
         <translation>Set test level</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="971"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="973"/>
         <source>并联</source>
         <translation>Parallel</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="983"/>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1057"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="985"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1059"/>
         <source>设置速度</source>
         <translation>Set speed</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="997"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="999"/>
         <source>设置测试项目1</source>
         <translation>Set Item1</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1032"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1034"/>
         <source>设置测试项目2</source>
         <translation>Set Item2</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1045"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1047"/>
         <source>设置档位</source>
         <translation>Set range</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1122"/>
+        <location filename="../../MeterMode/cls3260MeterMode.cpp" line="1124"/>
         <source>设定测试Bias的值</source>
         <translation>Set bais value</translation>
     </message>
@@ -2652,14 +2665,8 @@
 <context>
     <name>clsAppMode</name>
     <message>
-        <location filename="../../AppMode/clsAppMode.ui" line="14"/>
         <source>App Mode</source>
-        <translation>App Mode</translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsAppMode.ui" line="41"/>
-        <source>Check New App</source>
-        <translation></translation>
+        <translation type="vanished">App Mode</translation>
     </message>
 </context>
 <context>
@@ -2714,182 +2721,414 @@
 <context>
     <name>clsCalibration</name>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="14"/>
         <source>通道校准</source>
-        <translation>Channel calibration</translation>
+        <translation type="vanished">Channel calibration</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="36"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="653"/>
         <source>频率:</source>
         <translation>Frequency:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="58"/>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="86"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="675"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="703"/>
         <source>1000.00Hz</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="108"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="725"/>
         <source>通道：</source>
         <translation>Channel:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="131"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="100"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="748"/>
         <source>1</source>
         <translation>1</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="136"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="105"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="753"/>
         <source>2</source>
         <translation>100Point {2?}</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="141"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="110"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="758"/>
         <source>3</source>
         <translation>100Point {3?}</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="146"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="115"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="763"/>
         <source>4</source>
         <translation>100Point {4?}</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="151"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="120"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="768"/>
         <source>5</source>
         <translation>100Point {5?}</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="156"/>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="161"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="125"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="130"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="773"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="778"/>
         <source>新建项目</source>
         <translation>New item</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="183"/>
+        <source>产品
+校准</source>
+        <translation type="vanished">Std Product
+Compensation</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="800"/>
         <source>下一个
 通道</source>
         <translation>Next
 Channel</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="311"/>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="378"/>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="445"/>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="518"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="824"/>
+        <source>输入所有通道
+标准负载值</source>
+        <translation>Input all channels
+Std. value</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="960"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="1027"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="1094"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="1167"/>
         <source>清除</source>
         <translation>Clear</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="461"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="1110"/>
         <source>标准负载:</source>
         <translation>Std. Value:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="257"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="906"/>
         <source>开路：</source>
         <translation>Open:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="391"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="356"/>
+        <source>标样
+校准</source>
+        <translation>Std Product
+Compensation</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="1040"/>
         <source>负载：</source>
         <translation>Load:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="324"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="973"/>
         <source>短路：</source>
         <translation>Short:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="241"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="890"/>
         <source>相位角(°)</source>
         <translation>Angle(°)</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="225"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="874"/>
         <source>阻抗(Ω)</source>
         <translation>Impedance(Ω)</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="541"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="14"/>
+        <source>多通道扫描箱校准</source>
+        <translation>Multi-Channel scaner calibration</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="54"/>
+        <source>仪器单通道校准</source>
+        <translation>Single channel calibration</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="74"/>
+        <source>选定通道</source>
+        <translation>Select channel</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="165"/>
+        <source>仪表
+校准</source>
+        <translation>Instrument
+calibration</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="182"/>
+        <source>多通道校准</source>
+        <translation>Multi-channel calibration</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="204"/>
+        <source>开路
+校准</source>
+        <translation>Open
+Trim</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="247"/>
+        <source>短路
+校准</source>
+        <translation>Short
+Trim</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="287"/>
+        <source>多通道负载校准</source>
+        <translation>Multi-channel Load compensation</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="309"/>
+        <source>阻容
+校准</source>
+        <translation>RC
+Compensation</translation>
+    </message>
+    <message>
+        <source>负载
+校准</source>
+        <translation type="vanished">Product
+Compensation</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="396"/>
+        <source>消息显示</source>
+        <translation>Display Message</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="416"/>
+        <source>校准类型</source>
+        <translation>Cal. type</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="440"/>
+        <source>校准频率</source>
+        <translation>Cal. Frequency</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="464"/>
+        <source>校准通道</source>
+        <translation>Cal. channel</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="572"/>
+        <source>频率点
+文件</source>
+        <translation>Frequency
+File</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="607"/>
+        <source>取消</source>
+        <translation>Cancel</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="628"/>
+        <source>完成</source>
+        <translation>Done</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="1190"/>
         <source>开路(&amp;O)</source>
         <translation>Open(&amp;O)</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="560"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="1209"/>
         <source>短路(&amp;S)</source>
         <translation>Short(&amp;S)</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="579"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="1228"/>
         <source>负载(&amp;L)</source>
         <translation>Load(&amp;L)</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="596"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="1245"/>
         <source>Z:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="619"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="1268"/>
         <source>A:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="642"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="1291"/>
         <source>C:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="665"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="1314"/>
         <source>D:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="688"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="1337"/>
         <source>L</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="711"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="1360"/>
         <source>R:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="738"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="1387"/>
         <source>使用负载数据</source>
         <translation>Use load data</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.ui" line="773"/>
+        <location filename="../../MulitChannalBox/clsCalibration.ui" line="1422"/>
         <source>测试(&amp;T)</source>
         <translation>Test(&amp;T)</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="239"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="245"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="251"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="257"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="263"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="269"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="258"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="264"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="270"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="276"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="282"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="288"/>
         <source>没有数据</source>
         <translation>No data</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="275"/>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="281"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="294"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="300"/>
         <source>点击输入</source>
         <translation>Click input</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="348"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="367"/>
         <source>输入标准阻抗</source>
         <translation>Input standard impedance</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="363"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="382"/>
         <source>输入标准相位角</source>
         <translation>Input standard angle</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="438"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="488"/>
+        <source>输入%1的标准负载值</source>
+        <translation>Input %1 Std. value</translation>
+    </message>
+    <message>
+        <source>将继电器控制盒调到仪器校准的通道。</source>
+        <translation type="vanished">Please ajust the channel to calibration channel</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="470"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="475"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="514"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="519"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="531"/>
+        <source>负载校准</source>
+        <translation>Load calibration</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="470"/>
+        <source>将继电器控制盒调到 %1 通道。</source>
+        <translation>Set scan to channel %1.</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="475"/>
+        <source>请放入标准负载</source>
+        <translation>Please put the std. load</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="548"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="553"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="577"/>
+        <source>开路校准</source>
+        <translation>Open circuit trim</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="593"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="598"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="623"/>
+        <source>短路校准</source>
+        <translation>Short circuit trim</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="677"/>
+        <source>&lt;p&gt;现在第&lt;strong&gt;&lt;span style=&quot;font-size:16px;color:#E53333;&quot;&gt;%1&lt;/span&gt;&lt;/strong&gt;通道&lt;/p&gt;</source>
+        <translation>&lt;p&gt;Current&lt;strong&gt;&lt;span style=&quot;font-size:16px;color:#E53333;&quot;&gt; %1 &lt;/span&gt;&lt;/strong&gt;Channel&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="684"/>
+        <source>%3时间为：%1 %2</source>
+        <translation>%3 time:%1 %2</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="745"/>
+        <source>确定是否已经做完了开路和短路校准</source>
+        <translation>Make sure have done open and short trim</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="745"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="750"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="812"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="869"/>
+        <source>阻容校准</source>
+        <translation>Resistor and capacitor compensation</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="750"/>
+        <source>放入负载100R</source>
+        <translation>Put 100R load</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="766"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="799"/>
+        <source>100R校准</source>
+        <translation>100R compensation</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="791"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="792"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="848"/>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="849"/>
+        <source>串联</source>
+        <translation>Series</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="812"/>
+        <source>放入负载100pF</source>
+        <translation>Put 100pF load</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="824"/>
+        <source>100pF校准</source>
+        <translation>100pF compensation</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="856"/>
+        <source>100P校准</source>
+        <translation>100P compensation</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="875"/>
+        <source>打开频率点数据文件</source>
+        <translation>Open frequency points file</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsCalibration.cpp" line="875"/>
+        <source>CSV 文件(*.csv)</source>
+        <translation>CSV file(*.csv)</translation>
     </message>
 </context>
 <context>
@@ -2906,13 +3145,13 @@ Channel</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="113"/>
-        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="82"/>
+        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="86"/>
         <source>选定前10通道</source>
         <translation>Select 1-10 channel</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsChennalSelect.ui" line="141"/>
-        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="105"/>
+        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="109"/>
         <source>全选</source>
         <translation>All</translation>
     </message>
@@ -2927,17 +3166,17 @@ Channel</translation>
         <translation>Ok</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="19"/>
+        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="22"/>
         <source>%1 通道</source>
         <translation>%1 channel</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="78"/>
+        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="82"/>
         <source>不选前10通道</source>
         <translation>Don&apos;t select 1-10 channel</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="101"/>
+        <location filename="../../MulitChannalBox/clsChennalSelect.cpp" line="105"/>
         <source>全不选</source>
         <translation>Not all</translation>
     </message>
@@ -2953,177 +3192,6 @@ Channel</translation>
         <location filename="../../ResonaceMode/clsControlBox.cpp" line="104"/>
         <source>等待开关放开...</source>
         <translation>Waiting relay release...</translation>
-    </message>
-</context>
-<context>
-    <name>clsDownLoad</name>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.ui" line="20"/>
-        <source>Download Data file</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.ui" line="40"/>
-        <source>Ftp Server:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.ui" line="53"/>
-        <source>ftp7.gmoserver.jp</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.ui" line="83"/>
-        <source>Connect</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.ui" line="115"/>
-        <source>Upload</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.ui" line="128"/>
-        <source>Download</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.ui" line="141"/>
-        <source>Quit</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="20"/>
-        <source>Name</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="20"/>
-        <source>Size</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="20"/>
-        <source>Owner</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="20"/>
-        <source>Group</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="20"/>
-        <source>Time</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="49"/>
-        <source>connect</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="53"/>
-        <source>please input ftp server name.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="83"/>
-        <source>Opening network session.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="98"/>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="110"/>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="178"/>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="440"/>
-        <source>FTP</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="99"/>
-        <source>There already exists a file called %1 in the current directory.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="111"/>
-        <source>Unable to save the file %1: %2.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="121"/>
-        <source>%1 file downloading..</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="165"/>
-        <source>DisConnect</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="167"/>
-        <source>Have connect to %1..</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="179"/>
-        <source>Unable to connect to the FTP server at %1. Please check that the host name is correct.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="186"/>
-        <source>Have logged to server: %1.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="203"/>
-        <source>upload cancel %1.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="209"/>
-        <source>upload %1 file to current dir.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="224"/>
-        <source>Download cancel %1.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="230"/>
-        <source>download  %1 file to current dir.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="244"/>
-        <source>&lt;empty&gt;</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="393"/>
-        <source>Please input ftp server name.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="431"/>
-        <source>open file</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="431"/>
-        <source>data file (*.csv)</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="441"/>
-        <source>can not read file %1: %2.</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../AppMode/clsDownLoad.cpp" line="451"/>
-        <source>%1 file uploading..</source>
-        <translation></translation>
     </message>
 </context>
 <context>
@@ -3368,6 +3436,7 @@ calibration time:%1 %2</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="57"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="99"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;单击可以进行一次测试。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click to perform a test.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
@@ -3380,46 +3449,48 @@ Shot</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterMode.ui" line="74"/>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="155"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="116"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="197"/>
         <source>Enter</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="99"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="141"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;单击可以进行连续测试。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click this button to do repeat test.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="138"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="180"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;单击可以进行探测产品&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click this button to detect production&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="141"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="183"/>
         <source>开始
 探测</source>
         <translation>Start
 Detect</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="180"/>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="528"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="222"/>
         <location filename="../../MeterMode/clsMeterMode.ui" line="570"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="612"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;停止探测产品&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Stop detect&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="183"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="853"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="102"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="225"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="858"/>
         <source>停止
 测试</source>
         <translation>Stop
 Test</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="197"/>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="545"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="239"/>
         <location filename="../../MeterMode/clsMeterMode.ui" line="587"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="629"/>
         <source>Esc</source>
         <translation></translation>
     </message>
@@ -3430,38 +3501,38 @@ Test</translation>
 300 times</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="294"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="300"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;新建一个测试程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New test program&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="372"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="378"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;打开一个测试程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Open test program&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="375"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="381"/>
         <source>打开
 程序</source>
         <translation>Open
 Program</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="453"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="495"/>
         <source>保存
 结果</source>
         <translation>Save
 Results</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="492"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="534"/>
         <source>数据
 文件</source>
         <translation>Data
 File</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="531"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="573"/>
         <source>统计
 分析</source>
         <translation>Statistical
@@ -3474,107 +3545,107 @@ analysis</translation>
 Report</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="450"/>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="489"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="492"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="531"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存测试数据，可以新建一个数据文件，也可以写入上次存储的数据文件。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save test data,you can save a new data file, or select last data file.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="573"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="615"/>
         <source>导出
 报表</source>
         <translation>Export
 Report</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="773"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="815"/>
         <source>测试文件：</source>
         <translation>Test program:</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="786"/>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="867"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="630"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="828"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="909"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="635"/>
         <source>None</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="799"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="841"/>
         <source>存储类型：</source>
         <translation>Storage type:</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="812"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="665"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="854"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="670"/>
         <source>全部</source>
         <translation>All</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="825"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="867"/>
         <source>通过数量：</source>
         <translation>Pass number:</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="841"/>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="896"/>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="925"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="883"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="938"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="967"/>
         <source>N/A</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="854"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="896"/>
         <source>数据文件：</source>
         <translation>Data file:</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="880"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="922"/>
         <source>测试数量：</source>
         <translation>Test number:</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="909"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="951"/>
         <source>失败数量：</source>
         <translation>Fail number:</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="943"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="985"/>
         <source>测试结果显示</source>
         <translation>Test result display</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="297"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="303"/>
         <source>新建
 程序</source>
         <translation>New
 Program</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="222"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="862"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="264"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="867"/>
         <source>重复
 测试</source>
         <translation>Repeat
 Test</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="258"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="456"/>
         <source>快捷键 Ctrl+C</source>
         <translation>Shortcut Ctrl+C</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="261"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="459"/>
         <source>复制
 选择</source>
         <translation>Copy
 Select</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="275"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="473"/>
         <source>Ctrl+C</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="414"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="420"/>
         <source>保存
 程序</source>
         <translation>Save 
@@ -3587,24 +3658,24 @@ Program</translation>
 Test</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="102"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="144"/>
         <source>连续
 测试</source>
         <translation>Repetive
 Test</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="411"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="417"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;保存测试程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Save test program&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="333"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="339"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;设置测试程序&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Set test program&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="336"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="342"/>
         <source>测试
 设置</source>
         <translation>Set
@@ -3621,24 +3692,24 @@ Program</translation>
 Results</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="612"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="654"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;单击此按钮，进行仪表的校准。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Click this button, to do instrument calibration.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="615"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="657"/>
         <source>仪表
 校准</source>
         <translation>Calib-
 ration</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="651"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="693"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;软件的运行选项设定。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Software running settings&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="654"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="696"/>
         <source>高级
 设定</source>
         <translation>Advanced
@@ -3667,7 +3738,7 @@ Setup</translation>
         <translation type="vanished">Save</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.ui" line="736"/>
+        <location filename="../../MeterMode/clsMeterMode.ui" line="778"/>
         <source>TextLabel</source>
         <translation></translation>
     </message>
@@ -3712,139 +3783,139 @@ Setup</translation>
         <translation type="vanished">&lt;font color=red&gt; Please select test step,then click Add button&lt;/font&gt;</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="91"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="92"/>
         <source>设置测试步骤</source>
         <translation>Set test steps</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="167"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="168"/>
         <source>保存测试任务</source>
         <translation>Save test program</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="168"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="205"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="169"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="206"/>
         <source>WKE FactoryView 任务 (*.wket)</source>
         <translation>WKE FactoryView program (*.wket)</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="204"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="205"/>
         <source>打开测试任务</source>
         <translation>Open test program</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="258"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="259"/>
         <source>打开的任务不是这个仪表能够测试的任务！</source>
         <translation>Open the test program not for this instrument!</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="292"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="294"/>
         <source>序号</source>
         <translation>No</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="292"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="294"/>
         <source>项目</source>
         <translation>Item</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="292"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="294"/>
         <source>下限</source>
         <translation>Low-Limit</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="292"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="294"/>
         <source>测试值</source>
         <translation>Test value</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="292"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="294"/>
         <source>上限</source>
         <translation>Hi-Limit</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="292"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="294"/>
         <source>判定</source>
         <translation>Status</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="292"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="294"/>
         <source>描述</source>
         <translation>Description</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="292"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="294"/>
         <source>测试条件</source>
         <translation>Meas. Settings</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="372"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="375"/>
         <source>已经开始第二次测试</source>
         <translation>Start the second time test</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="504"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="508"/>
         <source>PASS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="504"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="508"/>
         <source>FAIL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="548"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="553"/>
         <source>警告</source>
         <translation>Warning</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="648"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="873"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="653"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="878"/>
         <source>保存测试数据</source>
         <translation>Save test data</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="648"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="873"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="653"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="878"/>
         <source>CSV逗号分割文件(*.csv)</source>
         <translation>CSV comma-separated file(*.csv)</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="668"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="673"/>
         <source>通过</source>
         <translation>Pass</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="671"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="676"/>
         <source>失败</source>
         <translation>Fail</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="679"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="684"/>
         <source>软件触发</source>
         <translation>Software trig</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="689"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="694"/>
         <source>ADU200触发</source>
         <translation>Adu200 trig</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="704"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="709"/>
         <source>自动探测样品触发</source>
         <translation>Auto detect production</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="889"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="896"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="903"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="894"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="901"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="908"/>
         <source>消息</source>
         <translation>Infomation</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="889"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="896"/>
-        <location filename="../../MeterMode/clsMeterMode.cpp" line="903"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="894"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="901"/>
+        <location filename="../../MeterMode/clsMeterMode.cpp" line="908"/>
         <source>没有数据可以保存</source>
         <translation>No data to save</translation>
     </message>
@@ -3950,7 +4021,7 @@ test Result</translation>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="333"/>
         <source>列表分割符：</source>
-        <translation>List seperator:</translation>
+        <translation type="unfinished">List separator:</translation>
     </message>
     <message>
         <location filename="../../MeterMode/clsMeterModeSettings.ui" line="347"/>
@@ -4031,7 +4102,7 @@ test Result</translation>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="14"/>
         <source>仪表设置</source>
-        <translation>Instrument calibration</translation>
+        <translation>Instrument settings</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="32"/>
@@ -4109,7 +4180,7 @@ test Result</translation>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="275"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="430"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="715"/>
-        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="846"/>
+        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="854"/>
         <source>单位：</source>
         <translation>Unit：</translation>
     </message>
@@ -4117,7 +4188,7 @@ test Result</translation>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="291"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="446"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="731"/>
-        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="862"/>
+        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="870"/>
         <source>限定：</source>
         <translation>Limit:</translation>
     </message>
@@ -4125,7 +4196,7 @@ test Result</translation>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="307"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="462"/>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="747"/>
-        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="878"/>
+        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="886"/>
         <source>--</source>
         <translation></translation>
     </message>
@@ -4137,19 +4208,19 @@ test Result</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="378"/>
-        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="794"/>
+        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="802"/>
         <source>测量项目2</source>
         <translation>Test Item2</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="395"/>
-        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="811"/>
+        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="819"/>
         <source>项目2：</source>
         <translation>Item 2:</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="417"/>
-        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="833"/>
+        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="841"/>
         <source>θ</source>
         <translation></translation>
     </message>
@@ -4169,7 +4240,7 @@ test Result</translation>
         <translation>Equcct:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="944"/>
+        <location filename="../../MulitChannalBox/clsMultModeMeterUi.ui" line="960"/>
         <source>确定</source>
         <translation>OK</translation>
     </message>
@@ -4189,9 +4260,9 @@ Shot</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="62"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="181"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="355"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="413"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="187"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="364"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="428"/>
         <source>开始
 测试</source>
         <translation>Start
@@ -4212,208 +4283,222 @@ Setup</translation>
 Setup</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="174"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="238"/>
         <source>切换
 模式</source>
         <translation>Switch
 Mode</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="206"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="270"/>
+        <source>2端口
+测试</source>
+        <translation>2Terminal
+Test</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="161"/>
         <source>通道
 校准</source>
         <translation>Channel
 Calibrate</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="238"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="193"/>
         <source>运行
 设定</source>
         <translation>Running
 Settings</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="270"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="302"/>
         <source>打开
 设置</source>
         <translation>Open
 Settings</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="302"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="334"/>
         <source>保存
 设置</source>
         <translation>Save
 Settings</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="334"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="366"/>
         <source>通道
 测试</source>
         <translation>Channel
 Test</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="366"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="398"/>
         <source>打开
 通信</source>
         <translation>Open
 Communication</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="582"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="614"/>
         <source>显示参数</source>
         <translation>Disp. paremeter</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="596"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="628"/>
         <source>项目：</source>
         <translation>Item:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="626"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="658"/>
         <source>采样延时：</source>
         <translation>Sample Delay:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="648"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="680"/>
         <source>ms</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="671"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="703"/>
         <source>测试次数：</source>
         <translation>Test count:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="687"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="723"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="719"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="755"/>
         <source>N/A</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="707"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="739"/>
         <source>周期时间：</source>
         <translation>Cycle Time:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="743"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="775"/>
         <source>数据文件夹：</source>
         <translation>Data Folder:</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="765"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="797"/>
         <source>打开</source>
         <translation>Open</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="787"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="819"/>
         <source>通道</source>
         <translation>Channels</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="900"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="932"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;快捷键 &lt;span style=&quot; font-weight:600;&quot;&gt;F2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Shortcut &lt;span style=&quot; font-weight:600;&quot;&gt;F2&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="903"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="509"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="935"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="525"/>
         <source>显示
 状态</source>
         <translation>Display
 Status</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="917"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="949"/>
         <source>F2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="933"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="963"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="1006"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="965"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="995"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="1038"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;快捷键 &lt;span style=&quot; font-weight:600;&quot;&gt;F3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Shortcut &lt;span style=&quot; font-weight:600;&quot;&gt;F3&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="936"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="968"/>
         <source>清除
 数据</source>
         <translation>Clear
 Data</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="950"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="980"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="1023"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="982"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="1012"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="1055"/>
         <source>F3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="966"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="998"/>
         <source>保存
 图像</source>
         <translation>Save
 Image</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="1009"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.ui" line="1041"/>
         <source>软件
 信息</source>
         <translation>SoftWare
 Info</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="194"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="249"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="200"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="256"/>
         <source>保存多通道测试文件</source>
         <translation>Save multi-channel test file</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="196"/>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="251"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="202"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="258"/>
         <source>多通道测试文件 (*.wkm)</source>
         <translation>Multi-channel test file (*.wkm)</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="344"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="352"/>
         <source>停止
 测试</source>
         <translation>Stop
 Test</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="503"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="519"/>
         <source>显示
 数据</source>
         <translation>Display
 Data</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="569"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="595"/>
         <source>通道:	</source>
         <translation>Channel:	</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="666"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="697"/>
         <source>关于本软件</source>
         <translation>About me</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="675"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="706"/>
         <source>/untitled.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="677"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="708"/>
         <source>保存测试图像</source>
         <translation>Save test image</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="679"/>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="710"/>
         <source>%1 Files (*.%2);;All Files (*)</source>
         <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultiChannaeBox.cpp" line="730"/>
+        <source>%1端口
+测试</source>
+        <translation>%1Terminal
+Test</translation>
     </message>
 </context>
 <context>
@@ -4435,21 +4520,67 @@ Data</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="94"/>
-        <source>是否使用负载数据</source>
-        <translation>Use the load data</translation>
+        <source>屏幕显示</source>
+        <translation>Instrument Display</translation>
     </message>
     <message>
         <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="106"/>
-        <source>使用负载数据，如果存在负载数据。</source>
-        <translation>Use the load data, if available.</translation>
+        <source>显示数据更新</source>
+        <translation>Show Data update</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="146"/>
+        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="122"/>
+        <source>关闭数据更新</source>
+        <translation>Stop data update</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="141"/>
+        <source>夹具LED指示灯</source>
+        <translation>Fixture Led lights</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="153"/>
+        <source>使用夹具LED指示灯</source>
+        <translation>Use fixture Led lights</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="172"/>
+        <source>高频补偿</source>
+        <translation>HF Compesation</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="203"/>
+        <source>使用标样补偿</source>
+        <translation>Use std. product load</translation>
+    </message>
+    <message>
+        <source>使用标准产品补偿</source>
+        <translation type="vanished">Use product load</translation>
+    </message>
+    <message>
+        <source>使用负载补偿</source>
+        <translation type="vanished">Use product load</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="184"/>
+        <source>使用阻容补偿</source>
+        <translation>Use RC load</translation>
+    </message>
+    <message>
+        <source>是否使用负载数据</source>
+        <translation type="vanished">Use the load data</translation>
+    </message>
+    <message>
+        <source>使用负载数据，如果存在负载数据。</source>
+        <translation type="vanished">Use the load data, if available.</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="246"/>
         <source>确定</source>
         <translation>Ok</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="165"/>
+        <location filename="../../MulitChannalBox/clsMultiChannelSettings.ui" line="265"/>
         <source>取消</source>
         <translation>Cancel</translation>
     </message>
@@ -4571,16 +4702,26 @@ Data</translation>
     </message>
 </context>
 <context>
-    <name>clsMyPushButton</name>
+    <name>clsRetryDialog</name>
     <message>
-        <location filename="../../AppMode/clsMyPushButton.ui" line="14"/>
-        <source>Form</source>
+        <location filename="../../AnalysisMode/clsRetryDialog.ui" line="14"/>
+        <source>重试窗口</source>
+        <translation>Retry Window</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsRetryDialog.ui" line="43"/>
+        <source>s</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AppMode/clsMyPushButton.ui" line="53"/>
-        <source>PushButton</source>
-        <translation></translation>
+        <location filename="../../AnalysisMode/clsRetryDialog.ui" line="80"/>
+        <source>放弃</source>
+        <translation>Give up</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/clsRetryDialog.ui" line="99"/>
+        <source>重试</source>
+        <translation>Retry</translation>
     </message>
 </context>
 <context>
@@ -5084,6 +5225,101 @@ Test</translation>
     </message>
 </context>
 <context>
+    <name>clsStandardValueInput</name>
+    <message>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.ui" line="20"/>
+        <source>输入标准负载值</source>
+        <translation>Input std value</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.ui" line="53"/>
+        <source>Z</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.ui" line="69"/>
+        <source>θ</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.ui" line="85"/>
+        <source>等效电路</source>
+        <translation>Equ-CCT</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.ui" line="108"/>
+        <source>Z θ</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.ui" line="113"/>
+        <source>R X</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.ui" line="118"/>
+        <source>L Q</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.ui" line="123"/>
+        <source>C D</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.ui" line="128"/>
+        <source>L R</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.ui" line="133"/>
+        <source>C R</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.ui" line="153"/>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.ui" line="172"/>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.cpp" line="100"/>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.cpp" line="111"/>
+        <source>点击输入</source>
+        <translation>Click input</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.ui" line="191"/>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.cpp" line="18"/>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.cpp" line="122"/>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.cpp" line="264"/>
+        <source>串联</source>
+        <translation>Series</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.ui" line="240"/>
+        <source>取消</source>
+        <translation>Cancel</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.ui" line="259"/>
+        <source>确定</source>
+        <translation>Ok</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.cpp" line="26"/>
+        <source>频率：</source>
+        <translation>Frequency:</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.cpp" line="47"/>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.cpp" line="82"/>
+        <source>输入标准%1值</source>
+        <translation>Input %1 value</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsStandardValueInput.cpp" line="264"/>
+        <source>并联</source>
+        <translation>Parallel</translation>
+    </message>
+</context>
+<context>
     <name>clsStatistics</name>
     <message>
         <location filename="../../MeterMode/clsStatistics.ui" line="20"/>
@@ -5183,12 +5419,46 @@ Test</translation>
         <translation>Test switch box</translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="61"/>
-        <source>20个通道循环转换</source>
-        <translation>20 channel cycle conversion</translation>
+        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="48"/>
+        <source>2Terminal</source>
+        <translation></translation>
     </message>
     <message>
-        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="81"/>
+        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="69"/>
+        <source>4 Terminal</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="92"/>
+        <source>通道循环转换</source>
+        <translation>Channels Repeat</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="161"/>
+        <source>Set Pass</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="182"/>
+        <source>Set Fail</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="203"/>
+        <source>Set Idle</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="246"/>
+        <source>发送指令</source>
+        <translation>Send command</translation>
+    </message>
+    <message>
+        <source>20个通道循环转换</source>
+        <translation type="vanished">20 channel cycle conversion</translation>
+    </message>
+    <message>
+        <location filename="../../MulitChannalBox/clsSwitchBoxTest.ui" line="112"/>
         <source>切换到通道:</source>
         <translation>Switch to channel</translation>
     </message>
@@ -5223,7 +5493,7 @@ Test</translation>
     <message>
         <location filename="../../AnalysisMode/clsViewResult.ui" line="109"/>
         <source>列表分隔符：</source>
-        <translation>List seperator:</translation>
+        <translation type="unfinished">List separator:</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/clsViewResult.ui" line="132"/>
@@ -6391,32 +6661,26 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102,4300</tr
         <translation>&amp;Address:</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="355"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;如果选择GPIB连接仪器，请设置地址范围1~32&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;p&gt;如果连接LAN连接6500请输入IP地址形如：192.168.1.102&lt;/p&gt;&lt;p&gt;如果连接LAN连接4300请输入Ip地址形如：192.168.1.102&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../../common/frmSelectConnection.ui" line="434"/>
         <source>如果选择GPIB连接仪器，请设置地址范围1~32
 
 如果连接LAN连接6500请输入IP地址形如：192.168.1.102,6500
 如果连接LAN连接4300请输入Ip地址形如：192.168.1.102,4300</source>
-        <translation>If you choose to connect GPIB instrument, set the address range from 1 to 32
+        <translation type="vanished">If you choose to connect GPIB instrument, set the address range from 1 to 32
 If the connection is 6500 enter the IP address like this: 192.168.1.102
 If the connection is 4300 enter the Ip address like this: 192.168.1.102</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="375"/>
+        <location filename="../../common/frmSelectConnection.ui" line="372"/>
         <source>4300</source>
         <translation>4300</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="380"/>
+        <location filename="../../common/frmSelectConnection.ui" line="377"/>
         <source>6500</source>
         <translation>6500</translation>
     </message>
     <message>
-        <location filename="../../common/frmSelectConnection.ui" line="416"/>
+        <location filename="../../common/frmSelectConnection.ui" line="413"/>
         <source>连接(&amp;T)</source>
         <translation>Connec&amp;t</translation>
     </message>
@@ -6501,7 +6765,7 @@ If the connection is 4300 enter the Ip address like this: 192.168.1.102</transla
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="336"/>
         <source>误差代码</source>
-        <translation>Error code</translation>
+        <translation>Accuracy code</translation>
     </message>
     <message>
         <location filename="../../MeterMode/frmSetLimit.ui" line="360"/>
@@ -7061,7 +7325,7 @@ Shot</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/frmWKEAnalysisMode.ui" line="118"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="805"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="814"/>
         <source>重复
 测试</source>
         <translation>Repeat
@@ -7392,7 +7656,7 @@ Info</translation>
         <translation type="obsolete">Instrument: WK %1</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="261"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="270"/>
         <source>Bias
 %1</source>
         <translation></translation>
@@ -7402,7 +7666,7 @@ Info</translation>
         <translation type="obsolete">Default</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="437"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="446"/>
         <source>/untitled.</source>
         <translation></translation>
     </message>
@@ -7415,119 +7679,119 @@ Info</translation>
         <translation type="vanished">Instrument: WK %1</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="36"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="37"/>
         <source>仪器： %1</source>
         <translation>Instrument: %1</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="84"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="93"/>
         <source>通过</source>
         <translation>Pass</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="88"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="97"/>
         <source>失败</source>
         <translation>Fail</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="352"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="361"/>
         <source>默认</source>
         <translation>Default</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="398"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="407"/>
         <source>曲线放大</source>
         <translation>Curve zoom</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="398"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="407"/>
         <source>放大范围：
 从%1到%2</source>
         <translation>Zoom range:
 from %1 to %2</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="439"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="448"/>
         <source>保存测试图像</source>
         <translation>Save test image</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="441"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="450"/>
         <source>%1 Files (*.%2);;All Files (*)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="452"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="455"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="460"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="471"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="474"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="479"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="461"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="464"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="469"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="480"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="483"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="488"/>
         <source>ON</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="455"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="460"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="474"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="479"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="464"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="469"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="483"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="488"/>
         <source>OFF</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="528"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="537"/>
         <source>扫描设定</source>
         <translation>Sweep settings</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="610"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="782"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="619"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="791"/>
         <source>停止
 测试</source>
         <translation>Stop
 Test</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="621"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="631"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="630"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="640"/>
         <source>开始
 测试</source>
         <translation>Single
 Shot</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="745"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="754"/>
         <source>日期:,%1,时间:,%2,状态:,%3</source>
         <translation>Date:,%1,Time:,%2,Status:,%3</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="759"/>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="766"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="768"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="775"/>
         <source>%1,%2,%3</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="886"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="895"/>
         <source>关于本软件</source>
         <translation>About me</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="937"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="946"/>
         <source>打开数据文件</source>
         <translation>Open data file</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="937"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="946"/>
         <source>CSV Files (*.csv)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="949"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="958"/>
         <source>配置文件操作</source>
         <translation>Settings file operation</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="1050"/>
+        <location filename="../../AnalysisMode/frmWKEAnalysisMode.cpp" line="1059"/>
         <source>偏流设置</source>
         <translation>Bias settings</translation>
     </message>
@@ -7766,27 +8030,32 @@ Test</translation>
         <translation type="obsolete">Set bias value</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWk3260.cpp" line="52"/>
+        <location filename="../../AnalysisMode/frmWk3260.cpp" line="53"/>
         <source>设置测试速度</source>
         <translation>Set test speed</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWk3260.cpp" line="204"/>
+        <location filename="../../AnalysisMode/frmWk3260.cpp" line="202"/>
+        <source>打开bias出现问题,是否需要重试？</source>
+        <translation>Turn on bias has problem, want retry?</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWk3260.cpp" line="239"/>
         <source>仪器校准</source>
         <translation>Instrument calibration</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWk3260.cpp" line="370"/>
+        <location filename="../../AnalysisMode/frmWk3260.cpp" line="405"/>
         <source>设定测试电平</source>
         <translation>Set level value</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWk3260.cpp" line="407"/>
+        <location filename="../../AnalysisMode/frmWk3260.cpp" line="442"/>
         <source>设置测试频率</source>
         <translation>Set frequency</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWk3260.cpp" line="547"/>
+        <location filename="../../AnalysisMode/frmWk3260.cpp" line="583"/>
         <source>输入Bias值</source>
         <translation>Set bias value</translation>
     </message>
@@ -8721,9 +8990,9 @@ Trim</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="135"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="225"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="381"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="587"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="226"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="400"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="606"/>
         <source>串联</source>
         <translation>Series</translation>
     </message>
@@ -8769,17 +9038,17 @@ Trim</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="312"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="108"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="554"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="109"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="573"/>
         <source>电流</source>
         <translation>Current</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="337"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="194"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="256"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="577"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="580"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="195"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="257"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="596"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="599"/>
         <source>关</source>
         <translation>OFF</translation>
     </message>
@@ -8790,15 +9059,15 @@ Trim</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="373"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="229"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="386"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="230"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="405"/>
         <source>自动</source>
         <translation>Auto</translation>
     </message>
     <message>
         <location filename="../../AnalysisMode/wk6500AnalysisMeter.ui" line="392"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="281"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="391"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="282"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="410"/>
         <source>最快</source>
         <translation>Max</translation>
     </message>
@@ -8885,78 +9154,78 @@ Trim</translation>
         <translation type="obsolete">set 6500 speed</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="97"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="157"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="198"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="260"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="269"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="408"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="554"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="560"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="706"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="718"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="98"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="158"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="199"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="261"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="270"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="427"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="573"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="579"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="725"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="737"/>
         <source>电压</source>
         <translation>Voltage</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="194"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="256"/>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="577"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="195"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="257"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="596"/>
         <source>开</source>
         <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="393"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="412"/>
         <source>快速</source>
         <translation>Fast</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="395"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="414"/>
         <source>中速</source>
         <translation>Med</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="397"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="416"/>
         <source>慢速</source>
         <translation>Slow</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="587"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="606"/>
         <source>并联</source>
         <translation>Parallel</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="597"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="616"/>
         <source>设置6500的测试档位</source>
         <translation>Set 6500 range</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="609"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="628"/>
         <source>设置6500的测试项目1</source>
         <translation>Set 6500 item1</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="622"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="641"/>
         <source>设置6500的测试项目2</source>
         <translation>Set 6500 item2</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="635"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="654"/>
         <source>设定测试频率</source>
         <translation>Set test frequency</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="658"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="677"/>
         <source>设置测试电平</source>
         <translation>set 6500 level</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="702"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="721"/>
         <source>设置偏置值</source>
         <translation>set 6500 bias value</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="742"/>
+        <location filename="../../AnalysisMode/wk6500AnalysisMeter.cpp" line="761"/>
         <source>设置测试速度</source>
         <translation>set 6500 speed</translation>
     </message>

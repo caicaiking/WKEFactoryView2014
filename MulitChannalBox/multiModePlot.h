@@ -124,8 +124,12 @@ public:
     void setColor(QString colorName)
     {
         curve->setRenderHint(QwtPlotItem::RenderAntialiased);
-        curve->setPen(QPen(QColor(colorName)));
+        QPen pen;
+        pen.setWidth(2);
+        pen.setColor(colorName);
+        curve->setPen(pen);
         curve->setStyle(QwtPlotCurve::Lines);
+
         curve->setYAxis(QwtPlot::yLeft);
     }
 

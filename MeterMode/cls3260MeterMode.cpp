@@ -12,6 +12,7 @@
 #include "wk6500Range.h"
 #include "dlgSpeed.h"
 #include "cls3260Calibration.h"
+#include "frmWK3260Calibration.h"
 #include "cls6440Calibration.h"
 #include <QJsonDocument>
 cls3260MeterMode::cls3260MeterMode(WKEMeterMode *parent) :
@@ -560,7 +561,8 @@ void cls3260MeterMode::calibration()
 
     if(clsRS::getInst().meterSeries=="3260")
     {
-        cls3260Calibration *dlg = new cls3260Calibration(this);
+        frmWK3260Calibration *dlg = new frmWK3260Calibration(this);
+        dlg->setWindowTitle(tr("仪表校准"));
         dlg->exec();
     }
     else

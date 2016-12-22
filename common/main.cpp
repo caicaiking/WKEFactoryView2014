@@ -88,7 +88,7 @@ RELOAD:
 
     if(!keyStatus)
     {
-        //        QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
+               // QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
         SingletonDog::Instance()->setProduct(false);
     }
     else

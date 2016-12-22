@@ -8,11 +8,12 @@
 #include "dlgSpeed.h"
 #include "UserfulFunctions.h"
 #include "frmWK3260Calibration.h"
+#include "clsRetryDialog.h"
 frmWk3260::frmWk3260(WKEInstrument *parent) :
     WKEInstrument(parent)
 {
     setupUi(this);
-     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     readSettings(this->wk3260);
     updateButtons();
 
@@ -154,28 +155,62 @@ bool frmWk3260::turnOffBias()
     }
 }
 
-bool frmWk3260::turnOnBias()
+
+bool frmWk3260::getBiasOn()
 {
+
     if(!queryBiasStatus())
     {
         wk3260.biasValue.status="ON";
         clsRS::getInst().sendCommand(wk3260.biasValue.toGpib(getGpibMeter()));
         if(wk3260.biasValue.value<=1.0)
-            UserfulFunctions::sleepMs(2500);
+            UserfulFunctions::sleepMs(3000);
         else if(wk3260.biasValue.value<10)
-            UserfulFunctions::sleepMs(600);
+            UserfulFunctions::sleepMs(800);
         else if(wk3260.biasValue.value<20)
             UserfulFunctions::sleepMs(800);
         else if(wk3260.biasValue.value<30)
             UserfulFunctions::sleepMs(1000);
         else
-            UserfulFunctions::sleepMs(650);
-        return queryBiasStatus();
+            UserfulFunctions::sleepMs(800);
     }
     else
     {
-        return queryBiasStatus();
+        return  queryBiasStatus();
     }
+    return false;
+
+}
+
+bool frmWk3260::turnOnBias()
+{
+    bool blRetry=true;
+
+    //qDebug()<<this->wk3260.biasValue.value <<"\t"<<this->wk3260.biasValue.status;
+
+    int count =0;
+
+    while(blRetry)
+    {
+        bool blTurnOnBias = this->getBiasOn();
+        count++;
+        if(blTurnOnBias)
+            return true;
+        if(count == 3 )
+        {
+            clsRetryDialog *dlg = new clsRetryDialog(this);
+            dlg->setMessage(tr("打开bias出现问题,是否需要重试？"));
+            qApp->processEvents();
+            if( dlg->exec()== QDialog::Accepted)
+                blRetry = true;
+            else
+                blRetry = false;
+            count=0;
+        }
+    }
+
+    return blRetry;
+
 }
 
 QString frmWk3260::trig()
@@ -194,7 +229,7 @@ RETEST:
         i++;
         goto RETEST;
     }
-    qDebug()<< ret;
+   // qDebug()<< ret;
     return ret+",,";
 }
 
@@ -527,6 +562,7 @@ bool frmWk3260::queryBiasStatus()
         saveSettings();
         return false;
     }
+    qApp->processEvents();
     saveSettings();
     return false;
 }
