@@ -18,7 +18,9 @@ INCLUDEPATH +=connections \
              ResonaceMode \
              MulitChannalBox \
              QwtInclude \
-             quazip\Include
+             quazip\Include \
+             AnalysisMode/Qextserial
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -160,7 +162,11 @@ SOURCES +=\
     AnalysisMode/clsSampleTest.cpp \
     MulitChannalBox/clsStandardValueInput.cpp \
     AnalysisMode/clsRetryDialog.cpp \
-    MulitChannalBox/clsSingleTrig.cpp
+    MulitChannalBox/clsSingleTrig.cpp \
+    AnalysisMode/clsEaPs8000.cpp \
+    AnalysisMode/clsEaSerialPort.cpp \
+    AnalysisMode/Qextserial/qextserialport.cpp \
+    AnalysisMode/Qextserial/qextserialport_win.cpp
 
 RESOURCES += \
     recFile/myRes.qrc
@@ -328,7 +334,12 @@ HEADERS += \
     AnalysisMode/clsSampleTest.h \
     MulitChannalBox/clsStandardValueInput.h \
     AnalysisMode/clsRetryDialog.h \
-    MulitChannalBox/clsSingleTrig.h
+    MulitChannalBox/clsSingleTrig.h \
+    AnalysisMode/clsEaPs8000.h \
+    AnalysisMode/clsEaSerialPort.h \
+    AnalysisMode/Qextserial/qextserialport.h \
+    AnalysisMode/Qextserial/qextserialport_global.h \
+    AnalysisMode/Qextserial/qextserialport_p.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \

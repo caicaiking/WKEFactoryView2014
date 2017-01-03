@@ -2,7 +2,7 @@
 
 #include "UserfulFunctions.h"
 #include "clsRuningSettings.h"
-#include "clsGwPsw800.h"
+#include "clsEaPs8000.h"
 clsBiasExtMeasument::clsBiasExtMeasument()
 {
 
@@ -47,7 +47,7 @@ void clsBiasExtMeasument::setItemsAndPoints(const QString &item1, const QString 
 
 void clsBiasExtMeasument::trig()
 {
-    power = new clsGwPsw800();
+    power = new clsEaPs8000();
 
     if(!power->init())
         qWarning()<<"No power supply connect!";
@@ -57,8 +57,9 @@ void clsBiasExtMeasument::trig()
     item1.clear();
     item2.clear();
 
-    power->setVoltage(0);
     power->turnON();
+    power->setVoltage(0);
+
 
     for(int i=0;i<points->length();i++)
     {
@@ -72,13 +73,15 @@ void clsBiasExtMeasument::trig()
 
         power->setVoltage(tmp);
         points->removeAt(i);
-        double tmpBias = power->getVoltage();
-        points->insert(i,tmpBias);
+        //double tmpBias = power->getVoltage();
+        points->insert(i,tmp); //准确做法
+
+        UserfulFunctions::sleepMs(1000);
         QString strRes=meter->trig();
 
         QList<double> res=UserfulFunctions::resultPro(strRes);
 
-        bias<<tmpBias;
+        bias<<tmp;//非精确做法
         item1<<res.at(0);
         item2<<res.at(1);
         updatePlot();
@@ -87,6 +90,7 @@ void clsBiasExtMeasument::trig()
         qApp->processEvents();
     }
 STOP:
+    power->setVoltage(0.0);
     power->turnOFF();
     power->disConnect();
 
