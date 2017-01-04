@@ -110,6 +110,21 @@ void frmWk3260::setBias(double value, QString /*unit*/)
         wk3260.biasValue.value = ret.toDouble();
 
     emit this->biasValueSignal(wk3260.biasValue.toText(1));
+
+//    if (wk3260.biasValue.status=="ON")
+//    {
+
+//        if(wk3260.biasValue.value<=1.0)
+//            UserfulFunctions::sleepMs(3000);
+//        else if(wk3260.biasValue.value<10)
+//            UserfulFunctions::sleepMs(800);
+//        else if(wk3260.biasValue.value<20)
+//            UserfulFunctions::sleepMs(800);
+//        else if(wk3260.biasValue.value<30)
+//            UserfulFunctions::sleepMs(1000);
+//        else
+//            UserfulFunctions::sleepMs(800);
+//    }
     saveSettings();
 }
 
@@ -229,7 +244,7 @@ RETEST:
         i++;
         goto RETEST;
     }
-   // qDebug()<< ret;
+    // qDebug()<< ret;
     return ret+",,";
 }
 
