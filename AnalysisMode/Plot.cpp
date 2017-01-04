@@ -1120,8 +1120,6 @@ void Plot::findNextLeftHigh(Choice x)
     }
 
     this->setMarker(tmpRet,0);
-
-
 }
 
 void Plot::findNextLeftLow(Choice x)

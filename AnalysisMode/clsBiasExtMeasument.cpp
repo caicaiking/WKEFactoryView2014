@@ -3,6 +3,7 @@
 #include "UserfulFunctions.h"
 #include "clsRuningSettings.h"
 #include "clsEaPs8000.h"
+#include "clsSampleTest.h"
 clsBiasExtMeasument::clsBiasExtMeasument()
 {
 
@@ -45,6 +46,13 @@ void clsBiasExtMeasument::setItemsAndPoints(const QString &item1, const QString 
 
 void clsBiasExtMeasument::trig()
 {
+
+    clsSampleTest *dlg = new clsSampleTest(meter,0);
+    if(dlg->exec() == QDialog::Rejected)
+    {
+        return;
+    }
+
     power = new clsEaPs8000();
 
 

@@ -1062,7 +1062,7 @@ ON</string>
          </size>
         </property>
         <property name="checkable">
-         <bool>true</bool>
+         <bool>false</bool>
         </property>
        </widget>
       </item>
