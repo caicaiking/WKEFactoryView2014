@@ -1,12 +1,9 @@
 #include "clsGwPsw800.h"
 #include <QDebug>
-clsGwPsw800::clsGwPsw800()
-{
-    serialPort = new clsMyserialPort();
-}
 
 bool clsGwPsw800::init()
 {
+    serialPort = new clsMyserialPort();
     return serialPort->getBlInit();
 }
 

@@ -27,6 +27,7 @@ public:
 signals:
     void showMessage(QString msg);
     void showProgress(int value);
+    void showTestValue(double value);
 };
 
 

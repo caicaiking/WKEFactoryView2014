@@ -23,6 +23,8 @@ class frmWKEAnalysisMode : public QMainWindow, private Ui::frmWKEAnalysisMode
 public:
     explicit frmWKEAnalysisMode(QWidget *parent = 0);
 
+public slots:
+
 private slots:
     void on_btnSavePic_clicked();
     void on_btnTraceB_clicked();
@@ -38,6 +40,7 @@ private slots:
     void setLevel(QString value);
     void setBias(bool value);
     void setSpeed(QString value);
+    void setSweepInfo(double value);
     void setItems(QString value1, QString value2);
     void on_btnTraceSetup_clicked();
     void updateGraph();

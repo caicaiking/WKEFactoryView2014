@@ -19,7 +19,8 @@ INCLUDEPATH +=connections \
              MulitChannalBox \
              QwtInclude \
              quazip\Include \
-             AnalysisMode/Qextserial
+             AnalysisMode/Qextserial \
+             AnalysisMode/EaPs8000
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -163,10 +164,11 @@ SOURCES +=\
     MulitChannalBox/clsStandardValueInput.cpp \
     AnalysisMode/clsRetryDialog.cpp \
     MulitChannalBox/clsSingleTrig.cpp \
-    AnalysisMode/clsEaPs8000.cpp \
-    AnalysisMode/clsEaSerialPort.cpp \
+    AnalysisMode/EaPs8000/clsEaPs8000.cpp \
+    AnalysisMode/EaPs8000/clsEaSerialPort.cpp \
     AnalysisMode/Qextserial/qextserialport.cpp \
-    AnalysisMode/Qextserial/qextserialport_win.cpp
+    AnalysisMode/Qextserial/qextserialport_win.cpp \
+    AnalysisMode/clsPowerSupply.cpp
 
 RESOURCES += \
     recFile/myRes.qrc
@@ -335,8 +337,8 @@ HEADERS += \
     MulitChannalBox/clsStandardValueInput.h \
     AnalysisMode/clsRetryDialog.h \
     MulitChannalBox/clsSingleTrig.h \
-    AnalysisMode/clsEaPs8000.h \
-    AnalysisMode/clsEaSerialPort.h \
+    AnalysisMode/EaPs8000/clsEaPs8000.h \
+    AnalysisMode/EaPs8000/clsEaSerialPort.h \
     AnalysisMode/Qextserial/qextserialport.h \
     AnalysisMode/Qextserial/qextserialport_global.h \
     AnalysisMode/Qextserial/qextserialport_p.h

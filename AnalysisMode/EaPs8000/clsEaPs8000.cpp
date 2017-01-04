@@ -171,8 +171,8 @@ void clsEaPs8000::initPower()
     qDebug()<< " Nominal current: "<< nominalCurrent;
     qDebug()<< " Nominal power:"<< nominalPower;
 
-    this->setVoltageLimit(210.0);
-    this->setCurrentLimt(0.1);
+    this->setVoltageLimit(210.0); //For Keysight 16065A fixture spec.
+    this->setCurrentLimt(0.02);   //For Keysight 16065A fixture spec.
 
 
 }
@@ -357,19 +357,9 @@ QString clsEaPs8000::toString(uint8_t x[])
     return tmpString;
 }
 
-clsEaPs8000::clsEaPs8000() :clsPowerSupply()
+clsEaPs8000::clsEaPs8000() : clsPowerSupply()
 {
 
-}
-
-clsEaPs8000::~clsEaPs8000()
-{
-    if(blInit)
-    {
-        turnOffOutPut();
-        setLocal();
-        serialPort->closeSerialPort();
-    }
 }
 
 bool clsEaPs8000::init()
@@ -422,6 +412,8 @@ double clsEaPs8000::getVoltage()
 {
     float actVoltage = this->getOutputVoltage();
    // qDebug()<< actVoltage;
+    emit showTestValue(actVoltage);
+    qApp->processEvents();
     return actVoltage;
 }
 

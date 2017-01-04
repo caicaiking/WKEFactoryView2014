@@ -5,8 +5,9 @@
 #include "clsMyserialPort.h"
 class clsGwPsw800 : public clsPowerSupply
 {
+      Q_OBJECT
 public:
-    clsGwPsw800();
+
 
     bool init();
     void turnON();
@@ -17,6 +18,8 @@ public:
 
 private:
     clsMyserialPort *serialPort;
+signals:
+    void showTestValue(double value);
 };
 
 #endif // CLSGWPSW800_H

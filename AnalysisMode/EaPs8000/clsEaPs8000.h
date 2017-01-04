@@ -5,12 +5,11 @@
 #include <stdint.h>
 #include "clsEaSerialPort.h"
 #include "clsPowerSupply.h"
-class clsEaPs8000 :public clsPowerSupply
+class clsEaPs8000 : public clsPowerSupply
 {
+      Q_OBJECT
 public:
-    clsEaPs8000();
-    ~clsEaPs8000();
-
+        clsEaPs8000();
       bool init();
       void turnON();
       void turnOFF();
@@ -119,6 +118,8 @@ private:
     void setTelegramCrc();
     bool checkTelegramCrc();
     QString toString(uint8_t x[]);
+signals:
+    void showTestValue(double value);
 };
 
 #endif // CLSEAPS8000_H

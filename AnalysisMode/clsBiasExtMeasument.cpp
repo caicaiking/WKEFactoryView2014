@@ -6,8 +6,6 @@
 clsBiasExtMeasument::clsBiasExtMeasument()
 {
 
-
-
 }
 
 clsBiasExtMeasument::~clsBiasExtMeasument()
@@ -49,8 +47,14 @@ void clsBiasExtMeasument::trig()
 {
     power = new clsEaPs8000();
 
+
+    connect(power,SIGNAL(showTestValue(double)),this,SIGNAL(showTestValue(double)));
+
     if(!power->init())
+    {
         qWarning()<<"No power supply connect!";
+        goto EXIT;
+    }
 
     isStop= false;
     bias.clear();
@@ -65,8 +69,8 @@ void clsBiasExtMeasument::trig()
     {
         if(isStop)
         {
-            power->turnOFF();
-            power->disConnect();
+//            power->turnOFF();
+//            power->disConnect();
             goto STOP;
         }
         double tmp = points->at(i);
@@ -89,13 +93,15 @@ void clsBiasExtMeasument::trig()
         emit showProgress((int)((i+1)*100/points->length()));
         qApp->processEvents();
     }
+
 STOP:
     power->setVoltage(0.0);
+    qApp->processEvents();
     power->turnOFF();
     power->disConnect();
-
+    emit showTestValue(0.0);
+EXIT:
     delete power;
-
     emit  showProgress(100);
 }
 
