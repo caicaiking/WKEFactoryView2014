@@ -80,7 +80,7 @@ void clsEaPs8000::openDevice()
     serialPort = new clsEaSerialPort();
     blInit=serialPort->openSerialPort();
 }
-void clsEaPs8000::telegramSend()
+void clsEaPs8000::telegramSend(bool /*hasReturn*/)
 {
 
     if(telegram[0]==0)
@@ -92,6 +92,7 @@ void clsEaPs8000::telegramSend()
     QByteArray cmd;
 
     int sendCont =0;
+    //int sendCommandTimes =0;
 
 
     for(int i =0; i<telegramSize; i++)
@@ -110,6 +111,14 @@ RESEND:
     }
 
     telegramSize = res.length();
+//  //多设定电压一次
+//    if(hasReturn == false)
+//    {
+//        sendCommandTimes ++;
+//        if(sendCommandTimes< 2)
+//            goto RESEND;
+//    }
+
 
     if (!checkTelegramCrc ()) {
         //throw PSUError ( "Message Invalid, CRC failure" );
@@ -117,9 +126,9 @@ RESEND:
         sendCont++;
 
         //qDebug()<< cmd.toHex().data();
-        if(sendCont>=3)
+        if(sendCont>=4)
         {
-           // qDebug()<<"Send command error!";
+            // qDebug()<<"Send command error!";
             return;
         }
 
@@ -136,6 +145,8 @@ void clsEaPs8000::setTelegramCrc()
 
 bool clsEaPs8000::checkTelegramCrc()
 {
+    if(telegramSize == 0)
+        return true;
     int16_t crc = crc16 ( telegram, telegramSize - 2 );
     if ( ( telegram[telegramSize - 2] == ( ( crc >> 8 ) & 0xFF ) ) &&
          ( telegram[telegramSize - 1] == ( ( crc ) & 0xFF ) ) )
@@ -150,17 +161,17 @@ void clsEaPs8000::initPower()
     // Retrieve nominal voltage
     telegramStart ( RECEIVE, 4 );
     telegramSetObject ( NOMINAL_VOLTAGE );
-    telegramSend ();
+    telegramSend (true);
     nominalVoltage = toFloat ( &telegram[3] );
     // Retrieve nominal current
     telegramStart ( RECEIVE, 4 );
     telegramSetObject ( NOMINAL_CURRENT );
-    telegramSend ();
+    telegramSend (true);
     nominalCurrent = toFloat ( &telegram[3] );
     // Retrieve nominal power
     telegramStart ( RECEIVE, 4 );
     telegramSetObject ( NOMINAL_POWER );
-    telegramSend ();
+    telegramSend (true);
     nominalPower = toFloat ( &telegram[3] );
 
     // Take control over the PSU.
@@ -172,7 +183,8 @@ void clsEaPs8000::initPower()
     qDebug()<< " Nominal power:"<< nominalPower;
 
     this->setVoltageLimit(210.0); //For Keysight 16065A fixture spec.
-    this->setCurrentLimt(0.02);   //For Keysight 16065A fixture spec.
+    //this->setCurrentLimt(0.02);   //For Keysight 16065A fixture spec.
+    this->setTestCurrent(0.02); //For Keysight 16065A fixture spec.
 
 
 }
@@ -193,7 +205,7 @@ void clsEaPs8000::setRemote()
     telegramSend ();
     telegramStart ( RECEIVE, 6 );
     telegramSetObject ( STATUS_ACTUAL );
-    telegramSend ();
+    telegramSend (true);
 }
 
 void clsEaPs8000::setLocal()
@@ -227,7 +239,7 @@ bool clsEaPs8000::isRemote()
 {
     telegramStart ( RECEIVE, 6 );
     telegramSetObject ( STATUS_ACTUAL );
-    telegramSend ();
+    telegramSend (true);
     return ( telegram[4] & 1 ) == 1;
 }
 
@@ -235,7 +247,7 @@ float clsEaPs8000::getOutputCurrent()
 {
     telegramStart ( RECEIVE, 6 );
     telegramSetObject ( STATUS_SET );
-    telegramSend ();
+    telegramSend (true);
     float current = toUint16 ( &telegram[7] );
     return ( nominalCurrent * current ) / 256.0e2;
 }
@@ -244,7 +256,7 @@ float clsEaPs8000::getOutputVoltage()
 {
     telegramStart ( RECEIVE, 6 );
     telegramSetObject ( STATUS_SET );
-    telegramSend ();
+    telegramSend (true);
     uint32_t voltage = toUint16 ( &telegram[3] );
     return ( nominalVoltage * voltage ) / 256.0e2;
 }
@@ -254,7 +266,7 @@ float clsEaPs8000::getVoltageLimit()
 {
     telegramStart ( RECEIVE, 2 );
     telegramSetObject ( OVP_THRESHOLD );
-    telegramSend ();
+    telegramSend (true);
     float voltage = toUint16 ( &telegram[3] );
     return ( nominalVoltage * voltage ) / 256.0e2;
 }
@@ -263,7 +275,7 @@ float clsEaPs8000::getCurrentLimit()
 {
     telegramStart ( RECEIVE, 6 );
     telegramSetObject ( OCP_THRESHOLD );
-    telegramSend ();
+    telegramSend (true);
     float current = toUint16 ( &telegram[3] );
     return ( nominalCurrent * current ) / 256.0e2;
 }
@@ -316,27 +328,27 @@ void clsEaPs8000::print_device_info()
     // Get device type.
     telegramStart ( RECEIVE, 16 );
     telegramSetObject ( DEVICE_TYPE_PS );
-    telegramSend ();
+    telegramSend (true);
     qDebug()<< " Device Type:" << toString(telegram);
 
     telegramStart ( RECEIVE, 16 );
     telegramSetObject ( MANUFACTURER );
-    telegramSend ();
+    telegramSend (true);
     qDebug()<< " Manufacturer:" << toString(telegram);
 
     telegramStart ( RECEIVE, 16 );
     telegramSetObject ( DEVICE_ARTICLE_NO );
-    telegramSend ();
+    telegramSend (true);
     qDebug()<< " Article No. : " << toString(telegram) ;
 
     telegramStart ( RECEIVE, 16 );
     telegramSetObject ( DEVICE_SERIAL_NO );
-    telegramSend ();
+    telegramSend (true);
     qDebug()<< " Serial Num.: "<< toString(telegram);
 
     telegramStart ( RECEIVE, 16 );
     telegramSetObject ( SOFTWARE_VERSION );
-    telegramSend ();
+    telegramSend (true);
     qDebug()<<" Software Version:"<< toString(telegram);
 }
 
@@ -394,24 +406,36 @@ void clsEaPs8000::turnOFF()
     }while(outVoltage >1);
 }
 
+void clsEaPs8000::setStop()
+{
+    blStop =true;
+}
+
 void clsEaPs8000::setVoltage(double value)
 {
 
     this->setTestVoltage((float)value);
-
-
     dblUserSetVoltage = value;
 
-    while(qAbs(getVoltage() - dblUserSetVoltage)>0.5)
+    blStop = false;
+    QTimer *timer = new QTimer(this);
+    timer->setInterval(38000);
+    timer->setSingleShot(true);
+    connect(timer,SIGNAL(timeout()),this,SLOT(setStop()));
+    timer->start();
+
+
+    while(qAbs(getVoltage() - dblUserSetVoltage)>0.5 && (false == blStop))
     {
         UserfulFunctions::sleepMs(10);
     }
+    timer->stop();
 }
 
 double clsEaPs8000::getVoltage()
 {
     float actVoltage = this->getOutputVoltage();
-   // qDebug()<< actVoltage;
+    // qDebug()<< actVoltage;
     emit showTestValue(actVoltage);
     qApp->processEvents();
     return actVoltage;

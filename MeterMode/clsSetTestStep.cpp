@@ -286,8 +286,10 @@ void clsSetTestStep::on_btnClear_clicked()
 
 void clsSetTestStep::on_btnSingle_clicked()
 {
+    lblStar->setText("*");
     sngTestDisplay->setMessage(tr("更新测试条件"),0);
     meter->updateGPIB();
     sngTestDisplay->setMessage(tr("正在测试"),0);
     meter->singleTrig();
+    lblStar->setText("");
 }

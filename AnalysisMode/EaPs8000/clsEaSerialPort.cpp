@@ -69,6 +69,7 @@ QByteArray clsEaSerialPort::sendCommand(QByteArray cmd)
     {
       qApp->processEvents(QEventLoop::AllEvents, 100);
     }
+
     return res;
 }
 

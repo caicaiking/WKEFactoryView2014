@@ -40,6 +40,7 @@ public:
 
 private:
     bool blInit;
+    bool blStop;
     clsEaSerialPort *serialPort;
     enum ErrorTypes
     {
@@ -114,12 +115,14 @@ private:
     void telegramStart(SendType dir, int size);
     void telegramSetObject(ObjectTypes_PS object);
     void pushTelegram(uint8_t value);
-    void telegramSend();
+    void telegramSend(bool hasReturn=false);
     void setTelegramCrc();
     bool checkTelegramCrc();
     QString toString(uint8_t x[]);
 signals:
     void showTestValue(double value);
+protected slots:
+    void setStop();
 };
 
 #endif // CLSEAPS8000_H
