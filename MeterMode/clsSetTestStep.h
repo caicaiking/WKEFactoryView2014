@@ -16,35 +16,19 @@ public:
 
 private slots:
     void on_btnOk_clicked();
-
     void on_btnCancel_clicked();
-
-
     void on_btnTurnOffBias_clicked();
-
     void biasSlot(bool steps);
     void on_btnTest_clicked();
-
     void showRes(QString steps);
-
-
     void on_btnNewStep_clicked();
-
     void on_btnSave_clicked();
-
-
     void on_tbTaskList_clicked(const QModelIndex &index);
-
     void on_btnUp_clicked();
-
     void on_btnDown_clicked();
-
     void on_btnDelete_clicked();
-
     void on_btnClear_clicked();
-
     void on_btnSingle_clicked();
-
     void enableSingleTestButton(bool value);
 private:
     WKEMeterMode *meter;

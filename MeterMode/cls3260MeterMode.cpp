@@ -363,9 +363,9 @@ void cls3260MeterMode::updateGPIB()
 
 
 
-        QString xx =QString(meter+":FREQ?");
-        QString retFreq = clsRS::getInst().sendCommand(xx,true);
-        this->frequency = retFreq.toDouble();
+//        QString xx =QString(meter+":FREQ?");
+//        QString retFreq = clsRS::getInst().sendCommand(xx,true);
+//        this->frequency = retFreq.toDouble();
         UserfulFunctions::sleepMs(10);
         updateButtons();
     }

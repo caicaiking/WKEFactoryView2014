@@ -17,6 +17,7 @@
  *
  *!*/
 
+#define GPIBBOARD 0
 
 class clsGpib:public clsConnection
 {
@@ -29,6 +30,8 @@ public:
 private:
     bool blInit;
     int intAddress;
+    int intBoardDescriptor;
+
 };
 
 #endif // CLSGPIB_H

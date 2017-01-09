@@ -29,40 +29,65 @@ clsGpib::clsGpib()
 
 bool clsGpib::init()
 {
-    ibdev(0,intAddress,0,10,1,0);
+    //    ibdev(0,intAddress,0,10,1,0);
 
-    Send(0,intAddress,"*IDN?",strlen("*IDN?"),DABend);
-    char data[50];
-    Receive (0,intAddress, data, 50, STOPend);
+    //    Send(0,intAddress,"*IDN?",strlen("*IDN?"),DABend);
+    //    char data[50];
+    //    Receive (0,intAddress, data, 50, STOPend);
 
-    QString strData = QString(data);
-    QStringList strDataList = strData.split('\n');
-    if(strDataList.count()>1)
+    //    QString strData = QString(data);
+    //    QStringList strDataList = strData.split('\n');
+    //    if(strDataList.count()>1)
+    //    {
+    //        strData =strDataList[0];
+    //    }
+    //    else
+    //        strData="";
+
+    //    qDebug()<< strData;
+    //    if(strData.isEmpty())
+    //    {
+    //        blInit=false;
+    //    }
+    //    else
+    //    {
+    //        if(strData.contains("WAYNE") || strData.contains("KUWAKI"))
+    //        {
+
+    //            blInit = true;
+    //        }
+    //        else
+    //        {
+    //            blInit = false;
+    //        }
+    //    }
+
+
+    //New method to do gpib control
+    intBoardDescriptor = ibdev(GPIBBOARD,intAddress,0,T10s,1, 0x0c0a);
+
+    if(ibsta & ERR)
     {
-        strData =strDataList[0];
+        blInit = false;
+        qDebug()<<"ibdev returns ibsta error (ibsta = 0x" << (hex) << ibsta << "), problems while communicating to PC interface board";
+        return blInit;
     }
     else
-        strData="";
-
-    qDebug()<< strData;
-    if(strData.isEmpty())
     {
-        blInit=false;
-    }
-    else
-    {
-        if(strData.contains("WAYNE") || strData.contains("KUWAKI"))
+        if(-1 == intBoardDescriptor)
         {
-
-            blInit = true;
+            qDebug()<<"ibdev error (Bd - Board descriptor error), problems while communicating to PC interface board";
+            blInit = false;
+            return blInit;
         }
         else
         {
-            blInit = false;
+            ibconfig(GPIBBOARD, IbcAUTOPOLL,false);
+            ibconfig(GPIBBOARD, IbcHSCableLength, false);
+            ibconfig(GPIBBOARD, IbcTIMING,1);
+            blInit = true;
         }
     }
-
-
     return this->blInit;
 }
 
@@ -97,50 +122,105 @@ QString clsGpib::sendCommand(QString strCommand, bool hasReturn, int /*waitDelay
     unsigned int cmdLength;
 
     cmdLength=strlen(cmd);
-    //ibwrt(device,cmd,cmdLength);
-    Send(0,intAddress,cmd,cmdLength,DABend);
 
-    if(Ibcnt()!= cmdLength || Ibsta() & ERR)
-    {
-          return "";
-    }
+    //    Send(0,intAddress,cmd,cmdLength,DABend);
+
+    //    if(Ibcnt()!= cmdLength || Ibsta() & ERR)
+    //             return "";
+
+    //    if(!hasReturn)
+    //        return "";
+
+    //    char buffer[129];
+    //    const int bufsize=128;
+
+    ////    if(waitDelay!=0)
+    ////    {
+    ////        UserfulFunctions::sleepMs(waitDelay*1000);
+    ////    }
+
+    //    Receive (0,intAddress, buffer, bufsize, STOPend);
 
 
-    if(!hasReturn)
-        return "";
+    //    while ( (ibsta & CMPL+ERR) == 0);
+
+    //    if ((Ibcnt()==bufsize) || (Ibcnt()==0 )|| (Ibsta()&ERR))
+    //        return "";
+    //    else
+    //    {
+    //        buffer[Ibcnt()-1] = '\0';    /* Terminate string */
+    //    }
+
+    //    QString str= QString(buffer);
 
 
-    char buffer[129];
-    const int bufsize=128;
+    //    if(!str.isEmpty())  //在前一段时间发现，6500的返回值前面多了一个‘N’这个非常奇怪。
+    //    {
+    //        if(str.at(0) =='N')
+    //            str= str.remove(0,1);
+    //    }
 
-//    if(waitDelay!=0)
+    // qDebug()<< str;
+
+    // 2017 / 1 /9
+    //New Method to do gpib control
+    ibwrt(this->intBoardDescriptor, cmd,cmdLength);
+
+    short int status;
+    char pollStatus;
+
+//    WaitSRQ(GPIBBOARD, &status);
+//    if(!status)
 //    {
-//        UserfulFunctions::sleepMs(waitDelay*1000);
+//        qDebug()<<"Error while Wati SRQ";
+//        return "";
 //    }
 
-    Receive (0,intAddress, buffer, bufsize, STOPend);
+//    if(ibsta & ERR)
+//    {
+//        qDebug()<<"ibsta shows error under WaitSRQ";
+//        return "";
+//    }
+
+//    status = ibrsp(this->intBoardDescriptor, & pollStatus);
+//    if(ibsta & ERR)
+//    {
+//        qDebug()<<"ibsta shows error under ibrsp";
+//        return "";
+//    }
+
+    char buffer[128];
+    const int bufsize=128;
+
+//    if(pollStatus & 0x40)
+//    {
+        //Bit 6 of the pollStatus indicates whatever the device has data or not
+        (void) ibrd(this->intBoardDescriptor, buffer,bufsize);
+
+        if(ibsta & ERR)
+        {
+            qDebug()<<"Read data Error";
+            return "";
+        }
+        else
+        {
+            buffer[ibcntl] = 0x00;
+            QString str= QString(buffer);
+
+            if(!str.isEmpty())  //在前一段时间发现，6500的返回值前面多了一个‘N’这个非常奇怪。
+            {
+                if(str.at(0) =='N')
+                    str= str.remove(0,1);
+            }
+
+            return str;
+        }
+
+//    }
 
 
-    while ( (ibsta & CMPL+ERR) == 0);
-
-    if ((Ibcnt()==bufsize) || (Ibcnt()==0 )|| (Ibsta()&ERR))
-        return "";
-    else
-    {
-        buffer[Ibcnt()-1] = '\0';    /* Terminate string */
-    }
-
-    QString str= QString(buffer);
 
 
-    if(!str.isEmpty())  //在前一段时间发现，6500的返回值前面多了一个‘N’这个非常奇怪。
-    {
-        if(str.at(0) =='N')
-            str= str.remove(0,1);
-    }
-
-   // qDebug()<< str;
-    return str;
 
 }
 
@@ -149,5 +229,5 @@ void clsGpib::disConnect()
     short addres[]={(short) intAddress};
     EnableLocal(0,addres);
     blInit=false;
-       qDebug("Gpib Disconnected!");
+    qDebug("Gpib Disconnected!");
 }
