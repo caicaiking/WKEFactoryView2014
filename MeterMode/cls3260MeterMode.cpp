@@ -11,6 +11,8 @@
 #include "NumberInput.h"
 #include "wk6500Range.h"
 #include "dlgSpeed.h"
+#include "cls3260Calibration.h"
+#include "frmWK3260Calibration.h"
 #include "cls6440Calibration.h"
 #include <QJsonDocument>
 cls3260MeterMode::cls3260MeterMode(WKEMeterMode *parent) :
@@ -363,8 +365,8 @@ void cls3260MeterMode::updateGPIB()
 
         QString xx =QString(meter+":FREQ?");
         QString retFreq = clsRS::getInst().sendCommand(xx,true);
-
         this->frequency = retFreq.toDouble();
+        UserfulFunctions::sleepMs(10);
         updateButtons();
     }
 
@@ -556,8 +558,18 @@ clsMeterLimit cls3260MeterMode::getLimit(int i)
 
 void cls3260MeterMode::calibration()
 {
-    cls6440Calibration *dlg = new cls6440Calibration(this);
-    dlg->exec();
+
+    if(clsRS::getInst().meterSeries=="3260")
+    {
+        frmWK3260Calibration *dlg = new frmWK3260Calibration(this);
+        dlg->setWindowTitle(tr("仪表校准"));
+        dlg->exec();
+    }
+    else
+    {
+        cls6440Calibration *dlg = new cls6440Calibration(this);
+        dlg->exec();
+    }
 }
 
 QString cls3260MeterMode::getBrief()
@@ -628,6 +640,7 @@ void cls3260MeterMode::turnOffBias()
 
 void cls3260MeterMode::singleTrig()
 {
+
     QString trigCmd =getMeter()+":TRIG";
 
     if(tabMeter->currentIndex()==0)

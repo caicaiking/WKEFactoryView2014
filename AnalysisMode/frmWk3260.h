@@ -75,6 +75,7 @@ private:
     void readSettings(WK3260 &wk);
     void writeSettings(WK3260 wk);
     QString getGpibMeter();
+    bool getBiasOn();
 };
 
 #endif // CLSWK3260_H

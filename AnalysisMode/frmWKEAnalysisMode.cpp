@@ -1,9 +1,9 @@
 #include "frmWKEAnalysisMode.h"
 #include <QBoxLayout>
 #include <QFileDialog>
-#include <Qwt/qwt_plot_renderer.h>
+#include <qwt_plot_renderer.h>
 #include <QImageWriter>
-#include "Qwt/qwt_picker_machine.h"
+#include "qwt_picker_machine.h"
 #include "frmPeakSearch.h"
 #include "clsRuningSettings.h"
 #include "frmTraceSetup.h"
@@ -24,6 +24,7 @@
 #include "dlgSetupOp.h"
 #include "clsSampleTest.h"
 #include <windows.h>
+#include "clsCalibrationDbOp.h"
 frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -54,6 +55,7 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     setDemoVersion(SingletonDog::Instance()->getVersion());
 
     btnMaterialSettings->setVisible(this->getMaterialOption());
+
 
 }
 
@@ -140,9 +142,14 @@ void frmWKEAnalysisMode::init()
     frmTraceSetup::readSettings(gs,true);
 
     meas = MeasFactory::getMeas(gs.sweepType);
+
+
     if(gs.points.length()!=0)
         meas->setPoint(&gs.points);
     connect(meas,SIGNAL(showProgress(int)),this->progressBar,SLOT(setValue(int)));
+    connect(meas,SIGNAL(showTestValue(double)),this,SLOT(setSweepInfo(double)));
+    btnSweepInfo->setVisible(gs.sweepType == BiasExtV);
+
     updateGraph();
     updateButtons();
     initZoomer();
@@ -247,6 +254,38 @@ void frmWKEAnalysisMode::setBias(bool value)
 void frmWKEAnalysisMode::setSpeed(QString value)
 {
     this->btnSpeed->setText(value);
+}
+
+//接收来自扫描类型的信号。
+void frmWKEAnalysisMode::setSweepInfo(double value)
+{
+    //Frequency=1,Time=0,BiasV=2,BiasA=3,levelV=4,levelA=5,BiasExtV=6
+    switch (gs.sweepType) {
+    case BiasExtV:
+        btnSweepInfo->setVisible(true);
+        if(value > 0.0)
+        {
+            btnSweepInfo->setIcon(QIcon(":/Icons/BiasOn.png"));
+            doubleType dt;
+            dt.setData(value);
+
+            QString info = QString("%1\n%2").arg("Ext.Bias").arg(dt.formateToString(5)+"V");
+            btnSweepInfo->setText(info);
+
+        }
+        else
+        {
+            btnSweepInfo->setIcon(QIcon(":/Icons/BiasOff.png"));
+            doubleType dt;
+            dt.setData(0.0);
+            QString info = QString("%1\n%2").arg("Ext.Bias").arg(dt.formateToString(5)+"V");
+            btnSweepInfo->setText(info);
+        }
+        break;
+    default:
+        btnSweepInfo->setVisible(false);
+        break;
+    }
 }
 
 void frmWKEAnalysisMode::setItems(QString value1, QString value2)
@@ -526,15 +565,22 @@ void frmWKEAnalysisMode::on_btnTraceSetup_clicked()
 {
     frmTraceSetup * dlg  = new frmTraceSetup(this->meter);
     dlg->setWindowTitle(tr("扫描设定"));
+    bool isChanged = true;
     if(dlg->exec() ==QDialog::Accepted)
     {
         if(!this->gs.equal( dlg->getGsetup()))
+        {
+            isChanged = false;
             plot->clearData();
-
+        }
         if(this->gs.sweepType!= dlg->getGsetup().sweepType)
         {
             plot->turnOffRefTrace();
+            isChanged = false;
         }
+
+        if(this->gs.points != dlg->getGsetup().points)
+            isChanged = false;
 
         this->gs = dlg->getGsetup();
 
@@ -543,6 +589,8 @@ void frmWKEAnalysisMode::on_btnTraceSetup_clicked()
         meas->setPoint(&gs.points);
         // qDebug()<< gs.points;
         connect(meas,SIGNAL(showProgress(int)),this->progressBar,SLOT(setValue(int)));
+        connect(meas,SIGNAL(showTestValue(double)),this,SLOT(setSweepInfo(double)));
+        btnSweepInfo->setVisible(gs.sweepType == BiasExtV);
         updateGraph();
         updateButtons();
     }

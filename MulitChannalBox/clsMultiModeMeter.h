@@ -75,14 +75,17 @@ public:
     /*55-1*/         virtual bool getStatus(int )=0;       //获取单个测试状态
     /*56*/    virtual void setCondition(QString json)=0;
     /*57*/    virtual QString getConditon()=0;
-
+    /*58*/    virtual void calibration(){}      //仪表单通道校准
+    /*59*/   virtual void set10KHz(){}          //设置10kHz为了校准
 
     virtual void setChannel(int value)=0;   //通道测试
     virtual void setUseLoad(bool value)=0;  //使用Load数据
     virtual void setConditionForCalibration(int)=0; //设置条件为了校准；
     virtual QList<double> getOriginZA()=0;  //获得原始的没有进行过校准的Z A
     virtual void setFreqencyForCal(int)=0; //设置频率，为了校准
+    virtual void setFreqencyForCal(double){} //设置频率，为了校准
     virtual double getFreqency(int value )=0; //获取测试的频率
+    virtual void turnOnScreen(bool /*value*/){} //关闭测试屏幕
 };
 
 #endif // CLSMULTIMODEMETER_H

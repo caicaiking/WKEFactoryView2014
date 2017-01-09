@@ -80,5 +80,8 @@
         <file>Icons/BiasSettings.png</file>
         <file>Icons/copy.png</file>
         <file>Icons/Percentage.png</file>
+        <file>Icons/2T.png</file>
+        <file>Icons/4T.png</file>
+        <file>Icons/standard.png</file>
     </qresource>
 </RCC>

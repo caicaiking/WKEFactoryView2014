@@ -21,6 +21,7 @@ clsMeterMode::clsMeterMode(QWidget *parent) :
 {
     setupUi(this);
     btnRep300->setVisible(false);
+    btnStepStop->setVisible(false);
     lblConnectionType->setText(clsRS::getInst().getConnectionType() + QObject::tr("连接"));
     lblTime->showTime();
     lblStatus->setStatus(IDEL);
@@ -268,12 +269,13 @@ void clsMeterMode::on_btnOpenTask_clicked()
 //用于软件触发
 void clsMeterMode::on_btnTrig_clicked()
 {
-    this->btnTrig->setEnabled(false);
+    btnTrig->setEnabled(false);
     qApp->processEvents();
     trig();
     qApp->processEvents();
-    this->btnTrig->setEnabled(true);
+    btnTrig->setEnabled(true);
 }
+
 
 //初始化工作表
 void clsMeterMode::initTable()
@@ -351,8 +353,6 @@ QTableWidgetItem* clsMeterMode::getTableTestItem(const QString &content,int colo
     return item;
 }
 
-
-
 //单次测试
 void clsMeterMode::trig()
 {
@@ -367,6 +367,9 @@ void clsMeterMode::trig()
 RETEST:
     int totleRow=0 ;
     bool status=true;
+    stepStop = false;
+    btnStepStop->setVisible(btnTrig->isVisible());
+
     if(blRetest)
     {
         lblInfo->showMessage(tr("已经开始第二次测试"),2);
@@ -396,6 +399,12 @@ RETEST:
     allStepData.number = count.getTotle().toInt();
     for(int i =0; i< steps.length(); i++)
     {
+        if(stepStop == true)
+        {
+            lblStatus->setStatus(IDEL);
+            return;
+        }
+
         totleRow+= steps.at(i)->getCountTestItems();
 
         meter->setCondition(steps.at(i)->getConditon());
@@ -405,6 +414,7 @@ RETEST:
         QVector<double> singleStepData;
         for(int j=0; j< meter->getCountTestItems(); j++)
         {
+            qApp->processEvents();
             tabResult->setRowCount(tabResult->rowCount()+1);
 
             //显示序号
@@ -448,7 +458,7 @@ RETEST:
 
             status = status && isPass;
             //  tabResult->setItem(tabResult->rowCount()-1,6,getTableTestItem(meter->getDescription(),2));
-
+ qApp->processEvents();
             //在这儿进行单步的是否通过做一个判断
             if(mSettings.failPass && (!status))
             {
@@ -465,9 +475,6 @@ RETEST:
                     }
                 }
             }
-
-
-
 
         }
 
@@ -497,9 +504,6 @@ RETEST:
         QTableWidgetItem *item = tabResult->item(tabResult->rowCount()-1-i,0);
         item->setBackgroundColor(status? QColor(Qt::green):QColor(Qt::red));
     }
-
-
-
 
     strSaveRes.append(status?tr("PASS"):tr("FAIL"));
 
@@ -541,6 +545,7 @@ PASSTEST:
 
     //关闭Bias
     meter->turnOffBias();
+    btnStepStop->setVisible(false);
 }
 
 void clsMeterMode::showLogError(QString value)
@@ -935,3 +940,11 @@ void clsMeterMode::on_btnCopy_clicked()
     QApplication::clipboard()->setText(strCp);
 }
 
+
+
+void clsMeterMode::on_btnStepStop_clicked()
+{
+    this->stepStop = true;
+    qApp->processEvents();
+    btnStepStop->setVisible(false);
+}

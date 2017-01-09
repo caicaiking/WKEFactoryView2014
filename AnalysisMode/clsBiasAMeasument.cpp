@@ -2,6 +2,7 @@
 #include "UserfulFunctions.h"
 #include "clsRuningSettings.h"
 #include "clsBiasAOp.h"
+#include "clsSampleTest.h"
 void clsBiasAMeasument::setMin(double value)
 {
     this->dblMin=value;
@@ -35,6 +36,11 @@ void clsBiasAMeasument::setItemsAndPoints(const QString &item1, const QString &i
 
 void clsBiasAMeasument::trig()
 {
+    clsSampleTest *dlg = new clsSampleTest(meter,0);
+    if(dlg->exec() == QDialog::Rejected)
+    {
+        return;
+    }
 
     isStop= false;
     bias.clear();
@@ -47,20 +53,26 @@ void clsBiasAMeasument::trig()
 
     for(int i=0;i<points->length();i++)
     {
+        double tmpBias=0;
+        QString tmpUnit="";
+
         if(isStop)
             goto STOP;
         double tmp = points->at(i);
 
         meter->setBias(tmp,"A");
         points->removeAt(i);
-        double tmpBias;
-        QString tmpUnit;
-        meter->getBias(&tmpBias,&tmpUnit);
+        if(tmp!=0)
+            meter->getBias(&tmpBias,&tmpUnit);
         points->insert(i,tmpBias);
         if(!bias.contains(tmpBias))
         {
-            meter->turnOnBias();
-            sngBiasAOp::Instance()->preOperation();
+            if(tmpBias!=0)
+            {
+                if(!meter->turnOnBias())
+                    goto NextBiasPoint;
+                sngBiasAOp::Instance()->preOperation();
+            }
             QString strRes=meter->trig();
             QList<double> res=UserfulFunctions::resultPro(strRes);
             bias<<tmpBias;
@@ -70,6 +82,7 @@ void clsBiasAMeasument::trig()
             if(i<points->length()-1)
                 sngBiasAOp::Instance()->afterOperation();
         }
+NextBiasPoint:
         qApp->processEvents();
         emit showProgress((int)((i+1)*100/points->length()));
         qApp->processEvents();

@@ -8,7 +8,7 @@
 #include <QCoreApplication>
 #include <Plot.h>
 #include <QDebug>
-#include <Qwt/qwt_plot_curve.h>
+#include <qwt_plot_curve.h>
 #include <QMap>
 #include <QTime>
 using  std::vector;
@@ -97,6 +97,7 @@ QString UserfulFunctions::getSuffix(const QString &value)
 
     if(value=="A" || value==QString("θ"))
         return QString("°");
+
 
     if(value=="G" || value=="B" || value=="Y")
         return "S";

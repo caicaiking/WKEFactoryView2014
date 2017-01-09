@@ -3,16 +3,19 @@
 #include <QDebug>
 
 
-clsChennalSelect::clsChennalSelect(QWidget *parent) :
+clsChennalSelect::clsChennalSelect(int terminal,QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
  setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     chennals.clear();
+    this->terminal = terminal;
+
+    totleChannel = CHENNAL_COUNT *2 / terminal;
 
     QGridLayout *layout = new QGridLayout();
 
-    for(int i=0; i<CHENNAL_COUNT; i++)
+    for(int i=0; i<totleChannel; i++)
     {
         QCheckBox *tmp = new QCheckBox();
         tmp->setFont(QFont("楷体",12));
@@ -35,6 +38,7 @@ clsChennalSelect::clsChennalSelect(QWidget *parent) :
 
 void clsChennalSelect::setChennal(QString value)
 {
+    //qDebug()<<value;
     QStringList list = value.split(',');
 
     QList<int> listChennal;
@@ -44,7 +48,7 @@ void clsChennalSelect::setChennal(QString value)
 
     for(int i=0; i<listChennal.length();i++)
     {
-        if(listChennal.at(i)<CHENNAL_COUNT && listChennal.at(i)>0)
+        if(listChennal.at(i)<=totleChannel && listChennal.at(i)>0)
         {
             chennals.at(listChennal.at(i)-1)->setChecked(true);
         }
@@ -82,7 +86,7 @@ void clsChennalSelect::on_btnSelect10_clicked()
         btnSelect10->setText(tr("选定前10通道"));
     }
 
-    int maxNumber = (10<CHENNAL_COUNT?10:CHENNAL_COUNT);
+    int maxNumber = (10<totleChannel?10:totleChannel);
 
     for(int i=0;i<maxNumber;i++)
     {

@@ -93,6 +93,8 @@ private slots:
 
     void on_btnCopy_clicked();
 
+    void on_btnStepStop_clicked();
+
 protected:
     void closeEvent(QCloseEvent *);
     void keyPressEvent(QKeyEvent *e);
@@ -101,6 +103,7 @@ private:
     WKEMeterMode *meter;
     product_Static count;
     bool isStop;
+    bool stepStop;
 
     QString strTaskFile;
     QString strDataFile;
@@ -126,6 +129,7 @@ private:
     clsLog *passDataLog, *failDataLog,*allDataLog;
     void clearLogFile();
     void initLog();
+
 
 };
 

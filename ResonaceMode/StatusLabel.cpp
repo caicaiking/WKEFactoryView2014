@@ -27,7 +27,7 @@ void StatusLabel::setStatus(Status value)
         break;
     case IDEL:
         this->setText(tr("空闲"));
-        this->setStyleSheet("background-color: rgb(183, 255, 172);border-radius: 6px");
+        this->setStyleSheet("background-color: rgb(255, 104, 32);border-radius: 6px");
         emit statusChange(IDEL);
         break;
     default:

@@ -1,18 +1,18 @@
 ﻿#include "Plot.h"
-#include <Qwt/qwt_plot_marker.h>
-#include <Qwt/qwt_plot_curve.h>
-#include <Qwt/qwt_legend.h>
-#include <Qwt/qwt_text.h>
-#include <Qwt/qwt_plot_grid.h>
-#include <Qwt/qwt_symbol.h>
-#include <Qwt/qwt_scale_engine.h>
+#include <qwt_plot_marker.h>
+#include <qwt_plot_curve.h>
+#include <qwt_legend.h>
+#include <qwt_text.h>
+#include <qwt_plot_grid.h>
+#include <qwt_symbol.h>
+#include <qwt_scale_engine.h>
 #include <QMouseEvent>
 #include <UserfulFunctions.h>
 #include <doubleType.h>
 #include "clsRefTraceProperty.h"
-#include <Qwt/qwt_plot_canvas.h>
+#include <qwt_plot_canvas.h>
 #include <QMapIterator>
-#include <Qwt/qwt_plot_canvas.h>
+#include <qwt_plot_canvas.h>
 Plot::Plot(QWidget *parent) :
     QwtPlot(parent)
 {
@@ -119,6 +119,7 @@ Plot::Plot(QWidget *parent) :
     setTraceA(QString("Z"));
     setTraceB(QString("A"));
     setXTrace(QString(tr("频率")));
+    showPercetage=false;
 }
 
 
@@ -1119,8 +1120,6 @@ void Plot::findNextLeftHigh(Choice x)
     }
 
     this->setMarker(tmpRet,0);
-
-
 }
 
 void Plot::findNextLeftLow(Choice x)

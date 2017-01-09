@@ -65,7 +65,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::loadSVG()
 {
-    QString dir = "/home1/uwe/qwt/qwt/tests/svg";
+    QString dir = "/home1/uwe/Qwt/Qwt/tests/svg";
     const QString fileName = QFileDialog::getOpenFileName( NULL,
         "Load a Scaleable Vector Graphic (SVG) Document",
         dir, "SVG Files (*.svg)" );

@@ -10,6 +10,7 @@
 #include "wk6500Calibration.h"
 #include <QMessageBox>
 #include "UserfulFunctions.h"
+#include "clsSingleTrig.h"
 wk6500AnalysisMeter::wk6500AnalysisMeter(WKEInstrument *parent) :
     WKEInstrument(parent)
 {
@@ -338,7 +339,25 @@ bool wk6500AnalysisMeter::turnOnBias()
 
 QString wk6500AnalysisMeter::trig()
 {
+
+
     QString strRes=clsRS::getInst().sendCommand(":METER:TRIG",true);
+//    if(this->frequency>18E6)
+//        qDebug()<<"show here";
+
+//    double x1 = strRes.split(",").at(0).toDouble();
+//    double x2 = strRes.split(",").at(1).toDouble();
+//    clsSingleTrig cls;
+//    cls.setZm(x1);
+//    cls.setAm(x2);
+//    cls.setFrequency(this->frequency);
+//    cls.setChannel(9);
+//    cls.setBlUseLoad(false);
+//    cls.doRCCalibration();
+//    x1 = cls.getZm();
+//    x2 = cls.getAm();
+//    strRes = QString("%1,%2").arg(x1).arg(x2);
+
     return strRes+",";
 }
 

@@ -128,6 +128,15 @@ void cls4100MeterModeCalibration::sleepMs(int svalue)
 
 bool cls4100MeterModeCalibration::getCalibrationRes()
 {
+
+    if(clsRS::getInst().getConnectionType().toUpper()=="USB")
+    {
+        sleepMs(2000);
+
+        clsRS::getInst().disConnect();
+    }
+
+
     QString calRes = clsRS::getInst().sendCommand(":CAL:RES?",true);
 
     if(calRes.toInt()==1)

@@ -1,6 +1,5 @@
 #include <QApplication>
 #include <QTextCodec>
-#include "clsAppMode.h"
 #include <QSplashScreen>
 #include <QDebug>
 #include <QDesktopWidget>
@@ -89,7 +88,7 @@ RELOAD:
 
     if(!keyStatus)
     {
-        //        QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
+               // QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
         SingletonDog::Instance()->setProduct(false);
     }
     else
@@ -130,13 +129,6 @@ RESELECT:
         {
             clsMultiChannaeBox multiChannel;
             multiChannel.show();
-            a.exec();
-            goto RESELECT;
-        }
-        else if(w.getMode() == AppMode)
-        {
-            clsAppMode appMode;
-            appMode.show();
             a.exec();
             goto RESELECT;
         }

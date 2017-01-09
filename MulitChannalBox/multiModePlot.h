@@ -3,10 +3,10 @@
 
 #include <QObject>
 #include <QWidget>
-#include <Qwt/qwt_plot.h>
-#include <Qwt/qwt_plot_curve.h>
+#include <qwt_plot.h>
+#include <qwt_plot_curve.h>
 #include <QVector>
-#include <Qwt/qwt_symbol.h>
+#include <qwt_symbol.h>
 class TestCurve
 {
 public:
@@ -124,8 +124,12 @@ public:
     void setColor(QString colorName)
     {
         curve->setRenderHint(QwtPlotItem::RenderAntialiased);
-        curve->setPen(QPen(QColor(colorName)));
+        QPen pen;
+        pen.setWidth(2);
+        pen.setColor(colorName);
+        curve->setPen(pen);
         curve->setStyle(QwtPlotCurve::Lines);
+
         curve->setYAxis(QwtPlot::yLeft);
     }
 

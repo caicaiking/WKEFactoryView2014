@@ -1,7 +1,7 @@
 ﻿#include "clsViewResult.h"
 #include "UserfulFunctions.h"
 #include "doubleType.h"
-#include <Qwt/qwt_plot_curve.h>
+#include <qwt_plot_curve.h>
 #include <QFileDialog>
 #include <qexcel.h>
 #include <QFile>
