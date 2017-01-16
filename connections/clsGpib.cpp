@@ -204,7 +204,7 @@ QString clsGpib::sendCommand(QString strCommand, bool hasReturn, int /*waitDelay
         }
         else
         {
-            buffer[ibcntl] = 0x00;
+            buffer[ibcntl-1] = 0x00;
             QString str= QString(buffer);
 
             if(!str.isEmpty())  //在前一段时间发现，6500的返回值前面多了一个‘N’这个非常奇怪。
