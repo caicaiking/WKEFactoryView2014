@@ -88,7 +88,7 @@ void clsBiasExtMeasument::trig()
         //double tmpBias = power->getVoltage();
         points->insert(i,tmp); //准确做法
 
-        UserfulFunctions::sleepMs(1000);
+        UserfulFunctions::sleepMs(3500);
         QString strRes=meter->trig();
 
         QList<double> res=UserfulFunctions::resultPro(strRes);
