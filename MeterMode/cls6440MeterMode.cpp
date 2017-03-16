@@ -39,6 +39,7 @@ cls6440MeterMode::cls6440MeterMode(WKEMeterMode *parent) :
     rangeRdc = tr("自动");
     speed = tr("最快");
     equcct = tr("串联");
+    alc = tr("关");
     levelRdc = 1;
     majorUnit="";
     minorUnit="";
@@ -194,6 +195,7 @@ void cls6440MeterMode::setCondition(QString value)
                 this->lmRdc.setString(result["lmRdc"].toString());
                 this->rdcUnit = result["rdcSuffix"].toString();
                 this->strDescription= result["description"].toString();
+                this->alc = result["alc"].toString();
 
                 //Res search mode
                 this->dblStartFreq = result["dblStartFrequency"].toDouble();
@@ -244,6 +246,7 @@ QString cls6440MeterMode::getConditon()
     step.insert("rdcRange",this->rangeRdc);
     step.insert("lmRdc",this->lmRdc.toString());
     step.insert("rdcSuffix",this->rdcUnit);
+    step.insert("alc", this->alc);
 
     step.insert("description",this->strDescription);
 
@@ -297,6 +300,11 @@ void cls6440MeterMode::updateGPIB()
             gpibCmd.append(meter+"EQU-CCT "+"SER");
         else
             gpibCmd.append(meter+"EQU-CCT "+"PAR");
+
+        if(alc == tr("关"))
+            gpibCmd.append(meter + "ALC "+ "OFF");
+        else
+             gpibCmd.append(meter + "ALC "+ "ON");
 
 
 
@@ -388,6 +396,7 @@ void cls6440MeterMode::updateGPIB()
         {
             tmpBiasString=meter+"BIAS "+"ON";
         }
+
         if(clsRS::getInst().gpibCommands.biasCommand != tmpBiasString)
         {
             clsRS::getInst().sendCommand(tmpBiasString,false);
@@ -468,6 +477,8 @@ void cls6440MeterMode::updateGPIB()
         {
             clsRS::getInst().sendCommand(":RESO",false);
             clsRS::getInst().gpibCommands.testMode ="RES";
+            clsRS::getInst().gpibCommands.gpibTest1.clear();
+            clsRS::getInst().gpibCommands.gpibTest2.clear();
         }
 
 
@@ -1055,6 +1066,7 @@ void cls6440MeterMode::updateButtons()
     btnLUnit->setText(strLUnit+UserfulFunctions::getSuffix("L"));
     btnCUnit->setText(strCUnit+UserfulFunctions::getSuffix("C"));
     btnRUnit->setText(strRUnit+UserfulFunctions::getSuffix("R"));
+    btnALC->setText(alc);
 
 
 }
@@ -1523,5 +1535,16 @@ void cls6440MeterMode::on_grpC_toggled(bool arg1)
 void cls6440MeterMode::on_grpL_toggled(bool arg1)
 {
     blL = arg1;
+    updateButtons();
+}
+
+void cls6440MeterMode::on_btnALC_clicked()
+{
+    if(btnALC->text() == tr("关"))
+        btnALC->setText(tr("开"));
+    else
+        btnALC->setText(tr("关"));
+
+    alc = btnALC->text();
     updateButtons();
 }

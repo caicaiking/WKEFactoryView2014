@@ -94,6 +94,8 @@ private slots:
 
     void on_grpL_toggled(bool arg1);
 
+    void on_btnALC_clicked();
+
 private:
     // Meter Mode
     QString strDescription;
@@ -107,6 +109,7 @@ private:
     bool blBiasStatus;
     QString range;
     QString speed;
+    QString alc;
     QString equcct;
     double levelRdc;
     QString rangeRdc;
