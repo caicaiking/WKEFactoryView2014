@@ -1,6 +1,7 @@
 ﻿#ifndef CLSCOMPLEXOP_H
 #define CLSCOMPLEXOP_H
 
+#include <QString>
 
 struct CPLXTrig
 {
@@ -46,6 +47,8 @@ public:
     double Z(){return mZ;}
     double A(){return mA;}
     double Y(){return mYY;}
+
+    double getValue(QString item);
 private:
     double mC ;
     double mL;

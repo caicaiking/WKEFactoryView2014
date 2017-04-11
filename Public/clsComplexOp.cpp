@@ -123,6 +123,35 @@ double clsComplexOp::QCal()
     return mQ;
 }
 
+double clsComplexOp::getValue(QString item)
+{
+    item = item.toUpper();
+
+    if(item=="R")
+        return this->R();
+    else if(item=="X")
+        return this->X();
+    else if(item=="C")
+        return this->C();
+    else if(item=="D")
+        return this->D();
+    else if(item=="L")
+        return this->L();
+    else if(item=="Q")
+        return this->Q();
+    else if(item=="B")
+        return this->B();
+    else if(item=="G")
+        return this->G();
+    else if(item=="Y")
+        return this->Y();
+    else if(item=="Z")
+        return this->Z();
+    else
+        return this->A();
+
+}
+
 
 CPLXAlge clsComplexOp::TrigToAlge(CPLXTrig Trig){
     //三角形式到代数形式的换算

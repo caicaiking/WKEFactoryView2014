@@ -1,5 +1,7 @@
 ﻿#include "wk6440AnalysisMeter.h"
+#include "dlgFunction.h"
 #include "clsSettings.h"
+#include "clsComplexOp.h"
 #include "doubleType.h"
 #include "clsRuningSettings.h"
 #include "UserfulFunctions.h"
@@ -15,7 +17,7 @@ wk6440AnalysisMeter::wk6440AnalysisMeter(WKEInstrument *parent) :
     WKEInstrument(parent)
 {
     setupUi(this);
-     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     readSettings();
     clsRS::getInst().sendCommand(":MEAS");
     clsRS::getInst().sendCommand(":MEAS:TEST");
@@ -235,7 +237,19 @@ bool wk6440AnalysisMeter::turnOnBias()
 QString wk6440AnalysisMeter::trig()
 {
     QString strRes=clsRS::getInst().sendCommand(":MEAS:TRIG",true);
-    return strRes+",";
+
+    QString resString = strRes + ",";
+
+    QStringList resList = resString.split(",");
+
+    if(resList.length()<=1)
+        return " , ";
+
+    clsComplexOp cp(resList.at(0).toDouble(),(this->equcct==tr("串联")?1:-1)*resList.at(1).toDouble(),this->frequency,(Equcct)(this->equcct==tr("串联")?0:1));
+
+    QString sr = QString::number(cp.getValue(this->item1))
+            + "," + QString::number(cp.getValue(this->item2));
+    return sr;
 }
 
 void wk6440AnalysisMeter::calibration()
@@ -249,6 +263,9 @@ void wk6440AnalysisMeter::updateInstrument()
 {
     QStringList gpibCmd;
     QString meter=":MEAS:";
+
+    clsRS::getInst().sendCommand(":FAST-GPIB ON",false);
+    clsRS::getInst().sendCommand(meter+"FUNC:"+ "Z",false);
     // QString meter2="MEAS:";
 
     if(equcct==tr("串联"))
@@ -256,10 +273,10 @@ void wk6440AnalysisMeter::updateInstrument()
     else
         gpibCmd.append(meter+"EQU-CCT "+"PAR");
 
-    gpibCmd.append(meter+"FUNC:"+ item1 );  //item1 GPIB
+    //    gpibCmd.append(meter+"FUNC:"+ item1 );  //item1 GPIB
 
-    if(item1 !="Z" && item1 !="Y")
-        gpibCmd.append(meter+"FUNC:"+item2 );
+    //    if(item1 !="Z" && item1 !="Y")
+    //        gpibCmd.append(meter+"FUNC:"+item2 );
 
     if(range==tr("自动"))
         gpibCmd.append(meter+"RANGE "+"AUTO");
@@ -309,7 +326,7 @@ void wk6440AnalysisMeter::updateInstrument()
 
     for(int i=0;i<gpibCmd.length();i++)
     {
-       // qDebug()<<gpibCmd.at(i);
+        // qDebug()<<gpibCmd.at(i);
         clsRS::getInst().sendCommand(gpibCmd.at(i),false);
 
         qApp->processEvents();
@@ -433,9 +450,9 @@ bool wk6440AnalysisMeter::queryBiasStatus()
     }
     else
     {
-        QMessageBox::warning(this,tr("WKE FactoryView 2014"),
-                             tr("不能正确的查询Bias的状态，请检查连接。"),
-                             QMessageBox::Ok);
+        //        QMessageBox::warning(this,tr("WKE FactoryView 2014"),
+        //                             tr("不能正确的查询Bias的状态，请检查连接。"),
+        //                             QMessageBox::Ok);
         biasONOFF=false;
         emit biasStatusSignal(biasONOFF);
         saveSettings();
@@ -463,11 +480,13 @@ double wk6440AnalysisMeter::getMaxFrequency1(QString value)
 void wk6440AnalysisMeter::updateButtons()
 {
     btnItem1->setText(this->item1);
-    QString tmp ="ZY";
-    if(tmp.contains(item1))
-        btnItem2->setText("A");
-    else
-        btnItem2->setText(this->item2);
+
+    //Method 2 切换成method1 取消此注释
+    //    QString tmp ="ZY";
+    //    if(tmp.contains(item1))
+    //        btnItem2->setText("A");
+    //    else
+    //        btnItem2->setText(this->item2);
 
     btnEqucct->setText(equcct);
     btnRange->setText(range);
@@ -507,45 +526,70 @@ void wk6440AnalysisMeter::on_btnCancel_clicked()
 
 void wk6440AnalysisMeter::on_btnItem1_clicked()
 {
-    dlgWk6440Function1 *dlg=new dlgWk6440Function1(this);
-    dlg->setWindowTitle(tr("设置测试项目1"));
+    // Method 1 用老的6400 的方法请取消下面的注释
+    //    dlgWk6440Function1 *dlg=new dlgWk6440Function1(this);
+    //    dlg->setWindowTitle(tr("设置测试项目1"));
 
+    //    if(dlg->exec()==QDialog::Accepted)
+    //    {
+    //        item1=dlg->getItem();
+    //        this->btnItem1->setText(item1);
+
+    //        if(item1=="Z"|| item1=="Y")
+    //        {
+    //            this->btnItem2->setText("A");
+    //            this->item2="A";
+    //            return ;
+    //        }
+
+    //        if(this->btnItem2->text()=="A")
+    //        {
+    //            this->btnItem2->setText("Q");
+    //            item2 = "Q";
+    //        }
+    //    }
+
+    //Method 2
+    dlgFunction *dlg = new dlgFunction;
+    dlg->setWindowTitle(tr("设置测试项目1"));
+    dlg->setMateralFunction(false);
     if(dlg->exec()==QDialog::Accepted)
     {
-        item1=dlg->getItem();
+        item1 = dlg->getItem();
+
         this->btnItem1->setText(item1);
-
-        if(item1=="Z"|| item1=="Y")
-        {
-            this->btnItem2->setText("A");
-            this->item2="A";
-            return ;
-        }
-
-        if(this->btnItem2->text()=="A")
-        {
-            this->btnItem2->setText("Q");
-            item2 = "Q";
-        }
     }
 }
 
 void wk6440AnalysisMeter::on_btnItem2_clicked()
 {
-    if(this->btnItem1->text()=="Z"|| btnItem1->text()=="Y")
-    {
-        this->btnItem2->setText("A");
-        this->item2="A";
-        return;
-    }
 
-    dlgWk6440Function2 *dlg = new dlgWk6440Function2;
+    // Method 1 用老的6400 的方法请取消下面的注释
+    //    if(this->btnItem1->text()=="Z"|| btnItem1->text()=="Y")
+    //    {
+    //        this->btnItem2->setText("A");
+    //        this->item2="A";
+    //        return;
+    //    }
+
+    //    dlgWk6440Function2 *dlg = new dlgWk6440Function2;
+    //    dlg->setWindowTitle(tr("设置测试项目2"));
+
+    //    if(dlg->exec()==QDialog::Accepted)
+    //    {
+    //        item2 = dlg->getItem();
+    //        btnItem2->setText(item2);
+    //    }
+
+    //Method 2
+    dlgFunction *dlg = new dlgFunction;
     dlg->setWindowTitle(tr("设置测试项目2"));
-
+    dlg->setMateralFunction(false);
     if(dlg->exec()==QDialog::Accepted)
     {
         item2 = dlg->getItem();
-        btnItem2->setText(item2);
+
+        this->btnItem2->setText(item2);
     }
 }
 
@@ -557,17 +601,18 @@ void wk6440AnalysisMeter::on_btnEqucct_clicked()
     btnEqucct->setText(strTmp);
     equcct=strTmp;
 
-    if(btnItem1->text()=="B" && equcct== tr("串联"))
-    {
-        btnItem1->setText("X");
-        this->item1="X";
-    }
+    //用老的6400 的方法请取消下面的注释
+    //    if(btnItem1->text()=="B" && equcct== tr("串联"))
+    //    {
+    //        btnItem1->setText("X");
+    //        this->item1="X";
+    //    }
 
-    if(btnItem1->text()=="X" && equcct== tr("并联"))
-    {
-        btnItem1->setText("B");
-        this->item1="B";
-    }
+    //    if(btnItem1->text()=="X" && equcct== tr("并联"))
+    //    {
+    //        btnItem1->setText("B");
+    //        this->item1="B";
+    //    }
 }
 
 void wk6440AnalysisMeter::on_btnRange_clicked()
