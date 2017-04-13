@@ -65,7 +65,7 @@ void clsSignalThread::run()
         {
             emit trigCaptured();
             emit showStatus(tr("已经捕获触发信号.."));
-            this->msleep(20);
+            this->msleep(1);
             //qDebug()<<"control box get trig signal...";
         }
 
