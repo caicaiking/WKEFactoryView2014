@@ -8,6 +8,7 @@ clsControlBox::clsControlBox(QObject *parent) :
 {
     this->blStop=false;
     isInit = this->initDevice();
+    shortRelay(3); //Keep BDA signal short at the beginning
 }
 
 QString clsControlBox::sendCommand(QString value, bool hasReturn)
@@ -51,14 +52,22 @@ void clsControlBox::setFail()
     openRelay(1);
 }
 
-void clsControlBox::setBDA()
+void clsControlBox::setBusy()
 {
     shortRelay(2);
 }
 
-void clsControlBox::resetBDA()
+void clsControlBox::resetBusy()
 {
     openRelay(2);
+}
+
+void clsControlBox::emitBDA()
+{
+    openRelay(3);
+    //Delay somethime
+    sleepMs(10);
+    shortRelay(3);
 }
 
 
@@ -81,9 +90,9 @@ bool clsControlBox::getInputSignal(int port)
             qApp->processEvents();
             sleepMs(1);
         }
-     //   qDebug()<<"1";
+        //   qDebug()<<"1";
     }
-   // qDebug()<<"11";
+    // qDebug()<<"11";
 
     if(blStop)
         return false;
@@ -107,7 +116,7 @@ bool clsControlBox::getInputSignal(int port)
 
     if(blStop)
         return false;
-   // qDebug()<<"2";
+    // qDebug()<<"2";
     sleepMs(1);
     status=getInput(port).toInt();
 

@@ -427,7 +427,7 @@ RETEST:
 
             //显示测试条件
             QString testCon = meter->getFreq()+" "+meter->getLevel()+" "+meter->getBias();
-             tabResult->setItem(tabResult->rowCount()-1,ConCol,getTableTestItem(testCon,2));
+            tabResult->setItem(tabResult->rowCount()-1,ConCol,getTableTestItem(testCon,2));
             //显示下限
             clsMeterLimit tmp = meter->getLimit(j);
             double lowLimit = tmp.getAbsLimitLow();
@@ -458,7 +458,7 @@ RETEST:
 
             status = status && isPass;
             //  tabResult->setItem(tabResult->rowCount()-1,6,getTableTestItem(meter->getDescription(),2));
- qApp->processEvents();
+            qApp->processEvents();
             //在这儿进行单步的是否通过做一个判断
             if(mSettings.failPass && (!status))
             {
@@ -735,14 +735,17 @@ void clsMeterMode::setAdu200(Status value)
 
     switch (value) {
     case BUSY:
-        adu200->setBDA();
+        adu200->setBusy();
         break;
     case PASS:
-        adu200->resetBDA();
         adu200->setPass();
+        adu200->resetBusy();
+        adu200->emitBDA();
     case FAIL:
-        adu200->resetBDA();
+
         adu200->setFail();
+        adu200->resetBusy();
+        adu200->emitBDA();
     default:
         break;
     }
@@ -936,7 +939,7 @@ void clsMeterMode::on_btnCopy_clicked()
         }
         strCp += "\n";
     }
-   // qDebug()<<strCp;
+    // qDebug()<<strCp;
     QApplication::clipboard()->setText(strCp);
 }
 

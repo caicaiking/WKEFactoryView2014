@@ -15,8 +15,10 @@ public:
     bool getInputSignal(int port);
     void setPass();
     void setFail();
-    void setBDA();
-    void resetBDA();
+    void setBusy();
+    void resetBusy();
+
+    void emitBDA();
 signals:
     void showStatus(QString);
 public slots:

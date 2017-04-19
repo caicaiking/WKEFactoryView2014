@@ -76,7 +76,7 @@ void frmWKEAnalysisMode::captureTrig()
 
     //qDebug()<<"Trig get!";
     disconnect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
-    this->controlBox->getControlBox()->setBDA();
+    this->controlBox->getControlBox()->setBusy();
 
     btnTrig->setChecked(true);
     on_btnTrig_clicked();
@@ -97,7 +97,7 @@ void frmWKEAnalysisMode::captureTrig()
     }
 
 
-    this->controlBox->getControlBox()->resetBDA();
+    this->controlBox->getControlBox()->resetBusy();
     connect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
 }
 

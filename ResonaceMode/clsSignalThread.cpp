@@ -38,14 +38,19 @@ void clsSignalThread::setFail()
     box->setFail();
 }
 
-void clsSignalThread::setBDA()
+void clsSignalThread::setBusy()
 {
-    box->setBDA();
+    box->setBusy();
 }
 
-void clsSignalThread::resetBDA()
+void clsSignalThread::resetBusy()
 {
-    box->resetBDA();
+    box->resetBusy();
+}
+
+void clsSignalThread::emitBDA()
+{
+    box->emitBDA();
 }
 
 void clsSignalThread::run()

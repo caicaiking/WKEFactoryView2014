@@ -14,8 +14,9 @@ public:
 
     void setPass();
     void setFail();
-    void setBDA();
-    void resetBDA();
+    void setBusy();
+    void resetBusy();
+    void emitBDA();
 
 
 signals:
