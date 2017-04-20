@@ -8,7 +8,7 @@ clsControlBox::clsControlBox(QObject *parent) :
 {
     this->blStop=false;
     isInit = this->initDevice();
-    shortRelay(3); //Keep BDA signal short at the beginning
+    openRelay(3); //Keep BDA signal short at the beginning
 }
 
 QString clsControlBox::sendCommand(QString value, bool hasReturn)
@@ -64,10 +64,11 @@ void clsControlBox::resetBusy()
 
 void clsControlBox::emitBDA()
 {
-    openRelay(3);
+    shortRelay(3);
     //Delay somethime
     sleepMs(10);
-    shortRelay(3);
+    openRelay(3);
+
 }
 
 
