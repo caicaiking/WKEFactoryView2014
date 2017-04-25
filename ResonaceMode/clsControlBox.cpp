@@ -9,7 +9,6 @@ clsControlBox::clsControlBox(QObject *parent) :
     this->blStop=false;
     isInit = this->initDevice();
     shortRelay(3); //Keep BDA signal short at the beginning
-    // openRelay(3);//set this relay to open for binning.
 }
 
 QString clsControlBox::sendCommand(QString value, bool hasReturn)
@@ -69,9 +68,8 @@ void clsControlBox::emitBDA()
     openRelay(3);
     //Delay somethime
     sleepMs(50);
-
-
     shortRelay(3);
+
 }
 
 
