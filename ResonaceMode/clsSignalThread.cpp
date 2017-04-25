@@ -68,9 +68,11 @@ void clsSignalThread::run()
     {
         if(box->getInputSignal(0))
         {
-            emit trigCaptured();
+
             emit showStatus(tr("已经捕获触发信号.."));
-            this->msleep(1);
+            this->msleep(20);
+            emit trigCaptured();
+
             //qDebug()<<"control box get trig signal...";
         }
 
