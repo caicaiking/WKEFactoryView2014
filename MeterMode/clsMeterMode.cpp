@@ -692,17 +692,21 @@ void  clsMeterMode::updateMessage()
     case Adu200Trig:
         btnRep->setVisible(false);
         lblTrigType->setText(tr("ADU200触发"));
-        adu200->start();
+
         disconnect(this->adu200,SIGNAL(trigCaptured()),this,SLOT(adu200Trig()));
         connect(this->adu200,SIGNAL(trigCaptured()),this,SLOT(adu200Trig()));
+
         disconnect(this->lblStatus,SIGNAL(statusChange(Status)),this,SLOT(setAdu200(Status)));  //| 这两个是用于adu200的信号输出的 |
         connect(this->lblStatus,SIGNAL(statusChange(Status)),this,SLOT(setAdu200(Status)));     //| 如果不惜要这个的话可以将此注释 |
+
         disconnect(this->adu200,SIGNAL(showStatus(QString)),this,SLOT(showMessage(QString)));
         connect(this->adu200,SIGNAL(showStatus(QString)),this,SLOT(showMessage(QString)));
 
         btnStartDetect->setVisible(false);
         btnTrig->setVisible(false);
         btnStop->setVisible(true);
+
+        adu200->start();
         break;
     case AutoDetectTrig:
         btnTrig->setVisible(false);
@@ -742,7 +746,6 @@ void clsMeterMode::setAdu200(Status value)
         adu200->resetBusy();
         adu200->emitBDA();
     case FAIL:
-
         adu200->setFail();
         adu200->resetBusy();
         adu200->emitBDA();

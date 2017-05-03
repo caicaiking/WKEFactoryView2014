@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include "AduHid.h"
+#include <QMutex>
+#include <QMutexLocker>
 class clsControlBox : public QObject
 {
     Q_OBJECT
@@ -34,6 +36,8 @@ private:
     void sleepMs(int svalue);
     QString shortRelay(int port);
     QString openRelay(int port);
+
+    static QMutex lock;
 };
 
 #endif // CLSCONTROLBOX_H

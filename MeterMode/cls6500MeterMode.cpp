@@ -370,7 +370,7 @@ void cls6500MeterMode::updateLCRGpib()
     else if(speed ==tr("慢速"))
         gpibCmd.append(meter+"SPEED "+"SLOW"+";");
     else
-        gpibCmd.append(meter+"SPEED "+"MAX"+";");
+        gpibCmd.append(meter+"SPEED "+speed+";");
 
 
     if(levelType=="V")                                              //电平

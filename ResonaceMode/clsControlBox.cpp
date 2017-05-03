@@ -3,16 +3,24 @@
 #include <QApplication>
 #include <QTime>
 #include <QDebug>
+
+#include <QMutexLocker>
+QMutex clsControlBox::lock;
+
 clsControlBox::clsControlBox(QObject *parent) :
     QObject(parent)
 {
     this->blStop=false;
     isInit = this->initDevice();
     shortRelay(3); //Keep BDA signal short at the beginning
+    openRelay(0);
+    openRelay(1);
 }
 
 QString clsControlBox::sendCommand(QString value, bool hasReturn)
 {
+
+    QMutexLocker myLock(&this->lock);
     char sBuffer[8];
 
     WriteAduDevice(hDevice, value.toStdString().c_str(), 4, 0, 0);
@@ -22,6 +30,9 @@ QString clsControlBox::sendCommand(QString value, bool hasReturn)
 
     ReadAduDevice(hDevice, sBuffer, 7, 0, 0);
     QString ret = sBuffer;
+
+   sleepMs(5);
+
     return ret;
 }
 
