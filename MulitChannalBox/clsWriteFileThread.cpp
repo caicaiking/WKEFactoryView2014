@@ -35,7 +35,7 @@ void clsWriteFileThread::setTitle(QString title)
     {
 
         this->strTitle = title;
-        file->write(title.append(sp).append("Time").append("\n").toUtf8());
+        file->write(title.append(sp).append("Date,Time").append("\n").toUtf8());
         file->flush();
     }
 }
@@ -46,7 +46,7 @@ void clsWriteFileThread::setData(QString items)
     QTime strTime = QTime::currentTime();
     QDate strDate = QDate::currentDate();
 
-    QString timeDate = strDate.toString("dd/MM/yyyy")+" " + strTime.toString("hh:mm:ss");
+    QString timeDate = strDate.toString("dd/MM/yyyy")+sp + strTime.toString("hh:mm:ss.zzz");
     item.enqueue(items+ sp +timeDate);
 }
 
