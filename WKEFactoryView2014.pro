@@ -20,7 +20,8 @@ INCLUDEPATH +=connections \
              QwtInclude \
              quazip\Include \
              AnalysisMode/Qextserial \
-             AnalysisMode/EaPs8000
+             AnalysisMode/EaPs8000 \
+             MeterMode\AddtionOperation
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -168,7 +169,8 @@ SOURCES +=\
     AnalysisMode/EaPs8000/clsEaSerialPort.cpp \
     AnalysisMode/Qextserial/qextserialport.cpp \
     AnalysisMode/Qextserial/qextserialport_win.cpp \
-    AnalysisMode/clsPowerSupply.cpp
+    AnalysisMode/clsPowerSupply.cpp \
+    MeterMode/AddtionOperation/cls6500TurnOffScreen.cpp
 
 RESOURCES += \
     recFile/myRes.qrc
@@ -341,7 +343,8 @@ HEADERS += \
     AnalysisMode/EaPs8000/clsEaSerialPort.h \
     AnalysisMode/Qextserial/qextserialport.h \
     AnalysisMode/Qextserial/qextserialport_global.h \
-    AnalysisMode/Qextserial/qextserialport_p.h
+    AnalysisMode/Qextserial/qextserialport_p.h \
+    MeterMode/AddtionOperation/cls6500TurnOffScreen.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \

@@ -70,7 +70,7 @@ void clsSignalThread::run()
         {
 
             emit showStatus(tr("已经捕获触发信号.."));
-            this->msleep(20); //Trig的时间delay，为了稳定测试结果
+            this->msleep(5); //Trig的时间delay，为了稳定测试结果
             emit trigCaptured();
 
             //qDebug()<<"control box get trig signal...";

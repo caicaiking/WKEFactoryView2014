@@ -31,7 +31,7 @@ QString clsControlBox::sendCommand(QString value, bool hasReturn)
     ReadAduDevice(hDevice, sBuffer, 7, 0, 0);
     QString ret = sBuffer;
 
-   sleepMs(5);
+//   sleepMs(1);
 
     return ret;
 }
@@ -78,7 +78,7 @@ void clsControlBox::emitBDA()
 
     openRelay(3);
     //Delay somethime
-    sleepMs(50);
+    sleepMs(25);
     shortRelay(3);
 
 }
