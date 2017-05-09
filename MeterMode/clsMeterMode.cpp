@@ -14,7 +14,7 @@
 #include <QMessageBox>
 #include "clsStatistics.h"
 #include "clsShowReport.h"
-
+#include "cls6500TurnOffScreen.h"
 
 clsMeterMode::clsMeterMode(QWidget *parent) :
     QMainWindow(parent)
@@ -46,6 +46,9 @@ clsMeterMode::clsMeterMode(QWidget *parent) :
     setDemoVersion(SingletonDog::Instance()->getVersion());
 
     initLog();
+
+    btnTurnOffDisplay->setVisible(clsRS::getInst().meterSeries =="6500");
+
 }
 
 void clsMeterMode:: setDemoVersion(bool value)
@@ -955,4 +958,17 @@ void clsMeterMode::on_btnStepStop_clicked()
     this->stepStop = true;
     qApp->processEvents();
     btnStepStop->setVisible(false);
+}
+
+
+void clsMeterMode::on_btnTurnOffDisplay_clicked(bool checked)
+{
+    btnTurnOffDisplay->setText(checked? tr("打开\n显示"):tr("关闭\n显示"));
+
+    QString strConditon = (checked? "ON":"OFF");
+
+    cls6500TurnOffScreen * tmp = new cls6500TurnOffScreen();
+    tmp->setConditon(strConditon);
+
+    this->meter->addSomeAdditionOperation(tmp);
 }

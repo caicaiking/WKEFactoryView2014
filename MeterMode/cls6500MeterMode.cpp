@@ -825,6 +825,7 @@ QString cls6500MeterMode::getLevel()
     return this->btnLevel->text();
 }
 
+
 void cls6500MeterMode::on_btnRange_clicked()
 {
     wk6500Range * dialog= new wk6500Range;

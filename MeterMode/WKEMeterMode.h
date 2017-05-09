@@ -10,6 +10,26 @@ enum FunctionType
 };
 
 
+class clsAdditionOP
+{
+
+public:
+    virtual void doOperation()=0;
+
+    void setConditon(QString value)
+    {
+        this->conditons = value;
+    }
+
+    QString getConditon()
+    {
+        return this->conditons;
+    }
+
+private:
+    QString conditons;
+};
+
 class WKEMeterMode : public QWidget
 {
     Q_OBJECT
@@ -38,6 +58,12 @@ public:
     virtual QString getEqucct()=0;              //获取测试等效电路
     virtual QString getLevel()=0;               //获取测试的电平
     virtual QString getBias(){return "";}       //获取Bias值
+
+    void addSomeAdditionOperation(clsAdditionOP *op)
+    {
+        if(op !=NULL)
+            op->doOperation();
+    }
 
 signals:
     void biasStatus(bool);                      //更新Bias状态
