@@ -745,10 +745,12 @@ void clsMeterMode::setAdu200(Status value)
         adu200->setPass();
         adu200->resetBusy();
         adu200->emitBDA();
+        break;
     case FAIL:
         adu200->setFail();
         adu200->resetBusy();
         adu200->emitBDA();
+        break;
     default:
         break;
     }
