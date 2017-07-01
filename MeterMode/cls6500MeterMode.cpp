@@ -501,10 +501,10 @@ void cls6500MeterMode::updateResGpib()
 
 void cls6500MeterMode::updateGPIB()
 {
- if(intSelectMode==0)
-    updateLCRGpib();
- else
-     updateResGpib();
+    if(intSelectMode==0)
+        updateLCRGpib();
+    else
+        updateResGpib();
 }
 
 
@@ -1130,7 +1130,12 @@ double cls6500MeterMode::getMaxBiasA()
         clsRS::getInst().sendCommand("*SYSBIAS \'BIAS EXT\'",false);
         if(clsRS::getInst().sendCommand("*SYSBIAS?",true)=="BIAS EXT")
         {
-            maxC=40.0;
+
+            double maxFreq =getMaxFrequency(clsRS::getInst().instrumentModel);
+            if(maxFreq>15E9)
+                maxC=40.0;
+            else
+                maxC=50.0;
 
             return maxC;
         }

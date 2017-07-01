@@ -141,7 +141,7 @@ void frmSelectConnection::on_btnTest_clicked()
 
 ToHere:
     qDebug()<< "clsRS::getInst().instrumentModel:\t"<<clsRS::getInst().instrumentModel;
-    qDebug()<< "clsRS::getInst().meterMode:\t\t"<<clsRS::getInst().meterSeries;
+    qDebug()<< "clsRS::getInst().meterSeries:\t\t"<<clsRS::getInst().meterSeries;
     buttonOp(isInit);
     writeSttings();
 }

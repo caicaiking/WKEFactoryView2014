@@ -64,7 +64,7 @@
          </font>
         </property>
         <property name="text">
-         <string>ADU200 触发,忙碌K2,通过K1, 失败K0</string>
+         <string>ADU200 触发,忙碌K2,通过K1, 失败K0, 结束信号K3</string>
         </property>
        </widget>
       </item>
