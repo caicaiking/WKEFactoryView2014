@@ -11,7 +11,7 @@ public:
     explicit clsMeterModeSettings(QWidget *parent = 0);
     void setCondition(const MeterSettings &st);
 
-    MeterSettings getCondtion();
+    MeterSettings getCondition();
 
 
 private slots:

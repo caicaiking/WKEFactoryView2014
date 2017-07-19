@@ -1,3 +1,4 @@
+//用于软件设定
 #include "clsMeterMode.h"
 #include "clsRuningSettings.h"
 #include "UserfulFunctions.h"
@@ -134,7 +135,6 @@ void clsMeterMode::on_btnSetStep_clicked()
 
 }
 
-//用于软件设定
 void clsMeterMode::on_btnAdvance_clicked()
 {
     clsMeterModeSettings *dlg = new clsMeterModeSettings(this);
@@ -144,7 +144,8 @@ void clsMeterMode::on_btnAdvance_clicked()
 
     if(dlg->exec())
     {
-        mSettings = dlg->getCondtion();
+        mSettings = dlg->getCondition();
+        count.totle =mSettings.startNumber;
         saveSettings();
         updateMessage();
     }

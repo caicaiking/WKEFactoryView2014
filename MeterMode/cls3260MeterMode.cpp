@@ -363,9 +363,9 @@ void cls3260MeterMode::updateGPIB()
 
 
 
-//        QString xx =QString(meter+":FREQ?");
-//        QString retFreq = clsRS::getInst().sendCommand(xx,true);
-//        this->frequency = retFreq.toDouble();
+        //        QString xx =QString(meter+":FREQ?");
+        //        QString retFreq = clsRS::getInst().sendCommand(xx,true);
+        //        this->frequency = retFreq.toDouble();
         UserfulFunctions::sleepMs(10);
         updateButtons();
     }
@@ -559,17 +559,9 @@ clsMeterLimit cls3260MeterMode::getLimit(int i)
 void cls3260MeterMode::calibration()
 {
 
-    if(clsRS::getInst().meterSeries=="3260")
-    {
-        frmWK3260Calibration *dlg = new frmWK3260Calibration(this);
-        dlg->setWindowTitle(tr("仪表校准"));
-        dlg->exec();
-    }
-    else
-    {
-        cls6440Calibration *dlg = new cls6440Calibration(this);
-        dlg->exec();
-    }
+    frmWK3260Calibration *dlg = new frmWK3260Calibration(this);
+    dlg->setWindowTitle(tr("仪表校准"));
+    dlg->exec();
 }
 
 QString cls3260MeterMode::getBrief()
@@ -846,6 +838,9 @@ void cls3260MeterMode::updateButtons()
     btnRdcRange->setText(this->rangeRdc);
 
     this->txtDescription->setText(this->strDescription);
+
+   QString strTitle = (clsRS::getInst().meterSeries =="3260"? tr("WK 3260 Meter"): tr("WK 3255 Meter"));
+    lblTitle->setText(strTitle);
 }
 
 void cls3260MeterMode::setCmbboxSelected(QComboBox *cmb, QString tmp)
@@ -924,10 +919,20 @@ void cls3260MeterMode::on_btnFrequency_clicked()
 
 double cls3260MeterMode::getMaxFreq()
 {
-    if(clsRS::getInst().instrumentModel=="3255")
-        return 500000;
-    else
+    if(clsRS::getInst().meterSeries=="3260")
         return 3000000;
+
+    if(clsRS::getInst().meterSeries=="3255" && clsRS::getInst().instrumentModel.contains("BQ"))
+        return 1000000;
+
+    if(clsRS::getInst().meterSeries=="3255" && clsRS::getInst().instrumentModel.contains("BL"))
+        return 200000;
+
+    if(clsRS::getInst().meterSeries=="3255" && clsRS::getInst().instrumentModel.contains("B"))
+        return 500000;
+
+    return 3000000;
+
 }
 
 void cls3260MeterMode::on_btnLevel_clicked()
