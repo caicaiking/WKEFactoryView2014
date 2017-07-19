@@ -65,6 +65,8 @@ private slots:
 
     void on_btnBiasValue_clicked();
 
+    void on_btnALC_clicked();
+
 private:
     QString strDescription;
     bool enableMinor;
@@ -73,6 +75,9 @@ private:
     double level;
     QString levelType;
     double frequency;
+
+    //ALC
+    QString alcStatus;
 
     QString range;
     QString speed;

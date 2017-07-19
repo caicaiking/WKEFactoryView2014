@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>393</width>
+    <width>455</width>
     <height>497</height>
    </rect>
   </property>
@@ -185,7 +185,32 @@
               </property>
              </widget>
             </item>
-            <item row="3" column="0" colspan="2">
+            <item row="3" column="0">
+             <widget class="QPushButton" name="btnALC">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>楷体</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>ALC OFF</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
              <widget class="QPushButton" name="btnEqucct">
               <property name="minimumSize">
                <size>

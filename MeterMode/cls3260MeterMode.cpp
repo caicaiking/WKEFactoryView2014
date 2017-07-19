@@ -29,6 +29,7 @@ cls3260MeterMode::cls3260MeterMode(WKEMeterMode *parent) :
     item2="θ";
     enableMinor=true;
     level =1;
+    alcStatus = "ALC OFF";
     levelType="V";
     frequency=10000;
     blBiasStatus= false;
@@ -162,6 +163,7 @@ void cls3260MeterMode::setCondition(QString value)
                 this->equcct = result["equcct"].toString();
                 this->range = result["range"].toString();
                 this->speed = result["speed"].toString();
+                this->alcStatus = result["alcStatus"].toString();
 
                 //Bias
                 this->biasType = result["biasType"].toString();
@@ -199,6 +201,7 @@ QString cls3260MeterMode::getConditon()
     step.insert("equcct",this->equcct);
     step.insert("range",this->range);
     step.insert("speed",this->speed);
+    step.insert("alcStatus",this->alcStatus);
 
     //Insert Bias
     step.insert("biasType",this->biasType);
@@ -283,6 +286,7 @@ void cls3260MeterMode::updateGPIB()
 
         gpibCmd.append(meter+":FREQ "+QString::number(frequency));
 
+        gpibCmd.append(meter + ":"+ alcStatus);
         if(levelType=="V")
         {
             gpibCmd.append(meter+":LEV "+QString::number(level)+"V");
@@ -836,6 +840,7 @@ void cls3260MeterMode::updateButtons()
 
     btnRdcSpeed->setText(this->speed);
     btnRdcRange->setText(this->rangeRdc);
+    btnALC->setText(this->alcStatus);
 
     this->txtDescription->setText(this->strDescription);
 
@@ -1156,4 +1161,18 @@ QString cls3260MeterMode::getMeter()
         return ":IMP";
     else
         return ":MEAS";
+}
+
+void cls3260MeterMode::on_btnALC_clicked()
+{
+  if(btnALC->text()==tr("ALC OFF"))
+      btnALC->setText(tr("ALC ON"));
+  else if(btnALC->text() == tr("ALC ON"))
+      btnALC->setText(tr("ALC HOLD"));
+  else if(btnALC->text() == tr("ALC HOLD"))
+      btnALC->setText(tr("ALC OFF"));
+  else
+  {//do nothing here
+  }
+  alcStatus = btnALC->text();
 }
