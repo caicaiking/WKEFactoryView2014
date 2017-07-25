@@ -19,7 +19,6 @@ Plot::Plot(QWidget *parent) :
     this->setAutoReplot(false);
     setGraphTitle("Unititled");
 
-
     QwtPlotCanvas *canvas = new QwtPlotCanvas();
     canvas->setBorderRadius(5 );
 
@@ -96,7 +95,6 @@ Plot::Plot(QWidget *parent) :
         tmpMarker->setLabelAlignment(Qt::AlignRight |
                                      Qt::AlignBottom);
         tmpMarker->setLinePen(QPen(Qt::red,0,Qt::SolidLine));
-
         tmpMarker->attach(this);
         tmpMarker->setVisible(false);
         tmpMarker->setTitle(QString::number(i));
@@ -120,6 +118,8 @@ Plot::Plot(QWidget *parent) :
     setTraceB(QString("A"));
     setXTrace(QString(tr("频率")));
     showPercetage=false;
+
+
 }
 
 

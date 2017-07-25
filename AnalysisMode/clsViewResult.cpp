@@ -280,18 +280,18 @@ void clsViewResult::formateDataShow()
         QString str3= dt.formateToString(7);
 
         QTableWidgetItem *newItem1 = new QTableWidgetItem(str1);
-        newItem1->setFont(QFont("Times", 12));
+        newItem1->setFont(QFont("Tahoma", 12));
         newItem1->setTextAlignment(Qt::AlignHCenter);
         tvResult->setItem(i, 0, newItem1);
 
         QTableWidgetItem *newItem2 = new QTableWidgetItem(str2);
-        newItem2->setFont(QFont("Times", 12));
+        newItem2->setFont(QFont("Tahoma", 12));
         newItem2->setTextAlignment(Qt::AlignHCenter);
         tvResult->setItem(i, 1, newItem2);
 
 
         QTableWidgetItem *newItem3 = new QTableWidgetItem(str3);
-        newItem3->setFont(QFont("Times", 12));
+        newItem3->setFont(QFont("Tahoma", 12));
         newItem3->setTextAlignment(Qt::AlignHCenter);
         tvResult->setItem(i, 2, newItem3);
 
