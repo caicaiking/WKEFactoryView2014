@@ -58,6 +58,17 @@ void frmTraceSetup::on_btnBias_clicked()
     updateSweepTitile(BiasV);
 }
 
+void frmTraceSetup::on_btnBiasA_clicked()
+{
+    updateSweepTitile(BiasA);
+}
+
+void frmTraceSetup::on_btnBiasExt_clicked()
+{
+    updateSweepTitile(BiasExtV);
+}
+
+
 void frmTraceSetup::updateSweepTitile(SweepType t)
 {
 
@@ -518,12 +529,6 @@ graphSetup frmTraceSetup::getGsetup() const
 }
 
 
-
-void frmTraceSetup::on_btnBiasA_clicked()
-{
-    updateSweepTitile(BiasA);
-}
-
 void frmTraceSetup::on_btnRate_clicked()
 {
     NumberInput *dlg = new NumberInput(gsetup.biasVRate,"", this);
@@ -537,7 +542,3 @@ void frmTraceSetup::on_btnRate_clicked()
     }
 }
 
-void frmTraceSetup::on_btnBiasExt_clicked()
-{
-    updateSweepTitile(BiasExtV);
-}
