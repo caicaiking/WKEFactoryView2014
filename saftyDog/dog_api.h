@@ -155,7 +155,7 @@ enum dog_error_codes
 
     /** Communication error between API and local SuperDog License Manager */
     DOG_LOCAL_COMM_ERR = 33,
-	
+
     /** Vendor Code not recognized by API */
     DOG_UNKNOWN_VCODE = 34,
 
@@ -173,7 +173,7 @@ enum dog_error_codes
 
     /** Feature has expired */
     DOG_FEATURE_EXPIRED = 41,
-	
+
     /** SuperDog License Manager version too old */
     DOG_OLD_LM = 42,
 
@@ -356,7 +356,7 @@ dog_status_t DOG_CALLCONV dog_get_sessioninfo(dog_handle_t handle,
 
 
 void DOG_CALLCONV dog_free(char *info);
-   
+
 
 dog_status_t DOG_CALLCONV dog_update(const char *update_data,
                 char **ack_data);

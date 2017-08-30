@@ -52,7 +52,7 @@ void clsMeterModeSettings::setCondition(const MeterSettings &st)
     rbSingleRes->setChecked(st.displayResultType);
 }
 
-MeterSettings clsMeterModeSettings::getCondtion()
+MeterSettings clsMeterModeSettings::getCondition()
 {
     MeterSettings tmp;
     tmp.preDelay = txtPreDelay->value();
@@ -81,6 +81,8 @@ MeterSettings clsMeterModeSettings::getCondtion()
     tmp.failRetestOnce = chkFailRetest->isChecked();
 
     tmp.sp = cmbSp->currentText();
+
+    tmp.startNumber = txtStartNumber->value();
 
     return tmp;
 }

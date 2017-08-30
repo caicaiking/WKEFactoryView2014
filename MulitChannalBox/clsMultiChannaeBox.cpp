@@ -10,7 +10,7 @@
 #include "clsMultModeMeterUi.h"
 #include <QFile>
 #include <QDir>
-#include <Quazip/JlCompress.h>
+#include <JlCompress.h>
 #include <QFileDialog>
 #include "clsChennalSelect.h"
 #include <QTime>
@@ -21,31 +21,29 @@
 #include "clsMultiChannelSettings.h"
 #include "clsWriteDataToFile.h"
 #include "clsMultiChannelMeterFactory.h"
+
 clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
     QMainWindow(parent)
 {
     setupUi(this);
 
-    commands=initCommand();
+    this->terminal =2;
+    isFastGpibOn = false;
+    isLedOff = false;
+
 
     bool initCom= clsConnectSWBox::Instance()->initSerialPort();
     btnOpen->setEnabled(!initCom);
     btnOpen->setVisible(!initCom);
+
     btnSwitchBoxTest->setEnabled(initCom);
+
 
     meter = clsMultiChannelMeterFactory::getMeter(clsRS::getInst().meterSeries);
     meter->setConditionForCalibration(0);
 
     channels="1";
-    tableWidget->setColumnCount(4);
-    int i= CHENNAL_COUNT / 4;
-    if(i*4<CHENNAL_COUNT)
-        i++;
-    tableWidget->setRowCount(i);
-    tableWidget->horizontalHeader()->setAutoScroll(true);
-    tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
-    tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+    initTestTable();
 
 
     readSettings();
@@ -57,12 +55,28 @@ clsMultiChannaeBox::clsMultiChannaeBox(QWidget *parent) :
     this->showMaximized();
 }
 
+void clsMultiChannaeBox::initTestTable()
+{
+    tableWidget->clear();
+    tableWidget->setColumnCount(4);
+    int i= CHENNAL_COUNT*2/terminal/ 4;
+    if(i*4<CHENNAL_COUNT)
+        i++;
+    tableWidget->setRowCount(i);
+    tableWidget->horizontalHeader()->setAutoScroll(true);
+    tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
+}
+
+
 /*!
  * \brief  初始化数据库文件。
  */
 void clsMultiChannaeBox::initDataBase()
 {
     clsCalDb::getInst()->setStrDataBaseName(QString("./McbCal.db"));
+    //clsCalDb::getInst()->setStrDataBaseName(QString(":memory:"));//生成数据库在内存中
     clsCalDb::getInst()->openDataBase();
     clsCalDb::getInst()->initTable();
 }
@@ -75,9 +89,22 @@ void clsMultiChannaeBox::readSettings()
     switchDelay =(switchDelay==0?15:switchDelay);
     settings.readSetting(strNode+"IsUseLoadValue",this->isUseLoadValue);
     settings.readSetting(strNode + "Channals",this->channels);
+    settings.readSetting(strNode + "Terminal", this->terminal);
+    settings.readSetting(strNode + "FastGpib", this->isFastGpibOn);
+    meter->turnOnScreen(isFastGpibOn);
+    if((terminal != 2 ) && (terminal !=4))
+        terminal =2;
+    clsConnectSWBox::Instance()->setTerminal(terminal);
+    this->setTerminal(this->terminal);
     QString tmpMeter;
     settings.readSetting(strNode + "Meter",tmpMeter);
     meter->setCondition(tmpMeter);
+    initTestTable();
+
+    settings.readSetting(strNode + "LEDOFF", this->isLedOff);
+    clsConnectSWBox::Instance()->setLedOff(this->isLedOff);
+    //clsConnectSWBox::Instance()->sendCommand();
+
 
     int tmpIndex;
     settings.readSetting(strNode + "DispIndex",tmpIndex);
@@ -88,6 +115,8 @@ void clsMultiChannaeBox::readSettings()
     {
         cmbItem->addItem(meter->getItem(i));
     }
+
+
 
 }
 
@@ -103,35 +132,11 @@ void clsMultiChannaeBox::writeSettings()
     settings.writeSetting(strNode +"Channals",this->channels);
     settings.writeSetting(strNode + "Meter",this->meter->getConditon());
     settings.writeSetting(strNode + "DispIndex",this->dispStactWindow->currentIndex());
+    settings.writeSetting(strNode + "Terminal", this->terminal);
+    settings.writeSetting(strNode + "FastGpib", this->isFastGpibOn);
+    settings.writeSetting(strNode + "LEDOFF", this->isLedOff);
 }
 
-/*!
- * \brief clsMultiChannaeBox::initCommand
- * \return 通道切换列表
- * 初始化命令
- */
-QStringList clsMultiChannaeBox::initCommand()
-{
-    QStringList commands;
-    commands.clear();
-    QString tmp;
-
-    for(int i=0; i<16; i++)
-    {
-        int value=  pow(2,i);
-        tmp = QString("4,%1,0").arg(QString::number(value));
-        commands<<tmp;
-    }
-
-    for(int i=1; i<5; i++)
-    {
-        int value=  pow(2,i-1);
-        tmp = QString("4,0,%1").arg(QString::number(value));
-        commands<<tmp;
-    }
-
-    return commands;
-}
 
 /*!
  * \brief clsMultiChannaeBox::on_btnOpen_clicked
@@ -152,6 +157,7 @@ void clsMultiChannaeBox::on_btnOpen_clicked()
 void clsMultiChannaeBox::on_btnSwitchBoxTest_clicked()
 {
     clsSwitchBoxTest sw(this);
+    sw.setTerminal(this->terminal);
     sw.exec();
 }
 
@@ -212,6 +218,7 @@ void clsMultiChannaeBox::on_btnSave_clicked()
         QVariantMap tmpVar;
         tmpVar.insert("Meter",meter->getConditon());
         tmpVar.insert("Chennal",this->channels);
+        tmpVar.insert("Terminal",this->terminal);
 
         QJsonDocument jsDocument = QJsonDocument::fromVariant(tmpVar);
         if(jsDocument.isObject())
@@ -313,7 +320,7 @@ void clsMultiChannaeBox::  on_btnOpenSettingFile_clicked()
  */
 void clsMultiChannaeBox::itemTrig(clsMRBDisplayPannel * value)
 {
-    clsConnectSWBox::Instance()->sendCommand(value->number()-1);
+    clsConnectSWBox::Instance()->selectChannel(value->number());
     UserfulFunctions::sleepMs(switchDelay);
     meter->setChannel(value->number());
     meter->setUseLoad(isUseLoadValue); //以后再说
@@ -333,6 +340,7 @@ void clsMultiChannaeBox::itemTrig(clsMRBDisplayPannel * value)
         res.item.append(testItem);
     }
     res.status = meter->getTotleStatus();
+    clsConnectSWBox::Instance()->setChannelStatus(value->number(),(res.status?PASS:FAIL));
     value->setTestResult(res);
 }
 
@@ -344,6 +352,7 @@ void clsMultiChannaeBox::on_btnSignleTest_clicked()
     btnSignleTest->setText(tr("停止\n测试"));
     btnSignleTest->setIcon(QIcon(":/Icons/stop.png"));
 
+    //产品测试模式
     if(dispStactWindow->currentIndex()==0)
     {
         setIdeal();
@@ -357,8 +366,9 @@ void clsMultiChannaeBox::on_btnSignleTest_clicked()
             }
         }
     }
-    else
+    else //这里面是曲线记录模式
     {
+
         double count=0;
         plotWidget->clearData(); //清除所有数据
         mkDataDir();
@@ -367,27 +377,35 @@ void clsMultiChannaeBox::on_btnSignleTest_clicked()
         file.setPath("./MultiChannelDataFile/");
 
         QStringList items;
+
+        QString sp =(QLocale().decimalPoint()=='.'?",":";");
+
         for(int i=0; i<meter->getTotleItemCount();i++)
         {
             items.append(meter->getItem(i));
         }
-        file.writeTitle(items.join(","));
+        file.writeTitle(items.join(sp));
 
+        clsConnectSWBox::Instance()->turnOffAllLight();
 
         file.startRecord();
         // qDebug()<<"Mede";
         while(btnSignleTest->isChecked())
         {
             qApp->processEvents();
+            clsConnectSWBox::Instance()->turnOffAllLight();
             QTime timeStart = QTime::currentTime();
             for(int j=0; j<channels.split(",").length(); j++)
             {
                 QString ch = channels.split(",").at(j);
                 if(!ch.isEmpty())
                 {
-                    clsConnectSWBox::Instance()->sendCommand(ch.toInt()-1);
+                    clsConnectSWBox::Instance()->selectChannel(ch.toInt());
+                    clsConnectSWBox::Instance()->setOnlyOneOrangeLEDON(ch.toInt());
                     UserfulFunctions::sleepMs(this->switchDelay);
                     qApp->processEvents();
+                    meter->setChannel(ch.toInt());
+                    meter->setUseLoad(isUseLoadValue); //以后再说
                     meter->trig();
 
                     QList<double> tmpRes;
@@ -417,6 +435,7 @@ void clsMultiChannaeBox::on_btnSignleTest_clicked()
 
 void clsMultiChannaeBox::setIdeal()
 {
+    clsConnectSWBox::Instance()->setAllChannelIdel();
     for(int i=0; i< pannel.length();i++)
         pannel.at(i)->clearAll();
 }
@@ -425,7 +444,7 @@ void clsMultiChannaeBox::keyPressEvent(QKeyEvent *event)
 {
     if(event->key() == Qt::Key_Enter || event->key() ==Qt::Key_Return)
     {
-       // btnSignleTest->clicked();
+        // btnSignleTest->clicked();
     }
     else
     {
@@ -441,9 +460,9 @@ void clsMultiChannaeBox::closeEvent(QCloseEvent *)
 
 void clsMultiChannaeBox::on_btnSelectChennal_clicked()
 {
-    clsChennalSelect dlg(this);
+    clsChennalSelect dlg(this->terminal,this);
     dlg.setChennal(this->channels);
-    if(dlg.exec())
+    if(dlg.exec()==QDialog::Accepted)
     {
         this->channels=dlg.getChennal();
         stop();
@@ -454,8 +473,7 @@ void clsMultiChannaeBox::on_btnSelectChennal_clicked()
 
 void clsMultiChannaeBox::on_btnClearAllData_clicked()
 {
-    for(int i=0; i< pannel.length();i++)
-        pannel.at(i)->clearAll();
+    this->setIdeal();
 }
 
 void clsMultiChannaeBox::initPannel()
@@ -471,7 +489,8 @@ void clsMultiChannaeBox::initPannel()
 
     pannel.clear();
 
-    foreach (QString tmp, channels.split(",")) {
+    foreach (QString tmp, channels.split(","))
+    {
         bool ok;
         int value = tmp.toInt(&ok);
 
@@ -524,11 +543,18 @@ void clsMultiChannaeBox::on_btnRunningSettings_clicked()
 {
     clsMultiChannelSettings *dlg = new clsMultiChannelSettings(this);
 
-    dlg->setConditon(switchDelay,isUseLoadValue);
+    dlg->setCondition(switchDelay,isUseLoadValue);
+    dlg->setCondition(this->isFastGpibOn);
+    dlg->setLedLightEnable(this->isLedOff);
     if(dlg->exec()==QDialog::Accepted)
     {
         switchDelay = dlg->getSwitchDelay();
         isUseLoadValue = dlg->isUseLoadData();
+        this->isFastGpibOn = dlg->getTurnOnScreen();
+
+        meter->turnOnScreen(this->isFastGpibOn);
+        this->isLedOff = dlg->getLedEnable();
+        clsConnectSWBox::Instance()->setLedOff(this->isLedOff);
         writeSettings();
     }
 }
@@ -541,9 +567,12 @@ void clsMultiChannaeBox::itemClick(clsMRBDisplayPannel * value)
 void clsMultiChannaeBox::initSweepMode()
 {
     QStringList color; //每个通道的颜色
-    color<<"#e0861a"<<"#99cc00"<<"#9f991a"<<"#a48033"<<"#a9664d"<<"#ae4d66"<<"#b33380"<<"#dbce8f"
-        <<"#a64086"<<"#994d8d"<<"#8d5a93"<<"#806699"<<"#8073a6"<<"#8080b3"<<"#ffd400"
-       <<"#145b7d"<<"#99b389"<<"#11264f"<<"#99e600"<<"#8a2e3b";
+//    color<<"#e0861a"<<"#99cc00"<<"#9f991a"<<"#a48033"<<"#a9664d"<<"#ae4d66"<<"#b33380"<<"#dbce8f"
+//        <<"#a64086"<<"#994d8d"<<"#8d5a93"<<"#806699"<<"#8073a6"<<"#8080b3"<<"#ffd400"
+//       <<"#145b7d"<<"#99b389"<<"#11264f"<<"#99e600"<<"#8a2e3b";
+    color<<"#84DE02"<<"#FFBF00"<<"#FF033E"<<"#00FFFF"<<"#D0FF14"<<"#FDEE00"<<"#FF2052"<<"#E0218A"
+        <<"#FA6E79"<<"#FE6F5E"<<"#ACE5EE"<<"#1F75FE"<<"#ACE5EE"<<"#66FF00"<<"#D891EF"<<"#FF007F"
+       <<"#08E8DE"<<"#D19FE8"<<"#FFAA1D"<<"#FF55A3";
 
     cmbItem->clear();
     //获取所有的测试项目
@@ -619,6 +648,11 @@ void clsMultiChannaeBox::on_btnSelectMode_clicked()
     if(dispStactWindow->currentIndex()==1)
     {
         initSweepMode();
+        clsConnectSWBox::Instance()->turnOffAllLight();
+    }
+    else
+    {
+        setIdeal();
     }
 }
 
@@ -681,4 +715,20 @@ void clsMultiChannaeBox::on_btnSavePic_clicked()
                                                     .arg(format));
     if (!fileName.isEmpty())
         originalPixmap.save(fileName, "png");
+}
+
+void clsMultiChannaeBox::on_btnSwitchTerminal_clicked()
+{
+    this->terminal = (terminal ==2 ?4:2);
+    setTerminal(terminal);
+    this->writeSettings();
+
+}
+
+void clsMultiChannaeBox::setTerminal(int value)
+{
+    clsConnectSWBox::Instance()->setTerminal(value);
+    this->terminal = value;
+    btnSwitchTerminal->setIcon(QIcon(QString("://Icons/%1T.png").arg(value)));
+    btnSwitchTerminal->setText(tr("%1端口\n测试").arg(value));
 }

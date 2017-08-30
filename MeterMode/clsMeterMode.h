@@ -8,6 +8,7 @@
 #include <QPointer>
 #include "UserfulFunctions.h"
 #include "clsSignalThread.h"
+
 #include "clsTestResult.h"
 /*!
  * 用于产品的统计
@@ -88,6 +89,14 @@ private slots:
 
     void on_btnExportData_clicked();
 
+    void on_btnStatics_clicked();
+
+    void on_btnCopy_clicked();
+
+    void on_btnStepStop_clicked();
+
+    void on_btnTurnOffDisplay_clicked(bool checked);
+
 protected:
     void closeEvent(QCloseEvent *);
     void keyPressEvent(QKeyEvent *e);
@@ -96,6 +105,7 @@ private:
     WKEMeterMode *meter;
     product_Static count;
     bool isStop;
+    bool stepStop;
 
     QString strTaskFile;
     QString strDataFile;
@@ -104,6 +114,8 @@ private:
     clsSignalThread * adu200;
     clsTestResult result;   //用于记录保存数据
 
+
+    const int NoCol=0,ItemCol=1,ConCol=2,LowCol=3,ResCol=4,HiCol=5,StaCol=6,DescCol=7;
 
 private:
     void initTable();
@@ -119,6 +131,8 @@ private:
     clsLog *passDataLog, *failDataLog,*allDataLog;
     void clearLogFile();
     void initLog();
+
+
 };
 
 #endif // CLSMETERMODE_H

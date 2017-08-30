@@ -63,7 +63,41 @@ private slots:
 
     void on_grpMinor_clicked(bool checked);
 
+    void on_btnStart_clicked();
+
+    void on_btnStop_clicked();
+
+    void on_btnResEqucct_clicked();
+
+    void on_btnDepth_clicked();
+
+    void on_btnResSpeed_clicked();
+
+    void on_btnFreqUnit_clicked();
+
+    void on_btnRUnit_clicked();
+
+    void on_btnCUnit_clicked();
+
+    void on_btnLUnit_clicked();
+
+    void lblFreqLimit_click();
+    void lblLLimit_click();
+    void lblCLimit_click();
+    void lblRLimit_click();
+
+    void on_grpFreq_toggled(bool arg1);
+
+    void on_grpR_toggled(bool arg1);
+
+    void on_grpC_toggled(bool arg1);
+
+    void on_grpL_toggled(bool arg1);
+
+    void on_btnALC_clicked();
+
 private:
+    // Meter Mode
     QString strDescription;
     bool enableMinor;
     QString item1;
@@ -75,22 +109,28 @@ private:
     bool blBiasStatus;
     QString range;
     QString speed;
+    QString alc;
     QString equcct;
     double levelRdc;
     QString rangeRdc;
 
     clsMeterLimit lmMajor,lmMinor,lmRdc;
-
     QString majorUnit,minorUnit,rdcUnit;
-
-
-
     double dblItem1, dblItem2, dblRdc;
-
     bool blStop;
-
-
     QString getItemShow(const QString &item, const double &value, clsMeterLimit &limit, const QString &suffix);
+
+    //Res mode
+    double dblStartFreq,dblStopFreq;
+    QString strResEqucct,strResSpeed;
+    int intDeeps;
+    clsMeterLimit lmFreq,lmR,lmC,lmL,lmQ;
+    QString strFreqUnit,strRUnit,strCUnit,strLUnit,strQUnit;
+    bool blFreq,blR,blC,blL;
+
+    double dblFreqRes, dblLRes, dblCRes, dblRRes;
+
+    QString getResUnit(int i);
 };
 
 #endif // CLS6440METERMODE_H

@@ -78,6 +78,8 @@ private:
     bool queryBiasStatus();
     double getMaxFrequency1(QString value);
     void updateButtons();
+    bool getMaterialOption();
+    QString changeItemToGpib(QString value);
 };
 
 #endif // WK6500ANALYSISMETER_H

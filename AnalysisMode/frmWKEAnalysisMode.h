@@ -3,16 +3,16 @@
 
 #include "ui_frmWKEAnalysisMode.h"
 #include "Plot.h"
-#include "Qwt/qwt_plot_picker.h"
+#include "qwt_plot_picker.h"
 #include "WKEInstrument.h"
 #include "Globle.h"
 #include "clsMeas.h"
 #include "Zoomer.h"
-#include "Qwt/qwt_plot_panner.h"
+#include "qwt_plot_panner.h"
 #include "clsCurveLimit.h"
 #include "clsMultiCurveLimt.h"
 #include <QTimer>
-
+#include <qwt_transform.h>
 #include "clsSignalThread.h"
 #include "clsMultiLimitStatusShow.h"
 #include "clsMarkerItem.h"
@@ -22,6 +22,8 @@ class frmWKEAnalysisMode : public QMainWindow, private Ui::frmWKEAnalysisMode
 
 public:
     explicit frmWKEAnalysisMode(QWidget *parent = 0);
+
+public slots:
 
 private slots:
     void on_btnSavePic_clicked();
@@ -38,6 +40,7 @@ private slots:
     void setLevel(QString value);
     void setBias(bool value);
     void setSpeed(QString value);
+    void setSweepInfo(double value);
     void setItems(QString value1, QString value2);
     void on_btnTraceSetup_clicked();
     void updateGraph();
@@ -57,16 +60,16 @@ private slots:
     void on_btnSetLimit_clicked();
     void on_btnSaveRes_clicked();
     void on_btnSettings_clicked();
-
     void testConnection();
     void captureTrig();
     void showMulitLimit();
-
     void on_btnMarker_toggled(bool checked);
-
     void setCurrentMarker(int value);
     void showCurrentMarkerMsg(int, QString);
-
+    void on_btnMaterialSettings_clicked();
+    void on_btnBiasSettings_clicked();
+    void on_btnContactTest_clicked();
+    void on_btnOpenPercentage_toggled(bool checked);
 
 private:
     Plot *plot;
@@ -97,6 +100,7 @@ private:
    void finishTest();
    void resetMarker();
    void setDemoVersion(bool value);
+   bool getMaterialOption();
 protected:
     void closeEvent(QCloseEvent *e);
     void keyPressEvent(QKeyEvent *event);

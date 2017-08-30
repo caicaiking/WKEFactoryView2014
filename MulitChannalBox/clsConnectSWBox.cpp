@@ -73,12 +73,72 @@ void clsConnectSWBox::closeSeriesPort()
  */
 int clsConnectSWBox::sendCommand(QString value)
 {
-    return   serialPort->sendCommand(value);
+    if(serialPort->getInit())
+        return   serialPort->sendCommand(value);
+    else
+        return 99;
 }
 
 using namespace std;
 
-int clsConnectSWBox::sendCommand(int chennal)
+int clsConnectSWBox::selectChannel(int chennal)
 {
-    return sendCommand(chennals.at(chennal));
+    return sendCommand(QString("4,%1").arg(chennal));
+}
+
+int clsConnectSWBox::setChannelStatus(int channel, Status status)
+{
+    if(isLedOff)
+        return 0;
+    switch (status) {
+    case PASS:
+       return sendCommand(QString("6,%1").arg(channel));
+        break;
+    case FAIL:
+         return sendCommand(QString("7,%1").arg(channel));
+        break;
+    case IDEL:
+         return sendCommand(QString("8,%1").arg(channel));
+        break;
+    default:
+        break;
+    }
+    return 0;
+}
+
+int clsConnectSWBox::setAllChannelIdel()
+{
+    if(isLedOff)
+        return 0;
+
+    return sendCommand(QString("9"));
+}
+
+int clsConnectSWBox::setTerminal(int value)
+{
+    return sendCommand(QString("11,%1").arg(value));
+}
+
+int clsConnectSWBox::turnOffAllLight()
+{
+    if(isLedOff)
+        return 0;
+    return sendCommand(QString("10"));
+}
+
+int clsConnectSWBox::setOnlyOneOrangeLEDON(int channel)
+{
+    //this->turnOffAllLight();
+    if(isLedOff)
+        return 0;
+
+    return this->setChannelStatus(channel,IDEL);
+}
+
+void clsConnectSWBox::setLedOff(bool value)
+{
+    this->isLedOff = value;
+
+    if(value == true)
+        sendCommand("10");
 }

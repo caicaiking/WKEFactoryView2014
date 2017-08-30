@@ -1,6 +1,8 @@
 #include "clsBiasAMeasument.h"
 #include "UserfulFunctions.h"
 #include "clsRuningSettings.h"
+#include "clsBiasAOp.h"
+#include "clsSampleTest.h"
 void clsBiasAMeasument::setMin(double value)
 {
     this->dblMin=value;
@@ -22,7 +24,7 @@ void clsBiasAMeasument::setPoint(QList<double> *point)
 {
     this->points = point;
 
-      qSort(*this->points);
+    qSort(*this->points);
 }
 
 void clsBiasAMeasument::setItemsAndPoints(const QString &item1, const QString &item2,
@@ -34,35 +36,53 @@ void clsBiasAMeasument::setItemsAndPoints(const QString &item1, const QString &i
 
 void clsBiasAMeasument::trig()
 {
+    clsSampleTest *dlg = new clsSampleTest(meter,0);
+    if(dlg->exec() == QDialog::Rejected)
+    {
+        return;
+    }
 
     isStop= false;
     bias.clear();
     item1.clear();
     item2.clear();
 
+    sngBiasAOp::Instance()->setMeter(this->meter);
+    sngBiasAOp::Instance()->readSettings();
+
 
     for(int i=0;i<points->length();i++)
     {
+        double tmpBias=0;
+        QString tmpUnit="";
+
         if(isStop)
             goto STOP;
         double tmp = points->at(i);
 
         meter->setBias(tmp,"A");
         points->removeAt(i);
-        double tmpBias;
-        QString tmpUnit;
-        meter->getBias(&tmpBias,&tmpUnit);
+        if(tmp!=0)
+            meter->getBias(&tmpBias,&tmpUnit);
         points->insert(i,tmpBias);
         if(!bias.contains(tmpBias))
         {
-            meter->turnOnBias();
+            if(tmpBias!=0)
+            {
+                if(!meter->turnOnBias())
+                    goto NextBiasPoint;
+                sngBiasAOp::Instance()->preOperation();
+            }
             QString strRes=meter->trig();
             QList<double> res=UserfulFunctions::resultPro(strRes);
             bias<<tmpBias;
             item1<<res.at(0);
             item2<<res.at(1);
             updatePlot();
+            if(i<points->length()-1)
+                sngBiasAOp::Instance()->afterOperation();
         }
+NextBiasPoint:
         qApp->processEvents();
         emit showProgress((int)((i+1)*100/points->length()));
         qApp->processEvents();

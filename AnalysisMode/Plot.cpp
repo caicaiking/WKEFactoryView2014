@@ -1,24 +1,23 @@
 ﻿#include "Plot.h"
-#include <Qwt/qwt_plot_marker.h>
-#include <Qwt/qwt_plot_curve.h>
-#include <Qwt/qwt_legend.h>
-#include <Qwt/qwt_text.h>
-#include <Qwt/qwt_plot_grid.h>
-#include <Qwt/qwt_symbol.h>
-#include <Qwt/qwt_scale_engine.h>
+#include <qwt_plot_marker.h>
+#include <qwt_plot_curve.h>
+#include <qwt_legend.h>
+#include <qwt_text.h>
+#include <qwt_plot_grid.h>
+#include <qwt_symbol.h>
+#include <qwt_scale_engine.h>
 #include <QMouseEvent>
 #include <UserfulFunctions.h>
 #include <doubleType.h>
 #include "clsRefTraceProperty.h"
-#include <Qwt/qwt_plot_canvas.h>
+#include <qwt_plot_canvas.h>
 #include <QMapIterator>
-#include <Qwt/qwt_plot_canvas.h>
+#include <qwt_plot_canvas.h>
 Plot::Plot(QWidget *parent) :
     QwtPlot(parent)
 {
     this->setAutoReplot(false);
     setGraphTitle("Unititled");
-
 
     QwtPlotCanvas *canvas = new QwtPlotCanvas();
     canvas->setBorderRadius(5 );
@@ -96,7 +95,6 @@ Plot::Plot(QWidget *parent) :
         tmpMarker->setLabelAlignment(Qt::AlignRight |
                                      Qt::AlignBottom);
         tmpMarker->setLinePen(QPen(Qt::red,0,Qt::SolidLine));
-
         tmpMarker->attach(this);
         tmpMarker->setVisible(false);
         tmpMarker->setTitle(QString::number(i));
@@ -119,6 +117,9 @@ Plot::Plot(QWidget *parent) :
     setTraceA(QString("Z"));
     setTraceB(QString("A"));
     setXTrace(QString(tr("频率")));
+    showPercetage=false;
+
+
 }
 
 
@@ -137,6 +138,11 @@ void Plot::mouseMoveEvent(QMouseEvent */*e*/)
 
     // d_marker1->setValue();
 
+}
+
+void Plot::setShowPercetage(bool value)
+{
+    showPercetage = value;
 }
 
 void Plot::clearData()
@@ -666,13 +672,38 @@ QString Plot::setMarker(const double &freq, const int /*intSelected*/)
             .arg(QString::number(item1)).arg(QString::number(item2));
 
     //格式化输出
+
+    QString strItem1Per="";
+    QString strItem2Per="";
+
+    if(showPercetage)
+    {
+        double dblStartItem1 = myPrivateData.first().x();
+        double dblStartItem2 = myPrivateData.first().y();
+
+        if(dblStartItem1==0.0)
+            strItem1Per=" NAN%";
+        else
+        {
+            strItem1Per =QString(" ")+ QString::number(item1/dblStartItem1*100.0,'f',2)+"%";
+        }
+
+        if(dblStartItem2==0.0)
+            strItem2Per="NAN%";
+        else
+        {
+            strItem2Per = QString(" ")+QString::number(item2/dblStartItem2*100.0,'f',2)+"%";
+        }
+    }
+
+
     doubleType dt;
     dt.setData(freqValue,"");
     QString strX= dt.formateToString() + UserfulFunctions::getSuffix(strXTrace);
     dt.setData(item1,"");
-    QString strItem1= dt.formateToString() + UserfulFunctions::getSuffix(strTraceA);
+    QString strItem1= dt.formateToString() + UserfulFunctions::getSuffix(strTraceA) +strItem1Per;
     dt.setData(item2,"");
-    QString strItem2=dt.formateToString() + UserfulFunctions::getSuffix(strTraceB);
+    QString strItem2=dt.formateToString() + UserfulFunctions::getSuffix(strTraceB) +strItem2Per;
 
     //消息相关设置
     QString info;
@@ -719,6 +750,8 @@ QString Plot::setMarker(const double &freq, const int /*intSelected*/)
         label= QString("<p> <font size=\"3\" face=\"Helvetica\" color=\"#0BFF0B\">%1</p>").arg(strX);
 
     }
+
+
     QwtText text(label);
     text.setFont(QFont("Helvetica", 10, QFont::Bold));
     text.setColor(Qt::green);
@@ -1087,8 +1120,6 @@ void Plot::findNextLeftHigh(Choice x)
     }
 
     this->setMarker(tmpRet,0);
-
-
 }
 
 void Plot::findNextLeftLow(Choice x)

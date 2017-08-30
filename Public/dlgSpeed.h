@@ -18,6 +18,8 @@ private slots:
     void on_btnMed_clicked();
     void on_btnSlow_clicked();
 
+    void on_btnCustomer_clicked();
+
 private:
     QString Speed;
 

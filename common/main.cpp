@@ -1,6 +1,5 @@
 #include <QApplication>
 #include <QTextCodec>
-#include "clsAppMode.h"
 #include <QSplashScreen>
 #include <QDebug>
 #include <QDesktopWidget>
@@ -19,6 +18,10 @@
 #include "clsMultiChannaeBox.h"
 #include <QMessageBox>
 #include "clsDataProcess.h"
+#include "dlgFunction.h"
+#include "dlgSpeed.h"
+
+#include "clsSwitchBoxTest.h"
 
 
 int main(int argc, char *argv[])
@@ -37,12 +40,28 @@ int main(int argc, char *argv[])
     //    dlgLevelInputBox inp;
     //    return inp.exec();
 
+//    clsConnectSWBox::Instance()->initSerialPort();
+//    clsSwitchBoxTest dlg;
+//    dlg.exec();
 
 
+//    clsMultiChannaeBox dlg;
+//    dlg.show();
 
     //qDebug()<<isProduct;
     //这儿是加载英文的翻译，如果要是实用界面为英文，请去掉此处的注释
 
+//    dlgFunction dlg;
+//    dlg.setMateralFunction(false);
+//    dlg.exec();
+//    exit(0);
+
+//    dlgSpeed sp;
+
+//    if(sp.exec()== QDialog::Accepted)
+//    {
+//        qDebug()<< sp.getSpeed();
+//    }
 
 RELOAD:
     QTranslator translator;
@@ -84,7 +103,7 @@ RELOAD:
 
     if(!keyStatus)
     {
-        //        QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
+               // QMessageBox::warning(0,QObject::tr("WKE FactoryView 2014"),QObject::tr("请插入加密狗！"));
         SingletonDog::Instance()->setProduct(false);
     }
     else
@@ -125,13 +144,6 @@ RESELECT:
         {
             clsMultiChannaeBox multiChannel;
             multiChannel.show();
-            a.exec();
-            goto RESELECT;
-        }
-        else if(w.getMode() == AppMode)
-        {
-            clsAppMode appMode;
-            appMode.show();
             a.exec();
             goto RESELECT;
         }

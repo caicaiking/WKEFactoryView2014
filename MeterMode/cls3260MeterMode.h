@@ -33,6 +33,7 @@ public:
     QString getFreq();                //获取测试频率
     QString getEqucct();              //获取测试等效电路
     QString getLevel();               //获取测试的电平
+    QString getBias();                //获取Bias值
 signals:
 
 private slots:
@@ -64,6 +65,8 @@ private slots:
 
     void on_btnBiasValue_clicked();
 
+    void on_btnALC_clicked();
+
 private:
     QString strDescription;
     bool enableMinor;
@@ -72,6 +75,9 @@ private:
     double level;
     QString levelType;
     double frequency;
+
+    //ALC
+    QString alcStatus;
 
     QString range;
     QString speed;

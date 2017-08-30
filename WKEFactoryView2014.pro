@@ -4,14 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network serialport xml sql ftp
+QT       += core gui network serialport xml sql
 RC_FILE  =Icon.rc
-
-
-
-
- LIBS += dog_windows_3147311.lib
-
 
 CODECFORTR = UTF-8
 
@@ -23,19 +17,24 @@ INCLUDEPATH +=connections \
              saftyDog \
              ResonaceMode \
              MulitChannalBox \
-             AppMode
-
-
+             QwtInclude \
+             quazip\Include \
+             AnalysisMode/Qextserial \
+             AnalysisMode/EaPs8000 \
+             MeterMode\AddtionOperation
 
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = WKEFactoryView2014
+DESTDIR =$$PWD/libs/
 TEMPLATE = app
 
-LIBS    += gpib488.obj \
-           visa.lib \
-           AduHid.lib
+LIBS    += $$PWD/libs/gpib488.obj \
+           $$PWD/libs/visa.lib \
+           $$PWD/libs/AduHid.lib \
+           $$PWD/libs/AduHid.dll \
+           $$PWD/libs/dog_windows_3149756.dll
 
 
 SOURCES +=\
@@ -150,19 +149,28 @@ SOURCES +=\
     MeterMode/cls3260MeterMode.cpp \
     MeterMode/cls3260majorfunction.cpp \
     MeterMode/cls3260minorfunction.cpp \
-    AppMode/clsAppMode.cpp \
-    AppMode/clsDownLoad.cpp \
-    AppMode/clsMyPushButton.cpp \
     MeterMode/clsStatistics.cpp \
     MeterMode/clsMyBarChartPlot.cpp \
     MeterMode/PlotDataAnlysis.cpp \
     MeterMode/PlotSettings.cpp \
-    MeterMode/clsLog.cpp
-
-
-
-
-
+    MeterMode/clsLog.cpp \
+    AnalysisMode/clsBiasExtMeasument.cpp \
+    AnalysisMode/clsGwPsw800.cpp \
+    AnalysisMode/clsMyserialPort.cpp \
+    AnalysisMode/clsSelectComport.cpp \
+    AnalysisMode/clsMaterialSettings.cpp \
+    AnalysisMode/clsBiasAOp.cpp \
+    AnalysisMode/clsBiasAOperation.cpp \
+    AnalysisMode/clsSampleTest.cpp \
+    MulitChannalBox/clsStandardValueInput.cpp \
+    AnalysisMode/clsRetryDialog.cpp \
+    MulitChannalBox/clsSingleTrig.cpp \
+    AnalysisMode/EaPs8000/clsEaPs8000.cpp \
+    AnalysisMode/EaPs8000/clsEaSerialPort.cpp \
+    AnalysisMode/Qextserial/qextserialport.cpp \
+    AnalysisMode/Qextserial/qextserialport_win.cpp \
+    AnalysisMode/clsPowerSupply.cpp \
+    MeterMode/AddtionOperation/cls6500TurnOffScreen.cpp
 
 RESOURCES += \
     recFile/myRes.qrc
@@ -171,20 +179,14 @@ OTHER_FILES += \
     connections/ReadMe.txt \
     AnalysisMode/ProgramDescription.txt
 
-# QWT ÃƒÂ©ÃšÂ¯Ã‚Â¨Ã™â€¡Ã¢â‚¬Â¹Ã‚Â«ÃƒÂ§Ã‚Â´Ã‚Â©ÃƒÂ©Ãšâ€ Ã  #######################################################
+
 DEFINES    += QT_DLL QWT_DLL
 
-win32:CONFIG(release, debug|release): LIBS += -L$(QTDIR)/bin -lqwt
-else:win32:CONFIG(debug, debug|release): LIBS += -L$(QTDIR)/bin  -lqwtd
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/QwtLib -lqwt
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/QwtLib  -lqwtd
 
-#######################################################################
+LIBS += -L$$PWD/quazip/ -lquazip
 
-#ÃƒÂ©Ãšâ�ÃšÂ©Ã™â€¡Ã‚Â¬Ã‚Â¬ÃƒÂ§Ã‚Â¼Ã¢â‚¬Â°ÃƒÂ©ÃšË†Ã¢â‚¬Å¡Ã™â€¡Ã¢â‚¬ÂºÃ‚Â¦Ã™Ë†Ã‚Â¬Ã‚Â¢ÃƒÂ©ÃšÂ¯Ã‚Â¨Ã™â€¡Ã¢â‚¬Â¹Ã‚Â«Ã™â€¡Ã‚Â§Ã‚Â©ÃƒÂ©ÃšËœÃ‚Â¬Ã™â�Ã‚Â¾Ã¢â€šÂ¬Ã™Ë†Ã¢â‚¬ËœÃ‚Â¼ÃƒÂ©ÃšËœÃ˜â€ºÃ™â€¦Ã†â€™Ã‚Â¥ÃƒÂ§Ã‚Â°�################################################
-
-LIBS += -L $(QTDIR)/bin -lquazip
-
-#######################################################################
-RESOURCES +=
 
 QT+=axcontainer
 
@@ -320,14 +322,29 @@ HEADERS += \
     MeterMode/cls3260MeterMode.h \
     MeterMode/cls3260majorfunction.h \
     MeterMode/cls3260minorfunction.h \
-    AppMode/clsAppMode.h \
-    AppMode/clsDownLoad.h \
-    AppMode/clsMyPushButton.h \
     MeterMode/clsStatistics.h \
     MeterMode/clsMyBarChartPlot.h \
     MeterMode/PlotDataAnlysis.h \
     MeterMode/PlotSettings.h \
-    MeterMode/clsLog.h
+    MeterMode/clsLog.h \
+    AnalysisMode/clsBiasExtMeasument.h \
+    AnalysisMode/clsGwPsw800.h \
+    AnalysisMode/clsMyserialPort.h \
+    AnalysisMode/clsPowerSupply.h \
+    AnalysisMode/clsSelectComport.h \
+    AnalysisMode/clsMaterialSettings.h \
+    AnalysisMode/clsBiasAOp.h \
+    AnalysisMode/clsBiasAOperation.h \
+    AnalysisMode/clsSampleTest.h \
+    MulitChannalBox/clsStandardValueInput.h \
+    AnalysisMode/clsRetryDialog.h \
+    MulitChannalBox/clsSingleTrig.h \
+    AnalysisMode/EaPs8000/clsEaPs8000.h \
+    AnalysisMode/EaPs8000/clsEaSerialPort.h \
+    AnalysisMode/Qextserial/qextserialport.h \
+    AnalysisMode/Qextserial/qextserialport_global.h \
+    AnalysisMode/Qextserial/qextserialport_p.h \
+    MeterMode/AddtionOperation/cls6500TurnOffScreen.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \
@@ -392,10 +409,13 @@ FORMS += \
     MeterMode/cls3260MeterMode.ui \
     MeterMode/cls3260majorfunction.ui \
     MeterMode/cls3260minorfunction.ui \
-    AppMode/clsAppMode.ui \
-    AppMode/clsDownLoad.ui \
-    AppMode/clsMyPushButton.ui \
-    MeterMode/clsStatistics.ui
+    MeterMode/clsStatistics.ui \
+    AnalysisMode/clsSelectComport.ui \
+    AnalysisMode/clsMaterialSettings.ui \
+    AnalysisMode/clsBiasAOperation.ui \
+    AnalysisMode/clsSampleTest.ui \
+    MulitChannalBox/clsStandardValueInput.ui \
+    AnalysisMode/clsRetryDialog.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV_EN.ts \

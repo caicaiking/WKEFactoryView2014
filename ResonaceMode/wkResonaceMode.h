@@ -6,6 +6,7 @@
 #include "clsMeterLimit.h"
 #include "frmSetLimit.h"
 #include "clsSignalThread.h"
+#include <QMainWindow>
 class wkResonaceMode : public QMainWindow, private Ui::wkResonaceMode
 {
     Q_OBJECT
@@ -33,7 +34,11 @@ private slots:
     void on_btnSaveDataFile_clicked();
     void writeFileHead();
     void writeData(double freq, double c, double l, double r, double q, bool status = true);
+    void writeData(double r, double c, double l, double C0, double q, double keff, double cp1,
+                   double fr, double fa, double fm, double fn, double fs, double fp, double fafr, bool status);
     void on_btnInfo_clicked();
+
+    void on_chkCp_clicked();
 
 private:
     QString resEqucct;
@@ -41,6 +46,7 @@ private:
     int resDepth;
     double resStart;
     double resStop;
+    bool cpChecked;
     void updateBtn();
     clsResonaceMode *resMode;
     clsMeterLimit m1,m2;

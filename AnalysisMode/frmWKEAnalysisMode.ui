@@ -444,6 +444,114 @@
          </spacer>
         </item>
         <item>
+         <widget class="QPushButton" name="btnContactTest">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>楷体</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>样品
+检测</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../recFile/myRes.qrc">
+            <normaloff>:/Icons/Auto.png</normaloff>:/Icons/Auto.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>25</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="shortcut">
+           <string>Ctrl+B</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnBiasSettings">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>楷体</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>偏置
+设置</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../recFile/myRes.qrc">
+            <normaloff>:/Icons/switch.png</normaloff>:/Icons/switch.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>25</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="shortcut">
+           <string>Ctrl+B</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="btnMaterialSettings">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <family>楷体</family>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string/>
+          </property>
+          <property name="text">
+           <string>材料
+设置</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../recFile/myRes.qrc">
+            <normaloff>:/Icons/detect.png</normaloff>:/Icons/detect.png</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>25</width>
+            <height>25</height>
+           </size>
+          </property>
+          <property name="shortcut">
+           <string>Ctrl+B</string>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QPushButton" name="btnCalibration">
           <property name="minimumSize">
            <size>
@@ -713,7 +821,7 @@ ON</string>
        <widget class="QStackedWidget" name="stackedWidget">
         <property name="minimumSize">
          <size>
-          <width>150</width>
+          <width>200</width>
           <height>0</height>
          </size>
         </property>
@@ -724,7 +832,7 @@ ON</string>
          <enum>QFrame::Raised</enum>
         </property>
         <property name="currentIndex">
-         <number>0</number>
+         <number>1</number>
         </property>
         <widget class="QWidget" name="page">
          <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -754,10 +862,10 @@ ON</string>
             <widget class="QLabel" name="lblMarkerTitle">
              <property name="geometry">
               <rect>
-               <x>10</x>
+               <x>0</x>
                <y>0</y>
-               <width>121</width>
-               <height>16</height>
+               <width>191</width>
+               <height>20</height>
               </rect>
              </property>
              <property name="font">
@@ -920,6 +1028,45 @@ ON</string>
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="btnSweepInfo">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>34</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1111</width>
+          <height>1111</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Ext.Bias
+0.000V</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../recFile/myRes.qrc">
+          <normaloff>:/Icons/BiasOff.png</normaloff>:/Icons/BiasOff.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="StatusLabel" name="statusLabel">
         <property name="minimumSize">
          <size>
@@ -1026,6 +1173,61 @@ ON</string>
         </property>
         <property name="text">
          <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="lblLogo">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="../recFile/myRes.qrc">:/Icons/wk.ico</pixmap>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnOpenPercentage">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>34</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>1111</width>
+          <height>1111</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>楷体</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Marker
+%显示</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../recFile/myRes.qrc">
+          <normaloff>:/Icons/Percentage.png</normaloff>:/Icons/Percentage.png</iconset>
+        </property>
+        <property name="iconSize">
+         <size>
+          <width>24</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="checkable">
+         <bool>true</bool>
         </property>
        </widget>
       </item>

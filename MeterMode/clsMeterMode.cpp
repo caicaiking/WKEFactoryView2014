@@ -1,3 +1,4 @@
+//用于软件设定
 #include "clsMeterMode.h"
 #include "clsRuningSettings.h"
 #include "UserfulFunctions.h"
@@ -14,12 +15,14 @@
 #include <QMessageBox>
 #include "clsStatistics.h"
 #include "clsShowReport.h"
+#include "cls6500TurnOffScreen.h"
 
 clsMeterMode::clsMeterMode(QWidget *parent) :
     QMainWindow(parent)
 {
     setupUi(this);
     btnRep300->setVisible(false);
+    btnStepStop->setVisible(false);
     lblConnectionType->setText(clsRS::getInst().getConnectionType() + QObject::tr("连接"));
     lblTime->showTime();
     lblStatus->setStatus(IDEL);
@@ -44,6 +47,9 @@ clsMeterMode::clsMeterMode(QWidget *parent) :
     setDemoVersion(SingletonDog::Instance()->getVersion());
 
     initLog();
+
+    btnTurnOffDisplay->setVisible(clsRS::getInst().meterSeries =="6500");
+
 }
 
 void clsMeterMode:: setDemoVersion(bool value)
@@ -129,7 +135,6 @@ void clsMeterMode::on_btnSetStep_clicked()
 
 }
 
-//用于软件设定
 void clsMeterMode::on_btnAdvance_clicked()
 {
     clsMeterModeSettings *dlg = new clsMeterModeSettings(this);
@@ -139,7 +144,8 @@ void clsMeterMode::on_btnAdvance_clicked()
 
     if(dlg->exec())
     {
-        mSettings = dlg->getCondtion();
+        mSettings = dlg->getCondition();
+        count.totle =mSettings.startNumber;
         saveSettings();
         updateMessage();
     }
@@ -267,28 +273,31 @@ void clsMeterMode::on_btnOpenTask_clicked()
 //用于软件触发
 void clsMeterMode::on_btnTrig_clicked()
 {
-    this->btnTrig->setEnabled(false);
+    btnTrig->setEnabled(false);
     qApp->processEvents();
     trig();
     qApp->processEvents();
-    this->btnTrig->setEnabled(true);
+    btnTrig->setEnabled(true);
 }
+
 
 //初始化工作表
 void clsMeterMode::initTable()
 {
     tabResult->verticalHeader()->setVisible(false);
     tabResult->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    tabResult->setSelectionMode(QAbstractItemView::SingleSelection);
-    tabResult->setSelectionBehavior(QTableView::SelectRows);
+    //  tabResult->setSelectionMode(QAbstractItemView::SingleSelection);
+    //  tabResult->setSelectionBehavior(QTableView::SelectRows);
+
+
     //    this->tabResult->setColumnCount(2);
     //    this->tabResult->setColumnWidth(0,50);
     //    this->tabResult->horizontalHeader()->setSectionResizeMode(1,QHeaderView::ResizeToContents);
 
     QStringList headers;
-    headers <<tr("序号")<<tr("项目")<<tr("下限")<<tr("测试值")<<tr("上限")<<tr("判定")<<tr("描述");
+    headers <<tr("序号")<<tr("项目")<<tr("测试条件")<<tr("下限")<<tr("测试值")<<tr("上限")<<tr("判定")<<tr("描述");
     tabResult->setColumnCount(headers.length());
-    this->tabResult->setColumnWidth(0,60);
+    this->tabResult->setColumnWidth(0,80);
     for(int i=0; i< headers.length();i++)
     {
         tabResult->setHorizontalHeaderItem(i,getTableTitleItem(headers.at(i)));
@@ -348,8 +357,6 @@ QTableWidgetItem* clsMeterMode::getTableTestItem(const QString &content,int colo
     return item;
 }
 
-
-
 //单次测试
 void clsMeterMode::trig()
 {
@@ -360,10 +367,13 @@ void clsMeterMode::trig()
     if(lblStatus->getStatus()== BUSY)
         return;
 
-     bool blRetest = false;
+    bool blRetest = false;
 RETEST:
     int totleRow=0 ;
     bool status=true;
+    stepStop = false;
+    btnStepStop->setVisible(btnTrig->isVisible());
+
     if(blRetest)
     {
         lblInfo->showMessage(tr("已经开始第二次测试"),2);
@@ -393,6 +403,12 @@ RETEST:
     allStepData.number = count.getTotle().toInt();
     for(int i =0; i< steps.length(); i++)
     {
+        if(stepStop == true)
+        {
+            lblStatus->setStatus(IDEL);
+            return;
+        }
+
         totleRow+= steps.at(i)->getCountTestItems();
 
         meter->setCondition(steps.at(i)->getConditon());
@@ -402,15 +418,20 @@ RETEST:
         QVector<double> singleStepData;
         for(int j=0; j< meter->getCountTestItems(); j++)
         {
+            qApp->processEvents();
             tabResult->setRowCount(tabResult->rowCount()+1);
 
             //显示序号
             QString number;
             number = QString("%1-%2").arg(count.getTotle()).arg(i+1);
-            tabResult->setItem(tabResult->rowCount()-1,0,getTableTestItem(number,2));
+            tabResult->setItem(tabResult->rowCount()-1,NoCol,getTableTestItem(number,2));
             //显示测试项目
-            tabResult->setItem(tabResult->rowCount()-1,1,getTableTestItem(meter->getItem(j),2));
+            tabResult->setItem(tabResult->rowCount()-1,ItemCol,getTableTestItem(meter->getItem(j),2));
             strSaveRes.append(meter->getItem(j));
+
+            //显示测试条件
+            QString testCon = meter->getFreq()+" "+meter->getLevel()+" "+meter->getBias();
+            tabResult->setItem(tabResult->rowCount()-1,ConCol,getTableTestItem(testCon,2));
             //显示下限
             clsMeterLimit tmp = meter->getLimit(j);
             double lowLimit = tmp.getAbsLimitLow();
@@ -418,30 +439,30 @@ RETEST:
 
             doubleType dt;
             dt.setData(lowLimit);
-            tabResult->setItem(tabResult->rowCount()-1,2,getTableTestItem(dt.formateWithUnit(suffix,7)+suffix+UserfulFunctions::getSuffix(meter->getItem(j)),2));
+            tabResult->setItem(tabResult->rowCount()-1,LowCol,getTableTestItem(dt.formateWithUnit(suffix,7)+suffix+UserfulFunctions::getSuffix(meter->getItem(j)),2));
 
             //显示测试值
             double dblRes = meter->getResult(j);
             singleStepData.append(dblRes); //用于报表显示保存数据
             dt.setData(dblRes);
-            tabResult->setItem(tabResult->rowCount()-1,3,getTableTestItem(dt.formateWithUnit(suffix,7)+suffix+UserfulFunctions::getSuffix(meter->getItem(j)),2));
+            tabResult->setItem(tabResult->rowCount()-1,ResCol,getTableTestItem(dt.formateWithUnit(suffix,7)+suffix+UserfulFunctions::getSuffix(meter->getItem(j)),2));
             strSaveRes.append(dt.formateWithUnit(suffix,7)); // 用于保存数据到硬盘
             strSaveRes.append(suffix+UserfulFunctions::getSuffix(meter->getItem(j)));
 
             //显示上限
             double hiLimit = tmp.getAbsLimitHigh();
             dt.setData(hiLimit);
-            tabResult->setItem(tabResult->rowCount()-1,4,getTableTestItem(dt.formateWithUnit(suffix,7)+suffix+UserfulFunctions::getSuffix(meter->getItem(j)),2));
+            tabResult->setItem(tabResult->rowCount()-1,HiCol,getTableTestItem(dt.formateWithUnit(suffix,7)+suffix+UserfulFunctions::getSuffix(meter->getItem(j)),2));
 
             //显示判定
             QString type;
             bool isPass= tmp.comparaValue(dblRes,type);
-            tabResult->setItem(tabResult->rowCount()-1,5,getTableTestItem(type,isPass?1:0));
+            tabResult->setItem(tabResult->rowCount()-1,StaCol,getTableTestItem(type,isPass?1:0));
             strSaveRes.append(type);
 
             status = status && isPass;
             //  tabResult->setItem(tabResult->rowCount()-1,6,getTableTestItem(meter->getDescription(),2));
-
+            qApp->processEvents();
             //在这儿进行单步的是否通过做一个判断
             if(mSettings.failPass && (!status))
             {
@@ -459,9 +480,6 @@ RETEST:
                 }
             }
 
-
-
-
         }
 
         allStepData.data.append(singleStepData);
@@ -470,8 +488,8 @@ RETEST:
         if(meter->getCountTestItems()>=1)
         {
             if(meter->getCountTestItems()>1)
-                tabResult->setSpan(tabResult->rowCount()-meter->getCountTestItems(),6,meter->getCountTestItems(),1);
-            tabResult->setItem(tabResult->rowCount()-meter->getCountTestItems(),6,getTableTestItem(meter->getDescription(),2));
+                tabResult->setSpan(tabResult->rowCount()-meter->getCountTestItems(),DescCol,meter->getCountTestItems(),1);
+            tabResult->setItem(tabResult->rowCount()-meter->getCountTestItems(),DescCol,getTableTestItem(meter->getDescription(),2));
 
         }
         // UserfulFunctions::sleepMs(2000);
@@ -490,9 +508,6 @@ RETEST:
         QTableWidgetItem *item = tabResult->item(tabResult->rowCount()-1-i,0);
         item->setBackgroundColor(status? QColor(Qt::green):QColor(Qt::red));
     }
-
-
-
 
     strSaveRes.append(status?tr("PASS"):tr("FAIL"));
 
@@ -534,6 +549,7 @@ PASSTEST:
 
     //关闭Bias
     meter->turnOffBias();
+    btnStepStop->setVisible(false);
 }
 
 void clsMeterMode::showLogError(QString value)
@@ -680,17 +696,21 @@ void  clsMeterMode::updateMessage()
     case Adu200Trig:
         btnRep->setVisible(false);
         lblTrigType->setText(tr("ADU200触发"));
-        adu200->start();
+
         disconnect(this->adu200,SIGNAL(trigCaptured()),this,SLOT(adu200Trig()));
         connect(this->adu200,SIGNAL(trigCaptured()),this,SLOT(adu200Trig()));
+
         disconnect(this->lblStatus,SIGNAL(statusChange(Status)),this,SLOT(setAdu200(Status)));  //| 这两个是用于adu200的信号输出的 |
         connect(this->lblStatus,SIGNAL(statusChange(Status)),this,SLOT(setAdu200(Status)));     //| 如果不惜要这个的话可以将此注释 |
+
         disconnect(this->adu200,SIGNAL(showStatus(QString)),this,SLOT(showMessage(QString)));
         connect(this->adu200,SIGNAL(showStatus(QString)),this,SLOT(showMessage(QString)));
 
         btnStartDetect->setVisible(false);
         btnTrig->setVisible(false);
         btnStop->setVisible(true);
+
+        adu200->start();
         break;
     case AutoDetectTrig:
         btnTrig->setVisible(false);
@@ -723,14 +743,18 @@ void clsMeterMode::setAdu200(Status value)
 
     switch (value) {
     case BUSY:
-        adu200->setBDA();
+        adu200->setBusy();
         break;
     case PASS:
-        adu200->resetBDA();
         adu200->setPass();
+        adu200->resetBusy();
+        adu200->emitBDA();
+        break;
     case FAIL:
-        adu200->resetBDA();
         adu200->setFail();
+        adu200->resetBusy();
+        adu200->emitBDA();
+        break;
     default:
         break;
     }
@@ -830,22 +854,30 @@ Stop:
 //打印报表
 void clsMeterMode::on_btnReport_clicked()
 {
-    //    clsShowReport *dlg = new clsShowReport(this);
-    //    dlg->setData(&this->result);
+    clsShowReport *dlg = new clsShowReport(this);
+    dlg->setData(&this->result);
 
 
-    clsStatistics *dlg = new clsStatistics(this);
-    dlg->setData(&result);
+    //    clsStatistics *dlg = new clsStatistics(this);
+    //    dlg->setData(&result);
 
 }
 
 void clsMeterMode::on_btnRep300_clicked()
 {
-    for(int i=0; i< 300; i++)
+
+
+    btnRep300->setText(tr("停止\n测试"));
+
+
+
+    while(btnRep300->isChecked())
     {
         trig();
         UserfulFunctions::sleepMs(10);
     }
+    btnRep300->setText(tr("重复\n测试"));
+
 }
 
 void clsMeterMode::on_btnExportData_clicked()
@@ -887,4 +919,57 @@ void clsMeterMode::on_btnExportData_clicked()
         else
             QMessageBox::information(this,tr("消息"),tr("没有数据可以保存"));
     }
+}
+
+void clsMeterMode::on_btnStatics_clicked()
+{
+    clsStatistics *dlg = new clsStatistics(this);
+    dlg->setData(&result);
+}
+
+void clsMeterMode::on_btnCopy_clicked()
+{
+
+    int row = tabResult->rowCount();
+    int col = tabResult->columnCount();
+    //qDebug()<< row <<" " <<col;
+    QString strCp;
+    for(int r=0; r< row; r++)
+    {
+
+        for(int c=0; c<col; c++)
+        {
+            QTableWidgetItem * item = tabResult->item(r,c);
+            if(item!=NULL && item->isSelected())
+            {
+                strCp+=tabResult->item(r,c)->text();
+                strCp+= "\t";
+            }
+        }
+        strCp += "\n";
+    }
+    // qDebug()<<strCp;
+    QApplication::clipboard()->setText(strCp);
+}
+
+
+
+void clsMeterMode::on_btnStepStop_clicked()
+{
+    this->stepStop = true;
+    qApp->processEvents();
+    btnStepStop->setVisible(false);
+}
+
+
+void clsMeterMode::on_btnTurnOffDisplay_clicked(bool checked)
+{
+    btnTurnOffDisplay->setText(checked? tr("打开\n显示"):tr("关闭\n显示"));
+
+    QString strConditon = (checked? "ON":"OFF");
+
+    cls6500TurnOffScreen * tmp = new cls6500TurnOffScreen();
+    tmp->setConditon(strConditon);
+
+    this->meter->addSomeAdditionOperation(tmp);
 }

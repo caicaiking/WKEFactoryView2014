@@ -370,7 +370,7 @@ void cls6500MeterMode::updateLCRGpib()
     else if(speed ==tr("慢速"))
         gpibCmd.append(meter+"SPEED "+"SLOW"+";");
     else
-        gpibCmd.append(meter+"SPEED "+"MAX"+";");
+        gpibCmd.append(meter+"SPEED "+speed+";");
 
 
     if(levelType=="V")                                              //电平
@@ -501,10 +501,10 @@ void cls6500MeterMode::updateResGpib()
 
 void cls6500MeterMode::updateGPIB()
 {
- if(intSelectMode==0)
-    updateLCRGpib();
- else
-     updateResGpib();
+    if(intSelectMode==0)
+        updateLCRGpib();
+    else
+        updateResGpib();
 }
 
 
@@ -634,7 +634,7 @@ QString cls6500MeterMode::getBrief()
             tmp.append("C");
         if(grpL->isChecked())
             tmp.append("L");
-        return QString("%1:%2").arg("Res. 搜索",tmp.join(","));
+        return QString("%1:%2").arg(tr("Res. 搜索"),tmp.join(","));
     }
 }
 
@@ -824,6 +824,7 @@ QString cls6500MeterMode::getLevel()
 {
     return this->btnLevel->text();
 }
+
 
 void cls6500MeterMode::on_btnRange_clicked()
 {
@@ -1129,7 +1130,12 @@ double cls6500MeterMode::getMaxBiasA()
         clsRS::getInst().sendCommand("*SYSBIAS \'BIAS EXT\'",false);
         if(clsRS::getInst().sendCommand("*SYSBIAS?",true)=="BIAS EXT")
         {
-            maxC=40.0;
+
+            double maxFreq =getMaxFrequency(clsRS::getInst().instrumentModel);
+            if(maxFreq>15E9)
+                maxC=40.0;
+            else
+                maxC=50.0;
 
             return maxC;
         }

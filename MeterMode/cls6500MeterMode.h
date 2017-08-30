@@ -33,6 +33,7 @@ public:
     QString getEqucct();              //获取测试等效电路
     QString getLevel();               //获取测试的电平
 
+
 private slots:
     void on_btnRange_clicked();
     void on_btnSpeed_clicked();

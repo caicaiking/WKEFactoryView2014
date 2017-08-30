@@ -38,14 +38,19 @@ void clsSignalThread::setFail()
     box->setFail();
 }
 
-void clsSignalThread::setBDA()
+void clsSignalThread::setBusy()
 {
-    box->setBDA();
+    box->setBusy();
 }
 
-void clsSignalThread::resetBDA()
+void clsSignalThread::resetBusy()
 {
-    box->resetBDA();
+    box->resetBusy();
+}
+
+void clsSignalThread::emitBDA()
+{
+    box->emitBDA();
 }
 
 void clsSignalThread::run()
@@ -63,9 +68,11 @@ void clsSignalThread::run()
     {
         if(box->getInputSignal(0))
         {
-            emit trigCaptured();
+
             emit showStatus(tr("已经捕获触发信号.."));
-            this->msleep(20);
+            this->msleep(5); //Trig的时间delay，为了稳定测试结果
+            emit trigCaptured();
+
             //qDebug()<<"control box get trig signal...";
         }
 

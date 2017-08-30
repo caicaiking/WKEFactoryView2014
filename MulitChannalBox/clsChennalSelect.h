@@ -10,7 +10,7 @@ class clsChennalSelect : public QDialog, private Ui::clsChennalSelect
     Q_OBJECT
 
 public:
-    explicit clsChennalSelect(QWidget *parent = 0);
+    explicit clsChennalSelect(int terminal,QWidget *parent = 0);
     void setChennal(QString value);
     QString getChennal();
 private slots:
@@ -26,6 +26,8 @@ private slots:
 
 private:
     QList<QCheckBox *> chennals;
+    int terminal;
+    int totleChannel;
 
 };
 

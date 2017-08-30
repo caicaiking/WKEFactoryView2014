@@ -9,7 +9,7 @@ frmTraceSetup::frmTraceSetup(WKEInstrument *ms, QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
-     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     this->meter=ms;
 
     getSupportFunction();
@@ -36,6 +36,10 @@ void frmTraceSetup::getSupportFunction()
     if(list.length()>3)
         btnTime->setVisible(list.at(3).toInt()==1?true:false);
 
+    if(list.length()>4)
+        btnBiasExt->setVisible(list.at(4).toInt()==1?true:false);
+
+
 
 }
 
@@ -53,6 +57,17 @@ void frmTraceSetup::on_btnBias_clicked()
 {
     updateSweepTitile(BiasV);
 }
+
+void frmTraceSetup::on_btnBiasA_clicked()
+{
+    updateSweepTitile(BiasA);
+}
+
+void frmTraceSetup::on_btnBiasExt_clicked()
+{
+    updateSweepTitile(BiasExtV);
+}
+
 
 void frmTraceSetup::updateSweepTitile(SweepType t)
 {
@@ -75,6 +90,9 @@ void frmTraceSetup::updateSweepTitile(SweepType t)
         grpSweepItem->setTitle(tr("偏置范围（A）"));
         btnBiasA->setChecked(true);
         break;
+    case BiasExtV:
+        grpSweepItem->setTitle(tr("外置偏压范围（V）"));
+        btnBiasExt->setChecked(true);
     default:
         break;
     }
@@ -169,6 +187,19 @@ bool  frmTraceSetup::readSettings(graphSetup &gsetup, bool incldSwty)
             gsetup.xmax=1;
 
         break;
+    case BiasExtV:
+        settings.readSetting(strNode+"BiasExtVXmin",gsetup.xmin);
+        settings.readSetting(strNode+"BiasExtVXmax",gsetup.xmax);
+        settings.readSetting(strNode+"BiasExtVLog",gsetup.logX);
+        settings.readSetting(strNode+"BiasExtVPoints",gsetup.points);
+        settings.readSetting(strNode+"BiasExtVVRate",gsetup.biasVRate);
+
+        if(gsetup.xmin==0.0)
+            gsetup.xmin=0;
+        if(gsetup.xmax==0.0)
+            gsetup.xmax=1;
+
+        break;
     case BiasA:
         settings.readSetting(strNode+"BiasAXmin",gsetup.xmin);
         settings.readSetting(strNode+"BiasAXmax",gsetup.xmax);
@@ -230,6 +261,13 @@ bool  frmTraceSetup::writeSettings(graphSetup gsetup)
         settings.writeSetting(strNode+"BiasLog",gsetup.logX);
         settings.writeSetting(strNode+"BiasPoints",gsetup.points);
         settings.writeSetting(strNode+"BiasVRate",gsetup.biasVRate);
+        break;
+    case BiasExtV:
+        settings.writeSetting(strNode+"BiasExtVXmin",gsetup.xmin);
+        settings.writeSetting(strNode+"BiasExtVXmax",gsetup.xmax);
+        settings.writeSetting(strNode+"BiasExtVLog",gsetup.logX);
+        settings.writeSetting(strNode+"BiasExtVPoints",gsetup.points);
+        settings.writeSetting(strNode+"BiasExtVVRate",gsetup.biasVRate);
         break;
     case BiasA:
         settings.writeSetting(strNode+"BiasAXmin",gsetup.xmin);
@@ -360,14 +398,12 @@ void frmTraceSetup::on_btnXmax_clicked()
 {
     NumberInput *numberInput = new NumberInput(this);
     numberInput->setWindowTitle(tr("输入最大值"));
-
     numberInput->setValueAndSuffix(gsetup.xmax,"");
 
 
     if(numberInput->exec()==QDialog::Accepted)
     {
         double value = numberInput->getNumber();
-
         gsetup.xmax = checkLimit->compareMax(value);
     }
 
@@ -493,12 +529,6 @@ graphSetup frmTraceSetup::getGsetup() const
 }
 
 
-
-void frmTraceSetup::on_btnBiasA_clicked()
-{
-    updateSweepTitile(BiasA);
-}
-
 void frmTraceSetup::on_btnRate_clicked()
 {
     NumberInput *dlg = new NumberInput(gsetup.biasVRate,"", this);
@@ -511,3 +541,4 @@ void frmTraceSetup::on_btnRate_clicked()
         updateButtons();
     }
 }
+

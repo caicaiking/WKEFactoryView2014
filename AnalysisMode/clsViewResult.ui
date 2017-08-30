@@ -41,7 +41,7 @@
      <property name="font">
       <font>
        <family>楷体</family>
-       <pointsize>10</pointsize>
+       <pointsize>11</pointsize>
       </font>
      </property>
     </widget>

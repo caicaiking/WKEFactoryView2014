@@ -2,11 +2,11 @@
 #define USERFULFUNCTIONS_H
 #include <QMap>
 
-#include <Qwt/qwt_plot_curve.h>
+#include <qwt_plot_curve.h>
 class QStringList;
 class QString;
 #include "Globle.h"
-#include <Qwt/qwt.h>
+#include <qwt.h>
 
 enum TrigMode
 {
@@ -66,6 +66,9 @@ public:
         case BiasV:
             return QObject::tr("偏置电压");
             break;
+        case BiasExtV:
+            return QObject::tr("外置偏压");
+            break;
         case BiasA:
             return QObject::tr("偏置电流");
             break;
@@ -91,6 +94,9 @@ public:
             return "Hz";
             break;
         case BiasV:
+            return "V";
+            break;
+        case BiasExtV:
             return "V";
             break;
         case BiasA:

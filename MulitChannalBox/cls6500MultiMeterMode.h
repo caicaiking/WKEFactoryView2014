@@ -72,13 +72,17 @@ public:
     /*55-1*/  bool getStatus(int );       //获取单个测试状态
     /*56*/    void setCondition(QString value);
     /*57*/    QString getConditon();
+    /*58*/    void calibration();      //仪表单通道校准
+    /*59*/    void set10KHz();
 
+    void turnOnScreen(bool value);
     void setChannel(int value);   //通道测试
 
     void setUseLoad(bool value);  //使用Load数据
     void setConditionForCalibration(int i) ; //设置条件为了校准；
     QList<double> getOriginZA() ;  //获得原始的没有进行过校准的Z A
     void setFreqencyForCal(int value);
+    void setFreqencyForCal(double value);
     double getFreqency(int value ); //获取测试的频率
 private:
     double test1Freq;

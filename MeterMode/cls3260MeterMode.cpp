@@ -11,6 +11,8 @@
 #include "NumberInput.h"
 #include "wk6500Range.h"
 #include "dlgSpeed.h"
+#include "cls3260Calibration.h"
+#include "frmWK3260Calibration.h"
 #include "cls6440Calibration.h"
 #include <QJsonDocument>
 cls3260MeterMode::cls3260MeterMode(WKEMeterMode *parent) :
@@ -27,6 +29,7 @@ cls3260MeterMode::cls3260MeterMode(WKEMeterMode *parent) :
     item2="θ";
     enableMinor=true;
     level =1;
+    alcStatus = "ALC OFF";
     levelType="V";
     frequency=10000;
     blBiasStatus= false;
@@ -160,6 +163,7 @@ void cls3260MeterMode::setCondition(QString value)
                 this->equcct = result["equcct"].toString();
                 this->range = result["range"].toString();
                 this->speed = result["speed"].toString();
+                this->alcStatus = result["alcStatus"].toString();
 
                 //Bias
                 this->biasType = result["biasType"].toString();
@@ -179,6 +183,8 @@ void cls3260MeterMode::setCondition(QString value)
                 this->lmRdc.setString(result["lmRdc"].toString());
                 this->rdcUnit = result["rdcSuffix"].toString();
                 this->strDescription= result["description"].toString();
+                txtBiasOn->setValue(result["biasOnTime"].toInt());
+                txtBiasOff->setValue(result["biasOffTime"].toInt());
                 updateButtons();
             }
         }
@@ -195,6 +201,7 @@ QString cls3260MeterMode::getConditon()
     step.insert("equcct",this->equcct);
     step.insert("range",this->range);
     step.insert("speed",this->speed);
+    step.insert("alcStatus",this->alcStatus);
 
     //Insert Bias
     step.insert("biasType",this->biasType);
@@ -216,6 +223,8 @@ QString cls3260MeterMode::getConditon()
     step.insert("rdcSuffix",this->rdcUnit);
 
     step.insert("description",this->strDescription);
+    step.insert("biasOnTime",this->txtBiasOn->value());
+    step.insert("biasOffTime",this->txtBiasOff->value());
 
     QJsonDocument jsonDocument  = QJsonDocument::fromVariant(step);
 
@@ -277,6 +286,7 @@ void cls3260MeterMode::updateGPIB()
 
         gpibCmd.append(meter+":FREQ "+QString::number(frequency));
 
+        gpibCmd.append(meter + ":"+ alcStatus);
         if(levelType=="V")
         {
             gpibCmd.append(meter+":LEV "+QString::number(level)+"V");
@@ -338,8 +348,6 @@ void cls3260MeterMode::updateGPIB()
 
         clsRS::getInst().gpibCommands.gpibTest1 = gpibCmd;
 
-
-
         QString tmpBiasString;
         if(!blBiasStatus)
         {
@@ -359,10 +367,10 @@ void cls3260MeterMode::updateGPIB()
 
 
 
-        QString xx =QString(meter+":FREQ?");
-        QString retFreq = clsRS::getInst().sendCommand(xx,true);
-
-        this->frequency = retFreq.toDouble();
+        //        QString xx =QString(meter+":FREQ?");
+        //        QString retFreq = clsRS::getInst().sendCommand(xx,true);
+        //        this->frequency = retFreq.toDouble();
+        UserfulFunctions::sleepMs(10);
         updateButtons();
     }
 
@@ -507,6 +515,11 @@ QString cls3260MeterMode::getLevel()
     return this->btnLevel->text();
 }
 
+QString cls3260MeterMode::getBias()
+{
+    return this->btnBiasValue->text() + " " + btnBiasOnOFF->text();
+}
+
 
 double cls3260MeterMode::getResult(int i)
 {
@@ -549,7 +562,9 @@ clsMeterLimit cls3260MeterMode::getLimit(int i)
 
 void cls3260MeterMode::calibration()
 {
-    cls6440Calibration *dlg = new cls6440Calibration(this);
+
+    frmWK3260Calibration *dlg = new frmWK3260Calibration(this);
+    dlg->setWindowTitle(tr("仪表校准"));
     dlg->exec();
 }
 
@@ -621,7 +636,18 @@ void cls3260MeterMode::turnOffBias()
 
 void cls3260MeterMode::singleTrig()
 {
+
     QString trigCmd =getMeter()+":TRIG";
+
+    if(tabMeter->currentIndex()==0)
+    {
+        if(btnBiasOnOFF->text()==tr("开") && (txtBiasOn->value() !=0))
+        {
+            txtStatus->setText(tr("bias持续"));
+            UserfulFunctions::sleepMs(txtBiasOn->value());
+        }
+    }
+
 
     QString strRes = clsRS::getInst().sendCommand(trigCmd,true);
 
@@ -644,6 +670,15 @@ void cls3260MeterMode::singleTrig()
 
 
         emit signalTestResult(tmp);
+
+
+        if(btnBiasOnOFF->text()==tr("开") && (txtBiasOff->value() !=0))
+        {
+            this->turnOffBias();
+            txtStatus->setText(tr("bias休息"));
+            UserfulFunctions::sleepMs(txtBiasOff->value());
+        }
+        txtStatus->setText(tr("---"));
     }
     else
     {
@@ -683,7 +718,14 @@ QString cls3260MeterMode::getItemShow(const QString &item, const double &value ,
 void cls3260MeterMode::repetiveTrig()
 {
     QString trigCmd = getMeter()+":TRIG";
-
+    if(tabMeter->currentIndex()==0)
+    {
+        if(btnBiasOnOFF->text()==tr("开") && (txtBiasOn->value() !=0))
+        {
+            txtStatus->setText(tr("bias持续"));
+            UserfulFunctions::sleepMs(txtBiasOn->value());
+        }
+    }
     QString strRes = clsRS::getInst().sendCommand(trigCmd,true);
 
     strRes+=",,";
@@ -697,7 +739,16 @@ void cls3260MeterMode::repetiveTrig()
     {
         dblRdc = lsRes.at(0).toDouble();
     }
-
+    if(tabMeter->currentIndex()==0)
+    {
+        if(btnBiasOnOFF->text()==tr("开") && (txtBiasOff->value() !=0))
+        {
+            this->turnOffBias();
+            txtStatus->setText(tr("bias休息"));
+            UserfulFunctions::sleepMs(txtBiasOff->value());
+        }
+        txtStatus->setText(tr("---"));
+    }
 }
 
 
@@ -789,8 +840,12 @@ void cls3260MeterMode::updateButtons()
 
     btnRdcSpeed->setText(this->speed);
     btnRdcRange->setText(this->rangeRdc);
+    btnALC->setText(this->alcStatus);
 
     this->txtDescription->setText(this->strDescription);
+
+   QString strTitle = (clsRS::getInst().meterSeries =="3260"? tr("WK 3260 Meter"): tr("WK 3255 Meter"));
+    lblTitle->setText(strTitle);
 }
 
 void cls3260MeterMode::setCmbboxSelected(QComboBox *cmb, QString tmp)
@@ -869,10 +924,20 @@ void cls3260MeterMode::on_btnFrequency_clicked()
 
 double cls3260MeterMode::getMaxFreq()
 {
-    if(clsRS::getInst().instrumentModel=="3255")
-        return 500000;
-    else
+    if(clsRS::getInst().meterSeries=="3260")
         return 3000000;
+
+    if(clsRS::getInst().meterSeries=="3255" && clsRS::getInst().instrumentModel.contains("BQ"))
+        return 1000000;
+
+    if(clsRS::getInst().meterSeries=="3255" && clsRS::getInst().instrumentModel.contains("BL"))
+        return 200000;
+
+    if(clsRS::getInst().meterSeries=="3255" && clsRS::getInst().instrumentModel.contains("B"))
+        return 500000;
+
+    return 3000000;
+
 }
 
 void cls3260MeterMode::on_btnLevel_clicked()
@@ -1081,7 +1146,7 @@ void cls3260MeterMode::on_btnBiasValue_clicked()
         else
         {
             value = (value<0? 0: value);
-            value = (value> 125? 125:value);
+            value = (value> 250? 250:value);
         }
 
         biasValue = value;
@@ -1096,4 +1161,18 @@ QString cls3260MeterMode::getMeter()
         return ":IMP";
     else
         return ":MEAS";
+}
+
+void cls3260MeterMode::on_btnALC_clicked()
+{
+  if(btnALC->text()==tr("ALC OFF"))
+      btnALC->setText(tr("ALC ON"));
+  else if(btnALC->text() == tr("ALC ON"))
+      btnALC->setText(tr("ALC HOLD"));
+  else if(btnALC->text() == tr("ALC HOLD"))
+      btnALC->setText(tr("ALC OFF"));
+  else
+  {//do nothing here
+  }
+  alcStatus = btnALC->text();
 }

@@ -279,6 +279,7 @@ void frmPointEditor::on_btnDel_clicked()
     showTestData();
 }
 
+//移除重复的测试点，并且将其排序
 QList<double> frmPointEditor::rmvPP(QList<double> points)
 {
     QList<double> tmpPoint;

@@ -8,11 +8,12 @@
 #include "dlgSpeed.h"
 #include "UserfulFunctions.h"
 #include "frmWK3260Calibration.h"
+#include "clsRetryDialog.h"
 frmWk3260::frmWk3260(WKEInstrument *parent) :
     WKEInstrument(parent)
 {
     setupUi(this);
-     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     readSettings(this->wk3260);
     updateButtons();
 
@@ -109,6 +110,21 @@ void frmWk3260::setBias(double value, QString /*unit*/)
         wk3260.biasValue.value = ret.toDouble();
 
     emit this->biasValueSignal(wk3260.biasValue.toText(1));
+
+//    if (wk3260.biasValue.status=="ON")
+//    {
+
+//        if(wk3260.biasValue.value<=1.0)
+//            UserfulFunctions::sleepMs(3000);
+//        else if(wk3260.biasValue.value<10)
+//            UserfulFunctions::sleepMs(800);
+//        else if(wk3260.biasValue.value<20)
+//            UserfulFunctions::sleepMs(800);
+//        else if(wk3260.biasValue.value<30)
+//            UserfulFunctions::sleepMs(1000);
+//        else
+//            UserfulFunctions::sleepMs(800);
+//    }
     saveSettings();
 }
 
@@ -154,34 +170,70 @@ bool frmWk3260::turnOffBias()
     }
 }
 
-bool frmWk3260::turnOnBias()
+
+bool frmWk3260::getBiasOn()
 {
+
     if(!queryBiasStatus())
     {
         wk3260.biasValue.status="ON";
         clsRS::getInst().sendCommand(wk3260.biasValue.toGpib(getGpibMeter()));
         if(wk3260.biasValue.value<=1.0)
-            UserfulFunctions::sleepMs(2500);
+            UserfulFunctions::sleepMs(3000);
         else if(wk3260.biasValue.value<10)
-            UserfulFunctions::sleepMs(600);
+            UserfulFunctions::sleepMs(800);
         else if(wk3260.biasValue.value<20)
             UserfulFunctions::sleepMs(800);
         else if(wk3260.biasValue.value<30)
             UserfulFunctions::sleepMs(1000);
         else
-            UserfulFunctions::sleepMs(650);
-        return queryBiasStatus();
+            UserfulFunctions::sleepMs(800);
     }
     else
     {
-        return queryBiasStatus();
+        return  queryBiasStatus();
     }
+    return false;
+
+}
+
+bool frmWk3260::turnOnBias()
+{
+    bool blRetry=true;
+
+    //qDebug()<<this->wk3260.biasValue.value <<"\t"<<this->wk3260.biasValue.status;
+
+    int count =0;
+
+    while(blRetry)
+    {
+        bool blTurnOnBias = this->getBiasOn();
+        count++;
+        if(blTurnOnBias)
+            return true;
+        if(count == 3 )
+        {
+            clsRetryDialog *dlg = new clsRetryDialog(this);
+            dlg->setMessage(tr("打开bias出现问题,是否需要重试？"));
+            qApp->processEvents();
+            if( dlg->exec()== QDialog::Accepted)
+                blRetry = true;
+            else
+                blRetry = false;
+            count=0;
+        }
+    }
+
+    return blRetry;
+
 }
 
 QString frmWk3260::trig()
 {
     int i=0;
 RETEST:
+
+
     QString meter=getGpibMeter();
     QString gpibCmd =QString("%1:TRIG").arg(meter);
 
@@ -192,7 +244,7 @@ RETEST:
         i++;
         goto RETEST;
     }
-    qDebug()<< ret;
+    // qDebug()<< ret;
     return ret+",,";
 }
 
@@ -266,7 +318,7 @@ double frmWk3260::getMinBiasV()
 
 double frmWk3260::getMaxBiasA()
 {
-    return 125.0;
+    return 250.0;
 }
 
 double frmWk3260::getMinBiasA()
@@ -320,7 +372,7 @@ QString frmWk3260::getSuportFunction()
 {
     //"freq,BiasV,BiasA,Time"
 
-    return "1,0,1,1";
+    return "1,0,1,1,0";
 }
 
 void frmWk3260::on_cmbFuction1_currentIndexChanged(const QString &arg1)
@@ -525,6 +577,7 @@ bool frmWk3260::queryBiasStatus()
         saveSettings();
         return false;
     }
+    qApp->processEvents();
     saveSettings();
     return false;
 }

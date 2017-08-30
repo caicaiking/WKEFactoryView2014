@@ -1,9 +1,9 @@
 #include "frmWKEAnalysisMode.h"
 #include <QBoxLayout>
 #include <QFileDialog>
-#include <Qwt/qwt_plot_renderer.h>
+#include <qwt_plot_renderer.h>
 #include <QImageWriter>
-#include "Qwt/qwt_picker_machine.h"
+#include "qwt_picker_machine.h"
 #include "frmPeakSearch.h"
 #include "clsRuningSettings.h"
 #include "frmTraceSetup.h"
@@ -18,11 +18,13 @@
 #include "frmAbout.h"
 #include "clsDog.h"
 #include <QMessageBox>
-
+#include "clsMaterialSettings.h"
 #include "dlgLimitSetup.h"
-
+#include "clsBiasAOperation.h"
 #include "dlgSetupOp.h"
+#include "clsSampleTest.h"
 #include <windows.h>
+#include "clsCalibrationDbOp.h"
 frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -51,6 +53,10 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
 
 
     setDemoVersion(SingletonDog::Instance()->getVersion());
+
+    btnMaterialSettings->setVisible(this->getMaterialOption());
+
+
 }
 
 void frmWKEAnalysisMode::setDemoVersion(bool value)
@@ -70,7 +76,7 @@ void frmWKEAnalysisMode::captureTrig()
 
     //qDebug()<<"Trig get!";
     disconnect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
-    this->controlBox->getControlBox()->setBDA();
+    this->controlBox->getControlBox()->setBusy();
 
     btnTrig->setChecked(true);
     on_btnTrig_clicked();
@@ -91,7 +97,7 @@ void frmWKEAnalysisMode::captureTrig()
     }
 
 
-    this->controlBox->getControlBox()->resetBDA();
+    this->controlBox->getControlBox()->resetBusy();
     connect(controlBox,SIGNAL(trigCaptured()),this,SLOT(captureTrig()));
 }
 
@@ -136,9 +142,14 @@ void frmWKEAnalysisMode::init()
     frmTraceSetup::readSettings(gs,true);
 
     meas = MeasFactory::getMeas(gs.sweepType);
+
+
     if(gs.points.length()!=0)
         meas->setPoint(&gs.points);
     connect(meas,SIGNAL(showProgress(int)),this->progressBar,SLOT(setValue(int)));
+    connect(meas,SIGNAL(showTestValue(double)),this,SLOT(setSweepInfo(double)));
+    btnSweepInfo->setVisible(gs.sweepType == BiasExtV);
+
     updateGraph();
     updateButtons();
     initZoomer();
@@ -245,6 +256,38 @@ void frmWKEAnalysisMode::setSpeed(QString value)
     this->btnSpeed->setText(value);
 }
 
+//接收来自扫描类型的信号。
+void frmWKEAnalysisMode::setSweepInfo(double value)
+{
+    //Frequency=1,Time=0,BiasV=2,BiasA=3,levelV=4,levelA=5,BiasExtV=6
+    switch (gs.sweepType) {
+    case BiasExtV:
+        btnSweepInfo->setVisible(true);
+        if(value > 0.0)
+        {
+            btnSweepInfo->setIcon(QIcon(":/Icons/BiasOn.png"));
+            doubleType dt;
+            dt.setData(value);
+
+            QString info = QString("%1\n%2").arg("Ext.Bias").arg(dt.formateToString(5)+"V");
+            btnSweepInfo->setText(info);
+
+        }
+        else
+        {
+            btnSweepInfo->setIcon(QIcon(":/Icons/BiasOff.png"));
+            doubleType dt;
+            dt.setData(0.0);
+            QString info = QString("%1\n%2").arg("Ext.Bias").arg(dt.formateToString(5)+"V");
+            btnSweepInfo->setText(info);
+        }
+        break;
+    default:
+        btnSweepInfo->setVisible(false);
+        break;
+    }
+}
+
 void frmWKEAnalysisMode::setItems(QString value1, QString value2)
 {
     plot->setTraceA(value1);
@@ -291,8 +334,14 @@ void frmWKEAnalysisMode::updateGraph()
 
     meter->saveSettings();
     frmTraceSetup::writeSettings(this->gs);
-
-
+    if(gs.sweepType==BiasA)
+    {
+        btnBiasSettings->setVisible(true);
+    }
+    else
+    {
+        btnBiasSettings->setVisible(false);
+    }
 }
 
 void frmWKEAnalysisMode::updateButtons()
@@ -516,15 +565,22 @@ void frmWKEAnalysisMode::on_btnTraceSetup_clicked()
 {
     frmTraceSetup * dlg  = new frmTraceSetup(this->meter);
     dlg->setWindowTitle(tr("扫描设定"));
+    bool isChanged = true;
     if(dlg->exec() ==QDialog::Accepted)
     {
         if(!this->gs.equal( dlg->getGsetup()))
+        {
+            isChanged = false;
             plot->clearData();
-
+        }
         if(this->gs.sweepType!= dlg->getGsetup().sweepType)
         {
             plot->turnOffRefTrace();
+            isChanged = false;
         }
+
+        if(this->gs.points != dlg->getGsetup().points)
+            isChanged = false;
 
         this->gs = dlg->getGsetup();
 
@@ -533,6 +589,8 @@ void frmWKEAnalysisMode::on_btnTraceSetup_clicked()
         meas->setPoint(&gs.points);
         // qDebug()<< gs.points;
         connect(meas,SIGNAL(showProgress(int)),this->progressBar,SLOT(setValue(int)));
+        connect(meas,SIGNAL(showTestValue(double)),this,SLOT(setSweepInfo(double)));
+        btnSweepInfo->setVisible(gs.sweepType == BiasExtV);
         updateGraph();
         updateButtons();
     }
@@ -944,17 +1002,18 @@ void frmWKEAnalysisMode::on_btnSettings_clicked()
 
         if(select ==0)
         {
-            QFile file("./Settings.ini");
+            //载入配置文件
+            QFile file(clsSettings::getSettingsFileName());
             if(file.exists())
             {
                 qDebug()<<"old setting file is removed: "<< file.remove();
             }
 
-            QFile::copy(filePath,"./Settings.ini");
+            QFile::copy(filePath,clsSettings::getSettingsFileName());
             init();
             plot->clearData();
         }
-        else
+        else //保存 配置文件
         {
             //qDebug()<<QFile::exists("./Settings.ini");
 
@@ -963,7 +1022,7 @@ void frmWKEAnalysisMode::on_btnSettings_clicked()
                 QFile::remove(filePath);
             }
 
-            QFile::copy("./Settings.ini",filePath);
+            QFile::copy(clsSettings::getSettingsFileName(),filePath);
 
         }
     }
@@ -1007,3 +1066,46 @@ void frmWKEAnalysisMode::resetMarker()
     //    plot->setCurrentMarker(0);
 }
 
+/*!
+ * \brief frmWKEAnalysisMode::getMaterialOption
+ * 返回6500仪器上的/K选配，是否选配
+ * \return
+ */
+
+bool frmWKEAnalysisMode::getMaterialOption()
+{
+    if(clsRS::getInst().meterSeries !="6500")
+        return false;
+
+    QString strOption= clsRS::getInst().sendCommand("*OPT2?",true);
+
+    if(strOption.length()>4)
+    {
+        return  (strOption.at(4)=='1');
+    }
+    else
+        return false;
+}
+
+void frmWKEAnalysisMode::on_btnMaterialSettings_clicked()
+{
+    sngMaterialSettings::Instance()->exec();
+}
+
+void frmWKEAnalysisMode::on_btnBiasSettings_clicked()
+{
+    clsBiasAOperation * dlg = new clsBiasAOperation();
+    dlg->setWindowTitle(tr("偏流设置"));
+    dlg->exec();
+}
+
+void frmWKEAnalysisMode::on_btnContactTest_clicked()
+{
+    clsSampleTest *dlg = new clsSampleTest(meter,this);
+    dlg->exec();
+}
+
+void frmWKEAnalysisMode::on_btnOpenPercentage_toggled(bool checked)
+{
+    plot->setShowPercetage(checked);
+}

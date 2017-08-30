@@ -19,6 +19,8 @@ public:
         return this->strItem;
     }
 
+    void setMateralFunction(bool value);
+
 private slots:
     void on_btnC_clicked();
     void on_btnD_clicked();
@@ -34,6 +36,20 @@ private slots:
 //    void on_btnRdc_clicked();
     void on_btnCancel_clicked();
 //    void on_btnOFF_clicked();
+
+
+
+    void on_btnE1R_clicked();
+
+    void on_btnE2R_clicked();
+
+    void on_btnDe_clicked();
+
+    void on_btnU1R_clicked();
+
+    void on_btnU2R_clicked();
+
+    void on_btnDu_clicked();
 
 private:
     QString strItem;

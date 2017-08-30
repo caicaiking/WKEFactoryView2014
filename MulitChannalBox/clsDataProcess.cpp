@@ -2,7 +2,7 @@
 #include <math.h>
 #include <QObject>
 #include <QDebug>
-
+#include "Globle.h"
 clsDataProcess::clsDataProcess(double z, double a, double freq)
 {
     setFrequency(freq);
@@ -66,13 +66,15 @@ void clsDataProcess::doCalibration()
     }
     else
     {
-        complexType one;
-        one.setRX(1.0,0.0);
+//        complexType one;
+//        one.setRX(1.0,0.0);
 
-        complexType Yo;
-        Yo.setZA(1.0/Zo.getZ(),-1.0*Zo.getA());
+//        complexType Yo;
+//        Yo.setZA(1.0/Zo.getZ(),-1.0*Zo.getA());
 
-        Zdut =(Zxm - Zs)/(one-Yo*(Zxm-Zs));
+//        Zdut =(Zxm - Zs)/(one-Yo*(Zxm-Zs));
+
+        Zdut =(Zs-Zxm)/(Zxm-Zo)*Zo;
     }
 
     mZ = Zdut.getZ();
@@ -115,7 +117,7 @@ double clsDataProcess::getItem(QString item, QString equcct)
     else if(item =="B")
         return data.B();
     else
-        return 99.999E12;
+        return OR;
 
 }
 

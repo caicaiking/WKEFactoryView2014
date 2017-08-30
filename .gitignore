@@ -20,6 +20,8 @@ qrc_*.cpp
 ui_*.h
 Makefile*
 *-build-*
+./libs/WKEFactoryView2014.exe
+./libs/*
 
 # QtCreator
 

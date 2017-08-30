@@ -1,10 +1,10 @@
 #ifndef PLOT_H
 #define PLOT_H
 #include "Globle.h"
-#include <Qwt/qwt_plot.h>
+#include <qwt_plot.h>
 #include <QWidget>
 #include <clsRefTraceProperty.h>
-#include <Qwt/qwt_plot_curve.h>
+#include <qwt_plot_curve.h>
 #include "clsCurveLimit.h"
 
 
@@ -87,6 +87,8 @@ public:
     void setCurrentMarker(int value);
     void setMarkerVisual(int i, bool value);
     void setDataEnd();
+    void setShowPercetage(bool value);
+
 signals:
     void showMarkerMessage(int , QString);
 
@@ -127,6 +129,8 @@ private:
     double yRightMin;
 
     clsCurveLimit curveLimit;
+
+    bool showPercetage;
 };
 
 #endif // PLOT_H

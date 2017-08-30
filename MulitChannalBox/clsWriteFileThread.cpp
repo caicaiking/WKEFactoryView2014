@@ -26,22 +26,28 @@ void clsWriteFileThread::setTitle(QString title)
     QString timeDate = strDate.toString("dd_MM_yyyy")+" " + strTime.toString("hh_mm_ss ");
     file = new QFile(strPath +timeDate+ channal +".txt");
 
+    QLocale loc;
+
+    QString sp =(QLocale().decimalPoint()=='.'?",":";");
+    loc.setNumberOptions(QLocale::OmitGroupSeparator);
+
     if(file->open(QIODevice::Append))
     {
 
         this->strTitle = title;
-        file->write(title.append(",").append("Time").append("\n").toUtf8());
+        file->write(title.append(sp).append("Date,Time").append("\n").toUtf8());
         file->flush();
     }
 }
 
 void clsWriteFileThread::setData(QString items)
 {
+    QString sp =(QLocale().decimalPoint()=='.'?",":";");
     QTime strTime = QTime::currentTime();
     QDate strDate = QDate::currentDate();
 
-    QString timeDate = strDate.toString("dd/MM/yyyy")+" " + strTime.toString("hh:mm:ss");
-    item.enqueue(items+","+timeDate);
+    QString timeDate = strDate.toString("dd/MM/yyyy")+sp + strTime.toString("hh:mm:ss.zzz");
+    item.enqueue(items+ sp +timeDate);
 }
 
 void clsWriteFileThread::run()

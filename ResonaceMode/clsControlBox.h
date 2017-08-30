@@ -3,6 +3,8 @@
 
 #include <QObject>
 #include "AduHid.h"
+#include <QMutex>
+#include <QMutexLocker>
 class clsControlBox : public QObject
 {
     Q_OBJECT
@@ -15,8 +17,10 @@ public:
     bool getInputSignal(int port);
     void setPass();
     void setFail();
-    void setBDA();
-    void resetBDA();
+    void setBusy();
+    void resetBusy();
+
+    void emitBDA();
 signals:
     void showStatus(QString);
 public slots:
@@ -32,6 +36,8 @@ private:
     void sleepMs(int svalue);
     QString shortRelay(int port);
     QString openRelay(int port);
+
+    static QMutex lock;
 };
 
 #endif // CLSCONTROLBOX_H

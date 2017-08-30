@@ -8,7 +8,7 @@
 #include <QCoreApplication>
 #include <Plot.h>
 #include <QDebug>
-#include <Qwt/qwt_plot_curve.h>
+#include <qwt_plot_curve.h>
 #include <QMap>
 #include <QTime>
 using  std::vector;
@@ -26,6 +26,9 @@ const QString UserfulFunctions::getSweepFunctionSuffix(SweepType value)
         return "Hz";
         break;
     case BiasV:
+        return "V";
+        break;
+    case BiasExtV:
         return "V";
         break;
     case BiasA:
@@ -95,8 +98,15 @@ QString UserfulFunctions::getSuffix(const QString &value)
     if(value=="A" || value==QString("θ"))
         return QString("°");
 
+
     if(value=="G" || value=="B" || value=="Y")
         return "S";
+
+    if(value=="E'r" || value=="E\"r" || value=="U'r" || value=="U\"r")
+        return "U";
+
+    if(value =="De" || value == "Du")
+        return "D";
 
     if(value=="L")
         return "H";
@@ -108,7 +118,7 @@ QString UserfulFunctions::getSuffix(const QString &value)
         return "Hz";
     if(value.toUpper() =="SRF")
         return "Hz";
-    if(value.toUpper()=="BIAS" || value.toUpper()==QObject::tr("偏置电压").toUpper() || value.toUpper()==QObject::tr("电压信号"))
+    if(value.toUpper()=="BIAS" || value.toUpper()==QObject::tr("偏置电压").toUpper() || value.toUpper()==QObject::tr("外置偏压").toUpper() || value.toUpper()==QObject::tr("电压信号"))
         return "V";
     if(value.toUpper()=="TIME" || value.toUpper()==QObject::tr("时间").toUpper())
         return "s";
@@ -151,6 +161,20 @@ QString UserfulFunctions::getName(const QString &value)
         return QObject::tr("品质因素");
     else if(value=="D")
         return QObject::tr("损耗");
+
+    else if(value=="E'r")
+        return QObject::tr("介电实部");
+    else if(value=="E\"r")
+        return QObject::tr("介电虚部");
+    else if(value=="De")
+        return QObject::tr("损耗");
+    else if(value=="U'r")
+        return QObject::tr("磁导率实部");
+    else if(value=="U\"r")
+        return QObject::tr("磁导率虚部");
+    else if(value=="Du")
+        return QObject::tr("损耗");
+
     else
         return QString::null;
 

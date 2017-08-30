@@ -3,15 +3,24 @@
 #include <QApplication>
 #include <QTime>
 #include <QDebug>
+
+#include <QMutexLocker>
+QMutex clsControlBox::lock;
+
 clsControlBox::clsControlBox(QObject *parent) :
     QObject(parent)
 {
     this->blStop=false;
     isInit = this->initDevice();
+    shortRelay(3); //Keep BDA signal short at the beginning
+    openRelay(0);
+    openRelay(1);
 }
 
 QString clsControlBox::sendCommand(QString value, bool hasReturn)
 {
+
+    QMutexLocker myLock(&this->lock);
     char sBuffer[8];
 
     WriteAduDevice(hDevice, value.toStdString().c_str(), 4, 0, 0);
@@ -21,6 +30,9 @@ QString clsControlBox::sendCommand(QString value, bool hasReturn)
 
     ReadAduDevice(hDevice, sBuffer, 7, 0, 0);
     QString ret = sBuffer;
+
+//   sleepMs(1);
+
     return ret;
 }
 
@@ -51,14 +63,24 @@ void clsControlBox::setFail()
     openRelay(1);
 }
 
-void clsControlBox::setBDA()
+void clsControlBox::setBusy()
 {
     shortRelay(2);
 }
 
-void clsControlBox::resetBDA()
+void clsControlBox::resetBusy()
 {
     openRelay(2);
+}
+
+void clsControlBox::emitBDA()
+{
+
+    openRelay(3);
+    //Delay somethime
+    sleepMs(25);
+    shortRelay(3);
+
 }
 
 
@@ -79,11 +101,11 @@ bool clsControlBox::getInputSignal(int port)
         while((getInput(port)!="0") && (!blStop))
         {
             qApp->processEvents();
-            sleepMs(10);
+            sleepMs(1);
         }
-     //   qDebug()<<"1";
+        //   qDebug()<<"1";
     }
-   // qDebug()<<"11";
+    // qDebug()<<"11";
 
     if(blStop)
         return false;
@@ -93,7 +115,7 @@ bool clsControlBox::getInputSignal(int port)
     {
         qApp->processEvents();
         emit showStatus(tr("等待开关闭合..."));
-        sleepMs(10);
+        sleepMs(1);
     }
     if(blStop)
         return false;
@@ -102,13 +124,13 @@ bool clsControlBox::getInputSignal(int port)
     {
         qApp->processEvents();
         emit showStatus(tr("等待开关放开..."));
-        sleepMs(10);
+        sleepMs(1);
     }
 
     if(blStop)
         return false;
-   // qDebug()<<"2";
-    sleepMs(20);
+    // qDebug()<<"2";
+    sleepMs(1);
     status=getInput(port).toInt();
 
     if(status==0)

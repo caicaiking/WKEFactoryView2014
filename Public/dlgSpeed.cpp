@@ -1,10 +1,18 @@
 ﻿#include "dlgSpeed.h"
+#include "NumberInput.h"
+#include "clsRuningSettings.h"
 
 dlgSpeed::dlgSpeed(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
-     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+
+
+    if(clsRS::getInst().meterSeries == "6500")
+        btnCustomer->setVisible(true);
+    else
+        btnCustomer->setVisible(false);
 }
 
 void dlgSpeed::on_btnMax_clicked()
@@ -15,18 +23,32 @@ void dlgSpeed::on_btnMax_clicked()
 
 void dlgSpeed::on_btnFast_clicked()
 {
-     Speed =tr("快速");
+    Speed =tr("快速");
     this->accept();
 }
 
 void dlgSpeed::on_btnMed_clicked()
 {
-     Speed =tr("中速");
+    Speed =tr("中速");
     this->accept();
 }
 
 void dlgSpeed::on_btnSlow_clicked()
 {
-     Speed =tr("慢速");
+    Speed =tr("慢速");
     this->accept();
+}
+
+void dlgSpeed::on_btnCustomer_clicked()
+{
+    NumberInput *dlg = new NumberInput(this);
+    dlg->setWindowTitle(tr("设置测试速度1~255"));
+
+    if(dlg->exec())
+    {
+        Speed = QString::number(int(dlg->getNumber()));
+
+        this->btnCustomer->setText(Speed);
+        this->accept();
+    }
 }
