@@ -21,7 +21,7 @@ ui_*.h
 Makefile*
 *-build-*
 /libs/WKEFactoryView2014.exe
-/libs/*
+libs/*
 
 # QtCreator
 

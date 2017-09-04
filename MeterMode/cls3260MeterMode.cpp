@@ -25,13 +25,13 @@ cls3260MeterMode::cls3260MeterMode(WKEMeterMode *parent) :
     connect(lblRdc,SIGNAL(Clicked()),this,SLOT(limitRdcClick()));
 
     strDescription = tr("空白");
-    item1="Z";
-    item2="θ";
+    item1="L";
+    item2="Q";
     enableMinor=true;
-    level =1;
+    level =0.1;
     alcStatus = "ALC OFF";
     levelType="V";
-    frequency=10000;
+    frequency=100000;
     blBiasStatus= false;
     range = tr("自动");
     rangeRdc = tr("自动");
