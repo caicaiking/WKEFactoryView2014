@@ -23,7 +23,7 @@ Makefile*
 ./libs/WKEFactoryView2014.exe
 ./libs/*
 
-libs
+libs/*
 
 # QtCreator
 
