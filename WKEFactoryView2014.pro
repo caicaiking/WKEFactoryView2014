@@ -26,7 +26,7 @@ INCLUDEPATH +=connections \
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = WKEFactoryView2014
+TARGET = KEFactoryView2014
 DESTDIR =$$PWD/libs/
 TEMPLATE = app
 
