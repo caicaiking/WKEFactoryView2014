@@ -38,6 +38,8 @@ wkResonaceMode::wkResonaceMode(QWidget *parent) :
     connect(thread,SIGNAL(initOk()),this,SLOT(threadInfo()));
     connect(thread,SIGNAL(trigCaptured()),this,SLOT(trig()));
     thread->start(QThread::HighPriority);
+
+    btnInfo->setVisible(false);
 }
 
 

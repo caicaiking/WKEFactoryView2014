@@ -30,6 +30,7 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
 {
     setupUi(this);
     btnHelp->setVisible(false);
+    lblLogo->setVisible(false);
     initPlot();
 
     this->statusBar()->setVisible(false);
