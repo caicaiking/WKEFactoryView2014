@@ -170,7 +170,8 @@ SOURCES +=\
     AnalysisMode/Qextserial/qextserialport.cpp \
     AnalysisMode/Qextserial/qextserialport_win.cpp \
     AnalysisMode/clsPowerSupply.cpp \
-    MeterMode/AddtionOperation/cls6500TurnOffScreen.cpp
+    MeterMode/AddtionOperation/cls6500TurnOffScreen.cpp \
+    MeterMode/clsGenerateSteps.cpp
 
 RESOURCES += \
     recFile/myRes.qrc
@@ -344,7 +345,8 @@ HEADERS += \
     AnalysisMode/Qextserial/qextserialport.h \
     AnalysisMode/Qextserial/qextserialport_global.h \
     AnalysisMode/Qextserial/qextserialport_p.h \
-    MeterMode/AddtionOperation/cls6500TurnOffScreen.h
+    MeterMode/AddtionOperation/cls6500TurnOffScreen.h \
+    MeterMode/clsGenerateSteps.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \
@@ -415,7 +417,8 @@ FORMS += \
     AnalysisMode/clsBiasAOperation.ui \
     AnalysisMode/clsSampleTest.ui \
     MulitChannalBox/clsStandardValueInput.ui \
-    AnalysisMode/clsRetryDialog.ui
+    AnalysisMode/clsRetryDialog.ui \
+    MeterMode/clsGenerateSteps.ui
 
 
 TRANSLATIONS = recFile/Translation/WKEFV_EN.ts \

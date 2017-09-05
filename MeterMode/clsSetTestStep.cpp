@@ -4,6 +4,7 @@
 #include <QLayout>
 #include <QBoxLayout>
 #include <QDebug>
+#include "clsGenerateSteps.h"
 
 #include "UserfulFunctions.h"
 clsSetTestStep::clsSetTestStep(QWidget *parent) :
@@ -293,3 +294,34 @@ void clsSetTestStep::on_btnSingle_clicked()
     meter->singleTrig();
     lblStar->setText("");
 }
+void clsSetTestStep::on_btnGenerateSteps_clicked()
+{
+    clsGenerateSteps *dlg = new clsGenerateSteps(this);
+    if(dlg->exec() == QDialog::Accepted)
+    {
+        qDebug()<<"That is some right";
+    }
+    else
+        return ;
+
+    QList<double> points;
+
+
+    points << 100000 << 200000<< 300000 << 400000;
+
+    foreach (double pt, points) {
+
+        WKEMeterMode * tmpMeter = clsMeterModeFactory::getFunction(clsRS::getInst().meterSeries);
+        tmpMeter->setCondition(meter->getConditon());
+        tmpMeter->setItemValue(Frequency, pt);
+        meter->setCondition(tmpMeter->getConditon());
+
+        steps.append(tmpMeter);
+
+    }
+
+
+    showTaskList();
+    tbTaskList->setCurrentCell(tbTaskList->rowCount()-1,0);
+}
+

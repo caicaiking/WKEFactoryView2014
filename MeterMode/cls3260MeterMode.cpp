@@ -520,6 +520,31 @@ QString cls3260MeterMode::getBias()
     return this->btnBiasValue->text() + " " + btnBiasOnOFF->text();
 }
 
+void cls3260MeterMode::setItemValue(SweepType t, double value)
+{
+    switch (t) {
+    case Frequency:
+        this->frequency = value;
+        break;
+    case BiasA:
+        this->biasValue = value;
+        break;
+
+    case levelA:
+        this->level = value;
+        this->levelType = "A";
+        break;
+
+    case levelV:
+        this->level = value;
+        this->levelType = "V";
+        break;
+    default:
+        break;
+    }
+
+    updateButtons();
+}
 
 double cls3260MeterMode::getResult(int i)
 {
