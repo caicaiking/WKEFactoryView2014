@@ -297,23 +297,19 @@ void clsSetTestStep::on_btnSingle_clicked()
 void clsSetTestStep::on_btnGenerateSteps_clicked()
 {
     clsGenerateSteps *dlg = new clsGenerateSteps(this);
-    if(dlg->exec() == QDialog::Accepted)
+    if(dlg->exec() == QDialog::Rejected)
     {
-        qDebug()<<"That is some right";
+        return;
     }
-    else
-        return ;
 
-    QList<double> points;
-
-
-    points << 100000 << 200000<< 300000 << 400000;
+    SweepType changeType = dlg->getType();
+    QList<double> points = dlg->getPoints();
 
     foreach (double pt, points) {
 
         WKEMeterMode * tmpMeter = clsMeterModeFactory::getFunction(clsRS::getInst().meterSeries);
         tmpMeter->setCondition(meter->getConditon());
-        tmpMeter->setItemValue(Frequency, pt);
+        tmpMeter->setItemValue(changeType, pt);
         meter->setCondition(tmpMeter->getConditon());
 
         steps.append(tmpMeter);
