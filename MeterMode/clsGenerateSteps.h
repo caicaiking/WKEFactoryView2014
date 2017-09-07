@@ -34,9 +34,12 @@ private:
     bool log;
     int point;
     QList<double> points;
+    QString fileName;
 
     void updateButtons();
     void showPoints();
+    void readSettings();
+    void writeSettings();
 };
 
 #endif // CLSGENERATESTEPS_H

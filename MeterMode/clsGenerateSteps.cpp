@@ -4,6 +4,8 @@
 #include "math.h"
 #include "UserfulFunctions.h"
 #include <QFileDialog>
+#include "clsSettings.h"
+
 clsGenerateSteps::clsGenerateSteps(QWidget *parent) :
     QDialog(parent)
 {
@@ -17,7 +19,11 @@ clsGenerateSteps::clsGenerateSteps(QWidget *parent) :
     point =2;
 
     points.clear();
+
+    readSettings();
+
     updateButtons();
+
 }
 
 SweepType clsGenerateSteps::getType()
@@ -63,6 +69,7 @@ void clsGenerateSteps::on_btnCancel_clicked()
 
 void clsGenerateSteps::on_btnOk_clicked()
 {
+    this->writeSettings();
     this->accept();
 }
 
@@ -154,7 +161,7 @@ void clsGenerateSteps::on_btnGenerate_clicked()
 
 void clsGenerateSteps::on_btnOpenDataFile_clicked()
 {
-    QString fileName=QFileDialog::getOpenFileName(this,tr("打开数据文件"),"./",tr("文本文件(*.txt)"));
+    fileName=QFileDialog::getOpenFileName(this,tr("打开数据文件"),fileName,tr("文本文件(*.txt)"));
 
     QFile file(fileName);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -260,6 +267,45 @@ void clsGenerateSteps::showPoints()
         tabDataList->setItem(1,i, item2);
     }
 
+}
+
+void clsGenerateSteps::readSettings()
+{
+    clsSettings settings;
+    QString strNode = "GenerateSteps/";
+
+    int tmp;
+    settings.readSetting(strNode + "changeItem",tmp);
+    this->changeValue = (SweepType) tmp;
+
+    if(changeValue < (SweepType)1)
+        changeValue =(SweepType)1;
+
+
+    settings.readSetting(strNode + "start", this->start);
+    settings.readSetting(strNode + "stop", this->stop);
+    settings.readSetting(strNode + "point", this->point);
+    if(point <2)
+        point =2;
+    settings.readSetting(strNode + "log", this->log);
+    settings.readSetting(strNode + "file", this->fileName);
+
+    settings.readSetting(strNode + "points", this->points);
+}
+
+void clsGenerateSteps::writeSettings()
+{
+
+    clsSettings settings;
+    QString strNode = "GenerateSteps/";
+
+    settings.writeSetting(strNode + "changeItem", this->changeValue);
+    settings.writeSetting(strNode + "start", this->start);
+    settings.writeSetting(strNode + "stop", this->stop);
+    settings.writeSetting(strNode + "point", this->point);
+    settings.writeSetting(strNode + "log", this->log);
+    settings.writeSetting(strNode + "file", this->fileName);
+    settings.writeSetting(strNode + "points", this->points);
 }
 
 void clsGenerateSteps::on_chkLog_toggled(bool checked)
