@@ -908,6 +908,22 @@ QString cls4100MeterMode::getLevel()
     return this->btnTest1Level->text();
 }
 
+void cls4100MeterMode::setItemValue(SweepType t, double value)
+{
+      switch (t) {
+    case Frequency:
+        this->test1Freq = value;
+        break;
+    case levelV:
+        this->levelTest1Ac = value;
+        break;
+    default:
+        break;
+    }
+
+    updateButtons();
+}
+
 void cls4100MeterMode::on_btnTest1Frequency_clicked()
 {
     NumberInput *dlg = new NumberInput(this);

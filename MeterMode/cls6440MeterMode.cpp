@@ -662,6 +662,28 @@ QString cls6440MeterMode::getLevel()
     return this->btnLevel->text();
 }
 
+void cls6440MeterMode::setItemValue(SweepType t, double value)
+{
+     switch (t) {
+    case Frequency:
+        this->frequency = value;
+        break;
+    case levelA:
+        this->level = value;
+        this->levelType = "A";
+        break;
+
+    case levelV:
+        this->level = value;
+        this->levelType = "V";
+        break;
+    default:
+        break;
+    }
+
+    updateButtons();
+}
+
 
 double cls6440MeterMode::getResult(int i)
 {

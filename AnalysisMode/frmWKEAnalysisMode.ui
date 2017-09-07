@@ -913,6 +913,28 @@ ON</string>
      </widget>
     </item>
     <item>
+     <widget class="QProgressBar" name="progressBar">
+      <property name="maximumSize">
+       <size>
+        <width>7888888</width>
+        <height>5</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>楷体</family>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="value">
+       <number>24</number>
+      </property>
+      <property name="textVisible">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2">
       <item>
        <widget class="QPushButton" name="btnFreq">
@@ -1109,19 +1131,6 @@ ON</string>
          </size>
         </property>
        </spacer>
-      </item>
-      <item>
-       <widget class="QProgressBar" name="progressBar">
-        <property name="font">
-         <font>
-          <family>楷体</family>
-          <pointsize>11</pointsize>
-         </font>
-        </property>
-        <property name="value">
-         <number>24</number>
-        </property>
-       </widget>
       </item>
       <item>
        <widget class="QLabel" name="lblDisplayMsg">

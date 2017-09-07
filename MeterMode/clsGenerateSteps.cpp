@@ -5,12 +5,23 @@
 #include "UserfulFunctions.h"
 #include <QFileDialog>
 #include "clsSettings.h"
-
+#include "clsRuningSettings.h"
 clsGenerateSteps::clsGenerateSteps(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+
+    if(clsRS::getInst().meterSeries == "6440")
+    {
+        btnBiasA->setVisible(false);
+    }
+
+    if(clsRS::getInst().meterSeries == "4300")
+    {
+        btnBiasA->setVisible(false);
+        btnLevelA->setVisible(false);
+    }
 
     this->changeValue = Frequency;
     start =0;
