@@ -30,6 +30,9 @@ private slots:
     void on_btnClear_clicked();
     void on_btnSingle_clicked();
     void enableSingleTestButton(bool value);
+    //生成一系列的测试步骤
+    void on_btnGenerateSteps_clicked();
+
 private:
     WKEMeterMode *meter;
 

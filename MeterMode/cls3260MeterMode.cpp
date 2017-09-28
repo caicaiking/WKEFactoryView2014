@@ -25,13 +25,13 @@ cls3260MeterMode::cls3260MeterMode(WKEMeterMode *parent) :
     connect(lblRdc,SIGNAL(Clicked()),this,SLOT(limitRdcClick()));
 
     strDescription = tr("空白");
-    item1="Z";
-    item2="θ";
+    item1="L";
+    item2="Q";
     enableMinor=true;
-    level =1;
+    level =0.1;
     alcStatus = "ALC OFF";
     levelType="V";
-    frequency=10000;
+    frequency=100000;
     blBiasStatus= false;
     range = tr("自动");
     rangeRdc = tr("自动");
@@ -239,7 +239,7 @@ QString cls3260MeterMode::getConditon()
 void cls3260MeterMode::updateGPIB()
 {
     QString meter=getMeter();
-    if(tabMeter->currentIndex()==0)
+    if(tabMeter->currentIndex()==0) //AC mode
     {
         if(clsRS::getInst().gpibCommands.testMode !="AC")
         {
@@ -302,8 +302,9 @@ void cls3260MeterMode::updateGPIB()
             gpibCmd.append(meter+":BIAS EEXT");
 
         gpibCmd.append(meter+":I-SWEEP "+biasSpeed.toUpper());
-        gpibCmd.append(meter+":BIAS "+ QString::number(this->biasValue));
-
+        gpibCmd.append(meter+":BIAS "+ QString::number(this->biasValue)); //生成Bias值命令
+        if(biasValue ==0.00)                                              //当且仅当Bias值为0是设置Bias的状态为关闭
+            blBiasStatus = false;
         //change Bias condition to GPIB commands.
 
 
@@ -346,6 +347,9 @@ void cls3260MeterMode::updateGPIB()
             }
         }
 
+        if(biasValue == 0.00)
+            blBiasStatus = false;                     //当且仅当Bias值为0是设置Bias的状态为关闭
+
         clsRS::getInst().gpibCommands.gpibTest1 = gpibCmd;
 
         QString tmpBiasString;
@@ -374,7 +378,7 @@ void cls3260MeterMode::updateGPIB()
         updateButtons();
     }
 
-    else
+    else //RDC Mode start
     {
         if(clsRS::getInst().gpibCommands.testMode !="RDC")
         {
@@ -520,6 +524,31 @@ QString cls3260MeterMode::getBias()
     return this->btnBiasValue->text() + " " + btnBiasOnOFF->text();
 }
 
+void cls3260MeterMode::setItemValue(SweepType t, double value)
+{
+    switch (t) {
+    case Frequency:
+        this->frequency = value;
+        break;
+    case BiasA:
+        this->biasValue = value;
+        break;
+
+    case levelA:
+        this->level = value;
+        this->levelType = "A";
+        break;
+
+    case levelV:
+        this->level = value;
+        this->levelType = "V";
+        break;
+    default:
+        break;
+    }
+
+    updateButtons();
+}
 
 double cls3260MeterMode::getResult(int i)
 {

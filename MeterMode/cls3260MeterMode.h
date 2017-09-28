@@ -34,6 +34,7 @@ public:
     QString getEqucct();              //获取测试等效电路
     QString getLevel();               //获取测试的电平
     QString getBias();                //获取Bias值
+    void setItemValue(SweepType t, double value);	  //用于生成一系列的测试步骤用
 signals:
 
 private slots:

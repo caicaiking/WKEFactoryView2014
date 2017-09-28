@@ -382,6 +382,8 @@ void cls6500MeterMode::updateLCRGpib()
     {
         gpibCmd.append(meter+"BIAS-TYPE "+"VOL"+";");
         gpibCmd.append(meter+"BIAS "+QString::number(biasVValue)+";");
+        if(biasVValue ==0.00)
+            strBiasStatus = tr("关");
     }
     else
     {
@@ -390,6 +392,8 @@ void cls6500MeterMode::updateLCRGpib()
 
         gpibCmd.append(meter+"BIAS-TYPE "+"CUR"+";");
         gpibCmd.append(meter+"BIAS "+QString::number(biasAValue)+";");
+        if(biasAValue ==0.00)
+            strBiasStatus = tr("关");
     }
 
     QString biasCmd;
@@ -823,6 +827,32 @@ QString cls6500MeterMode::getEqucct()
 QString cls6500MeterMode::getLevel()
 {
     return this->btnLevel->text();
+}
+
+void cls6500MeterMode::setItemValue(SweepType t, double value)
+{
+        switch (t) {
+    case Frequency:
+        this->frequency = value;
+        break;
+    case BiasA:
+        this->biasAValue = value;
+        break;
+
+    case levelA:
+        this->levelAValue = value;
+        this->levelType = "A";
+        break;
+
+    case levelV:
+        this->levelVValue = value;
+        this->levelType = "V";
+        break;
+    default:
+        break;
+    }
+
+    updateButtons();
 }
 
 
