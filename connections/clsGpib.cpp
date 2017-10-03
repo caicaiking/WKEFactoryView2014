@@ -166,57 +166,61 @@ QString clsGpib::sendCommand(QString strCommand, bool hasReturn, int /*waitDelay
     //New Method to do gpib control
     ibwrt(this->intBoardDescriptor, cmd,cmdLength);
 
+    if(hasReturn == false)
+        return "";
+
+
     short int status;
     char pollStatus;
 
-//    WaitSRQ(GPIBBOARD, &status);
-//    if(!status)
-//    {
-//        qDebug()<<"Error while Wati SRQ";
-//        return "";
-//    }
+    //    WaitSRQ(GPIBBOARD, &status);
+    //    if(!status)
+    //    {
+    //        qDebug()<<"Error while Wati SRQ";
+    //        return "";
+    //    }
 
-//    if(ibsta & ERR)
-//    {
-//        qDebug()<<"ibsta shows error under WaitSRQ";
-//        return "";
-//    }
+    //    if(ibsta & ERR)
+    //    {
+    //        qDebug()<<"ibsta shows error under WaitSRQ";
+    //        return "";
+    //    }
 
-//    status = ibrsp(this->intBoardDescriptor, & pollStatus);
-//    if(ibsta & ERR)
-//    {
-//        qDebug()<<"ibsta shows error under ibrsp";
-//        return "";
-//    }
+    //    status = ibrsp(this->intBoardDescriptor, & pollStatus);
+    //    if(ibsta & ERR)
+    //    {
+    //        qDebug()<<"ibsta shows error under ibrsp";
+    //        return "";
+    //    }
 
     char buffer[128];
     const int bufsize=128;
 
-//    if(pollStatus & 0x40)
-//    {
-        //Bit 6 of the pollStatus indicates whatever the device has data or not
-        (void) ibrd(this->intBoardDescriptor, buffer,bufsize);
+    //    if(pollStatus & 0x40)
+    //    {
+    //Bit 6 of the pollStatus indicates whatever the device has data or not
+    (void) ibrd(this->intBoardDescriptor, buffer,bufsize);
 
-        if(ibsta & ERR)
+    if(ibsta & ERR)
+    {
+        qDebug()<<"Read data Error";
+        return "";
+    }
+    else
+    {
+        buffer[ibcntl-1] = 0x00;
+        QString str= QString(buffer);
+
+        if(!str.isEmpty())  //在前一段时间发现，6500的返回值前面多了一个‘N’这个非常奇怪。
         {
-            qDebug()<<"Read data Error";
-            return "";
-        }
-        else
-        {
-            buffer[ibcntl-1] = 0x00;
-            QString str= QString(buffer);
-
-            if(!str.isEmpty())  //在前一段时间发现，6500的返回值前面多了一个‘N’这个非常奇怪。
-            {
-                if(str.at(0) =='N')
-                    str= str.remove(0,1);
-            }
-
-            return str;
+            if(str.at(0) =='N')
+                str= str.remove(0,1);
         }
 
-//    }
+        return str;
+    }
+
+    //    }
 
 
 
