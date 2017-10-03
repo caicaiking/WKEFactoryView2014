@@ -906,18 +906,11 @@ ON</string>
      </layout>
     </item>
     <item>
-     <widget class="Line" name="line_2">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-     </widget>
-    </item>
-    <item>
      <widget class="QProgressBar" name="progressBar">
       <property name="maximumSize">
        <size>
-        <width>7888888</width>
-        <height>5</height>
+        <width>16777215</width>
+        <height>4</height>
        </size>
       </property>
       <property name="font">
@@ -931,6 +924,13 @@ ON</string>
       </property>
       <property name="textVisible">
        <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="Line" name="line_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
       </property>
      </widget>
     </item>
