@@ -78,7 +78,7 @@ QString clsLan::sendCommand(QString strCommand, bool hasReturn, int waitDaly)
     if(!blInit)
         return "";
 
-    if(this->intPort == WK4300PORT)
+    //if(this->intPort == WK4300PORT)
         strCommand = strCommand.append("\r\n");
 
 
@@ -121,13 +121,9 @@ QString clsLan::sendCommand(QString strCommand, bool hasReturn, int waitDaly)
         else
             socket->waitForReadyRead(waitDaly*3000);
 
+        QByteArray resBuff = socket->readAll();
 
-        char buff[200];
-        int byte = socket->readLine(buff,200);
-        if(byte>=0)
-            buff[byte]='\0';
-
-        QString res = QString(buff);
+        QString res = QString(resBuff);
 
         if(socket->state() != QAbstractSocket::ConnectedState)
         {
