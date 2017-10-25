@@ -88,7 +88,7 @@ void frmSelectConnection::on_btnTest_clicked()
         {
             clsRS::getInst().instrumentModel=ls.at(1).trimmed();
 
-            QRegExp rx("[PMIA]*([0-9]+)([BPA]?Q{0,})");
+            QRegExp rx("[PMIA]*([0-9]+)([BPA]?[QL]{0,})");
             if(rx.exactMatch(clsRS::getInst().instrumentModel))
             {
                 QRegExp rx4100 ("^4[13][0-9]*");
@@ -112,7 +112,7 @@ void frmSelectConnection::on_btnTest_clicked()
                     goto ToHere;
                 }
 
-                QRegExp rx3255 ("^IA3255[BA]Q{0,}");
+                QRegExp rx3255 ("^IA3255[BA][QL]{0,}");
                 if(rx3255.exactMatch(clsRS::getInst().instrumentModel))
                 {
                     clsRS::getInst().meterSeries="3255";
