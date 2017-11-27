@@ -25,6 +25,7 @@
 #include "clsSampleTest.h"
 #include <windows.h>
 #include "clsCalibrationDbOp.h"
+#include "clsAdditionOpFactory.h"
 frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     QMainWindow(parent)
 {
@@ -57,6 +58,7 @@ frmWKEAnalysisMode::frmWKEAnalysisMode(QWidget *parent) :
     btnMaterialSettings->setVisible(this->getMaterialOption());
 
 
+    btnTurnOffDisplay->setVisible(clsRS::getInst().meterSeries =="6500" || clsRS::getInst().meterSeries == "6440");
 }
 
 void frmWKEAnalysisMode::setDemoVersion(bool value)
@@ -1108,4 +1110,18 @@ void frmWKEAnalysisMode::on_btnContactTest_clicked()
 void frmWKEAnalysisMode::on_btnOpenPercentage_toggled(bool checked)
 {
     plot->setShowPercetage(checked);
+}
+
+void frmWKEAnalysisMode::on_btnTurnOffDisplay_clicked(bool checked)
+{
+     btnTurnOffDisplay->setText(checked? tr("打开\n显示"):tr("关闭\n显示"));
+
+    QString strConditon = (checked? "ON":"OFF");
+
+    clsAdditionOP * tmp = clsAddtionOpFactory::getAddtionOp(clsRS::getInst().meterSeries);
+    tmp->setConditon(strConditon);
+    tmp->doOperation();
+
+    delete tmp;
+
 }

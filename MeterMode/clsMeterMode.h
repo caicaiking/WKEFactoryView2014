@@ -96,7 +96,6 @@ private slots:
     void on_btnStepStop_clicked();
 
     void on_btnTurnOffDisplay_clicked(bool checked);
-
 protected:
     void closeEvent(QCloseEvent *);
     void keyPressEvent(QKeyEvent *e);

@@ -171,7 +171,8 @@ SOURCES +=\
     AnalysisMode/Qextserial/qextserialport_win.cpp \
     AnalysisMode/clsPowerSupply.cpp \
     MeterMode/AddtionOperation/cls6500TurnOffScreen.cpp \
-    MeterMode/clsGenerateSteps.cpp
+    MeterMode/clsGenerateSteps.cpp \
+    MeterMode/AddtionOperation/cls6440TurnOffScreen.cpp
 
 RESOURCES += \
     recFile/myRes.qrc
@@ -346,7 +347,9 @@ HEADERS += \
     AnalysisMode/Qextserial/qextserialport_global.h \
     AnalysisMode/Qextserial/qextserialport_p.h \
     MeterMode/AddtionOperation/cls6500TurnOffScreen.h \
-    MeterMode/clsGenerateSteps.h
+    MeterMode/clsGenerateSteps.h \
+    MeterMode/AddtionOperation/cls6440TurnOffScreen.h \
+    MeterMode/AddtionOperation/clsAdditionOpFactory.h
 FORMS += \
     common/frmSelectConnection.ui \
     AnalysisMode/clsFit.ui \

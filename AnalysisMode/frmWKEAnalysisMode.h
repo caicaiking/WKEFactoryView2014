@@ -71,6 +71,8 @@ private slots:
     void on_btnContactTest_clicked();
     void on_btnOpenPercentage_toggled(bool checked);
 
+    void on_btnTurnOffDisplay_clicked(bool checked);
+
 private:
     Plot *plot;
     void initPlot();
