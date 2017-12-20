@@ -82,7 +82,7 @@ int clsPortListener::sendCommand(QString value)
     if( port->waitForReadyRead(1000))
     {
         QString readValue(port->readAll());
-
+        qDebug()<< readValue;
         bool ok;
         int intRet = readValue.toInt(&ok);
         if(ok)

@@ -6,7 +6,7 @@
 #define MyAppName "WKE FactoryView 2014"#define MyAppPublisher "Wayne Kerr Electronics"
 #define MyAppURL "http://www.waynekerrtest.com/"
 #define MyAppExeName "WKEFactoryView2014.exe"
-#define SpecialCompanyVersion "-DisplayONOFF"
+#define SpecialCompanyVersion "-DisplayONOFF-BiasMessageRemove-2"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.

@@ -54,8 +54,8 @@ public:
 
         if(isLocked)
         {
-            lock.unlock();
             strReturn= cont->sendCommand(strCommnad,hasReturn,delay);
+            lock.unlock();
         }
         mutex.unlock();
 
