@@ -14,7 +14,7 @@ wk4300AnalysisMeter::wk4300AnalysisMeter(WKEInstrument *parent) :
     WKEInstrument(parent)
 {
     setupUi(this);
- setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     readSettings();
 }
 
@@ -164,7 +164,7 @@ void wk4300AnalysisMeter::readSettings()
 void wk4300AnalysisMeter::saveSettings()
 {
     clsSettings settings;
-   QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterSeries);
+    QString strNode=QString("Analysis-%1/").arg(clsRS::getInst().meterSeries);
     settings.writeSetting(strNode+"Item1",item1);
     settings.writeSetting(strNode+"Item2",item2);
     settings.writeSetting(strNode +"Equcct",equcct);
@@ -217,7 +217,7 @@ bool wk4300AnalysisMeter::turnOnBias()
 QString wk4300AnalysisMeter::trig()
 {
 
-   // UserfulFunctions::sleepMs(400);
+    // UserfulFunctions::sleepMs(400);
 
     QString strRes=clsRS::getInst().sendCommand(":MEAS:TRIG",true);
     return strRes+",";
@@ -542,7 +542,6 @@ void wk4300AnalysisMeter::on_btnBiasSource_clicked()
 
 bool wk4300AnalysisMeter::queryBiasStatus()
 {
-    return true;
     QString meter=":MEAS:";
     QString gpibCmd="";
     gpibCmd.append(meter+"BIAS-STAT?");
@@ -568,9 +567,9 @@ bool wk4300AnalysisMeter::queryBiasStatus()
     }
     else
     {
-//        QMessageBox::warning(this,tr("WKE FactoryView 2014"),
-//                             tr("不能正确的查询Bias的状态，请检查连接。"),
-//                             QMessageBox::Ok);
+        QMessageBox::warning(this,tr("WKE FactoryView 2014"),
+                             tr("不能正确的查询Bias的状态，请检查连接。"),
+                             QMessageBox::Ok);
         biasONOFF=false;
         emit biasStatusSignal(biasONOFF);
         saveSettings();
@@ -651,10 +650,6 @@ void wk4300AnalysisMeter::updateButtons()
     btnBiasSource->setText(biasType);
     btnSpeed->setText(Speed);
 }
-
-
-
-
 
 void wk4300AnalysisMeter::on_btnCacel_clicked()
 {
