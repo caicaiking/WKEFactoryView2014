@@ -497,7 +497,7 @@ void frmTraceSetup::on_btnPoints_clicked()
 
     //跟原来的点数进行比对
 
-    if(tmp.points == gsetup.points)
+    if(tmp.points.length() == gsetup.points.length())
     {
         if(tmp.logX!= gsetup.logX || tmp.xmin!=gsetup.xmin || tmp.xmax != gsetup.xmax)
         {
