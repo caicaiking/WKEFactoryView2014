@@ -6,7 +6,7 @@
 #include <clsRefTraceProperty.h>
 #include <qwt_plot_curve.h>
 #include "clsCurveLimit.h"
-
+#include <qwt_legend.h>
 
 class QwtPlotCurve;
 class QwtPlotMarker;
@@ -29,9 +29,6 @@ public:
                   const QVector<double> & curve2);
     void autoScale(Choice choice);
     void setGraphTitle(const QString &);
-    void addNewCurve(const int index, const QColor curColor1,
-                     const QString curTitle1, const QString curColor2,
-                     const bool OnOrOff);
     void setTraceA(const QString & value);
     void setTraceB(const QString & value);
     void setXTrace(const QString & value);

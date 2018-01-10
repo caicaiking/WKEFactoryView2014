@@ -4,105 +4,6 @@
 #include <QFileDialog>
 
 
-void clsSelectedRefProperty::setTraceColors(QColor traceA, QColor traceB)
-{
-    btnTraceA->setAutoFillBackground(true);
-    btnTraceA->setStyleSheet(getColorSheet(traceA));
-
-    btnTraceB->setAutoFillBackground(true);
-    btnTraceB->setStyleSheet(getColorSheet(traceB));
-
-    this->traceA=traceA;
-    this->traceB=traceB;
-}
-
-curveProperty clsSelectedRefProperty::getCurveProperty()
-{
-    this->title = txtTitle->text();
-    curveProperty pt(this->index,this->traceA,this->traceB,this->title,this->isOn,refTraceType,x,y1,y2);
-    return pt;
-}
-
-void clsSelectedRefProperty::on_btnOk_clicked()
-{
-    qApp->processEvents();
-
-    if(this->getCurveProperty()!=origin  && refTraceType==1)
-    {
-        emit refTraceChanged(getCurveProperty(),btnSaveCurrentCurve->isChecked());
-    }
-    else if(this->getCurveProperty()!=origin && refTraceType==2)
-    {
-        emit refTraceChanged(getCurveProperty(),x.toVector(),y1.toVector(),y2.toVector());
-    }
-
-    this->accept();
-}
-
-QString clsSelectedRefProperty::getColorSheet(QColor color)
-{
-    QString styleSheet =QString("background-color: rgb(%1, %2, %3)")
-            .arg(color.red()).arg(color.green())
-            .arg(color.blue());
-
-    return styleSheet;
-}
-
-void clsSelectedRefProperty::setTraceAColor()
-{
-    QColor color = QColorDialog::getColor(Qt::white, this);
-
-    QString styleSheet = getColorSheet(color);
-
-
-
-    btnTraceA->setStyleSheet(styleSheet);
-    this->traceA=color;
-
-}
-
-
-void clsSelectedRefProperty::setTraceBColor()
-{
-    QColor color = QColorDialog::getColor(Qt::white, this);
-    btnTraceB->setStyleSheet(getColorSheet(color));
-    this->traceB=color;
-}
-
-
-
-void clsSelectedRefProperty::on_btnStatus_clicked(bool checked)
-{
-    this->isOn= checked;
-    if(isOn)
-        btnStatus->setText("ON");
-    else
-        btnStatus->setText("OFF");
-}
-
-void clsSelectedRefProperty::updateTexts()
-{
-    this->btnIntSelected->setText(QString("%1").arg(this->index));
-    if(isOn)
-        btnStatus->setText("ON");
-    else
-        btnStatus->setText("OFF");
-    btnStatus->setChecked(isOn);
-
-    setTraceColors(this->traceA,this->traceB);
-
-
-    this->txtTitle->setText(this->title);
-
-    if(refTraceType==1)
-        btnSaveCurrentCurve->setChecked(true);
-    else
-        btnSaveCurrentCurve->setChecked(false);
-
-    this->update();
-}
-
-
 clsSelectedRefProperty::clsSelectedRefProperty(const curveProperty property,
                                                QWidget *parent) :
     QDialog(parent)
@@ -129,11 +30,120 @@ clsSelectedRefProperty::clsSelectedRefProperty(const curveProperty property,
     updateTexts();
 
     origin =property;
-
-
 }
 
 
+
+
+void clsSelectedRefProperty::setTraceColors(QColor traceA, QColor traceB)
+{
+    btnTraceA->setAutoFillBackground(true);
+    btnTraceA->setStyleSheet(getColorSheet(traceA));
+
+    btnTraceB->setAutoFillBackground(true);
+    btnTraceB->setStyleSheet(getColorSheet(traceB));
+
+    this->traceA=traceA;
+    this->traceB=traceB;
+}
+
+curveProperty clsSelectedRefProperty::getCurveProperty()
+{
+    this->title = (txtTitle->text().isEmpty()? btnIntSelected->text() : txtTitle->text());
+    curveProperty pt(this->index,this->traceA,this->traceB,this->title,this->isOn,refTraceType,x,y1,y2);
+    return pt;
+}
+
+void clsSelectedRefProperty::on_btnOk_clicked()
+{
+    qApp->processEvents();
+
+    if(this->getCurveProperty()!=origin  && refTraceType==1)
+    {
+        emit refTraceChanged(getCurveProperty(),true);
+    }
+    else if(this->getCurveProperty()!=origin  && refTraceType==2)
+    {
+        emit refTraceChanged(getCurveProperty(),false);
+    }
+    else if(this->getCurveProperty()!=origin && refTraceType==3)
+    {
+        emit refTraceChanged(getCurveProperty(),x.toVector(),y1.toVector(),y2.toVector());
+    }
+
+    this->accept();
+}
+
+QString clsSelectedRefProperty::getColorSheet(QColor color)
+{
+    QString styleSheet =QString("background-color: rgb(%1, %2, %3)")
+            .arg(color.red()).arg(color.green())
+            .arg(color.blue());
+
+    return styleSheet;
+}
+
+void clsSelectedRefProperty::setTraceAColor()
+{
+    QColor color = QColorDialog::getColor(Qt::white, this);
+    if(!color.isValid())
+        return;
+    QString styleSheet = getColorSheet(color);
+    btnTraceA->setStyleSheet(styleSheet);
+    this->traceA=color;
+}
+
+
+void clsSelectedRefProperty::setTraceBColor()
+{
+    QColor color = QColorDialog::getColor(Qt::white, this);
+    if(!color.isValid())
+        return;
+    btnTraceB->setStyleSheet(getColorSheet(color));
+    this->traceB=color;
+}
+
+
+
+void clsSelectedRefProperty::on_btnStatus_clicked(bool checked)
+{
+    this->isOn= checked;
+    if(isOn)
+        btnStatus->setText("ON");
+    else
+        btnStatus->setText("OFF");
+}
+
+void clsSelectedRefProperty::updateTexts()
+{
+    if(this->index != 0)
+    {
+        this->btnIntSelected->setText(QString("%1").arg(this->index));
+    }
+    else
+    {
+
+        this->btnIntSelected->setText(tr("默认"));
+    }
+    if(isOn)
+        btnStatus->setText("ON");
+    else
+        btnStatus->setText("OFF");
+
+    btnStatus->setChecked(isOn);
+
+    setTraceColors(this->traceA,this->traceB);
+
+
+    this->txtTitle->setText(this->title);
+
+    if(refTraceType==1)
+        btnSaveCurrentCurve->setChecked(true);
+    else
+        btnSaveCurrentCurve->setChecked(false);
+
+    this->update();
+}
 
 void clsSelectedRefProperty::on_txtTitle_lostFocus()
 {
@@ -172,7 +182,7 @@ void clsSelectedRefProperty::on_btnLoadDataFile_clicked()
     }
 
     file.close();
-    refTraceType=2;
+    refTraceType=3;
 }
 
 QList<double> clsSelectedRefProperty::lineProcess(QString strRes)

@@ -103,9 +103,6 @@ Plot::Plot(QWidget *parent) :
 
     setCurrentMarker(0);
 
-
-
-
     //上下限设定的Mark线
     traceAUpLimit = new QwtPlotMarker;
     traceADownLimit = new QwtPlotMarker;
@@ -119,6 +116,9 @@ Plot::Plot(QWidget *parent) :
     setXTrace(QString(tr("频率")));
     showPercetage=false;
 
+    //Add Legend
+    QwtLegend * legend1 = new QwtLegend(this);
+    this->insertLegend(legend1, QwtPlot::BottomLegend);
 
 }
 
@@ -211,53 +211,10 @@ void Plot::setGraphTitle(const QString & strTitle)
     this->setTitle(txt);
 }
 
-void Plot::addNewCurve(const int index,
-                       const QColor curColor1,
-                       const QString curTitle1,
-                       const QString curColor2,
-                       const bool OnOrOff)
-{
-
-    QwtPlotCurve *d_curve1;
-
-
-    d_curve1 = new QwtPlotCurve(curTitle1);
-    d_curve1->setRenderHint(QwtPlotItem::RenderAntialiased);
-    d_curve1->setPen(QPen(curColor1));
-    d_curve1->setLegendAttribute(QwtPlotCurve::LegendShowLine);
-    d_curve1->setYAxis(QwtPlot::yLeft);
-
-    QwtPlotCurve *d_curve2;
-    d_curve2 = new QwtPlotCurve(curTitle1);
-    d_curve2->setRenderHint(QwtPlotItem::RenderAntialiased);
-    d_curve2->setPen(QPen(curColor2));
-    d_curve2->setLegendAttribute(QwtPlotCurve::LegendShowLine);
-    d_curve2->setYAxis(QwtPlot::yRight);
-
-
-
-    PlotCurves cr;
-    cr.cur1=d_curve1;
-    cr.cur2=d_curve2;
-    curves.insert(index,cr);
-
-    if(OnOrOff)
-    {
-        curves.value(index).cur1->attach(this);
-        curves.value(index).cur2->attach(this);
-    }
-    else
-    {
-        curves.value(index).cur1->detach();
-        curves.value(index).cur2->detach();
-    }
-}
-
 //为了 Ref trace 使用的2
 void Plot::addNewCurve(curveProperty property, QVector<double> x, QVector<double> y1, QVector<double> y2)
 {
     // qDebug()<<"Ref index: " << property.index;
-
     if(curves.contains(property.index))
     {
         //qDebug()<<"Ref index: " << property.index<<"  user old curves";
@@ -295,16 +252,21 @@ void Plot::addNewCurve(curveProperty property, QVector<double> x, QVector<double
     curves.value(property.index).cur1->setSamples(UserfulFunctions::getPlotCurveData(x,y1).toVector());
     curves.value(property.index).cur2->setSamples(UserfulFunctions::getPlotCurveData(x,y2).toVector());
 
-
     if(property.isOn)
     {
         if(this->axisEnabled(QwtPlot::yLeft))
+        {
             curves.value(property.index).cur1->attach(this);
+            curves.value(property.index).cur1->show();
+                    }
         else
             curves.value(property.index).cur1->detach();
 
         if(this->axisEnabled(QwtPlot::yRight))
+        {
             curves.value(property.index).cur2->attach(this);
+            curves.value(property.index).cur2->show();
+        }
         else
             curves.value(property.index).cur2->detach();
     }
@@ -314,6 +276,7 @@ void Plot::addNewCurve(curveProperty property, QVector<double> x, QVector<double
         curves.value(property.index).cur2->detach();
     }
 
+
     this->replot();
 }
 
@@ -321,7 +284,6 @@ void Plot::addNewCurve(curveProperty property, QVector<double> x, QVector<double
 void Plot::addNewCurve(curveProperty property, bool isSetCurrent)
 {
     // qDebug()<<"Ref index: " << property.index;
-
     if(curves.contains(property.index))
     {
         //qDebug()<<"Ref index: " << property.index<<"  user old curves";
@@ -364,12 +326,20 @@ void Plot::addNewCurve(curveProperty property, bool isSetCurrent)
     if(property.isOn)
     {
         if(this->axisEnabled(QwtPlot::yLeft))
+        {
+
             curves.value(property.index).cur1->attach(this);
+            curves.value(property.index).cur1->setVisible(true);
+        }
         else
             curves.value(property.index).cur1->detach();
 
         if(this->axisEnabled(QwtPlot::yRight))
+        {
             curves.value(property.index).cur2->attach(this);
+            curves.value(property.index).cur2->setVisible(true);
+
+        }
         else
             curves.value(property.index).cur2->detach();
     }

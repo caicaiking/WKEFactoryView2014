@@ -32,7 +32,7 @@ public:
 
     QString toString()
     {
-        return QString("%1\t%2\t%3").arg(index).arg(title).arg(isOn);
+        return QString("%1 %2 %3").arg(index).arg(title).arg(isOn);
     }
 
     //忽略了标题的变化，对曲线的影响变化。

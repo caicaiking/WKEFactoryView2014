@@ -392,7 +392,7 @@ void frmWKEAnalysisMode::initPlot()
     //设置第0条去曲线的属性
     refTraces[0]= curveProperty(0,Qt::cyan,QColor::fromRgb(255,215,0),tr("默认"),true);
     //将第0条曲线添加到Plot
-    plot->addNewCurve(refTraces[0]);
+    plot->addNewCurve(refTraces[0], false);
     //将第0条曲线设置为最上面。
     plot->setToTop(refTraces[0],true);
 

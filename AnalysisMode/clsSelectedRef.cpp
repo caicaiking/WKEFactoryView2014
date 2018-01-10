@@ -105,3 +105,8 @@ void clsSelectedRef::on_btnCancel_clicked()
 {
     this->reject();
 }
+
+void clsSelectedRef::on_btnDefault_clicked()
+{
+  emit selected(0);
+}

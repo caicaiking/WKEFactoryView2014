@@ -50,7 +50,7 @@
         </property>
         <property name="font">
          <font>
-          <family>Times New Roman</family>
+          <family>楷体</family>
           <pointsize>12</pointsize>
          </font>
         </property>
