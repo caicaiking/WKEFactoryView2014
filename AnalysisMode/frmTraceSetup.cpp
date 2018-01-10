@@ -117,7 +117,7 @@ void frmTraceSetup::on_btnOk_clicked()
 
 
     //跟原来的点数进行比对
-    if(this->gsetup.points == tmp.points)
+    if(this->gsetup.points.length() == tmp.points.length())
     {
         if(tmp.logX!= gsetup.logX || tmp.xmin!=gsetup.xmin || tmp.xmax != gsetup.xmax)
         {
@@ -128,6 +128,7 @@ void frmTraceSetup::on_btnOk_clicked()
                                                                  tmp.points.length());
         }
     }
+
 
     this->gsetup.points = frmPointEditor::rmvPP(this->gsetup.points);
     writeSettings(this->gsetup);

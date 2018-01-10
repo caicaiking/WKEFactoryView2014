@@ -7,7 +7,7 @@ frmPointEditor::frmPointEditor(const double min, const double max,
     QDialog(parent)
 {
     setupUi(this);
- setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     this->min=min;
     this->max=max;
     this->blLog = blLog;
@@ -40,6 +40,7 @@ QList<double> frmPointEditor::getStaticPoints(const double min, const double max
 {
     if(numPoints<10)
         numPoints=10;
+
 
     QList<double> points;
     points.clear();
