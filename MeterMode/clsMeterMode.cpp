@@ -15,6 +15,7 @@
 #include <QMessageBox>
 #include "clsStatistics.h"
 #include "clsShowReport.h"
+#include <QSound>
 #include "clsAdditionOpFactory.h"
 clsMeterMode::clsMeterMode(QWidget *parent) :
     QMainWindow(parent)
@@ -546,6 +547,7 @@ RETEST:
 PASSTEST:
     lblStatus->setStatus(status);
 
+    playSound(status);
     //关闭Bias
     meter->turnOffBias();
     btnStepStop->setVisible(false);
@@ -799,6 +801,9 @@ void clsMeterMode::readSettings()
     settings.readSetting(strNode+"singleDisplay",this->mSettings.displayResultType);
     settings.readSetting(strNode+"FailPassDut",this->mSettings.failPass);
     settings.readSetting(strNode+"failRetest",this->mSettings.failRetestOnce);
+    settings.readSetting(strNode+"soundPass",this->mSettings.soundPass);
+    settings.readSetting(strNode+"soundFail",this->mSettings.soundFail);
+    settings.readSetting(strNode+"threshold",this->mSettings.threshold);
     settings.readSetting(strNode+"Sp",this->mSettings.sp);
 
     if(this->mSettings.sp.isEmpty())
@@ -824,6 +829,9 @@ void clsMeterMode::saveSettings()
     settings.writeSetting(strNode+"singleDisplay",this->mSettings.displayResultType);
     settings.writeSetting(strNode+"FailPassDut",this->mSettings.failPass);
     settings.writeSetting(strNode+"failRetest",this->mSettings.failRetestOnce);
+    settings.writeSetting(strNode+"soundPass",this->mSettings.soundPass);
+    settings.writeSetting(strNode+"soundFail",this->mSettings.soundFail);
+    settings.writeSetting(strNode+"threshold",this->mSettings.threshold);
     settings.writeSetting(strNode+"Sp",this->mSettings.sp);
 }
 
@@ -833,12 +841,12 @@ void clsMeterMode::on_btnStartDetect_clicked()
     isStop=true;
     while(isStop)
     {
-        UserfulFunctions::sleepMs(mSettings.preDelay);
 
-        if(meter->detectDut())
+        if(meter->detectDut(mSettings.threshold))
         {
-            UserfulFunctions::sleepMs(mSettings.lastDelay);
+            UserfulFunctions::sleepMs(mSettings.preDelay);
             trig();
+            UserfulFunctions::sleepMs(mSettings.lastDelay);
         }
         else
             goto Stop;
@@ -975,3 +983,23 @@ void clsMeterMode::on_btnTurnOffDisplay_clicked(bool checked)
 
 }
 
+void clsMeterMode::playSound(bool value)
+{
+    if(value )
+    {
+        if(mSettings.soundPass)
+        {
+            QSound * sound = new QSound(":/Sounds/pass.wav");
+            sound->play();
+        }
+    }
+    else
+    {
+        if(mSettings.soundFail)
+        {
+            QSound * sound = new QSound(":/Sounds/fail.wav");
+            sound->play();
+        }
+    }
+
+}

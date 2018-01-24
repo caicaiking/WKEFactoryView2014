@@ -29,6 +29,8 @@ struct MeterSettings
     bool displayResultType; //显示结果类型
     int startNumber; //开始号码
     QString sp; //分割数据
+    bool soundPass, soundFail;
+    int threshold;
 };
 
 

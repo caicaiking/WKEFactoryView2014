@@ -38,7 +38,7 @@ class WKEMeterMode : public QWidget
 public:
     explicit WKEMeterMode(QWidget *parent = 0);
 
-    virtual bool detectDut()=0;                 //用于探测样品
+    virtual bool detectDut(int threshold =0 )=0;//用于探测样品
     virtual void stopDetect()=0;                //停止探测样品
     virtual void setCondition(QString value)=0; //设置测试条件
     virtual QString getConditon()=0;            //获取测试设置
@@ -60,7 +60,7 @@ public:
     virtual QString getEqucct()=0;              //获取测试等效电路
     virtual QString getLevel()=0;               //获取测试的电平
     virtual QString getBias(){return "";}       //获取Bias值
-    virtual void setItemValue(SweepType t, double value){}	//设置某个值的变化（用于生成多个测试步骤）
+    virtual void setItemValue(SweepType t, double value){Q_UNUSED(t);Q_UNUSED(value);}	//设置某个值的变化（用于生成多个测试步骤）
 
     void addSomeAdditionOperation(clsAdditionOP *op)
     {

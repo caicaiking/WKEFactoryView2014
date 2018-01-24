@@ -50,6 +50,10 @@ void clsMeterModeSettings::setCondition(const MeterSettings &st)
     chkFailRetest->setChecked(st.failRetestOnce);
     this->cmbSp->setCurrentText(st.sp);
     rbSingleRes->setChecked(st.displayResultType);
+
+    chkSoundPass->setChecked(st.soundPass);
+    chkSoundFail->setChecked(st.soundFail);
+    cmbThreshold->setCurrentIndex(st.threshold);
 }
 
 MeterSettings clsMeterModeSettings::getCondition()
@@ -84,6 +88,9 @@ MeterSettings clsMeterModeSettings::getCondition()
 
     tmp.startNumber = txtStartNumber->value();
 
+    tmp.soundPass = chkSoundPass->isChecked();
+    tmp.soundFail = chkSoundFail->isChecked();
+    tmp.threshold = cmbThreshold->currentIndex();
     return tmp;
 }
 

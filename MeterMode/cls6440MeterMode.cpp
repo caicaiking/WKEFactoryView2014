@@ -62,7 +62,7 @@ cls6440MeterMode::cls6440MeterMode(WKEMeterMode *parent) :
 }
 
 
-bool cls6440MeterMode::detectDut()
+bool cls6440MeterMode::detectDut(int threshold)
 {
     blStop= true;
     bool isEmpty=false;

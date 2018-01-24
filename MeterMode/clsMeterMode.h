@@ -130,8 +130,7 @@ private:
     clsLog *passDataLog, *failDataLog,*allDataLog;
     void clearLogFile();
     void initLog();
-
-
+    void playSound(bool value);
 };
 
 #endif // CLSMETERMODE_H

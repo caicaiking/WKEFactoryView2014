@@ -12,7 +12,7 @@ public:
     explicit cls6440MeterMode(WKEMeterMode *parent = 0);
 
 
-    bool detectDut();                 //用于探测样品
+    bool detectDut(int threshold =0);                 //用于探测样品
     void stopDetect();                //停止探测样品
     void setCondition(QString value); //设置测试条件
     QString getConditon();            //获取测试设置

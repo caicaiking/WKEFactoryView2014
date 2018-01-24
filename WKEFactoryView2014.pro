@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network serialport xml sql
+QT       += core gui network serialport xml sql multimedia
 RC_FILE  =Icon.rc
 
 CODECFORTR = UTF-8

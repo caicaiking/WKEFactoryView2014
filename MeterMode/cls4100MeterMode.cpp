@@ -142,7 +142,7 @@ void cls4100MeterMode::updateButtons()
     btnTest2Item2Unit->setText(item4Suffix+UserfulFunctions::getSuffix(test2Item2));
 }
 
-bool cls4100MeterMode::detectDut()
+bool cls4100MeterMode::detectDut(int threshold)
 {
 
 

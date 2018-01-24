@@ -58,8 +58,19 @@ cls6500MeterMode::cls6500MeterMode(WKEMeterMode *parent) :
     updateButtons();
 }
 
-bool cls6500MeterMode::detectDut()
+bool cls6500MeterMode::detectDut(int threshold)
 {
+
+    double dblTresHoldValue ;
+
+    if(threshold == 0)
+        dblTresHoldValue = 1E3;
+    else if(threshold ==1)
+        dblTresHoldValue = 10E3;
+    else if(threshold ==2)
+        dblTresHoldValue = 100E3;
+    else
+        dblTresHoldValue = 2E6;
 
     isStop= true;
     bool isEmpty=false;
@@ -68,7 +79,26 @@ bool cls6500MeterMode::detectDut()
 
 
     int index = clsRS::getInst().sendCommand(":METER:FUNC:1?",true).toInt();
-
+    double tmpFreq = clsRS::getInst().sendCommand(":METER:FREQ?", true).toDouble();
+    int tmpSpeed = clsRS::getInst().sendCommand(":METER:SPEED?",true).toInt();
+    QString strSpeed;
+    switch (tmpSpeed) {
+    case -4 :
+        strSpeed = "MAX";
+        break;
+    case -3 :
+        strSpeed = "FAST";
+        break;
+    case -2 :
+        strSpeed = "MED";
+        break;
+    case -1 :
+        strSpeed = "SLOW";
+        break;
+    default:
+        strSpeed = QString::number(tmpSpeed);
+        break;
+    }
     switch (index) {
     case 0:
         item="L";
@@ -109,35 +139,54 @@ bool cls6500MeterMode::detectDut()
         break;
     }
 
-    if(item!="C")
-        clsRS::getInst().sendCommand(QString(":METER:FUNC:1 C"),false);
+    clsRS::getInst().sendCommand(QString(":METER:FUNC:1 Z"),false);
+    clsRS::getInst().sendCommand(QString(":METER:FREQ %1").arg(QString::number(10000)));
+    clsRS::getInst().sendCommand(QString(":METER:SPEED MAX"));
 
+
+    int count =0;
 
     while(isStop)
     {
+RETEST:
         QString retValue = clsRS::getInst().sendCommand(":METER:TRIG",true);
+        UserfulFunctions::sleepMs(100);
+
+        qDebug()<< retValue << " "<< count;
 
         double value = retValue.split(",").at(0).toDouble();
 
-        if(qAbs(value)>5E-12)
+        if(value<dblTresHoldValue) //500k
         {
             if(isEmpty)
             {
-                clsRS::getInst().sendCommand(QString(":METER:FUNC:1 %1").arg(item),false);
-                emit detectInProgress(tr("已经探测到产品"));
-                return true;
+                count ++;
+                if(count == 5)
+                {
+                    clsRS::getInst().sendCommand(QString(":METER:FUNC:1 %1").arg(item),false);
+                    clsRS::getInst().sendCommand(QString(":METER:FREQ %1").arg(QString::number(tmpFreq)));
+                    clsRS::getInst().sendCommand(QString(":METER:SPEED %1").arg(strSpeed));
+                    emit detectInProgress(tr("已经探测到产品"));
+                    return true;
+                }
+                else
+                {
+                    goto RETEST;
+                }
             }
             isEmpty=false;
         }
         else
         {
             isEmpty=true;
+            count =0;
         }
         UserfulFunctions::sleepMs(50);
         emit detectInProgress(tr("正在探测产品"));
     }
     clsRS::getInst().sendCommand(QString(":METER:FUNC:1 %1").arg(item),false);
-
+    clsRS::getInst().sendCommand(QString(":METER:FREQ %1").arg(QString::number(tmpFreq)));
+    clsRS::getInst().sendCommand(QString(":METER:SPEED %1").arg(strSpeed));
     emit detectInProgress("");
     return false;
 }
@@ -831,7 +880,7 @@ QString cls6500MeterMode::getLevel()
 
 void cls6500MeterMode::setItemValue(SweepType t, double value)
 {
-        switch (t) {
+    switch (t) {
     case Frequency:
         this->frequency = value;
         break;

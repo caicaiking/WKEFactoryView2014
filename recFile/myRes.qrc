@@ -84,5 +84,7 @@
         <file>Icons/4T.png</file>
         <file>Icons/standard.png</file>
         <file>Icons/generateSteps.png</file>
+        <file>Sounds/fail.wav</file>
+        <file>Sounds/pass.wav</file>
     </qresource>
 </RCC>
