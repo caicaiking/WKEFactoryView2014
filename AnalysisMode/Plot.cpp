@@ -13,6 +13,8 @@
 #include <qwt_plot_canvas.h>
 #include <QMapIterator>
 #include <qwt_plot_canvas.h>
+
+
 Plot::Plot(QWidget *parent) :
     QwtPlot(parent)
 {

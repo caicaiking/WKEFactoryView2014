@@ -175,7 +175,6 @@ void clsEaPs8000::initPower()
     nominalPower = toFloat ( &telegram[3] );
 
     // Take control over the PSU.
-    // TODO: do it when only needed.
 
     qDebug()<< ( "\nDevice specifications:\n" );
     qDebug()<< " Nominal voltage: "<< nominalVoltage;

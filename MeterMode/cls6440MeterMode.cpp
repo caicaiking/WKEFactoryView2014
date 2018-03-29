@@ -13,6 +13,7 @@
 #include "dlgWk6440Function2.h"
 #include "cls6440Calibration.h"
 #include <QJsonDocument>
+
 cls6440MeterMode::cls6440MeterMode(WKEMeterMode *parent) :
     WKEMeterMode(parent)
 {
@@ -64,13 +65,48 @@ cls6440MeterMode::cls6440MeterMode(WKEMeterMode *parent) :
 
 bool cls6440MeterMode::detectDut(int threshold)
 {
+    double dblTresHoldValue ;
+
+    if(threshold == 0)
+        dblTresHoldValue = 1E3;
+    else if(threshold ==1)
+        dblTresHoldValue = 10E3;
+    else if(threshold ==2)
+        dblTresHoldValue = 100E3;
+    else
+        dblTresHoldValue = 2E6;
+
+
     blStop= true;
     bool isEmpty=false;
 
     QString item;
+    QString strSpeed;
+    double tmpFreq;
+    int tmpSpeed = clsRS::getInst().sendCommand(":MEAS:SPEED?").toInt();
+
+    switch (tmpSpeed) {
+    case 0:
+        strSpeed = "MAX";
+        break;
+    case 1:
+        strSpeed = "FAST";
+        break;
+    case 2:
+        strSpeed = "MED";
+        break;
+    case 3:
+        strSpeed = "SLOW";
+        break;
+    default:
+        strSpeed = "MAX";
+        break;
+    }
 
     if(clsRS::getInst().gpibCommands.testMode=="AC")
     {
+        tmpFreq = clsRS::getInst().sendCommand(":MEAS:FREQ?",true).toDouble();
+
         int index = clsRS::getInst().sendCommand(":MEAS:FUNC:MAJOR?",true).toInt();
 
         switch (index) {
@@ -97,62 +133,108 @@ bool cls6440MeterMode::detectDut(int threshold)
             break;
         }
 
-        if(item!="C")
-            clsRS::getInst().sendCommand(QString(":MEAS:FUNC:C"),false);
-    }
+        if(item!="Z")
+            clsRS::getInst().sendCommand(QString(":MEAS:FUNC:Z"),false);
 
-    while(blStop)
+        clsRS::getInst().sendCommand(QString(":MEAS:FREQ %1").arg(QString::number(10000)));
+        clsRS::getInst().sendCommand(QString(":MEAS:SPEED MAX"));
+        int count =0;
+
+        while(blStop)
+        {
+RETEST:
+            QString retValue = clsRS::getInst().sendCommand(":MEAS:TRIG", true);
+            UserfulFunctions::sleepMs(100);
+
+            qDebug()<< retValue << " " << count;
+            double value = retValue.split(",").at(0).toDouble();
+            if(value < dblTresHoldValue)
+            {
+                if(isEmpty)
+                {
+                    count ++;
+
+                    if(count == 2)
+                    {
+                        clsRS::getInst().sendCommand(QString(":MEAS:FUNC:%1").arg(item));
+                        clsRS::getInst().sendCommand(QString(":MEAS:FREQ %1").arg(tmpFreq));
+                        clsRS::getInst().sendCommand(QString(":MEAS:SPEED %1").arg(tmpSpeed));
+                        emit detectInProgress(tr("已经探测到产品"));
+                        return true;
+                    }
+                    else
+                    {
+                        goto RETEST;
+                    }
+                }
+                isEmpty = false;
+            }
+            else
+            {
+                isEmpty = true;
+                count =0;
+            }
+
+            UserfulFunctions::sleepMs(50);
+            emit detectInProgress(tr("正在探测产品"));
+
+        }
+        //将原来的测试条件重新设置回去
+        clsRS::getInst().sendCommand(QString(":MEAS:FUNC:%1").arg(item));
+        clsRS::getInst().sendCommand(QString(":MEAS:FREQ %1").arg(tmpFreq));
+        clsRS::getInst().sendCommand(QString(":MEAS:SPEED %1").arg(tmpSpeed));
+        emit detectInProgress("");
+        return false;
+
+    }
+    else
     {
 
+        clsRS::getInst().sendCommand(QString(":MEAS:SPEED MAX"));
+        int count =0;
 
-        if(clsRS::getInst().gpibCommands.testMode=="RDC")
+        while(blStop)
         {
-            QString retValue = clsRS::getInst().sendCommand(":MEAS:TRIG",true);
+RETEST_RDC:
+            QString retValue = clsRS::getInst().sendCommand(":MEAS:TRIG", true);
+            UserfulFunctions::sleepMs(100);
 
-            double value = retValue.toDouble();
-
-            if(qAbs(value)<1E6)
-            {
-                if(isEmpty)
-                {
-                    emit detectInProgress(tr("已经探测到产品"));
-                    return true;
-                }
-                isEmpty=false;
-            }
-            else
-            {
-                isEmpty=true;
-            }
-        }
-        else
-        {
-            QString retValue = clsRS::getInst().sendCommand(":MEAS:TRIG",true);
-
+            qDebug()<< retValue << " " << count;
             double value = retValue.split(",").at(0).toDouble();
-
-            if(qAbs(value)>5E-12)
+            if(qAbs(value) < dblTresHoldValue)
             {
                 if(isEmpty)
                 {
-                    clsRS::getInst().sendCommand(QString(":MEAS:FUNC:%1").arg(item),false);
-                    emit detectInProgress(tr("已经探测到产品"));
-                    return true;
+                    count ++;
+
+                    if(count == 2)
+                    {
+                        clsRS::getInst().sendCommand(QString(":MEAS:SPEED %1").arg(tmpSpeed));
+                        emit detectInProgress(tr("已经探测到产品"));
+                        return true;
+                    }
+                    else
+                    {
+                        goto RETEST_RDC;
+                    }
                 }
-                isEmpty=false;
+                isEmpty = false;
             }
             else
             {
-                isEmpty=true;
+                isEmpty = true;
+                count =0;
             }
+
+            UserfulFunctions::sleepMs(50);
+            emit detectInProgress(tr("正在探测产品"));
+
         }
-        UserfulFunctions::sleepMs(50);
-
-        emit detectInProgress(tr("正在探测产品"));
+        //将原来的测试条件重新设置回去
+        clsRS::getInst().sendCommand(QString(":MEAS:SPEED %1").arg(tmpSpeed));
+        emit detectInProgress("");
+        return false;
     }
-    clsRS::getInst().sendCommand(QString(":MEAS:FUNC:%1").arg(item),false);
-
-    emit detectInProgress("");
     return false;
 }
 
@@ -304,7 +386,7 @@ void cls6440MeterMode::updateGPIB()
         if(alc == tr("关"))
             gpibCmd.append(meter + "ALC "+ "OFF");
         else
-             gpibCmd.append(meter + "ALC "+ "ON");
+            gpibCmd.append(meter + "ALC "+ "ON");
 
 
 
@@ -664,7 +746,7 @@ QString cls6440MeterMode::getLevel()
 
 void cls6440MeterMode::setItemValue(SweepType t, double value)
 {
-     switch (t) {
+    switch (t) {
     case Frequency:
         this->frequency = value;
         break;
@@ -884,7 +966,7 @@ void cls6440MeterMode::singleTrig()
             if(i< getCountTestItems()-1)
                 tmp+="|";
         }
-         emit signalTestResult(tmp);
+        emit signalTestResult(tmp);
     }
 
 

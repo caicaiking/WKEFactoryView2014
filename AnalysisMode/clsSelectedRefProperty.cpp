@@ -58,19 +58,18 @@ void clsSelectedRefProperty::on_btnOk_clicked()
 {
     qApp->processEvents();
 
-    if(this->getCurveProperty()!=origin  && refTraceType==1)
+    if(refTraceType==1)
     {
         emit refTraceChanged(getCurveProperty(),true);
     }
-    else if(this->getCurveProperty()!=origin  && refTraceType==2)
+    else if(refTraceType==2)
     {
         emit refTraceChanged(getCurveProperty(),false);
     }
-    else if(this->getCurveProperty()!=origin && refTraceType==3)
+    else if(refTraceType==3)
     {
         emit refTraceChanged(getCurveProperty(),x.toVector(),y1.toVector(),y2.toVector());
     }
-
     this->accept();
 }
 
@@ -112,6 +111,8 @@ void clsSelectedRefProperty::on_btnStatus_clicked(bool checked)
         btnStatus->setText("ON");
     else
         btnStatus->setText("OFF");
+
+    updateTexts();
 }
 
 void clsSelectedRefProperty::updateTexts()
@@ -137,10 +138,13 @@ void clsSelectedRefProperty::updateTexts()
 
     this->txtTitle->setText(this->title);
 
-    if(refTraceType==1)
+    if((refTraceType==1) && isOn)
         btnSaveCurrentCurve->setChecked(true);
     else
+    {
         btnSaveCurrentCurve->setChecked(false);
+        refTraceType =2;
+    }
 
     this->update();
 }
