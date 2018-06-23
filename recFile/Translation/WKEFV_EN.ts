@@ -224,8 +224,8 @@
         <translation type="obsolete">Frequency[Hz]</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/Plot.cpp" line="66"/>
-        <location filename="../../AnalysisMode/Plot.cpp" line="116"/>
+        <location filename="../../AnalysisMode/Plot.cpp" line="68"/>
+        <location filename="../../AnalysisMode/Plot.cpp" line="118"/>
         <source>频率</source>
         <translation>Frequency</translation>
     </message>
@@ -2045,17 +2045,17 @@
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="176"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="923"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="41"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="50"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="299"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="491"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="873"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="958"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1060"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1207"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1210"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1409"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1412"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="42"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="51"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="381"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="573"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="955"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1040"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1142"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1289"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1292"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1491"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1494"/>
         <source>串联</source>
         <translation>Series</translation>
     </message>
@@ -2066,10 +2066,10 @@
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="218"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="642"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="38"/>
         <location filename="../../MeterMode/cls6440MeterMode.cpp" line="39"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="320"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="441"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="40"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="402"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="523"/>
         <source>自动</source>
         <translation>Auto</translation>
     </message>
@@ -2077,11 +2077,11 @@
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="243"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="667"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="1024"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="40"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="51"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="325"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="430"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="496"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="41"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="52"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="407"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="512"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="578"/>
         <source>最快</source>
         <translation>Max</translation>
     </message>
@@ -2092,21 +2092,21 @@
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="313"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="36"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="347"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1241"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1244"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="37"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="429"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1323"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1326"/>
         <source>内置</source>
         <translation>Internal</translation>
     </message>
     <message>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="271"/>
         <location filename="../../MeterMode/cls6440MeterMode.ui" line="338"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="42"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="304"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1031"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1565"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1568"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="43"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="386"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1113"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1647"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1650"/>
         <source>关</source>
         <translation>OFF</translation>
     </message>
@@ -2288,141 +2288,142 @@
         <translation>Description:</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="29"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="30"/>
         <source>空白</source>
         <translation>Empty</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="118"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="139"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="162"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="213"/>
         <source>已经探测到产品</source>
         <translation>Production detected</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="151"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="179"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="230"/>
         <source>正在探测产品</source>
         <translation>Detect production in progress</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="327"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="432"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="498"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="409"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="514"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="580"/>
         <source>快速</source>
         <translation>Fast</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="329"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="434"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="500"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="411"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="516"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="582"/>
         <source>中速</source>
         <translation>Med</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="331"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="436"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="502"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="413"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="518"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="584"/>
         <source>慢速</source>
         <translation>Slow</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="918"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1000"/>
         <source>PASS</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="918"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1000"/>
         <source>FAIL</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="972"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1054"/>
         <source>设置主参数上下限</source>
         <translation>Set Major Limit</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="985"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1067"/>
         <source>设置副参数上下限</source>
         <translation>Set Minor Limit</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="999"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1081"/>
         <source>设置Rdc上下限</source>
         <translation>Set Rdc Limit</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1031"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1566"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1113"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1648"/>
         <source>开</source>
         <translation>ON</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1134"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1216"/>
         <source>输入测试频率</source>
         <translation>Set test frequency</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1170"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1252"/>
         <source>输入测试电平</source>
         <translation>Set test level</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1208"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1410"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1290"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1492"/>
         <source>并联</source>
         <translation>Parallel</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1218"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1307"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1300"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1389"/>
         <source>设置档位</source>
         <translation>Set range</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1230"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1319"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1312"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1401"/>
         <source>设置速度</source>
         <translation>Set speed</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1242"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1324"/>
         <source>外置</source>
         <translation>External</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1259"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1341"/>
         <source>设置测试项目1</source>
         <translation>Set Item1</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1294"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1376"/>
         <source>设置测试项目2</source>
         <translation>Set Item2</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1354"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1436"/>
         <source>输入开始频率</source>
         <translation>Input start frequency</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1382"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1464"/>
         <source>输入终止频率</source>
         <translation>Input stop frequency</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1419"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1501"/>
         <source>设定扫描深度(0-12)</source>
         <translation>Set sweep depth(0-12)</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1434"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1516"/>
         <source>扫描速度</source>
         <translation>Search depth</translation>
     </message>
     <message>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1491"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1504"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1517"/>
-        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1530"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1573"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1586"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1599"/>
+        <location filename="../../MeterMode/cls6440MeterMode.cpp" line="1612"/>
         <source>设置上下限</source>
         <translation>Set  Limit</translation>
     </message>
@@ -5276,12 +5277,12 @@ Data File</translation>
         <translation>OK</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.cpp" line="126"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.cpp" line="127"/>
         <source>默认</source>
         <translation>Default</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/clsSelectedRefProperty.cpp" line="156"/>
+        <location filename="../../AnalysisMode/clsSelectedRefProperty.cpp" line="160"/>
         <source>打开数据文件</source>
         <translation>Open data file</translation>
     </message>
@@ -7538,8 +7539,8 @@ Trim</translation>
     <message>
         <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="153"/>
         <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="319"/>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="169"/>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="215"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="214"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="260"/>
         <source>高频校准</source>
         <translation>High Frequency Trim</translation>
     </message>
@@ -7557,7 +7558,50 @@ Trim</translation>
         <translation>Boost Mode</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="421"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="372"/>
+        <source>设置校准时间</source>
+        <translation>Set Cal. Delay</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="384"/>
+        <source>Norm 模式</source>
+        <translation>Norm Mode</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="396"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="517"/>
+        <source>开路延时(s)：</source>
+        <translation>Open Delay:</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="425"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="546"/>
+        <source>短路延时(s)：</source>
+        <translation>Short Delay:</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="454"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="575"/>
+        <source>高频延时(s)：</source>
+        <translation>HF Delay:</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="489"/>
+        <source>Norm模式保存</source>
+        <translation>Save Norm mode</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="505"/>
+        <source>Boost 模式</source>
+        <translation>Boost Mode</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="610"/>
+        <source>Boost模式保存</source>
+        <translation>Save Boost mode</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.ui" line="670"/>
         <source>完成</source>
         <translation>Done</translation>
     </message>
@@ -7606,62 +7650,67 @@ Trim</translation>
         <translation type="obsolete">High frequency</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="89"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="134"/>
         <source>%1校准成功，校准时间：%2 %3</source>
         <translation>%1calibration ok, calibrate time:%2 %3</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="96"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="141"/>
         <source>%1校准失败</source>
         <translation>%1 calibration failed</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="104"/>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="180"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="149"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="225"/>
         <source>请保持夹具开路状态</source>
         <translation>Please keep fixture open</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="104"/>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="180"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="149"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="225"/>
         <source>开路校准</source>
         <translation>Open circuit trim</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="114"/>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="190"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="159"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="235"/>
         <source>开路</source>
         <translation>Open circuit</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="153"/>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="197"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="198"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="242"/>
         <source>请保持夹具短路状态</source>
         <translation>Please keep fixture short</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="153"/>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="197"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="198"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="242"/>
         <source>短路校准</source>
         <translation>Short circuit trim</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="162"/>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="208"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="207"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="253"/>
         <source>短路</source>
         <translation>Short circuit</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="169"/>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="215"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="214"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="260"/>
         <source>请连接高频校准器件</source>
         <translation>Connect 150pF to fixture</translation>
     </message>
     <message>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="174"/>
-        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="220"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="219"/>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="265"/>
         <source>高频</source>
         <translation>High frequency</translation>
+    </message>
+    <message>
+        <location filename="../../AnalysisMode/frmWK3260Calibration.cpp" line="286"/>
+        <source>校准延时设置</source>
+        <translation>Set Cal. Delay</translation>
     </message>
 </context>
 <context>

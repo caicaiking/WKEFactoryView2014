@@ -7,10 +7,15 @@ frmWK3260Calibration::frmWK3260Calibration(QWidget *parent) :
     QDialog(parent)
 {
     setupUi(this);
-     setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
+    setWindowFlags(windowFlags()&~Qt::WindowContextHelpButtonHint);
     readSettings();
     //this->tabWidget->setStyleSheet("background-color: rgb(148, 148, 248);");
     myProgressBar->setVisible(false);
+
+    tabSettingTime.reset(tabWidget->widget(2));
+    tabWidget->removeTab(2);
+
+
 }
 
 void frmWK3260Calibration::PopUpmessage(QString strMessage,QString strTitle)
@@ -43,6 +48,38 @@ void frmWK3260Calibration::readSettings()
     settings.readSetting(strNode+"HfBoostLabel",strTemp);
     lblHFBoost->setText(strTemp);
 
+    settings.readSetting(strNode+"normOpenTime", this->normOpenTime);
+    if(this->normOpenTime<10)
+        this->normOpenTime = 31;
+
+    settings.readSetting(strNode+"normShortTime", this->normShortTime);
+    if(this->normShortTime < 10)
+        this->normShortTime = 14;
+
+    settings.readSetting(strNode+"normHFTime", this->normHFTime);
+    if(this->normHFTime<10)
+        this->normHFTime =37;
+
+    settings.readSetting(strNode+"boostOpenTime", this->boostOpenTime);
+    if(this->boostOpenTime<10)
+        this->boostOpenTime =71;
+
+    settings.readSetting(strNode+"boostShortTime", this->boostShortTime);
+    if(this->boostShortTime<10)
+        this->boostShortTime =38;
+
+    settings.readSetting(strNode+"boostHFTime", this->boostHFTime);
+    if(this->boostHFTime<10)
+        this->boostHFTime =66;
+
+    this->txtNormOpen->setValue(this->normOpenTime);
+    this->txtNormShort->setValue(this->normShortTime);
+    this->txtNormHF->setValue(this->normHFTime);
+    this->txtBoostOpen->setValue(this->boostOpenTime);
+    this->txtBoostShort->setValue(this->boostShortTime);
+    this->txtBoostHF->setValue(this->boostHFTime);
+
+
 
 }
 void frmWK3260Calibration::writeSettings()
@@ -58,6 +95,14 @@ void frmWK3260Calibration::writeSettings()
     settings.writeSetting(strNode+"OpenBoostLabel",lblOpenBoost->text());
     settings.writeSetting(strNode+"ShortBoostLabel",lblShortBoost->text());
     settings.writeSetting(strNode+"HfBoostLabel",lblHFBoost->text());
+
+    settings.writeSetting(strNode+"normOpenTime", this->normOpenTime);
+    settings.writeSetting(strNode+"normShortTime", this->normShortTime);
+    settings.writeSetting(strNode+"normHFTime", this->normHFTime);
+
+    settings.writeSetting(strNode+"boostOpenTime", this->boostOpenTime);
+    settings.writeSetting(strNode+"boostShortTime", this->boostShortTime);
+    settings.writeSetting(strNode+"boostHFTime", this->boostHFTime);
 }
 
 void frmWK3260Calibration::on_btnOk_clicked()
@@ -109,7 +154,7 @@ void frmWK3260Calibration::on_btnOpenNorm_clicked()
     else
         clsRS::getInst().sendCommand(":CAL:OC-TRIM 2");
 
-    this->showProgress(31);
+    this->showProgress(this->normOpenTime);
 
     lblOpenNorm->setText(showInformation(tr("开路"),getCalRes()));
 
@@ -157,7 +202,7 @@ void frmWK3260Calibration::on_btnShortNorm_clicked()
         clsRS::getInst().sendCommand(":CAL:SC-TRIM-P 4");
     else
         clsRS::getInst().sendCommand(":CAL:SC-TRIM 2");
-    this->showProgress(14);
+    this->showProgress(this->normShortTime);
 
     lblShortNorm->setText(showInformation(tr("短路"),getCalRes()));
 
@@ -170,7 +215,7 @@ void frmWK3260Calibration::on_btnHFNorm_clicked()
     setCalNorm();
     UserfulFunctions::sleepMs(2000);
     clsRS::getInst().sendCommand(":CAL:HF-CAL");
-    this->showProgress(37);
+    this->showProgress(this->normHFTime);
     lblHFNorm->setText(showInformation(tr("高频"),getCalRes()));
     switchToImpMode();
 }
@@ -185,7 +230,7 @@ void frmWK3260Calibration::on_btnOpenBoost_clicked()
         clsRS::getInst().sendCommand(":CAL:OC-TRIM-P 4");
     else
         clsRS::getInst().sendCommand(":CAL:OC-TRIM 2");
-    this->showProgress(71);
+    this->showProgress(this->boostOpenTime);
 
     lblOpenBoost->setText(showInformation(tr("开路"),getCalRes()));
 
@@ -203,7 +248,7 @@ void frmWK3260Calibration::on_btnShortBoost_clicked()
     else
         clsRS::getInst().sendCommand(":CAL:SC-TRIM 2");
 
-    this->showProgress(38);
+    this->showProgress(this->boostShortTime);
 
     lblShortBoost->setText(showInformation(tr("短路"),getCalRes()));
 
@@ -216,7 +261,7 @@ void frmWK3260Calibration::on_btnHFBoost_clicked()
     setCalBoost();
     UserfulFunctions::sleepMs(2000);
     clsRS::getInst().sendCommand(":CAL:HF-CAL");
-    this->showProgress(41);
+    this->showProgress(this->boostHFTime);
     lblHFBoost->setText(showInformation(tr("高频"),getCalRes()));
     switchToImpMode();
 }
@@ -230,4 +275,38 @@ QString frmWK3260Calibration::getGpibMeter()
     {
         return ":MEAS";
     }
+}
+
+void frmWK3260Calibration::keyPressEvent(QKeyEvent *e)
+{
+    if(e->modifiers() == Qt::ControlModifier && e->key()==Qt::Key_9)
+    {
+        if(tabWidget->count()==2)
+        {
+            tabWidget->insertTab(2,tabSettingTime.data(),tr("校准延时设置"));
+        }
+        else
+        {
+            tabWidget->removeTab(2);
+        }
+    }
+}
+
+void frmWK3260Calibration::on_btnSaveNormTime_clicked()
+{
+    this->normOpenTime = txtNormOpen->value();
+    this->normShortTime = txtNormShort->value();
+    this->normHFTime = txtNormHF->value();
+
+    writeSettings();
+}
+
+void frmWK3260Calibration::on_btnSaveBoostTime_clicked()
+{
+    this->boostOpenTime = txtBoostOpen->value();
+    this->boostShortTime = txtBoostShort->value();
+    this->boostHFTime = txtBoostHF->value();
+
+    writeSettings();
+
 }

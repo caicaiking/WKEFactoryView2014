@@ -20,6 +20,8 @@ public:
     QString getGpibMeter();
 
     explicit frmWK3260Calibration(QWidget *parent = 0);
+protected:
+    void keyPressEvent(QKeyEvent *e);
 private slots:
     void on_btnOk_clicked();
     void on_btnOpenNorm_clicked();
@@ -28,6 +30,15 @@ private slots:
     void on_btnOpenBoost_clicked();
     void on_btnShortBoost_clicked();
     void on_btnHFBoost_clicked();
+    void on_btnSaveNormTime_clicked();
+    void on_btnSaveBoostTime_clicked();
+
+private:
+    int normOpenTime, normShortTime, normHFTime;
+    int boostOpenTime, boostShortTime, boostHFTime;
+
+
+    QSharedPointer<QWidget> tabSettingTime;
 };
 
 #endif // FRMWK3260CALIBRATION_H
