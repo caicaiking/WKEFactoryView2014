@@ -262,7 +262,31 @@ void frmWK3260Calibration::on_btnHFBoost_clicked()
     UserfulFunctions::sleepMs(2000);
     clsRS::getInst().sendCommand(":CAL:HF-CAL");
     this->showProgress(this->boostHFTime);
-    lblHFBoost->setText(showInformation(tr("高频"),getCalRes()));
+
+    QString strReturn;
+
+    bool ok = false;
+    int count =0;
+    int res;
+
+    const int MaxQueryTime = 5;
+
+    while(!ok)
+    {
+        strReturn = clsRS::getInst().sendCommand(":CAL:RES?",true);
+        res = strReturn.toInt(&ok);
+        count ++;
+
+        if(count >= MaxQueryTime)
+            break;
+        UserfulFunctions::sleepMs(1000);
+    }
+
+    if(count< MaxQueryTime)
+        lblHFBoost->setText(showInformation(tr("高频"),res));
+    else
+        lblHFBoost->setText(showInformation(tr("高频"),1));
+
     switchToImpMode();
 }
 QString frmWK3260Calibration::getGpibMeter()

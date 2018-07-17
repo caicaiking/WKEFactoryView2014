@@ -351,3 +351,19 @@ void frmSelectConnection::on_btnSwitch_clicked()
 //    this->mode = AppMode;
 //    this->accept();
 //}
+void frmSelectConnection::keyPressEvent(QKeyEvent *e)
+{
+    if(e->modifiers() == Qt::ControlModifier && e->key()==Qt::Key_9)
+    {
+        QStringList models;
+        for(int i=0; i<this->cmbModel->count();i++)
+        {
+            models.append(cmbModel->itemText(i));
+        }
+
+        if(!models.contains("3260"))
+        {
+            cmbModel->addItem("3260");
+        }
+    }
+}

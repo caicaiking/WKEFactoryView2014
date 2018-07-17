@@ -51,6 +51,11 @@ void clsLan::setAddress(QString address)
         this->strIp=(QString)list.at(0);
         this->intPort=WK6500PORT;
     }
+    else if(QString(list.at(1)).contains("3260"))
+    {
+        this->strIp=(QString)list.at(0);
+        this->intPort=WK3260PORT;
+    }
     else
     {
         this->strIp=(QString)list.at(0);
@@ -117,7 +122,7 @@ QString clsLan::sendCommand(QString strCommand, bool hasReturn, int waitDaly)
     {
         //qDebug()<<waitDaly;
         if(waitDaly==0)
-            socket->waitForReadyRead(10000);
+            socket->waitForReadyRead(1000000);
         else
             socket->waitForReadyRead(waitDaly*3000);
 

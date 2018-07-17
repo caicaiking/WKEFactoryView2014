@@ -5,6 +5,7 @@
 #include "connections/clsConnection.h"
 #define WK4300PORT 9760
 #define WK6500PORT 2000
+#define WK3260PORT 3260
 class clsLan : public clsConnection
 {
 public:

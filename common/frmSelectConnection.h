@@ -50,6 +50,8 @@ private slots:
 
 protected:
     void closeEvent(QCloseEvent *);
+
+    void keyPressEvent(QKeyEvent *e);
 private:
     int intSelect;
     QString strAddress;

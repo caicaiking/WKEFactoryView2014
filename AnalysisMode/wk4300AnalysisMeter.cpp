@@ -567,9 +567,9 @@ bool wk4300AnalysisMeter::queryBiasStatus()
     }
     else
     {
-        QMessageBox::warning(this,tr("WKE FactoryView 2014"),
-                             tr("不能正确的查询Bias的状态，请检查连接。"),
-                             QMessageBox::Ok);
+//        QMessageBox::warning(this,tr("WKE FactoryView 2014"),
+//                             tr("不能正确的查询Bias的状态，请检查连接。"),
+//                             QMessageBox::Ok);
         biasONOFF=false;
         emit biasStatusSignal(biasONOFF);
         saveSettings();

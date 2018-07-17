@@ -60,9 +60,9 @@ void clsFreqMeasument::trig()
         {
             QString strRes=meter->trig();
             QList<double> res=UserfulFunctions::resultPro(strRes);
-            freq<<tmpFreq;
-            item1<<res.at(0);
-            item2<<res.at(1);
+            freq.append(tmpFreq);
+            item1.append(res.at(0));
+            item2.append(res.at(1));
             updatePlot();
         }
         qApp->processEvents();
