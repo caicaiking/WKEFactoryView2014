@@ -2,12 +2,13 @@ FactoryView
 
 
 
-1 ¿ª·¢»·¾³£º
+1 å¼€å‘ç¯å¢ƒï¼š
 
 QT V4.8.5 Minigw Qwt6.0.0 
 
-2 Qwt±àÒë
-ÒòÎªQWTµÄÏÔÊ¾²¿·Ö²»ÊÇÌØ±ğÃÀ¹ÛÓÈÆäÊÇÊı×Ö100000 ²»ÄÜÏÔÊ¾³É100kµÈ£¬ËùÒÔÔÚ±àÒëQwtµÄÊ±ºò¶Ô
-Ô´´úÂë½øĞĞÁËĞŞ¸Ä£¬¼ÓÈëÁËdoubleTypeÕâ¸öÀàÖ÷ÒªÊÇÎªÁËÃÀ»¯ÏÔÊ¾µÄÊı¾İ¡£
+2 Qwtç¼–è¯‘
+å› ä¸ºQWTçš„æ˜¾ç¤ºéƒ¨åˆ†ä¸æ˜¯ç‰¹åˆ«ç¾è§‚å°¤å…¶æ˜¯æ•°å­—100000 ä¸èƒ½æ˜¾ç¤ºæˆ100kç­‰ï¼Œæ‰€ä»¥åœ¨ç¼–è¯‘Qwtçš„æ—¶å€™å¯¹
+æºä»£ç è¿›è¡Œäº†ä¿®æ”¹ï¼ŒåŠ å…¥äº†doubleTypeè¿™ä¸ªç±»ä¸»è¦æ˜¯ä¸ºäº†ç¾åŒ–æ˜¾ç¤ºçš„æ•°æ®ã€‚
 
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/17e88fdacd7b43939f4007de1e03828b)](https://www.codacy.com/app/caicaiking/WKEFactoryView2014?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=caicaiking/WKEFactoryView2014&amp;utm_campaign=Badge_Grade)
